@@ -43,6 +43,19 @@ img {
     padding: 125px 7% 24px;
 }
 
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 128px;
+    background:
+        linear-gradient(180deg, #050b14 0%, rgba(5, 11, 20, 0.92) 52%, rgba(5, 11, 20, 0) 100%);
+    z-index: 4;
+    pointer-events: none;
+}
+
 .tech-background {
     position: absolute;
     inset: 0;
@@ -80,17 +93,18 @@ img {
 
 .premium-navbar {
     position: absolute;
-    top: 28px;
-    left: 5%;
+    top: 32px;
+    left: 6.5%;
     right: 5%;
     z-index: 9999;
 
     height: 64px;
     padding: 0;
 
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) auto minmax(220px, 1fr);
     align-items: center;
-    justify-content: space-between;
+    column-gap: 24px;
 
     background: transparent;
     border: 1px solid transparent;
@@ -105,7 +119,9 @@ img {
         border-radius 0.3s ease,
         background 0.3s ease,
         border-color 0.3s ease,
-        box-shadow 0.3s ease;
+        box-shadow 0.3s ease,
+        opacity 0.25s ease,
+        transform 0.25s ease;
 }
 
 .premium-navbar.scrolled {
@@ -116,6 +132,7 @@ img {
 
     height: 78px;
     padding: 0 26px;
+    grid-template-columns: minmax(180px, 1fr) auto minmax(180px, 1fr);
     border-radius: 28px;
 
     background: linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(8, 17, 31, 0.9));
@@ -127,23 +144,41 @@ img {
         0 24px 70px rgba(0, 0, 0, 0.45);
 }
 
+.premium-navbar.scrolled.nav-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-120%);
+}
+
 .nav-brand {
-    width: 150px;
+    width: 176px;
     display: flex;
     align-items: center;
     flex-shrink: 0;
 }
 
 .nav-logo {
-    width: 145px;
+    width: 164px;
     height: auto;
     display: block;
     object-fit: contain;
     transition: 0.3s ease;
 }
 
+.premium-navbar:not(.scrolled) .nav-brand {
+    width: 268px;
+}
+
+.premium-navbar:not(.scrolled) .nav-logo {
+    width: 252px;
+}
+
+.premium-navbar.scrolled .nav-brand {
+    width: 184px;
+}
+
 .premium-navbar.scrolled .nav-logo {
-    width: 155px;
+    width: 172px;
 }
 
 .nav-divider {
@@ -167,6 +202,10 @@ img {
     gap: 26px;
     list-style: none;
     flex: 1;
+}
+
+.premium-btn {
+    justify-self: end;
 }
 
 .nav-links a {
@@ -228,10 +267,10 @@ img {
     justify-content: center;
     gap: 14px;
 
-    background: #0ea5e9;
+    background: rgba(56, 189, 248, 0.06);
     color: #f8fafc;
 
-    border: 1px solid #0ea5e9;
+    border: 1px solid rgba(56, 189, 248, 0.7);
     border-radius: 8px;
     
     font-weight: 900;
@@ -241,8 +280,8 @@ img {
     backdrop-filter: blur(10px);
 
     box-shadow:
-        inset 0 0 18px rgba(56, 189, 248, 0.08),
-        0 0 22px rgba(56, 189, 248, 0.18);
+        inset 0 0 18px rgba(56, 189, 248, 0.05),
+        0 12px 28px rgba(0, 0, 0, 0.18);
 
     transition: 0.3s ease;
 }
@@ -263,11 +302,12 @@ img {
 }
 
 .premium-btn:hover {
-    background: rgba(56, 189, 248, 0.18);
+    background: #0891c7;
+    border-color: #38bdf8;
     transform: translateY(-2px);
     box-shadow:
-        inset 0 0 20px rgba(56, 189, 248, 0.12),
-        0 0 34px rgba(56, 189, 248, 0.35);
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 16px 34px rgba(8, 145, 199, 0.24);
 }
 
 /*-----------------------------------------------------------Configuracion responsive seccion especifica ---------------*/
@@ -369,7 +409,7 @@ img {
 }
 
 .hero-content {
-    max-width: 540px;
+    max-width: 640px;
     z-index: 6;
     position: relative;
 }
@@ -399,10 +439,12 @@ img {
     margin-bottom: 32px;
 }
 
-.hero-actions {
+.hero-trust-list {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 8px;
+    flex-wrap: nowrap;
+    max-width: 640px;
 }
 
 .btn-primary,
@@ -436,8 +478,10 @@ img {
 
 .hero-portrait {
     position: absolute;
-    inset: 0 0 0 auto;
-    width: 72%;
+    top: -125px;
+    right: -7vw;
+    bottom: -24px;
+    width: 100vw;
     min-height: auto;
     display: flex;
     align-items: flex-end;
@@ -452,9 +496,9 @@ img {
     position: absolute;
     inset: 0;
     background: 
-                linear-gradient(90deg, #050b14 0%, rgba(5, 11, 20, 0.98) 16%, rgba(5, 11, 20, 0.76) 34%, rgba(5, 11, 20, 0.18) 58%, rgba(5, 11, 20, 0) 100%),
-                linear-gradient(180deg, #050b14 0%, rgba(5, 11, 20, 0.16) 22%, rgba(5, 11, 20, 0) 46%),
-                linear-gradient(0deg, #050b14 0%, rgba(5, 11, 20, 0.82) 18%, rgba(5, 11, 20, 0) 46%);
+                linear-gradient(90deg, #050b14 0%, #050b14 30%, rgba(5, 11, 20, 0.9) 43%, rgba(5, 11, 20, 0.38) 58%, rgba(5, 11, 20, 0.04) 100%),
+                linear-gradient(180deg, #050b14 0%, rgba(5, 11, 20, 0.12) 24%, rgba(5, 11, 20, 0) 46%),
+                linear-gradient(0deg, #050b14 0%, rgba(5, 11, 20, 0.58) 14%, rgba(5, 11, 20, 0) 36%);
     z-index: 3;
     pointer-events: none;
 }
@@ -462,69 +506,59 @@ img {
 .hero-portrait img {
     position: relative;
     z-index: 1;
-    width: 100%;
+    width: 76%;
     height: 100vh;
     object-fit: cover;
-    object-position: 62% center;
+    object-position: 64% center;
     border-radius: 0;
     filter: brightness(0.82) contrast(1.08) saturate(1.08);
 
     -webkit-mask-image: linear-gradient(90deg,
             transparent 0%,
-            transparent 10%,
-            rgba(0, 0, 0, 0.18) 22%,
-            rgba(0, 0, 0, 0.72) 38%,
-            black 58%,
+            transparent 14%,
+            rgba(0, 0, 0, 0.08) 28%,
+            rgba(0, 0, 0, 0.72) 48%,
+            black 66%,
             black 100%);
     mask-image: linear-gradient(90deg,
             transparent 0%,
-            transparent 10%,
-            rgba(0, 0, 0, 0.18) 22%,
-            rgba(0, 0, 0, 0.72) 38%,
-            black 58%,
+            transparent 14%,
+            rgba(0, 0, 0, 0.08) 28%,
+            rgba(0, 0, 0, 0.72) 48%,
+            black 66%,
             black 100%);
 }
 .hero-trust-card {
-    position: absolute;
+    position: relative;
     z-index: 4;
-    right: 7%;
-    width: 230px;
-    min-height: 56px;
+    min-height: 44px;
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding: 10px 14px;
-    border-radius: 8px;
-    background: rgba(8, 17, 31, 0.62);
-    border: 1px solid rgba(56, 189, 248, 0.22);
-    backdrop-filter: blur(16px);
-    color: #e2e8f0;
-    font-size: 15px;
-    font-weight: 500;
-    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
-    pointer-events: auto;
+    gap: 8px;
+    padding: 9px 11px;
+    border-radius: 999px;
+    background: rgba(8, 17, 31, 0.48);
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    backdrop-filter: blur(14px);
+    color: #dbeafe;
+    font-size: 12px;
+    font-weight: 800;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 14px 34px rgba(0, 0, 0, 0.18);
 }
 
 .hero-trust-card i {
-    width: 34px;
-    height: 34px;
-    padding: 7px;
+    width: 24px;
+    height: 24px;
+    padding: 5px;
     color: #38bdf8;
-    border: 1px solid #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.6);
     border-radius: 50%;
+    background: rgba(56, 189, 248, 0.08);
+    flex-shrink: 0;
 }
 
-.card-one {
-    top: 43%;
-}
-
-.card-two {
-    top: calc(43% + 68px);
-}
-
-.card-three {
-    top: calc(43% + 136px);
-}
 /* TABLET */
 
 @media (max-width: 1024px) {
@@ -552,9 +586,6 @@ img {
         height: 460px;
     }
 
-    .hero-trust-card {
-        right: 5%;
-    }
 }
 
 /* CELULAR */
@@ -577,12 +608,6 @@ img {
 
     .hero-text {
         font-size: 16px;
-    }
-
-    .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 14px;
     }
 
     .hero-portrait {

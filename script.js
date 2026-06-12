@@ -2,12 +2,21 @@
 // Agrega una clase cuando el usuario baja con scroll
 
 const navbar = document.getElementById("navbar");
+let navbarHideTimer;
 
 window.addEventListener("scroll", () => {
     if (window.scrollY > 60) {
         navbar.classList.add("scrolled");
+        navbar.classList.remove("nav-hidden");
+
+        clearTimeout(navbarHideTimer);
+        navbarHideTimer = setTimeout(() => {
+            navbar.classList.add("nav-hidden");
+        }, 1500);
     } else {
         navbar.classList.remove("scrolled");
+        navbar.classList.remove("nav-hidden");
+        clearTimeout(navbarHideTimer);
     }
 });
 
