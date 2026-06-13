@@ -1521,7 +1521,21 @@ img {
 }
 
 .action-title h2 {
-    font-size: clamp(42px, 6vw, 76px);
+    width: fit-content;
+    margin: 0 auto;
+    padding: 14px 34px 16px;
+    position: relative;
+    font-size: clamp(36px, 4.6vw, 58px);
+    line-height: 1.05;
+    border: 2px solid rgba(56, 189, 248, 0.72);
+    border-radius: 22px;
+    background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.76), rgba(8, 17, 31, 0.9)),
+        radial-gradient(circle at top right, rgba(56, 189, 248, 0.16), transparent 46%);
+    box-shadow:
+        0 0 0 1px rgba(56, 189, 248, 0.08) inset,
+        0 20px 58px rgba(0, 0, 0, 0.34),
+        0 0 34px rgba(56, 189, 248, 0.18);
 }
 
 .action-title h2 span {
@@ -1795,33 +1809,240 @@ img {
 /* ========================================================= */
 
 .tech {
-    background: #050b14;
+    background:
+        radial-gradient(circle at 50% 18%, rgba(56, 189, 248, 0.10), transparent 32%),
+        radial-gradient(circle at bottom left, rgba(14, 165, 233, 0.08), transparent 30%),
+        #050b14;
 }
 
-.tools-ribbon {
-    max-width: 850px;
+.tools-section {
+    text-align: center;
+}
+
+.tools-heading {
+    max-width: 680px;
+    margin: 0 auto 34px;
+}
+
+.tools-heading p {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 13px;
+    color: #22d3ee;
+}
+
+.tools-heading h2 {
+    margin-bottom: 10px;
+    color: #f8fafc;
+    text-shadow: 0 18px 50px rgba(0, 0, 0, 0.4);
+}
+
+.tools-heading h2 span {
+    color: #38bdf8;
+    text-shadow: 0 0 28px rgba(56, 189, 248, 0.45);
+}
+
+.tools-heading > span {
+    display: block;
+    max-width: 560px;
     margin: 0 auto;
-    background: rgba(15, 23, 42, 0.88);
-    border: 1px solid rgba(56, 189, 248, 0.2);
-    border-radius: 999px;
-    padding: 22px 30px;
+    color: #94a3b8;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.tools-heading > span::first-letter {
+    text-transform: uppercase;
+}
+
+.tools-heading-mark {
+    width: 92px;
+    height: 1px;
+    margin: 18px auto 0;
+    position: relative;
+    background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.8), transparent);
+}
+
+.tools-heading-mark::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 7px;
+    height: 7px;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border: 1px solid rgba(56, 189, 248, 0.9);
+    background: #050b14;
+    box-shadow: 0 0 18px rgba(56, 189, 248, 0.7);
+}
+
+.tools-bottom-mark {
+    width: min(560px, 72vw);
+    height: 1px;
+    margin: 30px auto 0;
+    position: relative;
+    background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.75), transparent);
+    filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.35));
+}
+
+.tools-bottom-mark::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border: 1px solid rgba(56, 189, 248, 0.95);
+    background: #050b14;
+    box-shadow:
+        0 0 0 3px rgba(56, 189, 248, 0.06),
+        0 0 24px rgba(56, 189, 248, 0.7);
+}
+
+.tools-panel {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 28px 34px 26px;
+    border: 1px solid rgba(56, 189, 248, 0.46);
+    border-radius: 24px;
+    background:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.78), rgba(8, 17, 31, 0.9)),
+        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12), transparent 45%);
+    box-shadow:
+        0 0 0 1px rgba(56, 189, 248, 0.08) inset,
+        0 22px 70px rgba(0, 0, 0, 0.45),
+        0 0 34px rgba(14, 165, 233, 0.28);
+}
+
+.tools-grid {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 28px;
     flex-wrap: wrap;
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+    justify-content: center;
+    align-items: stretch;
+    gap: 15px 14px;
 }
 
-.tools-ribbon img {
-    width: 42px;
-    height: 42px;
+.tool-card {
+    width: 78px;
+    min-height: 82px;
+    padding: 8px 6px 6px;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    gap: 8px;
+    border-radius: 8px;
+    color: #e2e8f0;
+    transition:
+        transform 0.28s ease,
+        background 0.28s ease,
+        box-shadow 0.28s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-6px);
+    background: rgba(56, 189, 248, 0.06);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.24);
+}
+
+.tool-icon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    background: rgba(2, 6, 23, 0.58);
+    border: 1px solid rgba(148, 163, 184, 0.08);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.26);
+}
+
+.tool-icon img {
+    width: 30px;
+    height: 30px;
     object-fit: contain;
-    transition: 0.3s ease;
 }
 
-.tools-ribbon img:hover {
-    transform: translateY(-6px) scale(1.08);
+.tool-icon-monochrome img {
+    filter: invert(1);
+}
+
+.tool-icon-line {
+    color: #38bdf8;
+    background: rgba(14, 165, 233, 0.10);
+    border-color: rgba(56, 189, 248, 0.22);
+}
+
+.tool-icon-line svg {
+    width: 26px;
+    height: 26px;
+    stroke-width: 1.9;
+}
+
+.tool-icon-gradient {
+    color: #f472b6;
+    background:
+        radial-gradient(circle at 75% 25%, rgba(244, 114, 182, 0.26), transparent 42%),
+        rgba(14, 165, 233, 0.10);
+}
+
+.tool-icon-hosting {
+    color: #8b5cf6;
+    background:
+        radial-gradient(circle at 70% 25%, rgba(139, 92, 246, 0.28), transparent 42%),
+        rgba(56, 189, 248, 0.08);
+}
+
+.tool-card strong {
+    font-size: 12px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #dbeafe;
+}
+
+@media (max-width: 1024px) {
+    .tools-panel {
+        padding: 24px;
+    }
+
+    .tool-card {
+        width: 76px;
+    }
+}
+
+@media (max-width: 700px) {
+    .tools-heading p {
+        letter-spacing: 3px;
+        font-size: 11px;
+    }
+
+    .tools-heading h2 {
+        font-size: 32px;
+    }
+
+    .tools-panel {
+        padding: 18px 14px;
+        border-radius: 18px;
+    }
+
+    .tools-grid {
+        gap: 10px;
+    }
+
+    .tool-card {
+        width: 74px;
+        min-height: 76px;
+    }
+
+    .tool-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .tool-icon img {
+        width: 27px;
+        height: 27px;
+    }
+
 }
 
 /* ========================================================= */
