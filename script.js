@@ -68,10 +68,42 @@ if (vaultSection) {
     const vaultTrack = vaultSection.querySelector(".vault-track");
     const prevArrow = vaultSection.querySelector(".vault-arrow-prev");
     const nextArrow = vaultSection.querySelector(".vault-arrow-next");
+    const vaultIndex = vaultSection.querySelector(".vault-index");
 
     const getPreviewClass = (node) => {
         const preview = node.querySelector(".vault-preview");
         return [...preview.classList].find((className) => className.startsWith("preview-"));
+    };
+
+    const syncVaultIndex = (activeNode) => {
+        if (!vaultIndex) return;
+
+        vaultIndex.querySelectorAll(".vault-index-button").forEach((button) => {
+            button.classList.toggle("active", button.dataset.vaultTarget === activeNode.dataset.name);
+        });
+    };
+
+    const syncVaultStack = (activeNode) => {
+        const visibleNodes = [...vaultNodes].filter((node) => !node.classList.contains("is-hidden"));
+        const activeIndex = visibleNodes.indexOf(activeNode);
+        const totalNodes = visibleNodes.length;
+
+        visibleNodes.forEach((node, index) => {
+            let offset = index - activeIndex;
+
+            if (totalNodes > 1) {
+                if (offset > totalNodes / 2) offset -= totalNodes;
+                if (offset < -totalNodes / 2) offset += totalNodes;
+            }
+
+            const distance = Math.abs(offset);
+
+            node.classList.toggle("is-before", offset < 0);
+            node.classList.toggle("is-after", offset > 0);
+            node.classList.toggle("is-stack-visible", distance <= 2);
+            node.style.setProperty("--stack-distance", distance);
+            node.style.setProperty("--stack-offset", offset);
+        });
     };
 
     const setProjectData = (node) => {
@@ -85,6 +117,9 @@ if (vaultSection) {
             const nodeStyles = getComputedStyle(node);
             vaultInspector.style.setProperty("--project-accent", nodeStyles.getPropertyValue("--project-accent"));
             vaultInspector.style.setProperty("--project-glow", nodeStyles.getPropertyValue("--project-glow"));
+            vaultInspector.classList.remove("is-switching");
+            void vaultInspector.offsetWidth;
+            vaultInspector.classList.add("is-switching");
         }
 
         if (inspectorVisual && preview) {
@@ -116,6 +151,32 @@ if (vaultSection) {
         if (mobileDetail) {
             mobileDetail.textContent = node.dataset.description;
         }
+
+        syncVaultStack(node);
+        syncVaultIndex(node);
+    };
+
+    const buildVaultIndex = (category) => {
+        if (!vaultIndex) return;
+
+        vaultIndex.innerHTML = "";
+
+        [...vaultNodes]
+            .filter((node) => node.dataset.category === category)
+            .forEach((node, index) => {
+                const button = document.createElement("button");
+                button.type = "button";
+                button.className = "vault-index-button";
+                button.dataset.vaultTarget = node.dataset.name;
+                button.setAttribute("aria-label", node.dataset.name);
+                button.innerHTML = "<span></span>";
+
+                button.addEventListener("click", () => {
+                    setProjectData(node);
+                });
+
+                vaultIndex.appendChild(button);
+            });
     };
 
     const filterVault = (category) => {
@@ -124,6 +185,9 @@ if (vaultSection) {
         vaultNodes.forEach((node) => {
             const isVisible = node.dataset.category === category;
             node.classList.toggle("is-hidden", !isVisible);
+            node.classList.remove("is-before", "is-after");
+            node.style.removeProperty("--stack-distance");
+            node.style.removeProperty("--stack-offset");
 
             if (isVisible && !firstVisibleNode) {
                 firstVisibleNode = node;
@@ -131,6 +195,7 @@ if (vaultSection) {
         });
 
         if (firstVisibleNode) {
+            buildVaultIndex(category);
             setProjectData(firstVisibleNode);
         }
     };
@@ -145,7 +210,6 @@ if (vaultSection) {
             vaultTabs.forEach((item) => item.classList.remove("active"));
             tab.classList.add("active");
             filterVault(tab.dataset.vaultFilter);
-            vaultTrack.scrollTo({ left: 0, behavior: "smooth" });
         });
     });
 
@@ -165,13 +229,13 @@ if (vaultSection) {
     });
 
     const scrollVault = (direction) => {
-        const visibleNode = vaultSection.querySelector(".vault-node:not(.is-hidden)");
-        const cardWidth = visibleNode ? Math.max(visibleNode.getBoundingClientRect().width - 64, 170) : 190;
+        const visibleNodes = [...vaultNodes].filter((node) => !node.classList.contains("is-hidden"));
+        const activeIndex = visibleNodes.findIndex((node) => node.classList.contains("active"));
+        const nextIndex = (activeIndex + direction + visibleNodes.length) % visibleNodes.length;
 
-        vaultTrack.scrollBy({
-            left: direction * cardWidth,
-            behavior: "smooth",
-        });
+        if (visibleNodes[nextIndex]) {
+            setProjectData(visibleNodes[nextIndex]);
+        }
     };
 
     prevArrow?.addEventListener("click", () => scrollVault(-1));
