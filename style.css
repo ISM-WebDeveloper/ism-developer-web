@@ -2983,66 +2983,256 @@ img {
 /* CONTACTO */
 /* ========================================================= */
 
-.contact-form {
-    max-width: 720px;
+.contact {
+    background:
+        radial-gradient(circle at 14% 18%, rgba(56, 189, 248, 0.12), transparent 28%),
+        radial-gradient(circle at 88% 70%, rgba(37, 99, 235, 0.14), transparent 30%),
+        linear-gradient(180deg, #07111f 0%, #030712 100%);
+    color: #f8fafc;
+}
+
+.contact-shell {
+    max-width: 1110px;
     margin: 0 auto;
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 28px;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-intro {
+    padding: clamp(26px, 3.4vw, 40px);
+    min-height: 520px;
+    display: grid;
+    align-content: center;
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: 26px;
+    background:
+        linear-gradient(145deg, rgba(15, 23, 42, 0.82), rgba(2, 6, 23, 0.74)),
+        radial-gradient(circle at top right, rgba(56, 189, 248, 0.12), transparent 34%);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+}
+
+.contact-intro h2 {
+    margin: 0 0 18px;
+    max-width: none;
+    color: #ffffff;
+    font-size: clamp(38px, 5vw, 68px);
+    line-height: 0.98;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.contact-intro h2 span {
+    color: #38bdf8;
+    text-shadow: 0 0 30px rgba(56, 189, 248, 0.28);
+}
+
+.contact-intro p {
+    max-width: none;
+    width: 100%;
+    margin-inline: auto;
+    color: #cbd5e1;
+    font-size: 17px;
+    line-height: 1.8;
+    text-align: justify;
+    text-align-last: left;
+    text-justify: inter-word;
+}
+
+.contact-points {
+    display: grid;
+    gap: 12px;
+    margin: 30px auto 0;
+    width: min(100%, 390px);
+}
+
+.contact-points div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: auto;
+    padding: 8px 12px;
+    border: 0;
+    border-radius: 999px;
+    background:
+        radial-gradient(circle at center, rgba(56, 189, 248, 0.08), transparent 70%);
+}
+
+.contact-points i {
+    width: 19px;
+    height: 19px;
+    color: #38bdf8;
+    stroke-width: 2.2;
+    flex: 0 0 auto;
+}
+
+.contact-points span {
+    color: #e2e8f0;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.25;
+}
+
+.contact-form {
+    margin: 0;
+    padding: clamp(22px, 2.4vw, 28px);
+    min-height: 520px;
+    display: grid;
+    align-content: start;
     gap: 16px;
     position: relative;
     z-index: 2;
+    border: 1px solid rgba(56, 189, 248, 0.24);
+    border-radius: 26px;
+    background:
+        linear-gradient(145deg, rgba(8, 17, 31, 0.92), rgba(2, 6, 23, 0.92)),
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.1), transparent 32%);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 24px 80px rgba(0, 0, 0, 0.34);
+}
+
+.contact-form-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 4px 0 18px;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.14);
+}
+
+.contact-form-brand img {
+    width: min(58%, 310px);
+    height: auto;
+    display: block;
+}
+
+.contact-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
 }
 
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
     width: 100%;
-    padding: 16px;
+    min-height: 58px;
+    padding: 14px 16px;
     border-radius: 14px;
-    border: 1px solid rgba(15, 23, 42, 0.12);
-    background: #ffffff;
-    color: #0f172a;
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    background:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.58), rgba(2, 6, 23, 0.72));
+    color: #f8fafc;
     outline: none;
+    font: inherit;
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #64748b;
 }
 
 .contact-form textarea {
-    min-height: 140px;
+    min-height: 126px;
+    padding-top: 16px;
     resize: vertical;
 }
 
 .contact-form input:focus,
 .contact-form select:focus,
 .contact-form textarea:focus {
-    border-color: #2563eb;
+    border-color: rgba(56, 189, 248, 0.78);
+    background: rgba(2, 6, 23, 0.82);
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.1);
 }
 
 .contact-actions {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    gap: 18px;
+    gap: 14px;
     flex-wrap: wrap;
+    padding-top: 4px;
 }
 
-.whatsapp-inline {
+.contact-actions .btn-primary {
+    min-height: 48px;
+    min-width: 220px;
+    border-radius: 14px;
+}
+
+@media (max-width: 1024px) {
+    .contact-shell {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact {
+        padding-inline: 6%;
+    }
+
+    .contact-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-actions {
+        align-items: stretch;
+    }
+
+    .contact-form-brand {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .contact-actions .btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.floating-whatsapp {
+    position: fixed;
+    right: clamp(18px, 3vw, 34px);
+    bottom: clamp(18px, 3vw, 34px);
+    z-index: 80;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    background: #22c55e;
-    color: #06111f;
-    padding: 10px 18px;
-    border-radius: 999px;
-    font-weight: 800;
-    transition: 0.3s ease;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 18px;
+    border: 1px solid rgba(34, 197, 94, 0.42);
+    background:
+        linear-gradient(145deg, rgba(34, 197, 94, 0.95), rgba(22, 163, 74, 0.92));
+    box-shadow:
+        0 18px 42px rgba(34, 197, 94, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
-.whatsapp-inline:hover {
-    transform: translateY(-2px);
+.floating-whatsapp:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow:
+        0 24px 52px rgba(34, 197, 94, 0.34),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-.whatsapp-inline img {
-    width: 20px;
-    height: 20px;
-    filter: brightness(0);
+.floating-whatsapp img {
+    width: 27px;
+    height: 27px;
+    filter: brightness(0) invert(1);
 }
 
 /* ========================================================= */

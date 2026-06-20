@@ -245,6 +245,38 @@ if (vaultSection) {
 }
 
 
+// FORMULARIO DE CONTACTO
+// Arma una solicitud ordenada y la envía por WhatsApp.
+
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(contactForm);
+        const nombre = formData.get("nombre")?.trim();
+        const empresa = formData.get("empresa")?.trim() || "No indicado";
+        const whatsapp = formData.get("whatsapp")?.trim();
+        const servicio = formData.get("servicio")?.trim();
+        const mensaje = formData.get("mensaje")?.trim() || "Quiero conversar mi idea con más detalle.";
+
+        const whatsappText = [
+            "Hola, Ignacio. Quiero conversar un proyecto con ISM Developer.",
+            "",
+            `Nombre: ${nombre}`,
+            `Empresa o negocio: ${empresa}`,
+            `WhatsApp: ${whatsapp}`,
+            `Servicio de interés: ${servicio}`,
+            "",
+            `Mensaje: ${mensaje}`
+        ].join("\n");
+
+        window.open(`https://wa.me/56968374821?text=${encodeURIComponent(whatsappText)}`, "_blank");
+    });
+}
+
+
 
 // LUCIDE ICONS
 // Convierte los <i data-lucide=""> en iconos SVG
