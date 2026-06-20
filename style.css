@@ -904,122 +904,311 @@ img {
     justify-content: center;
 }
 
-.evolution-path {
+.about-orbit {
     position: relative;
-    width: min(470px, 100%);
-    padding: 30px;
-    border-radius: 28px;
-    background:
-        linear-gradient(145deg, rgba(15, 23, 42, 0.78), rgba(8, 17, 31, 0.5)),
-        radial-gradient(circle at top right, rgba(56, 189, 248, 0.16), transparent 38%);
-    border: 1px solid rgba(56, 189, 248, 0.22);
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.04),
-        0 28px 80px rgba(0, 0, 0, 0.32);
-    backdrop-filter: blur(18px);
+    width: min(560px, 100%);
+    aspect-ratio: 1 / 1.04;
+    border-radius: 34px;
     overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 24%, rgba(56, 189, 248, 0.16), transparent 24%),
+        radial-gradient(circle at 18% 48%, rgba(20, 184, 166, 0.13), transparent 24%),
+        radial-gradient(circle at 78% 42%, rgba(139, 92, 246, 0.13), transparent 24%),
+        linear-gradient(180deg, rgba(8, 17, 31, 0.72), rgba(2, 6, 23, 0.92));
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 30px 90px rgba(0, 0, 0, 0.34);
 }
 
-.evolution-path::before {
+.about-orbit::before {
     content: "";
     position: absolute;
     inset: 0;
-    background-image:
-        linear-gradient(rgba(56, 189, 248, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
-    background-size: 36px 36px;
-    mask-image: linear-gradient(to bottom, black, transparent 86%);
-    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(56, 189, 248, 0.28) 1.5px, transparent 2px);
+    background-size: 26px 26px;
+    opacity: 0.2;
+    mask-image: radial-gradient(circle at 55% 36%, black, transparent 62%);
 }
 
-.path-line {
+.about-orbit-glow {
     position: absolute;
-    top: 56px;
-    bottom: 104px;
-    left: 54px;
-    width: 1px;
-    background: linear-gradient(180deg, rgba(56, 189, 248, 0), #38bdf8, rgba(56, 189, 248, 0));
-    box-shadow: 0 0 18px rgba(56, 189, 248, 0.5);
+    inset: 18%;
+    border-radius: 999px;
+    background: rgba(14, 165, 233, 0.12);
+    filter: blur(42px);
+    animation: orbitPulse 5s ease-in-out infinite;
 }
 
-.path-step {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: 48px 1fr;
-    align-items: center;
-    gap: 16px;
-    padding: 13px 14px;
-    margin-bottom: 12px;
-    border-radius: 18px;
-    background: rgba(8, 17, 31, 0.48);
-    border: 1px solid rgba(148, 163, 184, 0.1);
+.about-orbit-route {
+    position: absolute;
+    border: 2px dashed rgba(96, 165, 250, 0.38);
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: orbitDrift 11s ease-in-out infinite;
 }
 
-.path-step.is-current {
-    border-color: rgba(56, 189, 248, 0.42);
-    background: rgba(56, 189, 248, 0.08);
-    box-shadow: 0 0 28px rgba(56, 189, 248, 0.12);
+.route-a {
+    width: 74%;
+    height: 38%;
+    left: 12%;
+    top: 37%;
+    transform: rotate(-18deg);
 }
 
-.path-icon {
-    width: 48px;
-    height: 48px;
+.route-b {
+    width: 58%;
+    height: 33%;
+    left: 24%;
+    top: 24%;
+    transform: rotate(28deg);
+    animation-delay: -2.4s;
+}
+
+.route-c {
+    width: 68%;
+    height: 34%;
+    left: 17%;
+    top: 52%;
+    transform: rotate(18deg);
+    animation-delay: -4.5s;
+}
+
+.orbit-code-symbol {
+    position: absolute;
+    color: #38bdf8;
+    font-size: 34px;
+    font-weight: 800;
+    opacity: 0.78;
+    text-shadow: 0 0 22px rgba(56, 189, 248, 0.55);
+}
+
+.symbol-left {
+    left: 18%;
+    top: 13%;
+}
+
+.symbol-right {
+    right: 12%;
+    top: 28%;
+}
+
+.orbit-panel {
+    position: absolute;
+    width: 132px;
+    padding: 16px;
+    border-radius: 16px;
+    background: rgba(15, 23, 42, 0.42);
+    border: 1px solid rgba(56, 189, 248, 0.08);
+    opacity: 0.62;
+}
+
+.orbit-panel span {
+    display: block;
+    height: 6px;
+    margin: 8px 0;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(56, 189, 248, 0.75), rgba(139, 92, 246, 0.45));
+}
+
+.panel-left {
+    left: 7%;
+    top: 20%;
+}
+
+.panel-right {
+    right: 7%;
+    bottom: 18%;
+}
+
+.about-avatar {
+    position: absolute;
+    left: 50%;
+    bottom: -7%;
+    width: 260px;
+    height: 220px;
+    transform: translateX(-50%);
+    border-radius: 48% 48% 24% 24%;
+    background:
+        radial-gradient(circle at 50% 32%, #172554 0 18%, transparent 19%),
+        linear-gradient(180deg, #0f172a 0%, #020617 72%);
+    box-shadow: 0 -22px 70px rgba(56, 189, 248, 0.18);
+}
+
+.avatar-face {
+    position: absolute;
+    left: 50%;
+    bottom: 12px;
+    width: 180px;
+    height: 150px;
+    transform: translateX(-50%);
+    border-radius: 44% 44% 34% 34%;
+    background: linear-gradient(180deg, #f4b27f 0%, #d98258 100%);
+    box-shadow: inset 0 -16px 22px rgba(46, 16, 10, 0.18);
+}
+
+.avatar-hair {
+    position: absolute;
+    inset: -24px 8px auto;
+    height: 72px;
+    border-radius: 52% 48% 44% 38%;
+    background: #050816;
+    box-shadow: 18px 12px 0 #050816, -16px 10px 0 #050816;
+}
+
+.avatar-glasses {
+    position: absolute;
+    left: 50%;
+    top: 74px;
+    width: 120px;
+    height: 38px;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    border: 6px solid #0f172a;
+    box-shadow: inset 46px 0 0 -36px transparent, inset -46px 0 0 -36px transparent;
+}
+
+.about-orbit-pin {
+    position: absolute;
+    z-index: 4;
     display: grid;
     place-items: center;
-    border-radius: 16px;
-    background: rgba(56, 189, 248, 0.08);
-    border: 1px solid rgba(56, 189, 248, 0.26);
-    color: #38bdf8;
+    width: 132px;
+    height: 158px;
+    padding: 18px 12px 22px;
+    border: 1px solid rgba(56, 189, 248, 0.34);
+    border-radius: 68px 68px 68px 10px;
+    background:
+        radial-gradient(circle at 50% 24%, rgba(125, 211, 252, 0.25), transparent 34%),
+        linear-gradient(180deg, rgba(14, 165, 233, 0.72), rgba(15, 23, 42, 0.84));
+    color: #ffffff;
+    cursor: pointer;
+    text-align: center;
+    transform-origin: 50% 96%;
+    transition:
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.45s ease,
+        border-color 0.45s ease;
+    animation: pinFloat 4.6s ease-in-out infinite;
 }
 
-.path-icon i,
-.path-outcome i {
-    width: 22px;
-    height: 22px;
+.about-orbit-pin::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #38bdf8;
+    transform: translateX(-50%);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.8);
+}
+
+.about-orbit-pin i {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+    color: #e0f2fe;
     stroke-width: 1.8;
 }
 
-.path-step span {
+.about-orbit-pin strong,
+.about-orbit-pin span {
     display: block;
-    color: #38bdf8;
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: 0;
-    margin-bottom: 2px;
 }
 
-.path-step strong {
-    display: block;
-    color: #e5edf8;
-    font-size: 16px;
-    line-height: 1.25;
-}
-
-.path-outcome {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 20px;
-    padding: 18px;
-    border-radius: 20px;
-    background:
-        linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(37, 99, 235, 0.08));
-    border: 1px solid rgba(56, 189, 248, 0.38);
-    color: #ffffff;
-    box-shadow: 0 0 34px rgba(56, 189, 248, 0.14);
-}
-
-.path-outcome i {
-    color: #38bdf8;
-    flex-shrink: 0;
-}
-
-.path-outcome strong {
+.about-orbit-pin strong {
     font-size: 18px;
+    line-height: 1.15;
+}
+
+.about-orbit-pin span {
+    margin-top: 6px;
+    color: #cbd5e1;
+    font-size: 12px;
     line-height: 1.25;
+}
+
+.about-orbit-pin.is-active,
+.about-orbit-pin:hover {
+    transform: translateY(-12px) scale(1.06);
+    border-color: rgba(125, 211, 252, 0.8);
+    box-shadow: 0 0 42px rgba(56, 189, 248, 0.34);
+}
+
+.pin-ops {
+    left: 6%;
+    top: 48%;
+    background:
+        radial-gradient(circle at 50% 24%, rgba(45, 212, 191, 0.28), transparent 34%),
+        linear-gradient(180deg, rgba(13, 148, 136, 0.75), rgba(15, 23, 42, 0.86));
+}
+
+.pin-client {
+    left: 28%;
+    top: 23%;
+    animation-delay: -1.2s;
+}
+
+.pin-code {
+    left: 51%;
+    top: 9%;
+    width: 148px;
+    height: 180px;
+    animation-delay: -2.1s;
+}
+
+.pin-tools {
+    right: 13%;
+    top: 26%;
+    background:
+        radial-gradient(circle at 50% 24%, rgba(196, 181, 253, 0.26), transparent 34%),
+        linear-gradient(180deg, rgba(109, 40, 217, 0.75), rgba(15, 23, 42, 0.86));
+    animation-delay: -3.2s;
+}
+
+.pin-time {
+    right: 5%;
+    top: 55%;
+    animation-delay: -0.6s;
+}
+
+@keyframes pinFloat {
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -10px;
+    }
+}
+
+@keyframes orbitDrift {
+    0%,
+    100% {
+        scale: 1;
+        opacity: 0.54;
+    }
+
+    50% {
+        scale: 1.04;
+        opacity: 0.9;
+    }
+}
+
+@keyframes orbitPulse {
+    0%,
+    100% {
+        opacity: 0.65;
+        scale: 0.96;
+    }
+
+    50% {
+        opacity: 1;
+        scale: 1.06;
+    }
 }
 
 /* TEXTO DERECHA */
@@ -1075,9 +1264,8 @@ img {
         gap: 50px;
     }
 
-    .evolution-path {
-        width: min(430px, 100%);
-        padding: 26px;
+    .about-orbit {
+        width: min(500px, 100%);
     }
 
     .about-content h2 {
@@ -1096,8 +1284,8 @@ img {
         min-height: auto;
     }
 
-    .evolution-path {
-        width: min(680px, 100%);
+    .about-orbit {
+        width: min(620px, 100%);
     }
 
     .about-content p,

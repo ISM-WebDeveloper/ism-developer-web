@@ -46,6 +46,41 @@ function revealOnScroll() {
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
 
+// ANIMACIÓN SOBRE MÍ
+// Alterna el foco de los pins del visual izquierdo.
+
+const aboutPins = document.querySelectorAll(".about-orbit-pin");
+let aboutPinIndex = 0;
+let aboutPinTimer;
+
+const setAboutPin = (index) => {
+    if (!aboutPins.length) return;
+
+    aboutPins.forEach((pin) => pin.classList.remove("is-active"));
+    aboutPinIndex = (index + aboutPins.length) % aboutPins.length;
+    aboutPins[aboutPinIndex].classList.add("is-active");
+};
+
+if (aboutPins.length) {
+    aboutPinTimer = setInterval(() => {
+        setAboutPin(aboutPinIndex + 1);
+    }, 2600);
+
+    aboutPins.forEach((pin, index) => {
+        pin.addEventListener("mouseenter", () => {
+            clearInterval(aboutPinTimer);
+            setAboutPin(index);
+        });
+
+        pin.addEventListener("mouseleave", () => {
+            aboutPinTimer = setInterval(() => {
+                setAboutPin(aboutPinIndex + 1);
+            }, 2600);
+        });
+
+        pin.addEventListener("focus", () => setAboutPin(index));
+    });
+}
 // ISM PROJECT VAULT
 // Filtra proyectos, actualiza el inspector y abre una vista expandida dentro de la sección.
 
