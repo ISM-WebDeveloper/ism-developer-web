@@ -85,7 +85,9 @@
             <div class="about-wrapper">
 
                 <div class="about-visual reveal">
-                    <div class="about-orbit" aria-label="Animación sobre experiencia y desarrollo">
+                    <div class="about-orbit image-test" aria-label="Imagen sobre experiencia y desarrollo">
+                        <img class="about-orbit-image" src="img/about-animation-test.png"
+                            alt="Ilustración tecnológica con globos de herramientas de desarrollo">
                         <div class="about-orbit-glow"></div>
                         <div class="about-orbit-route route-a"></div>
                         <div class="about-orbit-route route-b"></div>
@@ -93,6 +95,19 @@
 
                         <span class="orbit-code-symbol symbol-left">{ }</span>
                         <span class="orbit-code-symbol symbol-right">&lt;/&gt;</span>
+                        <span class="orbit-code-symbol symbol-corner">{ }</span>
+
+                        <span class="orbit-mini mini-cloud mini-cloud-left"></span>
+                        <span class="orbit-mini mini-cloud mini-cloud-right"></span>
+                        <span class="orbit-mini mini-arrow mini-arrow-left"></span>
+                        <span class="orbit-mini mini-arrow mini-arrow-right"></span>
+                        <span class="orbit-mini mini-dot dot-one"></span>
+                        <span class="orbit-mini mini-dot dot-two"></span>
+                        <span class="orbit-mini mini-dot dot-three"></span>
+                        <span class="orbit-mini mini-ring ring-one"></span>
+                        <span class="orbit-mini mini-ring ring-two"></span>
+                        <span class="orbit-mini mini-bar bar-one"></span>
+                        <span class="orbit-mini mini-bar bar-two"></span>
 
                         <div class="orbit-panel panel-left">
                             <span></span><span></span><span></span><span></span>
@@ -104,38 +119,39 @@
                         <div class="about-avatar">
                             <div class="avatar-face">
                                 <span class="avatar-hair"></span>
+                                <span class="avatar-eyes"></span>
                                 <span class="avatar-glasses"></span>
                             </div>
                         </div>
 
                         <button class="about-orbit-pin pin-ops is-active" type="button" data-orbit-label="Operaciones">
                             <i data-lucide="truck"></i>
+                            <span class="pin-mark">+</span>
                             <strong>Operaciones</strong>
-                            <span>Procesos reales</span>
                         </button>
 
                         <button class="about-orbit-pin pin-client" type="button" data-orbit-label="Cliente">
                             <i data-lucide="messages-square"></i>
-                            <strong>Cliente</strong>
-                            <span>Escuchar primero</span>
+                            <span class="pin-mark">+</span>
+                            <strong>Clientes</strong>
                         </button>
 
                         <button class="about-orbit-pin pin-code" type="button" data-orbit-label="Código">
                             <i data-lucide="code-2"></i>
+                            <span class="pin-mark">-</span>
                             <strong>Código</strong>
-                            <span>Soluciones útiles</span>
                         </button>
 
                         <button class="about-orbit-pin pin-tools" type="button" data-orbit-label="Web">
                             <i data-lucide="braces"></i>
+                            <span class="pin-mark">+</span>
                             <strong>Web</strong>
-                            <span>Herramientas simples</span>
                         </button>
 
                         <button class="about-orbit-pin pin-time" type="button" data-orbit-label="Tiempo">
                             <i data-lucide="clock-3"></i>
+                            <span class="pin-mark">-</span>
                             <strong>Tiempo</strong>
-                            <span>Menos carga</span>
                         </button>
                     </div>
                 </div>
@@ -210,58 +226,234 @@
 
         <!-- 4. PRESENCIA DIGITAL -->
         <section class="section section-light" id="presencia">
-            <div class="section-title">
-                <h2>Presencia Digital Básica</h2>
-            </div>
-
-            <div class="service-grid">
-
-                <div class="service-info reveal">
-                    <h3>Ideal para negocios que quieren comenzar en Internet</h3>
-
-                    <p>
-                        Una landing page profesional, rápida y adaptable a celulares,
-                        pensada para mostrar tu negocio, generar confianza y recibir contactos.
-                    </p>
-
-                    <ul>
-                        <li>1 Landing Page</li>
-                        <li>Diseño responsive</li>
-                        <li>Conexión directa a WhatsApp</li>
-                        <li>Redes sociales</li>
-                        <li>Formulario de contacto o cotización</li>
-                        <li>Google Maps</li>
-                        <li>Hasta 6 imágenes</li>
-                        <li>1 video incluido</li>
-                        <li>2 modificaciones incluidas</li>
-                    </ul>
-                </div>
-
-                <div class="growth-visual reveal">
-                    <div class="growth-card">
-                        <i data-lucide="trending-up"></i>
-                        <h3>Más visibilidad</h3>
-                        <p>Una web bien presentada ayuda a generar confianza y captar nuevos contactos.</p>
-                    </div>
-
-                    <div class="growth-metrics">
-                        <div>
-                            <strong>+ Clientes</strong>
-                            <span>Mayor presencia digital</span>
+            <div class="presence-showcase">
+                <article class="presence-block reveal">
+                    <div class="presence-carousel" data-presence-carousel>
+                        <div class="presence-track">
+                            <figure class="presence-slide active">
+                                <div class="presence-plan-card">
+                                    <i data-lucide="panel-top"></i>
+                                    <span>Plan inicial</span>
+                                    <strong>Presencia Esencial</strong>
+                                </div>
+                            </figure>
+                            <figure class="presence-slide">
+                                <div class="presence-plan-card">
+                                    <i data-lucide="layout-template"></i>
+                                    <span>Plan intermedio</span>
+                                    <strong>Presencia Profesional</strong>
+                                </div>
+                            </figure>
+                            <figure class="presence-slide">
+                                <div class="presence-plan-card">
+                                    <i data-lucide="sparkles"></i>
+                                    <span>Plan avanzado</span>
+                                    <strong>Presencia Premium</strong>
+                                </div>
+                            </figure>
                         </div>
 
-                        <div>
-                            <strong>+ Confianza</strong>
-                            <span>Imagen profesional</span>
-                        </div>
-
-                        <div>
-                            <strong>+ Ventas</strong>
-                            <span>Mejor canal de contacto</span>
+                        <div class="presence-controls">
+                            <button type="button" data-carousel-prev aria-label="Imagen anterior">
+                                <i data-lucide="chevron-left"></i>
+                            </button>
+                            <div class="presence-dots" aria-hidden="true"></div>
+                            <button type="button" data-carousel-next aria-label="Imagen siguiente">
+                                <i data-lucide="chevron-right"></i>
+                            </button>
                         </div>
                     </div>
-                </div>
 
+                    <div class="presence-copy" data-presence-copy>
+                        <div class="presence-copy-slide active">
+                            <span>Presencia digital</span>
+                            <h3>Presencia Esencial</h3>
+                            <p>Para negocios que necesitan comenzar con una página clara, profesional y lista para recibir contactos.</p>
+                            <ul>
+                                <li>Landing page simple</li>
+                                <li>Diseño responsive</li>
+                                <li>WhatsApp y redes</li>
+                                <li>Formulario básico</li>
+                            </ul>
+                        </div>
+
+                        <div class="presence-copy-slide">
+                            <span>Presencia digital</span>
+                            <h3>Presencia Profesional</h3>
+                            <p>Para marcas o servicios que requieren más secciones, mejor estructura comercial y comunicación más completa.</p>
+                            <ul>
+                                <li>Más contenido</li>
+                                <li>Secciones estratégicas</li>
+                                <li>Mejor narrativa</li>
+                                <li>Optimización visual</li>
+                            </ul>
+                        </div>
+
+                        <div class="presence-copy-slide">
+                            <span>Presencia digital</span>
+                            <h3>Presencia Premium</h3>
+                            <p>Para proyectos que necesitan una experiencia más elaborada, mayor diferenciación visual y más nivel de detalle.</p>
+                            <ul>
+                                <li>Diseño más avanzado</li>
+                                <li>Interacciones premium</li>
+                                <li>Mayor personalización</li>
+                                <li>Preparada para escalar</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="presence-block reveal">
+                    <div class="presence-carousel" data-presence-carousel>
+                        <div class="presence-track">
+                            <figure class="presence-slide active">
+                                <div class="presence-plan-card">
+                                    <i data-lucide="shield-check"></i>
+                                    <span>Continuidad mensual</span>
+                                    <strong>Soporte Base</strong>
+                                </div>
+                            </figure>
+                            <figure class="presence-slide">
+                                <div class="presence-plan-card">
+                                    <i data-lucide="refresh-cw"></i>
+                                    <span>Continuidad mensual</span>
+                                    <strong>Mantención Activa</strong>
+                                </div>
+                            </figure>
+                            <figure class="presence-slide">
+                                <div class="presence-plan-card">
+                                    <i data-lucide="rocket"></i>
+                                    <span>Continuidad mensual</span>
+                                    <strong>Evolución Continua</strong>
+                                </div>
+                            </figure>
+                        </div>
+
+                        <div class="presence-controls">
+                            <button type="button" data-carousel-prev aria-label="Imagen anterior">
+                                <i data-lucide="chevron-left"></i>
+                            </button>
+                            <div class="presence-dots" aria-hidden="true"></div>
+                            <button type="button" data-carousel-next aria-label="Imagen siguiente">
+                                <i data-lucide="chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="presence-copy" data-presence-copy>
+                        <div class="presence-copy-slide active">
+                            <span>Planes de continuidad</span>
+                            <h3>Soporte Base</h3>
+                            <p>Para mantener tu sitio operativo, resolver ajustes menores y tener respaldo cuando algo necesita revisión.</p>
+                            <ul>
+                                <li>Revisión mensual</li>
+                                <li>Ajustes pequeños</li>
+                                <li>Soporte preventivo</li>
+                                <li>Canal directo</li>
+                            </ul>
+                        </div>
+
+                        <div class="presence-copy-slide">
+                            <span>Planes de continuidad</span>
+                            <h3>Mantención Activa</h3>
+                            <p>Para negocios que actualizan contenido, campañas, imágenes o información de forma recurrente.</p>
+                            <ul>
+                                <li>Cambios mensuales</li>
+                                <li>Actualización de textos</li>
+                                <li>Optimización visual</li>
+                                <li>Mejoras continuas</li>
+                            </ul>
+                        </div>
+
+                        <div class="presence-copy-slide">
+                            <span>Planes de continuidad</span>
+                            <h3>Evolución Continua</h3>
+                            <p>Para sitios que deben crecer con nuevas secciones, integraciones o mejoras estratégicas en el tiempo.</p>
+                            <ul>
+                                <li>Nuevas secciones</li>
+                                <li>Mejoras funcionales</li>
+                                <li>Acompañamiento técnico</li>
+                                <li>Plan de crecimiento</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="presence-block reveal">
+                    <div class="presence-carousel" data-presence-carousel>
+                        <div class="presence-track">
+                            <figure class="presence-slide active">
+                                <div class="presence-plan-card">
+                                    <i data-lucide="lightbulb"></i>
+                                    <span>Asesoría</span>
+                                    <strong>Página Nueva</strong>
+                                </div>
+                            </figure>
+                            <figure class="presence-slide">
+                                <div class="presence-plan-card">
+                                    <i data-lucide="file-search"></i>
+                                    <span>Asesoría</span>
+                                    <strong>Revisión Web</strong>
+                                </div>
+                            </figure>
+                            <figure class="presence-slide">
+                                <div class="presence-plan-card">
+                                    <i data-lucide="wrench"></i>
+                                    <span>Asesoría</span>
+                                    <strong>Auditorías</strong>
+                                </div>
+                            </figure>
+                        </div>
+
+                        <div class="presence-controls">
+                            <button type="button" data-carousel-prev aria-label="Imagen anterior">
+                                <i data-lucide="chevron-left"></i>
+                            </button>
+                            <div class="presence-dots" aria-hidden="true"></div>
+                            <button type="button" data-carousel-next aria-label="Imagen siguiente">
+                                <i data-lucide="chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="presence-copy" data-presence-copy>
+                        <div class="presence-copy-slide active">
+                            <span>Asesorías digitales</span>
+                            <h3>Comenzando de 0</h3>
+                            <p>Ordenamos la idea antes de construir: objetivo, estructura, contenido, estilo y prioridades reales del proyecto.</p>
+                            <ul>
+                                <li>Definición de alcance</li>
+                                <li>Mapa de secciones</li>
+                                <li>Prioridad de contenido</li>
+                                <li>Ruta de trabajo</li>
+                            </ul>
+                        </div>
+
+                        <div class="presence-copy-slide">
+                            <span>Asesorías digitales</span>
+                            <h3>Revisión Web</h3>
+                            <p>Revisamos qué está funcionando, qué confunde al usuario y qué puede mejorar antes de invertir en cambios.</p>
+                            <ul>
+                                <li>Revisión visual</li>
+                                <li>Experiencia de usuario</li>
+                                <li>Contenido y claridad</li>
+                                <li>Oportunidades de mejora</li>
+                            </ul>
+                        </div>
+
+                        <div class="presence-copy-slide">
+                            <span>Asesorías digitales</span>
+                            <h3>Auditorías</h3>
+                            <p>Analizamos tu página actual para detectar problemas de claridad, estructura, responsive y oportunidades reales de mejora.</p>
+                            <ul>
+                                <li>Diagnóstico de estructura</li>
+                                <li>Revisión responsive</li>
+                                <li>Claridad del mensaje</li>
+                                <li>Plan de mejoras</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -276,7 +468,7 @@
 
                 <article class="process-step step-blue reveal">
                     <div class="process-card">
-                        <div class="step-number">01</div>
+                        <div class="step-number">1</div>
                         <i data-lucide="message-square"></i>
                         <h3>Conversamos</h3>
                         <p>Entiendo tu negocio, necesidades y objetivos principales.</p>
@@ -285,7 +477,7 @@
 
                 <article class="process-step step-orange reveal">
                     <div class="process-card">
-                        <div class="step-number">02</div>
+                        <div class="step-number">2</div>
                         <i data-lucide="pencil-ruler"></i>
                         <h3>Arquitectura</h3>
                         <p>Definimos estructura, alcance, tecnología y plan de trabajo.</p>
@@ -294,7 +486,7 @@
 
                 <article class="process-step step-green reveal">
                     <div class="process-card">
-                        <div class="step-number">03</div>
+                        <div class="step-number">3</div>
                         <i data-lucide="monitor"></i>
                         <h3>Diseño Web</h3>
                         <p>Ordenamos la experiencia visual y el flujo que verá el usuario.</p>
@@ -303,7 +495,7 @@
 
                 <article class="process-step step-purple reveal">
                     <div class="process-card">
-                        <div class="step-number">04</div>
+                        <div class="step-number">4</div>
                         <i data-lucide="code-2"></i>
                         <h3>Desarrollo</h3>
                         <p>Construyo el sitio o sistema con estructura clara y responsive.</p>
@@ -312,7 +504,7 @@
 
                 <article class="process-step step-red reveal">
                     <div class="process-card">
-                        <div class="step-number">05</div>
+                        <div class="step-number">5</div>
                         <i data-lucide="rocket"></i>
                         <h3>Entrega</h3>
                         <p>Revisamos juntos, aplicamos ajustes y dejamos todo listo.</p>
@@ -321,7 +513,7 @@
 
                 <article class="process-step step-cyan reveal">
                     <div class="process-card">
-                        <div class="step-number">06</div>
+                        <div class="step-number">6</div>
                         <i data-lucide="trending-up"></i>
                         <h3>Post Venta</h3>
                         <p>Acompañamiento posterior para mejoras, soporte y evolución.</p>
@@ -366,6 +558,30 @@
                                 alt="JavaScript">
                         </span>
                         <strong>JavaScript</strong>
+                    </article>
+
+                    <article class="tool-card">
+                        <span class="tool-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                                alt="TypeScript">
+                        </span>
+                        <strong>TypeScript</strong>
+                    </article>
+
+                    <article class="tool-card">
+                        <span class="tool-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                                alt="React">
+                        </span>
+                        <strong>React</strong>
+                    </article>
+
+                    <article class="tool-card">
+                        <span class="tool-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+                                alt="Tailwind CSS">
+                        </span>
+                        <strong>Tailwind</strong>
                     </article>
 
                     <article class="tool-card">

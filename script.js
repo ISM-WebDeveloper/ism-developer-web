@@ -49,6 +49,7 @@ window.addEventListener("load", revealOnScroll);
 // ANIMACIÓN SOBRE MÍ
 // Alterna el foco de los pins del visual izquierdo.
 
+const aboutOrbit = document.querySelector(".about-orbit");
 const aboutPins = document.querySelectorAll(".about-orbit-pin");
 let aboutPinIndex = 0;
 let aboutPinTimer;
@@ -61,10 +62,15 @@ const setAboutPin = (index) => {
     aboutPins[aboutPinIndex].classList.add("is-active");
 };
 
-if (aboutPins.length) {
-    aboutPinTimer = setInterval(() => {
-        setAboutPin(aboutPinIndex + 1);
-    }, 2600);
+if (aboutPins.length && !aboutOrbit?.classList.contains("image-test")) {
+    const startAboutPinCycle = () => {
+        clearInterval(aboutPinTimer);
+        aboutPinTimer = setInterval(() => {
+            setAboutPin(aboutPinIndex + 1);
+        }, 3200);
+    };
+
+    startAboutPinCycle();
 
     aboutPins.forEach((pin, index) => {
         pin.addEventListener("mouseenter", () => {
@@ -72,15 +78,61 @@ if (aboutPins.length) {
             setAboutPin(index);
         });
 
-        pin.addEventListener("mouseleave", () => {
-            aboutPinTimer = setInterval(() => {
-                setAboutPin(aboutPinIndex + 1);
-            }, 2600);
+        pin.addEventListener("mouseleave", startAboutPinCycle);
+        pin.addEventListener("focus", () => {
+            clearInterval(aboutPinTimer);
+            setAboutPin(index);
         });
 
-        pin.addEventListener("focus", () => setAboutPin(index));
+        pin.addEventListener("blur", startAboutPinCycle);
     });
 }
+
+// CARRUSELES PRESENCIA DIGITAL
+// Cada carrusel funciona de forma independiente con botones y puntos.
+
+const presenceCarousels = document.querySelectorAll("[data-presence-carousel]");
+
+presenceCarousels.forEach((carousel) => {
+    const slides = [...carousel.querySelectorAll(".presence-slide")];
+    const copySlides = [...carousel.closest(".presence-block")?.querySelectorAll(".presence-copy-slide") || []];
+    const dotsContainer = carousel.querySelector(".presence-dots");
+    const prevButton = carousel.querySelector("[data-carousel-prev]");
+    const nextButton = carousel.querySelector("[data-carousel-next]");
+    let activeIndex = 0;
+
+    if (!slides.length || !dotsContainer) return;
+
+    slides.forEach((_, index) => {
+        const dot = document.createElement("span");
+        dot.className = "presence-dot";
+        dot.addEventListener("click", () => setPresenceSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = [...dotsContainer.querySelectorAll(".presence-dot")];
+
+    function setPresenceSlide(index) {
+        activeIndex = (index + slides.length) % slides.length;
+
+        slides.forEach((slide, slideIndex) => {
+            slide.classList.toggle("active", slideIndex === activeIndex);
+        });
+
+        copySlides.forEach((slide, slideIndex) => {
+            slide.classList.toggle("active", slideIndex === activeIndex);
+        });
+
+        dots.forEach((dot, dotIndex) => {
+            dot.classList.toggle("active", dotIndex === activeIndex);
+        });
+    }
+
+    prevButton?.addEventListener("click", () => setPresenceSlide(activeIndex - 1));
+    nextButton?.addEventListener("click", () => setPresenceSlide(activeIndex + 1));
+    setPresenceSlide(0);
+});
+
 // ISM PROJECT VAULT
 // Filtra proyectos, actualiza el inspector y abre una vista expandida dentro de la sección.
 
