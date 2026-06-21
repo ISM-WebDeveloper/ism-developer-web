@@ -795,6 +795,15 @@ img {
     padding: 34px 24px;
 }
 
+.cards-slim .card p {
+    width: min(100%, 260px);
+    margin-inline: auto;
+    text-align: justify;
+    text-align-last: left;
+    line-height: 1.62;
+    text-wrap: pretty;
+}
+
 .card {
     position: relative;
     overflow: hidden;
