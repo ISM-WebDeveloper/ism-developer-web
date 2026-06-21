@@ -2803,6 +2803,11 @@ img {
     z-index: 5;
 }
 
+.presence-carousel-advice .presence-image-card img {
+    height: 244px;
+    object-position: center top;
+}
+
 .presence-track {
     position: relative;
     min-height: 184px;
