@@ -51,27 +51,76 @@ window.addEventListener("scroll", () => {
     }
 });
 
-// REVEAL PREMIUM SIN RETRASOS ESCALONADOS
+// REVEAL PREMIUM
+// Aplica entradas suaves a bloques, títulos y tarjetas sin depender de editar cada sección a mano.
+
+const autoRevealSelectors = [
+    ".section-title",
+    ".contact-intro",
+    ".contact-form",
+    ".faq-column",
+    ".footer-grid > *",
+    ".footer-bottom",
+    ".floating-whatsapp"
+];
+
+autoRevealSelectors.forEach((selector) => {
+    document.querySelectorAll(selector).forEach((element) => {
+        element.classList.add("reveal");
+    });
+});
+
+const revealGroups = [
+    ".cards",
+    ".process-map",
+    ".presence-showcase",
+    ".faq-grid",
+    ".footer-grid",
+    ".contact-shell"
+];
+
+revealGroups.forEach((selector) => {
+    document.querySelectorAll(selector).forEach((group) => {
+        [...group.querySelectorAll(":scope > .reveal")].forEach((element, index) => {
+            element.style.setProperty("--reveal-delay", `${Math.min(index * 90, 360)}ms`);
+        });
+    });
+});
 
 const revealElements = document.querySelectorAll(".reveal");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-function revealOnScroll() {
-
-    revealElements.forEach((element) => {
-
-        const elementTop = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-
-        if (elementTop < windowHeight - 60) {
-            element.classList.add("active");
-        }
-
-    });
-
+function revealImmediately() {
+    revealElements.forEach((element) => element.classList.add("active"));
 }
 
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
+if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+    revealImmediately();
+} else {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+        });
+    }, {
+        rootMargin: "0px 0px -8% 0px",
+        threshold: 0.12
+    });
+
+    revealElements.forEach((element) => revealObserver.observe(element));
+    window.addEventListener("load", () => {
+        requestAnimationFrame(() => {
+            revealElements.forEach((element) => {
+                if (element.getBoundingClientRect().top < window.innerHeight * 0.92) {
+                    element.classList.add("active");
+                    revealObserver.unobserve(element);
+                }
+            });
+        });
+    });
+}
 
 // ANIMACIÓN SOBRE MÍ
 // Alterna el foco de los pins del visual izquierdo.

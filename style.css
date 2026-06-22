@@ -122,6 +122,7 @@ img {
         box-shadow 0.3s ease,
         opacity 0.25s ease,
         transform 0.25s ease;
+    animation: navEntrance 720ms cubic-bezier(0.22, 1, 0.36, 1) 120ms both;
 }
 
 .premium-navbar.scrolled {
@@ -477,11 +478,15 @@ img {
 .hero-title-accent {
     display: block;
     white-space: nowrap;
+    opacity: 0;
+    transform: translateY(18px);
+    animation: heroCopyEntrance 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .hero-title-accent {
     color: #38bdf8;
     text-shadow: 0 0 34px rgba(56, 189, 248, 0.45);
+    animation-delay: 160ms;
 }
 
 .hero-text {
@@ -493,6 +498,8 @@ img {
     text-align-last: left;
     margin-bottom: 0;
     transform: translateY(58px);
+    opacity: 0;
+    animation: heroFadeEntrance 820ms ease 300ms both;
 }
 
 .hero-trust-list {
@@ -502,6 +509,24 @@ img {
     flex-wrap: nowrap;
     max-width: 640px;
     margin-top: auto;
+}
+
+.hero-trust-card {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: heroCopyEntrance 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-trust-card:nth-child(1) {
+    animation-delay: 480ms;
+}
+
+.hero-trust-card:nth-child(2) {
+    animation-delay: 600ms;
+}
+
+.hero-trust-card:nth-child(3) {
+    animation-delay: 720ms;
 }
 
 .btn-primary,
@@ -584,6 +609,9 @@ img {
             rgba(0, 0, 0, 0.72) 48%,
             black 66%,
             black 100%);
+    opacity: 0;
+    transform: scale(1.025);
+    animation: heroImageEntrance 1100ms cubic-bezier(0.22, 1, 0.36, 1) 180ms both;
 }
 .hero-trust-card {
     position: relative;
@@ -614,6 +642,36 @@ img {
     border-radius: 50%;
     background: rgba(56, 189, 248, 0.08);
     flex-shrink: 0;
+}
+
+@keyframes navEntrance {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes heroCopyEntrance {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroFadeEntrance {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes heroImageEntrance {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* TABLET */
@@ -976,16 +1034,75 @@ img {
 /* ========================================================= */
 
 .reveal {
+    --reveal-y: 26px;
+    --reveal-scale: 0.985;
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(var(--reveal-y)) scale(var(--reveal-scale));
+    filter: blur(8px);
     transition:
-        opacity 1s ease,
-        transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+        opacity 760ms ease,
+        transform 920ms cubic-bezier(0.22, 1, 0.36, 1),
+        filter 920ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform, filter;
 }
 
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
+}
+
+.section-title.reveal,
+.tools-heading.reveal {
+    --reveal-y: 18px;
+    --reveal-scale: 1;
+}
+
+.presence-block.reveal,
+.vault-shell.reveal,
+.dashboard-mockup.reveal,
+.contact-intro.reveal,
+.contact-form.reveal {
+    --reveal-y: 34px;
+}
+
+.footer-grid>.reveal,
+.footer-bottom.reveal {
+    --reveal-y: 18px;
+    --reveal-scale: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal,
+    .reveal.active,
+    .hero-title-main,
+    .hero-title-accent,
+    .hero-text,
+    .hero-trust-card,
+    .hero-portrait img {
+        opacity: 1;
+        filter: none;
+        animation: none;
+    }
+
+    .reveal,
+    .reveal.active,
+    .hero-title-main,
+    .hero-title-accent,
+    .hero-trust-card,
+    .hero-portrait img {
+        transform: none;
+    }
 }
 
 /* ========================================================= */
@@ -4533,6 +4650,8 @@ img {
         0 18px 42px rgba(34, 197, 94, 0.28),
         inset 0 1px 0 rgba(255, 255, 255, 0.25);
     transition:
+        opacity 600ms ease,
+        filter 600ms ease,
         transform 0.25s ease,
         box-shadow 0.25s ease;
 }
