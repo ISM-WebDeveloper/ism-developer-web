@@ -4645,6 +4645,25 @@ img {
     transform: translateX(4px);
 }
 
+.footer-contact a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+}
+
+.footer-contact a img {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    display: block;
+    border-radius: 7px;
+}
+
+.footer-contact a span {
+    line-height: 1;
+}
+
 .footer-bottom {
     position: relative;
     z-index: 2;
