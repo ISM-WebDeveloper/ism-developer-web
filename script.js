@@ -1,3 +1,27 @@
+// INICIO SIEMPRE EN HERO
+// Evita que el navegador restaure una posicion previa o un hash antiguo al recargar.
+
+if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+}
+
+const startAtHero = () => {
+    if (window.location.hash) {
+        history.replaceState(null, "", window.location.pathname + window.location.search);
+    }
+
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "instant"
+    });
+};
+
+startAtHero();
+window.addEventListener("DOMContentLoaded", startAtHero);
+window.addEventListener("load", startAtHero);
+window.addEventListener("pageshow", startAtHero);
+
 // NAVBAR PREMIUM
 // Agrega una clase cuando el usuario baja con scroll
 
@@ -280,7 +304,7 @@ if (vaultSection) {
         });
     };
 
-    const filterVault = (category) => {
+    const filterVault = (category, shouldScroll = false) => {
         let firstVisibleNode = null;
 
         vaultNodes.forEach((node) => {
@@ -298,7 +322,10 @@ if (vaultSection) {
         if (firstVisibleNode) {
             buildVaultIndex(category);
             setProjectData(firstVisibleNode);
-            scrollProjectIntoView(firstVisibleNode);
+
+            if (shouldScroll) {
+                scrollProjectIntoView(firstVisibleNode);
+            }
         }
     };
 
@@ -311,7 +338,7 @@ if (vaultSection) {
         tab.addEventListener("click", () => {
             vaultTabs.forEach((item) => item.classList.remove("active"));
             tab.classList.add("active");
-            filterVault(tab.dataset.vaultFilter);
+            filterVault(tab.dataset.vaultFilter, true);
         });
     });
 
