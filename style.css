@@ -420,6 +420,7 @@ img {
         padding: 0;
         border-radius: 16px;
         font-size: 0;
+        gap: 0;
         letter-spacing: 0;
         text-align: center;
     }
@@ -662,7 +663,7 @@ img {
     .hero h1 {
         font-size: 36px;
         line-height: 1.14;
-        margin-bottom: 18px;
+        margin-bottom: 28px;
         transform: translateY(0);
     }
 
@@ -674,6 +675,7 @@ img {
     .hero-text {
         font-size: 16px;
         line-height: 1.64;
+        margin-top: 4px;
         transform: translateY(0);
     }
 
@@ -682,7 +684,7 @@ img {
         justify-items: center;
         gap: 10px;
         width: 100%;
-        margin-top: 28px;
+        margin-top: 42px;
     }
 
     .hero-trust-card {
