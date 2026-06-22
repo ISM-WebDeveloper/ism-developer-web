@@ -4798,12 +4798,12 @@ img {
 
 @media (max-width: 600px) {
     .premium-footer {
-        padding: 42px 8% 28px;
+        padding: 42px 8% 92px;
     }
 
     .footer-grid {
         display: block;
-        margin-bottom: 26px;
+        margin-bottom: 0;
         text-align: center;
     }
 
@@ -4824,6 +4824,17 @@ img {
         align-items: center;
         flex-wrap: wrap;
         gap: 10px;
+    }
+
+    .footer-contact::after {
+        content: "ISM Developer";
+        flex: 0 0 100%;
+        margin-top: 22px;
+        color: #ffffff;
+        font-size: 22px;
+        font-weight: 900;
+        line-height: 1;
+        letter-spacing: 0;
     }
 
     .footer-contact h4 {
@@ -4863,24 +4874,6 @@ img {
     }
 
     .footer-bottom {
-        justify-content: center;
-        text-align: center;
-        border-top: 0;
-        padding-top: 0;
-    }
-
-    .footer-bottom p:first-child {
         display: none;
-    }
-
-    .footer-bottom p:last-child {
-        color: #ffffff;
-        font-size: 0;
-        font-weight: 900;
-    }
-
-    .footer-bottom p:last-child::before {
-        content: "ISMDeveloper";
-        font-size: 20px;
     }
 }
