@@ -519,7 +519,8 @@ faqItems.forEach((item) => {
     const question = item.querySelector(".faq-question");
 
     question.addEventListener("click", () => {
-        item.classList.toggle("active");
+        const isActive = item.classList.toggle("active");
+        question.setAttribute("aria-expanded", isActive);
     });
 });
 
