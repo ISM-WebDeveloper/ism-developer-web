@@ -5,6 +5,13 @@ const navbar = document.getElementById("navbar");
 let navbarHideTimer;
 
 window.addEventListener("scroll", () => {
+    if (window.innerWidth <= 600) {
+        navbar.classList.remove("scrolled");
+        navbar.classList.remove("nav-hidden");
+        clearTimeout(navbarHideTimer);
+        return;
+    }
+
     if (window.scrollY > 60) {
         navbar.classList.add("scrolled");
         navbar.classList.remove("nav-hidden");
@@ -20,23 +27,19 @@ window.addEventListener("scroll", () => {
     }
 });
 
-// REVEAL PREMIUM CON DELAY ESCALONADO
+// REVEAL PREMIUM SIN RETRASOS ESCALONADOS
 
 const revealElements = document.querySelectorAll(".reveal");
 
 function revealOnScroll() {
 
-    revealElements.forEach((element, index) => {
+    revealElements.forEach((element) => {
 
         const elementTop = element.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
 
-        if (elementTop < windowHeight - 100) {
-
-            setTimeout(() => {
-                element.classList.add("active");
-            }, index * 120);
-
+        if (elementTop < windowHeight - 60) {
+            element.classList.add("active");
         }
 
     });
@@ -260,10 +263,21 @@ if (vaultSection) {
 
                 button.addEventListener("click", () => {
                     setProjectData(node);
+                    scrollProjectIntoView(node);
                 });
 
                 vaultIndex.appendChild(button);
             });
+    };
+
+    const scrollProjectIntoView = (node) => {
+        if (!vaultTrack || window.innerWidth > 760) return;
+
+        node.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "start"
+        });
     };
 
     const filterVault = (category) => {
@@ -284,6 +298,7 @@ if (vaultSection) {
         if (firstVisibleNode) {
             buildVaultIndex(category);
             setProjectData(firstVisibleNode);
+            scrollProjectIntoView(firstVisibleNode);
         }
     };
 
@@ -300,7 +315,53 @@ if (vaultSection) {
         });
     });
 
+    let vaultScrollTimer;
+
+    vaultTrack?.addEventListener("scroll", () => {
+        if (window.innerWidth > 760) return;
+
+        clearTimeout(vaultScrollTimer);
+        vaultScrollTimer = setTimeout(() => {
+            const visibleNodes = [...vaultNodes].filter((node) => !node.classList.contains("is-hidden"));
+            const trackRect = vaultTrack.getBoundingClientRect();
+
+            const nearestNode = visibleNodes.reduce((nearest, node) => {
+                const nodeRect = node.getBoundingClientRect();
+                const distance = Math.abs(nodeRect.left - trackRect.left);
+
+                if (!nearest || distance < nearest.distance) {
+                    return { node, distance };
+                }
+
+                return nearest;
+            }, null);
+
+            if (nearestNode?.node) {
+                setProjectData(nearestNode.node);
+            }
+        }, 80);
+    });
+
     vaultNodes.forEach((node) => {
+        if (node.dataset.link && !node.querySelector(".vault-mobile-action")) {
+            const action = document.createElement("span");
+            action.className = "vault-mobile-action";
+            action.textContent = node.dataset.action || "Ver proyecto";
+
+            action.addEventListener("click", (event) => {
+                event.stopPropagation();
+
+                if (node.dataset.link.startsWith("#")) {
+                    window.location.href = node.dataset.link;
+                    return;
+                }
+
+                window.open(node.dataset.link, "_blank", "noopener,noreferrer");
+            });
+
+            node.appendChild(action);
+        }
+
         node.addEventListener("mouseenter", () => setProjectData(node));
         node.addEventListener("focus", () => setProjectData(node));
         node.addEventListener("click", () => setProjectData(node));
@@ -368,7 +429,9 @@ if (contactForm) {
 // LUCIDE ICONS
 // Convierte los <i data-lucide=""> en iconos SVG
 
-lucide.createIcons();
+if (window.lucide) {
+    lucide.createIcons();
+}
 
 
 // FAQ / PREGUNTAS FRECUENTES
