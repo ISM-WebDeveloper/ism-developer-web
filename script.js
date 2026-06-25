@@ -29,6 +29,8 @@ const navbar = document.getElementById("navbar");
 let navbarHideTimer;
 
 window.addEventListener("scroll", () => {
+    if (!navbar) return;
+
     if (window.innerWidth <= 600) {
         navbar.classList.remove("scrolled");
         navbar.classList.remove("nav-hidden");
@@ -88,15 +90,21 @@ revealGroups.forEach((selector) => {
 });
 
 const revealElements = document.querySelectorAll(".reveal");
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-function revealImmediately() {
-    revealElements.forEach((element) => element.classList.add("active"));
+function revealVisibleElements() {
+    revealElements.forEach((element) => {
+        if (element.classList.contains("active")) return;
+
+        const rect = element.getBoundingClientRect();
+        const isInsideViewport = rect.top < window.innerHeight * 0.88 && rect.bottom > 0;
+
+        if (isInsideViewport) {
+            element.classList.add("active");
+        }
+    });
 }
 
-if (prefersReducedMotion || !("IntersectionObserver" in window)) {
-    revealImmediately();
-} else {
+if ("IntersectionObserver" in window) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
             if (!entry.isIntersecting) return;
@@ -110,16 +118,11 @@ if (prefersReducedMotion || !("IntersectionObserver" in window)) {
     });
 
     revealElements.forEach((element) => revealObserver.observe(element));
-    window.addEventListener("load", () => {
-        requestAnimationFrame(() => {
-            revealElements.forEach((element) => {
-                if (element.getBoundingClientRect().top < window.innerHeight * 0.92) {
-                    element.classList.add("active");
-                    revealObserver.unobserve(element);
-                }
-            });
-        });
-    });
+} else {
+    window.addEventListener("scroll", revealVisibleElements, { passive: true });
+    window.addEventListener("resize", revealVisibleElements);
+    window.addEventListener("load", revealVisibleElements);
+    requestAnimationFrame(revealVisibleElements);
 }
 
 // ANIMACIÓN SOBRE MÍ
@@ -517,6 +520,7 @@ const faqItems = document.querySelectorAll(".faq-item");
 
 faqItems.forEach((item) => {
     const question = item.querySelector(".faq-question");
+    if (!question) return;
 
     question.addEventListener("click", () => {
         const isActive = item.classList.toggle("active");

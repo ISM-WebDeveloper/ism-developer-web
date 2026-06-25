@@ -24,6 +24,15 @@ a {
     color: inherit;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgba(56, 189, 248, 0.78);
+    outline-offset: 4px;
+}
+
 img {
     max-width: 100%;
     display: block;
@@ -1061,7 +1070,7 @@ img {
 
 .reveal.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
     filter: blur(0);
 }
 
@@ -1086,16 +1095,14 @@ img {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
+    html {
         scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
     }
 
-    .reveal,
+    .reveal {
+        filter: none;
+    }
+
     .reveal.active,
     .hero-title-main,
     .hero-title-accent,
@@ -1104,16 +1111,24 @@ img {
     .hero-portrait img {
         opacity: 1;
         filter: none;
-        animation: none;
+        animation: none !important;
     }
 
-    .reveal,
-    .reveal.active,
     .hero-title-main,
     .hero-title-accent,
+    .reveal.active,
     .hero-trust-card,
     .hero-portrait img {
         transform: none;
+    }
+
+    .tech-background,
+    .about-orbit-glow,
+    .about-orbit-route,
+    .about-orbit-pin,
+    .preview-radar::before,
+    .faq-section::before {
+        animation: none !important;
     }
 }
 
