@@ -22,6 +22,87 @@ window.addEventListener("DOMContentLoaded", startAtHero);
 window.addEventListener("load", startAtHero);
 window.addEventListener("pageshow", startAtHero);
 
+// ANALÍTICA GA4
+// Envía eventos si gtag está disponible y falla silenciosamente si Analytics aún no carga.
+window.trackEvent = function trackEvent(eventName, params = {}) {
+    if (typeof window.gtag !== "function") return;
+
+    window.gtag("event", eventName, params);
+};
+
+const getTrackingLabel = (element) => {
+    const visibleText = element.innerText?.replace(/\s+/g, " ").trim();
+    return visibleText || element.getAttribute("aria-label") || element.getAttribute("title") || "Sin etiqueta";
+};
+
+const getTrackingSection = (element) => {
+    if (element.closest(".hero")) return "hero";
+    if (element.closest("#contacto")) return "contacto";
+    if (element.closest("header")) return "header";
+    if (element.closest("footer")) return "footer";
+    return "unknown";
+};
+
+const baseTrackingParams = (element) => ({
+    event_label: getTrackingLabel(element),
+    page_location: window.location.href,
+    page_path: window.location.pathname,
+    section: getTrackingSection(element)
+});
+
+const bindTrackedClick = (elements, eventName, getParams) => {
+    elements.forEach((element) => {
+        if (element.dataset.analyticsBound === "true") return;
+
+        element.dataset.analyticsBound = "true";
+        element.addEventListener("click", () => {
+            window.trackEvent(eventName, getParams(element));
+        });
+    });
+};
+
+bindTrackedClick(
+    document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"], a[href*="api.whatsapp.com"]'),
+    "whatsapp_click",
+    (element) => ({
+        ...baseTrackingParams(element),
+        event_category: "conversion",
+        link_url: element.href
+    })
+);
+
+bindTrackedClick(
+    [...document.querySelectorAll('a[href="#contacto"], button')].filter((element) => {
+        const text = getTrackingLabel(element).toLowerCase();
+        return element.getAttribute("href") === "#contacto" || text.includes("asesoría") || text.includes("solicitar asesoría");
+    }),
+    "advisor_cta_click",
+    (element) => ({
+        ...baseTrackingParams(element),
+        event_category: "conversion"
+    })
+);
+
+bindTrackedClick(
+    document.querySelectorAll('a[href^="mailto:"]'),
+    "email_click",
+    (element) => ({
+        ...baseTrackingParams(element),
+        event_category: "contact",
+        link_url: element.href
+    })
+);
+
+bindTrackedClick(
+    document.querySelectorAll('a[href^="tel:"]'),
+    "phone_click",
+    (element) => ({
+        ...baseTrackingParams(element),
+        event_category: "contact",
+        link_url: element.href
+    })
+);
+
 // NAVBAR PREMIUM
 // Agrega una clase cuando el usuario baja con scroll
 
