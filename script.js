@@ -522,7 +522,6 @@ if (vaultSection) {
             node.appendChild(action);
         }
 
-        node.addEventListener("mouseenter", () => setProjectData(node));
         node.addEventListener("focus", () => setProjectData(node));
         node.addEventListener("click", () => setProjectData(node));
 

@@ -2157,13 +2157,12 @@ img {
     opacity: 0;
     pointer-events: none;
     scroll-snap-align: start;
-    transform:
-        translate(-50%, -50%)
-        translateX(calc(var(--stack-offset, 0) * 82px))
-        translateY(calc(16px + (var(--stack-distance, 1) * 8px)))
-        scale(calc(0.9 - (var(--stack-distance, 1) * 0.04)))
-        rotateX(4deg)
-        rotateY(calc(var(--stack-offset, 0) * -10deg));
+   transform:
+translate(-50%,-50%)
+translateX(calc(var(--stack-offset,0)*58px))
+translateY(calc(var(--stack-distance,1)*3px))
+scale(calc(.96 - (var(--stack-distance,1)*.015)))
+rotateY(calc(var(--stack-offset,0)*-4deg));
     transition:
         transform 0.58s cubic-bezier(0.22, 1, 0.36, 1),
         border-color 0.42s ease,
@@ -2181,18 +2180,18 @@ img {
     z-index: calc(10 - var(--stack-distance, 1));
 }
 
-.vault-node.is-stack-visible {
-    opacity: 0.58;
-    pointer-events: auto;
-    filter: saturate(0.78) brightness(0.82);
+.vault-node.is-stack-visible{
+    opacity:1;
+    pointer-events:auto;
+    filter:saturate(.88) brightness(.88);
 }
 
-.vault-node:hover,
+
 .vault-node.active {
     z-index: 20;
     opacity: 1;
     pointer-events: auto;
-    transform: translate(-50%, -50%) translateY(-4px) scale(1.055) rotateX(0deg) rotateY(0deg);
+    transform: translate(-50%, -50%) translateY(0) scale(1) rotateX(0deg) rotateY(0deg);
     border-color: color-mix(in srgb, var(--project-accent) 78%, #ffffff 0%);
     box-shadow:
         0 22px 46px rgba(0, 0, 0, 0.34),
@@ -2218,6 +2217,11 @@ img {
 .project-proestakis {
     --project-accent: #fb923c;
     --project-glow: rgba(249, 115, 22, 0.22);
+}
+
+.project-badiasalud {
+    --project-accent: #1ea7ff;
+    --project-glow: rgba(30,167,255,.28);
 }
 
 .project-lecasse {
@@ -2478,15 +2482,20 @@ img {
 }
 
 .vault-index {
-    position: relative;
-    z-index: 3;
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    z-index: 30;
+
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
+
     min-height: 24px;
-    padding: 0 64px;
-    margin-top: 2px;
+    padding: 0;
+    margin-top: 0;
 }
 
 .vault-index-button {
