@@ -2490,7 +2490,7 @@ rotateY(calc(var(--stack-offset,0)*-4deg));
 
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    
     gap: 10px;
 
     min-height: 24px;
@@ -2831,18 +2831,11 @@ rotateY(calc(var(--stack-offset,0)*-4deg));
         font-size: 12px;
     }
 
-    .vault-track {
-        min-height: auto;
-        display: flex;
-        gap: 0;
-        padding: 0 4% 12px;
-        overflow-x: auto;
-        overflow-y: hidden;
-        perspective: none;
-        scroll-snap-type: x mandatory;
-        scroll-padding-inline: 4%;
-        scrollbar-width: none;
-    }
+   .vault-track {
+    position: relative;
+    min-height: 390px;
+    height: 390px;
+}
 
     .vault-track::-webkit-scrollbar {
         display: none;
@@ -4836,6 +4829,14 @@ rotateY(calc(var(--stack-offset,0)*-4deg));
     flex-wrap: wrap;
     color: #64748b;
     font-size: 14px;
+}
+
+.footer-contact .footer-icon {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    color: #60a5fa;
+    stroke-width: 2;
 }
 
 @media (max-width: 600px) {
