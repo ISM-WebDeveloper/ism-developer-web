@@ -1843,7 +1843,7 @@ img {
         inset: 0;
         background:
             linear-gradient(180deg, rgba(5, 11, 20, 0.66), rgba(5, 11, 20, 0.88)),
-            url("img/about-animation-test.png") center top / cover no-repeat;
+            url("../img/about-animation-test.png") center top / cover no-repeat;
         filter: blur(12px) saturate(1.08);
         opacity: 0.34;
         transform: scale(1.08);
@@ -1917,6 +1917,45 @@ img {
         radial-gradient(circle at 20% 10%, rgba(56, 189, 248, 0.10), transparent 28%),
         radial-gradient(circle at 82% 22%, rgba(59, 130, 246, 0.12), transparent 30%),
         linear-gradient(180deg, #050b14 0%, #08111f 52%, #050b14 100%);
+}
+
+.vault-dashboard-link,
+.services-dashboard-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 46px;
+    padding: 0 18px;
+    border: 1px solid rgba(56, 189, 248, 0.42);
+    border-radius: 12px;
+    color: #f8fafc;
+    background: rgba(14, 165, 233, 0.12);
+    font-size: 13px;
+    font-weight: 900;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: 0.25s ease;
+    margin-top: 20px;
+}
+
+.vault-dashboard-link span,
+.services-dashboard-link span {
+    color: #38bdf8;
+    font-size: 18px;
+    transition: transform 0.25s ease;
+}
+
+.vault-dashboard-link:hover,
+.services-dashboard-link:hover {
+    border-color: #38bdf8;
+    background: rgba(14, 165, 233, 0.2);
+    transform: translateY(-2px);
+}
+
+.vault-dashboard-link:hover span,
+.services-dashboard-link:hover span {
+    transform: translateX(3px);
 }
 
 .vault-shell {
@@ -2789,6 +2828,11 @@ rotateY(calc(var(--stack-offset,0)*-4deg));
     .project-vault-section {
         padding-left: 5%;
         padding-right: 5%;
+    }
+
+    .vault-dashboard-link {
+        width: 100%;
+        margin-top: 18px;
     }
 
     .vault-shell {

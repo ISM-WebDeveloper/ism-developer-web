@@ -1,0 +1,36 @@
+{
+  "version": "0.2",
+  "language": "es,en",
+  "useGitignore": true,
+  "ignorePaths": [
+    "assets/vendor/**",
+    "assets/css/style.css",
+    "assets/css/portafolio.css"
+  ],
+  "words": [
+    "Antofagasta",
+    "Badiasalud",
+    "Badilla",
+    "CIPApp",
+    "frontend",
+    "gamificación",
+    "HFBApp",
+    "Ignacio",
+    "Instagram",
+    "ISM",
+    "Javier",
+    "JuntosApp",
+    "Lecasse",
+    "Lucide",
+    "Maige",
+    "PostgreSQL",
+    "Proestakis",
+    "Sepúlveda",
+    "Supabase",
+    "Tailwind",
+    "TypeScript",
+    "Vercel",
+    "webmanifest",
+    "WhatsApp"
+  ]
+}

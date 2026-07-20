@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard de servicios de ISM Developer: presencia digital, continuidad y asesorías digitales.">
+    <meta name="theme-color" content="#07111f">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.ismdeveloper.cl/servicios.html">
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <link rel="stylesheet" href="assets/css/portafolio.css">
+    <link rel="stylesheet" href="assets/css/servicios.css">
+    <script src="assets/vendor/lucide.min.js" defer></script>
+    <script src="assets/js/servicios.js" defer></script>
+    <title>Servicios digitales | ISM Developer</title>
+</head>
+
+<body>
+    <div class="dashboard-shell">
+        <aside class="project-sidebar" id="serviceSidebar" aria-label="Áreas de servicios">
+            <div class="sidebar-head">
+                <a href="index.html" class="sidebar-brand" aria-label="Volver a ISM Developer">
+                    <img src="assets/img/logo-horizontal-tight.svg" alt="ISM Developer" width="210" height="40">
+                </a>
+                <button class="sidebar-close" id="sidebarClose" type="button" aria-label="Cerrar lista de servicios">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-title">
+                <span>Service hub</span>
+                <p>Selecciona un área para revisar sus alternativas, alcance y evolución.</p>
+            </div>
+
+            <nav class="project-nav service-nav" id="serviceNav"></nav>
+
+            <div class="sidebar-footer">
+                <span class="live-dot" aria-hidden="true"></span>
+                <div>
+                    <strong>Servicios disponibles</strong>
+                    <small>3 áreas de acompañamiento</small>
+                </div>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-topbar">
+                <div class="topbar-left">
+                    <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Abrir lista de servicios">
+                        <i data-lucide="panel-left"></i>
+                    </button>
+                    <a href="index.html#servicios" class="back-link">
+                        <i data-lucide="arrow-left"></i>
+                        Volver al sitio
+                    </a>
+                </div>
+                <div class="topbar-status">
+                    <span>ISM / SERVICIOS</span>
+                    <time id="dashboardClock" aria-label="Hora local"></time>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <section class="project-hero" aria-labelledby="serviceTitle">
+                    <div class="project-heading">
+                        <div>
+                            <p class="project-eyebrow" id="serviceType"></p>
+                            <h1 id="serviceTitle"></h1>
+                            <p class="project-summary" id="serviceSummary"></p>
+                        </div>
+                        <div class="project-actions">
+                            <a class="external-project-link" href="index.html#contacto">
+                                Solicitar orientación
+                                <i data-lucide="arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-metrics" id="serviceMetrics"></div>
+                </section>
+
+                <section class="project-showcase" aria-label="Alternativas del servicio">
+                    <div class="showcase-topline">
+                        <div>
+                            <span>Alternativas disponibles</span>
+                            <strong><span id="currentSlide">01</span> / <span id="totalSlides">03</span></strong>
+                        </div>
+                        <div class="showcase-controls">
+                            <button id="slidePrev" type="button" aria-label="Alternativa anterior"><i data-lucide="arrow-left"></i></button>
+                            <button id="slideNext" type="button" aria-label="Alternativa siguiente"><i data-lucide="arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="synced-slider" id="syncedSlider" tabindex="0" aria-roledescription="carrusel">
+                        <div class="visual-viewport">
+                            <div class="visual-track" id="visualTrack"></div>
+                        </div>
+                        <div class="copy-viewport">
+                            <div class="copy-track" id="copyTrack"></div>
+                        </div>
+                    </div>
+
+                    <div class="slider-progress">
+                        <div class="slider-dots" id="sliderDots" aria-label="Seleccionar alternativa"></div>
+                        <div class="progress-line"><span id="progressLine"></span></div>
+                    </div>
+                </section>
+
+                <section class="technical-section" aria-labelledby="technicalTitle">
+                    <div class="section-heading">
+                        <div>
+                            <p>Ficha del servicio</p>
+                            <h2 id="technicalTitle">Estrategia y alcance</h2>
+                        </div>
+                        <span id="serviceScope"></span>
+                    </div>
+                    <div class="technical-grid" id="technicalGrid"></div>
+                </section>
+
+                <section class="project-cta">
+                    <div>
+                        <span>¿No sabes cuál alternativa elegir?</span>
+                        <h2>Revisemos juntos la necesidad de tu negocio.</h2>
+                    </div>
+                    <a href="index.html#contacto">Solicitar asesoría <i data-lucide="arrow-up-right"></i></a>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+</body>
+
+</html>

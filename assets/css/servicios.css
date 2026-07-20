@@ -1,0 +1,76 @@
+.service-nav {
+    padding-top: 4px;
+}
+
+.service-nav .project-nav-item {
+    min-height: 66px;
+    margin-bottom: 6px;
+    padding: 10px 12px;
+}
+
+.service-nav .nav-copy strong {
+    font-size: 12px;
+}
+
+.service-nav .nav-copy small {
+    max-width: 175px;
+    line-height: 1.4;
+}
+
+.service-plan-list {
+    margin: 18px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.service-plan-list li {
+    position: relative;
+    padding: 6px 0 6px 15px;
+    color: #bdc8d7;
+    font-size: 11px;
+    line-height: 1.45;
+}
+
+.service-plan-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.55);
+}
+
+.service-dashboard .visual-slide .screen-frame img {
+    object-position: center;
+    transform: none;
+}
+
+.service-dashboard .synced-slider,
+.service-dashboard .visual-slide,
+.service-dashboard .screen-frame,
+.service-dashboard .copy-slide {
+    height: 420px;
+}
+
+@media (max-width: 580px) {
+    .service-dashboard .visual-slide,
+    .service-dashboard .screen-frame {
+        height: 240px;
+    }
+
+    .service-dashboard .copy-slide {
+        height: 380px;
+    }
+
+    .service-plan-list {
+        margin-top: 12px;
+    }
+
+    .service-plan-list li {
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+}

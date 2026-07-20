@@ -383,15 +383,11 @@ if (vaultSection) {
         inspectorDate.textContent = node.dataset.date;
 
         if (inspectorLink) {
-            const hasPublicLink = node.dataset.link && !node.dataset.link.includes("#contacto");
-            inspectorLink.hidden = !hasPublicLink;
-
-            if (hasPublicLink) {
-                inspectorLink.href = node.dataset.link;
-                inspectorLink.textContent = node.dataset.action || "Ver proyecto";
-                inspectorLink.setAttribute("target", "_blank");
-                inspectorLink.setAttribute("rel", "noopener noreferrer");
-            }
+            inspectorLink.hidden = false;
+            inspectorLink.href = `portafolio.html?proyecto=${encodeURIComponent(node.dataset.projectId)}`;
+            inspectorLink.textContent = "Ver proyecto";
+            inspectorLink.removeAttribute("target");
+            inspectorLink.removeAttribute("rel");
         }
 
         const mobileDetail = node.querySelector(".vault-mobile-detail");
@@ -503,20 +499,15 @@ if (vaultSection) {
     });
 
     vaultNodes.forEach((node) => {
-        if (node.dataset.link && !node.querySelector(".vault-mobile-action")) {
+        if (node.dataset.projectId && !node.querySelector(".vault-mobile-action")) {
             const action = document.createElement("span");
             action.className = "vault-mobile-action";
-            action.textContent = node.dataset.action || "Ver proyecto";
+            action.textContent = "Ver proyecto";
 
             action.addEventListener("click", (event) => {
                 event.stopPropagation();
 
-                if (node.dataset.link.startsWith("#")) {
-                    window.location.href = node.dataset.link;
-                    return;
-                }
-
-                window.open(node.dataset.link, "_blank", "noopener,noreferrer");
+                window.location.href = `portafolio.html?proyecto=${encodeURIComponent(node.dataset.projectId)}`;
             });
 
             node.appendChild(action);
@@ -607,7 +598,6 @@ faqItems.forEach((item) => {
         question.setAttribute("aria-expanded", isActive);
     });
 });
-
 
 
 
