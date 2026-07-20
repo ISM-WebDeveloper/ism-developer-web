@@ -210,6 +210,11 @@ const projects = [
 ];
 
 const categoryOrder = ["Presencias digitales", "Soluciones digitales", "Proyectos en desarrollo"];
+const categoryIcons = {
+    "Presencias digitales": "globe-2",
+    "Soluciones digitales": "panels-top-left",
+    "Proyectos en desarrollo": "flask-conical"
+};
 const projectNav = document.getElementById("projectNav");
 const visualTrack = document.getElementById("visualTrack");
 const copyTrack = document.getElementById("copyTrack");
@@ -235,7 +240,8 @@ function renderNavigation() {
         const expanded = category === requestedCategory;
         return `
             <div class="nav-group${expanded ? " expanded" : ""}" data-category-group="${category}">
-                <button class="nav-group-toggle" type="button" aria-expanded="${expanded}" aria-controls="${categoryId}">
+                <button class="nav-group-toggle" type="button" aria-expanded="${expanded}" aria-controls="${categoryId}" title="${category}">
+                    <i class="nav-group-icon" data-lucide="${categoryIcons[category]}"></i>
                     <span>${category}</span>
                     <span class="nav-group-count">${items.length}</span>
                 </button>
@@ -254,6 +260,12 @@ function renderNavigation() {
     projectNav.querySelectorAll(".nav-group-toggle").forEach((toggle) => {
         toggle.addEventListener("click", () => {
             const group = toggle.closest(".nav-group");
+            if (document.body.classList.contains("sidebar-collapsed")) {
+                document.body.classList.remove("sidebar-collapsed");
+                group.classList.add("expanded");
+                toggle.setAttribute("aria-expanded", "true");
+                return;
+            }
             const expanded = !group.classList.contains("expanded");
             group.classList.toggle("expanded", expanded);
             toggle.setAttribute("aria-expanded", String(expanded));
@@ -402,10 +414,18 @@ syncedSlider.addEventListener("pointerup", (event) => {
     if (Math.abs(delta) > 48) setSlide(currentSlide + (delta < 0 ? 1 : -1));
 });
 
-const openSidebar = () => document.body.classList.add("sidebar-open");
+const openSidebar = () => {
+    document.body.classList.remove("sidebar-collapsed");
+    if (window.innerWidth <= 820) document.body.classList.add("sidebar-open");
+};
 const closeSidebar = () => document.body.classList.remove("sidebar-open");
+const collapseSidebar = () => {
+    document.body.classList.remove("sidebar-open");
+    if (window.innerWidth > 820) document.body.classList.toggle("sidebar-collapsed");
+};
 document.getElementById("sidebarToggle").addEventListener("click", openSidebar);
 document.getElementById("sidebarClose").addEventListener("click", closeSidebar);
+document.getElementById("sidebarCollapse").addEventListener("click", collapseSidebar);
 document.getElementById("sidebarBackdrop").addEventListener("click", closeSidebar);
 
 function updateClock() {

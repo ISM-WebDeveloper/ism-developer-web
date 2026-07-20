@@ -1,7 +1,7 @@
 const services = [
     {
         id: "presencia-digital",
-        name: "Presencia Digital",
+        name: "Servicios de Presencia Digital",
         short: "Sitios web profesionales y escalables",
         type: "Visibilidad / Confianza / Conversión",
         accent: "#31bdf4",
@@ -29,7 +29,7 @@ const services = [
                 items: ["Más contenido", "Secciones estratégicas", "Mejor narrativa", "Optimización visual"]
             },
             {
-                name: "Presencia Premium",
+                name: "Presencia Corporativa",
                 description: "Para proyectos que necesitan diferenciación visual, interacciones avanzadas y una experiencia de mayor nivel.",
                 image: "assets/img/presencia-premium-preview.png",
                 alt: "Vista de una propuesta de presencia digital premium",
@@ -43,8 +43,8 @@ const services = [
         scalability: ["Catálogo o nuevas secciones", "Agenda y automatización de contactos", "Integraciones con sistemas de gestión", "Estrategia de contenido y posicionamiento"]
     },
     {
-        id: "planes-de-continuidad",
-        name: "Planes de Continuidad",
+        id: "desarrollo-digital",
+        name: "Servicio de Desarrollo Digital",
         short: "Soporte, mantención y evolución",
         type: "Operación / Seguridad / Mejora continua",
         accent: "#34d399",
@@ -87,7 +87,7 @@ const services = [
     },
     {
         id: "asesorias-digitales",
-        name: "Asesorías Digitales",
+        name: "Servicio de Asesorías Digitales",
         short: "Diagnóstico y decisiones con criterio",
         type: "Análisis / Estrategia / Planificación",
         accent: "#f9a8d4",
@@ -138,30 +138,68 @@ const progressLine = document.getElementById("progressLine");
 const currentSlideLabel = document.getElementById("currentSlide");
 const totalSlidesLabel = document.getElementById("totalSlides");
 const syncedSlider = document.getElementById("syncedSlider");
-const requestedService = new URLSearchParams(window.location.search).get("servicio");
+const requestedParams = new URLSearchParams(window.location.search);
+const requestedService = requestedParams.get("servicio");
+const requestedOption = requestedParams.get("opcion");
 let currentService = null;
 let currentSlide = 0;
 let pointerStartX = null;
 
 const pad = (value) => String(value).padStart(2, "0");
+const slugify = (value) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+const serviceIcons = {
+    "presencia-digital": "monitor-smartphone",
+    "desarrollo-digital": "code-2",
+    "asesorias-digitales": "messages-square"
+};
 
 function renderNavigation() {
-    serviceNav.innerHTML = services.map((service) => `
-        <button class="project-nav-item" type="button" data-service="${service.id}">
-            <span class="nav-dot" aria-hidden="true"></span>
-            <span class="nav-copy"><strong>${service.name}</strong><small>${service.short}</small></span>
-        </button>
-    `).join("");
+    const initialServiceId = services.some((service) => service.id === requestedService) ? requestedService : services[0].id;
+
+    serviceNav.innerHTML = services.map((service) => {
+        const expanded = service.id === initialServiceId;
+        const groupId = `service-group-${service.id}`;
+        return `
+            <div class="nav-group service-group${expanded ? " expanded" : ""}" data-service-group="${service.id}">
+                <button class="nav-group-toggle" type="button" aria-expanded="${expanded}" aria-controls="${groupId}" title="${service.name}">
+                    <i class="nav-group-icon" data-lucide="${serviceIcons[service.id]}"></i>
+                    <span>${service.name}</span>
+                </button>
+                <div class="nav-group-items" id="${groupId}">
+                    ${service.plans.map((plan, index) => `
+                        <button class="project-nav-item" type="button" data-service="${service.id}" data-plan="${index}">
+                            <span class="nav-dot" aria-hidden="true"></span>
+                            <span class="nav-copy"><strong>${plan.name}</strong><small>${plan.focus}</small></span>
+                        </button>
+                    `).join("")}
+                </div>
+            </div>`;
+    }).join("");
+
+    serviceNav.querySelectorAll(".nav-group-toggle").forEach((toggle) => {
+        toggle.addEventListener("click", () => {
+            const selectedGroup = toggle.closest(".nav-group");
+            if (document.body.classList.contains("sidebar-collapsed")) {
+                document.body.classList.remove("sidebar-collapsed");
+                serviceNav.querySelectorAll(".nav-group").forEach((group) => {
+                    const expanded = group === selectedGroup;
+                    group.classList.toggle("expanded", expanded);
+                    group.querySelector(".nav-group-toggle").setAttribute("aria-expanded", String(expanded));
+                });
+                return;
+            }
+            const willExpand = !selectedGroup.classList.contains("expanded");
+            serviceNav.querySelectorAll(".nav-group").forEach((group) => {
+                const expanded = group === selectedGroup && willExpand;
+                group.classList.toggle("expanded", expanded);
+                group.querySelector(".nav-group-toggle").setAttribute("aria-expanded", String(expanded));
+            });
+        });
+    });
 
     serviceNav.querySelectorAll("[data-service]").forEach((button) => {
-        button.addEventListener("click", () => selectService(button.dataset.service));
+        button.addEventListener("click", () => selectService(button.dataset.service, { planIndex: Number(button.dataset.plan) }));
     });
-}
-
-function renderMetrics(service) {
-    document.getElementById("serviceMetrics").innerHTML = service.metrics.map(([label, value]) => `
-        <div class="metric"><span>${label}</span><strong>${value}</strong></div>
-    `).join("");
 }
 
 function renderPlans(service) {
@@ -215,7 +253,7 @@ function renderTechnical(service) {
 function selectService(id, options = {}) {
     const service = services.find((item) => item.id === id) || services[0];
     currentService = service;
-    currentSlide = 0;
+    currentSlide = Number.isInteger(options.planIndex) ? options.planIndex : 0;
     document.body.classList.add("service-dashboard");
     document.documentElement.style.setProperty("--accent", service.accent);
     document.documentElement.style.setProperty("--accent-rgb", service.accentRgb);
@@ -225,20 +263,16 @@ function selectService(id, options = {}) {
     document.getElementById("serviceSummary").textContent = service.summary;
     document.getElementById("serviceScope").textContent = service.scope;
 
-    serviceNav.querySelectorAll("[data-service]").forEach((button) => {
-        const active = button.dataset.service === service.id;
-        button.classList.toggle("active", active);
-        button.setAttribute("aria-current", active ? "page" : "false");
+    const activeGroup = serviceNav.querySelector(`[data-service-group="${service.id}"]`);
+    serviceNav.querySelectorAll(".nav-group").forEach((group) => {
+        const expanded = group === activeGroup;
+        group.classList.toggle("expanded", expanded);
+        group.querySelector(".nav-group-toggle").setAttribute("aria-expanded", String(expanded));
     });
 
-    renderMetrics(service);
     renderPlans(service);
     renderTechnical(service);
-    setSlide(0);
-
-    const url = new URL(window.location.href);
-    url.searchParams.set("servicio", service.id);
-    window.history.replaceState({ service: service.id }, "", url);
+    setSlide(currentSlide);
     document.body.classList.remove("sidebar-open");
     if (window.lucide) window.lucide.createIcons();
     if (!options.initial && window.innerWidth > 820) window.scrollTo({ top: 0, behavior: "smooth" });
@@ -258,6 +292,17 @@ function setSlide(index) {
         dot.classList.toggle("active", active);
         dot.setAttribute("aria-current", active ? "true" : "false");
     });
+
+    serviceNav.querySelectorAll("[data-service][data-plan]").forEach((button) => {
+        const active = button.dataset.service === currentService.id && Number(button.dataset.plan) === currentSlide;
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-current", active ? "page" : "false");
+    });
+
+    const url = new URL(window.location.href);
+    url.searchParams.set("servicio", currentService.id);
+    url.searchParams.set("opcion", slugify(currentService.plans[currentSlide].name));
+    window.history.replaceState({ service: currentService.id, option: currentSlide }, "", url);
 }
 
 document.getElementById("slidePrev").addEventListener("click", () => setSlide(currentSlide - 1));
@@ -277,10 +322,18 @@ syncedSlider.addEventListener("pointerup", (event) => {
     if (Math.abs(delta) > 48) setSlide(currentSlide + (delta < 0 ? 1 : -1));
 });
 
-const openSidebar = () => document.body.classList.add("sidebar-open");
+const openSidebar = () => {
+    document.body.classList.remove("sidebar-collapsed");
+    if (window.innerWidth <= 820) document.body.classList.add("sidebar-open");
+};
 const closeSidebar = () => document.body.classList.remove("sidebar-open");
+const collapseSidebar = () => {
+    document.body.classList.remove("sidebar-open");
+    if (window.innerWidth > 820) document.body.classList.toggle("sidebar-collapsed");
+};
 document.getElementById("sidebarToggle").addEventListener("click", openSidebar);
 document.getElementById("sidebarClose").addEventListener("click", closeSidebar);
+document.getElementById("sidebarCollapse").addEventListener("click", collapseSidebar);
 document.getElementById("sidebarBackdrop").addEventListener("click", closeSidebar);
 
 function updateClock() {
@@ -292,6 +345,8 @@ function updateClock() {
 }
 
 renderNavigation();
-selectService(requestedService, { initial: true });
+const initialService = services.find((service) => service.id === requestedService) || services[0];
+const initialPlanIndex = Math.max(0, initialService.plans.findIndex((plan) => slugify(plan.name) === requestedOption));
+selectService(initialService.id, { initial: true, planIndex: initialPlanIndex });
 updateClock();
 setInterval(updateClock, 30000);

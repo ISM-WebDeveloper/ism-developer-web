@@ -2,10 +2,33 @@
     padding-top: 4px;
 }
 
+.service-nav .nav-group + .nav-group {
+    margin-top: 8px;
+}
+
+.service-nav .nav-group-toggle {
+    min-height: 46px;
+    padding: 8px 10px;
+    line-height: 1.35;
+}
+
+.service-nav .nav-group.expanded .nav-group-toggle {
+    color: #fff;
+    background: rgba(var(--accent-rgb), 0.08);
+}
+
+.service-nav .nav-group-items {
+    padding: 0 0 0 8px;
+}
+
+.service-nav .nav-group.expanded .nav-group-items {
+    padding: 5px 0 2px 8px;
+}
+
 .service-nav .project-nav-item {
-    min-height: 66px;
-    margin-bottom: 6px;
-    padding: 10px 12px;
+    min-height: 52px;
+    margin-bottom: 3px;
+    padding: 8px 10px;
 }
 
 .service-nav .nav-copy strong {
