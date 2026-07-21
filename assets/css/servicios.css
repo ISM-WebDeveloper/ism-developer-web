@@ -79,13 +79,22 @@
 }
 
 @media (max-width: 580px) {
+    .service-dashboard .synced-slider {
+        height: auto;
+        min-height: 0;
+    }
+
     .service-dashboard .visual-slide,
     .service-dashboard .screen-frame {
-        height: 240px;
+        height: clamp(210px, 66vw, 260px);
     }
 
     .service-dashboard .copy-slide {
-        height: 380px;
+        height: auto;
+        min-height: 340px;
+        max-height: 470px;
+        overflow-y: auto;
+        padding: 22px 18px;
     }
 
     .service-plan-list {
