@@ -4,13 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portafolio interactivo de ISM Developer: proyectos web, soluciones digitales y productos en desarrollo.">
+    <meta name="description" content="Casos de estudio y portafolio de ISM Developer: sitios web, agendas, sistemas digitales y proyectos en desarrollo.">
     <meta name="theme-color" content="#07111f">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.ismdeveloper.cl/portafolio.html">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://www.ismdeveloper.cl/proyectos/">
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_CL">
+    <meta property="og:site_name" content="ISM Developer">
+    <meta property="og:url" content="https://www.ismdeveloper.cl/proyectos/">
+    <meta property="og:title" content="Explorador de proyectos | ISM Developer">
+    <meta property="og:description" content="Recorre visualmente los casos de estudio y proyectos digitales de ISM Developer.">
+    <meta property="og:image" content="https://www.ismdeveloper.cl/assets/img/og-ism-developer.jpg">
     <link rel="stylesheet" href="assets/css/portafolio.css">
     <script src="assets/vendor/lucide.min.js" defer></script>
+    <script src="assets/js/analytics.js" defer></script>
     <script src="assets/js/portafolio.js" defer></script>
     <title>Portafolio de proyectos | ISM Developer</title>
 </head>
@@ -73,7 +81,9 @@
                             <p class="project-summary" id="projectSummary"></p>
                         </div>
                         <div class="project-actions">
-                            <a class="external-project-link" id="externalProjectLink" href="#" target="_blank" rel="noopener noreferrer" hidden>
+                            <a class="external-project-link" id="externalProjectLink" href="index.html#proyectos" target="_blank"
+                                rel="noopener noreferrer" data-track-event="project_demo_click"
+                                data-track-category="conversion" hidden>
                                 Visitar proyecto
                                 <i data-lucide="external-link"></i>
                             </a>
@@ -113,7 +123,7 @@
                 <section class="technical-section" aria-labelledby="technicalTitle">
                     <div class="section-heading">
                         <div>
-                            <p>Ficha técnica</p>
+                            <p id="technicalKicker">Ficha técnica</p>
                             <h2 id="technicalTitle">Arquitectura y alcance</h2>
                         </div>
                         <span id="techStack"></span>
@@ -126,7 +136,10 @@
                         <span>¿Tienes una necesidad similar?</span>
                         <h2>Conversemos sobre tu próximo proyecto.</h2>
                     </div>
-                    <a href="index.html#contacto">Iniciar conversación <i data-lucide="arrow-up-right"></i></a>
+                    <a href="index.html#contacto" data-track-event="cta_click" data-track-category="conversion"
+                        data-track-label="Iniciar conversación desde portafolio" data-track-section="portafolio">
+                        Iniciar conversación <i data-lucide="arrow-up-right"></i>
+                    </a>
                 </section>
             </div>
         </main>

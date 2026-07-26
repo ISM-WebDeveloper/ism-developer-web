@@ -4,16 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dashboard de servicios de ISM Developer: presencia digital, continuidad y asesorías digitales.">
+    <meta name="description" content="Servicios y plataformas digitales de ISM Developer: desarrollo, mantenimiento, monitoreo, continuidad, ciberseguridad y soporte.">
     <meta name="theme-color" content="#07111f">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.ismdeveloper.cl/servicios.html">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://www.ismdeveloper.cl/servicios/">
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_CL">
+    <meta property="og:site_name" content="ISM Developer">
+    <meta property="og:url" content="https://www.ismdeveloper.cl/servicios/">
+    <meta property="og:title" content="Explorador de servicios | ISM Developer">
+    <meta property="og:description" content="Explora visualmente los servicios de desarrollo, mantenimiento, monitoreo, continuidad, ciberseguridad y soporte.">
+    <meta property="og:image" content="https://www.ismdeveloper.cl/assets/img/og-ism-developer.jpg">
     <link rel="stylesheet" href="assets/css/portafolio.css">
     <link rel="stylesheet" href="assets/css/servicios.css">
     <script src="assets/vendor/lucide.min.js" defer></script>
+    <script src="assets/js/analytics.js" defer></script>
     <script src="assets/js/servicios.js" defer></script>
-    <title>Servicios digitales | ISM Developer</title>
+    <title>Servicios y Plataformas Digitales | ISM Developer</title>
 </head>
 
 <body>
@@ -30,7 +38,7 @@
             </div>
 
             <div class="sidebar-title">
-                <span>Service hub</span>
+                <span>Servicios y plataformas</span>
                 <p>Selecciona un área para revisar sus alternativas, alcance y evolución.</p>
             </div>
 
@@ -40,7 +48,7 @@
                 <span class="live-dot" aria-hidden="true"></span>
                 <div>
                     <strong>Servicios disponibles</strong>
-                    <small>3 áreas de acompañamiento</small>
+                    <small>6 pilares de acompañamiento</small>
                 </div>
                 <button class="sidebar-collapse" id="sidebarCollapse" type="button" aria-label="Ocultar sidebar">
                     <i data-lucide="panel-left-close"></i>
@@ -74,9 +82,15 @@
                             <p class="project-summary" id="serviceSummary"></p>
                         </div>
                         <div class="project-actions">
-                            <a class="external-project-link" href="index.html#contacto">
-                                Solicitar orientación
+                            <a class="external-project-link" id="servicePrimaryCta" href="index.html#contacto"
+                                data-track-event="cta_click" data-track-category="conversion">
+                                Evaluar este servicio
                                 <i data-lucide="arrow-up-right"></i>
+                            </a>
+                            <a class="external-project-link service-whatsapp-link" id="serviceWhatsAppCta"
+                                href="https://wa.me/56968374821" target="_blank" rel="noopener noreferrer">
+                                Hablar por WhatsApp
+                                <i data-lucide="message-circle"></i>
                             </a>
                         </div>
                     </div>
@@ -86,7 +100,7 @@
                 <section class="project-showcase" aria-label="Alternativas del servicio">
                     <div class="showcase-topline">
                         <div>
-                            <span>Alternativas disponibles</span>
+                            <span>Alcance operativo</span>
                             <strong><span id="currentSlide">01</span> / <span id="totalSlides">03</span></strong>
                         </div>
                         <div class="showcase-controls">
@@ -121,12 +135,25 @@
                     <div class="technical-grid" id="technicalGrid"></div>
                 </section>
 
+                <section class="technical-section plan-terms-section" id="planTermsSection"
+                    aria-labelledby="planTermsTitle" hidden>
+                    <div class="section-heading">
+                        <div>
+                            <p>Condiciones transparentes</p>
+                            <h2 id="planTermsTitle">Cobertura del plan</h2>
+                        </div>
+                        <span id="planTermsName"></span>
+                    </div>
+                    <div class="plan-terms-grid" id="planTermsGrid"></div>
+                </section>
+
                 <section class="project-cta">
                     <div>
-                        <span>¿No sabes cuál alternativa elegir?</span>
-                        <h2>Revisemos juntos la necesidad de tu negocio.</h2>
+                        <span id="serviceBottomKicker">¿No sabes cuál alternativa elegir?</span>
+                        <h2 id="serviceBottomTitle">Revisemos juntos la necesidad de tu negocio.</h2>
                     </div>
-                    <a href="index.html#contacto">Solicitar asesoría <i data-lucide="arrow-up-right"></i></a>
+                    <a id="serviceBottomCta" href="index.html#contacto" data-track-event="cta_click"
+                        data-track-category="conversion">Evaluar este servicio <i data-lucide="arrow-up-right"></i></a>
                 </section>
             </div>
         </main>

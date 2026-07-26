@@ -1,119 +1,90 @@
-// INICIO SIEMPRE EN HERO
-// Evita que el navegador restaure una posicion previa o un hash antiguo al recargar.
+// POSICIÓN INICIAL
+// Respeta enlaces directos a secciones y vuelve al hero solo cuando no existe un hash válido.
 
 if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";
 }
 
-const startAtHero = () => {
-    if (window.location.hash) {
-        history.replaceState(null, "", window.location.pathname + window.location.search);
-    }
+const restoreRequestedPosition = () => {
+    const targetId = decodeURIComponent(window.location.hash.slice(1));
+    const target = targetId ? document.getElementById(targetId) : null;
 
-    window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "instant"
+    requestAnimationFrame(() => {
+        if (target) {
+            target.scrollIntoView({ block: "start" });
+            return;
+        }
+
+        if (!targetId) {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "instant"
+            });
+        }
     });
 };
 
-startAtHero();
-window.addEventListener("DOMContentLoaded", startAtHero);
-window.addEventListener("load", startAtHero);
-window.addEventListener("pageshow", startAtHero);
+if (document.readyState === "loading") {
+    window.addEventListener("DOMContentLoaded", restoreRequestedPosition, { once: true });
+} else {
+    restoreRequestedPosition();
+}
 
-// ANALÍTICA GA4
-// Envía eventos si gtag está disponible y falla silenciosamente si Analytics aún no carga.
-window.trackEvent = function trackEvent(eventName, params = {}) {
-    if (typeof window.gtag !== "function") return;
-
-    window.gtag("event", eventName, params);
-};
-
-const getTrackingLabel = (element) => {
-    const visibleText = element.innerText?.replace(/\s+/g, " ").trim();
-    return visibleText || element.getAttribute("aria-label") || element.getAttribute("title") || "Sin etiqueta";
-};
-
-const getTrackingSection = (element) => {
-    if (element.closest(".hero")) return "hero";
-    if (element.closest("#contacto")) return "contacto";
-    if (element.closest("header")) return "header";
-    if (element.closest("footer")) return "footer";
-    return "unknown";
-};
-
-const baseTrackingParams = (element) => ({
-    event_label: getTrackingLabel(element),
-    page_location: window.location.href,
-    page_path: window.location.pathname,
-    section: getTrackingSection(element)
-});
-
-const bindTrackedClick = (elements, eventName, getParams) => {
-    elements.forEach((element) => {
-        if (element.dataset.analyticsBound === "true") return;
-
-        element.dataset.analyticsBound = "true";
-        element.addEventListener("click", () => {
-            window.trackEvent(eventName, getParams(element));
-        });
-    });
-};
-
-bindTrackedClick(
-    document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"], a[href*="api.whatsapp.com"]'),
-    "whatsapp_click",
-    (element) => ({
-        ...baseTrackingParams(element),
-        event_category: "conversion",
-        link_url: element.href
-    })
-);
-
-bindTrackedClick(
-    [...document.querySelectorAll('a[href="#contacto"], button')].filter((element) => {
-        const text = getTrackingLabel(element).toLowerCase();
-        return element.getAttribute("href") === "#contacto" || text.includes("asesoría") || text.includes("solicitar asesoría");
-    }),
-    "advisor_cta_click",
-    (element) => ({
-        ...baseTrackingParams(element),
-        event_category: "conversion"
-    })
-);
-
-bindTrackedClick(
-    document.querySelectorAll('a[href^="mailto:"]'),
-    "email_click",
-    (element) => ({
-        ...baseTrackingParams(element),
-        event_category: "contact",
-        link_url: element.href
-    })
-);
-
-bindTrackedClick(
-    document.querySelectorAll('a[href^="tel:"]'),
-    "phone_click",
-    (element) => ({
-        ...baseTrackingParams(element),
-        event_category: "contact",
-        link_url: element.href
-    })
-);
+window.addEventListener("pageshow", restoreRequestedPosition);
 
 // NAVBAR PREMIUM
 // Agrega una clase cuando el usuario baja con scroll
 
 const navbar = document.getElementById("navbar");
+const navToggle = document.getElementById("navToggle");
+const primaryNav = document.getElementById("primaryNav");
 let navbarHideTimer;
+
+const setNavigationOpen = (isOpen) => {
+    if (!navbar || !navToggle) return;
+
+    navbar.classList.toggle("menu-open", isOpen);
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+    navToggle.setAttribute("aria-label", isOpen ? "Cerrar menú principal" : "Abrir menú principal");
+    navToggle.innerHTML = `<i data-lucide="${isOpen ? "x" : "menu"}"></i>`;
+
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+};
+
+navToggle?.addEventListener("click", () => {
+    setNavigationOpen(!navbar?.classList.contains("menu-open"));
+});
+
+primaryNav?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setNavigationOpen(false));
+});
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        setNavigationOpen(false);
+    }
+});
+
+window.addEventListener("resize", () => {
+    if (window.innerWidth > 1024) {
+        setNavigationOpen(false);
+    }
+});
 
 window.addEventListener("scroll", () => {
     if (!navbar) return;
 
     if (window.innerWidth <= 600) {
         navbar.classList.remove("scrolled");
+        navbar.classList.remove("nav-hidden");
+        clearTimeout(navbarHideTimer);
+        return;
+    }
+
+    if (navbar.classList.contains("menu-open")) {
         navbar.classList.remove("nav-hidden");
         clearTimeout(navbarHideTimer);
         return;
@@ -264,8 +235,10 @@ presenceCarousels.forEach((carousel) => {
     if (!slides.length || !dotsContainer) return;
 
     slides.forEach((_, index) => {
-        const dot = document.createElement("span");
+        const dot = document.createElement("button");
+        dot.type = "button";
         dot.className = "presence-dot";
+        dot.setAttribute("aria-label", `Ver imagen ${index + 1} de ${slides.length}`);
         dot.addEventListener("click", () => setPresenceSlide(index));
         dotsContainer.appendChild(dot);
     });
@@ -285,6 +258,7 @@ presenceCarousels.forEach((carousel) => {
 
         dots.forEach((dot, dotIndex) => {
             dot.classList.toggle("active", dotIndex === activeIndex);
+            dot.toggleAttribute("aria-current", dotIndex === activeIndex);
         });
     }
 
@@ -384,8 +358,10 @@ if (vaultSection) {
 
         if (inspectorLink) {
             inspectorLink.hidden = false;
-            inspectorLink.href = `portafolio.html?proyecto=${encodeURIComponent(node.dataset.projectId)}`;
-            inspectorLink.textContent = "Ver proyecto";
+            inspectorLink.href = `proyectos/#${encodeURIComponent(node.dataset.projectId)}`;
+            inspectorLink.textContent = node.dataset.caseStudy === "true" ? "Ver caso de estudio" : "Ver proyecto";
+            inspectorLink.dataset.trackLabel = `${inspectorLink.textContent}: ${node.dataset.name}`;
+            inspectorLink.dataset.projectId = node.dataset.projectId;
             inspectorLink.removeAttribute("target");
             inspectorLink.removeAttribute("rel");
         }
@@ -449,11 +425,14 @@ if (vaultSection) {
         });
 
         if (firstVisibleNode) {
+            const preferredNode = [...vaultNodes].find((node) => (
+                node.dataset.category === category && node.dataset.caseStudy === "true"
+            ));
             buildVaultIndex(category);
-            setProjectData(firstVisibleNode);
+            setProjectData(preferredNode || firstVisibleNode);
 
             if (shouldScroll) {
-                scrollProjectIntoView(firstVisibleNode);
+                scrollProjectIntoView(preferredNode || firstVisibleNode);
             }
         }
     };
@@ -499,15 +478,25 @@ if (vaultSection) {
     });
 
     vaultNodes.forEach((node) => {
+        node.dataset.trackEvent = "project_click";
+        node.dataset.trackCategory = "portfolio";
+        node.dataset.trackLabel = node.dataset.name;
+
         if (node.dataset.projectId && !node.querySelector(".vault-mobile-action")) {
             const action = document.createElement("span");
             action.className = "vault-mobile-action";
-            action.textContent = "Ver proyecto";
+            action.textContent = node.dataset.caseStudy === "true" ? "Ver caso de estudio" : "Ver proyecto";
 
             action.addEventListener("click", (event) => {
                 event.stopPropagation();
 
-                window.location.href = `portafolio.html?proyecto=${encodeURIComponent(node.dataset.projectId)}`;
+                window.trackEvent("project_click", {
+                    event_category: "portfolio",
+                    event_label: action.textContent,
+                    project_id: node.dataset.projectId,
+                    section: "proyectos"
+                });
+                window.location.href = `proyectos/#${encodeURIComponent(node.dataset.projectId)}`;
             });
 
             node.appendChild(action);
@@ -549,6 +538,21 @@ if (vaultSection) {
 const contactForm = document.getElementById("contactForm");
 
 if (contactForm) {
+    const serviceSelect = document.getElementById("contactServicio");
+    const requestedServiceId = new URLSearchParams(window.location.search).get("servicio");
+    const serviceNames = {
+        "desarrollo-implementacion": "Desarrollo e Implementación",
+        "mantenimiento-evolucion": "Mantenimiento y Evolución",
+        "monitoreo-observabilidad": "Monitoreo y Observabilidad",
+        "respaldo-continuidad": "Respaldo y Continuidad Operacional",
+        "ciberseguridad-proteccion": "Ciberseguridad y Protección Digital",
+        "soporte-gestion": "Soporte y Gestión de Servicios"
+    };
+
+    if (requestedServiceId && serviceNames[requestedServiceId] && serviceSelect) {
+        serviceSelect.value = serviceNames[requestedServiceId];
+    }
+
     contactForm.addEventListener("submit", (event) => {
         event.preventDefault();
 
@@ -570,7 +574,17 @@ if (contactForm) {
             `Mensaje: ${mensaje}`
         ].join("\n");
 
-        window.open(`https://wa.me/56968374821?text=${encodeURIComponent(whatsappText)}`, "_blank");
+        window.trackEvent("contact_form_submit", {
+            event_category: "conversion",
+            service_interest: servicio,
+            section: "contacto"
+        });
+
+        window.open(
+            `https://wa.me/56968374821?text=${encodeURIComponent(whatsappText)}`,
+            "_blank",
+            "noopener,noreferrer"
+        );
     });
 }
 
@@ -589,18 +603,23 @@ if (window.lucide) {
 
 const faqItems = document.querySelectorAll(".faq-item");
 
-faqItems.forEach((item) => {
+faqItems.forEach((item, index) => {
     const question = item.querySelector(".faq-question");
-    if (!question) return;
+    const answer = item.querySelector(".faq-answer");
+    if (!question || !answer) return;
+
+    const questionId = `faq-question-${index + 1}`;
+    const answerId = `faq-answer-${index + 1}`;
+    question.id = questionId;
+    question.setAttribute("aria-controls", answerId);
+    answer.id = answerId;
+    answer.setAttribute("role", "region");
+    answer.setAttribute("aria-labelledby", questionId);
+    answer.setAttribute("aria-hidden", "true");
 
     question.addEventListener("click", () => {
         const isActive = item.classList.toggle("active");
         question.setAttribute("aria-expanded", isActive);
+        answer.setAttribute("aria-hidden", String(!isActive));
     });
 });
-
-
-
-
-
-

@@ -56,9 +56,17 @@ const server = createServer((request, response) => {
         return;
     }
 
+    const extension = extname(filePath).toLowerCase();
+    const isVersionableAsset = filePath.includes(`${sep}assets${sep}`);
+    const cacheControl = isVersionableAsset
+        ? "public, max-age=604800, stale-while-revalidate=86400"
+        : extension === ".html"
+            ? "no-cache"
+            : "public, max-age=3600";
+
     response.writeHead(200, {
-        "Cache-Control": "no-store",
-        "Content-Type": mimeTypes[extname(filePath).toLowerCase()] || "application/octet-stream",
+        "Cache-Control": cacheControl,
+        "Content-Type": mimeTypes[extension] || "application/octet-stream",
         "X-Content-Type-Options": "nosniff"
     });
 

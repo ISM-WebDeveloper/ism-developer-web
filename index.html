@@ -2,19 +2,9 @@
 <html lang="es">
 
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B1FE9EK441"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-B1FE9EK441');
-</script>
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ISM Developer | Desarrollo web en Antofagasta para empresas</title>
+    <title>ISM Developer | Sitios web y sistemas para pymes</title>
     <meta name="description"
         content="ISM Developer crea páginas web para empresas, presencia digital, soporte web y soluciones digitales a medida para pymes que necesitan crecer con tecnología clara y profesional." />
     <meta name="keywords"
@@ -35,85 +25,126 @@
     <meta property="og:title" content="ISM Developer | Desarrollo web y soluciones digitales para pymes" />
     <meta property="og:description"
         content="Páginas web, presencia digital, soporte web y desarrollo de sistemas web para empresas y pymes que necesitan ordenar procesos y crecer con tecnología." />
-    <meta property="og:image" content="https://www.ismdeveloper.cl/assets/img/logo1.png" />
+    <meta property="og:image" content="https://www.ismdeveloper.cl/assets/img/og-ism-developer.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="ISM Developer - desarrollo web en Antofagasta" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="ISM Developer | Desarrollo web para empresas" />
     <meta name="twitter:description"
         content="Creación de páginas web, mantenimiento web y soluciones digitales para empresas y pymes." />
-    <meta name="twitter:image" content="https://www.ismdeveloper.cl/assets/img/logo1.png" />
+    <meta name="twitter:image" content="https://www.ismdeveloper.cl/assets/img/og-ism-developer.jpg" />
 
-    <link rel="preload" href="assets/img/ignaciodesarrollador.png" as="image" />
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+    <link rel="preload" href="assets/img/ignaciodesarrollador.jpg" as="image" type="image/jpeg" />
     <link rel="stylesheet" href="assets/css/style.css" />
 
     <!-- LUCIDE ICONS -->
     <script src="assets/vendor/lucide.min.js" defer></script>
+    <script src="assets/js/analytics.js" defer></script>
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "ProfessionalService",
-            "name": "ISM Developer",
-            "alternateName": "ISM Dev",
-            "url": "https://www.ismdeveloper.cl/",
-            "logo": "https://www.ismdeveloper.cl/assets/img/logo-completo.svg",
-            "image": "https://www.ismdeveloper.cl/assets/img/logo1.png",
-            "description": "Desarrollo web en Antofagasta, creación de páginas web para pymes, presencia digital, soporte web, mantenimiento web y soluciones digitales para empresas.",
-            "email": "imcodedeveloper@gmail.com",
-            "telephone": "+56968374821",
-            "priceRange": "$$",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Antofagasta",
-                "addressRegion": "Antofagasta",
-                "addressCountry": "Chile"
-            },
-            "openingHoursSpecification": [
+            "@graph": [
                 {
-                    "@type": "OpeningHoursSpecification",
-                    "dayOfWeek": [
-                        "Monday",
-                        "Tuesday",
-                        "Wednesday",
-                        "Thursday",
-                        "Friday"
+                    "@type": "ProfessionalService",
+                    "@id": "https://www.ismdeveloper.cl/#business",
+                    "name": "ISM Developer",
+                    "alternateName": "ISM Dev",
+                    "url": "https://www.ismdeveloper.cl/",
+                    "logo": "https://www.ismdeveloper.cl/assets/img/logo-completo.svg",
+                    "image": "https://www.ismdeveloper.cl/assets/img/og-ism-developer.jpg",
+                    "description": "Desarrollo web en Antofagasta, creación de páginas web para pymes, soporte, mantenimiento y soluciones digitales para empresas.",
+                    "email": "imcodedeveloper@gmail.com",
+                    "telephone": "+56968374821",
+                    "priceRange": "$$",
+                    "founder": {"@id": "https://www.ismdeveloper.cl/#ignacio"},
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Antofagasta",
+                        "addressRegion": "Antofagasta",
+                        "addressCountry": "Chile"
+                    },
+                    "openingHoursSpecification": [{
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                        "opens": "09:00",
+                        "closes": "18:00"
+                    }],
+                    "areaServed": [
+                        {"@type": "AdministrativeArea", "name": "Antofagasta"},
+                        {"@type": "Country", "name": "Chile"}
                     ],
-                    "opens": "09:00",
-                    "closes": "18:00"
-                }
-            ],
-            "areaServed": [
-                {
-                    "@type": "AdministrativeArea",
-                    "name": "Antofagasta"
+                    "serviceType": [
+                        "Desarrollo e Implementación",
+                        "Mantenimiento y Evolución",
+                        "Monitoreo y Observabilidad",
+                        "Respaldo y Continuidad Operacional",
+                        "Ciberseguridad y Protección Digital",
+                        "Soporte y Gestión de Servicios"
+                    ],
+                    "sameAs": [
+                        "https://www.instagram.com/imcodedeveloper/",
+                        "https://web.facebook.com/ignacioandres.sepulvedamardones?locale=es_LA"
+                    ]
                 },
                 {
-                    "@type": "Country",
-                    "name": "Chile"
+                    "@type": "Person",
+                    "@id": "https://www.ismdeveloper.cl/#ignacio",
+                    "name": "Ignacio",
+                    "url": "https://www.ismdeveloper.cl/#sobre-mi",
+                    "jobTitle": "Desarrollador de soluciones digitales",
+                    "worksFor": {"@id": "https://www.ismdeveloper.cl/#business"},
+                    "knowsAbout": ["Desarrollo web", "Logística", "Ventas", "Procesos operativos", "Sistemas digitales"]
+                },
+                {
+                    "@type": "FAQPage",
+                    "@id": "https://www.ismdeveloper.cl/#faq-schema",
+                    "mainEntity": [
+                        {
+                            "@type": "Question",
+                            "name": "¿Qué modificaciones están incluidas?",
+                            "acceptedAnswer": {"@type": "Answer", "text": "El alcance incluye una ronda consolidada de revisión de textos, imágenes y detalles visuales antes de publicar. Las correcciones de errores respecto del alcance aprobado no consumen esa ronda. Nuevas secciones, funciones o cambios de dirección se cotizan por separado."}
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "¿Quién queda como propietario del código y los accesos?",
+                            "acceptedAnswer": {"@type": "Answer", "text": "Al completar el pago, el cliente recibe el código correspondiente a su proyecto y los accesos acordados. El dominio, hosting y cuentas de terceros se configuran preferentemente a nombre del cliente."}
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "¿Qué SEO está incluido?",
+                            "acceptedAnswer": {"@type": "Answer", "text": "Los sitios incluyen títulos y descripciones, estructura semántica, adaptación móvil, indexabilidad y configuración esencial. No incluye campañas, contenido periódico, construcción de enlaces ni garantías de posición."}
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "¿Cómo se realiza el pago?",
+                            "acceptedAnswer": {"@type": "Answer", "text": "El pago se realiza mediante transferencia bancaria. Los hitos, porcentajes y fechas quedan escritos en la cotización antes de comenzar."}
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "¿Qué ocurre después de publicar?",
+                            "acceptedAnswer": {"@type": "Answer", "text": "Se comprueba el alcance entregado, se coordinan los accesos y durante 7 días corridos se atienden errores atribuibles a la implementación. Cambios posteriores pasan a mantenimiento o a una nueva cotización."}
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "¿El mantenimiento está incluido?",
+                            "acceptedAnswer": {"@type": "Answer", "text": "No se incluye de forma indefinida con el desarrollo. Puede contratarse un plan con solicitudes, horas, horario, tiempos de respuesta, respaldos y exclusiones definidos."}
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "¿Quién entrega los textos y las imágenes?",
+                            "acceptedAnswer": {"@type": "Answer", "text": "El cliente entrega textos, logo e imágenes finales y confirma que puede utilizarlos. La redacción, búsqueda de imágenes o producción audiovisual puede incorporarse mediante cotización independiente."}
+                        }
+                    ]
                 }
-            ],
-            "serviceType": [
-                "Desarrollo web",
-                "Creación de páginas web",
-                "Páginas web para pymes",
-                "Presencia digital",
-                "Desarrollo de sistemas web",
-                "Aplicaciones web a medida",
-                "Soporte web",
-                "Mantenimiento web",
-                "Soluciones digitales"
-            ],
-            "sameAs": [
-                "https://www.instagram.com/imcodedeveloper/",
-                "https://web.facebook.com/ignacioandres.sepulvedamardones?locale=es_LA"
             ]
         }
     </script>
 </head>
 
 <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
 
     <!-- HEADER / LANDING INICIAL -->
@@ -123,33 +154,42 @@
                 <img src="assets/img/logo-horizontal-tight.svg" alt="ISM Developer - desarrollo web y soluciones digitales" class="nav-logo" width="252" height="47" decoding="async">
             </a>
     
-            <ul class="nav-links">
+            <ul class="nav-links" id="primaryNav">
                 <li><a href="#inicio">Inicio</a></li>
+                <li><a href="servicios/">Servicios</a></li>
+                <li><a href="proyectos/">Proyectos</a></li>
+                <li><a href="#proceso">Proceso</a></li>
                 <li><a href="#sobre-mi">Sobre mí</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#soluciones">Soluciones</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
     
-            <a href="#contacto" class="btn-nav premium-btn" aria-label="Solicitar una asesoría inicial con ISM Developer">Asesoría Inicial</a>
+            <a href="#contacto" class="btn-nav premium-btn" aria-label="Evaluar mi proyecto con ISM Developer">Evaluar mi proyecto</a>
+
+            <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false"
+                aria-controls="primaryNav" aria-label="Abrir menú principal">
+                <i data-lucide="menu"></i>
+            </button>
         </nav>
     
         <section class="hero hero-human" aria-labelledby="hero-title">
         
             <div class="hero-content">
-                <p class="hero-kicker">ISM Developer</p>
+                <p class="hero-kicker">Desarrollo web y sistemas digitales para pymes</p>
         
                 <h1 id="hero-title">
-                    <span class="hero-title-main">Primero entendemos la necesidad.</span>
-                    <span class="hero-title-accent">Después desarrollamos.</span>
+                    <span class="hero-title-main">Primero entendemos tu negocio.</span>
+                    <span class="hero-title-accent">Después construimos la solución.</span>
                 </h1>
         
                 <p class="hero-text">
-                    No construimos páginas web para llenar Internet. Construimos herramientas digitales
-                    que ayudan a las personas y empresas a trabajar mejor, transmitir confianza 
-                    y seguir creciendo con el tiempo.
+                    Creamos sitios web, sistemas a medida y soluciones digitales que ayudan a ordenar
+                    procesos, ahorrar tiempo y generar nuevas oportunidades.
                 </p>
+
+                <div class="hero-actions" aria-label="Acciones principales">
+                    <a href="#contacto" class="btn-primary">Evaluar mi proyecto</a>
+                    <a href="servicios/" class="btn-secondary">Ver soluciones</a>
+                </div>
         
                 <div class="hero-trust-list">
                     <div class="hero-trust-card">
@@ -170,15 +210,15 @@
             </div>
         
             <div class="hero-portrait">
-                <img src="assets/img/ignaciodesarrollador.png"
+                <img src="assets/img/ignaciodesarrollador.jpg"
                     alt="Ignacio de ISM Developer trabajando en desarrollo web y soluciones digitales"
-                    fetchpriority="high" decoding="async">
+                    width="1280" height="720" fetchpriority="high" decoding="async">
             </div>
         
         </section>
     </header>
 
-    <main>
+    <main id="contenido">
 
         <!-- ========================================================= -->
         <!-- SOBRE MÍ -->
@@ -191,8 +231,9 @@
 
                 <div class="about-visual reveal">
                     <div class="about-orbit image-test" aria-label="Imagen sobre experiencia y desarrollo">
-                        <img class="about-orbit-image" src="assets/img/about-animation-test.png"
-                            alt="Ilustración tecnológica con globos de herramientas de desarrollo" loading="lazy" decoding="async">
+                        <img class="about-orbit-image" src="assets/img/about-animation-test.jpg"
+                            alt="Ilustración tecnológica con globos de herramientas de desarrollo"
+                            width="1280" height="853" loading="lazy" decoding="async">
                         <div class="about-orbit-glow"></div>
                         <div class="about-orbit-route route-a"></div>
                         <div class="about-orbit-route route-b"></div>
@@ -267,24 +308,22 @@
                     <h2 id="sobre-mi-title">Hola, soy <span>Ignacio</span>.</h2>
 
                     <p>
-                        Antes de dedicarme al desarrollo web trabajé en logística, bodegas, ventas,
-                        despachos, imprentas y otras áreas operativas. Cada experiencia me permitió
-                        conocer realidades diferentes, pero todas tenían algo en común: procesos
-                        lentos, tareas repetitivas y poco tiempo para enfocarse en lo importante.
+                        Mi camino no comenzó frente a un editor de código. Trabajé en logística,
+                        bodegas, ventas, despachos e imprentas, donde aprendí a escuchar a los clientes,
+                        coordinar tareas, controlar información y resolver problemas bajo presión.
                     </p>
 
                     <p>
-                        Con el tiempo entendí que muchas personas y pequeños negocios no necesitan
-                        trabajar más horas; necesitan mejores herramientas. La tecnología puede
-                        automatizar tareas, ordenar información y simplificar procesos que consumen
-                        tiempo todos los días.
+                        Al convivir con planillas dispersas, registros manuales y tareas repetitivas,
+                        entendí que muchos problemas cotidianos no se resuelven trabajando más horas,
+                        sino diseñando mejores procesos y herramientas que sean fáciles de usar.
                     </p>
 
                     <p>
-                        Por eso hoy desarrollo sitios web, creación de páginas web, aplicaciones y soluciones digitales con un
-                        objetivo claro: ayudar a las personas a recuperar tiempo, reducir el estrés
-                        operativo y dedicar más energía a hacer crecer sus proyectos, sus negocios y
-                        su calidad de vida.
+                        Hoy combino esa experiencia operativa y comercial con el desarrollo web.
+                        Creo sitios, agendas y sistemas entendiendo primero cómo funciona el negocio,
+                        qué necesita el usuario y dónde se pierde tiempo. Mi objetivo es construir
+                        soluciones digitales claras, útiles y preparadas para evolucionar.
                     </p>
                 </div>
 
@@ -296,45 +335,173 @@
             <div class="wave-bg"></div>
 
             <div class="section-title">
-                <h2 id="servicios-title">Servicios de desarrollo web y soluciones digitales</h2>
+                <p>Capacidades de ISM Developer</p>
+                <h2 id="servicios-title">Servicios y Plataformas Digitales</h2>
             </div>
 
-            <div class="cards cards-slim">
-                <a class="card service-card-link reveal" href="servicios.html?servicio=presencia-digital" aria-label="Ver dashboard de Presencia Digital">
-                    <i data-lucide="globe-2" class="card-icon"></i>
-                    <h3 class="card-title-center">Presencia Digital</h3>
+            <div class="cards cards-slim service-pillars">
+                <a class="card service-card-link reveal" href="servicios/#desarrollo-implementacion"
+                    aria-label="Ver desarrollo e implementación" data-track-event="service_detail_click"
+                    data-track-category="services" data-track-label="Desarrollo e Implementación"
+                    data-service-id="desarrollo-implementacion">
+                    <i data-lucide="code-2" class="card-icon"></i>
+                    <h3 class="card-title-center">Desarrollo e Implementación</h3>
                     <p>
-                        Creación de páginas web modernas para empresas y pymes que necesitan estar visibles,
-                        generar confianza y recibir contactos desde Internet.
+                        Diseño y construcción de soluciones digitales, sitios, apps, integraciones
+                        y automatización.
                     </p>
-                    <span class="service-card-cta">Ver detalle <span aria-hidden="true">→</span></span>
+                    <span class="service-card-cta">Diseñar mi solución <span aria-hidden="true">→</span></span>
                 </a>
 
-                <a class="card service-card-link reveal" href="servicios.html?servicio=desarrollo-digital" aria-label="Ver dashboard de Soluciones Digitales">
-                    <i data-lucide="settings" class="card-icon"></i>
-                    <h3 class="card-title-center">Soluciones Digitales</h3>
+                <a class="card service-card-link reveal" href="servicios/#mantenimiento-evolucion"
+                    aria-label="Ver mantenimiento y evolución" data-track-event="service_detail_click"
+                    data-track-category="services" data-track-label="Mantenimiento y Evolución"
+                    data-service-id="mantenimiento-evolucion">
+                    <i data-lucide="refresh-cw" class="card-icon"></i>
+                    <h3 class="card-title-center">Mantenimiento y Evolución</h3>
                     <p>
-                        Desarrollo de sistemas web para inventario, reservas, ventas y gestión interna
-                        que ayudan a ordenar procesos y reducir trabajo manual, incluyendo aplicaciones web
-                        a medida y soluciones digitales para empresas.
+                        Actualizaciones, correcciones, mejoras funcionales, parches y optimización continua.
                     </p>
-                    <span class="service-card-cta">Ver detalle <span aria-hidden="true">→</span></span>
+                    <span class="service-card-cta">Planificar mantenimiento <span aria-hidden="true">→</span></span>
                 </a>
 
-                <a class="card service-card-link reveal" href="servicios.html?servicio=asesorias-digitales" aria-label="Ver dashboard de Consultoría Digital">
-                    <i data-lucide="lightbulb" class="card-icon"></i>
-                    <h3 class="card-title-center">Consultoría Digital</h3>
+                <a class="card service-card-link reveal" href="servicios/#monitoreo-observabilidad"
+                    aria-label="Ver monitoreo y observabilidad" data-track-event="service_detail_click"
+                    data-track-category="services" data-track-label="Monitoreo y Observabilidad"
+                    data-service-id="monitoreo-observabilidad">
+                    <i data-lucide="activity" class="card-icon"></i>
+                    <h3 class="card-title-center">Monitoreo y Observabilidad</h3>
                     <p>
-                        Diagnóstico, propuesta técnica y planificación de soluciones
-                        digitales para empresas que necesitan orientación.
+                        Supervisión de disponibilidad, rendimiento, alertas, métricas, logs y trazabilidad.
                     </p>
-                    <span class="service-card-cta">Ver detalle <span aria-hidden="true">→</span></span>
+                    <span class="service-card-cta">Definir monitoreo <span aria-hidden="true">→</span></span>
+                </a>
+
+                <a class="card service-card-link reveal" href="servicios/#respaldo-continuidad"
+                    aria-label="Ver respaldo y continuidad operacional" data-track-event="service_detail_click"
+                    data-track-category="services" data-track-label="Respaldo y Continuidad Operacional"
+                    data-service-id="respaldo-continuidad">
+                    <i data-lucide="database-backup" class="card-icon"></i>
+                    <h3 class="card-title-center">Respaldo y Continuidad Operacional</h3>
+                    <p>
+                        Protección de datos, retención, restauración, RPO/RTO y recuperación ante incidentes.
+                    </p>
+                    <span class="service-card-cta">Preparar continuidad <span aria-hidden="true">→</span></span>
+                </a>
+
+                <a class="card service-card-link reveal" href="servicios/#ciberseguridad-proteccion"
+                    aria-label="Ver ciberseguridad y protección digital" data-track-event="service_detail_click"
+                    data-track-category="services" data-track-label="Ciberseguridad y Protección Digital"
+                    data-service-id="ciberseguridad-proteccion">
+                    <i data-lucide="shield-check" class="card-icon"></i>
+                    <h3 class="card-title-center">Ciberseguridad y Protección Digital</h3>
+                    <p>
+                        Hardening, control de accesos, parches, vulnerabilidades y respuesta ante incidentes.
+                    </p>
+                    <span class="service-card-cta">Revisar seguridad <span aria-hidden="true">→</span></span>
+                </a>
+
+                <a class="card service-card-link reveal" href="servicios/#soporte-gestion"
+                    aria-label="Ver soporte y gestión de servicios" data-track-event="service_detail_click"
+                    data-track-category="services" data-track-label="Soporte y Gestión de Servicios"
+                    data-service-id="soporte-gestion">
+                    <i data-lucide="headset" class="card-icon"></i>
+                    <h3 class="card-title-center">Soporte y Gestión de Servicios</h3>
+                    <p>
+                        Mesa de ayuda, incidentes, solicitudes, cambios, SLA y seguimiento operacional.
+                    </p>
+                    <span class="service-card-cta">Ordenar mi soporte <span aria-hidden="true">→</span></span>
                 </a>
             </div>
         </section>
 
-        <!-- 4. PRESENCIA DIGITAL -->
-        <section class="section section-light" id="presencia" aria-labelledby="presencia-title">
+        <!-- 4. PRODUCTOS -->
+        <section class="section products-section section-light" id="productos" aria-labelledby="productos-title">
+            <div class="section-title">
+                <p>Soluciones con alcance claro</p>
+                <h2 id="productos-title">Productos para cada etapa de tu negocio</h2>
+            </div>
+
+            <div class="product-grid">
+                <article class="card product-card reveal">
+                    <i data-lucide="panel-top" class="card-icon"></i>
+                    <p class="product-label">Presencia digital</p>
+                    <h3>Landing Profesional</h3>
+                    <p>Una página clara, responsive y preparada para presentar tu negocio y recibir contactos.</p>
+                    <strong class="product-price">$79.000</strong>
+                    <a class="service-card-cta" href="#contacto"
+                        aria-label="Evaluar Landing Profesional">Evaluar solución <span aria-hidden="true">→</span></a>
+                </article>
+
+                <article class="card product-card product-card-featured reveal">
+                    <span class="product-badge">Recomendada</span>
+                    <i data-lucide="calendar-check" class="card-icon"></i>
+                    <p class="product-label">Reservas y atención</p>
+                    <h3>Agenda Profesional</h3>
+                    <p>Una experiencia de agenda para ordenar disponibilidad, solicitudes y coordinación con clientes.</p>
+                    <strong class="product-price">$149.000</strong>
+                    <a class="service-card-cta" href="#contacto"
+                        aria-label="Evaluar Agenda Profesional">Evaluar solución <span aria-hidden="true">→</span></a>
+                </article>
+
+                <article class="card product-card reveal">
+                    <i data-lucide="layers-3" class="card-icon"></i>
+                    <p class="product-label">Presencia avanzada</p>
+                    <h3>Profesional Plus</h3>
+                    <p>Más contenido, estructura comercial e interacciones para una presencia digital preparada para crecer.</p>
+                    <strong class="product-price">$249.000</strong>
+                    <a class="service-card-cta" href="#contacto"
+                        aria-label="Evaluar Profesional Plus">Evaluar solución <span aria-hidden="true">→</span></a>
+                </article>
+
+                <article class="card product-card reveal">
+                    <i data-lucide="workflow" class="card-icon"></i>
+                    <p class="product-label">Necesidad específica</p>
+                    <h3>Sistema a medida</h3>
+                    <p>Una solución diseñada según procesos, usuarios, integraciones y objetivos definidos en conjunto.</p>
+                    <strong class="product-price product-price-custom">Cotización por alcance</strong>
+                    <a class="service-card-cta" href="#contacto"
+                        aria-label="Evaluar sistema a medida">Evaluar solución <span aria-hidden="true">→</span></a>
+                </article>
+            </div>
+        </section>
+
+        <!-- 5. NIVELES DE MADUREZ DIGITAL -->
+        <section class="section maturity-section section-base" id="madurez-digital" aria-labelledby="madurez-title">
+            <div class="section-title">
+                <p>Una ruta transversal para avanzar con criterio</p>
+                <h2 id="madurez-title">Niveles de madurez transversales</h2>
+            </div>
+
+            <div class="maturity-grid">
+                <article class="card maturity-card reveal">
+                    <span class="maturity-number">01</span>
+                    <h3>Primeros Pasos Digitales</h3>
+                    <p>Presencia y habilitación inicial.</p>
+                </article>
+                <article class="card maturity-card reveal">
+                    <span class="maturity-number">02</span>
+                    <h3>Optimización Digital</h3>
+                    <p>Integración, automatización y control.</p>
+                </article>
+                <article class="card maturity-card reveal">
+                    <span class="maturity-number">03</span>
+                    <h3>Consolidación Digital</h3>
+                    <p>Escalabilidad, seguridad y continuidad.</p>
+                </article>
+                <article class="card maturity-card reveal">
+                    <span class="maturity-number">04</span>
+                    <h3>Evolución Digital</h3>
+                    <p>Innovación y mejora continua.</p>
+                </article>
+            </div>
+            <p class="maturity-note">
+                Estos niveles de madurez aplican transversalmente a todos los servicios y plataformas.
+            </p>
+        </section>
+
+        <!-- Presentación anterior conservada temporalmente fuera del recorrido -->
+        <section class="section section-light" id="presencia" aria-labelledby="presencia-title" hidden>
             <h2 id="presencia-title" class="sr-only">Presencia digital, soporte web y mantenimiento web para empresas</h2>
             <div class="presence-showcase">
                 <article class="presence-block reveal">
@@ -342,20 +509,23 @@
                         <div class="presence-track">
                             <figure class="presence-slide active">
                                 <div class="presence-image-card">
-                                    <img src="assets/img/presencia-esencial-preview.png"
-                                        alt="Ejemplo visual de presencia digital esencial" loading="lazy" decoding="async">
+                                    <img src="assets/img/presencia-esencial-preview.jpg"
+                                        alt="Ejemplo visual de presencia digital esencial"
+                                        width="1280" height="801" loading="lazy" decoding="async">
                                 </div>
                             </figure>
                             <figure class="presence-slide">
                                 <div class="presence-image-card">
-                                    <img src="assets/img/presencia-profesional-preview.png"
-                                        alt="Ejemplo visual de presencia digital profesional" loading="lazy" decoding="async">
+                                    <img src="assets/img/presencia-profesional-preview.jpg"
+                                        alt="Ejemplo visual de presencia digital profesional"
+                                        width="1280" height="853" loading="lazy" decoding="async">
                                 </div>
                             </figure>
                             <figure class="presence-slide">
                                 <div class="presence-image-card">
-                                    <img src="assets/img/presencia-premium-preview.png"
-                                        alt="Ejemplo visual de presencia digital premium" loading="lazy" decoding="async">
+                                    <img src="assets/img/presencia-premium-preview.jpg"
+                                        alt="Ejemplo visual de presencia digital premium"
+                                        width="1280" height="853" loading="lazy" decoding="async">
                                 </div>
                             </figure>
                         </div>
@@ -415,20 +585,23 @@
                         <div class="presence-track">
                             <figure class="presence-slide active">
                                 <div class="presence-image-card">
-                                    <img src="assets/img/soporte-base-preview.png"
-                                        alt="Ilustración de soporte base y mantención digital" loading="lazy" decoding="async">
+                                    <img src="assets/img/soporte-base-preview.jpg"
+                                        alt="Ilustración de soporte base y mantención digital"
+                                        width="1280" height="801" loading="lazy" decoding="async">
                                 </div>
                             </figure>
                             <figure class="presence-slide">
                                 <div class="presence-image-card">
-                                    <img src="assets/img/soporte-activo-preview.png"
-                                        alt="Ilustración de mantención activa y soporte técnico continuo" loading="lazy" decoding="async">
+                                    <img src="assets/img/soporte-activo-preview.jpg"
+                                        alt="Ilustración de mantención activa y soporte técnico continuo"
+                                        width="1280" height="853" loading="lazy" decoding="async">
                                 </div>
                             </figure>
                             <figure class="presence-slide">
                                 <div class="presence-image-card">
-                                    <img src="assets/img/soporte-evolucion-preview.png"
-                                        alt="Ilustración de evolución continua y servicios digitales" loading="lazy" decoding="async">
+                                    <img src="assets/img/soporte-evolucion-preview.jpg"
+                                        alt="Ilustración de evolución continua y servicios digitales"
+                                        width="1280" height="853" loading="lazy" decoding="async">
                                 </div>
                             </figure>
                         </div>
@@ -448,10 +621,10 @@
                         <div class="presence-copy-slide active">
                             <span>Planes de continuidad</span>
                             <h3>Soporte Base</h3>
-                            <p>Para mantener tu sitio operativo, resolver ajustes menores y tener respaldo cuando algo necesita revisión.</p>
+                            <p>Para mantener tu sitio operativo y atender hasta 2 solicitudes que no superen 2 horas mensuales.</p>
                             <ul>
                                 <li>Revisión mensual</li>
-                                <li>Ajustes pequeños</li>
+                                <li>Hasta 2 solicitudes o 2 horas</li>
                                 <li>Soporte preventivo</li>
                                 <li>Canal directo</li>
                             </ul>
@@ -462,10 +635,10 @@
                             <h3>Mantención Activa</h3>
                             <p>Para negocios que actualizan contenido, campañas, imágenes o información de forma recurrente.</p>
                             <ul>
-                                <li>Cambios mensuales</li>
+                                <li>Hasta 5 solicitudes o 5 horas</li>
                                 <li>Actualización de textos</li>
                                 <li>Optimización visual</li>
-                                <li>Mejoras continuas</li>
+                                <li>Revisión preventiva mensual</li>
                             </ul>
                         </div>
 
@@ -488,20 +661,23 @@
                         <div class="presence-track">
                             <figure class="presence-slide active">
                                 <div class="presence-image-card">
-                                    <img src="assets/img/asesoria-inicial-preview.png"
-                                        alt="Ilustración de asesoría inicial para página nueva" loading="lazy" decoding="async">
+                                    <img src="assets/img/asesoria-inicial-preview.jpg"
+                                        alt="Ilustración de asesoría inicial para página nueva"
+                                        width="1280" height="801" loading="lazy" decoding="async">
                                 </div>
                             </figure>
                             <figure class="presence-slide">
                                 <div class="presence-image-card">
-                                    <img src="assets/img/asesoria-revision-preview.png"
-                                        alt="Ilustración de revisión web y análisis digital" loading="lazy" decoding="async">
+                                    <img src="assets/img/asesoria-revision-preview.jpg"
+                                        alt="Ilustración de revisión web y análisis digital"
+                                        width="1280" height="801" loading="lazy" decoding="async">
                                 </div>
                             </figure>
                             <figure class="presence-slide">
                                 <div class="presence-image-card">
-                                    <img src="assets/img/asesoria-auditoria-preview.png"
-                                        alt="Ilustración de auditoría digital y mejoras web" loading="lazy" decoding="async">
+                                    <img src="assets/img/asesoria-auditoria-preview.jpg"
+                                        alt="Ilustración de auditoría digital y mejoras web"
+                                        width="1280" height="801" loading="lazy" decoding="async">
                                 </div>
                             </figure>
                         </div>
@@ -638,97 +814,85 @@
             <div class="tools-panel reveal">
                 <div class="tools-grid">
                     <article class="tool-card">
-                        <span class="tool-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-                                alt="HTML5" loading="lazy" decoding="async">
+                        <span class="tool-icon tool-icon-line">
+                            <i data-lucide="code-xml" aria-hidden="true"></i>
                         </span>
                         <strong>HTML5</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
-                                alt="CSS3" loading="lazy" decoding="async">
+                        <span class="tool-icon tool-icon-line">
+                            <i data-lucide="palette" aria-hidden="true"></i>
                         </span>
                         <strong>CSS3</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                                alt="JavaScript" loading="lazy" decoding="async">
+                        <span class="tool-icon tool-icon-line">
+                            <i data-lucide="braces" aria-hidden="true"></i>
                         </span>
                         <strong>JavaScript</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
-                                alt="TypeScript" loading="lazy" decoding="async">
+                        <span class="tool-icon tool-icon-line">
+                            <i data-lucide="binary" aria-hidden="true"></i>
                         </span>
                         <strong>TypeScript</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                                alt="React" loading="lazy" decoding="async">
+                        <span class="tool-icon tool-icon-line">
+                            <i data-lucide="atom" aria-hidden="true"></i>
                         </span>
                         <strong>React</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
-                                alt="Tailwind CSS" loading="lazy" decoding="async">
+                        <span class="tool-icon tool-icon-line">
+                            <i data-lucide="wind" aria-hidden="true"></i>
                         </span>
                         <strong>Tailwind</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                                alt="Python" loading="lazy" decoding="async">
+                        <span class="tool-icon tool-icon-line">
+                            <i data-lucide="file-code-2" aria-hidden="true"></i>
                         </span>
                         <strong>Python</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
-                                alt="Bootstrap" loading="lazy" decoding="async">
+                        <span class="tool-icon tool-icon-line">
+                            <i data-lucide="layout-template" aria-hidden="true"></i>
                         </span>
                         <strong>Bootstrap</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon tool-icon-monochrome">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-                                alt="GitHub" loading="lazy" decoding="async">
+                        <span class="tool-icon tool-icon-line tool-icon-monochrome">
+                            <i data-lucide="git-branch" aria-hidden="true"></i>
                         </span>
                         <strong>GitHub</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
-                                alt="VS Code" loading="lazy" decoding="async">
+                        <span class="tool-icon tool-icon-line">
+                            <i data-lucide="code-2" aria-hidden="true"></i>
                         </span>
                         <strong>VS Code</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg"
-                                alt="Supabase" loading="lazy" decoding="async">
+                        <span class="tool-icon tool-icon-line">
+                            <i data-lucide="database-zap" aria-hidden="true"></i>
                         </span>
                         <strong>Supabase</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
-                                alt="Figma" loading="lazy" decoding="async">
+                        <span class="tool-icon tool-icon-line">
+                            <i data-lucide="pen-tool" aria-hidden="true"></i>
                         </span>
                         <strong>Figma</strong>
                     </article>
@@ -755,17 +919,15 @@
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
-                                alt="PostgreSQL" loading="lazy" decoding="async">
+                        <span class="tool-icon tool-icon-line">
+                            <i data-lucide="database" aria-hidden="true"></i>
                         </span>
                         <strong>PostgreSQL</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
-                                alt="MySQL" loading="lazy" decoding="async">
+                        <span class="tool-icon tool-icon-line">
+                            <i data-lucide="database" aria-hidden="true"></i>
                         </span>
                         <strong>MySQL</strong>
                     </article>
@@ -778,9 +940,8 @@
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg"
-                                alt="SQLite" loading="lazy" decoding="async">
+                        <span class="tool-icon tool-icon-line">
+                            <i data-lucide="database" aria-hidden="true"></i>
                         </span>
                         <strong>SQLite</strong>
                     </article>
@@ -855,7 +1016,7 @@
         </section>
 
         <!-- 8. SOLUCIONES ESTANDARIZADAS -->
-        <section class="section software-section section-base" id="soluciones" aria-labelledby="soluciones-title">
+        <section class="section software-section section-base" id="soluciones" aria-labelledby="soluciones-title" hidden>
             <div class="code-shapes"></div>
 
             <div class="section-title">
@@ -900,7 +1061,8 @@
                         <p class="vault-kicker">ISM Project Vault</p>
                         <h2 id="proyectos-title">Portafolio de <span>Proyectos</span></h2>
                     </div>
-                    <a class="vault-dashboard-link" href="portafolio.html">
+                    <a class="vault-dashboard-link" href="proyectos/" data-track-event="project_click"
+                        data-track-category="portfolio" data-track-label="Explorar portafolio">
                         Explorar portafolio
                         <span aria-hidden="true">→</span>
                     </a>
@@ -928,7 +1090,7 @@
                         </button>
 
                         <div class="vault-track" aria-live="polite">
-                        <button class="vault-node project-proestakis active" type="button" data-project-id="constructora-proestakis" data-category="presencias"
+                        <button class="vault-node project-proestakis" type="button" data-project-id="constructora-proestakis" data-category="presencias"
                             data-name="Constructora Proestakis" data-type="Presencia Digital" data-status="Publicado"
                             data-stage="Cliente activo" data-date="Sitio publicado"
                             data-tech="HTML5, CSS3, JS, Vercel"
@@ -937,7 +1099,8 @@
                             data-description="Sitio corporativo para una constructora, enfocado en comunicar experiencia, capacidad técnica y presencia profesional.">
                             <span class="vault-status published">Publicado</span>
                             <span class="vault-preview preview-image">
-                                <img src="assets/img/project-proestakis.png" alt="Vista previa de Constructora Proestakis" loading="lazy" decoding="async">
+                                <img src="assets/img/project-proestakis.jpg" alt="Vista previa de Constructora Proestakis"
+                                    width="1280" height="589" loading="lazy" decoding="async">
                             </span>
                             <span class="vault-node-meta">
                                 <small>Presencia Digital</small>
@@ -952,16 +1115,18 @@
                             <span class="vault-mobile-detail"></span>
                         </button>
 
-                        <button class="vault-node project-badiasalud active" type="button" data-project-id="badiasalud" data-category="presencias"
+                        <button class="vault-node project-badiasalud active" type="button" data-project-id="badiasalud"
+                            data-category="presencias" data-case-study="true"
                             data-name="Badiasalud" data-type="Presencia digital + Agenda móvil" data-status="Publicado"
-                            data-stage="Cliente activo" data-date="Sitio publicado"
+                            data-stage="Caso de estudio" data-date="Sitio publicado"
                             data-tech="TypeScript, Tailwind CSS, JavaScript, Vercel, Supabase, Node.js"
                             data-link="https://www.badiasalud.cl"
                             data-action="Ver"
                             data-description="Presencia digital profesional y agenda móvil para Javier Badilla, enfermero independiente. La solución comunica su experiencia y servicios, e impulsa Badiasalud mediante una herramienta escalable.">
                             <span class="vault-status published">Publicado</span>
                             <span class="vault-preview preview-image">
-                                <img src="assets/img/badiasaludhero.png" alt="Vista previa de Badiasalud.cl" loading="lazy" decoding="async">
+                                <img src="assets/img/badiasaludhero.jpg" alt="Vista previa de Badiasalud.cl"
+                                    width="1280" height="635" loading="lazy" decoding="async">
                             </span>
                             <span class="vault-node-meta">
                                 <small>Presencia Digital + Agenda móvil</small>
@@ -976,16 +1141,18 @@
                             <span class="vault-mobile-detail"></span>
                         </button>
 
-                        <button class="vault-node project-lecasse" type="button" data-project-id="lecasse-it-services" data-category="presencias"
+                        <button class="vault-node project-lecasse" type="button" data-project-id="lecasse-it-services"
+                            data-category="presencias" data-case-study="true"
                             data-name="Lecasse IT Services" data-type="Presencia Digital" data-status="Publicado"
-                            data-stage="Cliente activo" data-date="Sitio publicado"
+                            data-stage="Caso de estudio" data-date="Sitio publicado"
                             data-tech="HTML5, CSS3, JS, Vercel"
                             data-link="https://lecasse.vercel.app/"
                             data-action="Ver"
                             data-description="Presencia digital para servicios tecnológicos, diseñada para presentar capacidades, ordenar la propuesta de valor y reforzar una imagen profesional.">
                             <span class="vault-status published">Publicado</span>
                             <span class="vault-preview preview-image">
-                                <img src="assets/img/project-lecasse.png" alt="Vista previa de Lecasse IT Services" loading="lazy" decoding="async">
+                                <img src="assets/img/project-lecasse.jpg" alt="Vista previa de Lecasse IT Services"
+                                    width="1280" height="570" loading="lazy" decoding="async">
                             </span>
                             <span class="vault-node-meta">
                                 <small>Presencia Digital</small>
@@ -1009,7 +1176,8 @@
                             data-description="Landing visual para una marca de accesorios, orientada a destacar productos, identidad de marca y futuras acciones comerciales.">
                             <span class="vault-status demo">Demo</span>
                             <span class="vault-preview preview-image">
-                                <img src="assets/img/project-maige-palace.png" alt="Vista previa de Maige Palace" loading="lazy" decoding="async">
+                                <img src="assets/img/project-maige-palace.jpg" alt="Vista previa de Maige Palace"
+                                    width="1280" height="553" loading="lazy" decoding="async">
                             </span>
                             <span class="vault-node-meta">
                                 <small>Presencia Digital</small>
@@ -1024,28 +1192,29 @@
                             <span class="vault-mobile-detail"></span>
                         </button>
 
-                        <button class="vault-node project-control" type="button" data-project-id="control-gestion" data-category="soluciones"
-                            data-name="Sistema de Control Gestión" data-type="Solución Digital" data-status="Demo"
-                            data-stage="Sistema funcional" data-date="Control logístico"
-                            data-tech="JavaScript, Supabase, SQL, Mobile UI"
+                        <button class="vault-node project-control" type="button" data-project-id="control-gestion"
+                            data-category="soluciones" data-case-study="true"
+                            data-name="ISM Gestión Control" data-type="Sistema web interno" data-status="Piloto interno"
+                            data-stage="Caso de estudio interno" data-date="Inventario y operaciones"
+                            data-tech="React, TypeScript, Supabase, PostgreSQL"
                             data-link="#contacto"
                             data-action="Conversar solución"
-                            data-description="Sistema para controlar movimientos de existencias, registrar historial operativo y monitorear información en tiempo real desde dispositivos móviles.">
-                            <span class="vault-status demo">Demo</span>
+                            data-description="Sistema web interno para centralizar inventario, recepciones, entregas, alertas, herramientas e historial operativo con acceso diferenciado por roles.">
+                            <span class="vault-status development">Piloto interno</span>
                             <span class="vault-preview preview-inventory">
                                 <span class="preview-toolbar"></span>
                                 <span class="preview-table"></span>
                                 <span class="preview-chart"></span>
                             </span>
                             <span class="vault-node-meta">
-                                <small>Solución Digital</small>
-                                <strong>Sistema de Control Gestión</strong>
-                                <em>Inventario y logística</em>
+                                <small>Sistema Web</small>
+                                <strong>ISM Gestión Control</strong>
+                                <em>Inventario y operaciones</em>
                             </span>
                             <span class="vault-tags">
+                                <span>React</span>
                                 <span>Supabase</span>
-                                <span>SQL</span>
-                                <span>Mobile</span>
+                                <span>PostgreSQL</span>
                             </span>
                             <span class="vault-mobile-detail"></span>
                         </button>
@@ -1059,7 +1228,8 @@
                             data-description="Sistema móvil para faenas de construcción, orientado a agilizar movimientos de bodega, controlar existencias y mantener trazabilidad histórica.">
                             <span class="vault-status development">En desarrollo</span>
                             <span class="vault-preview preview-image">
-                                <img class="preview-contain" src="assets/img/project-cipapp.png" alt="Vista previa de CIPApp" loading="lazy" decoding="async">
+                                    <img class="preview-contain" src="assets/img/project-cipapp.png" alt="Vista previa de CIPApp"
+                                        width="453" height="584" loading="lazy" decoding="async">
                             </span>
                             <span class="vault-node-meta">
                                 <small>Proyecto en Desarrollo</small>
@@ -1135,25 +1305,30 @@
                     <aside class="vault-inspector" aria-label="Preview del proyecto seleccionado">
                         <div class="vault-inspector-preview">
                             <div class="inspector-visual preview-image">
-                                <img src="assets/img/project-proestakis.png" alt="Vista previa de Constructora Proestakis" loading="lazy" decoding="async">
+                                <img src="assets/img/badiasaludhero.jpg" alt="Vista previa de Badiasalud"
+                                    width="1280" height="635" loading="lazy" decoding="async">
                             </div>
                         </div>
                         <div class="vault-inspector-content">
-                            <p id="vaultInspectorType">Presencia Digital</p>
+                            <p id="vaultInspectorType">Presencia digital + Agenda móvil</p>
                             <div class="vault-inspector-title">
-                                <h3 id="vaultInspectorName">Constructora Proestakis</h3>
+                                <h3 id="vaultInspectorName">Badiasalud</h3>
                                 <span id="vaultInspectorStatus">Publicado</span>
                             </div>
                             <p id="vaultInspectorDescription" class="vault-inspector-description">
-                                Sitio corporativo para una constructora, enfocado en comunicar experiencia, capacidad
-                                técnica y presencia profesional.
+                                Presencia digital profesional y agenda móvil para organizar servicios, disponibilidad
+                                y solicitudes de atención.
                             </p>
-                            <small id="vaultInspectorTech">HTML5, CSS3, JS, Vercel</small>
+                            <small id="vaultInspectorTech">TypeScript, Tailwind CSS, Supabase, Vercel</small>
                             <div class="vault-inspector-meta">
-                                <span id="vaultInspectorStage">Cliente activo</span>
+                                <span id="vaultInspectorStage">Caso de estudio</span>
                                 <span id="vaultInspectorDate">Sitio publicado</span>
                             </div>
-                            <a href="portafolio.html?proyecto=constructora-proestakis" id="vaultInspectorLink">Ver proyecto</a>
+                        <a href="proyectos/#badiasalud" id="vaultInspectorLink"
+                                data-track-event="project_click" data-track-category="portfolio"
+                                data-track-label="Ver caso de estudio Badiasalud" data-project-id="badiasalud">
+                                Ver caso de estudio
+                            </a>
                         </div>
                     </aside>
                 </div>
@@ -1176,88 +1351,124 @@
                 <div class="faq-grid">
 
                     <div class="faq-column">
-                        <h3>Desarrollo Web</h3>
+                        <h3>Alcance y entrega</h3>
 
                         <div class="faq-item">
                             <button class="faq-question" type="button" aria-expanded="false">
-                                ¿Cuánto demora una Presencia Digital Básica?
+                                ¿Qué modificaciones están incluidas?
                                 <span>+</span>
                             </button>
                             <div class="faq-answer">
                                 <p>
-                                    El tiempo estimado es de 2 a 3 días hábiles desde que recibo todo el material
-                                    necesario.
+                                    El alcance acordado incluye una ronda consolidada de revisión de textos,
+                                    imágenes y detalles visuales antes de publicar. Las correcciones de errores
+                                    respecto del alcance aprobado no consumen esa ronda. Nuevas secciones,
+                                    funciones o cambios de dirección se cotizan por separado.
                                 </p>
                             </div>
                         </div>
 
                         <div class="faq-item">
                             <button class="faq-question" type="button" aria-expanded="false">
-                                ¿El valor incluye hosting y dominio?
+                                ¿Quién queda como propietario del código y los accesos?
                                 <span>+</span>
                             </button>
                             <div class="faq-answer">
                                 <p>
-                                    No. El dominio y hosting se cotizan aparte o pueden quedar directamente a nombre del
-                                    cliente.
+                                    Al completar el pago, el cliente recibe el código correspondiente a su proyecto
+                                    y los accesos acordados. El dominio, hosting y cuentas de terceros se configuran
+                                    preferentemente a nombre del cliente. Las licencias externas mantienen las
+                                    condiciones de sus respectivos proveedores.
                                 </p>
                             </div>
                         </div>
 
                         <div class="faq-item">
                             <button class="faq-question" type="button" aria-expanded="false">
-                                ¿Qué necesito entregar para comenzar?
+                                ¿Qué SEO está incluido?
                                 <span>+</span>
                             </button>
                             <div class="faq-answer">
                                 <p>
-                                    Logo, textos, imágenes, redes sociales, WhatsApp, dirección y datos principales del
-                                    negocio.
+                                    Los sitios incluyen una base técnica inicial: títulos y descripciones,
+                                    estructura semántica, adaptación móvil, indexabilidad y configuración esencial.
+                                    No incluye campañas, generación periódica de contenido, construcción de enlaces
+                                    ni garantías de posición en buscadores.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" type="button" aria-expanded="false">
+                                ¿Cómo se realiza el pago?
+                                <span>+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    El pago se realiza mediante transferencia bancaria. Los hitos, porcentajes y
+                                    fechas quedan escritos en la cotización antes de comenzar, y no se ejecutan
+                                    trabajos fuera del alcance sin aprobación previa.
                                 </p>
                             </div>
                         </div>
                     </div>
 
                     <div class="faq-column">
-                        <h3>Servicios Digitales</h3>
+                        <h3>Publicación y continuidad</h3>
 
                         <div class="faq-item">
                             <button class="faq-question" type="button" aria-expanded="false">
-                                ¿Qué incluye una solución digital para pymes?
+                                ¿Qué ocurre después de publicar?
                                 <span>+</span>
                             </button>
                             <div class="faq-answer">
                                 <p>
-                                    Puede incluir usuarios, autenticación, panel administrador, base de datos, historial
-                                    de
-                                    registros y reportes.
+                                    Se comprueba el funcionamiento del alcance entregado, se coordinan los accesos y
+                                    se atienden durante 7 días corridos los errores atribuibles a la implementación.
+                                    Nuevas solicitudes o cambios posteriores pasan a mantenimiento o a una nueva
+                                    cotización.
                                 </p>
                             </div>
                         </div>
 
                         <div class="faq-item">
                             <button class="faq-question" type="button" aria-expanded="false">
-                                ¿Cuánto demora desarrollar un sistema?
+                                ¿El mantenimiento está incluido?
                                 <span>+</span>
                             </button>
                             <div class="faq-answer">
                                 <p>
-                                    Depende del alcance. Un sistema base puede tomar entre 3 y 6 semanas según
-                                    funcionalidades e
-                                    integraciones.
+                                    No se incluye de forma indefinida con el desarrollo. Puede contratarse un plan
+                                    con solicitudes, horas, horario, tiempos de respuesta, respaldos y exclusiones
+                                    definidos. El detalle está disponible en Mantenimiento y Evolución.
                                 </p>
                             </div>
                         </div>
 
                         <div class="faq-item">
                             <button class="faq-question" type="button" aria-expanded="false">
-                                ¿Se puede adaptar a celular y computador?
+                                ¿Quién entrega los textos y las imágenes?
                                 <span>+</span>
                             </button>
                             <div class="faq-answer">
                                 <p>
-                                    Sí. Las soluciones se desarrollan con diseño responsive para computador, tablet y
-                                    celular.
+                                    El cliente entrega textos, logo e imágenes finales y confirma que cuenta con
+                                    autorización para utilizarlos. La redacción, búsqueda de imágenes o producción
+                                    audiovisual puede incorporarse mediante una cotización independiente.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" type="button" aria-expanded="false">
+                                ¿El valor incluye dominio y hosting?
+                                <span>+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    No, salvo que la cotización lo indique expresamente. Estos servicios se contratan
+                                    por separado y sus costos dependen del proveedor. Siempre que sea posible, quedan
+                                    registrados a nombre del cliente.
                                 </p>
                             </div>
                         </div>
@@ -1272,12 +1483,11 @@
         <section class="section contact section-light" id="contacto" aria-labelledby="contacto-title">
             <div class="contact-shell">
                 <div class="contact-intro">
-                    <h2 id="contacto-title">Cuéntame sobre tu <span>proyecto</span></h2>
+                    <h2 id="contacto-title">Evalúa tu proyecto con <span>ISM Developer</span></h2>
                     <p>
-                        Comparte la idea, el problema o el proceso que quieres mejorar. Con esa información puedo
-                        entender mejor el contexto y responderte con una orientación clara sobre desarrollo web,
-                        páginas web para pymes, soporte web y mantenimiento, aplicaciones web a medida o soluciones
-                        digitales para tu empresa.
+                        Cuéntanos qué quieres construir, mejorar o automatizar. ISM Developer revisará el contexto
+                        para orientarte hacia una solución coherente con la etapa, las prioridades y los objetivos
+                        de tu negocio.
                     </p>
 
                     <div class="contact-points">
@@ -1298,29 +1508,59 @@
 
                 <form class="contact-form" id="contactForm">
                     <div class="contact-form-brand">
-                        <img src="assets/img/logo-horizontal-tight.svg" alt="ISM Developer - formulario de contacto" loading="lazy" decoding="async">
+                        <img src="assets/img/logo-horizontal-tight.svg" alt="ISM Developer - formulario de contacto"
+                            width="252" height="47" loading="lazy" decoding="async">
                     </div>
 
                     <div class="contact-form-grid">
-                        <input type="text" name="nombre" placeholder="Nombre" aria-label="Nombre" required />
-                        <input type="text" name="empresa" placeholder="Empresa o negocio" aria-label="Empresa o negocio" />
-                        <input type="tel" name="whatsapp" placeholder="WhatsApp" aria-label="WhatsApp" required />
-
-                        <select name="servicio" aria-label="Servicio de interés" required>
-                            <option value="">Servicio de interés</option>
-                            <option>Presencia digital</option>
-                            <option>Aplicación o sistema</option>
-                            <option>Automatización de procesos</option>
-                            <option>Mejora de sitio existente</option>
-                            <option>Aún estoy ordenando la idea</option>
-                        </select>
+                        <div class="contact-field">
+                            <label for="contactNombre">Nombre</label>
+                            <input id="contactNombre" type="text" name="nombre" placeholder="Tu nombre"
+                                autocomplete="name" required />
+                        </div>
+                        <div class="contact-field">
+                            <label for="contactEmpresa">Empresa o negocio</label>
+                            <input id="contactEmpresa" type="text" name="empresa" placeholder="Nombre de tu negocio"
+                                autocomplete="organization" />
+                        </div>
+                        <div class="contact-field">
+                            <label for="contactWhatsapp">WhatsApp</label>
+                            <input id="contactWhatsapp" type="tel" name="whatsapp" placeholder="+56 9..."
+                                autocomplete="tel" inputmode="tel" required />
+                        </div>
+                        <div class="contact-field">
+                            <label for="contactServicio">Solución de interés</label>
+                            <select id="contactServicio" name="servicio" required>
+                                <option value="">Selecciona una opción</option>
+                                <optgroup label="Productos">
+                                    <option>Landing Profesional</option>
+                                    <option>Agenda Profesional</option>
+                                    <option>Profesional Plus</option>
+                                    <option>Sistema a medida</option>
+                                </optgroup>
+                                <optgroup label="Servicios">
+                                    <option>Desarrollo e Implementación</option>
+                                    <option>Mantenimiento y Evolución</option>
+                                    <option>Monitoreo y Observabilidad</option>
+                                    <option>Respaldo y Continuidad Operacional</option>
+                                    <option>Ciberseguridad y Protección Digital</option>
+                                    <option>Soporte y Gestión de Servicios</option>
+                                </optgroup>
+                                <option>Aún estoy ordenando la idea</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <textarea name="mensaje" placeholder="Cuéntame brevemente qué necesitas" aria-label="Mensaje del proyecto"></textarea>
+                    <div class="contact-field">
+                        <label for="contactMensaje">Cuéntanos qué necesitas</label>
+                        <textarea id="contactMensaje" name="mensaje"
+                            placeholder="Describe brevemente el objetivo, problema o proceso que quieres mejorar"></textarea>
+                    </div>
 
                     <div class="contact-actions">
-                        <button type="submit" class="btn-primary btn-small">Enviar solicitud</button>
+                        <button type="submit" class="btn-primary btn-small">Continuar por WhatsApp</button>
                     </div>
+                    <p class="contact-form-note">Al continuar se abrirá WhatsApp con tu solicitud preparada para enviarla a ISM Developer.</p>
                 </form>
             </div>
         </section>
@@ -1330,7 +1570,7 @@
     <a class="floating-whatsapp"
         href="https://wa.me/56968374821?text=Hola,%20Ignacio.%20Quiero%20conversar%20un%20proyecto%20con%20ISM%20Developer."
         target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" alt="" loading="lazy" decoding="async">
+        <img src="assets/img/social-whatsapp.svg" alt="" width="28" height="28" loading="lazy" decoding="async">
     </a>
 
     <!-- FOOTER -->
@@ -1338,26 +1578,26 @@
         <div class="footer-grid">
 
             <div class="footer-brand">
-                <h3 id="footer-title">ISM<span>Dev</span></h3>
+                <h3 id="footer-title">ISM <span>Developer</span></h3>
                 <p>
-                    Desarrollo web en Antofagasta y soluciones digitales para pymes.
-                    Diseño, automatización, soporte web, mantenimiento y tecnología para negocios que quieren crecer.
+                    ISM Developer crea sitios web, sistemas a medida y soluciones digitales para pymes
+                    que necesitan ordenar procesos, ahorrar tiempo y crecer con una base tecnológica clara.
                 </p>
             </div>
 
             <div class="footer-column">
                 <h4>Servicios</h4>
-                <a href="#presencia">Presencia Digital</a>
-                <a href="#soluciones">Software para Pymes</a>
-                <a href="#contacto">Consultoría Digital</a>
+                <a href="servicios/">Servicios digitales</a>
+                <a href="#productos">Productos</a>
+                <a href="#madurez-digital">Madurez digital</a>
             </div>
 
             <div class="footer-column">
                 <h4>Navegación</h4>
-                <a href="#sobre-mi">Sobre mí</a>
-                <a href="#servicios">Servicios</a>
+                <a href="servicios/">Servicios</a>
+                <a href="proyectos/">Proyectos</a>
                 <a href="#proceso">Proceso</a>
-                <a href="#proyectos">Proyectos</a>
+                <a href="#sobre-mi">Sobre mí</a>
                 <a href="#contacto">Contacto</a>
             </div>
 
@@ -1368,7 +1608,7 @@
        target="_blank"
        rel="noopener noreferrer"
        aria-label="WhatsApp">
-        <img src="assets/img/social-whatsapp.svg" alt="WhatsApp" loading="lazy" decoding="async">
+        <img src="assets/img/social-whatsapp.svg" alt="" width="24" height="24" loading="lazy" decoding="async">
         <span>WhatsApp</span>
     </a>
 
@@ -1384,11 +1624,17 @@
         <span>+56 9 6837 4821</span>
     </a>
 
+    <a href="https://www.ismdeveloper.cl/"
+       aria-label="Sitio web oficial de ISM Developer">
+        <i data-lucide="globe-2" class="footer-icon"></i>
+        <span>www.ismdeveloper.cl</span>
+    </a>
+
     <a href="https://www.instagram.com/imcodedeveloper/"
        target="_blank"
        rel="noopener noreferrer"
        aria-label="Instagram">
-        <img src="assets/img/social-instagram.svg" alt="Instagram" loading="lazy" decoding="async">
+        <img src="assets/img/social-instagram.svg" alt="" width="24" height="24" loading="lazy" decoding="async">
         <span>Instagram</span>
     </a>
 
@@ -1396,7 +1642,7 @@
        target="_blank"
        rel="noopener noreferrer"
        aria-label="Facebook">
-        <img src="assets/img/social-facebook.svg" alt="Facebook" loading="lazy" decoding="async">
+        <img src="assets/img/social-facebook.svg" alt="" width="24" height="24" loading="lazy" decoding="async">
         <span>Facebook</span>
     </a>
 </div>
@@ -1405,7 +1651,7 @@
 
         <div class="footer-bottom">
             <p>© 2026 ISM Developer. Todos los derechos reservados.</p>
-            <p>Desarrollado por Ignacio Sepúlveda</p>
+            <p>Desarrollado por ISM Developer</p>
         </div>
     </footer>
 

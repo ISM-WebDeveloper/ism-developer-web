@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "node server.mjs",
     "start": "node server.mjs",
-    "check": "node --check assets/js/script.js && node --check assets/js/portafolio.js && node --check assets/js/servicios.js && node --check server.mjs"
+    "check": "node --check assets/js/analytics.js && node --check assets/js/script.js && node --check assets/js/portafolio.js && node --check assets/js/servicios.js && node --check scripts/validate-site.mjs && node --check server.mjs",
+    "validate": "npm run check && node scripts/validate-site.mjs"
   }
 }

@@ -8,7 +8,7 @@ const projects = [
         status: "Operativo",
         accent: "#fb923c",
         accentRgb: "251, 146, 60",
-        image: "assets/img/project-proestakis.png",
+        image: "assets/img/project-proestakis.jpg",
         imageAlt: "Interfaz de Constructora Proestakis",
         url: "https://constructora-proestakis.vercel.app/",
         summary: "Sitio corporativo diseñado para comunicar experiencia, capacidad técnica y confianza, transformando la trayectoria de la constructora en una presencia digital clara y profesional.",
@@ -34,12 +34,22 @@ const projects = [
         status: "Operativo",
         accent: "#1ea7ff",
         accentRgb: "30, 167, 255",
-        image: "assets/img/badiasaludhero.png",
+        image: "assets/img/badiasaludhero.jpg",
         imageAlt: "Interfaz de Badiasalud",
         url: "https://www.badiasalud.cl",
         summary: "Presencia profesional y agenda móvil para un enfermero independiente, creada para comunicar servicios, impulsar su emprendimiento y ordenar la coordinación de atenciones.",
         metrics: [["Estado", "Operativo"], ["Sector", "Salud"], ["Producto", "Agenda móvil"], ["Datos", "Supabase"]],
         stack: "TypeScript / Tailwind CSS / Node.js / Supabase / Vercel",
+        caseStudy: {
+            context: "Badiasalud reúne la presencia profesional de un enfermero independiente y una herramienta de agenda pensada para coordinar atenciones desde el teléfono.",
+            problem: "La información de servicios, credenciales, disponibilidad y solicitudes de atención necesitaba estar organizada en un mismo recorrido digital.",
+            solution: "Se desarrolló un sitio responsive conectado con una agenda móvil y una base de datos para presentar las prestaciones y gestionar disponibilidad y solicitudes.",
+            functionalities: ["Presentación de servicios y experiencia profesional", "Agenda móvil de atenciones", "Gestión de disponibilidad", "Registro organizado de solicitudes", "Contacto directo mediante WhatsApp"],
+            technologies: ["TypeScript", "Tailwind CSS", "Node.js", "Supabase", "Vercel"],
+            result: "El sitio y su agenda se encuentran publicados y accesibles en badiasalud.cl; la navegación, los servicios y el flujo de coordinación pueden comprobarse directamente.",
+            status: "Operativo",
+            accessLabel: "Abrir Badiasalud"
+        },
         journey: [
             ["Confianza desde el primer contacto", "La portada combina información profesional, cercanía y llamadas a la acción para que el paciente entienda rápidamente los servicios disponibles.", "Identidad profesional", "Confianza"],
             ["Agenda diseñada para el móvil", "La experiencia prioriza el uso desde teléfono, facilitando la consulta y gestión de horarios en el contexto real del profesional.", "Mobile first", "Agilidad"],
@@ -60,12 +70,22 @@ const projects = [
         status: "Operativo",
         accent: "#38bdf8",
         accentRgb: "56, 189, 248",
-        image: "assets/img/project-lecasse.png",
+        image: "assets/img/project-lecasse.jpg",
         imageAlt: "Interfaz de Lecasse IT Services",
         url: "https://lecasse.vercel.app/",
         summary: "Presencia digital para servicios tecnológicos, creada para ordenar la propuesta de valor, presentar capacidades y reforzar una imagen profesional ante nuevos clientes.",
         metrics: [["Estado", "Operativo"], ["Sector", "Tecnología"], ["Interfaz", "Responsive"], ["Objetivo", "Captación"]],
         stack: "HTML5 / CSS3 / JavaScript / Vercel / UI responsive",
+        caseStudy: {
+            context: "Lecasse IT Services necesitaba una página web única para presentar sus servicios tecnológicos y entregar un punto de contacto profesional.",
+            problem: "La oferta técnica requería una estructura más clara para que un visitante pudiera comprender las capacidades del negocio sin recorrer información dispersa.",
+            solution: "Se construyó un sitio web corporativo responsive con propuesta de valor, servicios organizados por necesidad y llamados a la acción visibles.",
+            functionalities: ["Portada con propuesta de valor", "Presentación estructurada de servicios", "Diseño adaptable a móvil y escritorio", "Formulario y accesos de contacto", "Configuración SEO inicial"],
+            technologies: ["HTML5", "CSS3", "JavaScript", "Vercel"],
+            result: "La página está publicada y accesible en lecasse.vercel.app; su estructura responsive, contenidos y puntos de contacto pueden verificarse en línea.",
+            status: "Operativo",
+            accessLabel: "Abrir Lecasse IT Services"
+        },
         journey: [
             ["Propuesta tecnológica directa", "La portada resume capacidades y posicionamiento con una estética técnica, evitando que el visitante tenga que interpretar una oferta compleja.", "Propuesta de valor", "Claridad"],
             ["Navegación desde cualquier equipo", "La interfaz conserva legibilidad y acceso a las acciones principales tanto en escritorio como en dispositivos móviles.", "Diseño adaptable", "Cobertura"],
@@ -86,7 +106,7 @@ const projects = [
         status: "Demo",
         accent: "#f9a8d4",
         accentRgb: "249, 168, 212",
-        image: "assets/img/project-maige-palace.png",
+        image: "assets/img/project-maige-palace.jpg",
         imageAlt: "Interfaz de Maige Palace",
         url: null,
         summary: "Landing visual para una marca de accesorios, orientada a destacar el producto, construir identidad y preparar una futura experiencia comercial más completa.",
@@ -106,28 +126,38 @@ const projects = [
     {
         id: "control-gestion",
         category: "Soluciones digitales",
-        name: "Sistema de Control Gestión",
-        short: "Inventario y logística",
-        type: "Solución digital / Operaciones",
-        status: "Demo funcional",
+        name: "ISM Gestión Control",
+        short: "Sistema web de inventario",
+        type: "Sistema web / Inventario y operaciones",
+        status: "Piloto interno",
         accent: "#22d3ee",
         accentRgb: "34, 211, 238",
         image: "assets/img/project-cipapp.png",
-        imageAlt: "Interfaz de un sistema de control de gestión",
+        imageAlt: "Interfaz del sistema ISM Gestión Control",
         url: null,
-        summary: "Sistema para controlar movimientos de existencias, mantener un historial operativo y consultar información actualizada desde dispositivos móviles.",
-        metrics: [["Estado", "Demo funcional"], ["Módulo", "Inventario"], ["Datos", "Tiempo real"], ["Interfaz", "Mobile UI"]],
-        stack: "JavaScript / Supabase / PostgreSQL / Autenticación / Mobile UI",
+        summary: "Sistema web interno para centralizar inventario, recepciones, entregas, alertas, herramientas e historial operativo con acceso diferenciado por roles.",
+        metrics: [["Estado", "Piloto interno"], ["Módulo", "Inventario"], ["Acceso", "3 roles"], ["Datos", "Supabase"]],
+        stack: "React / TypeScript / Vite / Supabase / PostgreSQL / Tailwind CSS",
+        caseStudy: {
+            context: "ISM Gestión Control es un proyecto interno creado para probar y consolidar un sistema web reutilizable de inventario y operación para proyectos, bodegas e instalaciones.",
+            problem: "Los movimientos de insumos y herramientas, las recepciones, entregas, alertas y validaciones necesitaban una fuente central con trazabilidad y permisos diferenciados.",
+            solution: "Se desarrolló una aplicación web con autenticación, selección de proyecto, módulos operativos y paneles separados para trabajadores, supervisores y administradores.",
+            functionalities: ["Inventario global y consulta por proyecto", "Recepciones, entregas y movimientos", "Alertas operacionales y validación de recepciones", "Gestión de herramientas, préstamos y mantenciones", "Historial, bitácora e importación desde Excel", "Configuración inicial de empresas, proyectos, bodegas y usuarios"],
+            technologies: ["React", "TypeScript", "Vite", "Supabase", "PostgreSQL", "Tailwind CSS", "XLSX"],
+            result: "El repositorio contiene rutas protegidas y módulos implementados para los tres perfiles, junto con servicios de inventario, alertas, recepciones, entregas, usuarios y reportes. Al ser interno, no se publica un acceso con credenciales.",
+            status: "Piloto interno en desarrollo",
+            accessLabel: null
+        },
         journey: [
-            ["Estado operativo en una vista", "El dashboard concentra indicadores esenciales para entender existencias y actividad sin revisar planillas separadas.", "Panel principal", "Visibilidad"],
-            ["Operación desde terreno", "Los flujos móviles reducen pasos y permiten registrar movimientos donde realmente ocurren.", "Mobile UI", "Velocidad"],
-            ["Movimientos con trazabilidad", "Entradas, salidas y ajustes quedan relacionados con fecha, usuario y contexto para facilitar revisiones.", "Historial", "Control"],
-            ["Información centralizada", "Una base relacional evita versiones contradictorias y habilita consultas consistentes en tiempo real.", "PostgreSQL", "Consistencia"],
-            ["Módulos listos para integrarse", "La solución puede extenderse hacia compras, alertas, aprobaciones y reportería según la operación.", "Arquitectura modular", "Escala"],
+            ["Acceso según responsabilidad", "Las rutas separan la operación diaria, la supervisión y la administración para mostrar a cada perfil los módulos que necesita.", "Roles", "Control"],
+            ["Inventario y movimientos conectados", "Recepciones, entregas, existencias e historial comparten una base central para conservar el contexto de cada operación.", "Inventario", "Trazabilidad"],
+            ["Alertas y validaciones", "Los supervisores pueden revisar alertas, validar recepciones y consultar historiales desde flujos específicos.", "Supervisión", "Seguimiento"],
+            ["Administración central", "El panel administrativo reúne usuarios, inventario global, bitácora, importación desde Excel y configuración del sistema.", "Administración", "Visibilidad"],
+            ["Base preparada para reutilización", "La separación entre interfaz, servicios y PostgreSQL permite adaptar el sistema a nuevos proyectos y reglas operativas.", "Arquitectura modular", "Escala"],
         ],
-        analysis: ["Información operativa dispersa en distintos registros", "Falta de visibilidad del inventario en tiempo real", "Escasa trazabilidad de entradas, salidas y ajustes", "Necesidad de operar desde dispositivos móviles"],
-        actionPlan: ["Dashboard de indicadores operativos", "Registro digital de entradas, salidas y ajustes", "Base de datos centralizada", "Historial por producto y responsable", "Acceso seguro mediante roles"],
-        scalability: ["Alertas automáticas de stock mínimo", "Flujos de solicitud y aprobación", "Integración con compras y abastecimiento", "Reportería y exportación de datos"]
+        analysis: ["Movimientos operativos distribuidos", "Necesidad de diferenciar permisos por perfil", "Seguimiento de insumos y herramientas", "Trazabilidad de validaciones y alertas"],
+        actionPlan: ["Aplicación web con rutas protegidas", "Registro de recepciones, entregas y movimientos", "Paneles para tres perfiles", "Base PostgreSQL integrada mediante Supabase", "Historial, bitácora e importación desde Excel"],
+        scalability: ["Nuevas empresas, proyectos y bodegas", "Reportes operativos ampliados", "Integraciones con otros sistemas", "Evolución de reglas y módulos por configuración"]
     },
     {
         id: "cipapp",
@@ -164,7 +194,7 @@ const projects = [
         status: "En desarrollo",
         accent: "#34d399",
         accentRgb: "52, 211, 153",
-        image: "assets/img/soporte-activo-preview.png",
+        image: "assets/img/soporte-activo-preview.jpg",
         imageAlt: "Concepto visual de HFBApp",
         url: null,
         summary: "Sistema para bodegas periféricas del área de salud, diseñado para mejorar el control de existencias, la logística interna y el registro histórico.",
@@ -190,7 +220,7 @@ const projects = [
         status: "Prototipo",
         accent: "#a78bfa",
         accentRgb: "167, 139, 250",
-        image: "assets/img/desarrolladorcodificando.png",
+        image: "assets/img/desarrolladorcodificando.jpg",
         imageAlt: "Concepto visual de JuntosApp",
         url: null,
         summary: "Aplicación interactiva para apoyar a estudiantes con necesidades especiales mediante actividades, seguimiento de progreso y acompañamiento para familias y profesores.",
@@ -215,6 +245,15 @@ const categoryIcons = {
     "Soluciones digitales": "panels-top-left",
     "Proyectos en desarrollo": "flask-conical"
 };
+const projectImageDimensions = {
+    "assets/img/project-proestakis.jpg": [1280, 589],
+    "assets/img/badiasaludhero.jpg": [1280, 635],
+    "assets/img/project-lecasse.jpg": [1280, 570],
+    "assets/img/project-maige-palace.jpg": [1280, 553],
+    "assets/img/project-cipapp.png": [453, 584],
+    "assets/img/soporte-activo-preview.jpg": [1280, 853],
+    "assets/img/desarrolladorcodificando.jpg": [1280, 720]
+};
 const projectNav = document.getElementById("projectNav");
 const visualTrack = document.getElementById("visualTrack");
 const copyTrack = document.getElementById("copyTrack");
@@ -225,6 +264,7 @@ const totalSlidesLabel = document.getElementById("totalSlides");
 const syncedSlider = document.getElementById("syncedSlider");
 const routeLoader = document.getElementById("routeLoader");
 const requestedProject = new URLSearchParams(window.location.search).get("proyecto");
+const defaultProjectId = "lecasse-it-services";
 let currentProject = null;
 let currentSlide = 0;
 let pointerStartX = null;
@@ -248,9 +288,11 @@ function renderNavigation() {
                 <div class="nav-group-items" id="${categoryId}">
                     ${items.map((project) => {
                         return `
-                            <button class="project-nav-item" type="button" data-project="${project.id}">
+                            <button class="project-nav-item" type="button" data-project="${project.id}"
+                                data-track-event="project_click" data-track-category="portfolio"
+                                data-track-label="${project.name}" data-project-id="${project.id}">
                                 <span class="nav-dot" aria-hidden="true"></span>
-                                <span class="nav-copy"><strong>${project.name}</strong><small>${project.short}</small></span>
+                                <span class="nav-copy"><strong>${project.name}</strong><small>${project.caseStudy ? "Caso de estudio" : project.short}</small></span>
                             </button>`;
                     }).join("")}
                 </div>
@@ -284,10 +326,12 @@ function renderMetrics(project) {
 }
 
 function renderSlides(project) {
+    const [width, height] = projectImageDimensions[project.image] || [1280, 720];
     visualTrack.innerHTML = project.journey.map((slide, index) => `
         <article class="visual-slide">
             <div class="screen-frame">
-                <img src="${project.image}" alt="${project.imageAlt}: ${slide[0]}" loading="${index ? "lazy" : "eager"}">
+                <img src="${project.image}" alt="${project.imageAlt}: ${slide[0]}"
+                    width="${width}" height="${height}" loading="${index ? "lazy" : "eager"}" decoding="async">
                 <span class="screen-badge">${slide[2]}</span>
             </div>
         </article>
@@ -316,13 +360,54 @@ function renderSlides(project) {
 }
 
 function renderTechnical(project) {
+    const technicalGrid = document.getElementById("technicalGrid");
+    const technicalTitle = document.getElementById("technicalTitle");
+    const technicalKicker = document.getElementById("technicalKicker");
+
+    if (project.caseStudy) {
+        const caseStudy = project.caseStudy;
+        const cards = [
+            ["briefcase-business", "Contexto", caseStudy.context, null],
+            ["circle-alert", "Problema", caseStudy.problem, null],
+            ["panels-top-left", "Solución desarrollada", caseStudy.solution, null],
+            ["list-checks", "Funcionalidades", "Funciones implementadas y comprobables en el proyecto.", caseStudy.functionalities],
+            ["braces", "Tecnologías", "Tecnologías utilizadas en la solución.", caseStudy.technologies],
+            ["badge-check", "Resultado verificable", caseStudy.result, null],
+            ["radio", "Estado y acceso", caseStudy.status, null]
+        ];
+
+        technicalKicker.textContent = "Caso de estudio";
+        technicalTitle.textContent = "Del problema a una solución verificable";
+        technicalGrid.classList.add("case-study-grid");
+        technicalGrid.innerHTML = cards.map(([icon, title, description, items]) => `
+            <article class="technical-card case-study-card">
+                <span class="tech-icon"><i data-lucide="${icon}"></i></span>
+                <h3>${title}</h3>
+                <p>${description}</p>
+                ${items ? `<ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul>` : ""}
+                ${title === "Estado y acceso" && project.url ? `
+                    <a class="case-study-access" href="${project.url}" target="_blank" rel="noopener noreferrer"
+                        data-track-event="project_demo_click" data-track-category="conversion"
+                        data-track-label="${caseStudy.accessLabel}" data-project-id="${project.id}">
+                        ${caseStudy.accessLabel}<i data-lucide="external-link"></i>
+                    </a>` : ""}
+                ${title === "Estado y acceso" && !project.url ? `
+                    <span class="case-study-private">Demostración privada: acceso sujeto a autorización.</span>` : ""}
+            </article>
+        `).join("");
+        return;
+    }
+
     const cards = [
         ["search-check", "Análisis para el cliente", "Necesidades y oportunidades identificadas durante la asesoría.", project.analysis],
         ["list-checks", "Plan de acción", "Solución propuesta para responder a los objetivos del proyecto.", project.actionPlan],
         ["chart-no-axes-combined", "Escalabilidad", "Evoluciones que pueden implementarse sobre la misma base.", project.scalability]
     ];
 
-    document.getElementById("technicalGrid").innerHTML = cards.map(([icon, title, description, items]) => `
+    technicalKicker.textContent = "Ficha técnica";
+    technicalTitle.textContent = "Arquitectura y alcance";
+    technicalGrid.classList.remove("case-study-grid");
+    technicalGrid.innerHTML = cards.map(([icon, title, description, items]) => `
         <article class="technical-card">
             <span class="tech-icon"><i data-lucide="${icon}"></i></span>
             <h3>${title}</h3>
@@ -333,7 +418,9 @@ function renderTechnical(project) {
 }
 
 function selectProject(id, options = {}) {
-    const project = projects.find((item) => item.id === id) || projects[0];
+    const project = projects.find((item) => item.id === id)
+        || projects.find((item) => item.id === defaultProjectId)
+        || projects[0];
     currentProject = project;
     currentSlide = 0;
 
@@ -347,7 +434,13 @@ function selectProject(id, options = {}) {
 
     const externalLink = document.getElementById("externalProjectLink");
     externalLink.hidden = !project.url;
-    if (project.url) externalLink.href = project.url;
+    if (project.url) {
+        externalLink.href = project.url;
+        const externalLabel = project.caseStudy?.accessLabel || `Visitar ${project.name}`;
+        externalLink.innerHTML = `${externalLabel}<i data-lucide="external-link"></i>`;
+        externalLink.dataset.trackLabel = externalLabel;
+        externalLink.dataset.projectId = project.id;
+    }
 
     projectNav.querySelectorAll("[data-project]").forEach((button) => {
         const isActive = button.dataset.project === project.id;
