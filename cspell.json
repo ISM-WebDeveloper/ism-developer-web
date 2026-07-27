@@ -4,8 +4,7 @@
   "useGitignore": true,
   "ignorePaths": [
     "assets/vendor/**",
-    "assets/css/style.css",
-    "assets/css/portafolio.css"
+    "assets/css/style.css"
   ],
   "words": [
     "Antofagasta",

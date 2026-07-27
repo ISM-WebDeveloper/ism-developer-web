@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800" role="img" aria-labelledby="title desc">
+  <title id="title">Espacio reservado para el inventario de ISM Gestión Control</title>
+  <desc id="desc">Marcador visual que debe reemplazarse por una captura real anonimizada del módulo de inventario.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07101e"/>
+      <stop offset="1" stop-color="#0c2038"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#31bdf4" stroke-opacity=".07"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="800" rx="28" fill="url(#bg)"/>
+  <rect width="1280" height="800" rx="28" fill="url(#grid)"/>
+  <rect x="48" y="48" width="1184" height="704" rx="24" fill="#091827" stroke="#31bdf4" stroke-opacity=".45" stroke-width="2"/>
+  <rect x="84" y="84" width="1112" height="86" rx="18" fill="#10263d"/>
+  <rect x="116" y="112" width="280" height="26" rx="13" fill="#f8fafc" fill-opacity=".9"/>
+  <rect x="934" y="106" width="222" height="42" rx="12" fill="#31bdf4" fill-opacity=".9"/>
+  <rect x="84" y="202" width="1112" height="504" rx="18" fill="#0d1d30" stroke="#31bdf4" stroke-opacity=".18"/>
+  <g fill="#31bdf4" fill-opacity=".3">
+    <rect x="116" y="236" width="200" height="18" rx="9"/>
+    <rect x="378" y="236" width="160" height="18" rx="9"/>
+    <rect x="638" y="236" width="140" height="18" rx="9"/>
+    <rect x="878" y="236" width="190" height="18" rx="9"/>
+  </g>
+  <g stroke="#31bdf4" stroke-opacity=".16">
+    <path d="M116 286H1160M116 354H1160M116 422H1160M116 490H1160M116 558H1160M116 626H1160"/>
+  </g>
+  <g fill="#d9f5ff" fill-opacity=".64">
+    <rect x="116" y="311" width="162" height="14" rx="7"/>
+    <rect x="378" y="311" width="116" height="14" rx="7"/>
+    <rect x="638" y="311" width="92" height="14" rx="7"/>
+    <rect x="878" y="311" width="142" height="14" rx="7"/>
+    <rect x="116" y="379" width="196" height="14" rx="7"/>
+    <rect x="378" y="379" width="102" height="14" rx="7"/>
+    <rect x="638" y="379" width="110" height="14" rx="7"/>
+    <rect x="878" y="379" width="128" height="14" rx="7"/>
+    <rect x="116" y="447" width="142" height="14" rx="7"/>
+    <rect x="378" y="447" width="124" height="14" rx="7"/>
+    <rect x="638" y="447" width="74" height="14" rx="7"/>
+    <rect x="878" y="447" width="164" height="14" rx="7"/>
+  </g>
+  <rect x="404" y="654" width="472" height="32" rx="16" fill="#07101e" fill-opacity=".88"/>
+  <text x="640" y="676" fill="#bdefff" font-family="Arial, sans-serif" font-size="17" text-anchor="middle">CAPTURA PENDIENTE · MÓDULO DE INVENTARIO</text>
+</svg>

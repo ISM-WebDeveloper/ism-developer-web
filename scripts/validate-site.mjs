@@ -207,7 +207,7 @@ for (const field of ["title", "description", "canonical"]) {
     });
 }
 
-for (const cssFile of ["assets/css/style.css", "assets/css/catalogo.css", "assets/css/portafolio.css", "assets/css/servicios.css"]) {
+for (const cssFile of ["assets/css/style.css", "assets/css/catalogo.css"]) {
     const content = read(cssFile);
     const opening = (content.match(/{/g) || []).length;
     const closing = (content.match(/}/g) || []).length;
@@ -222,9 +222,7 @@ for (const cssFile of ["assets/css/style.css", "assets/css/catalogo.css", "asset
 
 const allText = [
     ...htmlFiles.map(read),
-    read("assets/js/script.js"),
-    read("assets/js/servicios.js"),
-    read("assets/js/portafolio.js")
+    read("assets/js/script.js")
 ].join("\n");
 for (const requiredType of ["ProfessionalService", "Service", "Person", "FAQPage"]) {
     if (!allText.includes(`"${requiredType}"`)) {

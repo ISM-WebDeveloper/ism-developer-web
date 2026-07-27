@@ -6,12 +6,17 @@ Sitio oficial y portafolio interactivo de ISM Developer.
 
 ```text
 assets/
-  css/       Estilos del sitio y del portafolio
+  css/       Estilos del sitio y de los catálogos
   img/       Imágenes, logotipos e iconos
-  js/        Lógica del sitio y del dashboard
+  js/        Lógica del sitio y analítica
   vendor/    Librerías locales de terceros
 index.html
-portafolio.html
+servicios/
+  index.html
+proyectos/
+  index.html
+servicios.html    Redirección compatible hacia /servicios/
+portafolio.html   Redirección compatible hacia /proyectos/
 manifest.webmanifest
 robots.txt
 sitemap.xml
@@ -28,5 +33,5 @@ El servidor queda disponible en `http://127.0.0.1:4173`.
 ## Verificación
 
 ```powershell
-npm run check
+npm run validate
 ```

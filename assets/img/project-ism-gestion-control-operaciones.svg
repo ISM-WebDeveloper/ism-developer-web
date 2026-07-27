@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800" role="img" aria-labelledby="title desc">
+  <title id="title">Espacio reservado para operaciones de ISM Gestión Control</title>
+  <desc id="desc">Marcador visual que debe reemplazarse por una captura real anonimizada del flujo de operaciones.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07101e"/>
+      <stop offset="1" stop-color="#0c2038"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#31bdf4" stroke-opacity=".07"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="800" rx="28" fill="url(#bg)"/>
+  <rect width="1280" height="800" rx="28" fill="url(#grid)"/>
+  <rect x="48" y="48" width="1184" height="704" rx="24" fill="#091827" stroke="#31bdf4" stroke-opacity=".45" stroke-width="2"/>
+  <rect x="84" y="84" width="1112" height="86" rx="18" fill="#10263d"/>
+  <rect x="116" y="112" width="330" height="26" rx="13" fill="#f8fafc" fill-opacity=".9"/>
+  <g fill="#10263d" stroke="#31bdf4" stroke-opacity=".2">
+    <rect x="92" y="220" width="300" height="402" rx="20"/>
+    <rect x="490" y="220" width="300" height="402" rx="20"/>
+    <rect x="888" y="220" width="300" height="402" rx="20"/>
+  </g>
+  <g fill="#31bdf4">
+    <circle cx="242" cy="286" r="38" fill-opacity=".85"/>
+    <circle cx="640" cy="286" r="38" fill-opacity=".85"/>
+    <circle cx="1038" cy="286" r="38" fill-opacity=".85"/>
+  </g>
+  <g fill="#07101e" font-family="Arial, sans-serif" font-size="28" font-weight="700" text-anchor="middle">
+    <text x="242" y="296">01</text>
+    <text x="640" y="296">02</text>
+    <text x="1038" y="296">03</text>
+  </g>
+  <g fill="#e5f8ff" fill-opacity=".84">
+    <rect x="142" y="356" width="200" height="20" rx="10"/>
+    <rect x="540" y="356" width="200" height="20" rx="10"/>
+    <rect x="938" y="356" width="200" height="20" rx="10"/>
+  </g>
+  <g fill="#31bdf4" fill-opacity=".2">
+    <rect x="132" y="414" width="220" height="16" rx="8"/>
+    <rect x="152" y="456" width="180" height="16" rx="8"/>
+    <rect x="132" y="498" width="220" height="16" rx="8"/>
+    <rect x="530" y="414" width="220" height="16" rx="8"/>
+    <rect x="550" y="456" width="180" height="16" rx="8"/>
+    <rect x="530" y="498" width="220" height="16" rx="8"/>
+    <rect x="928" y="414" width="220" height="16" rx="8"/>
+    <rect x="948" y="456" width="180" height="16" rx="8"/>
+    <rect x="928" y="498" width="220" height="16" rx="8"/>
+  </g>
+  <path d="M406 286H462M804 286H860" stroke="#31bdf4" stroke-width="8" stroke-linecap="round"/>
+  <path d="m450 268 20 18-20 18M848 268l20 18-20 18" fill="none" stroke="#31bdf4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="396" y="654" width="488" height="32" rx="16" fill="#07101e" fill-opacity=".88"/>
+  <text x="640" y="676" fill="#bdefff" font-family="Arial, sans-serif" font-size="17" text-anchor="middle">CAPTURA PENDIENTE · FLUJO DE OPERACIONES</text>
+</svg>

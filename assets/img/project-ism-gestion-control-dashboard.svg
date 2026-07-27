@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800" role="img" aria-labelledby="title desc">
+  <title id="title">Espacio reservado para el dashboard de ISM Gestión Control</title>
+  <desc id="desc">Marcador visual que debe reemplazarse por una captura real anonimizada del dashboard.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07101e"/>
+      <stop offset="1" stop-color="#0c2038"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#10263d"/>
+      <stop offset="1" stop-color="#0b1829"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#31bdf4" stroke-opacity=".07"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="800" rx="28" fill="url(#bg)"/>
+  <rect width="1280" height="800" rx="28" fill="url(#grid)"/>
+  <rect x="48" y="48" width="1184" height="704" rx="24" fill="none" stroke="#31bdf4" stroke-opacity=".45" stroke-width="2"/>
+  <rect x="80" y="80" width="220" height="640" rx="18" fill="#071421" stroke="#31bdf4" stroke-opacity=".24"/>
+  <circle cx="118" cy="122" r="14" fill="#31bdf4"/>
+  <rect x="146" y="110" width="112" height="24" rx="12" fill="#e5f8ff" fill-opacity=".9"/>
+  <g fill="#31bdf4" fill-opacity=".18">
+    <rect x="104" y="190" width="150" height="42" rx="10"/>
+    <rect x="104" y="252" width="128" height="18" rx="9"/>
+    <rect x="104" y="300" width="142" height="18" rx="9"/>
+    <rect x="104" y="348" width="118" height="18" rx="9"/>
+  </g>
+  <rect x="332" y="80" width="868" height="88" rx="18" fill="url(#panel)" stroke="#31bdf4" stroke-opacity=".2"/>
+  <rect x="368" y="110" width="270" height="24" rx="12" fill="#f8fafc" fill-opacity=".9"/>
+  <g fill="url(#panel)" stroke="#31bdf4" stroke-opacity=".2">
+    <rect x="332" y="200" width="256" height="150" rx="18"/>
+    <rect x="612" y="200" width="256" height="150" rx="18"/>
+    <rect x="892" y="200" width="308" height="150" rx="18"/>
+    <rect x="332" y="382" width="536" height="338" rx="18"/>
+    <rect x="892" y="382" width="308" height="338" rx="18"/>
+  </g>
+  <g fill="#31bdf4">
+    <rect x="366" y="236" width="122" height="14" rx="7" fill-opacity=".42"/>
+    <rect x="646" y="236" width="112" height="14" rx="7" fill-opacity=".42"/>
+    <rect x="926" y="236" width="138" height="14" rx="7" fill-opacity=".42"/>
+    <rect x="366" y="280" width="166" height="28" rx="10" fill-opacity=".8"/>
+    <rect x="646" y="280" width="142" height="28" rx="10" fill-opacity=".8"/>
+    <rect x="926" y="280" width="188" height="28" rx="10" fill-opacity=".8"/>
+  </g>
+  <path d="M382 640 470 558l72 36 92-116 86 58 98-102" fill="none" stroke="#31bdf4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#31bdf4" fill-opacity=".22">
+    <rect x="930" y="438" width="228" height="18" rx="9"/>
+    <rect x="930" y="486" width="190" height="18" rx="9"/>
+    <rect x="930" y="534" width="214" height="18" rx="9"/>
+    <rect x="930" y="582" width="170" height="18" rx="9"/>
+  </g>
+  <rect x="356" y="672" width="470" height="30" rx="15" fill="#07101e" fill-opacity=".86"/>
+  <text x="591" y="693" fill="#bdefff" font-family="Arial, sans-serif" font-size="17" text-anchor="middle">CAPTURA PENDIENTE · DASHBOARD GENERAL</text>
+</svg>
