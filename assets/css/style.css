@@ -4137,9 +4137,11 @@ rotateY(calc(var(--stack-offset,0)*-4deg));
 }
 
 .floating-whatsapp img {
-    width: 27px;
-    height: 27px;
-    filter: brightness(0) invert(1);
+    display: block;
+    width: 31px;
+    height: 31px;
+    object-fit: contain;
+    filter: none;
 }
 
 @media (max-width: 600px) {
@@ -4153,8 +4155,8 @@ rotateY(calc(var(--stack-offset,0)*-4deg));
     }
 
     .floating-whatsapp img {
-        width: 22px;
-        height: 22px;
+        width: 27px;
+        height: 27px;
     }
 }
 
@@ -4400,19 +4402,19 @@ rotateY(calc(var(--stack-offset,0)*-4deg));
 }
 
 .hero h1 {
-    max-width: 680px;
-    margin-bottom: 22px;
-    transform: none;
+    max-width: 720px;
+    margin-bottom: 26px;
+    transform: translateY(44px);
 }
 
 .hero-title-main,
 .hero-title-accent {
-    white-space: normal;
+    white-space: nowrap;
 }
 
 .hero-text {
-    max-width: 650px;
-    transform: none;
+    max-width: 620px;
+    transform: translateY(58px);
 }
 
 .hero-actions {
@@ -4421,6 +4423,7 @@ rotateY(calc(var(--stack-offset,0)*-4deg));
     gap: 14px;
     flex-wrap: wrap;
     margin-top: 28px;
+    transform: translateY(58px);
 }
 
 .hero-actions .btn-primary,
@@ -4454,7 +4457,7 @@ rotateY(calc(var(--stack-offset,0)*-4deg));
 }
 
 .hero-trust-list {
-    margin-top: 28px;
+    margin-top: auto;
 }
 
 .service-pillars {
@@ -4650,10 +4653,25 @@ rotateY(calc(var(--stack-offset,0)*-4deg));
 }
 
 @media (max-width: 1024px) {
+    .hero h1,
+    .hero-text,
+    .hero-actions {
+        transform: none;
+    }
+
+    .hero-title-main,
+    .hero-title-accent {
+        white-space: normal;
+    }
+
+    .hero-trust-list {
+        margin-top: 28px;
+    }
+
     .premium-navbar,
     .premium-navbar.scrolled {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) auto auto;
+        grid-template-columns: minmax(0, 1fr) auto;
         gap: 12px;
     }
 
@@ -4714,8 +4732,8 @@ rotateY(calc(var(--stack-offset,0)*-4deg));
         left: 18px;
         right: 18px;
         padding: 0 12px;
-        grid-template-columns: minmax(0, 1fr) 112px 42px;
-        gap: 8px;
+        grid-template-columns: minmax(0, 1fr) 42px;
+        gap: 12px;
     }
 
     .premium-navbar:not(.scrolled) .nav-brand,
@@ -4816,5 +4834,156 @@ rotateY(calc(var(--stack-offset,0)*-4deg));
     .maturity-note {
         margin-top: 20px;
         text-align: left;
+    }
+}
+
+
+/* =========================================================
+   NORMALIZACIÓN 01.2 — HERO
+   Se ubica al final para no ser anulada por reglas responsive anteriores.
+   ========================================================= */
+@media (min-width: 701px) {
+    .hero-human {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 0;
+    }
+
+    .hero-content {
+        width: min(720px, 88vw);
+        max-width: none;
+        overflow: visible;
+    }
+
+    .hero h1 {
+        width: max-content;
+        max-width: none;
+        font-size: clamp(32px, 3.05vw, 42px);
+    }
+
+    .hero-title-main,
+    .hero-title-accent {
+        display: block;
+        width: max-content;
+        max-width: none;
+        white-space: nowrap;
+    }
+}
+
+
+/* =========================================================
+   NORMALIZACIÓN 01.3 — NAVEGACIÓN Y WHATSAPP
+   - El CTA queda únicamente dentro del hero.
+   - El menú móvil conserva logo a la izquierda y botón a la derecha.
+   - El isotipo de WhatsApp recupera la escala visual del original.
+   ========================================================= */
+@media (max-width: 1024px) {
+    .premium-navbar,
+    .premium-navbar.scrolled {
+        grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .nav-toggle {
+        justify-self: end;
+    }
+}
+
+.floating-whatsapp img {
+    flex: 0 0 auto;
+}
+
+/* =========================================================
+   NORMALIZACIÓN 01.4 — CTA SUPERIOR Y WHATSAPP
+   - "Evaluar mi proyecto" se traslada al navbar con relleno cian.
+   - En el hero queda únicamente "Ver soluciones".
+   - Se restituye el isotipo de WhatsApp con proporción equivalente al original.
+   ========================================================= */
+.nav-project-cta {
+    justify-self: end;
+    min-width: 210px;
+    min-height: 48px;
+    padding: 0 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #0ea5e9;
+    border-radius: 8px;
+    background: #0ea5e9;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1;
+    white-space: nowrap;
+    box-shadow: 0 16px 34px rgba(14, 165, 233, 0.28);
+    transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.nav-project-cta:hover,
+.nav-project-cta:focus-visible {
+    background: #0284c7;
+    border-color: #38bdf8;
+    box-shadow: 0 18px 40px rgba(14, 165, 233, 0.34);
+}
+
+.hero-actions {
+    flex-wrap: nowrap;
+}
+
+.hero-actions .btn-secondary {
+    min-width: 203px;
+}
+
+.floating-whatsapp img {
+    width: 32px;
+    height: 32px;
+    display: block;
+    object-fit: contain;
+}
+
+@media (max-width: 1366px) and (min-width: 1025px) {
+    .nav-project-cta {
+        min-width: 190px;
+        padding-inline: 18px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .nav-project-cta {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .floating-whatsapp img {
+        width: 27px;
+        height: 27px;
+    }
+}
+
+
+
+/* =========================================================
+   NORMALIZACIÓN 01.5 — EQUILIBRIO CTA DEL HERO Y WHATSAPP
+   - El CTA secundario se centra visualmente entre el texto y los atributos.
+   - Se desplaza levemente hacia la derecha sin alterar tablet ni móvil.
+   - El isotipo de WhatsApp recupera la proporción del diseño original.
+   ========================================================= */
+@media (min-width: 1025px) {
+    .hero-actions {
+        transform: translate(14px, 82px);
+    }
+}
+
+.floating-whatsapp img {
+    width: 27px;
+    height: 27px;
+    display: block;
+    object-fit: contain;
+    filter: none;
+}
+
+@media (max-width: 600px) {
+    .floating-whatsapp img {
+        width: 22px;
+        height: 22px;
     }
 }
