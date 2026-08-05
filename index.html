@@ -37,7 +37,7 @@
     <meta name="twitter:image" content="https://www.ismdeveloper.cl/assets/img/og-ism-developer.jpg" />
 
     <link rel="preload" href="assets/img/ignaciodesarrollador.jpg" as="image" type="image/jpeg" />
-    <link rel="stylesheet" href="assets/css/style.css?v=2.0.5" />
+    <link rel="stylesheet" href="assets/css/style.css?v=2.0.17" />
 
     <!-- LUCIDE ICONS -->
     <script src="assets/vendor/lucide.min.js" defer></script>
@@ -87,6 +87,15 @@
                         "https://www.instagram.com/imcodedeveloper/",
                         "https://web.facebook.com/ignacioandres.sepulvedamardones?locale=es_LA"
                     ]
+                },
+                {
+                    "@type": "Service",
+                    "@id": "https://www.ismdeveloper.cl/#servicios-digitales",
+                    "name": "Servicios y plataformas digitales",
+                    "provider": {"@id": "https://www.ismdeveloper.cl/#business"},
+                    "areaServed": {"@type": "Country", "name": "Chile"},
+                    "url": "https://www.ismdeveloper.cl/#servicios",
+                    "description": "Desarrollo, mantenimiento, monitoreo, respaldo, ciberseguridad y soporte de soluciones digitales."
                 },
                 {
                     "@type": "Person",
@@ -156,8 +165,8 @@
     
             <ul class="nav-links" id="primaryNav">
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="servicios/">Servicios</a></li>
-                <li><a href="proyectos/">Proyectos</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
                 <li><a href="#proceso">Proceso</a></li>
                 <li><a href="#sobre-mi">Sobre mí</a></li>
                 <li><a href="#contacto">Contacto</a></li>
@@ -187,7 +196,7 @@
                 </p>
 
                 <div class="hero-actions" aria-label="Acción principal">
-                    <a href="servicios/" class="btn-secondary">Ver soluciones</a>
+                    <a href="#servicios" class="btn-secondary">Ver soluciones</a>
                 </div>
         
                 <div class="hero-trust-list">
@@ -329,90 +338,179 @@
             </div>
 
         </section>
-        <!-- 3. SERVICIOS PRINCIPALES -->
-        <section class="section services-section section-soft" id="servicios" aria-labelledby="servicios-title">
-            <div class="wave-bg"></div>
+        <!-- 3. SERVICIOS Y PLATAFORMAS DIGITALES -->
+        <section class="section services-section services-showcase-section" id="servicios"
+            aria-labelledby="servicios-title">
+            <div class="wave-bg" aria-hidden="true"></div>
 
-            <div class="section-title">
-                <p>Capacidades de ISM Developer</p>
-                <h2 id="servicios-title">Servicios y Plataformas Digitales</h2>
-            </div>
-
-            <div class="cards cards-slim service-pillars">
-                <a class="card service-card-link reveal" href="servicios/#desarrollo-implementacion"
-                    aria-label="Ver desarrollo e implementación" data-track-event="service_detail_click"
-                    data-track-category="services" data-track-label="Desarrollo e Implementación"
-                    data-service-id="desarrollo-implementacion">
-                    <i data-lucide="code-2" class="card-icon"></i>
-                    <h3 class="card-title-center">Desarrollo e Implementación</h3>
-                    <p>
-                        Diseño y construcción de soluciones digitales, sitios, apps, integraciones
-                        y automatización.
+            <div class="services-showcase-shell">
+                <header class="section-title services-showcase-heading">
+                    <p>Capacidades de ISM Developer</p>
+                    <h2 id="servicios-title">Servicios y Plataformas Digitales</h2>
+                    <p class="services-showcase-intro">
+                        Selecciona el servicio que necesitas y comienza una configuración guiada
+                        según los objetivos de tu negocio.
                     </p>
-                    <span class="service-card-cta">Diseñar mi solución <span aria-hidden="true">→</span></span>
-                </a>
+                </header>
 
-                <a class="card service-card-link reveal" href="servicios/#mantenimiento-evolucion"
-                    aria-label="Ver mantenimiento y evolución" data-track-event="service_detail_click"
-                    data-track-category="services" data-track-label="Mantenimiento y Evolución"
-                    data-service-id="mantenimiento-evolucion">
-                    <i data-lucide="refresh-cw" class="card-icon"></i>
-                    <h3 class="card-title-center">Mantenimiento y Evolución</h3>
-                    <p>
-                        Actualizaciones, correcciones, mejoras funcionales, parches y optimización continua.
-                    </p>
-                    <span class="service-card-cta">Planificar mantenimiento <span aria-hidden="true">→</span></span>
-                </a>
+                <div class="service-showcase-grid" aria-label="Servicios configurables">
+                    <a class="service-showcase-card reveal"
+                        href="configurador/?servicio=desarrollo-implementacion"
+                        data-configurator-link
+                        data-service-name="Desarrollo e Implementación"
+                        data-track-event="service_configurator_open"
+                        data-track-category="services"
+                        data-track-label="Desarrollo e Implementación">
+                        <span class="service-showcase-media">
+                            <img src="assets/img/services/servicio-desarrollo-v2-0-14.webp"
+                                alt="Visual tecnológico de desarrollo e implementación"
+                                width="1600" height="900" loading="lazy" decoding="async">
+                        </span>
+                        <span class="service-showcase-content">
+                            <span class="service-showcase-title">Desarrollo e Implementación</span>
+                            <span class="service-showcase-description">
+                                Construimos sitios, aplicaciones, integraciones y soluciones digitales
+                                preparadas para crecer.
+                            </span>
+                            <span class="service-showcase-action">Configurar este servicio</span>
+                        </span>
+                    </a>
 
-                <a class="card service-card-link reveal" href="servicios/#monitoreo-observabilidad"
-                    aria-label="Ver monitoreo y observabilidad" data-track-event="service_detail_click"
-                    data-track-category="services" data-track-label="Monitoreo y Observabilidad"
-                    data-service-id="monitoreo-observabilidad">
-                    <i data-lucide="activity" class="card-icon"></i>
-                    <h3 class="card-title-center">Monitoreo y Observabilidad</h3>
-                    <p>
-                        Supervisión de disponibilidad, rendimiento, alertas, métricas, logs y trazabilidad.
-                    </p>
-                    <span class="service-card-cta">Definir monitoreo <span aria-hidden="true">→</span></span>
-                </a>
+                    <a class="service-showcase-card reveal"
+                        href="configurador/?servicio=mantenimiento-evolucion"
+                        data-configurator-link
+                        data-service-name="Mantenimiento y Evolución"
+                        data-track-event="service_configurator_open"
+                        data-track-category="services"
+                        data-track-label="Mantenimiento y Evolución">
+                        <span class="service-showcase-media">
+                            <img src="assets/img/services/servicio-mantenimiento-v2-0-14.webp"
+                                alt="Visual tecnológico de mantenimiento y evolución"
+                                width="1600" height="900" loading="lazy" decoding="async">
+                        </span>
+                        <span class="service-showcase-content">
+                            <span class="service-showcase-title">Mantenimiento y Evolución</span>
+                            <span class="service-showcase-description">
+                                Mejoramos, actualizamos y optimizamos soluciones existentes para mantenerlas
+                                estables y vigentes.
+                            </span>
+                            <span class="service-showcase-action">Configurar este servicio</span>
+                        </span>
+                    </a>
 
-                <a class="card service-card-link reveal" href="servicios/#respaldo-continuidad"
-                    aria-label="Ver respaldo y continuidad operacional" data-track-event="service_detail_click"
-                    data-track-category="services" data-track-label="Respaldo y Continuidad Operacional"
-                    data-service-id="respaldo-continuidad">
-                    <i data-lucide="database-backup" class="card-icon"></i>
-                    <h3 class="card-title-center">Respaldo y Continuidad Operacional</h3>
-                    <p>
-                        Protección de datos, retención, restauración, RPO/RTO y recuperación ante incidentes.
-                    </p>
-                    <span class="service-card-cta">Preparar continuidad <span aria-hidden="true">→</span></span>
-                </a>
+                    <a class="service-showcase-card reveal"
+                        href="configurador/?servicio=monitoreo-observabilidad"
+                        data-configurator-link
+                        data-service-name="Monitoreo y Observabilidad"
+                        data-track-event="service_configurator_open"
+                        data-track-category="services"
+                        data-track-label="Monitoreo y Observabilidad">
+                        <span class="service-showcase-media">
+                            <img src="assets/img/services/servicio-monitoreo-v2-0-14.webp"
+                                alt="Visual tecnológico de monitoreo y observabilidad"
+                                width="1600" height="900" loading="lazy" decoding="async">
+                        </span>
+                        <span class="service-showcase-content">
+                            <span class="service-showcase-title">Monitoreo y Observabilidad</span>
+                            <span class="service-showcase-description">
+                                Supervisamos disponibilidad, rendimiento y eventos para anticipar problemas
+                                y responder a tiempo.
+                            </span>
+                            <span class="service-showcase-action">Configurar este servicio</span>
+                        </span>
+                    </a>
 
-                <a class="card service-card-link reveal" href="servicios/#ciberseguridad-proteccion"
-                    aria-label="Ver ciberseguridad y protección digital" data-track-event="service_detail_click"
-                    data-track-category="services" data-track-label="Ciberseguridad y Protección Digital"
-                    data-service-id="ciberseguridad-proteccion">
-                    <i data-lucide="shield-check" class="card-icon"></i>
-                    <h3 class="card-title-center">Ciberseguridad y Protección Digital</h3>
-                    <p>
-                        Hardening, control de accesos, parches, vulnerabilidades y respuesta ante incidentes.
-                    </p>
-                    <span class="service-card-cta">Revisar seguridad <span aria-hidden="true">→</span></span>
-                </a>
+                    <a class="service-showcase-card reveal"
+                        href="configurador/?servicio=respaldo-continuidad"
+                        data-configurator-link
+                        data-service-name="Respaldo y Continuidad Operacional"
+                        data-track-event="service_configurator_open"
+                        data-track-category="services"
+                        data-track-label="Respaldo y Continuidad Operacional">
+                        <span class="service-showcase-media">
+                            <img src="assets/img/services/servicio-respaldo-v2-0-14.webp"
+                                alt="Visual tecnológico de respaldo y continuidad operacional"
+                                width="1600" height="900" loading="lazy" decoding="async">
+                        </span>
+                        <span class="service-showcase-content">
+                            <span class="service-showcase-title">Respaldo y Continuidad Operacional</span>
+                            <span class="service-showcase-description">
+                                Protegemos la información y preparamos la recuperación para reducir el impacto
+                                de incidentes.
+                            </span>
+                            <span class="service-showcase-action">Configurar este servicio</span>
+                        </span>
+                    </a>
 
-                <a class="card service-card-link reveal" href="servicios/#soporte-gestion"
-                    aria-label="Ver soporte y gestión de servicios" data-track-event="service_detail_click"
-                    data-track-category="services" data-track-label="Soporte y Gestión de Servicios"
-                    data-service-id="soporte-gestion">
-                    <i data-lucide="headset" class="card-icon"></i>
-                    <h3 class="card-title-center">Soporte y Gestión de Servicios</h3>
-                    <p>
-                        Mesa de ayuda, incidentes, solicitudes, cambios, SLA y seguimiento operacional.
-                    </p>
-                    <span class="service-card-cta">Ordenar mi soporte <span aria-hidden="true">→</span></span>
-                </a>
+                    <a class="service-showcase-card reveal"
+                        href="configurador/?servicio=ciberseguridad-proteccion"
+                        data-configurator-link
+                        data-service-name="Ciberseguridad y Protección Digital"
+                        data-track-event="service_configurator_open"
+                        data-track-category="services"
+                        data-track-label="Ciberseguridad y Protección Digital">
+                        <span class="service-showcase-media">
+                            <img src="assets/img/services/servicio-ciberseguridad-v2-0-14.webp"
+                                alt="Visual tecnológico de ciberseguridad y protección digital"
+                                width="1600" height="900" loading="lazy" decoding="async">
+                        </span>
+                        <span class="service-showcase-content">
+                            <span class="service-showcase-title">Ciberseguridad y Protección Digital</span>
+                            <span class="service-showcase-description">
+                                Fortalecemos accesos, datos y plataformas mediante medidas de seguridad
+                                adaptadas al negocio.
+                            </span>
+                            <span class="service-showcase-action">Configurar este servicio</span>
+                        </span>
+                    </a>
+
+                    <a class="service-showcase-card reveal"
+                        href="configurador/?servicio=soporte-gestion"
+                        data-configurator-link
+                        data-service-name="Soporte y Gestión de Servicios"
+                        data-track-event="service_configurator_open"
+                        data-track-category="services"
+                        data-track-label="Soporte y Gestión de Servicios">
+                        <span class="service-showcase-media">
+                            <img src="assets/img/services/servicio-soporte-v2-0-14.webp"
+                                alt="Visual tecnológico de soporte y gestión de servicios"
+                                width="1600" height="900" loading="lazy" decoding="async">
+                        </span>
+                        <span class="service-showcase-content">
+                            <span class="service-showcase-title">Soporte y Gestión de Servicios</span>
+                            <span class="service-showcase-description">
+                                Organizamos solicitudes, incidentes y seguimiento para una operación
+                                más clara y confiable.
+                            </span>
+                            <span class="service-showcase-action">Configurar este servicio</span>
+                        </span>
+                    </a>
+                </div>
+
+                <p class="service-showcase-note">
+                    Cada tarjeta abrirá el configurador correspondiente y conservará el servicio seleccionado.
+                </p>
             </div>
         </section>
+
+        <dialog class="service-config-dialog" id="serviceConfiguratorDialog"
+            aria-labelledby="serviceConfiguratorTitle"
+            aria-describedby="serviceConfiguratorDescription">
+            <div class="service-config-dialog-panel">
+                <p class="service-config-dialog-eyebrow">Configurador de servicios</p>
+                <h2 id="serviceConfiguratorTitle">¿Quieres configurar tu servicio?</h2>
+                <p id="serviceConfiguratorDescription">
+                    Abriremos una configuración guiada para el servicio seleccionado.
+                </p>
+
+                <div class="service-config-dialog-actions">
+                    <button class="btn-secondary service-config-cancel" type="button"
+                        data-configurator-cancel>No, volver</button>
+                    <a class="btn-primary service-config-confirm" href="configurador/"
+                        data-configurator-confirm>Sí, configurar</a>
+                </div>
+            </div>
+        </dialog>
 
         <!-- 4. PRODUCTOS -->
         <section class="section products-section section-light" id="productos" aria-labelledby="productos-title">
@@ -427,7 +525,7 @@
                     <p class="product-label">Presencia digital</p>
                     <h3>Landing Profesional</h3>
                     <p>Una página clara, responsive y preparada para presentar tu negocio y recibir contactos.</p>
-                    <strong class="product-price">$79.000</strong>
+                    <strong class="product-price">1,93 UF</strong>
                     <a class="service-card-cta" href="#contacto"
                         aria-label="Evaluar Landing Profesional">Evaluar solución <span aria-hidden="true">→</span></a>
                 </article>
@@ -438,7 +536,7 @@
                     <p class="product-label">Reservas y atención</p>
                     <h3>Agenda Profesional</h3>
                     <p>Una experiencia de agenda para ordenar disponibilidad, solicitudes y coordinación con clientes.</p>
-                    <strong class="product-price">$149.000</strong>
+                    <strong class="product-price">3,65 UF</strong>
                     <a class="service-card-cta" href="#contacto"
                         aria-label="Evaluar Agenda Profesional">Evaluar solución <span aria-hidden="true">→</span></a>
                 </article>
@@ -448,7 +546,7 @@
                     <p class="product-label">Presencia avanzada</p>
                     <h3>Profesional Plus</h3>
                     <p>Más contenido, estructura comercial e interacciones para una presencia digital preparada para crecer.</p>
-                    <strong class="product-price">$249.000</strong>
+                    <strong class="product-price">6,10 UF</strong>
                     <a class="service-card-cta" href="#contacto"
                         aria-label="Evaluar Profesional Plus">Evaluar solución <span aria-hidden="true">→</span></a>
                 </article>
@@ -467,36 +565,79 @@
 
         <!-- 5. NIVELES DE MADUREZ DIGITAL -->
         <section class="section maturity-section section-base" id="madurez-digital" aria-labelledby="madurez-title">
-            <div class="section-title">
-                <p>Una ruta transversal para avanzar con criterio</p>
+            <div class="section-title maturity-heading reveal">
+                <p class="maturity-eyebrow">Una ruta transversal para avanzar con criterio</p>
                 <h2 id="madurez-title">Niveles de madurez transversales</h2>
             </div>
 
             <div class="maturity-grid">
-                <article class="card maturity-card reveal">
-                    <span class="maturity-number">01</span>
-                    <h3>Primeros Pasos Digitales</h3>
-                    <p>Presencia y habilitación inicial.</p>
+                <article class="maturity-card-premium reveal">
+                    <div class="maturity-card-visual" aria-hidden="true">
+                        <img src="assets/img/maturity/madurez-primeros-pasos.webp" alt="" width="520" height="960"
+                            loading="lazy" decoding="async">
+                    </div>
+                    <div class="maturity-card-content">
+                        <h3>Primeros Pasos Digitales</h3>
+                        <span class="maturity-card-accent" aria-hidden="true"></span>
+                        <p>Presencia y habilitación inicial.</p>
+                    </div>
+                    <span class="maturity-card-icon" aria-hidden="true">
+                        <i data-lucide="rocket"></i>
+                    </span>
                 </article>
-                <article class="card maturity-card reveal">
-                    <span class="maturity-number">02</span>
-                    <h3>Optimización Digital</h3>
-                    <p>Integración, automatización y control.</p>
+
+                <article class="maturity-card-premium reveal">
+                    <div class="maturity-card-visual" aria-hidden="true">
+                        <img src="assets/img/maturity/madurez-optimizacion.webp" alt="" width="520" height="960"
+                            loading="lazy" decoding="async">
+                    </div>
+                    <div class="maturity-card-content">
+                        <h3>Optimización Digital</h3>
+                        <span class="maturity-card-accent" aria-hidden="true"></span>
+                        <p>Integración, automatización y control.</p>
+                    </div>
+                    <span class="maturity-card-icon" aria-hidden="true">
+                        <i data-lucide="settings"></i>
+                    </span>
                 </article>
-                <article class="card maturity-card reveal">
-                    <span class="maturity-number">03</span>
-                    <h3>Consolidación Digital</h3>
-                    <p>Escalabilidad, seguridad y continuidad.</p>
+
+                <article class="maturity-card-premium reveal">
+                    <div class="maturity-card-visual" aria-hidden="true">
+                        <img src="assets/img/maturity/madurez-consolidacion-v2.webp" alt="" width="520" height="960"
+                            loading="lazy" decoding="async">
+                    </div>
+                    <div class="maturity-card-content">
+                        <h3>Consolidación Digital</h3>
+                        <span class="maturity-card-accent" aria-hidden="true"></span>
+                        <p>Escalabilidad, seguridad y continuidad.</p>
+                    </div>
+                    <span class="maturity-card-icon" aria-hidden="true">
+                        <i data-lucide="shield-check"></i>
+                    </span>
                 </article>
-                <article class="card maturity-card reveal">
-                    <span class="maturity-number">04</span>
-                    <h3>Evolución Digital</h3>
-                    <p>Innovación y mejora continua.</p>
+
+                <article class="maturity-card-premium reveal">
+                    <div class="maturity-card-visual" aria-hidden="true">
+                        <img src="assets/img/maturity/madurez-evolucion-v2.webp" alt="" width="520" height="960"
+                            loading="lazy" decoding="async">
+                    </div>
+                    <div class="maturity-card-content">
+                        <h3>Evolución Digital</h3>
+                        <span class="maturity-card-accent" aria-hidden="true"></span>
+                        <p>Innovación y mejora continua.</p>
+                    </div>
+                    <span class="maturity-card-icon" aria-hidden="true">
+                        <i data-lucide="lightbulb"></i>
+                    </span>
                 </article>
             </div>
-            <p class="maturity-note">
-                Estos niveles de madurez aplican transversalmente a todos los servicios y plataformas.
-            </p>
+
+            <div class="maturity-note reveal">
+                <span class="maturity-note-icon" aria-hidden="true">
+                    <i data-lucide="badge-check"></i>
+                </span>
+                <p>Estos niveles de madurez aplican transversalmente a todos los servicios y plataformas.</p>
+            </div>
         </section>
 
         <!-- 5. PLAN DE ACCIÓN -->
@@ -579,85 +720,97 @@
             <div class="tools-panel reveal">
                 <div class="tools-grid">
                     <article class="tool-card">
-                        <span class="tool-icon tool-icon-line">
-                            <i data-lucide="code-xml" aria-hidden="true"></i>
+                        <span class="tool-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                                alt="HTML5" width="48" height="48" loading="lazy" decoding="async">
                         </span>
                         <strong>HTML5</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon tool-icon-line">
-                            <i data-lucide="palette" aria-hidden="true"></i>
+                        <span class="tool-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                                alt="CSS3" width="48" height="48" loading="lazy" decoding="async">
                         </span>
                         <strong>CSS3</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon tool-icon-line">
-                            <i data-lucide="braces" aria-hidden="true"></i>
+                        <span class="tool-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                                alt="JavaScript" width="48" height="48" loading="lazy" decoding="async">
                         </span>
                         <strong>JavaScript</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon tool-icon-line">
-                            <i data-lucide="binary" aria-hidden="true"></i>
+                        <span class="tool-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                                alt="TypeScript" width="48" height="48" loading="lazy" decoding="async">
                         </span>
                         <strong>TypeScript</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon tool-icon-line">
-                            <i data-lucide="atom" aria-hidden="true"></i>
+                        <span class="tool-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                                alt="React" width="48" height="48" loading="lazy" decoding="async">
                         </span>
                         <strong>React</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon tool-icon-line">
-                            <i data-lucide="wind" aria-hidden="true"></i>
+                        <span class="tool-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+                                alt="Tailwind CSS" width="48" height="48" loading="lazy" decoding="async">
                         </span>
                         <strong>Tailwind</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon tool-icon-line">
-                            <i data-lucide="file-code-2" aria-hidden="true"></i>
+                        <span class="tool-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                                alt="Python" width="48" height="48" loading="lazy" decoding="async">
                         </span>
                         <strong>Python</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon tool-icon-line">
-                            <i data-lucide="layout-template" aria-hidden="true"></i>
+                        <span class="tool-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
+                                alt="Bootstrap" width="48" height="48" loading="lazy" decoding="async">
                         </span>
                         <strong>Bootstrap</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon tool-icon-line tool-icon-monochrome">
-                            <i data-lucide="git-branch" aria-hidden="true"></i>
+                        <span class="tool-icon tool-icon-monochrome">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                                alt="GitHub" width="48" height="48" loading="lazy" decoding="async">
                         </span>
                         <strong>GitHub</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon tool-icon-line">
-                            <i data-lucide="code-2" aria-hidden="true"></i>
+                        <span class="tool-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                                alt="VS Code" width="48" height="48" loading="lazy" decoding="async">
                         </span>
                         <strong>VS Code</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon tool-icon-line">
-                            <i data-lucide="database-zap" aria-hidden="true"></i>
+                        <span class="tool-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg"
+                                alt="Supabase" width="48" height="48" loading="lazy" decoding="async">
                         </span>
                         <strong>Supabase</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon tool-icon-line">
-                            <i data-lucide="pen-tool" aria-hidden="true"></i>
+                        <span class="tool-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+                                alt="Figma" width="48" height="48" loading="lazy" decoding="async">
                         </span>
                         <strong>Figma</strong>
                     </article>
@@ -684,15 +837,17 @@
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon tool-icon-line">
-                            <i data-lucide="database" aria-hidden="true"></i>
+                        <span class="tool-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                                alt="PostgreSQL" width="48" height="48" loading="lazy" decoding="async">
                         </span>
                         <strong>PostgreSQL</strong>
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon tool-icon-line">
-                            <i data-lucide="database" aria-hidden="true"></i>
+                        <span class="tool-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                                alt="MySQL" width="48" height="48" loading="lazy" decoding="async">
                         </span>
                         <strong>MySQL</strong>
                     </article>
@@ -705,8 +860,9 @@
                     </article>
 
                     <article class="tool-card">
-                        <span class="tool-icon tool-icon-line">
-                            <i data-lucide="database" aria-hidden="true"></i>
+                        <span class="tool-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg"
+                                alt="SQLite" width="48" height="48" loading="lazy" decoding="async">
                         </span>
                         <strong>SQLite</strong>
                     </article>
@@ -791,7 +947,7 @@
                         <p class="vault-kicker">ISM Project Vault</p>
                         <h2 id="proyectos-title">Portafolio de <span>Proyectos</span></h2>
                     </div>
-                    <a class="vault-dashboard-link" href="proyectos/" data-track-event="project_click"
+                    <a class="vault-dashboard-link" href="portafolio.html" data-track-event="project_click"
                         data-track-category="portfolio" data-track-label="Explorar portafolio">
                         Explorar portafolio
                         <span aria-hidden="true">→</span>
@@ -1054,7 +1210,7 @@
                                 <span id="vaultInspectorStage">Caso de estudio</span>
                                 <span id="vaultInspectorDate">Sitio publicado</span>
                             </div>
-                        <a href="proyectos/#badiasalud" id="vaultInspectorLink"
+                        <a href="portafolio.html?proyecto=badiasalud" id="vaultInspectorLink"
                                 data-track-event="project_click" data-track-category="portfolio"
                                 data-track-label="Ver caso de estudio Badiasalud" data-project-id="badiasalud">
                                 Ver caso de estudio
@@ -1238,8 +1394,8 @@
 
                 <form class="contact-form" id="contactForm">
                     <div class="contact-form-brand">
-                        <img src="assets/img/ismlogo2.0.png" alt="ISM Developer - formulario de contacto"
-                            width="252" height="47" loading="lazy" decoding="async">
+                        <img src="assets/img/ismlogo2.0-horizontal.png" alt="ISM Developer - formulario de contacto"
+                            width="993" height="395" loading="lazy" decoding="async">
                     </div>
 
                     <div class="contact-form-grid">
@@ -1308,7 +1464,9 @@
         <div class="footer-grid">
 
             <div class="footer-brand">
-                <h3 id="footer-title">ISM <span>Developer</span></h3>
+                <img class="footer-brand-logo" src="assets/img/ismlogo2.0-horizontal.png"
+                    alt="ISM Developer" width="993" height="395" loading="lazy" decoding="async">
+                <h3 id="footer-title" class="sr-only">ISM Developer</h3>
                 <p>
                     ISM Developer crea sitios web, sistemas a medida y soluciones digitales para pymes
                     que necesitan ordenar procesos, ahorrar tiempo y crecer con una base tecnológica clara.
@@ -1317,65 +1475,80 @@
 
             <div class="footer-column">
                 <h4>Servicios</h4>
-                <a href="servicios/">Servicios digitales</a>
+                <a href="#servicios">Servicios digitales</a>
                 <a href="#productos">Productos</a>
                 <a href="#madurez-digital">Madurez digital</a>
             </div>
 
             <div class="footer-column">
                 <h4>Navegación</h4>
-                <a href="servicios/">Servicios</a>
-                <a href="proyectos/">Proyectos</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#proyectos">Proyectos</a>
                 <a href="#proceso">Proceso</a>
                 <a href="#sobre-mi">Sobre mí</a>
                 <a href="#contacto">Contacto</a>
             </div>
 
             <div class="footer-column footer-contact">
-    <h4>Contacto</h4>
+                <h4>Contacto</h4>
 
-    <a href="https://wa.me/56968374821"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="WhatsApp">
-        <img src="assets/img/social-whatsapp.svg" alt="" width="24" height="24" loading="lazy" decoding="async">
-        <span>WhatsApp</span>
-    </a>
+                <a href="https://wa.me/56968374821"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="WhatsApp">
+                    <svg class="footer-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20 11.5a8 8 0 0 1-11.9 7L4 20l1.4-4A8 8 0 1 1 20 11.5Z"></path>
+                        <path d="M9.2 8.8c.3 2.4 1.6 3.7 4 4"></path>
+                        <path d="m9.4 8.6-.9 1.2c.3 1.6 1.7 3 3.3 3.3l1.2-.9"></path>
+                    </svg>
+                    <span>WhatsApp</span>
+                </a>
 
-    <a href="mailto:ignacio.sepulveda@ismdeveloper.cl"
-       aria-label="Correo">
-        <i data-lucide="mail" class="footer-icon"></i>
-        <span>ignacio.sepulveda@ismdeveloper.cl</span>
-    </a>
+                <a href="mailto:ignacio.sepulveda@ismdeveloper.cl" aria-label="Correo">
+                    <svg class="footer-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                        <path d="m4 7 8 6 8-6"></path>
+                    </svg>
+                    <span>ignacio.sepulveda@ismdeveloper.cl</span>
+                </a>
 
-    <a href="tel:+56968374821"
-       aria-label="Teléfono">
-        <i data-lucide="phone" class="footer-icon"></i>
-        <span>+56 9 6837 4821</span>
-    </a>
+                <a href="tel:+56968374821" aria-label="Teléfono">
+                    <svg class="footer-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 4h3l2 5-2 1.5a15 15 0 0 0 5.5 5.5L15 14l5 2v3c0 1.1-.9 2-2 2C9.7 21 3 14.3 3 6c0-1.1.9-2 2-2Z"></path>
+                    </svg>
+                    <span>+56 9 6837 4821</span>
+                </a>
 
-    <a href="https://www.ismdeveloper.cl/"
-       aria-label="Sitio web oficial de ISM Developer">
-        <i data-lucide="globe-2" class="footer-icon"></i>
-        <span>www.ismdeveloper.cl</span>
-    </a>
+                <a href="https://www.ismdeveloper.cl/" aria-label="Sitio web oficial de ISM Developer">
+                    <svg class="footer-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"></path>
+                    </svg>
+                    <span>www.ismdeveloper.cl</span>
+                </a>
 
-    <a href="https://www.instagram.com/imcodedeveloper/"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Instagram">
-        <img src="assets/img/social-instagram.svg" alt="" width="24" height="24" loading="lazy" decoding="async">
-        <span>Instagram</span>
-    </a>
+                <a href="https://www.instagram.com/imcodedeveloper/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Instagram">
+                    <svg class="footer-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <circle cx="17.4" cy="6.6" r="1"></circle>
+                    </svg>
+                    <span>Instagram</span>
+                </a>
 
-    <a href="https://web.facebook.com/ignacioandres.sepulvedamardones?locale=es_LA"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Facebook">
-        <img src="assets/img/social-facebook.svg" alt="" width="24" height="24" loading="lazy" decoding="async">
-        <span>Facebook</span>
-    </a>
-</div>
+                <a href="https://web.facebook.com/ignacioandres.sepulvedamardones?locale=es_LA"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Facebook">
+                    <svg class="footer-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M14 21v-8h3l.5-4H14V7.2c0-1.2.4-2.2 2.3-2.2H18V1.4A22 22 0 0 0 15.3 1C12.5 1 10 2.7 10 6.2V9H7v4h3v8"></path>
+                    </svg>
+                    <span>Facebook</span>
+                </a>
+            </div>
 
         </div>
 
@@ -1385,7 +1558,7 @@
         </div>
     </footer>
 
-    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/script.js?v=2.0.17" defer></script>
 </body>
 
 </html>

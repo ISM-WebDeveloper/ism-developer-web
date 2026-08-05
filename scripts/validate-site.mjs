@@ -5,15 +5,12 @@ import { fileURLToPath } from "node:url";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const htmlFiles = [
     "index.html",
-    "servicios/index.html",
-    "proyectos/index.html",
     "servicios.html",
     "portafolio.html"
 ];
 const indexableFiles = new Set([
     "index.html",
-    "servicios/index.html",
-    "proyectos/index.html"
+    "portafolio.html"
 ]);
 const errors = [];
 const warnings = [];
@@ -207,7 +204,7 @@ for (const field of ["title", "description", "canonical"]) {
     });
 }
 
-for (const cssFile of ["assets/css/style.css", "assets/css/catalogo.css"]) {
+for (const cssFile of ["assets/css/style.css", "assets/css/portafolio.css"]) {
     const content = read(cssFile);
     const opening = (content.match(/{/g) || []).length;
     const closing = (content.match(/}/g) || []).length;
@@ -233,15 +230,14 @@ for (const requiredType of ["ProfessionalService", "Service", "Person", "FAQPage
 const sitemap = read("sitemap.xml");
 for (const cleanUrl of [
     "https://www.ismdeveloper.cl/",
-    "https://www.ismdeveloper.cl/servicios/",
-    "https://www.ismdeveloper.cl/proyectos/"
+    "https://www.ismdeveloper.cl/portafolio.html"
 ]) {
     if (!sitemap.includes(`<loc>${cleanUrl}</loc>`)) {
         report(errors, "sitemap.xml", `falta ${cleanUrl}.`);
     }
 }
-if (/portafolio\.html|servicios\.html/.test(sitemap)) {
-    report(errors, "sitemap.xml", "incluye URLs antiguas no canónicas.");
+if (/\/servicios\/|\/proyectos\//.test(sitemap)) {
+    report(errors, "sitemap.xml", "incluye rutas que no pertenecen a la arquitectura actual.");
 }
 
 const robots = read("robots.txt");

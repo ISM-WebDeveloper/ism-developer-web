@@ -1,9 +1,30 @@
-// POSICIÓN INICIAL
-// Respeta enlaces directos a secciones y vuelve al hero solo cuando no existe un hash válido.
+// POSICIÓN INICIAL Y NAVEGACIÓN INTERNA
+// Todas las rutas del navbar apuntan a secciones reales de esta página y
+// descuentan la altura del navbar para no ocultar los títulos.
 
 if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";
 }
+
+const getSectionAnchorOffset = () => {
+    const configuredOffset = Number.parseFloat(
+        getComputedStyle(document.documentElement).getPropertyValue("--section-anchor-offset")
+    );
+
+    return Number.isFinite(configuredOffset) ? configuredOffset : 100;
+};
+
+const scrollToSection = (target, behavior = "smooth") => {
+    const targetTop = target.id === "inicio"
+        ? 0
+        : target.getBoundingClientRect().top + window.scrollY - getSectionAnchorOffset();
+
+    window.scrollTo({
+        top: Math.max(0, Math.round(targetTop)),
+        left: 0,
+        behavior
+    });
+};
 
 const restoreRequestedPosition = () => {
     const targetId = decodeURIComponent(window.location.hash.slice(1));
@@ -11,16 +32,12 @@ const restoreRequestedPosition = () => {
 
     requestAnimationFrame(() => {
         if (target) {
-            target.scrollIntoView({ block: "start" });
+            scrollToSection(target, "auto");
             return;
         }
 
         if (!targetId) {
-            window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: "instant"
-            });
+            window.scrollTo({ top: 0, left: 0, behavior: "auto" });
         }
     });
 };
@@ -34,7 +51,6 @@ if (document.readyState === "loading") {
 window.addEventListener("pageshow", restoreRequestedPosition);
 
 // NAVBAR PREMIUM
-// Agrega una clase cuando el usuario baja con scroll
 
 const navbar = document.getElementById("navbar");
 const navToggle = document.getElementById("navToggle");
@@ -60,6 +76,24 @@ navToggle?.addEventListener("click", () => {
 
 primaryNav?.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => setNavigationOpen(false));
+});
+
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+        const href = link.getAttribute("href");
+        if (!href || href === "#") return;
+
+        const target = document.getElementById(decodeURIComponent(href.slice(1)));
+        if (!target) return;
+
+        event.preventDefault();
+        setNavigationOpen(false);
+        scrollToSection(target);
+
+        if (window.location.hash !== href) {
+            history.pushState(null, "", href);
+        }
+    });
 });
 
 document.addEventListener("keydown", (event) => {
@@ -105,75 +139,196 @@ window.addEventListener("scroll", () => {
     }
 });
 
-// REVEAL PREMIUM
-// Aplica entradas suaves a bloques, títulos y tarjetas sin depender de editar cada sección a mano.
+// REVEAL PREMIUM POR VIEWPORT
+// Cada elemento se prepara con una entrada distinta y solo se activa cuando
+// realmente entra en el área visible. El observer se desconecta después de
+// la primera aparición para evitar repeticiones y conservar rendimiento.
 
-const autoRevealSelectors = [
-    ".section-title",
-    ".contact-intro",
-    ".contact-form",
-    ".faq-column",
-    ".footer-grid > *",
-    ".footer-bottom",
-    ".floating-whatsapp"
-];
+const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+const reduceMotion = reduceMotionQuery.matches;
+const compactMotion = window.matchMedia("(max-width: 700px)").matches;
 
-autoRevealSelectors.forEach((selector) => {
+const setReveal = (element, variant = "fade-up", delay = 0) => {
+    if (!element) return;
+
+    element.classList.add("reveal");
+    element.dataset.reveal = element.dataset.reveal || variant;
+    element.style.setProperty("--reveal-delay", `${Math.max(0, Math.round(delay))}ms`);
+};
+
+const revealAll = (selector, variant = "fade-up", delay = 0) => {
     document.querySelectorAll(selector).forEach((element) => {
-        element.classList.add("reveal");
+        setReveal(element, variant, delay);
     });
-});
+};
 
-const revealGroups = [
-    ".cards",
-    ".process-map",
-    ".faq-grid",
-    ".footer-grid",
-    ".contact-shell"
-];
+const revealGroup = ({
+    groupSelector,
+    itemSelector,
+    variants = ["card-rise"],
+    step = 80,
+    maxDelay = 420
+}) => {
+    document.querySelectorAll(groupSelector).forEach((group) => {
+        const items = [...group.querySelectorAll(itemSelector)];
+        const motionFactor = compactMotion ? 0.62 : 1;
 
-revealGroups.forEach((selector) => {
-    document.querySelectorAll(selector).forEach((group) => {
-        [...group.querySelectorAll(":scope > .reveal")].forEach((element, index) => {
-            element.style.setProperty("--reveal-delay", `${Math.min(index * 90, 360)}ms`);
+        items.forEach((element, index) => {
+            const variant = variants[index % variants.length];
+            const delay = Math.min(index * step * motionFactor, maxDelay * motionFactor);
+            setReveal(element, variant, delay);
         });
     });
+};
+
+// Encabezados: una entrada limpia y consistente en todas las secciones.
+revealAll(".section-title", "fade-up");
+
+// Sobre mí: composición dividida para reforzar la lectura izquierda-derecha.
+revealAll(".about-visual", "clip-left");
+revealAll(".about-content", "fade-right", compactMotion ? 40 : 110);
+
+// Servicios: tarjetas premium en cascada y nota final independiente.
+revealGroup({
+    groupSelector: ".service-showcase-grid",
+    itemSelector: ":scope > .service-showcase-card",
+    variants: ["card-rise", "soft-zoom"],
+    step: 78,
+    maxDelay: 390
+});
+revealAll(".service-showcase-note", "fade-up", compactMotion ? 40 : 120);
+
+// Productos y madurez: entradas profundas pero discretas.
+revealGroup({
+    groupSelector: ".products-section .product-grid",
+    itemSelector: ":scope > .product-card",
+    variants: ["card-rise", "soft-zoom"],
+    step: 88,
+    maxDelay: 360
+});
+revealGroup({
+    groupSelector: ".maturity-grid",
+    itemSelector: ":scope > .maturity-card-premium",
+    variants: ["clip-up", "soft-zoom"],
+    step: 96,
+    maxDelay: 360
+});
+revealAll(".maturity-note", "fade-up", compactMotion ? 40 : 120);
+
+// Proceso: recorrido secuencial, legible y sin movimientos bruscos.
+revealGroup({
+    groupSelector: ".process-map",
+    itemSelector: ":scope > .process-step",
+    variants: ["fade-left", "card-rise", "fade-right"],
+    step: 72,
+    maxDelay: 360
 });
 
-const revealElements = document.querySelectorAll(".reveal");
+// Stack: primero aparece el marco y luego cada tecnología en una cascada corta.
+revealAll(".tools-panel", "soft-zoom");
+revealGroup({
+    groupSelector: ".tools-grid",
+    itemSelector: ":scope > .tool-card",
+    variants: ["pop"],
+    step: 34,
+    maxDelay: 410
+});
+revealAll(".tools-bottom-mark", "fade-up", compactMotion ? 30 : 100);
 
-function revealVisibleElements() {
-    revealElements.forEach((element) => {
-        if (element.classList.contains("active")) return;
+// Interfaces y portafolio: bloques grandes con entrada cinematográfica suave.
+revealAll(".dashboard-mockup", "clip-up");
+revealAll(".vault-shell", "soft-zoom");
 
-        const rect = element.getBoundingClientRect();
-        const isInsideViewport = rect.top < window.innerHeight * 0.88 && rect.bottom > 0;
+// Preguntas frecuentes: columnas opuestas y preguntas en cascada.
+revealAll(".faq-column:first-child", "fade-left");
+revealAll(".faq-column:last-child", "fade-right", compactMotion ? 35 : 90);
+revealGroup({
+    groupSelector: ".faq-column",
+    itemSelector: ":scope > .faq-item",
+    variants: ["fade-up"],
+    step: 48,
+    maxDelay: 220
+});
 
-        if (isInsideViewport) {
-            element.classList.add("active");
-        }
-    });
-}
+// Contacto y footer: cierre equilibrado de la experiencia.
+revealAll(".contact-intro", "fade-left");
+revealAll(".contact-form", "fade-right", compactMotion ? 35 : 100);
+revealGroup({
+    groupSelector: ".contact-points",
+    itemSelector: ":scope > div",
+    variants: ["fade-up"],
+    step: 65,
+    maxDelay: 180
+});
+revealGroup({
+    groupSelector: ".footer-grid",
+    itemSelector: ":scope > *",
+    variants: ["fade-up", "soft-zoom"],
+    step: 75,
+    maxDelay: 300
+});
+revealAll(".footer-bottom", "fade-up", compactMotion ? 30 : 90);
+revealAll(".floating-whatsapp", "pop", compactMotion ? 180 : 420);
 
-if ("IntersectionObserver" in window) {
+const revealElements = [...document.querySelectorAll(".reveal")];
+
+const activateReveal = (element) => {
+    element.classList.add("active");
+    element.removeAttribute("aria-hidden");
+};
+
+if (reduceMotion) {
+    revealElements.forEach(activateReveal);
+} else if ("IntersectionObserver" in window) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
             if (!entry.isIntersecting) return;
 
-            entry.target.classList.add("active");
+            activateReveal(entry.target);
             observer.unobserve(entry.target);
         });
     }, {
-        rootMargin: "0px 0px -8% 0px",
-        threshold: 0.12
+        root: null,
+        // La animación comienza cuando el elemento ya entró en el viewport,
+        // dejando un margen inferior para que el efecto sea visible completo.
+        rootMargin: "0px 0px -11% 0px",
+        threshold: 0.08
     });
 
     revealElements.forEach((element) => revealObserver.observe(element));
 } else {
+    const revealVisibleElements = () => {
+        revealElements.forEach((element) => {
+            if (element.classList.contains("active")) return;
+
+            const rect = element.getBoundingClientRect();
+            const entryLine = window.innerHeight * 0.89;
+            const isInsideViewport = rect.top <= entryLine && rect.bottom >= 0;
+
+            if (isInsideViewport) activateReveal(element);
+        });
+    };
+
     window.addEventListener("scroll", revealVisibleElements, { passive: true });
     window.addEventListener("resize", revealVisibleElements);
-    window.addEventListener("load", revealVisibleElements);
+    window.addEventListener("pageshow", revealVisibleElements);
     requestAnimationFrame(revealVisibleElements);
+}
+
+// Marca la sección activa para futuros detalles visuales y depuración.
+if ("IntersectionObserver" in window && !reduceMotion) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            entry.target.classList.toggle("is-in-view", entry.isIntersecting);
+        });
+    }, {
+        rootMargin: "-18% 0px -18% 0px",
+        threshold: 0.05
+    });
+
+    document.querySelectorAll("main > section, footer").forEach((section) => {
+        sectionObserver.observe(section);
+    });
 }
 
 // ANIMACIÓN SOBRE MÍ
@@ -309,7 +464,7 @@ if (vaultSection) {
 
         if (inspectorLink) {
             inspectorLink.hidden = false;
-            inspectorLink.href = `proyectos/#${encodeURIComponent(node.dataset.projectId)}`;
+            inspectorLink.href = `portafolio.html?proyecto=${encodeURIComponent(node.dataset.projectId)}`;
             inspectorLink.textContent = node.dataset.caseStudy === "true" ? "Ver caso de estudio" : "Ver proyecto";
             inspectorLink.dataset.trackLabel = `${inspectorLink.textContent}: ${node.dataset.name}`;
             inspectorLink.dataset.projectId = node.dataset.projectId;
@@ -447,7 +602,7 @@ if (vaultSection) {
                     project_id: node.dataset.projectId,
                     section: "proyectos"
                 });
-                window.location.href = `proyectos/#${encodeURIComponent(node.dataset.projectId)}`;
+                window.location.href = `portafolio.html?proyecto=${encodeURIComponent(node.dataset.projectId)}`;
             });
 
             node.appendChild(action);
@@ -573,4 +728,86 @@ faqItems.forEach((item, index) => {
         question.setAttribute("aria-expanded", isActive);
         answer.setAttribute("aria-hidden", String(!isActive));
     });
+});
+
+// CONFIGURADOR DE SERVICIOS
+// Las tarjetas conservan su href como respaldo y muestran una confirmación antes de navegar.
+
+const configuratorLinks = document.querySelectorAll("[data-configurator-link]");
+const configuratorDialog = document.getElementById("serviceConfiguratorDialog");
+const configuratorDescription = document.getElementById("serviceConfiguratorDescription");
+const configuratorConfirm = configuratorDialog?.querySelector("[data-configurator-confirm]");
+const configuratorCancel = configuratorDialog?.querySelector("[data-configurator-cancel]");
+let configuratorOriginCard = null;
+
+const closeConfiguratorDialog = () => {
+    if (!configuratorDialog?.open) return;
+
+    configuratorDialog.close();
+    configuratorOriginCard?.focus();
+    configuratorOriginCard = null;
+};
+
+configuratorLinks.forEach((card) => {
+    card.addEventListener("click", (event) => {
+        // Mantiene disponibles abrir en pestaña nueva y otros comportamientos nativos del enlace.
+        if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) {
+            return;
+        }
+
+        const destination = card.href;
+        const serviceName = card.dataset.serviceName || "el servicio seleccionado";
+
+        if (!configuratorDialog || typeof configuratorDialog.showModal !== "function") {
+            const shouldContinue = window.confirm(
+                `¿Quieres configurar tu servicio?\n\nServicio seleccionado: ${serviceName}`
+            );
+
+            if (!shouldContinue) {
+                event.preventDefault();
+            }
+
+            return;
+        }
+
+        event.preventDefault();
+        configuratorOriginCard = card;
+
+        if (configuratorDescription) {
+            configuratorDescription.textContent =
+                `Abriremos una configuración guiada para “${serviceName}” y conservaremos esta selección.`;
+        }
+
+        if (configuratorConfirm) {
+            configuratorConfirm.href = destination;
+            configuratorConfirm.dataset.serviceName = serviceName;
+        }
+
+        configuratorDialog.showModal();
+    });
+});
+
+configuratorCancel?.addEventListener("click", closeConfiguratorDialog);
+
+configuratorConfirm?.addEventListener("click", () => {
+    const serviceName = configuratorConfirm.dataset.serviceName || "Servicio no indicado";
+
+    if (typeof window.trackEvent === "function") {
+        window.trackEvent("service_configurator_confirm", {
+            event_category: "conversion",
+            service_name: serviceName,
+            section: "servicios"
+        });
+    }
+});
+
+configuratorDialog?.addEventListener("click", (event) => {
+    if (event.target === configuratorDialog) {
+        closeConfiguratorDialog();
+    }
+});
+
+configuratorDialog?.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    closeConfiguratorDialog();
 });

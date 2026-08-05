@@ -1016,46 +1016,137 @@ img {
 }
 
 /* ========================================================= */
-/* REVEAL */
+/* REVEAL PREMIUM POR VIEWPORT                               */
 /* ========================================================= */
 
 .reveal {
-    --reveal-y: 26px;
+    --reveal-x: 0px;
+    --reveal-y: 28px;
     --reveal-scale: 0.985;
-    opacity: 0;
-    transform: translateY(var(--reveal-y)) scale(var(--reveal-scale));
-    filter: blur(8px);
+    --reveal-rotate-x: 0deg;
+    --reveal-rotate-y: 0deg;
+    --reveal-blur: 7px;
+    --reveal-clip: inset(0 0 0 0 round 0px);
+    --reveal-origin: 50% 50%;
+
     transition:
-        opacity 760ms ease,
-        transform 920ms cubic-bezier(0.22, 1, 0.36, 1),
-        filter 920ms cubic-bezier(0.22, 1, 0.36, 1);
+        opacity 680ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 920ms cubic-bezier(0.16, 1, 0.3, 1),
+        filter 760ms cubic-bezier(0.22, 1, 0.36, 1),
+        clip-path 980ms cubic-bezier(0.16, 1, 0.3, 1);
     transition-delay: var(--reveal-delay, 0ms);
-    will-change: opacity, transform, filter;
+    backface-visibility: hidden;
+}
+
+/* Dos clases de especificidad evitan que los transforms base de tarjetas
+   sobrescriban el estado inicial antes de entrar al viewport. */
+.reveal:not(.active) {
+    opacity: 0;
+    transform-origin: var(--reveal-origin);
+    transform:
+        perspective(1200px)
+        translate3d(var(--reveal-x), var(--reveal-y), 0)
+        scale(var(--reveal-scale))
+        rotateX(var(--reveal-rotate-x))
+        rotateY(var(--reveal-rotate-y));
+    filter: blur(var(--reveal-blur));
+    clip-path: var(--reveal-clip);
+    will-change: opacity, transform, filter, clip-path;
 }
 
 .reveal.active {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform:
+        perspective(1200px)
+        translate3d(0, 0, 0)
+        scale(1)
+        rotateX(0deg)
+        rotateY(0deg);
     filter: blur(0);
+    clip-path: inset(0 0 0 0 round 0px);
+    will-change: auto;
 }
 
-.section-title.reveal,
-.tools-heading.reveal {
+/* Variaciones usadas según la función visual de cada bloque. */
+.reveal[data-reveal="fade-up"] {
+    --reveal-y: 32px;
+    --reveal-scale: 0.99;
+}
+
+.reveal[data-reveal="fade-left"] {
+    --reveal-x: -46px;
+    --reveal-y: 0px;
+    --reveal-scale: 0.99;
+}
+
+.reveal[data-reveal="fade-right"] {
+    --reveal-x: 46px;
+    --reveal-y: 0px;
+    --reveal-scale: 0.99;
+}
+
+.reveal[data-reveal="soft-zoom"] {
     --reveal-y: 18px;
-    --reveal-scale: 1;
+    --reveal-scale: 0.94;
+    --reveal-blur: 8px;
 }
 
-.vault-shell.reveal,
-.dashboard-mockup.reveal,
-.contact-intro.reveal,
-.contact-form.reveal {
-    --reveal-y: 34px;
+.reveal[data-reveal="card-rise"] {
+    --reveal-y: 44px;
+    --reveal-scale: 0.965;
+    --reveal-rotate-x: 4deg;
+    --reveal-origin: 50% 100%;
 }
 
-.footer-grid>.reveal,
-.footer-bottom.reveal {
-    --reveal-y: 18px;
+.reveal[data-reveal="pop"] {
+    --reveal-y: 14px;
+    --reveal-scale: 0.82;
+    --reveal-blur: 4px;
+}
+
+.reveal[data-reveal="clip-left"] {
+    --reveal-x: -24px;
+    --reveal-y: 0px;
     --reveal-scale: 1;
+    --reveal-blur: 2px;
+    --reveal-clip: inset(0 100% 0 0 round 24px);
+}
+
+.reveal[data-reveal="clip-up"] {
+    --reveal-y: 24px;
+    --reveal-scale: 0.985;
+    --reveal-blur: 3px;
+    --reveal-clip: inset(100% 0 0 0 round 22px);
+}
+
+/* Respuesta visual adicional cuando una sección ocupa el área principal. */
+main > section,
+.premium-footer {
+    transition: background-position 900ms ease, border-color 700ms ease;
+}
+
+main > section.is-in-view,
+.premium-footer.is-in-view {
+    background-position: center center;
+}
+
+/* En móvil se reducen recorridos y profundidad para evitar movimientos pesados. */
+@media (max-width: 700px) {
+    .reveal[data-reveal="fade-left"],
+    .reveal[data-reveal="fade-right"] {
+        --reveal-x: 0px;
+        --reveal-y: 26px;
+    }
+
+    .reveal[data-reveal="card-rise"] {
+        --reveal-y: 30px;
+        --reveal-rotate-x: 2deg;
+    }
+
+    .reveal[data-reveal="clip-left"] {
+        --reveal-x: 0px;
+        --reveal-clip: inset(0 0 100% 0 round 20px);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1063,14 +1154,15 @@ img {
         scroll-behavior: auto !important;
     }
 
-    .reveal {
-        opacity: 1;
-        transform: none;
-        filter: none;
-        transition: none;
+    .reveal,
+    .reveal.active {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        clip-path: none !important;
+        transition: none !important;
     }
 
-    .reveal.active,
     .hero-title-main,
     .hero-title-accent,
     .hero-text,
@@ -1078,15 +1170,8 @@ img {
     .hero-portrait img {
         opacity: 1;
         filter: none;
-        animation: none !important;
-    }
-
-    .hero-title-main,
-    .hero-title-accent,
-    .reveal.active,
-    .hero-trust-card,
-    .hero-portrait img {
         transform: none;
+        animation: none !important;
     }
 
     .about-orbit-glow,
@@ -4985,5 +5070,1596 @@ rotateY(calc(var(--stack-offset,0)*-4deg));
     .floating-whatsapp img {
         width: 22px;
         height: 22px;
+    }
+}
+
+
+/* =========================================================
+   NORMALIZACIÓN 03 — NIVELES DE MADUREZ TRANSVERSALES
+   Diseño premium basado en la opción visual aprobada.
+   ========================================================= */
+.maturity-section {
+    isolation: isolate;
+    padding-top: 104px;
+    padding-bottom: 104px;
+    background:
+        radial-gradient(circle at 50% 8%, rgba(14, 165, 233, 0.17), transparent 34%),
+        radial-gradient(circle at 12% 62%, rgba(37, 99, 235, 0.10), transparent 30%),
+        radial-gradient(circle at 88% 64%, rgba(6, 182, 212, 0.08), transparent 30%),
+        linear-gradient(180deg, #020816 0%, #061326 54%, #020b18 100%);
+}
+
+.maturity-section::before,
+.maturity-section::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    width: 320px;
+    height: 320px;
+    border: 1px solid rgba(56, 189, 248, 0.08);
+    border-radius: 50%;
+    filter: blur(1px);
+    pointer-events: none;
+}
+
+.maturity-section::before {
+    top: -210px;
+    left: -120px;
+}
+
+.maturity-section::after {
+    right: -150px;
+    bottom: -220px;
+}
+
+.maturity-heading {
+    max-width: 1120px;
+    margin: 0 auto 62px;
+}
+
+.maturity-heading .maturity-eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 14px;
+    color: #22d3ee;
+    font-size: clamp(14px, 1.35vw, 19px);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+.maturity-heading .maturity-eyebrow::before,
+.maturity-heading .maturity-eyebrow::after {
+    content: "";
+    width: clamp(54px, 8vw, 118px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #22d3ee);
+    box-shadow: 0 0 12px rgba(34, 211, 238, 0.48);
+}
+
+.maturity-heading .maturity-eyebrow::after {
+    background: linear-gradient(90deg, #22d3ee, transparent);
+}
+
+.maturity-heading h2 {
+    color: #ffffff;
+    font-size: clamp(38px, 4.3vw, 66px);
+    font-weight: 900;
+    letter-spacing: -0.045em;
+    line-height: 1.04;
+    text-wrap: balance;
+    text-shadow: 0 12px 34px rgba(0, 0, 0, 0.34);
+}
+
+.maturity-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(14px, 1.35vw, 22px);
+    width: min(100%, 1480px);
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 0 0 34px;
+}
+
+.maturity-card-premium {
+    position: relative;
+    display: grid;
+    grid-template-columns: 48% 52%;
+    min-width: 0;
+    min-height: 410px;
+    border: 1px solid rgba(255, 255, 255, 0.82);
+    border-radius: 22px;
+    background: #ffffff;
+    box-shadow:
+        0 26px 58px rgba(0, 0, 0, 0.34),
+        0 0 0 1px rgba(56, 189, 248, 0.13),
+        0 0 34px rgba(14, 165, 233, 0.10);
+    transition:
+        transform 260ms ease,
+        box-shadow 260ms ease,
+        border-color 260ms ease;
+}
+
+.maturity-card-premium::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(255, 255, 255, 0.46);
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.maturity-card-premium:hover {
+    transform: translateY(-7px);
+    border-color: rgba(103, 232, 249, 0.92);
+    box-shadow:
+        0 32px 72px rgba(0, 0, 0, 0.40),
+        0 0 0 1px rgba(34, 211, 238, 0.28),
+        0 0 42px rgba(14, 165, 233, 0.18);
+}
+
+.maturity-card-visual {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 20px 0 0 20px;
+    background: #031333;
+}
+
+.maturity-card-visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 36%),
+        linear-gradient(90deg, transparent 72%, rgba(3, 19, 51, 0.28));
+    pointer-events: none;
+}
+
+.maturity-card-visual img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(1.05) contrast(1.04);
+    transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.maturity-card-premium:hover .maturity-card-visual img {
+    transform: scale(1.035);
+}
+
+.maturity-card-content {
+    min-width: 0;
+    padding: 70px clamp(18px, 1.7vw, 28px) 76px;
+    border-radius: 0 20px 20px 0;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.08), transparent 34%),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    color: #071a44;
+}
+
+.maturity-card-content h3 {
+    margin: 0;
+    color: #071a44;
+    font-size: clamp(19px, 1.55vw, 25px);
+    font-weight: 900;
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+}
+
+.maturity-card-accent {
+    display: block;
+    width: 44px;
+    height: 4px;
+    margin: 22px 0 28px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #0ea5e9, #22d3ee);
+    box-shadow: 0 0 16px rgba(34, 211, 238, 0.34);
+}
+
+.maturity-card-content p {
+    margin: 0;
+    color: #17315f;
+    font-size: clamp(15px, 1.18vw, 18px);
+    font-weight: 500;
+    line-height: 1.56;
+    text-wrap: pretty;
+}
+
+.maturity-card-icon {
+    position: absolute;
+    z-index: 4;
+    left: 48%;
+    bottom: -26px;
+    width: 76px;
+    height: 76px;
+    display: grid;
+    place-items: center;
+    border: 2px solid #67e8f9;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 35% 28%, rgba(56, 189, 248, 0.26), transparent 34%),
+        #071936;
+    color: #ffffff;
+    box-shadow:
+        0 0 0 4px rgba(2, 8, 22, 0.82),
+        0 16px 28px rgba(0, 0, 0, 0.34),
+        0 0 24px rgba(34, 211, 238, 0.26);
+    transform: translateX(-50%);
+}
+
+.maturity-card-icon svg {
+    width: 38px;
+    height: 38px;
+    stroke-width: 1.8;
+}
+
+.maturity-note {
+    position: relative;
+    z-index: 2;
+    width: min(100%, 1000px);
+    max-width: 1000px;
+    min-height: 82px;
+    margin: 36px auto 0;
+    padding: 18px 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    border: 1px solid rgba(56, 189, 248, 0.34);
+    border-radius: 12px;
+    background: rgba(2, 8, 23, 0.68);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 18px 44px rgba(0, 0, 0, 0.22),
+        0 0 26px rgba(14, 165, 233, 0.08);
+    color: #e2e8f0;
+    text-align: left;
+    backdrop-filter: blur(12px);
+}
+
+.maturity-note::before,
+.maturity-note::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: clamp(42px, 8vw, 130px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #22d3ee);
+    transform: translateY(-50%);
+    box-shadow: 0 0 10px rgba(34, 211, 238, 0.42);
+}
+
+.maturity-note::before {
+    right: calc(100% + 28px);
+}
+
+.maturity-note::after {
+    left: calc(100% + 28px);
+    background: linear-gradient(90deg, #22d3ee, transparent);
+}
+
+.maturity-note-icon {
+    flex: 0 0 auto;
+    width: 56px;
+    height: 56px;
+    display: grid;
+    place-items: center;
+    padding-right: 20px;
+    border-right: 1px solid rgba(103, 232, 249, 0.55);
+    color: #22d3ee;
+}
+
+.maturity-note-icon svg {
+    width: 38px;
+    height: 38px;
+    stroke-width: 1.9;
+}
+
+.maturity-note p {
+    margin: 0;
+    color: #e2e8f0;
+    font-size: clamp(14px, 1.15vw, 17px);
+    line-height: 1.55;
+}
+
+@media (max-width: 1220px) {
+    .maturity-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 920px;
+        gap: 30px 22px;
+    }
+
+    .maturity-card-premium {
+        min-height: 390px;
+    }
+}
+
+@media (max-width: 760px) {
+    .maturity-section {
+        padding-top: 78px;
+        padding-bottom: 82px;
+    }
+
+    .maturity-heading {
+        margin-bottom: 42px;
+    }
+
+    .maturity-heading .maturity-eyebrow {
+        gap: 10px;
+        font-size: 13px;
+    }
+
+    .maturity-heading .maturity-eyebrow::before,
+    .maturity-heading .maturity-eyebrow::after {
+        width: 26px;
+    }
+
+    .maturity-heading h2 {
+        font-size: clamp(34px, 10vw, 48px);
+    }
+
+    .maturity-grid {
+        grid-template-columns: 1fr;
+        width: min(100%, 520px);
+        gap: 34px;
+    }
+
+    .maturity-card-premium {
+        grid-template-columns: 43% 57%;
+        min-height: 330px;
+    }
+
+    .maturity-card-content {
+        padding: 48px 24px 66px;
+    }
+
+    .maturity-card-icon {
+        left: 43%;
+        width: 68px;
+        height: 68px;
+    }
+
+    .maturity-card-icon svg {
+        width: 33px;
+        height: 33px;
+    }
+
+    .maturity-note {
+        margin-top: 28px;
+        padding: 18px 20px;
+        gap: 16px;
+        text-align: left;
+    }
+
+    .maturity-note::before,
+    .maturity-note::after {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .maturity-heading .maturity-eyebrow::before,
+    .maturity-heading .maturity-eyebrow::after {
+        display: none;
+    }
+
+    .maturity-card-premium {
+        grid-template-columns: 1fr;
+        min-height: 0;
+    }
+
+    .maturity-card-visual {
+        height: 220px;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .maturity-card-content {
+        min-height: 230px;
+        padding: 50px 28px 34px;
+        border-radius: 0 0 20px 20px;
+    }
+
+    .maturity-card-icon {
+        left: 50%;
+        top: 184px;
+        bottom: auto;
+        width: 72px;
+        height: 72px;
+    }
+
+    .maturity-card-content h3 {
+        font-size: 23px;
+        text-align: center;
+    }
+
+    .maturity-card-accent {
+        margin: 18px auto 22px;
+    }
+
+    .maturity-card-content p {
+        text-align: center;
+    }
+
+    .maturity-note {
+        flex-direction: column;
+        padding: 22px;
+        text-align: center;
+    }
+
+    .maturity-note-icon {
+        width: 52px;
+        height: 52px;
+        padding: 0 0 14px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(103, 232, 249, 0.55);
+    }
+
+    .maturity-note p {
+        text-align: center;
+    }
+}
+
+/* =========================================================
+   NORMALIZACIÓN 03.1 — ESCALA DE SECCIONES SEGÚN VIEWPORT
+   - Reduce el exceso de altura en escritorio.
+   - Mantiene una altura mínima de pantalla para secciones cortas.
+   - No fuerza ni recorta secciones cuyo contenido sea naturalmente mayor.
+   ========================================================= */
+@media (min-width: 1025px) {
+    .section {
+        min-height: 100svh;
+        padding-block: clamp(42px, 6.5vh, 76px);
+        padding-inline: clamp(48px, 5vw, 88px);
+    }
+
+    .section-title {
+        margin-bottom: clamp(26px, 4vh, 44px);
+    }
+
+    .section-title h2 {
+        font-size: clamp(34px, 3vw, 48px);
+        line-height: 1.08;
+    }
+}
+
+@media (min-width: 1025px) and (max-height: 760px) {
+    .section {
+        padding-block: clamp(30px, 5vh, 48px);
+    }
+
+    .section-title {
+        margin-bottom: clamp(20px, 3vh, 30px);
+    }
+}
+
+/* La sección de madurez se dimensiona como una composición completa de pantalla. */
+@media (min-width: 1025px) {
+    .maturity-section {
+        min-height: 100svh;
+        padding: clamp(24px, 3.8vh, 42px) clamp(32px, 4vw, 64px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .maturity-heading {
+        width: 100%;
+        max-width: 1120px;
+        margin: 0 auto clamp(22px, 3.4vh, 36px);
+    }
+
+    .maturity-heading .maturity-eyebrow {
+        gap: clamp(10px, 1.3vw, 18px);
+        margin-bottom: clamp(8px, 1.3vh, 12px);
+        font-size: clamp(13px, 1.12vw, 17px);
+    }
+
+    .maturity-heading h2 {
+        font-size: clamp(36px, 6vh, 58px);
+        line-height: 1;
+    }
+
+    .maturity-grid {
+        width: min(100%, 1280px);
+        max-width: 1280px;
+        gap: clamp(12px, 1.35vw, 20px);
+        padding-bottom: clamp(14px, 2.4vh, 26px);
+    }
+
+    .maturity-card-premium {
+        min-height: clamp(270px, 45vh, 360px);
+        border-radius: 18px;
+    }
+
+    .maturity-card-visual {
+        border-radius: 16px 0 0 16px;
+    }
+
+    .maturity-card-content {
+        padding: clamp(34px, 6vh, 58px) clamp(14px, 1.55vw, 24px)
+            clamp(46px, 8vh, 68px);
+        border-radius: 0 16px 16px 0;
+    }
+
+    .maturity-card-content h3 {
+        font-size: clamp(17px, 1.42vw, 22px);
+        line-height: 1.14;
+        overflow-wrap: normal;
+        word-break: normal;
+        hyphens: none;
+    }
+
+    .maturity-card-accent {
+        width: 38px;
+        height: 3px;
+        margin: clamp(13px, 2.2vh, 19px) 0 clamp(15px, 2.6vh, 23px);
+    }
+
+    .maturity-card-content p {
+        font-size: clamp(13px, 1.02vw, 16px);
+        line-height: 1.46;
+    }
+
+    .maturity-card-icon {
+        bottom: -20px;
+        width: clamp(54px, 8vh, 68px);
+        height: clamp(54px, 8vh, 68px);
+    }
+
+    .maturity-card-icon svg {
+        width: clamp(27px, 4vh, 34px);
+        height: clamp(27px, 4vh, 34px);
+    }
+
+    .maturity-note {
+        width: min(100%, 920px);
+        max-width: 920px;
+        min-height: clamp(54px, 8vh, 68px);
+        margin: clamp(14px, 2.5vh, 24px) auto 0;
+        padding: 11px clamp(20px, 2.4vw, 32px);
+        gap: clamp(14px, 1.7vw, 22px);
+    }
+
+    .maturity-note-icon {
+        width: clamp(42px, 6vh, 52px);
+        height: clamp(42px, 6vh, 52px);
+        padding-right: clamp(13px, 1.5vw, 19px);
+    }
+
+    .maturity-note-icon svg {
+        width: clamp(28px, 4.3vh, 36px);
+        height: clamp(28px, 4.3vh, 36px);
+    }
+
+    .maturity-note p {
+        font-size: clamp(13px, 1.04vw, 16px);
+        line-height: 1.4;
+    }
+}
+
+@media (min-width: 1025px) and (max-height: 680px) {
+    .maturity-heading h2 {
+        font-size: clamp(34px, 5.8vh, 42px);
+    }
+
+    .maturity-card-premium {
+        min-height: 268px;
+    }
+
+    .maturity-card-content {
+        padding-top: 34px;
+        padding-bottom: 46px;
+    }
+
+    .maturity-card-icon {
+        bottom: -18px;
+        width: 54px;
+        height: 54px;
+    }
+
+    .maturity-card-icon svg {
+        width: 27px;
+        height: 27px;
+    }
+}
+
+/* =========================================================
+   NORMALIZACIÓN 04 — SERVICIOS Y PLATAFORMAS DIGITALES
+   Dirección visual: tarjetas split de alto impacto.
+   - Imagen + contenido, sin numeración ni iconos decorativos.
+   - Toda la tarjeta funciona como enlace al configurador.
+   - Composición optimizada para caber en el viewport de escritorio.
+   ========================================================= */
+.services-showcase-section {
+    isolation: isolate;
+    background:
+        radial-gradient(circle at 12% 8%, rgba(14, 165, 233, 0.14), transparent 30%),
+        radial-gradient(circle at 88% 86%, rgba(37, 99, 235, 0.12), transparent 32%),
+        linear-gradient(180deg, #07111f 0%, #050c17 100%);
+}
+
+.services-showcase-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(56, 189, 248, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.025) 1px, transparent 1px);
+    background-size: 54px 54px;
+    mask-image: linear-gradient(to bottom, transparent, #000 20%, #000 80%, transparent);
+}
+
+.services-showcase-section .wave-bg {
+    opacity: 0.46;
+}
+
+.services-showcase-shell {
+    position: relative;
+    z-index: 2;
+    width: min(100%, 1400px);
+    margin-inline: auto;
+}
+
+.services-showcase-heading {
+    width: min(100%, 930px);
+    margin-inline: auto;
+}
+
+.services-showcase-heading > p:first-child {
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.services-showcase-intro {
+    max-width: 760px;
+    margin: 14px auto 0 !important;
+    color: #a9b8cc !important;
+    font-size: clamp(14px, 1.05vw, 17px);
+    font-weight: 400 !important;
+    line-height: 1.55;
+    text-wrap: balance;
+}
+
+.service-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: clamp(10px, 1vw, 16px);
+    position: relative;
+    z-index: 2;
+}
+
+.service-showcase-card {
+    min-width: 0;
+    min-height: 390px;
+    display: grid;
+    grid-template-rows: 42% 58%;
+    overflow: hidden;
+    border: 1px solid rgba(125, 211, 252, 0.28);
+    border-radius: 18px;
+    background: #f8fafc;
+    color: #071937;
+    text-decoration: none;
+    box-shadow:
+        0 18px 46px rgba(0, 0, 0, 0.32),
+        0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+    transform: translateY(0);
+    transition:
+        transform 0.28s ease,
+        border-color 0.28s ease,
+        box-shadow 0.28s ease;
+}
+
+.service-showcase-card:hover,
+.service-showcase-card:focus-visible {
+    transform: translateY(-7px);
+    border-color: rgba(56, 189, 248, 0.86);
+    box-shadow:
+        0 24px 56px rgba(0, 0, 0, 0.42),
+        0 0 30px rgba(14, 165, 233, 0.18);
+}
+
+.service-showcase-card:focus-visible {
+    outline: 3px solid rgba(103, 232, 249, 0.62);
+    outline-offset: 4px;
+}
+
+.service-showcase-media {
+    position: relative;
+    display: block;
+    min-height: 0;
+    overflow: hidden;
+    background: #061631;
+}
+
+.service-showcase-media::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 45%;
+    pointer-events: none;
+    background: linear-gradient(to top, rgba(3, 12, 28, 0.34), transparent);
+}
+
+.service-showcase-media img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.55s ease, filter 0.35s ease;
+}
+
+.service-showcase-card:hover .service-showcase-media img,
+.service-showcase-card:focus-visible .service-showcase-media img {
+    transform: scale(1.055);
+    filter: saturate(1.08) brightness(1.05);
+}
+
+.service-showcase-content {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: clamp(18px, 1.45vw, 24px) clamp(15px, 1.25vw, 21px) 17px;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(14, 165, 233, 0.08), transparent 42%),
+        linear-gradient(155deg, #ffffff 0%, #edf6fb 100%);
+}
+
+.service-showcase-title {
+    display: block;
+    min-height: 54px;
+    color: #071937;
+    font-size: clamp(16px, 1.25vw, 20px);
+    font-weight: 900;
+    line-height: 1.12;
+    text-wrap: balance;
+}
+
+.service-showcase-title::after {
+    content: "";
+    display: block;
+    width: 38px;
+    height: 3px;
+    margin-top: 13px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #0ea5e9, #22d3ee);
+    transition: width 0.28s ease;
+}
+
+.service-showcase-card:hover .service-showcase-title::after,
+.service-showcase-card:focus-visible .service-showcase-title::after {
+    width: 62px;
+}
+
+.service-showcase-description {
+    display: block;
+    margin-top: 18px;
+    color: #334765;
+    font-size: clamp(12px, 0.88vw, 14px);
+    line-height: 1.5;
+    text-wrap: pretty;
+}
+
+.service-showcase-action {
+    display: block;
+    margin-top: auto;
+    padding-top: 16px;
+    color: #0369a1;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+}
+
+.service-showcase-note {
+    width: fit-content;
+    max-width: 100%;
+    margin: clamp(20px, 3vh, 30px) auto 0;
+    padding: 11px 20px;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 999px;
+    background: rgba(7, 19, 37, 0.74);
+    color: #b8c9dc;
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: center;
+    backdrop-filter: blur(14px);
+}
+
+/* Confirmación antes de abrir el configurador. */
+.service-config-dialog {
+    width: min(calc(100% - 32px), 560px);
+    padding: 0;
+    border: 1px solid rgba(56, 189, 248, 0.46);
+    border-radius: 24px;
+    overflow: hidden;
+    background: transparent;
+    color: #f8fafc;
+    box-shadow: 0 36px 90px rgba(0, 0, 0, 0.62);
+}
+
+.service-config-dialog::backdrop {
+    background: rgba(1, 7, 16, 0.78);
+    backdrop-filter: blur(8px);
+}
+
+.service-config-dialog-panel {
+    padding: clamp(28px, 4vw, 44px);
+    background:
+        radial-gradient(circle at 100% 0%, rgba(14, 165, 233, 0.2), transparent 35%),
+        linear-gradient(145deg, #0b1b31, #07111f);
+}
+
+.service-config-dialog-eyebrow {
+    margin: 0 0 10px;
+    color: #38bdf8;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.service-config-dialog h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(27px, 4.8vw, 38px);
+    line-height: 1.08;
+    text-wrap: balance;
+}
+
+.service-config-dialog #serviceConfiguratorDescription {
+    margin: 18px 0 0;
+    color: #b8c7da;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.service-config-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.service-config-dialog-actions .btn-primary,
+.service-config-dialog-actions .btn-secondary {
+    min-width: 150px;
+    min-height: 48px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.service-config-dialog-actions .btn-secondary {
+    color: #e2e8f0;
+    background: rgba(15, 23, 42, 0.62);
+    border: 1px solid rgba(148, 163, 184, 0.38);
+}
+
+.service-config-dialog-actions .btn-secondary:hover,
+.service-config-dialog-actions .btn-secondary:focus-visible {
+    border-color: #7dd3fc;
+    background: rgba(14, 165, 233, 0.12);
+}
+
+@media (min-width: 1180px) {
+    .services-showcase-section {
+        min-height: 100svh;
+        padding: clamp(28px, 4.2vh, 52px) clamp(30px, 4vw, 64px);
+        display: flex;
+        align-items: center;
+    }
+
+    .services-showcase-heading {
+        margin-bottom: clamp(22px, 3.2vh, 34px);
+    }
+
+    .services-showcase-heading h2 {
+        font-size: clamp(34px, 4.9vh, 48px);
+        line-height: 1.04;
+    }
+
+    .service-showcase-card {
+        min-height: clamp(330px, 52vh, 405px);
+    }
+}
+
+@media (min-width: 1180px) and (max-height: 720px) {
+    .services-showcase-section {
+        padding-block: 26px;
+    }
+
+    .services-showcase-heading {
+        margin-bottom: 20px;
+    }
+
+    .services-showcase-heading h2 {
+        font-size: 36px;
+    }
+
+    .services-showcase-intro {
+        margin-top: 9px !important;
+        font-size: 14px;
+    }
+
+    .service-showcase-card {
+        min-height: 322px;
+        grid-template-rows: 39% 61%;
+    }
+
+    .service-showcase-content {
+        padding-top: 16px;
+        padding-bottom: 13px;
+    }
+
+    .service-showcase-title {
+        min-height: 46px;
+        font-size: 15px;
+    }
+
+    .service-showcase-title::after {
+        margin-top: 10px;
+    }
+
+    .service-showcase-description {
+        margin-top: 13px;
+        font-size: 11.5px;
+        line-height: 1.42;
+    }
+
+    .service-showcase-action {
+        padding-top: 10px;
+        font-size: 9.5px;
+    }
+
+    .service-showcase-note {
+        margin-top: 16px;
+        padding-block: 8px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 1179px) {
+    .service-showcase-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .service-showcase-card {
+        min-height: 390px;
+    }
+}
+
+@media (max-width: 760px) {
+    .services-showcase-heading > p:first-child {
+        font-size: 11px;
+    }
+
+    .service-showcase-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .service-showcase-card {
+        min-height: 360px;
+    }
+
+    .service-showcase-title {
+        min-height: 0;
+    }
+
+    .service-showcase-note {
+        border-radius: 18px;
+    }
+}
+
+@media (max-width: 520px) {
+    .service-showcase-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-showcase-card {
+        min-height: 0;
+        grid-template-rows: 210px auto;
+    }
+
+    .service-showcase-content {
+        min-height: 230px;
+        padding: 24px;
+    }
+
+    .service-showcase-title {
+        font-size: 21px;
+    }
+
+    .service-showcase-description {
+        font-size: 14px;
+    }
+
+    .service-config-dialog-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .service-config-dialog-actions .btn-primary,
+    .service-config-dialog-actions .btn-secondary {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .service-showcase-card,
+    .service-showcase-media img,
+    .service-showcase-title::after {
+        transition: none;
+    }
+}
+
+/* ========================================================================== 
+   NORMALIZACIÓN 04.1 · CALIDAD, ALINEACIÓN Y MODAL CENTRADO
+   ========================================================================== */
+
+/* Imágenes limpias, sin franjas heredadas del tablero conceptual. */
+.service-showcase-media {
+    background: linear-gradient(145deg, #031026, #08264b);
+}
+
+.service-showcase-media::after {
+    height: 30%;
+    background: linear-gradient(to top, rgba(3, 12, 28, 0.18), transparent);
+}
+
+.service-showcase-media img {
+    image-rendering: auto;
+    object-position: center;
+    filter: saturate(1.04) contrast(1.02);
+}
+
+/* La estructura interna de todas las tarjetas usa las mismas filas.
+   Así títulos, descripciones y acción quedan alineados horizontalmente. */
+.service-showcase-content {
+    display: grid;
+    grid-template-rows: 68px minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 0;
+}
+
+.service-showcase-title {
+    min-height: 0;
+    align-self: start;
+}
+
+.service-showcase-description {
+    min-height: 0;
+    margin-top: 0;
+    align-self: start;
+}
+
+.service-showcase-action {
+    margin-top: 0;
+    align-self: end;
+}
+
+/* El diálogo nativo perdía el margin:auto por el reset global del sitio.
+   Se centra de manera explícita en ambos ejes. */
+.service-config-dialog {
+    position: fixed;
+    inset: 50% auto auto 50%;
+    margin: 0;
+    max-width: calc(100vw - 32px);
+    max-height: calc(100svh - 32px);
+    overflow: auto;
+    transform: translate(-50%, -50%);
+}
+
+.service-config-dialog[open] {
+    display: block;
+}
+
+.service-config-dialog-panel {
+    text-align: center;
+}
+
+.service-config-dialog-eyebrow,
+.service-config-dialog h2,
+.service-config-dialog #serviceConfiguratorDescription {
+    margin-inline: auto;
+}
+
+.service-config-dialog h2 {
+    max-width: 470px;
+}
+
+.service-config-dialog #serviceConfiguratorDescription {
+    max-width: 450px;
+}
+
+.service-config-dialog-actions {
+    justify-content: center;
+}
+
+@media (min-width: 1180px) {
+    .service-showcase-card {
+        min-height: clamp(318px, 49vh, 372px);
+        grid-template-rows: clamp(116px, 18vh, 142px) minmax(0, 1fr);
+    }
+
+    .service-showcase-content {
+        grid-template-rows: 66px minmax(0, 1fr) auto;
+        padding: 16px 16px 14px;
+    }
+
+    .service-showcase-title {
+        font-size: clamp(15px, 1.1vw, 18px);
+        line-height: 1.08;
+    }
+
+    .service-showcase-title::after {
+        margin-top: 9px;
+    }
+
+    .service-showcase-description {
+        font-size: clamp(11px, 0.82vw, 13px);
+        line-height: 1.42;
+    }
+
+    .service-showcase-action {
+        padding-top: 9px;
+        font-size: 9.5px;
+        line-height: 1.25;
+    }
+}
+
+@media (min-width: 1180px) and (max-height: 720px) {
+    .service-showcase-card {
+        min-height: 305px;
+        grid-template-rows: 112px minmax(0, 1fr);
+    }
+
+    .service-showcase-content {
+        grid-template-rows: 60px minmax(0, 1fr) auto;
+        padding: 13px 14px 11px;
+    }
+
+    .service-showcase-title {
+        font-size: 14px;
+    }
+
+    .service-showcase-description {
+        font-size: 10.8px;
+        line-height: 1.36;
+    }
+
+    .service-showcase-action {
+        padding-top: 7px;
+        font-size: 8.8px;
+    }
+}
+
+@media (max-width: 1179px) {
+    .service-showcase-content {
+        grid-template-rows: 70px minmax(0, 1fr) auto;
+    }
+}
+
+@media (max-width: 520px) {
+    .service-showcase-content {
+        min-height: 240px;
+        grid-template-rows: auto minmax(0, 1fr) auto;
+    }
+
+    .service-showcase-description {
+        margin-top: 12px;
+    }
+
+    .service-config-dialog {
+        width: min(calc(100% - 24px), 560px);
+        max-width: calc(100vw - 24px);
+        max-height: calc(100svh - 24px);
+    }
+}
+
+
+/* ========================================================================== 
+   NORMALIZACIÓN 04.2 · IMÁGENES VECTORIALES, MADUREZ, ESPACIADO Y ANCLAS
+   ========================================================================== */
+
+:root {
+    --section-anchor-offset: 108px;
+}
+
+html {
+    scroll-padding-top: var(--section-anchor-offset);
+}
+
+.header[id],
+main > section[id] {
+    scroll-margin-top: var(--section-anchor-offset);
+}
+
+/* Las ilustraciones de servicios son SVG propios y no recortes ampliados. */
+.service-showcase-media {
+    border-bottom: 1px solid rgba(125, 211, 252, 0.28);
+}
+
+.service-showcase-media img {
+    object-fit: cover;
+    object-position: center;
+    filter: none;
+}
+
+/* Línea cian y textos alineados aunque un título use tres líneas. */
+.service-showcase-content {
+    grid-template-rows: 78px minmax(0, 1fr) auto;
+}
+
+.service-showcase-title {
+    position: relative;
+    min-height: 78px;
+    padding-bottom: 17px;
+    display: block;
+}
+
+.service-showcase-title::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: 0;
+}
+
+.service-showcase-description {
+    padding-top: 15px;
+}
+
+/* Una sola línea perimetral y márgenes iguales en las tarjetas de madurez. */
+.maturity-card-premium {
+    grid-template-columns: 45% 55%;
+    border: 1px solid rgba(186, 230, 253, 0.72);
+    border-radius: 18px;
+    box-shadow:
+        0 22px 52px rgba(0, 0, 0, 0.34),
+        0 0 26px rgba(14, 165, 233, 0.10);
+}
+
+.maturity-card-premium::after {
+    display: none;
+}
+
+.maturity-card-visual {
+    border-radius: 17px 0 0 17px;
+}
+
+.maturity-card-content {
+    padding: clamp(28px, 4.7vh, 44px) clamp(16px, 1.35vw, 22px)
+        clamp(46px, 7vh, 62px);
+    border-radius: 0 17px 17px 0;
+}
+
+.maturity-card-content h3 {
+    min-height: 68px;
+    display: flex;
+    align-items: flex-start;
+    font-size: clamp(16px, 1.2vw, 20px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+}
+
+.maturity-card-accent {
+    width: 40px;
+    margin: 12px 0 18px;
+}
+
+.maturity-card-content p {
+    font-size: clamp(13px, 0.98vw, 15px);
+    line-height: 1.48;
+}
+
+.maturity-card-icon {
+    left: 45%;
+    border-width: 1px;
+    box-shadow:
+        0 0 0 3px rgba(2, 8, 22, 0.88),
+        0 14px 26px rgba(0, 0, 0, 0.32),
+        0 0 20px rgba(34, 211, 238, 0.22);
+}
+
+/* Evita vacíos artificiales entre secciones cortas. */
+@media (min-width: 1025px) {
+    .section {
+        min-height: auto;
+    }
+
+    .services-showcase-section,
+    .maturity-section {
+        min-height: 100svh;
+    }
+
+    .action-plan-section {
+        min-height: auto;
+        padding-top: clamp(54px, 7vh, 76px);
+        padding-bottom: clamp(48px, 6vh, 68px);
+    }
+
+    .action-plan-section .process-map {
+        margin-top: clamp(42px, 5.5vh, 58px);
+    }
+
+    .tools-section {
+        min-height: auto;
+        padding-top: clamp(52px, 6.5vh, 72px);
+        padding-bottom: clamp(58px, 7vh, 82px);
+    }
+
+    .maturity-grid {
+        width: min(100%, 1220px);
+        max-width: 1220px;
+        gap: clamp(12px, 1.1vw, 16px);
+    }
+
+    .maturity-card-premium {
+        min-height: clamp(260px, 42vh, 336px);
+    }
+}
+
+@media (min-width: 1180px) {
+    .service-showcase-content {
+        grid-template-rows: 72px minmax(0, 1fr) auto;
+    }
+
+    .service-showcase-title {
+        min-height: 72px;
+        padding-bottom: 15px;
+    }
+
+    .service-showcase-description {
+        padding-top: 13px;
+    }
+}
+
+@media (min-width: 1180px) and (max-height: 720px) {
+    .service-showcase-content {
+        grid-template-rows: 65px minmax(0, 1fr) auto;
+    }
+
+    .service-showcase-title {
+        min-height: 65px;
+        padding-bottom: 12px;
+    }
+
+    .service-showcase-description {
+        padding-top: 10px;
+    }
+
+    .maturity-card-content h3 {
+        min-height: 58px;
+    }
+}
+
+@media (max-width: 760px) {
+    :root {
+        --section-anchor-offset: 86px;
+    }
+
+    .maturity-card-premium {
+        grid-template-columns: 43% 57%;
+    }
+
+    .maturity-card-icon {
+        left: 43%;
+    }
+}
+
+@media (max-width: 520px) {
+    .service-showcase-content {
+        grid-template-rows: auto minmax(0, 1fr) auto;
+    }
+
+    .service-showcase-title {
+        min-height: 0;
+        padding-bottom: 17px;
+    }
+
+    .maturity-card-premium {
+        grid-template-columns: 1fr;
+    }
+
+    .maturity-card-icon {
+        left: 50%;
+    }
+
+    .maturity-card-content h3 {
+        min-height: 0;
+    }
+}
+
+/* Recorta los pocos píxeles de borde incorporados en las imágenes actuales. */
+.maturity-card-visual img {
+    transform: scale(1.035);
+}
+
+.maturity-card-premium:hover .maturity-card-visual img {
+    transform: scale(1.065);
+}
+
+/* ==========================================================
+   NORMALIZACIÓN 04.3 · MADUREZ + PRECIOS UF
+   - Las imágenes 03 y 04 fueron recortadas desde el archivo
+     fuente para eliminar el borde interno y el margen lateral.
+   - Se mantiene exactamente la geometría aprobada de las
+     tarjetas 01 y 02.
+   ========================================================== */
+.maturity-card-premium:nth-child(3) .maturity-card-visual img,
+.maturity-card-premium:nth-child(4) .maturity-card-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* =========================================================
+   NORMALIZACIÓN 04.4 — SERVICIOS CON IMÁGENES FOTOGRÁFICAS
+   Reemplaza los SVG por imágenes WebP 1600 × 900 optimizadas.
+   Mantiene las seis tarjetas, el modal y los enlaces existentes.
+   ========================================================= */
+.service-showcase-media {
+    isolation: isolate;
+}
+
+.service-showcase-media::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, rgba(2, 8, 23, 0.02) 40%, rgba(2, 8, 23, 0.28) 100%),
+        linear-gradient(90deg, rgba(3, 12, 28, 0.08), transparent 34%, transparent 70%, rgba(3, 12, 28, 0.08));
+}
+
+.service-showcase-media::after {
+    z-index: 2;
+    height: 48%;
+    background: linear-gradient(to top, rgba(3, 12, 28, 0.42), transparent);
+}
+
+.service-showcase-media img {
+    position: relative;
+    z-index: 0;
+    image-rendering: auto;
+    filter: saturate(1.06) contrast(1.04) brightness(0.92);
+}
+
+.service-showcase-card:nth-child(1) .service-showcase-media img {
+    object-position: 52% 50%;
+}
+
+.service-showcase-card:nth-child(2) .service-showcase-media img {
+    object-position: 51% 50%;
+}
+
+.service-showcase-card:nth-child(3) .service-showcase-media img {
+    object-position: 50% 48%;
+}
+
+.service-showcase-card:nth-child(4) .service-showcase-media img {
+    object-position: 48% 50%;
+}
+
+.service-showcase-card:nth-child(5) .service-showcase-media img {
+    object-position: 48% 50%;
+}
+
+.service-showcase-card:nth-child(6) .service-showcase-media img {
+    object-position: 55% 48%;
+}
+
+.service-showcase-card:hover .service-showcase-media img,
+.service-showcase-card:focus-visible .service-showcase-media img {
+    transform: scale(1.045);
+    filter: saturate(1.12) contrast(1.05) brightness(0.99);
+}
+
+
+/* =========================================================
+   NORMALIZACIÓN 04.5 — CARGA INEQUÍVOCA DE IMÁGENES
+   Los archivos fotográficos usan nombres nuevos para evitar
+   que el navegador, Vite o un service worker sirvan los assets
+   antiguos desde caché.
+   ========================================================= */
+
+
+/* =========================================================
+   NORMALIZACIÓN 04.8 — FLUJO INTERNO, LOGOS Y CONTACTO
+   ========================================================= */
+
+/* La nota inferior respira respecto de las tarjetas y del cierre de sección. */
+.service-showcase-note {
+    margin-top: clamp(30px, 4.6vh, 46px);
+    margin-bottom: clamp(14px, 2.2vh, 24px);
+}
+
+/* El formulario y el footer reutilizan el logo aprobado del navbar. */
+.contact-form-brand img {
+    width: min(76%, 310px);
+    max-height: 96px;
+    object-fit: contain;
+}
+
+.footer-brand-logo {
+    display: block;
+    width: min(100%, 270px);
+    max-height: 108px;
+    margin: 0 0 18px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Todos los datos de contacto comparten iconografía lineal cian. */
+.footer-contact a {
+    min-height: 31px;
+}
+
+.footer-contact .footer-icon {
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+    fill: none;
+    stroke: #38bdf8;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.25s ease, transform 0.25s ease;
+}
+
+.footer-contact a:hover .footer-icon,
+.footer-contact a:focus-visible .footer-icon {
+    stroke: #e0f2fe;
+    transform: translateX(2px);
+}
+
+@media (min-width: 1180px) and (max-height: 720px) {
+    .service-showcase-note {
+        margin-top: 28px;
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-form-brand img {
+        width: min(84%, 280px);
+        max-height: 88px;
+    }
+
+    .footer-brand-logo {
+        width: min(88%, 250px);
+    }
+
+    .footer-contact .footer-icon {
+        width: 25px;
+        height: 25px;
+        flex-basis: 25px;
     }
 }
