@@ -66,7 +66,7 @@
     function revealGroup(groupSelector, itemSelector, variants, step, maxDelay) {
         var groups = document.querySelectorAll(groupSelector);
         var groupIndex;
-        var motionFactor = compactMotion ? 0.62 : 1;
+        var motionFactor = compactMotion ? 0.78 : 1;
 
         for (groupIndex = 0; groupIndex < groups.length; groupIndex += 1) {
             var items = groups[groupIndex].querySelectorAll(itemSelector);
@@ -84,7 +84,7 @@
     function revealDirectChildren(groupSelector, variants, step, maxDelay) {
         var groups = document.querySelectorAll(groupSelector);
         var groupIndex;
-        var motionFactor = compactMotion ? 0.62 : 1;
+        var motionFactor = compactMotion ? 0.78 : 1;
 
         for (groupIndex = 0; groupIndex < groups.length; groupIndex += 1) {
             var items = groups[groupIndex].children;
@@ -101,35 +101,34 @@
     function prepareRevealElements() {
         revealAll(".section-title", "fade-up", 0);
         revealAll(".about-visual", "clip-left", 0);
-        revealAll(".about-content", "fade-right", compactMotion ? 40 : 110);
+        revealAll(".about-content", "fade-right", compactMotion ? 90 : 170);
 
-        revealGroup(".service-showcase-grid", ".service-showcase-card", ["card-rise", "soft-zoom"], 78, 390);
-        revealAll(".service-showcase-note", "fade-up", compactMotion ? 40 : 120);
+        revealGroup(".service-showcase-grid", ".service-showcase-card", ["card-rise", "soft-zoom"], 125, 650);
+        revealAll(".service-showcase-note", "fade-up", compactMotion ? 100 : 220);
 
-        revealGroup(".products-section .product-grid", ".product-card", ["card-rise", "soft-zoom"], 88, 360);
-        revealGroup(".maturity-grid", ".maturity-card-premium", ["clip-up", "soft-zoom"], 96, 360);
-        revealAll(".maturity-note", "fade-up", compactMotion ? 40 : 120);
+        revealGroup(".products-section .product-grid", ".product-card", ["card-rise", "soft-zoom"], 135, 620);
+        revealGroup(".maturity-grid", ".maturity-card-premium", ["clip-up", "soft-zoom"], 145, 650);
+        revealAll(".maturity-note", "fade-up", compactMotion ? 100 : 220);
 
-        revealGroup(".process-map", ".process-step", ["fade-left", "card-rise", "fade-right"], 72, 360);
+        revealGroup(".process-map", ".process-step", ["fade-left", "card-rise", "fade-right"], 115, 580);
 
         revealAll(".tools-panel", "soft-zoom", 0);
-        revealGroup(".tools-grid", ".tool-card", ["pop"], 34, 410);
-        revealAll(".tools-bottom-mark", "fade-up", compactMotion ? 30 : 100);
+        revealGroup(".tools-grid", ".tool-card", ["pop"], 70, 700);
+        revealAll(".tools-bottom-mark", "fade-up", compactMotion ? 80 : 180);
 
         revealAll(".dashboard-mockup", "clip-up", 0);
         revealAll(".vault-shell", "soft-zoom", 0);
 
         var faqColumns = document.querySelectorAll(".faq-column");
         if (faqColumns.length > 0) setReveal(faqColumns[0], "fade-left", 0);
-        if (faqColumns.length > 1) setReveal(faqColumns[faqColumns.length - 1], "fade-right", compactMotion ? 35 : 90);
-        revealGroup(".faq-column", ".faq-item", ["fade-up"], 48, 220);
+        if (faqColumns.length > 1) setReveal(faqColumns[faqColumns.length - 1], "fade-right", compactMotion ? 80 : 160);
+        revealGroup(".faq-column", ".faq-item", ["fade-up"], 90, 360);
 
         revealAll(".contact-intro", "fade-left", 0);
-        revealAll(".contact-form", "fade-right", compactMotion ? 35 : 100);
-        revealGroup(".contact-points", "div", ["fade-up"], 65, 180);
-        revealDirectChildren(".footer-grid", ["fade-up", "soft-zoom"], 75, 300);
-        revealAll(".footer-bottom", "fade-up", compactMotion ? 30 : 90);
-        revealAll(".floating-whatsapp", "pop", compactMotion ? 180 : 420);
+        revealAll(".contact-form", "fade-right", compactMotion ? 85 : 170);
+        revealGroup(".contact-points", "div", ["fade-up"], 110, 360);
+        revealDirectChildren(".footer-grid", ["fade-up", "soft-zoom"], 120, 480);
+        revealAll(".footer-bottom", "fade-up", compactMotion ? 75 : 160);
 
         pending = toArray(document.querySelectorAll(".reveal"));
         sections = toArray(document.querySelectorAll("main > section, footer"));
@@ -155,7 +154,7 @@
 
     function revealVisibleElements() {
         var viewportHeight = window.innerHeight || root.clientHeight || 800;
-        var entryLine = viewportHeight * (compactMotion ? 0.90 : 0.82);
+        var entryLine = viewportHeight * (compactMotion ? 0.88 : 0.78);
         var nextPending = [];
         var index;
 
