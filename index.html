@@ -38,13 +38,14 @@
     <meta name="twitter:image" content="https://www.ismdeveloper.cl/assets/img/og-ism-developer.jpg" />
 
     <link rel="preload" href="assets/img/ignaciodesarrollador.jpg" as="image" type="image/jpeg" />
-    <link rel="stylesheet" href="assets/css/style.css?v=2.0.23" />
-    <link rel="stylesheet" href="assets/css/privacy-consent.css?v=2.0.23" />
+    <link rel="stylesheet" href="assets/css/style.css?v=2.0.24" />
+    <link rel="stylesheet" href="assets/css/privacy-consent.css?v=2.0.24" />
+    <link rel="stylesheet" href="assets/css/accessibility.css?v=2.0.24" />
 
     <!-- LUCIDE ICONS -->
     <script src="assets/vendor/lucide-index.min.js" defer></script>
-    <script src="assets/js/privacy-consent.js?v=2.0.23" defer></script>
-    <script src="assets/js/analytics.js?v=2.0.23" defer></script>
+    <script src="assets/js/privacy-consent.js?v=2.0.24" defer></script>
+    <script src="assets/js/analytics.js?v=2.0.24" defer></script>
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -229,7 +230,7 @@
         </section>
     </header>
 
-    <main id="contenido">
+    <main id="contenido" tabindex="-1">
 
         <!-- ========================================================= -->
         <!-- SOBRE MÍ -->
@@ -281,35 +282,35 @@
                             </div>
                         </div>
 
-                        <button class="about-orbit-pin pin-ops is-active" type="button" data-orbit-label="Operaciones">
+                        <span class="about-orbit-pin pin-ops is-active" aria-hidden="true">
                             <i data-lucide="truck"></i>
                             <span class="pin-mark">+</span>
                             <strong>Operaciones</strong>
-                        </button>
+                        </span>
 
-                        <button class="about-orbit-pin pin-client" type="button" data-orbit-label="Cliente">
+                        <span class="about-orbit-pin pin-client" aria-hidden="true">
                             <i data-lucide="messages-square"></i>
                             <span class="pin-mark">+</span>
                             <strong>Clientes</strong>
-                        </button>
+                        </span>
 
-                        <button class="about-orbit-pin pin-code" type="button" data-orbit-label="Código">
+                        <span class="about-orbit-pin pin-code" aria-hidden="true">
                             <i data-lucide="code-2"></i>
                             <span class="pin-mark">-</span>
                             <strong>Código</strong>
-                        </button>
+                        </span>
 
-                        <button class="about-orbit-pin pin-tools" type="button" data-orbit-label="Web">
+                        <span class="about-orbit-pin pin-tools" aria-hidden="true">
                             <i data-lucide="braces"></i>
                             <span class="pin-mark">+</span>
                             <strong>Web</strong>
-                        </button>
+                        </span>
 
-                        <button class="about-orbit-pin pin-time" type="button" data-orbit-label="Tiempo">
+                        <span class="about-orbit-pin pin-time" aria-hidden="true">
                             <i data-lucide="clock-3"></i>
                             <span class="pin-mark">-</span>
                             <strong>Tiempo</strong>
-                        </button>
+                        </span>
                     </div>
                 </div>
 
@@ -497,6 +498,7 @@
         </section>
 
         <dialog class="service-config-dialog" id="serviceConfiguratorDialog"
+            aria-modal="true"
             aria-labelledby="serviceConfiguratorTitle"
             aria-describedby="serviceConfiguratorDescription">
             <div class="service-config-dialog-panel">
@@ -508,7 +510,7 @@
 
                 <div class="service-config-dialog-actions">
                     <button class="btn-secondary service-config-cancel" type="button"
-                        data-configurator-cancel>No, volver</button>
+                        data-configurator-cancel autofocus>No, volver</button>
                     <a class="btn-primary service-config-confirm" href="configurador/"
                         data-configurator-confirm>Sí, configurar</a>
                 </div>
@@ -958,27 +960,28 @@
                 </div>
 
                 <div class="vault-tabs" role="tablist" aria-label="Categorías de proyectos">
-                    <button class="vault-tab active" type="button" data-vault-filter="presencias">
+                    <button class="vault-tab active" id="vaultTabPresencias" type="button" role="tab" aria-selected="true" aria-controls="vaultPanel" tabindex="0" data-vault-filter="presencias">
                         <span>Presencias Digitales</span>
                         <strong data-vault-count="presencias">0</strong>
                     </button>
-                    <button class="vault-tab" type="button" data-vault-filter="soluciones">
+                    <button class="vault-tab" id="vaultTabSoluciones" type="button" role="tab" aria-selected="false" aria-controls="vaultPanel" tabindex="-1" data-vault-filter="soluciones">
                         <span>Soluciones Digitales</span>
                         <strong data-vault-count="soluciones">0</strong>
                     </button>
-                    <button class="vault-tab" type="button" data-vault-filter="desarrollo">
+                    <button class="vault-tab" id="vaultTabDesarrollo" type="button" role="tab" aria-selected="false" aria-controls="vaultPanel" tabindex="-1" data-vault-filter="desarrollo">
                         <span>Proyectos en Desarrollo</span>
                         <strong data-vault-count="desarrollo">0</strong>
                     </button>
                 </div>
+                <p class="sr-only" id="vaultSelectionStatus" role="status" aria-live="polite"></p>
 
-                <div class="vault-workspace">
+                <div class="vault-workspace" id="vaultPanel" role="tabpanel" aria-labelledby="vaultTabPresencias" tabindex="0">
                     <div class="vault-carousel">
                         <button class="vault-arrow vault-arrow-prev" type="button" aria-label="Proyecto anterior">
                             <span>&lt;</span>
                         </button>
 
-                        <div class="vault-track" aria-live="polite">
+                        <div class="vault-track" aria-live="off" aria-label="Proyectos de la categoría seleccionada">
                         <button class="vault-node project-proestakis" type="button" data-project-id="constructora-proestakis" data-category="presencias"
                             data-name="Constructora Proestakis" data-type="Presencia Digital" data-status="Publicado"
                             data-stage="Cliente activo" data-date="Sitio publicado"
@@ -1245,7 +1248,7 @@
                         <div class="faq-item">
                             <button class="faq-question" type="button" aria-expanded="false">
                                 ¿Qué modificaciones están incluidas?
-                                <span>+</span>
+                                <span aria-hidden="true">+</span>
                             </button>
                             <div class="faq-answer">
                                 <p>
@@ -1260,7 +1263,7 @@
                         <div class="faq-item">
                             <button class="faq-question" type="button" aria-expanded="false">
                                 ¿Quién queda como propietario del código y los accesos?
-                                <span>+</span>
+                                <span aria-hidden="true">+</span>
                             </button>
                             <div class="faq-answer">
                                 <p>
@@ -1275,7 +1278,7 @@
                         <div class="faq-item">
                             <button class="faq-question" type="button" aria-expanded="false">
                                 ¿Qué SEO está incluido?
-                                <span>+</span>
+                                <span aria-hidden="true">+</span>
                             </button>
                             <div class="faq-answer">
                                 <p>
@@ -1290,7 +1293,7 @@
                         <div class="faq-item">
                             <button class="faq-question" type="button" aria-expanded="false">
                                 ¿Cómo se realiza el pago?
-                                <span>+</span>
+                                <span aria-hidden="true">+</span>
                             </button>
                             <div class="faq-answer">
                                 <p>
@@ -1308,7 +1311,7 @@
                         <div class="faq-item">
                             <button class="faq-question" type="button" aria-expanded="false">
                                 ¿Qué ocurre después de publicar?
-                                <span>+</span>
+                                <span aria-hidden="true">+</span>
                             </button>
                             <div class="faq-answer">
                                 <p>
@@ -1323,7 +1326,7 @@
                         <div class="faq-item">
                             <button class="faq-question" type="button" aria-expanded="false">
                                 ¿El mantenimiento está incluido?
-                                <span>+</span>
+                                <span aria-hidden="true">+</span>
                             </button>
                             <div class="faq-answer">
                                 <p>
@@ -1337,7 +1340,7 @@
                         <div class="faq-item">
                             <button class="faq-question" type="button" aria-expanded="false">
                                 ¿Quién entrega los textos y las imágenes?
-                                <span>+</span>
+                                <span aria-hidden="true">+</span>
                             </button>
                             <div class="faq-answer">
                                 <p>
@@ -1351,7 +1354,7 @@
                         <div class="faq-item">
                             <button class="faq-question" type="button" aria-expanded="false">
                                 ¿El valor incluye dominio y hosting?
-                                <span>+</span>
+                                <span aria-hidden="true">+</span>
                             </button>
                             <div class="faq-answer">
                                 <p>
@@ -1395,7 +1398,7 @@
                     </div>
                 </div>
 
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" id="contactForm" aria-describedby="contactFormNote contactFormStatus">
                     <div class="contact-form-brand">
                         <img src="assets/img/ismlogo2.0-horizontal-640-opt.webp" alt="ISM Developer - formulario de contacto"
                             width="640" height="255" loading="lazy" decoding="async">
@@ -1403,22 +1406,22 @@
 
                     <div class="contact-form-grid">
                         <div class="contact-field">
-                            <label for="contactNombre">Nombre</label>
+                            <label for="contactNombre">Nombre <span aria-hidden="true">*</span><span class="sr-only"> (obligatorio)</span></label>
                             <input id="contactNombre" type="text" name="nombre" placeholder="Tu nombre"
-                                autocomplete="name" required />
+                                autocomplete="name" maxlength="80" required />
                         </div>
                         <div class="contact-field">
                             <label for="contactEmpresa">Empresa o negocio</label>
                             <input id="contactEmpresa" type="text" name="empresa" placeholder="Nombre de tu negocio"
-                                autocomplete="organization" />
+                                autocomplete="organization" maxlength="120" />
                         </div>
                         <div class="contact-field">
-                            <label for="contactWhatsapp">WhatsApp</label>
+                            <label for="contactWhatsapp">WhatsApp <span aria-hidden="true">*</span><span class="sr-only"> (obligatorio)</span></label>
                             <input id="contactWhatsapp" type="tel" name="whatsapp" placeholder="+56 9..."
-                                autocomplete="tel" inputmode="tel" required />
+                                autocomplete="tel" inputmode="tel" maxlength="24" required />
                         </div>
                         <div class="contact-field">
-                            <label for="contactServicio">Solución de interés</label>
+                            <label for="contactServicio">Solución de interés <span aria-hidden="true">*</span><span class="sr-only"> (obligatorio)</span></label>
                             <select id="contactServicio" name="servicio" required>
                                 <option value="">Selecciona una opción</option>
                                 <optgroup label="Productos">
@@ -1443,13 +1446,14 @@
                     <div class="contact-field">
                         <label for="contactMensaje">Cuéntanos qué necesitas</label>
                         <textarea id="contactMensaje" name="mensaje"
-                            placeholder="Describe brevemente el objetivo, problema o proceso que quieres mejorar"></textarea>
+                            placeholder="Describe brevemente el objetivo, problema o proceso que quieres mejorar" rows="5" maxlength="1200"></textarea>
                     </div>
 
                     <div class="contact-actions">
                         <button type="submit" class="btn-primary btn-small">Continuar por WhatsApp</button>
                     </div>
-                    <p class="contact-form-note">Al continuar se abrirá WhatsApp con tu solicitud preparada para enviarla a ISM Developer.</p>
+                    <p class="contact-form-note" id="contactFormNote">Al continuar se abrirá WhatsApp con tu solicitud preparada para enviarla a ISM Developer.</p>
+                    <p class="sr-only" id="contactFormStatus" role="status" aria-live="polite"></p>
                 </form>
             </div>
         </section>
@@ -1458,7 +1462,7 @@
 
     <a class="floating-whatsapp"
         href="https://wa.me/56968374821?text=Hola,%20Ignacio.%20Quiero%20conversar%20un%20proyecto%20con%20ISM%20Developer."
-        target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" title="Contactar por WhatsApp">
+        target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp; se abre en una pestaña nueva" title="Contactar por WhatsApp">
         <svg class="floating-whatsapp-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
             <path fill="currentColor" d="M16.04 3.2A12.6 12.6 0 0 0 5.12 22.08L3.2 28.8l6.88-1.84A12.62 12.62 0 1 0 16.04 3.2Zm0 22.92c-1.84 0-3.64-.48-5.2-1.4l-.36-.2-4.08 1.08 1.08-3.96-.24-.4a10.27 10.27 0 1 1 8.8 4.88Zm5.64-7.72c-.32-.16-1.84-.92-2.12-1.04-.28-.08-.48-.16-.68.16-.2.32-.8 1.04-.96 1.24-.16.2-.36.24-.68.08-.32-.16-1.32-.48-2.52-1.56-.92-.84-1.56-1.88-1.72-2.2-.2-.32 0-.48.16-.64.16-.16.32-.36.48-.56.16-.2.2-.32.32-.52.12-.2.04-.4-.04-.56-.08-.16-.68-1.64-.96-2.24-.24-.6-.52-.52-.72-.52h-.6c-.2 0-.56.08-.84.4-.28.32-1.12 1.08-1.12 2.68 0 1.56 1.16 3.08 1.32 3.28.16.2 2.28 3.48 5.52 4.88.76.32 1.36.52 1.84.68.76.24 1.48.2 2.04.12.64-.08 1.84-.76 2.12-1.48.28-.72.28-1.32.2-1.48-.08-.12-.28-.2-.6-.36Z"/>
         </svg>
@@ -1500,7 +1504,7 @@
                 <a href="https://wa.me/56968374821"
                    target="_blank"
                    rel="noopener noreferrer"
-                   aria-label="WhatsApp">
+                   aria-label="WhatsApp; se abre en una pestaña nueva">
                     <svg class="footer-icon" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M20 11.5a8 8 0 0 1-11.9 7L4 20l1.4-4A8 8 0 1 1 20 11.5Z"></path>
                         <path d="M9.2 8.8c.3 2.4 1.6 3.7 4 4"></path>
@@ -1535,7 +1539,7 @@
                 <a href="https://www.instagram.com/imcodedeveloper/"
                    target="_blank"
                    rel="noopener noreferrer"
-                   aria-label="Instagram">
+                   aria-label="Instagram; se abre en una pestaña nueva">
                     <svg class="footer-icon" viewBox="0 0 24 24" aria-hidden="true">
                         <rect x="3" y="3" width="18" height="18" rx="5"></rect>
                         <circle cx="12" cy="12" r="4"></circle>
@@ -1547,7 +1551,7 @@
                 <a href="https://web.facebook.com/ignacioandres.sepulvedamardones?locale=es_LA"
                    target="_blank"
                    rel="noopener noreferrer"
-                   aria-label="Facebook">
+                   aria-label="Facebook; se abre en una pestaña nueva">
                     <svg class="footer-icon" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M14 21v-8h3l.5-4H14V7.2c0-1.2.4-2.2 2.3-2.2H18V1.4A22 22 0 0 0 15.3 1C12.5 1 10 2.7 10 6.2V9H7v4h3v8"></path>
                     </svg>
@@ -1567,8 +1571,9 @@
         </div>
     </footer>
 
-    <script src="assets/js/reveal-compat.js?v=2.0.23" defer></script>
-    <script src="assets/js/script.js?v=2.0.23" defer></script>
+    <script src="assets/js/reveal-compat.js?v=2.0.24" defer></script>
+    <script src="assets/js/script.js?v=2.0.24" defer></script>
+    <script src="assets/js/accessibility.js?v=2.0.24" defer></script>
 </body>
 
 </html>

@@ -17,16 +17,21 @@
     <meta property="og:url" content="https://www.ismdeveloper.cl/portafolio.html">
     <link rel="canonical" href="https://www.ismdeveloper.cl/portafolio.html">
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-    <link rel="stylesheet" href="assets/css/portafolio.css?v=2.0.16">
-    <link rel="stylesheet" href="assets/css/privacy-consent.css?v=2.0.23">
+    <link rel="stylesheet" href="assets/css/portafolio.css?v=2.0.24">
+    <link rel="stylesheet" href="assets/css/accessibility.css?v=2.0.24">
+    <link rel="stylesheet" href="assets/css/privacy-consent.css?v=2.0.24">
     <script src="assets/vendor/lucide.min.js" defer></script>
-    <script src="assets/js/privacy-consent.js?v=2.0.23" defer></script>
-    <script src="assets/js/analytics.js?v=2.0.23" defer></script>
-    <script src="assets/js/portafolio.js?v=2.0.16" defer></script>
+    <script src="assets/js/privacy-consent.js?v=2.0.24" defer></script>
+    <script src="assets/js/analytics.js?v=2.0.24" defer></script>
+    <script src="assets/js/portafolio.js?v=2.0.24" defer></script>
+    <script src="assets/js/portfolio-accessibility.js?v=2.0.24" defer></script>
+    <script src="assets/js/accessibility.js?v=2.0.24" defer></script>
     <title>Portafolio de proyectos | ISM Developer</title>
 </head>
 
 <body>
+    <a class="skip-link" href="#portfolioMain">Saltar al contenido principal</a>
+    <p class="sr-only" id="portfolioProjectStatus" role="status" aria-live="polite"></p>
     <div class="dashboard-shell">
         <aside class="project-sidebar" id="projectSidebar" aria-label="Proyectos del portafolio">
             <div class="sidebar-head">
@@ -44,7 +49,7 @@
                 <p>Selecciona un proyecto para revisar su caso en detalle.</p>
             </div>
 
-            <nav class="project-nav" id="projectNav"></nav>
+            <nav class="project-nav" id="projectNav" aria-label="Listado de proyectos"></nav>
 
             <div class="sidebar-footer">
                 <span class="live-dot" aria-hidden="true"></span>
@@ -58,10 +63,10 @@
             </div>
         </aside>
 
-        <main class="dashboard-main">
+        <main class="dashboard-main" id="portfolioMain" tabindex="-1">
             <header class="dashboard-topbar">
                 <div class="topbar-left">
-                    <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Abrir lista de proyectos">
+                    <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Abrir lista de proyectos" aria-controls="projectSidebar" aria-expanded="false">
                         <i data-lucide="panel-left"></i>
                     </button>
                     <a href="index.html#proyectos" class="back-link">
@@ -106,6 +111,8 @@
                         </div>
                     </div>
 
+                    <p class="sr-only" id="portfolioCarouselHelp">Usa las flechas izquierda y derecha para cambiar de vista; Inicio va a la primera y Fin a la última.</p>
+                    <p class="sr-only" id="portfolioSlideStatus" role="status" aria-live="polite"></p>
                     <div class="synced-slider" id="syncedSlider" tabindex="0" aria-roledescription="carrusel">
                         <div class="visual-viewport">
                             <div class="visual-track" id="visualTrack"></div>
@@ -148,8 +155,8 @@
         <button class="privacy-link-button" type="button" data-privacy-settings>Preferencias</button>
     </div>
 
-    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
-    <div class="route-loader" id="routeLoader" aria-hidden="true"><span></span></div>
+    <div class="sidebar-backdrop" id="sidebarBackdrop" aria-hidden="true"></div>
+    <div class="route-loader" id="routeLoader" role="status" aria-live="polite" aria-label="Cargando proyecto"><span aria-hidden="true"></span></div>
 </body>
 
 </html>
