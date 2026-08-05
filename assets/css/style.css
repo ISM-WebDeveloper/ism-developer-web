@@ -1844,7 +1844,7 @@ main > section.is-in-view,
         inset: 0;
         background:
             linear-gradient(180deg, rgba(5, 11, 20, 0.66), rgba(5, 11, 20, 0.88)),
-        url("../img/about-animation-test.jpg") center top / cover no-repeat;
+        url("../img/perf/about-animation-960.webp") center top / cover no-repeat;
         filter: blur(12px) saturate(1.08);
         opacity: 0.34;
         transform: scale(1.08);
