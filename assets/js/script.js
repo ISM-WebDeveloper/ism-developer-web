@@ -273,7 +273,7 @@ revealAll(".floating-whatsapp", "pop", compactMotion ? 180 : 420);
 const revealElements = [...document.querySelectorAll(".reveal")];
 
 const activateReveal = (element) => {
-    element.classList.add("active");
+    element.classList.add("is-revealed");
     element.removeAttribute("aria-hidden");
 };
 
@@ -291,18 +291,18 @@ if (reduceMotion) {
         root: null,
         // La animación comienza cuando el elemento ya entró en el viewport,
         // dejando un margen inferior para que el efecto sea visible completo.
-        rootMargin: "0px 0px -11% 0px",
-        threshold: 0.08
+        rootMargin: "0px 0px -20% 0px",
+        threshold: 0.12
     });
 
     revealElements.forEach((element) => revealObserver.observe(element));
 } else {
     const revealVisibleElements = () => {
         revealElements.forEach((element) => {
-            if (element.classList.contains("active")) return;
+            if (element.classList.contains("is-revealed")) return;
 
             const rect = element.getBoundingClientRect();
-            const entryLine = window.innerHeight * 0.89;
+            const entryLine = window.innerHeight * 0.80;
             const isInsideViewport = rect.top <= entryLine && rect.bottom >= 0;
 
             if (isInsideViewport) activateReveal(element);
@@ -705,9 +705,20 @@ if (window.lucide) {
 
 
 // FAQ / PREGUNTAS FRECUENTES
-// Abre y cierra cada pregunta al hacer clic
+// Todas las respuestas comienzan cerradas. Solo una pregunta puede permanecer abierta.
 
-const faqItems = document.querySelectorAll(".faq-item");
+const faqItems = [...document.querySelectorAll(".faq-item")];
+
+const closeFaqItem = (item) => {
+    const question = item.querySelector(".faq-question");
+    const answer = item.querySelector(".faq-answer");
+    if (!question || !answer) return;
+
+    item.classList.remove("is-open");
+    question.setAttribute("aria-expanded", "false");
+    answer.setAttribute("aria-hidden", "true");
+    answer.style.maxHeight = "0px";
+};
 
 faqItems.forEach((item, index) => {
     const question = item.querySelector(".faq-question");
@@ -721,12 +732,21 @@ faqItems.forEach((item, index) => {
     answer.id = answerId;
     answer.setAttribute("role", "region");
     answer.setAttribute("aria-labelledby", questionId);
-    answer.setAttribute("aria-hidden", "true");
+
+    // Estado inicial explícito: evita aperturas causadas por otras clases o por el historial del navegador.
+    closeFaqItem(item);
 
     question.addEventListener("click", () => {
-        const isActive = item.classList.toggle("active");
-        question.setAttribute("aria-expanded", isActive);
-        answer.setAttribute("aria-hidden", String(!isActive));
+        const shouldOpen = !item.classList.contains("is-open");
+
+        faqItems.forEach(closeFaqItem);
+
+        if (!shouldOpen) return;
+
+        item.classList.add("is-open");
+        question.setAttribute("aria-expanded", "true");
+        answer.setAttribute("aria-hidden", "false");
+        answer.style.maxHeight = `${answer.scrollHeight}px`;
     });
 });
 

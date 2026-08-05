@@ -1021,26 +1021,26 @@ img {
 
 .reveal {
     --reveal-x: 0px;
-    --reveal-y: 28px;
+    --reveal-y: 34px;
     --reveal-scale: 0.985;
     --reveal-rotate-x: 0deg;
     --reveal-rotate-y: 0deg;
-    --reveal-blur: 7px;
+    --reveal-blur: 6px;
     --reveal-clip: inset(0 0 0 0 round 0px);
     --reveal-origin: 50% 50%;
 
     transition:
-        opacity 680ms cubic-bezier(0.22, 1, 0.36, 1),
-        transform 920ms cubic-bezier(0.16, 1, 0.3, 1),
-        filter 760ms cubic-bezier(0.22, 1, 0.36, 1),
-        clip-path 980ms cubic-bezier(0.16, 1, 0.3, 1);
+        opacity 760ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 1050ms cubic-bezier(0.16, 1, 0.3, 1),
+        filter 820ms cubic-bezier(0.22, 1, 0.36, 1),
+        clip-path 1080ms cubic-bezier(0.16, 1, 0.3, 1);
     transition-delay: var(--reveal-delay, 0ms);
     backface-visibility: hidden;
 }
 
 /* Dos clases de especificidad evitan que los transforms base de tarjetas
    sobrescriban el estado inicial antes de entrar al viewport. */
-.reveal:not(.active) {
+.reveal:not(.is-revealed) {
     opacity: 0;
     transform-origin: var(--reveal-origin);
     transform:
@@ -1054,7 +1054,7 @@ img {
     will-change: opacity, transform, filter, clip-path;
 }
 
-.reveal.active {
+.reveal.is-revealed {
     opacity: 1;
     transform:
         perspective(1200px)
@@ -1155,7 +1155,7 @@ main > section.is-in-view,
     }
 
     .reveal,
-    .reveal.active {
+    .reveal.is-revealed {
         opacity: 1 !important;
         transform: none !important;
         filter: none !important;
@@ -3885,11 +3885,11 @@ rotateY(calc(var(--stack-offset,0)*-4deg));
     color: #cbd5e1;
 }
 
-.faq-item.active .faq-answer {
+.faq-item.is-open .faq-answer {
     max-height: 220px;
 }
 
-.faq-item.active .faq-question span {
+.faq-item.is-open .faq-question span {
     transform: rotate(45deg);
 }
 
@@ -6663,3 +6663,71 @@ main > section[id] {
         flex-basis: 25px;
     }
 }
+
+/* ========================================================================== 
+   NORMALIZACIÓN 05.0 · EFECTOS, SERVICIOS Y FAQ
+   ========================================================================== */
+
+/* La tarjeta completa gana protagonismo; la fotografía permanece estable. */
+.service-showcase-card {
+    transform-origin: 50% 55%;
+    transition:
+        transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 280ms ease,
+        box-shadow 360ms ease;
+}
+
+.service-showcase-card:hover,
+.service-showcase-card:focus-visible {
+    position: relative;
+    z-index: 4;
+    transform: translateY(-8px) scale(1.025);
+    border-color: rgba(56, 189, 248, 0.92);
+    box-shadow:
+        0 28px 68px rgba(0, 0, 0, 0.46),
+        0 0 34px rgba(14, 165, 233, 0.22);
+}
+
+.service-showcase-card:hover .service-showcase-media img,
+.service-showcase-card:focus-visible .service-showcase-media img {
+    transform: none;
+    filter: saturate(1.06) brightness(1.035);
+}
+
+/* Acordeón robusto: cerrado por defecto y altura calculada por JavaScript. */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        max-height 420ms cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 260ms ease,
+        visibility 0s linear 420ms;
+}
+
+.faq-item.is-open .faq-answer {
+    opacity: 1;
+    visibility: visible;
+    transition:
+        max-height 420ms cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 280ms ease,
+        visibility 0s linear 0s;
+}
+
+.faq-item.is-open .faq-question span {
+    transform: rotate(45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .service-showcase-card:hover,
+    .service-showcase-card:focus-visible {
+        transform: none;
+    }
+
+    .faq-answer,
+    .faq-item.is-open .faq-answer {
+        transition: none;
+    }
+}
+
