@@ -6,11 +6,13 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const htmlFiles = [
     "index.html",
     "servicios.html",
-    "portafolio.html"
+    "portafolio.html",
+    "privacidad.html"
 ];
 const indexableFiles = new Set([
     "index.html",
-    "portafolio.html"
+    "portafolio.html",
+    "privacidad.html"
 ]);
 const errors = [];
 const warnings = [];
@@ -204,7 +206,7 @@ for (const field of ["title", "description", "canonical"]) {
     });
 }
 
-for (const cssFile of ["assets/css/style.css", "assets/css/portafolio.css"]) {
+for (const cssFile of ["assets/css/style.css", "assets/css/portafolio.css", "assets/css/privacy-consent.css", "assets/css/privacy-policy.css"]) {
     const content = read(cssFile);
     const opening = (content.match(/{/g) || []).length;
     const closing = (content.match(/}/g) || []).length;
@@ -230,7 +232,8 @@ for (const requiredType of ["ProfessionalService", "Service", "Person", "FAQPage
 const sitemap = read("sitemap.xml");
 for (const cleanUrl of [
     "https://www.ismdeveloper.cl/",
-    "https://www.ismdeveloper.cl/portafolio.html"
+    "https://www.ismdeveloper.cl/portafolio.html",
+    "https://www.ismdeveloper.cl/privacidad.html"
 ]) {
     if (!sitemap.includes(`<loc>${cleanUrl}</loc>`)) {
         report(errors, "sitemap.xml", `falta ${cleanUrl}.`);

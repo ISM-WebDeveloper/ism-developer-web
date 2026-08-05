@@ -1,0 +1,398 @@
+:root {
+    --privacy-bg: #07111f;
+    --privacy-panel: #0c1d31;
+    --privacy-panel-soft: #102640;
+    --privacy-text: #f4f8ff;
+    --privacy-muted: #a8b8ca;
+    --privacy-border: rgba(44, 194, 255, 0.34);
+    --privacy-accent: #17bdf2;
+    --privacy-accent-strong: #0aa9df;
+}
+
+.privacy-banner,
+.privacy-modal {
+    font-family: inherit;
+}
+
+.privacy-banner[hidden],
+.privacy-modal[hidden] {
+    display: none !important;
+}
+
+.privacy-banner {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    z-index: 1400;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 28px;
+    width: min(1120px, calc(100% - 32px));
+    padding: 22px 24px;
+    border: 1px solid var(--privacy-border);
+    border-radius: 22px;
+    background: rgba(7, 17, 31, 0.97);
+    box-shadow: 0 26px 80px rgba(0, 0, 0, 0.42), 0 0 34px rgba(23, 189, 242, 0.08);
+    color: var(--privacy-text);
+    transform: translateX(-50%);
+    backdrop-filter: blur(18px);
+}
+
+.privacy-banner-copy {
+    max-width: 670px;
+}
+
+.privacy-eyebrow {
+    display: inline-block;
+    margin-bottom: 6px;
+    color: var(--privacy-accent);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.privacy-banner h2,
+.privacy-modal h2 {
+    margin: 0;
+    color: var(--privacy-text);
+    font-size: clamp(1.15rem, 2vw, 1.55rem);
+    line-height: 1.15;
+}
+
+.privacy-banner p,
+.privacy-modal p {
+    margin: 9px 0 0;
+    color: var(--privacy-muted);
+    font-size: 0.94rem;
+    line-height: 1.55;
+}
+
+.privacy-banner a,
+.privacy-modal a,
+.footer-legal a,
+.portfolio-privacy-links a {
+    color: var(--privacy-accent);
+    text-decoration: none;
+}
+
+.privacy-banner a:hover,
+.privacy-modal a:hover,
+.footer-legal a:hover,
+.portfolio-privacy-links a:hover {
+    text-decoration: underline;
+}
+
+.privacy-banner-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.privacy-button,
+.privacy-link-button,
+.privacy-modal-close {
+    font: inherit;
+}
+
+.privacy-button {
+    min-height: 44px;
+    padding: 10px 16px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 800;
+    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.privacy-button:hover {
+    transform: translateY(-2px);
+}
+
+.privacy-button-primary {
+    border-color: var(--privacy-accent);
+    background: var(--privacy-accent);
+    color: #03111d;
+}
+
+.privacy-button-primary:hover {
+    background: #56d4ff;
+}
+
+.privacy-button-secondary {
+    border-color: var(--privacy-border);
+    background: var(--privacy-panel-soft);
+    color: var(--privacy-text);
+}
+
+.privacy-button-ghost {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: transparent;
+    color: var(--privacy-text);
+}
+
+.privacy-button:focus-visible,
+.privacy-link-button:focus-visible,
+.privacy-modal-close:focus-visible,
+.privacy-switch input:focus-visible + span,
+.privacy-banner a:focus-visible,
+.privacy-modal a:focus-visible,
+.footer-legal a:focus-visible,
+.portfolio-privacy-links a:focus-visible {
+    outline: 3px solid rgba(23, 189, 242, 0.72);
+    outline-offset: 3px;
+}
+
+.privacy-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1500;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.privacy-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(1, 7, 14, 0.78);
+    backdrop-filter: blur(10px);
+}
+
+.privacy-modal-panel {
+    position: relative;
+    z-index: 1;
+    width: min(680px, 100%);
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    padding: 28px;
+    border: 1px solid var(--privacy-border);
+    border-radius: 24px;
+    background: var(--privacy-panel);
+    box-shadow: 0 34px 100px rgba(0, 0, 0, 0.5);
+    color: var(--privacy-text);
+}
+
+.privacy-modal-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.privacy-modal-close {
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--privacy-text);
+    cursor: pointer;
+    font-size: 1.7rem;
+    line-height: 1;
+}
+
+.privacy-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 16px;
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.privacy-option strong {
+    color: var(--privacy-text);
+    font-size: 1rem;
+}
+
+.privacy-option p {
+    max-width: 480px;
+    margin-top: 5px;
+    font-size: 0.88rem;
+}
+
+.privacy-option-required {
+    background: rgba(23, 189, 242, 0.055);
+}
+
+.privacy-required-badge {
+    flex: 0 0 auto;
+    padding: 7px 10px;
+    border: 1px solid var(--privacy-border);
+    border-radius: 999px;
+    color: var(--privacy-accent);
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+.privacy-switch {
+    position: relative;
+    display: inline-flex;
+    flex: 0 0 auto;
+}
+
+.privacy-switch input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.privacy-switch span {
+    position: relative;
+    display: block;
+    width: 54px;
+    height: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.23);
+    border-radius: 999px;
+    background: #24364a;
+    cursor: pointer;
+    transition: background 180ms ease, border-color 180ms ease;
+}
+
+.privacy-switch span::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #fff;
+    transition: transform 180ms ease;
+}
+
+.privacy-switch input:checked + span {
+    border-color: var(--privacy-accent);
+    background: var(--privacy-accent-strong);
+}
+
+.privacy-switch input:checked + span::after {
+    transform: translateX(24px);
+}
+
+.privacy-modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.privacy-modal-open {
+    overflow: hidden;
+}
+
+.footer-legal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+    color: #9fb0c3;
+    font-size: 0.84rem;
+}
+
+.privacy-link-button {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--privacy-accent);
+    cursor: pointer;
+}
+
+.privacy-link-button:hover {
+    text-decoration: underline;
+}
+
+.portfolio-privacy-links {
+    position: fixed;
+    right: 18px;
+    bottom: 16px;
+    z-index: 150;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    border: 1px solid rgba(44, 194, 255, 0.2);
+    border-radius: 999px;
+    background: rgba(7, 17, 31, 0.88);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    color: #9fb0c3;
+    font-size: 0.76rem;
+    backdrop-filter: blur(12px);
+}
+
+@media (max-width: 860px) {
+    .privacy-banner {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .privacy-banner-actions {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 560px) {
+    .privacy-banner {
+        bottom: 10px;
+        width: calc(100% - 20px);
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    .privacy-banner-actions,
+    .privacy-modal-footer,
+    .privacy-option {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .privacy-button {
+        width: 100%;
+    }
+
+    .privacy-modal {
+        padding: 12px;
+    }
+
+    .privacy-modal-panel {
+        max-height: calc(100vh - 24px);
+        padding: 20px;
+        border-radius: 18px;
+    }
+
+    .privacy-switch,
+    .privacy-required-badge {
+        align-self: flex-start;
+    }
+
+    .portfolio-privacy-links {
+        right: 10px;
+        bottom: 10px;
+        left: 10px;
+        justify-content: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .privacy-button,
+    .privacy-switch span,
+    .privacy-switch span::after {
+        transition: none;
+    }
+}
