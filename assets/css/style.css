@@ -1148,8 +1148,8 @@ main > section.is-in-view,
 
 .about-wrapper {
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 76px;
+    grid-template-columns: minmax(360px, 540px) minmax(0, 1fr);
+    gap: clamp(44px, 5vw, 76px);
     align-items: center;
     max-width: 1280px;
     margin: 0 auto;
@@ -1160,27 +1160,28 @@ main > section.is-in-view,
 /* VISUAL IZQUIERDA */
 
 .about-visual {
-    min-height: 620px;
+    min-height: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    align-self: center;
+    width: 100%;
 }
 
 .about-orbit {
     position: relative;
-    width: min(560px, 100%);
-    aspect-ratio: 1 / 1.04;
-    border-radius: 34px;
+    width: min(540px, 100%);
+    aspect-ratio: 1 / 1;
+    border-radius: 30px;
     overflow: hidden;
     background:
-        radial-gradient(circle at 50% 24%, rgba(56, 189, 248, 0.13), transparent 26%),
-        radial-gradient(circle at 16% 52%, rgba(20, 184, 166, 0.1), transparent 24%),
-        radial-gradient(circle at 82% 42%, rgba(139, 92, 246, 0.1), transparent 24%),
-        linear-gradient(180deg, rgba(8, 17, 31, 0.72), rgba(2, 6, 23, 0.92));
-    border: 1px solid rgba(56, 189, 248, 0.2);
+        radial-gradient(circle at 50% 15%, rgba(56, 189, 248, 0.10), transparent 38%),
+        linear-gradient(180deg, #0b1728 0%, #07101d 100%);
+    border: 1px solid rgba(103, 232, 249, 0.30);
     box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.05),
-        0 30px 90px rgba(0, 0, 0, 0.34);
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        0 28px 64px rgba(0, 0, 0, 0.34),
+        0 0 34px rgba(14, 165, 233, 0.10);
 }
 
 .about-orbit.image-test > :not(.about-orbit-image) {
@@ -1192,9 +1193,10 @@ main > section.is-in-view,
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
     border-radius: inherit;
+    background: #07101d;
 }
 
 .about-orbit.image-test::after {
@@ -1203,9 +1205,10 @@ main > section.is-in-view,
     inset: 0;
     pointer-events: none;
     border-radius: inherit;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.035);
     background:
-        linear-gradient(180deg, rgba(2, 6, 23, 0.02), rgba(2, 6, 23, 0.18)),
-        radial-gradient(circle at 50% 100%, rgba(2, 6, 23, 0.28), transparent 42%);
+        linear-gradient(180deg, rgba(2, 6, 23, 0.00), rgba(2, 6, 23, 0.08)),
+        radial-gradient(circle at 50% 100%, rgba(14, 165, 233, 0.10), transparent 48%);
 }
 
 .about-orbit::before {
@@ -1748,7 +1751,7 @@ main > section.is-in-view,
 
 .about-content {
     padding: 0;
-    width: min(100%, 620px);
+    width: min(100%, 650px);
     justify-self: end;
 }
 
@@ -1786,7 +1789,7 @@ main > section.is-in-view,
     font-size: 16.5px;
     line-height: 1.82;
     margin-bottom: 18px;
-    max-width: 560px;
+    max-width: 620px;
     text-align: justify;
     text-wrap: pretty;
 }
@@ -1843,11 +1846,8 @@ main > section.is-in-view,
         position: absolute;
         inset: 0;
         background:
-            linear-gradient(180deg, rgba(5, 11, 20, 0.66), rgba(5, 11, 20, 0.88)),
-        url("../img/perf/about-animation-960.webp") center top / cover no-repeat;
-        filter: blur(12px) saturate(1.08);
-        opacity: 0.34;
-        transform: scale(1.08);
+            radial-gradient(circle at 50% 10%, rgba(56, 189, 248, 0.12), transparent 34%),
+            linear-gradient(180deg, rgba(5, 11, 20, 0.12), rgba(5, 11, 20, 0.44));
         pointer-events: none;
     }
 
@@ -1867,7 +1867,15 @@ main > section.is-in-view,
     }
 
     .about-visual {
-        display: none;
+        display: flex;
+        width: 100%;
+        margin: 0 auto 8px;
+    }
+
+    .about-orbit {
+        width: min(100%, 520px);
+        aspect-ratio: 1 / 1;
+        border-radius: 22px;
     }
 
     .about-content {
@@ -6744,5 +6752,51 @@ main > section[id] {
     .floating-whatsapp-icon {
         width: 27px;
         height: 27px;
+    }
+}
+
+
+/* =========================================================
+   AJUSTE SOBRE MÍ 2.0.28 — IMAGEN COMPLETA SIN BANDAS
+   El marco adopta la proporción natural del archivo reemplazado.
+   ========================================================= */
+.about-orbit.image-test {
+    aspect-ratio: auto;
+    height: auto;
+    min-height: 0;
+    background: transparent;
+}
+
+.about-orbit.image-test .about-orbit-image {
+    position: relative;
+    inset: auto;
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: initial;
+    object-position: center;
+    background: transparent;
+}
+
+.about-orbit.image-test::before {
+    display: none;
+}
+
+.about-orbit.image-test::after {
+    background: linear-gradient(180deg, rgba(2, 6, 23, 0.02), rgba(2, 6, 23, 0.10));
+}
+
+@media (max-width: 1024px) {
+    .about-orbit.image-test {
+        aspect-ratio: auto;
+        width: min(720px, 100%);
+    }
+}
+
+@media (max-width: 600px) {
+    .about-orbit.image-test {
+        aspect-ratio: auto;
+        width: 100%;
     }
 }
