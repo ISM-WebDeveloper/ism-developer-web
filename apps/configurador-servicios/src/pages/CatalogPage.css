@@ -26,13 +26,7 @@
 
   color: var(--ibm-ink);
   background: var(--ibm-background);
-  font-family:
-    "Eurostile LT Std",
-    Eurostile,
-    Inter,
-    "Segoe UI",
-    Arial,
-    sans-serif;
+  font-family: "Manrope", "Segoe UI", Arial, sans-serif;
 }
 
 .ibm-configurator button,

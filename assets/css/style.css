@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
 /* ========================================================= */
 /* RESET GENERAL */
 /* ========================================================= */
@@ -13,11 +15,18 @@ html {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Manrope", "Segoe UI", Arial, sans-serif;
     background: #08111f;
     color: #f5f7fb;
     line-height: 1.6;
     overflow-x: clip;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
 }
 
 a {
@@ -3011,6 +3020,32 @@ rotateY(calc(var(--stack-offset,0)*-4deg));
     mask-image: linear-gradient(90deg, transparent, #000 24%, #000 76%, transparent);
 }
 
+
+.configurator-cta-heading {
+    width: min(100%, 980px);
+    margin: 0 auto clamp(34px, 5vw, 56px);
+}
+
+.configurator-cta-heading h2 {
+    max-width: 900px;
+    margin: 0 auto;
+    color: #f8fafc;
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+}
+
+.configurator-cta-heading p {
+    max-width: 780px;
+    margin: 18px auto 0;
+    color: #a9b8c9;
+    font-size: clamp(16px, 1.5vw, 19px);
+    font-weight: 500;
+    line-height: 1.65;
+    text-wrap: pretty;
+}
+
 .configurator-cta-shell {
     position: relative;
     z-index: 2;
@@ -3073,15 +3108,6 @@ rotateY(calc(var(--stack-offset,0)*-4deg));
     background: #38bdf8;
     letter-spacing: 0.08em;
     box-shadow: 0 0 24px rgba(56, 189, 248, 0.24);
-}
-
-.configurator-cta-copy h2 {
-    max-width: 760px;
-    margin: 0;
-    color: #f8fafc;
-    font-size: clamp(34px, 4.1vw, 58px);
-    line-height: 1.08;
-    letter-spacing: -0.035em;
 }
 
 .configurator-cta-description {
@@ -3383,14 +3409,23 @@ rotateY(calc(var(--stack-offset,0)*-4deg));
         padding-inline: 5%;
     }
 
+    .configurator-cta-heading {
+        margin-bottom: 30px;
+    }
+
+    .configurator-cta-heading h2 {
+        font-size: clamp(34px, 10vw, 46px);
+    }
+
+    .configurator-cta-heading p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
     .configurator-cta-shell {
         gap: 30px;
         padding: 28px 20px;
         border-radius: 24px;
-    }
-
-    .configurator-cta-copy h2 {
-        font-size: clamp(30px, 10vw, 40px);
     }
 
     .configurator-cta-description {
@@ -7057,5 +7092,197 @@ main > section[id] {
     .about-orbit.image-test {
         aspect-ratio: auto;
         width: 100%;
+    }
+}
+
+
+/* ========================================================= */
+/* TITULOS DE SECCION — IDEA PRINCIPAL + REFUERZO CYAN */
+/* ========================================================= */
+
+.section-heading-emphasis {
+    text-wrap: balance;
+}
+
+.section-heading-emphasis .section-heading-accent {
+    display: inline-block;
+    color: #38bdf8;
+    text-shadow: 0 0 30px rgba(56, 189, 248, 0.42);
+}
+
+.section-light .section-heading-emphasis .section-heading-accent {
+    color: #0284c7;
+    text-shadow: 0 0 24px rgba(14, 165, 233, 0.2);
+}
+
+@media (max-width: 640px) {
+    .section-heading-emphasis .section-heading-accent {
+        display: inline;
+    }
+}
+
+/* ========================================================= */
+/* AJUSTE CTA CONFIGURADOR — BADGES Y REFUERZOS CYAN */
+/* ========================================================= */
+
+/* Tres beneficios con el mismo ancho y una sola jerarquía visual. */
+.configurator-cta-benefits {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    width: 100%;
+    margin-top: 26px;
+}
+
+.configurator-cta-benefits span {
+    width: 100%;
+    min-height: 46px;
+    justify-content: center;
+    padding: 10px 12px;
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    border-radius: 14px;
+    background:
+        linear-gradient(180deg, rgba(15, 39, 64, 0.88), rgba(7, 24, 42, 0.88));
+    color: #e7f6ff;
+    text-align: center;
+    white-space: nowrap;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        0 10px 24px rgba(0, 0, 0, 0.16);
+}
+
+.configurator-cta-benefits span:hover {
+    border-color: rgba(34, 211, 238, 0.58);
+    transform: translateY(-1px);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 12px 28px rgba(14, 165, 233, 0.14);
+}
+
+.configurator-cta-benefits i {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    color: #22d3ee;
+}
+
+/* Refuerzo cian explícito para evitar que herencias de color lo oculten. */
+.configurator-cta-heading .section-heading-accent {
+    color: #22d3ee !important;
+    text-shadow: 0 0 34px rgba(34, 211, 238, 0.38);
+}
+
+.products-section .section-heading-accent {
+    color: #0891b2 !important;
+    text-shadow: 0 0 22px rgba(8, 145, 178, 0.18);
+}
+
+@media (max-width: 860px) {
+    .configurator-cta-benefits {
+        grid-template-columns: 1fr;
+    }
+
+    .configurator-cta-benefits span {
+        justify-content: flex-start;
+        white-space: normal;
+    }
+}
+
+
+/* ========================================================= */
+/* RESTAURACIÓN EXACTA · ENCABEZADO CENTRADO CONFIGURADOR */
+/* Solo corrige la sección del configurador. */
+/* ========================================================= */
+
+.configurator-cta-heading {
+    position: relative;
+    z-index: 2;
+    width: min(100%, 1040px);
+    margin: 0 auto clamp(34px, 5vw, 56px);
+    text-align: center;
+}
+
+.configurator-cta-kicker {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 0 18px;
+    color: #8cecff;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.configurator-cta-kicker span {
+    display: inline-flex;
+    min-height: 26px;
+    align-items: center;
+    padding: 0 10px;
+    border: 1px solid rgba(56, 189, 248, 0.46);
+    border-radius: 999px;
+    color: #06111f;
+    background: #38bdf8;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    box-shadow: 0 0 24px rgba(56, 189, 248, 0.24);
+}
+
+.configurator-cta-heading h2 {
+    max-width: 1040px;
+    margin: 0 auto;
+    color: #f8fafc;
+    font-size: clamp(36px, 4.4vw, 60px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+    text-align: center;
+    text-wrap: balance;
+}
+
+.configurator-cta-heading .section-heading-accent {
+    display: inline;
+    color: #22d3ee !important;
+    text-shadow: 0 0 30px rgba(34, 211, 238, 0.38);
+}
+
+.configurator-cta-product-label {
+    display: inline-flex;
+    min-height: 30px;
+    align-items: center;
+    padding: 0 12px;
+    margin: 0 0 4px;
+    border: 1px solid rgba(56, 189, 248, 0.38);
+    border-radius: 999px;
+    color: #7dd3fc;
+    background: rgba(56, 189, 248, 0.08);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.configurator-cta-description--lead {
+    margin-top: 20px;
+    color: #e2e8f0;
+    font-weight: 600;
+}
+
+.configurator-cta-description--lead + .configurator-cta-description {
+    margin-top: 12px;
+}
+
+@media (max-width: 600px) {
+    .configurator-cta-kicker {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .configurator-cta-heading h2 {
+        font-size: clamp(34px, 9.5vw, 44px);
     }
 }
