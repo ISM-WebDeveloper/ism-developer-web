@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ISM Developer">
+    <defs>
+        <linearGradient id="favicon-bg" x1="10" y1="6" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#0f2742"/>
+            <stop offset="0.52" stop-color="#08111f"/>
+            <stop offset="1" stop-color="#020617"/>
+        </linearGradient>
+        <linearGradient id="favicon-accent" x1="16" y1="12" x2="50" y2="52" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#38bdf8"/>
+            <stop offset="1" stop-color="#0ea5e9"/>
+        </linearGradient>
+    </defs>
+    <rect width="64" height="64" rx="16" fill="url(#favicon-bg)"/>
+    <rect x="4" y="4" width="56" height="56" rx="13" fill="none" stroke="#38bdf8" stroke-opacity="0.18" stroke-width="2"/>
+    <path d="M16 17h10M16 17v10M48 17H38M48 17v10M16 47V37M16 47h10M48 47V37M48 47H38" fill="none" stroke="url(#favicon-accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="28" y="18" width="8" height="28" rx="2.5" fill="#e0f2fe"/>
+    <path d="M39 36 49 26M15 36l10-10" fill="none" stroke="url(#favicon-accent)" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="32" cy="32" r="25" fill="none" stroke="#38bdf8" stroke-opacity="0.08" stroke-width="2"/>
+</svg>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -170,6 +170,7 @@
             <ul class="nav-links" id="primaryNav">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
+                <li><a href="configurador/">Configurar</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
                 <li><a href="#proceso">Proceso</a></li>
                 <li><a href="#sobre-mi">Sobre mí</a></li>
@@ -892,53 +893,95 @@
 
         </section>
 
-        <!-- 7. INTERFACES -->
-        <section class="section dashboard-section section-light" id="interfaces" aria-labelledby="interfaces-title">
-            <div class="section-title">
-                <h2 id="interfaces-title">Interfaces claras para administrar tu negocio</h2>
-            </div>
+        <!-- 7. CONFIGURADOR DE SERVICIOS -->
+        <section class="section configurator-cta-section" id="configurador-servicios"
+            aria-labelledby="configurator-cta-title">
+            <div class="configurator-cta-shell reveal">
+                <div class="configurator-cta-copy">
+                    <p class="configurator-cta-kicker">
+                        <span>Nuevo</span>
+                        Configurador de servicios ISM
+                    </p>
 
-            <div class="dashboard-mockup reveal">
-                <div class="dashboard-sidebar">
-                    <div class="dashboard-logo"></div>
-                    <p>Panel Admin</p>
+                    <h2 id="configurator-cta-title">
+                        Define tu solución y obtén una estimación clara antes de cotizar.
+                    </h2>
 
-                    <span>Inventario</span>
-                    <span>Reservas</span>
-                    <span>Ventas</span>
-                    <span>Reportes</span>
+                    <p class="configurator-cta-description">
+                        Selecciona servicios, actividades y cantidades. El configurador calcula las horas técnicas,
+                        organiza el alcance y determina automáticamente el nivel de tu proyecto.
+                    </p>
+
+                    <div class="configurator-cta-benefits" aria-label="Beneficios del configurador">
+                        <span><i data-lucide="layers-3" aria-hidden="true"></i>6 líneas de servicio</span>
+                        <span><i data-lucide="calculator" aria-hidden="true"></i>Cálculo en tiempo real</span>
+                        <span><i data-lucide="file-down" aria-hidden="true"></i>Resumen exportable</span>
+                    </div>
+
+                    <div class="configurator-cta-actions">
+                        <a class="btn-primary configurator-cta-primary" href="configurador/"
+                            data-track-event="configurator_open" data-track-category="conversion"
+                            data-track-label="CTA sección configurador">
+                            Abrir configurador
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </a>
+
+                        <a class="configurator-cta-secondary" href="#servicios">
+                            Revisar servicios
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
                 </div>
 
-                <div class="dashboard-main">
-                    <div class="dashboard-top">
+                <div class="configurator-cta-preview" aria-label="Vista previa ilustrativa del configurador">
+                    <div class="configurator-preview-top">
                         <div>
-                            <h3>Resumen del negocio</h3>
-                            <span class="dashboard-demo-badge">Ejemplo visual · Datos de demostración</span>
+                            <span>Tu configuración</span>
+                            <strong>Desarrollo e Implementación</strong>
                         </div>
-                        <button type="button" aria-label="Ver resumen del día">Hoy</button>
+                        <b>Vista previa</b>
                     </div>
 
-                    <div class="dashboard-cards">
-                        <div>
-                            <p>Stock total</p>
-                            <strong>1.248</strong>
-                        </div>
+                    <div class="configurator-preview-services">
+                        <article>
+                            <span class="configurator-preview-icon"><i data-lucide="globe-2" aria-hidden="true"></i></span>
+                            <div>
+                                <strong>Sitio web profesional</strong>
+                                <small>12 actividades seleccionadas</small>
+                            </div>
+                            <b>24,5 HH</b>
+                        </article>
 
-                        <div>
-                            <p>Reservas</p>
-                            <strong>36</strong>
-                        </div>
+                        <article>
+                            <span class="configurator-preview-icon"><i data-lucide="workflow" aria-hidden="true"></i></span>
+                            <div>
+                                <strong>Integración y automatización</strong>
+                                <small>4 actividades seleccionadas</small>
+                            </div>
+                            <b>18 HH</b>
+                        </article>
+                    </div>
 
-                        <div>
-                            <p>Ventas</p>
-                            <strong>$820k</strong>
+                    <div class="configurator-preview-level">
+                        <div class="configurator-preview-level__head">
+                            <span>Nivel calculado automáticamente</span>
+                            <strong>Estándar</strong>
+                        </div>
+                        <div class="configurator-preview-meter" aria-hidden="true">
+                            <span></span>
+                            <span class="active"></span>
+                            <span></span>
+                        </div>
+                        <div class="configurator-preview-labels" aria-hidden="true">
+                            <span>Inicial</span>
+                            <span>Estándar</span>
+                            <span>Avanzado</span>
                         </div>
                     </div>
 
-                    <div class="dashboard-table">
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                    <div class="configurator-preview-total">
+                        <span>Esfuerzo técnico estimado</span>
+                        <strong>42,5 HH</strong>
                     </div>
                 </div>
             </div>
@@ -1485,6 +1528,7 @@
             <div class="footer-column">
                 <h4>Servicios</h4>
                 <a href="#servicios">Servicios digitales</a>
+                <a href="configurador/">Configurar servicios</a>
                 <a href="#productos">Productos</a>
                 <a href="#madurez-digital">Madurez digital</a>
             </div>
@@ -1492,6 +1536,7 @@
             <div class="footer-column">
                 <h4>Navegación</h4>
                 <a href="#servicios">Servicios</a>
+                <a href="configurador/">Configurador</a>
                 <a href="#proyectos">Proyectos</a>
                 <a href="#proceso">Proceso</a>
                 <a href="#sobre-mi">Sobre mí</a>

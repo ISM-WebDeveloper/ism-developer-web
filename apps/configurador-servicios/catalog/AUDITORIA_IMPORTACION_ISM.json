@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2026-08-06T05:01:18.535Z",
+  "source": "catalog/Catalogo_Tecnico_Servicios_ISM_Developer_v2_1_Auditado.xlsx",
+  "output": "src/data/catalog/generated/ismServices.ts",
+  "catalogVersion": "2.1",
+  "contingencyRate": 0.2,
+  "lines": [
+    {
+      "id": "desarrollo-implementacion",
+      "name": "Desarrollo e Implementación",
+      "services": 3,
+      "activities": 78
+    },
+    {
+      "id": "mantenimiento-evolucion",
+      "name": "Mantenimiento y Evolución",
+      "services": 4,
+      "activities": 55
+    },
+    {
+      "id": "monitoreo-observabilidad",
+      "name": "Monitoreo y Observabilidad",
+      "services": 3,
+      "activities": 30
+    },
+    {
+      "id": "respaldo-continuidad",
+      "name": "Respaldo y Continuidad",
+      "services": 3,
+      "activities": 29
+    },
+    {
+      "id": "ciberseguridad",
+      "name": "Ciberseguridad",
+      "services": 4,
+      "activities": 46
+    },
+    {
+      "id": "soporte-gestion",
+      "name": "Soporte y Gestión",
+      "services": 4,
+      "activities": 44
+    }
+  ],
+  "totals": {
+    "activityLines": 282,
+    "serviceCodes": 21,
+    "uniqueActivityCodes": 282
+  }
+}

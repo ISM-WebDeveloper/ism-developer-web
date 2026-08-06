@@ -12,6 +12,9 @@
     "audit:performance": "node scripts/performance-budget.mjs",
     "audit:security": "node scripts/security-audit.mjs",
     "audit:accessibility": "node scripts/accessibility-audit.mjs",
-    "audit:compatibility": "node scripts/compatibility-audit.mjs"
+    "audit:compatibility": "node scripts/compatibility-audit.mjs",
+    "configurator:install": "npm --prefix apps/configurador-servicios ci",
+    "configurator:catalog": "npm --prefix apps/configurador-servicios run catalog:ism",
+    "configurator:build": "npm --prefix apps/configurador-servicios run build"
   }
 }
