@@ -8832,3 +8832,1278 @@ main > section[id] {
         row-gap: 1rem !important;
     }
 }
+
+
+/* === Ajuste 2.0.41 | Distribución final de slides y control central === */
+.story-slider-controls {
+    left: 50%;
+    right: auto;
+    bottom: 1rem;
+    transform: translateX(-50%);
+    justify-content: center;
+    gap: 0;
+}
+
+.story-slider-dots {
+    gap: 0.65rem;
+    padding: 0.7rem 1rem;
+}
+
+/* Ocultar por completo cualquier flecha lateral remanente */
+.story-slider-arrow {
+    display: none !important;
+}
+
+/* Slide 2: título y mensaje arriba a la derecha; CTA abajo a la izquierda. */
+.story-slide-content.story-slide-content-split-two {
+    position: absolute;
+    inset: 0;
+    max-width: none !important;
+    padding: 0 !important;
+}
+
+.story-slide-top-right {
+    position: absolute;
+    top: clamp(1.4rem, 3.2vh, 2.3rem);
+    right: clamp(1.8rem, 4.4vw, 4rem);
+    width: min(36rem, 40vw);
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+    align-items: flex-start;
+}
+
+.story-slide-top-right h2 {
+    margin: 0;
+    font-size: clamp(3.25rem, 5.2vw, 5.2rem);
+    line-height: 0.95;
+}
+
+.story-slide-top-right p {
+    margin: 0;
+    max-width: 32rem;
+    font-size: clamp(1.02rem, 1.25vw, 1.22rem);
+    line-height: 1.5;
+}
+
+.story-slide-link-bottom-left {
+    position: absolute;
+    left: clamp(1.8rem, 4.4vw, 4rem);
+    bottom: clamp(4.3rem, 11vh, 6rem);
+}
+
+/* Slide 3: mantener el título y bajar el texto + CTA un poco al sector inferior izquierdo. */
+.story-slide-content.story-slide-content-split-three {
+    position: absolute;
+    inset: 0;
+    max-width: none !important;
+    padding: 0 !important;
+}
+
+.story-slide-content.story-slide-content-split-three > h2 {
+    position: absolute;
+    top: clamp(2rem, 4.4vh, 3.1rem);
+    left: clamp(1.8rem, 4.4vw, 4rem);
+    margin: 0;
+    max-width: min(42rem, 46vw);
+}
+
+.story-slide-lower-left {
+    position: absolute;
+    left: clamp(1.8rem, 4.4vw, 4rem);
+    bottom: clamp(5.4rem, 13vh, 7rem);
+    width: min(31rem, 34vw);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.story-slide-lower-left p {
+    margin: 0;
+    max-width: 31rem;
+}
+
+@media (max-width: 1080px) {
+    .story-slide-top-right {
+        right: clamp(1.2rem, 3.2vw, 2.4rem);
+        top: 1.4rem;
+        width: min(30rem, 46vw);
+    }
+
+    .story-slide-link-bottom-left,
+    .story-slide-lower-left,
+    .story-slide-content.story-slide-content-split-three > h2 {
+        left: clamp(1.2rem, 3.2vw, 2.4rem);
+    }
+
+    .story-slide-lower-left {
+        width: min(27rem, 42vw);
+        bottom: 5.2rem;
+    }
+}
+
+@media (max-width: 780px) {
+    .story-slider-controls {
+        bottom: 0.8rem;
+    }
+
+    .story-slide-content.story-slide-content-split-two,
+    .story-slide-content.story-slide-content-split-three {
+        position: absolute;
+        inset: 0;
+    }
+
+    .story-slide-top-right,
+    .story-slide-link-bottom-left,
+    .story-slide-content.story-slide-content-split-three > h2,
+    .story-slide-lower-left {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .story-slide-content.story-slide-content-split-two,
+    .story-slide-content.story-slide-content-split-three {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        gap: 0.85rem;
+        padding: 1.7rem 1.25rem 4.8rem !important;
+    }
+
+    .story-slide-top-right {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .story-slide-lower-left {
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+    }
+}
+
+
+/* === Ajuste 2.0.42 | Microajuste de posición en slides 2 y 3 === */
+.story-slide-top-right {
+    top: clamp(2.15rem, 4.8vh, 3rem);
+}
+
+.story-slide-link-bottom-left {
+    left: clamp(2.5rem, 5.6vw, 4.7rem);
+}
+
+.story-slide-content.story-slide-content-split-three > h2 {
+    top: clamp(2.8rem, 5.6vh, 3.8rem);
+}
+
+@media (max-width: 1080px) {
+    .story-slide-top-right {
+        top: 2rem;
+    }
+
+    .story-slide-link-bottom-left,
+    .story-slide-lower-left,
+    .story-slide-content.story-slide-content-split-three > h2 {
+        left: clamp(1.5rem, 3.8vw, 2.8rem);
+    }
+
+    .story-slide-content.story-slide-content-split-three > h2 {
+        top: 2.4rem;
+    }
+}
+
+@media (max-width: 780px) {
+    .story-slide-top-right,
+    .story-slide-link-bottom-left,
+    .story-slide-content.story-slide-content-split-three > h2,
+    .story-slide-lower-left {
+        position: static;
+    }
+}
+
+
+/* === Ajuste 2.0.43 | Posición CTA slide 2 + texto slide 3 === */
+/* Slide 2: mover el CTA al espacio libre de la derecha sin interferir con padre o niña. */
+.story-slide[data-story-slide="1"] .story-slide-link-bottom-left {
+    left: auto;
+    right: clamp(2.2rem, 7vw, 7rem);
+    bottom: clamp(4.8rem, 12vh, 6.7rem);
+}
+
+/* Slide 3: subir ligeramente solo el bloque de texto + CTA. */
+.story-slide[data-story-slide="2"] .story-slide-lower-left {
+    bottom: clamp(6.6rem, 16vh, 8.5rem);
+}
+
+@media (max-width: 1080px) {
+    .story-slide[data-story-slide="1"] .story-slide-link-bottom-left {
+        left: auto;
+        right: clamp(1.6rem, 4vw, 3rem);
+        bottom: 5rem;
+    }
+
+    .story-slide[data-story-slide="2"] .story-slide-lower-left {
+        bottom: 6.2rem;
+    }
+}
+
+@media (max-width: 780px) {
+    .story-slide[data-story-slide="1"] .story-slide-link-bottom-left,
+    .story-slide[data-story-slide="2"] .story-slide-lower-left {
+        position: static;
+    }
+}
+
+
+/* === Ajuste 2.0.44 | CTA Determinación reposicionado sobre la niña === */
+.story-slide-link-bottom-left {
+    left: clamp(3.2rem, 8vw, 7rem);
+    bottom: clamp(10.8rem, 22vh, 13.6rem);
+}
+
+@media (max-width: 1080px) {
+    .story-slide-link-bottom-left {
+        left: clamp(2rem, 5vw, 3.2rem);
+        bottom: clamp(8.5rem, 18vh, 10.5rem);
+    }
+}
+
+@media (max-width: 780px) {
+    .story-slide-link-bottom-left {
+        position: static;
+    }
+}
+
+
+/* === Ajuste 2.0.45 | CTA Determinación bajo texto y sobre la niña === */
+.story-slide-link-bottom-left {
+    left: auto;
+    right: clamp(4.2rem, 8vw, 7rem);
+    top: clamp(12rem, 27vh, 14.5rem);
+    bottom: auto;
+}
+
+@media (max-width: 1080px) {
+    .story-slide-link-bottom-left {
+        left: auto;
+        right: clamp(2rem, 5vw, 3.5rem);
+        top: clamp(10.5rem, 24vh, 12.5rem);
+        bottom: auto;
+    }
+}
+
+@media (max-width: 780px) {
+    .story-slide-link-bottom-left {
+        position: static;
+    }
+}
+
+
+/* === Ajuste 2.0.46 | Portafolio: impedir colapso del panel dinámico === */
+/* La regla global tardía .section { min-height:auto } anulaba la altura del portafolio.
+   Se restituye una composición de viewport exclusiva para esta sección. */
+@media (min-width: 981px) {
+    .ism-portfolio-section {
+        height: 100svh;
+        min-height: 100svh !important;
+        max-height: 100svh;
+        padding-top: clamp(18px, 3vh, 32px);
+        padding-bottom: clamp(18px, 3vh, 32px);
+        display: flex;
+        align-items: stretch;
+    }
+
+    .ism-portfolio-shell {
+        width: min(100%, 1280px);
+        height: 100%;
+        max-height: none;
+        min-height: 0;
+        grid-template-rows: auto auto minmax(0, 1fr);
+        gap: clamp(10px, 1.5vh, 16px);
+    }
+
+    .ism-portfolio-panel {
+        height: 100%;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .ism-portfolio-workbench,
+    .ism-portfolio-dev-grid {
+        height: 100%;
+        min-height: 0;
+    }
+}
+
+/* En notebooks bajos, compactar el contenido antes de permitir que el panel desaparezca. */
+@media (min-width: 981px) and (max-height: 680px) {
+    .ism-portfolio-section {
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+
+    .ism-portfolio-shell {
+        gap: 8px;
+    }
+
+    .ism-portfolio-header {
+        gap: 18px;
+    }
+
+    .ism-portfolio-eyebrow {
+        margin-bottom: 3px;
+        font-size: 9px;
+    }
+
+    .ism-portfolio-heading h2 {
+        font-size: clamp(27px, 2.65vw, 36px);
+        line-height: 1;
+    }
+
+    .ism-portfolio-intro {
+        max-width: 760px;
+        margin-top: 5px;
+        font-size: 10.5px;
+        line-height: 1.35;
+    }
+
+    .ism-portfolio-main-link {
+        min-height: 36px;
+        padding-inline: 13px;
+        font-size: 10px;
+    }
+
+    .ism-portfolio-tabs {
+        padding: 4px;
+    }
+
+    .ism-portfolio-tab {
+        min-height: 32px;
+        padding-inline: 10px;
+        font-size: 10px;
+    }
+
+    .ism-portfolio-tab strong {
+        min-width: 20px;
+        height: 20px;
+        font-size: 9px;
+    }
+
+    .ism-portfolio-workbench {
+        padding: 10px;
+        gap: 10px;
+        grid-template-columns: minmax(165px, 205px) minmax(0, 1fr);
+    }
+
+    .ism-portfolio-selector {
+        gap: 5px;
+    }
+
+    .ism-portfolio-selector-label {
+        font-size: 8px;
+        margin-bottom: 0;
+    }
+
+    .ism-portfolio-item-button {
+        min-height: 43px;
+        padding: 6px 7px;
+        gap: 7px;
+    }
+
+    .ism-portfolio-item-icon {
+        width: 27px;
+        height: 27px;
+        border-radius: 8px;
+    }
+
+    .ism-portfolio-item-icon svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .ism-portfolio-item-copy strong {
+        font-size: 10px;
+    }
+
+    .ism-portfolio-item-copy small,
+    .ism-portfolio-item-status {
+        display: none;
+    }
+
+    .ism-portfolio-detail {
+        gap: 10px;
+        grid-template-columns: minmax(0, 1.2fr) minmax(230px, .8fr);
+    }
+
+    .ism-portfolio-main-media img,
+    .ism-portfolio-image-placeholder {
+        min-height: 120px;
+        max-height: 175px;
+    }
+
+    .ism-portfolio-thumbs {
+        gap: 5px;
+    }
+
+    .ism-portfolio-thumb {
+        height: 30px;
+    }
+
+    .ism-portfolio-copy-top {
+        margin-bottom: 4px;
+    }
+
+    .ism-portfolio-copy h3 {
+        font-size: clamp(17px, 1.7vw, 23px);
+    }
+
+    .ism-portfolio-copy p {
+        margin-top: 5px;
+        font-size: 10px;
+        line-height: 1.35;
+    }
+
+    .ism-portfolio-use-case {
+        margin-top: 6px;
+        padding: 6px 8px;
+        font-size: 9px;
+        line-height: 1.3;
+    }
+
+    .ism-portfolio-stack {
+        margin-top: 6px;
+        font-size: 8.5px;
+    }
+
+    .ism-portfolio-detail-link {
+        min-height: 32px;
+        margin-top: 7px;
+        padding-inline: 10px;
+        font-size: 9px;
+    }
+
+    .ism-portfolio-workbench.is-tools {
+        grid-template-columns: minmax(250px, 290px) minmax(0, 1fr);
+    }
+
+    .ism-portfolio-workbench.is-tools .ism-portfolio-selector {
+        gap: 5px;
+    }
+
+    .ism-portfolio-workbench.is-tools .ism-portfolio-item-button {
+        min-height: 42px;
+        padding: 5px 6px;
+    }
+
+    .ism-portfolio-dev-grid {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .ism-portfolio-dev-card {
+        padding: 14px;
+    }
+
+    .ism-portfolio-dev-card h3 {
+        margin-top: 7px;
+        font-size: 20px;
+    }
+
+    .ism-portfolio-dev-card p {
+        margin-top: 6px;
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    .ism-portfolio-dev-list {
+        margin-top: 8px;
+        gap: 4px;
+    }
+
+    .ism-portfolio-dev-list li {
+        padding: 4px 6px;
+        font-size: 8px;
+    }
+}
+
+
+/* === RECUPERACIÓN PORTAFOLIO 2.0.47 | bloque conocido como estable === */
+/* ========================================================= */
+/* PORTAFOLIO ISM · LANDING */
+/* ========================================================= */
+
+.ism-portfolio-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: min(100svh, 900px);
+    max-height: 100svh;
+    padding-top: clamp(34px, 5vh, 58px);
+    padding-bottom: clamp(34px, 5vh, 58px);
+    background:
+        radial-gradient(circle at 14% 14%, rgba(56, 189, 248, 0.12), transparent 28%),
+        radial-gradient(circle at 86% 82%, rgba(14, 165, 233, 0.09), transparent 30%),
+        linear-gradient(180deg, #050b14 0%, #08111f 52%, #050b14 100%);
+}
+
+.ism-portfolio-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(56, 189, 248, 0.032) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.032) 1px, transparent 1px);
+    background-size: 52px 52px;
+    mask-image: radial-gradient(circle at 50% 48%, black, transparent 82%);
+}
+
+.ism-portfolio-shell {
+    position: relative;
+    z-index: 2;
+    width: min(100%, 1280px);
+    max-height: calc(100svh - clamp(68px, 10vh, 116px));
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: auto auto minmax(0, 1fr);
+    gap: clamp(14px, 2vh, 20px);
+}
+
+.ism-portfolio-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 28px;
+}
+
+.ism-portfolio-heading {
+    min-width: 0;
+}
+
+.ism-portfolio-eyebrow {
+    margin: 0 0 5px;
+    color: #38bdf8;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.ism-portfolio-heading h2 {
+    margin: 0;
+    color: #f8fafc;
+    font-size: clamp(32px, 3.3vw, 48px);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+}
+
+.ism-portfolio-heading h2 .section-heading-accent {
+    color: #38bdf8;
+    text-shadow: 0 0 28px rgba(56, 189, 248, 0.34);
+}
+
+.ism-portfolio-intro {
+    max-width: 820px;
+    margin: 10px 0 0;
+    color: #9fb0c3;
+    font-size: clamp(13px, 1.05vw, 15px);
+    line-height: 1.55;
+}
+
+.ism-portfolio-main-link {
+    min-height: 44px;
+    padding: 0 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid rgba(56, 189, 248, 0.46);
+    border-radius: 12px;
+    color: #e8f7ff;
+    background: rgba(8, 24, 42, 0.72);
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+    transition: 220ms ease;
+}
+
+.ism-portfolio-main-link span {
+    color: #38bdf8;
+    font-size: 18px;
+    transition: transform 220ms ease;
+}
+
+.ism-portfolio-main-link:hover {
+    border-color: #38bdf8;
+    background: rgba(14, 165, 233, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 34px rgba(14, 165, 233, 0.14);
+}
+
+.ism-portfolio-main-link:hover span {
+    transform: translateX(3px);
+}
+
+.ism-portfolio-tabs {
+    width: fit-content;
+    max-width: 100%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    border-radius: 15px;
+    background: rgba(2, 6, 23, 0.58);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.035);
+}
+
+.ism-portfolio-tab {
+    min-height: 38px;
+    padding: 0 13px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border: 0;
+    border-radius: 11px;
+    color: #aebed0;
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 800;
+    transition: 220ms ease;
+}
+
+.ism-portfolio-tab strong {
+    min-width: 23px;
+    height: 23px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(56, 189, 248, 0.20);
+    border-radius: 999px;
+    color: #7dd3fc;
+    background: rgba(56, 189, 248, 0.07);
+    font-size: 10px;
+}
+
+.ism-portfolio-tab:hover,
+.ism-portfolio-tab.is-active {
+    color: #ffffff;
+    background: rgba(56, 189, 248, 0.12);
+}
+
+.ism-portfolio-tab.is-active {
+    box-shadow: inset 0 0 0 1px rgba(56, 189, 248, 0.32), 0 0 24px rgba(56, 189, 248, 0.08);
+}
+
+.ism-portfolio-tab.is-active strong {
+    color: #06111f;
+    border-color: #38bdf8;
+    background: #38bdf8;
+}
+
+.ism-portfolio-panel {
+    min-height: 0;
+    overflow: hidden;
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at 82% 18%, rgba(56, 189, 248, 0.08), transparent 30%),
+        linear-gradient(145deg, rgba(11, 27, 46, 0.94), rgba(4, 12, 23, 0.96));
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.05),
+        0 24px 70px rgba(0, 0, 0, 0.30);
+}
+
+.ism-portfolio-panel.is-switching {
+    animation: ismPortfolioSwap 340ms cubic-bezier(.22,1,.36,1);
+}
+
+@keyframes ismPortfolioSwap {
+    0% { opacity: .72; transform: translateY(8px) scale(.994); }
+    100% { opacity: 1; transform: none; }
+}
+
+.ism-portfolio-workbench {
+    height: 100%;
+    min-height: 0;
+    padding: clamp(16px, 2vw, 22px);
+    display: grid;
+    grid-template-columns: minmax(190px, 230px) minmax(0, 1fr);
+    gap: clamp(15px, 1.8vw, 22px);
+}
+
+.ism-portfolio-selector {
+    min-height: 0;
+    display: grid;
+    align-content: start;
+    gap: 9px;
+}
+
+.ism-portfolio-selector-label {
+    margin-bottom: 2px;
+    color: #72879b;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+}
+
+.ism-portfolio-item-button {
+    width: 100%;
+    min-height: 62px;
+    padding: 10px 11px;
+    display: grid;
+    grid-template-columns: 34px minmax(0,1fr) auto;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(148, 210, 230, 0.11);
+    border-radius: 13px;
+    color: #dce9f5;
+    background: rgba(3, 13, 25, 0.62);
+    text-align: left;
+    cursor: pointer;
+    transition: 220ms ease;
+}
+
+.ism-portfolio-item-button:hover,
+.ism-portfolio-item-button.is-active {
+    border-color: rgba(56, 189, 248, 0.48);
+    background: rgba(14, 165, 233, 0.09);
+    transform: translateX(2px);
+    box-shadow: 0 10px 24px rgba(0,0,0,.16);
+}
+
+.ism-portfolio-item-icon {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(56,189,248,.28);
+    border-radius: 10px;
+    color: #38bdf8;
+    background: rgba(56,189,248,.07);
+}
+
+.ism-portfolio-item-icon svg {
+    width: 17px;
+    height: 17px;
+}
+
+.ism-portfolio-item-copy {
+    min-width: 0;
+}
+
+.ism-portfolio-item-copy strong,
+.ism-portfolio-item-copy small {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ism-portfolio-item-copy strong {
+    color: #f8fafc;
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+.ism-portfolio-item-copy small {
+    margin-top: 4px;
+    color: #7890a7;
+    font-size: 9.5px;
+}
+
+.ism-portfolio-item-status {
+    padding: 4px 7px;
+    border: 1px solid rgba(52, 211, 153, .22);
+    border-radius: 999px;
+    color: #6ee7b7;
+    background: rgba(16, 185, 129, .08);
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.ism-portfolio-detail {
+    min-width: 0;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1.28fr) minmax(285px, .72fr);
+    gap: clamp(16px, 2vw, 24px);
+}
+
+.ism-portfolio-gallery {
+    min-width: 0;
+    min-height: 0;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 10px;
+}
+
+.ism-portfolio-main-media {
+    position: relative;
+    min-height: 0;
+    overflow: hidden;
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    border-radius: 17px;
+    background: #020617;
+    box-shadow: 0 18px 42px rgba(0,0,0,.24);
+}
+
+.ism-portfolio-main-media img {
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    max-height: 360px;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transition: opacity 220ms ease, transform 420ms cubic-bezier(.22,1,.36,1);
+}
+
+.ism-portfolio-main-media.is-changing img {
+    opacity: .35;
+    transform: scale(1.018);
+}
+
+.ism-portfolio-media-caption {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    max-width: calc(100% - 24px);
+    padding: 6px 9px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 999px;
+    color: #e8f7ff;
+    background: rgba(2, 6, 23, .72);
+    backdrop-filter: blur(10px);
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.ism-portfolio-thumbs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.ism-portfolio-thumbs[data-count="2"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ism-portfolio-thumb {
+    position: relative;
+    height: 54px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgba(148,210,230,.12);
+    border-radius: 10px;
+    background: #06111f;
+    cursor: pointer;
+    transition: 180ms ease;
+}
+
+.ism-portfolio-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(.72) saturate(.85);
+    transition: 180ms ease;
+}
+
+.ism-portfolio-thumb:hover,
+.ism-portfolio-thumb.is-active {
+    border-color: #38bdf8;
+    transform: translateY(-1px);
+    box-shadow: 0 0 18px rgba(56,189,248,.12);
+}
+
+.ism-portfolio-thumb:hover img,
+.ism-portfolio-thumb.is-active img {
+    filter: brightness(.96) saturate(1);
+}
+
+.ism-portfolio-copy {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ism-portfolio-copy-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 7px;
+}
+
+.ism-portfolio-copy-type {
+    color: #38bdf8;
+    font-size: 9.5px;
+    font-weight: 900;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+}
+
+.ism-portfolio-copy-status {
+    padding: 5px 8px;
+    border: 1px solid rgba(52, 211, 153, .22);
+    border-radius: 999px;
+    color: #6ee7b7;
+    background: rgba(16, 185, 129, .08);
+    font-size: 8.5px;
+    font-weight: 900;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.ism-portfolio-copy h3 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(22px, 2.2vw, 31px);
+    line-height: 1.05;
+    letter-spacing: -.025em;
+}
+
+.ism-portfolio-copy p {
+    margin: 10px 0 0;
+    color: #aebdcb;
+    font-size: 12.5px;
+    line-height: 1.56;
+}
+
+.ism-portfolio-use-case {
+    margin-top: 12px;
+    padding: 10px 11px;
+    border-left: 2px solid #38bdf8;
+    border-radius: 0 10px 10px 0;
+    color: #cbefff;
+    background: rgba(56, 189, 248, 0.055);
+    font-size: 11px;
+    line-height: 1.45;
+}
+
+.ism-portfolio-use-case strong {
+    color: #38bdf8;
+}
+
+.ism-portfolio-stack {
+    margin-top: 12px;
+    color: #71869a;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.ism-portfolio-detail-link {
+    width: fit-content;
+    min-height: 42px;
+    margin-top: 15px;
+    padding: 0 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    border: 1px solid rgba(56,189,248,.42);
+    border-radius: 11px;
+    color: #f3fbff;
+    background: rgba(14,165,233,.10);
+    font-size: 11px;
+    font-weight: 850;
+    transition: 200ms ease;
+}
+
+.ism-portfolio-detail-link span {
+    color: #38bdf8;
+    font-size: 17px;
+    transition: transform 200ms ease;
+}
+
+.ism-portfolio-detail-link:hover {
+    color: #06111f;
+    border-color: #38bdf8;
+    background: #38bdf8;
+    transform: translateY(-2px);
+}
+
+.ism-portfolio-detail-link:hover span {
+    color: #06111f;
+    transform: translateX(3px);
+}
+
+.ism-portfolio-dev-grid {
+    height: 100%;
+    padding: clamp(18px, 2.2vw, 26px);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(14px, 2vw, 22px);
+    align-items: stretch;
+}
+
+.ism-portfolio-dev-card {
+    position: relative;
+    min-height: 0;
+    padding: clamp(20px, 2.4vw, 30px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid rgba(56,189,248,.17);
+    border-radius: 20px;
+    background:
+        radial-gradient(circle at 82% 16%, rgba(56,189,248,.11), transparent 34%),
+        rgba(3, 14, 27, .74);
+}
+
+.ism-portfolio-dev-card::after {
+    content: "";
+    position: absolute;
+    right: -70px;
+    bottom: -70px;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background: rgba(56,189,248,.06);
+    filter: blur(32px);
+}
+
+.ism-portfolio-dev-badge {
+    width: fit-content;
+    padding: 5px 8px;
+    border: 1px solid rgba(56,189,248,.28);
+    border-radius: 999px;
+    color: #7dd3fc;
+    background: rgba(56,189,248,.07);
+    font-size: 8.5px;
+    font-weight: 900;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+}
+
+.ism-portfolio-dev-card h3 {
+    position: relative;
+    z-index: 2;
+    margin: 12px 0 0;
+    color: #fff;
+    font-size: clamp(22px, 2vw, 30px);
+    line-height: 1.08;
+}
+
+.ism-portfolio-dev-card p {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: 10px 0 0;
+    color: #aebdcb;
+    font-size: 12.5px;
+    line-height: 1.58;
+}
+
+.ism-portfolio-dev-list {
+    position: relative;
+    z-index: 2;
+    margin: 14px 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    list-style: none;
+}
+
+.ism-portfolio-dev-list li {
+    padding: 6px 8px;
+    border: 1px solid rgba(148,210,230,.12);
+    border-radius: 999px;
+    color: #9fb5c9;
+    background: rgba(8, 24, 42, .48);
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.ism-portfolio-noscript {
+    padding: 28px;
+    color: #cbd5e1;
+}
+
+@media (max-height: 760px) and (min-width: 861px) {
+    .ism-portfolio-section {
+        padding-top: 28px;
+        padding-bottom: 28px;
+    }
+
+    .ism-portfolio-shell {
+        gap: 11px;
+        max-height: calc(100svh - 56px);
+    }
+
+    .ism-portfolio-heading h2 {
+        font-size: clamp(30px, 3vw, 40px);
+    }
+
+    .ism-portfolio-intro {
+        margin-top: 6px;
+        font-size: 12px;
+    }
+
+    .ism-portfolio-main-media img {
+        min-height: 210px;
+        max-height: 285px;
+    }
+
+    .ism-portfolio-item-button {
+        min-height: 54px;
+    }
+
+    .ism-portfolio-thumb {
+        height: 44px;
+    }
+}
+
+@media (max-width: 980px) {
+    .ism-portfolio-section {
+        max-height: none;
+        min-height: auto;
+    }
+
+    .ism-portfolio-shell {
+        max-height: none;
+    }
+
+    .ism-portfolio-header {
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 18px;
+    }
+
+    .ism-portfolio-main-link {
+        width: fit-content;
+    }
+
+    .ism-portfolio-workbench {
+        grid-template-columns: 1fr;
+    }
+
+    .ism-portfolio-selector {
+        grid-template-columns: repeat(3, minmax(0,1fr));
+    }
+
+    .ism-portfolio-selector-label {
+        grid-column: 1 / -1;
+    }
+
+    .ism-portfolio-item-button {
+        grid-template-columns: 30px minmax(0,1fr);
+    }
+
+    .ism-portfolio-item-status {
+        display: none;
+    }
+}
+
+@media (max-width: 760px) {
+    .ism-portfolio-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .ism-portfolio-heading {
+        text-align: center;
+    }
+
+    .ism-portfolio-heading h2 {
+        font-size: clamp(34px, 10vw, 44px);
+    }
+
+    .ism-portfolio-intro {
+        margin-inline: auto;
+        font-size: 14px;
+    }
+
+    .ism-portfolio-main-link {
+        margin-inline: auto;
+    }
+
+    .ism-portfolio-tabs {
+        width: 100%;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .ism-portfolio-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .ism-portfolio-tab {
+        min-width: max-content;
+        flex: 0 0 auto;
+    }
+
+    .ism-portfolio-panel {
+        overflow: visible;
+    }
+
+    .ism-portfolio-workbench {
+        padding: 14px;
+    }
+
+    .ism-portfolio-selector {
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 3px;
+        scrollbar-width: none;
+    }
+
+    .ism-portfolio-selector::-webkit-scrollbar {
+        display: none;
+    }
+
+    .ism-portfolio-selector-label {
+        display: none;
+    }
+
+    .ism-portfolio-item-button {
+        width: 210px;
+        min-width: 210px;
+        flex: 0 0 210px;
+    }
+
+    .ism-portfolio-detail {
+        grid-template-columns: 1fr;
+    }
+
+    .ism-portfolio-main-media img {
+        min-height: 220px;
+        max-height: 300px;
+    }
+
+    .ism-portfolio-copy {
+        padding: 2px 2px 4px;
+    }
+
+    .ism-portfolio-dev-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ism-portfolio-panel.is-switching {
+        animation: none;
+    }
+
+    .ism-portfolio-main-link,
+    .ism-portfolio-tab,
+    .ism-portfolio-item-button,
+    .ism-portfolio-main-media img,
+    .ism-portfolio-thumb,
+    .ism-portfolio-detail-link {
+        transition: none !important;
+    }
+}

@@ -186,6 +186,413 @@ if (aboutPins.length && !aboutOrbit?.classList.contains("image-test")) {
     });
 }
 
+// PORTAFOLIO ISM · LANDING
+// Presenta casos reales, soluciones reutilizables y pilotos activos sin extender la landing.
+
+const portfolioSection = document.querySelector(".ism-portfolio-section");
+
+if (portfolioSection) {
+    const portfolioTabs = [...portfolioSection.querySelectorAll("[data-portfolio-tab]")];
+    const portfolioPanel = document.getElementById("portfolioPanel");
+    const portfolioStatus = document.getElementById("portfolioSelectionStatus");
+
+    const portfolioData = {
+        clients: [
+            {
+                id: "badiasalud",
+                name: "Badiasalud",
+                label: "Presencia digital + agenda",
+                status: "Publicado",
+                type: "Caso real",
+                description: "Una presencia profesional conectada con acceso a reservas para reducir coordinación manual y facilitar nuevas solicitudes de atención.",
+                useCase: "Profesionales independientes y centros que necesitan presentar servicios y ordenar la reserva de horas desde un canal propio.",
+                stack: "TypeScript · Tailwind CSS · Supabase · Vercel",
+                icon: "calendar-check",
+                link: "portafolio.html?proyecto=badiasalud",
+                images: [
+                    { src: "assets/img/portfolio/badiasalud-principal.webp", alt: "Vista principal publicada de Badiasalud", label: "Sitio publicado" },
+                    { src: "assets/img/portfolio/badiasalud-reserva.webp", alt: "Accesos de reserva y lista de espera de Badiasalud", label: "Acceso a reservas" },
+                    { src: "assets/img/portfolio/badiasalud-servicio.webp", alt: "Presentación del servicio de Badiasalud", label: "Presentación del servicio" }
+                ]
+            },
+            {
+                id: "constructora-proestakis",
+                name: "Constructora Proestakis",
+                label: "Presencia digital corporativa",
+                status: "Publicado",
+                type: "Caso real",
+                description: "Una vitrina digital para presentar experiencia, capacidad técnica y servicios desde un canal profesional propio orientado a nuevos clientes.",
+                useCase: "Constructoras y empresas de servicios que necesitan respaldar su experiencia, mostrar capacidades y convertir visitas en oportunidades comerciales.",
+                stack: "HTML5 · CSS3 · JavaScript · Vercel",
+                icon: "truck",
+                link: "portafolio.html?proyecto=constructora-proestakis",
+                images: [
+                    { src: "assets/img/portfolio/proestakis-principal.webp", alt: "Sitio corporativo publicado de Constructora Proestakis", label: "Vista principal" },
+                    { src: "assets/img/portfolio/proestakis-cifras.webp", alt: "Bloque de capacidades y cifras de Constructora Proestakis", label: "Capacidad técnica" },
+                    { src: "assets/img/portfolio/proestakis-propuesta.webp", alt: "Propuesta de valor del sitio de Constructora Proestakis", label: "Propuesta de valor" }
+                ]
+            },
+            {
+                id: "lecasse-it-services",
+                name: "Lecasse IT Services",
+                label: "Presencia digital tecnológica",
+                status: "Publicado",
+                type: "Caso real",
+                description: "Una presencia tecnológica que ordena servicios y propuesta de valor para que potenciales clientes entiendan rápidamente las capacidades de la empresa.",
+                useCase: "Empresas B2B que venden conocimiento técnico y necesitan explicar servicios complejos de forma clara, visual y profesional.",
+                stack: "HTML5 · CSS3 · JavaScript · Vercel",
+                icon: "server",
+                link: "portafolio.html?proyecto=lecasse-it-services",
+                images: [
+                    { src: "assets/img/portfolio/lecasse-principal.webp", alt: "Sitio publicado de Lecasse IT Services", label: "Vista principal" },
+                    { src: "assets/img/portfolio/lecasse-servicios.webp", alt: "Tarjetas de servicios de Lecasse IT Services", label: "Servicios" },
+                    { src: "assets/img/portfolio/lecasse-hero.webp", alt: "Propuesta principal del sitio Lecasse IT Services", label: "Propuesta principal" }
+                ]
+            }
+        ],
+        tools: [
+            {
+                id: "tool-service-hours",
+                name: "Control de horas de servicios",
+                label: "Horas, actividades y reportes",
+                status: "Disponible",
+                type: "Solución digital",
+                description: "Centraliza horas de servicio, actividades y reportes para reemplazar planillas dispersas y mejorar el control de lo ejecutado.",
+                useCase: "Empresas de servicios que necesitan registrar horas por cliente, responsable o actividad y respaldar posteriormente su gestión o cobro.",
+                stack: "Horas · Actividades · Clientes · Reportes",
+                icon: "clock-3",
+                link: "portafolio.html",
+                images: [
+                    { src: "", alt: "", label: "Vista principal", pending: true },
+                    { src: "", alt: "", label: "Detalle de actividades", pending: true }
+                ]
+            },
+            {
+                id: "tool-service-sizing",
+                name: "Dimensionador de servicios",
+                label: "Alcance y estimación técnica",
+                status: "Disponible",
+                type: "Solución digital",
+                description: "Convierte servicios, actividades y cantidades en una estimación técnica ordenada para revisar el alcance antes de preparar una cotización formal.",
+                useCase: "Negocios que ofrecen servicios configurables y necesitan estandarizar cómo levantan alcance, esfuerzo y entregables antes de cotizar.",
+                stack: "Servicios · Actividades · HH · Exportación",
+                icon: "target",
+                link: "portafolio.html",
+                images: [
+                    { src: "", alt: "", label: "Configuración de servicios", pending: true },
+                    { src: "", alt: "", label: "Resumen y dimensionamiento", pending: true }
+                ]
+            },
+            {
+                id: "tool-client-reservations",
+                name: "Control de clientes con reserva",
+                label: "Clientes, solicitudes y reservas",
+                status: "Disponible",
+                type: "Solución digital",
+                description: "Organiza clientes y reservas desde un flujo centralizado para reducir coordinaciones manuales y mantener trazabilidad de cada solicitud.",
+                useCase: "Servicios que reciben reservas y necesitan relacionar cada solicitud con sus datos de cliente, estado y seguimiento.",
+                stack: "Clientes · Reservas · Estados · Seguimiento",
+                icon: "messages-square",
+                link: "portafolio.html",
+                images: [
+                    { src: "", alt: "", label: "Gestión de clientes", pending: true },
+                    { src: "", alt: "", label: "Flujo de reservas", pending: true }
+                ]
+            },
+            {
+                id: "tool-availability-agenda",
+                name: "Control de disponibilidad con agenda",
+                label: "Disponibilidad y agendamiento",
+                status: "Disponible",
+                type: "Solución digital",
+                description: "Permite publicar disponibilidad y ordenar el agendamiento para que clientes y equipos trabajen sobre horarios realmente disponibles.",
+                useCase: "Profesionales y negocios que trabajan con horas, cupos o atención programada y quieren disminuir mensajes y cruces de agenda.",
+                stack: "Agenda · Disponibilidad · Horarios · Reservas",
+                icon: "calendar-check",
+                link: "portafolio.html",
+                images: [
+                    { src: "", alt: "", label: "Disponibilidad", pending: true },
+                    { src: "", alt: "", label: "Agenda y horarios", pending: true }
+                ]
+            },
+            {
+                id: "tool-warehouse-control",
+                name: "Control de bodega",
+                label: "Stock, movimientos y trazabilidad",
+                status: "Disponible",
+                type: "Solución digital",
+                description: "Centraliza existencias, movimientos y responsables para que bodegas y operaciones mantengan información trazable y actualizada.",
+                useCase: "Bodegas, faenas y operaciones que necesitan saber qué existe, dónde está y quién realizó cada movimiento.",
+                stack: "Stock · Movimientos · Bodegas · Trazabilidad",
+                icon: "database",
+                link: "portafolio.html",
+                images: [
+                    { src: "", alt: "", label: "Vista de stock", pending: true },
+                    { src: "", alt: "", label: "Movimientos y trazabilidad", pending: true }
+                ]
+            },
+            {
+                id: "tool-user-admin",
+                name: "Sistema administrativo de usuarios",
+                label: "Usuarios, roles y permisos",
+                status: "Disponible",
+                type: "Solución digital",
+                description: "Centraliza usuarios, roles y permisos para ordenar quién puede acceder, administrar o ejecutar acciones dentro de una solución digital.",
+                useCase: "Sistemas internos que necesitan separar responsabilidades y entregar accesos distintos a administradores, supervisores y usuarios operativos.",
+                stack: "Usuarios · Roles · Permisos · Administración",
+                icon: "settings",
+                link: "portafolio.html",
+                images: [
+                    { src: "", alt: "", label: "Administración de usuarios", pending: true },
+                    { src: "", alt: "", label: "Roles y permisos", pending: true }
+                ]
+            }
+        ],
+        dev: [
+            {
+                name: "SuizCorp",
+                status: "Piloto activo",
+                description: "Control de bodegas, inventario, movimientos, herramientas y trazabilidad con roles diferenciados para operación, supervisión y administración.",
+                features: ["2 bodegas", "Roles", "Importación Excel", "Trazabilidad"]
+            },
+            {
+                name: "Hospital Félix Bulnes",
+                status: "Piloto en desarrollo",
+                description: "Solución orientada a una bodega periférica hospitalaria para mejorar control de existencias, movimientos y registro operacional desde dispositivos móviles.",
+                features: ["Bodega periférica", "Stock", "Movimientos", "Uso móvil"]
+            }
+        ]
+    };
+
+    const iconMarkup = (name) => `<i data-lucide="${name}" aria-hidden="true"></i>`;
+
+    const renderGallery = (item) => {
+        const [firstImage] = item.images;
+        const renderMainImage = (image) => image.pending
+            ? `<div class="ism-portfolio-image-placeholder" data-portfolio-main-placeholder>
+                    <i data-lucide="monitor" aria-hidden="true"></i>
+                    <strong>${image.label}</strong>
+                    <span>Espacio preparado para imagen real de interfaz</span>
+               </div>`
+            : `<img src="${image.src}" alt="${image.alt}" width="960" height="540" loading="lazy" decoding="async" data-portfolio-main-image>`;
+
+        return `
+            <div class="ism-portfolio-gallery">
+                <div class="ism-portfolio-main-media" data-portfolio-main-media>
+                    ${renderMainImage(firstImage)}
+                    <span class="ism-portfolio-media-caption" data-portfolio-media-caption>${firstImage.label}</span>
+                </div>
+                <div class="ism-portfolio-thumbs" data-count="${item.images.length}" aria-label="Vistas disponibles de ${item.name}">
+                    ${item.images.map((image, index) => `
+                        <button class="ism-portfolio-thumb${image.pending ? " is-pending" : ""}${index === 0 ? " is-active" : ""}" type="button"
+                            aria-label="Mostrar ${image.label} de ${item.name}" aria-pressed="${index === 0}"
+                            data-portfolio-image-index="${index}">
+                            ${image.pending
+                                ? `<span class="ism-portfolio-thumb-placeholder"><i data-lucide="monitor" aria-hidden="true"></i><small>${image.label}</small></span>`
+                                : `<img src="${image.src}" alt="" width="240" height="135" loading="lazy" decoding="async">`}
+                        </button>
+                    `).join("")}
+                </div>
+            </div>
+        `;
+    };
+
+    const renderDetail = (item) => `
+        <div class="ism-portfolio-detail">
+            ${renderGallery(item)}
+            <div class="ism-portfolio-copy">
+                <div class="ism-portfolio-copy-top">
+                    <span class="ism-portfolio-copy-type">${item.type}</span>
+                    <span class="ism-portfolio-copy-status">${item.status}</span>
+                </div>
+                <h3>${item.name}</h3>
+                <p>${item.description}</p>
+                <div class="ism-portfolio-use-case"><strong>Puede ayudarte si:</strong> ${item.useCase}</div>
+                <div class="ism-portfolio-stack">${item.stack}</div>
+                <a class="ism-portfolio-detail-link" href="${item.link}" data-track-event="project_click"
+                    data-track-category="portfolio" data-track-label="${item.name}">
+                    Ver detalle <span aria-hidden="true">→</span>
+                </a>
+            </div>
+        </div>
+    `;
+
+    const renderWorkbench = (items, selectedIndex, selectorLabel) => {
+        const selectedItem = items[selectedIndex];
+        return `
+            <div class="ism-portfolio-workbench${selectorLabel === "Soluciones aplicables" ? " is-tools" : ""}">
+                <div class="ism-portfolio-selector">
+                    <span class="ism-portfolio-selector-label">${selectorLabel}</span>
+                    ${items.map((item, index) => `
+                        <button class="ism-portfolio-item-button${index === selectedIndex ? " is-active" : ""}" type="button"
+                            aria-pressed="${index === selectedIndex}" data-portfolio-item-index="${index}">
+                            <span class="ism-portfolio-item-icon">${iconMarkup(item.icon)}</span>
+                            <span class="ism-portfolio-item-copy">
+                                <strong>${item.name}</strong>
+                                <small>${item.label}</small>
+                            </span>
+                            <span class="ism-portfolio-item-status">${item.status}</span>
+                        </button>
+                    `).join("")}
+                </div>
+                ${renderDetail(selectedItem)}
+            </div>
+        `;
+    };
+
+    const renderDevelopment = () => `
+        <div class="ism-portfolio-dev-grid">
+            ${portfolioData.dev.map((project) => `
+                <article class="ism-portfolio-dev-card">
+                    <span class="ism-portfolio-dev-badge">${project.status}</span>
+                    <h3>${project.name}</h3>
+                    <p>${project.description}</p>
+                    <ul class="ism-portfolio-dev-list" aria-label="Características confirmadas de ${project.name}">
+                        ${project.features.map((feature) => `<li>${feature}</li>`).join("")}
+                    </ul>
+                </article>
+            `).join("")}
+        </div>
+    `;
+
+    const state = {
+        tab: "clients",
+        selected: { clients: 0, tools: 0 }
+    };
+
+    const syncLucide = () => {
+        if (window.lucide?.createIcons) {
+            window.lucide.createIcons();
+        }
+    };
+
+    const updateGalleryImage = (item, imageIndex) => {
+        if (!portfolioPanel) return;
+        const image = item.images[imageIndex];
+        const media = portfolioPanel.querySelector("[data-portfolio-main-media]");
+        const caption = portfolioPanel.querySelector("[data-portfolio-media-caption]");
+        if (!image || !media || !caption) return;
+
+        media.classList.add("is-changing");
+        window.setTimeout(() => {
+            media.querySelector("[data-portfolio-main-image], [data-portfolio-main-placeholder]")?.remove();
+
+            if (image.pending) {
+                const placeholder = document.createElement("div");
+                placeholder.className = "ism-portfolio-image-placeholder";
+                placeholder.setAttribute("data-portfolio-main-placeholder", "");
+                placeholder.innerHTML = `<i data-lucide="monitor" aria-hidden="true"></i><strong>${image.label}</strong><span>Espacio preparado para imagen real de interfaz</span>`;
+                media.prepend(placeholder);
+            } else {
+                const nextImage = document.createElement("img");
+                nextImage.src = image.src;
+                nextImage.alt = image.alt;
+                nextImage.width = 960;
+                nextImage.height = 540;
+                nextImage.loading = "lazy";
+                nextImage.decoding = "async";
+                nextImage.setAttribute("data-portfolio-main-image", "");
+                media.prepend(nextImage);
+            }
+
+            caption.textContent = image.label;
+            portfolioPanel.querySelectorAll("[data-portfolio-image-index]").forEach((button) => {
+                const active = Number(button.dataset.portfolioImageIndex) === imageIndex;
+                button.classList.toggle("is-active", active);
+                button.setAttribute("aria-pressed", String(active));
+            });
+            media.classList.remove("is-changing");
+            syncLucide();
+        }, 120);
+    };
+
+    const bindPanelInteractions = () => {
+        if (!portfolioPanel) return;
+        const items = state.tab === "clients" ? portfolioData.clients : portfolioData.tools;
+
+        portfolioPanel.querySelectorAll("[data-portfolio-item-index]").forEach((button) => {
+            button.addEventListener("click", () => {
+                const index = Number(button.dataset.portfolioItemIndex);
+                state.selected[state.tab] = index;
+                renderCurrentPanel();
+            });
+        });
+
+        portfolioPanel.querySelectorAll("[data-portfolio-image-index]").forEach((button) => {
+            button.addEventListener("click", () => {
+                const item = items[state.selected[state.tab]];
+                updateGalleryImage(item, Number(button.dataset.portfolioImageIndex));
+            });
+        });
+    };
+
+    const renderCurrentPanel = () => {
+        if (!portfolioPanel) return;
+
+        portfolioPanel.classList.remove("is-switching");
+        void portfolioPanel.offsetWidth;
+        portfolioPanel.classList.add("is-switching");
+
+        if (state.tab === "clients") {
+            portfolioPanel.innerHTML = renderWorkbench(portfolioData.clients, state.selected.clients, "Casos reales");
+        } else if (state.tab === "tools") {
+            portfolioPanel.innerHTML = renderWorkbench(portfolioData.tools, state.selected.tools, "Soluciones aplicables");
+        } else {
+            portfolioPanel.innerHTML = renderDevelopment();
+        }
+
+        const activeTab = portfolioTabs.find((tab) => tab.dataset.portfolioTab === state.tab);
+        if (activeTab) portfolioPanel.setAttribute("aria-labelledby", activeTab.id);
+
+        if (portfolioStatus) {
+            if (state.tab === "dev") {
+                portfolioStatus.textContent = "Mostrando proyectos reales en desarrollo.";
+            } else {
+                const current = (state.tab === "clients" ? portfolioData.clients : portfolioData.tools)[state.selected[state.tab]];
+                portfolioStatus.textContent = `Mostrando ${current.name}.`;
+            }
+        }
+
+        bindPanelInteractions();
+        syncLucide();
+    };
+
+    portfolioTabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => {
+            state.tab = tab.dataset.portfolioTab;
+            portfolioTabs.forEach((item) => {
+                const active = item === tab;
+                item.classList.toggle("is-active", active);
+                item.setAttribute("aria-selected", String(active));
+                item.tabIndex = active ? 0 : -1;
+            });
+            renderCurrentPanel();
+
+            if (window.trackEvent) {
+                window.trackEvent("portfolio_tab_open", {
+                    event_category: "portfolio",
+                    event_label: tab.textContent.trim(),
+                    section: "proyectos"
+                });
+            }
+        });
+
+        tab.addEventListener("keydown", (event) => {
+            let nextIndex = null;
+            if (event.key === "ArrowRight" || event.key === "ArrowDown") nextIndex = (index + 1) % portfolioTabs.length;
+            if (event.key === "ArrowLeft" || event.key === "ArrowUp") nextIndex = (index - 1 + portfolioTabs.length) % portfolioTabs.length;
+            if (event.key === "Home") nextIndex = 0;
+            if (event.key === "End") nextIndex = portfolioTabs.length - 1;
+            if (nextIndex === null) return;
+            event.preventDefault();
+            portfolioTabs[nextIndex].focus();
+            portfolioTabs[nextIndex].click();
+        });
+    });
+
+    renderCurrentPanel();
+}
+
 // ISM PROJECT VAULT
 // Filtra proyectos, actualiza el inspector y abre una vista expandida dentro de la sección.
 
