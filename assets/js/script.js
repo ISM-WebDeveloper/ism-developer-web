@@ -284,22 +284,6 @@ if (portfolioSection) {
                 ]
             },
             {
-                id: "tool-client-reservations",
-                name: "Control de clientes con reserva",
-                label: "Clientes, solicitudes y reservas",
-                status: "Disponible",
-                type: "Solución digital",
-                description: "Organiza clientes y reservas desde un flujo centralizado para reducir coordinaciones manuales y mantener trazabilidad de cada solicitud.",
-                useCase: "Servicios que reciben reservas y necesitan relacionar cada solicitud con sus datos de cliente, estado y seguimiento.",
-                stack: "Clientes · Reservas · Estados · Seguimiento",
-                icon: "messages-square",
-                link: "portafolio.html",
-                images: [
-                    { src: "", alt: "", label: "Gestión de clientes", pending: true },
-                    { src: "", alt: "", label: "Flujo de reservas", pending: true }
-                ]
-            },
-            {
                 id: "tool-availability-agenda",
                 name: "Control de disponibilidad con agenda",
                 label: "Disponibilidad y agendamiento",
@@ -331,22 +315,6 @@ if (portfolioSection) {
                     { src: "assets/img/portfolio/control-bodega-operativo.webp", alt: "Panel operativo móvil de Control de Bodega para recepción, entrega y consulta de artículos", label: "Operación de bodega" }
                 ]
             },
-            {
-                id: "tool-user-admin",
-                name: "Sistema administrativo de usuarios",
-                label: "Usuarios, roles y permisos",
-                status: "Disponible",
-                type: "Solución digital",
-                description: "Centraliza usuarios, roles y permisos para ordenar quién puede acceder, administrar o ejecutar acciones dentro de una solución digital.",
-                useCase: "Sistemas internos que necesitan separar responsabilidades y entregar accesos distintos a administradores, supervisores y usuarios operativos.",
-                stack: "Usuarios · Roles · Permisos · Administración",
-                icon: "settings",
-                link: "portafolio.html",
-                images: [
-                    { src: "", alt: "", label: "Administración de usuarios", pending: true },
-                    { src: "", alt: "", label: "Roles y permisos", pending: true }
-                ]
-            }
         ],
         dev: [
             {
