@@ -263,8 +263,8 @@ if (portfolioSection) {
                 icon: "clock-3",
                 link: "portafolio.html",
                 images: [
-                    { src: "", alt: "", label: "Vista principal", pending: true },
-                    { src: "", alt: "", label: "Detalle de actividades", pending: true }
+                    { src: "assets/img/portfolio/control-horas-login.webp", alt: "Pantalla de acceso privado del sistema de control de horas de servicio", label: "Acceso privado" },
+                    { src: "assets/img/portfolio/control-horas-b2b.webp", alt: "Panel de oportunidades B2B del sistema de control de horas de servicio", label: "Oportunidades B2B" }
                 ]
             },
             {
@@ -279,8 +279,8 @@ if (portfolioSection) {
                 icon: "target",
                 link: "portafolio.html",
                 images: [
-                    { src: "", alt: "", label: "Configuración de servicios", pending: true },
-                    { src: "", alt: "", label: "Resumen y dimensionamiento", pending: true }
+                    { src: "assets/img/portfolio/dimensionador-servicios-general.webp", alt: "Vista principal del configurador de servicios ISM Developer", label: "Vista general" },
+                    { src: "assets/img/portfolio/dimensionador-servicios-detalle.webp", alt: "Desglose de actividades y resumen técnico del configurador de servicios ISM Developer", label: "Detalle y resumen" }
                 ]
             },
             {
@@ -311,8 +311,8 @@ if (portfolioSection) {
                 icon: "calendar-check",
                 link: "portafolio.html",
                 images: [
-                    { src: "", alt: "", label: "Disponibilidad", pending: true },
-                    { src: "", alt: "", label: "Agenda y horarios", pending: true }
+                    { src: "assets/img/portfolio/agenda-disponibilidad-dia-activo.webp", alt: "Panel de agenda con un día activo y cupos disponibles", label: "Día con disponibilidad" },
+                    { src: "assets/img/portfolio/agenda-disponibilidad-dia-cerrado.webp", alt: "Panel de agenda con un día cerrado y sin cupos disponibles", label: "Día cerrado" }
                 ]
             },
             {
