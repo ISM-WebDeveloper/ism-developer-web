@@ -209,7 +209,15 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "Entregable: Repositorio inicial",
                 "Alcance: Estructura técnica, control de versiones y configuración",
                 "Estado de HH: Preliminar"
-              ]
+              ],
+              "quantityRule": {
+                "unit": "custom",
+                "label": "Cantidad (Proyecto)",
+                "baseQuantity": 1,
+                "defaultQuantity": 0.5,
+                "minimum": 0,
+                "editable": true
+              }
             },
             {
               "id": "web-006",
@@ -345,15 +353,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "Entregable: Secciones implementadas",
                 "Alcance: Bloque de contenido con título, texto, imagen o tarjetas",
                 "Estado de HH: Preliminar"
-              ],
-              "quantityRule": {
-                "unit": "custom",
-                "label": "Cantidad (Sección)",
-                "baseQuantity": 1,
-                "defaultQuantity": 4,
-                "minimum": 0,
-                "editable": true
-              }
+              ]
             },
             {
               "id": "web-010",
@@ -592,15 +592,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "Entregable: Página interna",
                 "Alcance: Plantilla, contenido, responsive y navegación",
                 "Estado de HH: Preliminar"
-              ],
-              "quantityRule": {
-                "unit": "custom",
-                "label": "Cantidad (Página)",
-                "baseQuantity": 1,
-                "defaultQuantity": 0,
-                "minimum": 0,
-                "editable": true
-              }
+              ]
             },
             {
               "id": "web-017",
@@ -815,7 +807,15 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "Exclusiones: No incluye las pruebas de compatibilidad, que se contabilizan en WEB-031.",
                 "Dependencias: WEB-007, WEB-008, WEB-009, WEB-010, WEB-014, WEB-015 y actividades visuales seleccionadas",
                 "Estado de HH: Preliminar"
-              ]
+              ],
+              "quantityRule": {
+                "unit": "custom",
+                "label": "Cantidad (Proyecto)",
+                "baseQuantity": 1,
+                "defaultQuantity": 1.5,
+                "minimum": 0,
+                "editable": true
+              }
             },
             {
               "id": "web-023",
@@ -883,7 +883,15 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "Entregable: Archivos SEO",
                 "Alcance: Sitemap, robots y revisión de indexabilidad",
                 "Estado de HH: Preliminar"
-              ]
+              ],
+              "quantityRule": {
+                "unit": "custom",
+                "label": "Cantidad (Proyecto)",
+                "baseQuantity": 1,
+                "defaultQuantity": 0.5,
+                "minimum": 0,
+                "editable": true
+              }
             },
             {
               "id": "web-025",
@@ -1234,9 +1242,9 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 34,
             "activities": 34,
             "hours": {
-              "small": 31.7625,
-              "medium": 41.81249999999999,
-              "high": 50.10062500000001
+              "small": 30.231250000000003,
+              "medium": 40.074062500000004,
+              "high": 48.1475
             }
           }
         },
@@ -1356,7 +1364,15 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "Alcance: Entidades, relaciones y restricciones",
                 "Dependencias: APP-002",
                 "Estado de HH: Preliminar"
-              ]
+              ],
+              "quantityRule": {
+                "unit": "custom",
+                "label": "Cantidad (Proyecto)",
+                "baseQuantity": 1,
+                "defaultQuantity": 1.5,
+                "minimum": 0,
+                "editable": true
+              }
             },
             {
               "id": "app-004",
@@ -1398,7 +1414,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Rol)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1.5,
                 "minimum": 0,
                 "editable": true
               }
@@ -1438,7 +1454,15 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "Alcance: Frontend, backend, datos, servicios y despliegue",
                 "Dependencias: APP-002",
                 "Estado de HH: Preliminar"
-              ]
+              ],
+              "quantityRule": {
+                "unit": "custom",
+                "label": "Cantidad (Proyecto)",
+                "baseQuantity": 1,
+                "defaultQuantity": 1.5,
+                "minimum": 0,
+                "editable": true
+              }
             },
             {
               "id": "app-006",
@@ -1477,7 +1501,15 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "Exclusiones: La implementación visual se contabiliza en APP-009 y las pantallas en APP-010.",
                 "Dependencias: APP-002",
                 "Estado de HH: Preliminar"
-              ]
+              ],
+              "quantityRule": {
+                "unit": "custom",
+                "label": "Cantidad (Proyecto)",
+                "baseQuantity": 1,
+                "defaultQuantity": 1.5,
+                "minimum": 0,
+                "editable": true
+              }
             },
             {
               "id": "app-007",
@@ -1519,7 +1551,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Pantalla)",
                 "baseQuantity": 1,
-                "defaultQuantity": 5,
+                "defaultQuantity": 3,
                 "minimum": 0,
                 "editable": true
               }
@@ -1559,7 +1591,15 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "Alcance: Repositorios, variables, estructura y ambientes",
                 "Dependencias: APP-005",
                 "Estado de HH: Preliminar"
-              ]
+              ],
+              "quantityRule": {
+                "unit": "custom",
+                "label": "Cantidad (Proyecto)",
+                "baseQuantity": 1,
+                "defaultQuantity": 1.5,
+                "minimum": 0,
+                "editable": true
+              }
             },
             {
               "id": "app-009",
@@ -1598,7 +1638,15 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "Exclusiones: No incluye el diseño de flujos de APP-006 ni las pantallas CRUD de APP-010.",
                 "Dependencias: APP-006",
                 "Estado de HH: Preliminar"
-              ]
+              ],
+              "quantityRule": {
+                "unit": "custom",
+                "label": "Cantidad (Proyecto)",
+                "baseQuantity": 1,
+                "defaultQuantity": 1.5,
+                "minimum": 0,
+                "editable": true
+              }
             },
             {
               "id": "app-010",
@@ -1684,7 +1732,15 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "Exclusiones: Analítica predictiva",
                 "Dependencias: APP-003",
                 "Estado de HH: Preliminar"
-              ]
+              ],
+              "quantityRule": {
+                "unit": "custom",
+                "label": "Cantidad (Dashboard)",
+                "baseQuantity": 1,
+                "defaultQuantity": 1.5,
+                "minimum": 0,
+                "editable": true
+              }
             },
             {
               "id": "app-012",
@@ -1721,7 +1777,15 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "Alcance: Tablas, restricciones y migraciones",
                 "Dependencias: APP-003",
                 "Estado de HH: Preliminar"
-              ]
+              ],
+              "quantityRule": {
+                "unit": "custom",
+                "label": "Cantidad (Proyecto)",
+                "baseQuantity": 1,
+                "defaultQuantity": 3,
+                "minimum": 0,
+                "editable": true
+              }
             },
             {
               "id": "app-013",
@@ -1765,7 +1829,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Entidad)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 2,
                 "minimum": 0,
                 "editable": true
               }
@@ -1848,7 +1912,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Rol)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1.5,
                 "minimum": 0,
                 "editable": true
               }
@@ -2175,7 +2239,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Lote)",
                 "baseQuantity": 1,
-                "defaultQuantity": 0,
+                "defaultQuantity": 0.5,
                 "minimum": 0,
                 "editable": true
               }
@@ -2333,9 +2397,9 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 27,
             "activities": 27,
             "hours": {
-              "small": 80.625,
-              "medium": 114.96374999999999,
-              "high": 141.88750000000005
+              "small": 86.42500000000001,
+              "medium": 123.50875,
+              "high": 152.5525
             }
           }
         },
@@ -3335,7 +3399,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Cambio)",
                 "baseQuantity": 1,
-                "defaultQuantity": 0,
+                "defaultQuantity": 2,
                 "minimum": 0,
                 "editable": true
               }
@@ -3382,7 +3446,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Lote)",
                 "baseQuantity": 1,
-                "defaultQuantity": 0,
+                "defaultQuantity": 2,
                 "minimum": 0,
                 "editable": true
               }
