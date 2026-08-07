@@ -210,9 +210,9 @@ if (portfolioSection) {
                 icon: "calendar-check",
                 link: "portafolio.html?proyecto=badiasalud",
                 images: [
-                    { src: "assets/img/portfolio/badiasalud-principal.webp", alt: "Vista principal publicada de Badiasalud", label: "Sitio publicado" },
-                    { src: "assets/img/portfolio/badiasalud-reserva.webp", alt: "Accesos de reserva y lista de espera de Badiasalud", label: "Acceso a reservas" },
-                    { src: "assets/img/portfolio/badiasalud-servicio.webp", alt: "Presentación del servicio de Badiasalud", label: "Presentación del servicio" }
+                    { src: "assets/img/portfolio/badia-nurse-shield-sitio.webp", alt: "Sitio web de Badia Nurse Shield para atención de enfermería domiciliaria", label: "Sitio web" },
+                    { src: "assets/img/portfolio/badia-nurse-shield-agenda.webp", alt: "Panel privado de agenda y disponibilidad de Badia Nurse Shield", label: "Agenda y disponibilidad" },
+                    { src: "assets/img/portfolio/badia-nurse-shield-panel.webp", alt: "Panel de procedimientos y configuración profesional de Badia Nurse Shield", label: "Gestión interna" }
                 ]
             },
             {
