@@ -327,8 +327,8 @@ if (portfolioSection) {
                 icon: "database",
                 link: "portafolio.html",
                 images: [
-                    { src: "", alt: "", label: "Vista de stock", pending: true },
-                    { src: "", alt: "", label: "Movimientos y trazabilidad", pending: true }
+                    { src: "assets/img/portfolio/control-bodega-admin.webp", alt: "Panel administrador del sistema Control de Bodega con resumen general y financiero", label: "Panel administrador" },
+                    { src: "assets/img/portfolio/control-bodega-operativo.webp", alt: "Panel operativo móvil de Control de Bodega para recepción, entrega y consulta de artículos", label: "Operación de bodega" }
                 ]
             },
             {
