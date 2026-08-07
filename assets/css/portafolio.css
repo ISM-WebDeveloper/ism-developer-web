@@ -1434,3 +1434,58 @@ body.sidebar-collapsed .sidebar-collapse {
         height: 64px;
     }
 }
+
+
+/* === Sincronización portafolio 2.0.25 | landing 3 + 4 + 2 === */
+.screen-frame {
+    background:
+        radial-gradient(circle at 50% 40%, rgba(var(--accent-rgb), 0.08), transparent 44%),
+        #061321;
+}
+
+.screen-frame img {
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: none !important;
+    filter: none !important;
+}
+
+.visual-slide:nth-child(n) .screen-frame img {
+    --image-scale: 1 !important;
+    --image-position: center !important;
+}
+
+.project-status-visual {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 32px;
+    text-align: center;
+    background:
+        radial-gradient(circle at center, rgba(var(--accent-rgb), 0.14), transparent 42%),
+        linear-gradient(145deg, #07182a, #040d18);
+}
+
+.project-status-visual span {
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.project-status-visual strong {
+    color: #f6f9fd;
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1;
+}
+
+.project-status-visual small {
+    color: #91a1b5;
+    font-size: 13px;
+}

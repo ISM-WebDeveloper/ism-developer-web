@@ -200,7 +200,7 @@ if (portfolioSection) {
         clients: [
             {
                 id: "badiasalud",
-                name: "Badiasalud",
+                name: "Badia Nurse Shield",
                 label: "Presencia digital + agenda",
                 status: "Publicado",
                 type: "Caso real",
@@ -261,7 +261,7 @@ if (portfolioSection) {
                 useCase: "Empresas de servicios que necesitan registrar horas por cliente, responsable o actividad y respaldar posteriormente su gestión o cobro.",
                 stack: "Horas · Actividades · Clientes · Reportes",
                 icon: "clock-3",
-                link: "portafolio.html",
+                link: "portafolio.html?proyecto=tool-service-hours",
                 images: [
                     { src: "assets/img/portfolio/control-horas-login.webp", alt: "Pantalla de acceso privado del sistema de control de horas de servicio", label: "Acceso privado" },
                     { src: "assets/img/portfolio/control-horas-b2b.webp", alt: "Panel de oportunidades B2B del sistema de control de horas de servicio", label: "Oportunidades B2B" }
@@ -277,7 +277,7 @@ if (portfolioSection) {
                 useCase: "Negocios que ofrecen servicios configurables y necesitan estandarizar cómo levantan alcance, esfuerzo y entregables antes de cotizar.",
                 stack: "Servicios · Actividades · HH · Exportación",
                 icon: "target",
-                link: "portafolio.html",
+                link: "portafolio.html?proyecto=tool-service-sizing",
                 images: [
                     { src: "assets/img/portfolio/dimensionador-servicios-general.webp", alt: "Vista principal del configurador de servicios ISM Developer", label: "Vista general" },
                     { src: "assets/img/portfolio/dimensionador-servicios-detalle.webp", alt: "Desglose de actividades y resumen técnico del configurador de servicios ISM Developer", label: "Detalle y resumen" }
@@ -293,7 +293,7 @@ if (portfolioSection) {
                 useCase: "Profesionales y negocios que trabajan con horas, cupos o atención programada y quieren disminuir mensajes y cruces de agenda.",
                 stack: "Agenda · Disponibilidad · Horarios · Reservas",
                 icon: "calendar-check",
-                link: "portafolio.html",
+                link: "portafolio.html?proyecto=tool-availability-agenda",
                 images: [
                     { src: "assets/img/portfolio/agenda-disponibilidad-dia-activo.webp", alt: "Panel de agenda con un día activo y cupos disponibles", label: "Día con disponibilidad" },
                     { src: "assets/img/portfolio/agenda-disponibilidad-dia-cerrado.webp", alt: "Panel de agenda con un día cerrado y sin cupos disponibles", label: "Día cerrado" }
@@ -309,7 +309,7 @@ if (portfolioSection) {
                 useCase: "Bodegas, faenas y operaciones que necesitan saber qué existe, dónde está y quién realizó cada movimiento.",
                 stack: "Stock · Movimientos · Bodegas · Trazabilidad",
                 icon: "database",
-                link: "portafolio.html",
+                link: "portafolio.html?proyecto=tool-warehouse-control",
                 images: [
                     { src: "assets/img/portfolio/control-bodega-admin.webp", alt: "Panel administrador del sistema Control de Bodega con resumen general y financiero", label: "Panel administrador" },
                     { src: "assets/img/portfolio/control-bodega-operativo.webp", alt: "Panel operativo móvil de Control de Bodega para recepción, entrega y consulta de artículos", label: "Operación de bodega" }

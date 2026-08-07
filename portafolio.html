@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portafolio interactivo de ISM Developer: proyectos web, soluciones digitales y productos en desarrollo.">
+    <meta name="description" content="Portafolio interactivo de ISM Developer: casos reales, soluciones digitales y pilotos en desarrollo.">
     <meta name="theme-color" content="#07111f">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Portafolio de proyectos | ISM Developer">
-    <meta property="og:description" content="Casos de estudio, proyectos web y soluciones digitales desarrolladas por ISM Developer.">
+    <meta property="og:description" content="Casos reales, soluciones digitales y proyectos en desarrollo de ISM Developer.">
     <meta property="og:image" content="https://www.ismdeveloper.cl/assets/img/og-ism-developer.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
@@ -17,13 +17,13 @@
     <meta property="og:url" content="https://www.ismdeveloper.cl/portafolio.html">
     <link rel="canonical" href="https://www.ismdeveloper.cl/portafolio.html">
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-    <link rel="stylesheet" href="assets/css/portafolio.css?v=2.0.24">
+    <link rel="stylesheet" href="assets/css/portafolio.css?v=2.0.25">
     <link rel="stylesheet" href="assets/css/accessibility.css?v=2.0.24">
     <link rel="stylesheet" href="assets/css/privacy-consent.css?v=2.0.24">
     <script src="assets/vendor/lucide.min.js" defer></script>
     <script src="assets/js/privacy-consent.js?v=2.0.24" defer></script>
     <script src="assets/js/analytics.js?v=2.0.24" defer></script>
-    <script src="assets/js/portafolio.js?v=2.0.24" defer></script>
+    <script src="assets/js/portafolio.js?v=2.0.25" defer></script>
     <script src="assets/js/portfolio-accessibility.js?v=2.0.24" defer></script>
     <script src="assets/js/accessibility.js?v=2.0.24" defer></script>
     <title>Portafolio de proyectos | ISM Developer</title>
@@ -45,8 +45,8 @@
             </div>
 
             <div class="sidebar-title">
-                <span>Project vault</span>
-                <p>Selecciona un proyecto para revisar su caso en detalle.</p>
+                <span>Portafolio ISM</span>
+                <p>Selecciona un caso, solución o desarrollo para revisar su detalle.</p>
             </div>
 
             <nav class="project-nav" id="projectNav" aria-label="Listado de proyectos"></nav>
@@ -55,7 +55,7 @@
                 <span class="live-dot" aria-hidden="true"></span>
                 <div>
                     <strong>Portafolio operativo</strong>
-                    <small>8 proyectos disponibles</small>
+                    <small id="portfolioProjectCount">9 elementos disponibles</small>
                 </div>
                 <button class="sidebar-collapse" id="sidebarCollapse" type="button" aria-label="Ocultar sidebar">
                     <i data-lucide="panel-left-close"></i>
@@ -103,7 +103,7 @@
                     <div class="showcase-topline">
                         <div>
                             <span>Recorrido visual</span>
-                            <strong><span id="currentSlide">01</span> / <span id="totalSlides">05</span></strong>
+                            <strong><span id="currentSlide">01</span> / <span id="totalSlides">01</span></strong>
                         </div>
                         <div class="showcase-controls">
                             <button id="slidePrev" type="button" aria-label="Vista anterior"><i data-lucide="arrow-left"></i></button>

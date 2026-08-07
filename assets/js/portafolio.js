@@ -1,219 +1,345 @@
 const projects = [
     {
-        id: "constructora-proestakis",
-        category: "Presencias digitales",
-        name: "Constructora Proestakis",
-        short: "Sitio corporativo",
-        type: "Presencia digital / Construcción",
-        status: "Operativo",
-        accent: "#fb923c",
-        accentRgb: "251, 146, 60",
-        image: "assets/img/project-proestakis.png",
-        imageAlt: "Interfaz de Constructora Proestakis",
-        url: "https://constructora-proestakis.vercel.app/",
-        summary: "Sitio corporativo diseñado para comunicar experiencia, capacidad técnica y confianza, transformando la trayectoria de la constructora en una presencia digital clara y profesional.",
-        metrics: [["Estado", "Operativo"], ["Enfoque", "Corporativo"], ["Experiencia", "Responsive"], ["Entrega", "Sitio publicado"]],
-        stack: "HTML5 / CSS3 / JavaScript / Vercel / Diseño responsive",
+        id: "badiasalud",
+        category: "Casos reales",
+        name: "Badia Nurse Shield",
+        short: "Sitio web + agenda",
+        type: "Caso real / Salud y agendamiento",
+        status: "Publicado",
+        accent: "#16bdf2",
+        accentRgb: "22, 189, 242",
+        url: "https://www.badiasalud.cl",
+        summary: "Una presencia profesional conectada con agenda y gestión privada para reducir coordinación manual, ordenar la disponibilidad y facilitar nuevas solicitudes de atención.",
+        metrics: [["Estado", "Publicado"], ["Sector", "Salud"], ["Canal", "Sitio + agenda"], ["Gestión", "Panel privado"]],
+        stack: "Sitio web · Agenda · Procedimientos · Supabase",
         journey: [
-            ["Una portada que comunica solidez", "La primera vista presenta la propuesta de valor y el rubro de forma inmediata, con una jerarquía visual alineada a la industria de la construcción.", "Mensaje principal", "Confianza"],
-            ["Experiencia móvil consistente", "La navegación, las llamadas a la acción y la lectura de contenidos se adaptan a pantallas pequeñas sin perder claridad ni identidad.", "Responsive", "Acceso universal"],
-            ["Servicios ordenados para decidir", "La oferta se estructura en bloques fáciles de recorrer, reduciendo fricción para clientes que necesitan identificar rápidamente una capacidad técnica.", "Arquitectura de contenido", "Claridad comercial"],
-            ["Proyectos que respaldan experiencia", "El contenido visual funciona como evidencia del trabajo realizado y fortalece la percepción profesional de la empresa.", "Prueba visual", "Credibilidad"],
-            ["Base preparada para crecer", "La arquitectura permite sumar proyectos, servicios y contenidos sin reconstruir la experiencia principal del sitio.", "Evolución", "Escalabilidad"],
+            {
+                title: "Una presencia profesional que genera confianza",
+                description: "El sitio presenta los servicios, experiencia y propuesta de atención domiciliaria desde una identidad propia, con acceso directo a la reserva.",
+                focus: "Sitio web",
+                result: "Confianza",
+                image: "assets/img/portfolio/badia-nurse-shield-sitio.webp",
+                alt: "Sitio web de Badia Nurse Shield para atención de enfermería domiciliaria"
+            },
+            {
+                title: "Disponibilidad visible y conectada",
+                description: "La agenda privada organiza horarios, cupos y días disponibles sobre datos reales, evitando cruces y facilitando la administración diaria.",
+                focus: "Agenda",
+                result: "Orden operativo",
+                image: "assets/img/portfolio/badia-nurse-shield-agenda.webp",
+                alt: "Panel privado de agenda y disponibilidad de Badia Nurse Shield"
+            },
+            {
+                title: "Servicios y reglas gestionados desde un panel",
+                description: "Procedimientos, precios, configuración profesional y reglas operativas quedan centralizados para que la solución pueda evolucionar sin depender de cambios manuales en el sitio.",
+                focus: "Gestión interna",
+                result: "Autonomía",
+                image: "assets/img/portfolio/badia-nurse-shield-panel.webp",
+                alt: "Panel de procedimientos y configuración profesional de Badia Nurse Shield"
+            }
         ],
-        analysis: ["Falta de presencia digital", "Fortalecimiento de la imagen de marca", "Mejorar la accesibilidad y visibilidad de los servicios", "Oportunidades detectadas durante la asesoría"],
-        actionPlan: ["Sitio web profesional y personalizado", "Diseño responsive", "Presentación de la empresa y sus servicios", "Formulario de contacto y acceso a WhatsApp", "Posicionamiento inicial en Google"],
-        scalability: ["Sistema de gestión por proyectos", "Automatización de respuestas y contactos", "Agendamiento de visitas en terreno", "Nuevos módulos de operación y seguimiento"]
+        analysis: ["Presentar servicios y experiencia con una identidad propia", "Reducir coordinación manual de horas", "Mantener disponibilidad y solicitudes en un único sistema", "Permitir crecimiento del catálogo y operación"],
+        actionPlan: ["Sitio web profesional responsive", "Agenda conectada a disponibilidad real", "Panel privado para procedimientos y configuración", "Flujo de solicitudes y lista de espera", "Base preparada para nuevas automatizaciones"],
+        scalability: ["Recordatorios y confirmaciones automáticas", "Historial de pacientes y solicitudes", "Nuevas prestaciones y zonas de cobertura", "Administración de múltiples profesionales"]
     },
     {
-        id: "badiasalud",
-        category: "Presencias digitales",
-        name: "Badiasalud",
-        short: "Presencia + agenda móvil",
-        type: "Salud / Herramienta web",
-        status: "Operativo",
-        accent: "#1ea7ff",
-        accentRgb: "30, 167, 255",
-        image: "assets/img/badiasaludhero.png",
-        imageAlt: "Interfaz de Badiasalud",
-        url: "https://www.badiasalud.cl",
-        summary: "Presencia profesional y agenda móvil para un enfermero independiente, creada para comunicar servicios, impulsar su emprendimiento y ordenar la coordinación de atenciones.",
-        metrics: [["Estado", "Operativo"], ["Sector", "Salud"], ["Producto", "Agenda móvil"], ["Datos", "Supabase"]],
-        stack: "TypeScript / Tailwind CSS / Node.js / Supabase / Vercel",
+        id: "constructora-proestakis",
+        category: "Casos reales",
+        name: "Constructora Proestakis",
+        short: "Presencia corporativa",
+        type: "Caso real / Construcción",
+        status: "Publicado",
+        accent: "#fb923c",
+        accentRgb: "251, 146, 60",
+        url: "https://constructora-proestakis.vercel.app/",
+        summary: "Una vitrina digital para presentar experiencia, capacidad técnica y servicios desde un canal profesional propio orientado a nuevos clientes.",
+        metrics: [["Estado", "Publicado"], ["Sector", "Construcción"], ["Enfoque", "Corporativo"], ["Experiencia", "Responsive"]],
+        stack: "HTML5 · CSS3 · JavaScript · Vercel",
         journey: [
-            ["Confianza desde el primer contacto", "La portada combina información profesional, cercanía y llamadas a la acción para que el paciente entienda rápidamente los servicios disponibles.", "Identidad profesional", "Confianza"],
-            ["Agenda diseñada para el móvil", "La experiencia prioriza el uso desde teléfono, facilitando la consulta y gestión de horarios en el contexto real del profesional.", "Mobile first", "Agilidad"],
-            ["Servicios de salud bien explicados", "Cada prestación se presenta con lenguaje claro, jerarquía y acceso directo a la coordinación de una atención.", "Información clínica", "Comprensión"],
-            ["Datos operativos centralizados", "La integración permite sostener disponibilidad, solicitudes y evolución de la agenda sobre una fuente de información organizada.", "Supabase", "Trazabilidad"],
-            ["Una herramienta que acompaña el negocio", "La base técnica admite sumar automatizaciones, perfiles, recordatorios y nuevas funciones a medida que crece Badiasalud.", "Producto evolutivo", "Escala"],
+            {
+                title: "Una portada que comunica solidez",
+                description: "La primera vista presenta el rubro, propuesta de valor y experiencia de forma inmediata para reforzar confianza desde el primer contacto.",
+                focus: "Vista principal",
+                result: "Credibilidad",
+                image: "assets/img/portfolio/proestakis-principal.webp",
+                alt: "Vista principal del sitio corporativo de Constructora Proestakis"
+            },
+            {
+                title: "Capacidad técnica respaldada con información concreta",
+                description: "Cifras y capacidades ayudan a dimensionar la experiencia de la empresa sin obligar al visitante a recorrer grandes bloques de texto.",
+                focus: "Capacidad técnica",
+                result: "Claridad",
+                image: "assets/img/portfolio/proestakis-cifras.webp",
+                alt: "Bloque de capacidades y cifras del sitio de Constructora Proestakis"
+            },
+            {
+                title: "Una propuesta de valor fácil de entender",
+                description: "Los servicios y fortalezas se organizan visualmente para convertir la experiencia técnica en argumentos comerciales claros.",
+                focus: "Propuesta de valor",
+                result: "Captación",
+                image: "assets/img/portfolio/proestakis-propuesta.webp",
+                alt: "Propuesta de valor del sitio de Constructora Proestakis"
+            }
         ],
-        analysis: ["Baja visibilidad de la marca profesional", "Dificultad para presentar servicios y credenciales", "Coordinación manual de solicitudes y horarios", "Necesidad de transmitir confianza y cercanía"],
-        actionPlan: ["Sitio web profesional responsive", "Presentación de servicios y experiencia clínica", "Agenda móvil de atenciones", "Contacto directo mediante WhatsApp", "Posicionamiento local en Google"],
-        scalability: ["Recordatorios automáticos de atenciones", "Historial de solicitudes y pacientes", "Panel privado para administrar la agenda", "Nuevas prestaciones y zonas de cobertura"]
+        analysis: ["Falta de presencia digital consolidada", "Necesidad de respaldar experiencia y capacidades", "Mejorar la visibilidad de servicios", "Facilitar el contacto de nuevos clientes"],
+        actionPlan: ["Sitio corporativo responsive", "Presentación de empresa y servicios", "Bloques de capacidad y experiencia", "Contacto directo y WhatsApp", "Base SEO inicial"],
+        scalability: ["Portafolio ampliable de obras", "Formularios comerciales segmentados", "Agendamiento de visitas en terreno", "Módulos de seguimiento de proyectos"]
     },
     {
         id: "lecasse-it-services",
-        category: "Presencias digitales",
+        category: "Casos reales",
         name: "Lecasse IT Services",
-        short: "Servicios tecnológicos",
-        type: "Presencia digital / Tecnología",
-        status: "Operativo",
+        short: "Presencia tecnológica",
+        type: "Caso real / Tecnología B2B",
+        status: "Publicado",
         accent: "#38bdf8",
         accentRgb: "56, 189, 248",
-        image: "assets/img/project-lecasse.png",
-        imageAlt: "Interfaz de Lecasse IT Services",
         url: "https://lecasse.vercel.app/",
-        summary: "Presencia digital para servicios tecnológicos, creada para ordenar la propuesta de valor, presentar capacidades y reforzar una imagen profesional ante nuevos clientes.",
-        metrics: [["Estado", "Operativo"], ["Sector", "Tecnología"], ["Interfaz", "Responsive"], ["Objetivo", "Captación"]],
-        stack: "HTML5 / CSS3 / JavaScript / Vercel / UI responsive",
+        summary: "Una presencia tecnológica que ordena servicios y propuesta de valor para que potenciales clientes entiendan rápidamente las capacidades de la empresa.",
+        metrics: [["Estado", "Publicado"], ["Sector", "Tecnología"], ["Modelo", "B2B"], ["Objetivo", "Captación"]],
+        stack: "HTML5 · CSS3 · JavaScript · Vercel",
         journey: [
-            ["Propuesta tecnológica directa", "La portada resume capacidades y posicionamiento con una estética técnica, evitando que el visitante tenga que interpretar una oferta compleja.", "Propuesta de valor", "Claridad"],
-            ["Navegación desde cualquier equipo", "La interfaz conserva legibilidad y acceso a las acciones principales tanto en escritorio como en dispositivos móviles.", "Diseño adaptable", "Cobertura"],
-            ["Capacidades organizadas por necesidad", "Los servicios se agrupan para conectar problemas habituales de negocio con soluciones tecnológicas concretas.", "Oferta de servicios", "Orientación"],
-            ["Conversión sin fricción", "Los puntos de contacto aparecen en momentos relevantes del recorrido y reducen pasos entre el interés y la conversación.", "CTA", "Contacto"],
-            ["Estructura lista para nuevas líneas", "La arquitectura modular permite incorporar casos, servicios o alianzas manteniendo coherencia visual.", "Sistema modular", "Crecimiento"],
+            {
+                title: "Servicios tecnológicos presentados con claridad",
+                description: "La vista principal resume capacidades y posicionamiento para que una oferta técnica compleja sea comprensible desde los primeros segundos.",
+                focus: "Vista principal",
+                result: "Claridad",
+                image: "assets/img/portfolio/lecasse-principal.webp",
+                alt: "Vista principal del sitio de Lecasse IT Services"
+            },
+            {
+                title: "La oferta organizada por necesidad",
+                description: "Las líneas de servicio se presentan en bloques visuales que conectan problemas habituales del cliente con capacidades concretas.",
+                focus: "Servicios",
+                result: "Orientación",
+                image: "assets/img/portfolio/lecasse-servicios.webp",
+                alt: "Tarjetas de servicios de Lecasse IT Services"
+            },
+            {
+                title: "Una propuesta principal con identidad técnica",
+                description: "Jerarquía, color y llamadas a la acción refuerzan una imagen profesional y reducen pasos entre interés y contacto.",
+                focus: "Propuesta principal",
+                result: "Conversión",
+                image: "assets/img/portfolio/lecasse-hero.webp",
+                alt: "Propuesta principal del sitio de Lecasse IT Services"
+            }
         ],
-        analysis: ["Oferta tecnológica difícil de comunicar", "Falta de una presencia digital consolidada", "Necesidad de fortalecer confianza y propuesta de valor", "Pocos canales para captar oportunidades comerciales"],
-        actionPlan: ["Sitio web corporativo responsive", "Presentación clara de capacidades y servicios", "Secciones orientadas a problemas del cliente", "Formulario de contacto y WhatsApp", "Base SEO para búsquedas de servicios TI"],
-        scalability: ["Publicación de casos de estudio", "Blog de contenido técnico", "Formularios comerciales segmentados", "Integración con CRM y portal de clientes"]
+        analysis: ["Oferta tecnológica difícil de comunicar", "Necesidad de fortalecer confianza y posicionamiento", "Servicios B2B con alto componente técnico", "Pocos puntos de conversión comercial"],
+        actionPlan: ["Sitio corporativo responsive", "Presentación clara de líneas de servicio", "Jerarquía orientada a problemas del cliente", "Puntos de contacto visibles", "Base preparada para casos y oportunidades"],
+        scalability: ["Casos de estudio", "Contenido técnico", "Formularios comerciales segmentados", "Integración con CRM y módulos B2B"]
     },
     {
-        id: "maige-palace",
-        category: "Presencias digitales",
-        name: "Maige Palace",
-        short: "Catálogo y marca",
-        type: "Demo / Marca de accesorios",
-        status: "Demo",
-        accent: "#f9a8d4",
-        accentRgb: "249, 168, 212",
-        image: "assets/img/project-maige-palace.png",
-        imageAlt: "Interfaz de Maige Palace",
-        url: null,
-        summary: "Landing visual para una marca de accesorios, orientada a destacar el producto, construir identidad y preparar una futura experiencia comercial más completa.",
-        metrics: [["Estado", "Demo"], ["Sector", "Accesorios"], ["Enfoque", "Catálogo visual"], ["Etapa", "Validación"]],
-        stack: "HTML5 / CSS3 / JavaScript / Catálogo visual / Responsive",
-        journey: [
-            ["El producto como protagonista", "La portada utiliza fotografía y espacios limpios para que cada pieza destaque sin competir con elementos innecesarios.", "Dirección visual", "Deseo"],
-            ["Descubrimiento desde el móvil", "La composición se adapta al formato donde la audiencia explora productos y redes sociales con mayor frecuencia.", "Mobile commerce", "Descubrimiento"],
-            ["Catálogo simple y aspiracional", "La organización visual permite recorrer colecciones, promociones y piezas destacadas con una lectura liviana.", "Catálogo", "Exploración"],
-            ["Identidad coherente", "Tipografía, color y fotografía construyen un lenguaje reconocible que puede extenderse a campañas y redes.", "Sistema de marca", "Recordación"],
-            ["Camino hacia comercio electrónico", "La demo está pensada como una base que puede evolucionar hacia stock, pagos, cuentas y seguimiento de pedidos.", "E-commerce", "Escala"],
-        ],
-        analysis: ["Identidad de marca aún no consolidada", "Baja visibilidad del catálogo de accesorios", "Necesidad de una experiencia atractiva en móvil", "Validación comercial previa al comercio electrónico"],
-        actionPlan: ["Landing visual y responsive", "Catálogo de productos destacado", "Presentación de promociones y colecciones", "Contacto conectado con redes sociales y WhatsApp", "Configuración SEO inicial para la marca"],
-        scalability: ["Catálogo administrable", "Carro de compras y medios de pago", "Gestión de inventario y pedidos", "Campañas y automatización comercial"]
-    },
-    {
-        id: "control-gestion",
+        id: "tool-service-hours",
         category: "Soluciones digitales",
-        name: "Sistema de Control Gestión",
-        short: "Inventario y logística",
-        type: "Solución digital / Operaciones",
-        status: "Demo funcional",
+        name: "Control de horas de servicios",
+        short: "HH, clientes y seguimiento",
+        type: "Solución digital / Gestión de servicios",
+        status: "Disponible",
+        accent: "#2563eb",
+        accentRgb: "37, 99, 235",
+        url: null,
+        summary: "Centraliza horas de servicio, actividades, clientes y seguimiento comercial para reemplazar registros dispersos y mantener trazabilidad de lo ejecutado.",
+        metrics: [["Estado", "Disponible"], ["Foco", "Horas de servicio"], ["Gestión", "Clientes"], ["Extensión", "B2B"]],
+        stack: "Horas · Actividades · Clientes · Reportes",
+        journey: [
+            {
+                title: "Acceso privado y controlado",
+                description: "El sistema parte desde un acceso protegido para separar responsabilidades y mantener la información operativa disponible solo para los perfiles autorizados.",
+                focus: "Acceso",
+                result: "Control",
+                image: "assets/img/portfolio/control-horas-login.webp",
+                alt: "Pantalla de acceso privado del sistema de control de horas de servicio"
+            },
+            {
+                title: "Seguimiento comercial conectado con la operación",
+                description: "El módulo de oportunidades B2B permite complementar el control de horas con pipeline, responsables, montos y próximos pasos dentro de la misma solución.",
+                focus: "Oportunidades B2B",
+                result: "Seguimiento",
+                image: "assets/img/portfolio/control-horas-b2b.webp",
+                alt: "Panel de oportunidades B2B del sistema de control de horas de servicio"
+            }
+        ],
+        analysis: ["Horas registradas en planillas o fuentes separadas", "Dificultad para consultar actividad por cliente", "Necesidad de respaldar gestión y cobro", "Seguimiento comercial desconectado de la operación"],
+        actionPlan: ["Registro centralizado de actividades", "Consulta por cliente y responsable", "Reportes y exportaciones", "Acceso por roles", "Módulo comercial B2B opcional"],
+        scalability: ["Facturación y valorización automática", "Integración con otros sistemas", "Indicadores por cliente y servicio", "Flujos comerciales y notificaciones"]
+    },
+    {
+        id: "tool-service-sizing",
+        category: "Soluciones digitales",
+        name: "Dimensionador de servicios",
+        short: "Alcance y estimación técnica",
+        type: "Solución digital / Configuración y cotización",
+        status: "Disponible",
+        accent: "#12bce7",
+        accentRgb: "18, 188, 231",
+        url: null,
+        summary: "Convierte servicios, actividades y cantidades en una estimación técnica ordenada para revisar alcance, esfuerzo y horas antes de preparar una cotización formal.",
+        metrics: [["Estado", "Disponible"], ["Unidad", "HH"], ["Salida", "Resumen"], ["Enfoque", "Alcance"]],
+        stack: "Servicios · Actividades · HH · Exportación",
+        journey: [
+            {
+                title: "Configurar una solución desde servicios reales",
+                description: "El usuario selecciona una línea, servicio y actividades para construir un alcance preliminar sin partir desde una hoja en blanco.",
+                focus: "Configuración",
+                result: "Orden",
+                image: "assets/img/portfolio/dimensionador-servicios-general.webp",
+                alt: "Vista principal del configurador de servicios ISM Developer"
+            },
+            {
+                title: "Horas y alcance visibles mientras se decide",
+                description: "El desglose muestra actividades, horas técnicas, contingencia y nivel de servicio para revisar el impacto de cada selección antes de cotizar.",
+                focus: "Dimensionamiento",
+                result: "Transparencia",
+                image: "assets/img/portfolio/dimensionador-servicios-detalle.webp",
+                alt: "Desglose de actividades y resumen técnico del configurador de servicios ISM Developer"
+            }
+        ],
+        analysis: ["Cotizaciones dependientes de estimaciones poco estandarizadas", "Dificultad para explicar qué incluye cada servicio", "Riesgo de omitir actividades", "Necesidad de estimar antes de cotizar formalmente"],
+        actionPlan: ["Catálogo estructurado de servicios y actividades", "Cálculo de horas técnicas", "Nivel de servicio automático", "Resumen consolidado", "Exportación para revisión comercial"],
+        scalability: ["Precios y tarifas por especialidad", "Plantillas por rubro", "Cotización comercial automática", "Integración con CRM y seguimiento de oportunidades"]
+    },
+    {
+        id: "tool-availability-agenda",
+        category: "Soluciones digitales",
+        name: "Control de disponibilidad con agenda",
+        short: "Horarios, cupos y reservas",
+        type: "Solución digital / Agendamiento",
+        status: "Disponible",
+        accent: "#0ea5e9",
+        accentRgb: "14, 165, 233",
+        url: null,
+        summary: "Permite publicar disponibilidad y ordenar el agendamiento para que clientes y equipos trabajen sobre horarios realmente disponibles.",
+        metrics: [["Estado", "Disponible"], ["Foco", "Disponibilidad"], ["Unidad", "Cupos"], ["Operación", "Agenda"]],
+        stack: "Agenda · Disponibilidad · Horarios · Reservas",
+        journey: [
+            {
+                title: "Un día activo con sus cupos calculados",
+                description: "La interfaz muestra horario operativo, reservas ocupadas y cupos libres para que la disponibilidad real sea comprensible de inmediato.",
+                focus: "Disponibilidad",
+                result: "Visibilidad",
+                image: "assets/img/portfolio/agenda-disponibilidad-dia-activo.webp",
+                alt: "Panel de agenda con un día activo y cupos disponibles"
+            },
+            {
+                title: "Días cerrados sin generar falsas reservas",
+                description: "Cuando una fecha no tiene disponibilidad configurada, el sistema la presenta como cerrada y evita ofrecer horarios inexistentes.",
+                focus: "Control de agenda",
+                result: "Consistencia",
+                image: "assets/img/portfolio/agenda-disponibilidad-dia-cerrado.webp",
+                alt: "Panel de agenda con un día cerrado y sin cupos disponibles"
+            }
+        ],
+        analysis: ["Coordinación manual de horarios", "Cruces de agenda", "Disponibilidad que cambia durante el mes", "Necesidad de mostrar cupos reales"],
+        actionPlan: ["Agenda mensual configurable", "Cálculo de cupos", "Activación y bloqueo de días", "Visualización de reservas ocupadas", "Reglas de horario por servicio"],
+        scalability: ["Recordatorios automáticos", "Pagos y confirmaciones", "Múltiples profesionales", "Integración con calendarios externos"]
+    },
+    {
+        id: "tool-warehouse-control",
+        category: "Soluciones digitales",
+        name: "Control de bodega",
+        short: "Stock y trazabilidad",
+        type: "Solución digital / Inventario",
+        status: "Disponible",
         accent: "#22d3ee",
         accentRgb: "34, 211, 238",
-        image: "assets/img/project-cipapp.png",
-        imageAlt: "Interfaz de un sistema de control de gestión",
         url: null,
-        summary: "Sistema para controlar movimientos de existencias, mantener un historial operativo y consultar información actualizada desde dispositivos móviles.",
-        metrics: [["Estado", "Demo funcional"], ["Módulo", "Inventario"], ["Datos", "Tiempo real"], ["Interfaz", "Mobile UI"]],
-        stack: "JavaScript / Supabase / PostgreSQL / Autenticación / Mobile UI",
+        summary: "Centraliza existencias, movimientos y responsables para que bodegas y operaciones mantengan información trazable y actualizada desde terreno.",
+        metrics: [["Estado", "Disponible"], ["Foco", "Inventario"], ["Uso", "Móvil"], ["Control", "Trazabilidad"]],
+        stack: "Stock · Movimientos · Bodegas · Trazabilidad",
         journey: [
-            ["Estado operativo en una vista", "El dashboard concentra indicadores esenciales para entender existencias y actividad sin revisar planillas separadas.", "Panel principal", "Visibilidad"],
-            ["Operación desde terreno", "Los flujos móviles reducen pasos y permiten registrar movimientos donde realmente ocurren.", "Mobile UI", "Velocidad"],
-            ["Movimientos con trazabilidad", "Entradas, salidas y ajustes quedan relacionados con fecha, usuario y contexto para facilitar revisiones.", "Historial", "Control"],
-            ["Información centralizada", "Una base relacional evita versiones contradictorias y habilita consultas consistentes en tiempo real.", "PostgreSQL", "Consistencia"],
-            ["Módulos listos para integrarse", "La solución puede extenderse hacia compras, alertas, aprobaciones y reportería según la operación.", "Arquitectura modular", "Escala"],
+            {
+                title: "Administración general desde el móvil",
+                description: "El panel administrador resume usuarios, productos, alertas, movimientos y valor del stock para entregar una visión ejecutiva de la operación.",
+                focus: "Administración",
+                result: "Visibilidad",
+                image: "assets/img/portfolio/control-bodega-admin.webp",
+                alt: "Panel administrador móvil de la herramienta de control de bodega"
+            },
+            {
+                title: "Operación directa en el punto donde ocurre",
+                description: "El usuario de bodega puede buscar, recibir y entregar artículos desde un flujo móvil diseñado para registrar movimientos sin volver a planillas de papel.",
+                focus: "Operación móvil",
+                result: "Trazabilidad",
+                image: "assets/img/portfolio/control-bodega-operativo.webp",
+                alt: "Interfaz móvil operativa de la herramienta de control de bodega"
+            }
         ],
-        analysis: ["Información operativa dispersa en distintos registros", "Falta de visibilidad del inventario en tiempo real", "Escasa trazabilidad de entradas, salidas y ajustes", "Necesidad de operar desde dispositivos móviles"],
-        actionPlan: ["Dashboard de indicadores operativos", "Registro digital de entradas, salidas y ajustes", "Base de datos centralizada", "Historial por producto y responsable", "Acceso seguro mediante roles"],
-        scalability: ["Alertas automáticas de stock mínimo", "Flujos de solicitud y aprobación", "Integración con compras y abastecimiento", "Reportería y exportación de datos"]
+        analysis: ["Existencias distribuidas entre registros manuales", "Dificultad para conocer stock y ubicación", "Falta de trazabilidad por usuario", "Necesidad de registrar movimientos desde terreno"],
+        actionPlan: ["Consulta y búsqueda de artículos", "Recepción y entrega digital", "Control de inventario por bodega", "Historial de movimientos", "Acceso diferenciado por roles"],
+        scalability: ["Múltiples bodegas y proyectos", "Alertas de stock y mantenimiento", "Importación y exportación de inventario", "Integración con compras y abastecimiento"]
     },
     {
-        id: "cipapp",
-        category: "Proyectos en desarrollo",
-        name: "CIPApp",
-        short: "Bodega para faenas",
-        type: "Aplicación / Construcción",
-        status: "En desarrollo",
-        accent: "#f59e0b",
-        accentRgb: "245, 158, 11",
-        image: "assets/img/project-cipapp.png",
-        imageAlt: "Interfaz móvil de CIPApp",
+        id: "suizcorp",
+        category: "En desarrollo",
+        name: "SuizCorp",
+        short: "Piloto de control de bodega",
+        type: "Piloto activo / Inventario y logística",
+        status: "Piloto activo",
+        accent: "#22d3ee",
+        accentRgb: "34, 211, 238",
         url: null,
-        summary: "Sistema móvil para faenas de construcción, enfocado en agilizar movimientos de bodega, controlar existencias y conservar trazabilidad histórica.",
-        metrics: [["Estado", "En desarrollo"], ["Contexto", "Faenas"], ["Módulo", "Bodega"], ["Base", "SQL"]],
-        stack: "JavaScript / Supabase / SQL / Mobile UI / Control de acceso",
+        summary: "Piloto real de control de bodegas, inventario, movimientos, herramientas y trazabilidad con roles diferenciados para operación, supervisión y administración.",
+        metrics: [["Estado", "Piloto activo"], ["Bodegas", "2"], ["Enfoque", "Stock"], ["Acceso", "Roles"]],
+        stack: "Bodegas · Stock · Movimientos · Roles",
         journey: [
-            ["Control pensado para la faena", "La información crítica de bodega se presenta en una vista breve, legible y enfocada en el ritmo operativo de terreno.", "Dashboard", "Control"],
-            ["Registro móvil simplificado", "Entradas y salidas utilizan formularios cortos para disminuir errores y tiempo de digitación.", "Flujo móvil", "Rapidez"],
-            ["Existencias por material", "La consulta permite ubicar cantidades y estado de cada recurso sin depender de registros manuales dispersos.", "Inventario", "Disponibilidad"],
-            ["Historial para investigar diferencias", "Cada movimiento conserva contexto suficiente para revisar responsables, fechas y motivos.", "Trazabilidad", "Auditoría"],
-            ["Preparada para múltiples obras", "La arquitectura considera separación por faena, nuevos roles y futuros módulos logísticos.", "Multiobra", "Escala"],
+            {
+                title: "Panel administrador del piloto",
+                description: "La implementación permite revisar indicadores globales y administrar la operación desde una vista móvil adaptada al contexto del piloto.",
+                focus: "Administración",
+                result: "Control central",
+                image: "assets/img/portfolio/control-bodega-admin.webp",
+                alt: "Panel administrador del piloto SuizCorp"
+            },
+            {
+                title: "Flujo operativo para usuario de bodega",
+                description: "Recepción, entrega, búsqueda y otras acciones se concentran en una interfaz móvil para registrar movimientos directamente desde la operación.",
+                focus: "Bodega",
+                result: "Registro en terreno",
+                image: "assets/img/portfolio/control-bodega-operativo.webp",
+                alt: "Interfaz operativa del piloto SuizCorp"
+            }
         ],
-        analysis: ["Registros manuales dentro de la faena", "Diferencias frecuentes entre stock físico y registros", "Falta de trazabilidad por usuario y obra", "Dificultad para consultar materiales desde terreno"],
-        actionPlan: ["Aplicación móvil para bodegas de faena", "Registro rápido de movimientos", "Consulta y búsqueda de materiales", "Historial por usuario y proyecto", "Control de existencias centralizado"],
-        scalability: ["Administración de múltiples faenas", "Solicitudes y flujos de aprobación", "Alertas automáticas de existencias", "Integración con compras y abastecimiento"]
+        analysis: ["Control distribuido entre bodegas", "Necesidad de operar desde dispositivos móviles", "Diferencias entre stock físico y registros", "Trazabilidad por usuario y movimiento"],
+        actionPlan: ["Roles de trabajador, supervisor y administrador", "Recepción, entrega, préstamo y devolución", "Importación de inventario", "Stock general y por bodega", "Bitácora y evidencias"],
+        scalability: ["Más proyectos y bodegas", "Alertas y mantenimiento", "Flujos de aprobación", "Reportería e integración con abastecimiento"]
     },
     {
-        id: "hfbapp",
-        category: "Proyectos en desarrollo",
-        name: "HFBApp",
-        short: "Bodegas área salud",
-        type: "Aplicación / Logística en salud",
+        id: "hospital-felix-bulnes",
+        category: "En desarrollo",
+        name: "Hospital Félix Bulnes",
+        short: "Bodega periférica hospitalaria",
+        type: "Piloto en desarrollo / Logística en salud",
         status: "En desarrollo",
         accent: "#34d399",
         accentRgb: "52, 211, 153",
-        image: "assets/img/soporte-activo-preview.png",
-        imageAlt: "Concepto visual de HFBApp",
         url: null,
-        summary: "Sistema para bodegas periféricas del área de salud, diseñado para mejorar el control de existencias, la logística interna y el registro histórico.",
-        metrics: [["Estado", "En desarrollo"], ["Sector", "Salud"], ["Operación", "Bodegas"], ["Datos", "Trazables"]],
-        stack: "JavaScript / Supabase / SQL / Mobile UI / Roles operativos",
+        summary: "Piloto orientado a una bodega periférica hospitalaria para mejorar control de existencias, movimientos y registro operacional desde dispositivos móviles.",
+        metrics: [["Estado", "En desarrollo"], ["Sector", "Salud"], ["Foco", "Bodega periférica"], ["Uso", "Móvil"]],
+        stack: "Bodega periférica · Stock · Movimientos · Uso móvil",
         journey: [
-            ["Visión consolidada de bodegas", "El panel resume niveles y actividad para que el equipo detecte necesidades operativas con anticipación.", "Monitoreo", "Visibilidad"],
-            ["Registro accesible en cada punto", "La experiencia móvil permite trabajar cerca del stock físico sin duplicar información en papel.", "Operación móvil", "Eficiencia"],
-            ["Movimientos internos controlados", "Los traspasos entre bodegas quedan relacionados y disponibles para seguimiento posterior.", "Logística interna", "Control"],
-            ["Historial consistente", "La base de datos mantiene una secuencia consultable de eventos para respaldar revisiones operativas.", "Trazabilidad", "Auditoría"],
-            ["Escala por áreas y perfiles", "El diseño admite incorporar nuevas bodegas, permisos y reglas sin perder claridad para cada usuario.", "Roles", "Escala"],
+            {
+                title: "Piloto en etapa de implementación",
+                description: "El alcance está orientado a digitalizar el control de una bodega periférica, manteniendo trazabilidad de existencias y movimientos sin presentar como terminadas funciones que aún están en desarrollo.",
+                focus: "Bodega periférica",
+                result: "Validación",
+                statusVisual: {
+                    stage: "Piloto en desarrollo",
+                    label: "Hospital Félix Bulnes",
+                    detail: "Stock · movimientos · operación móvil"
+                }
+            }
         ],
-        analysis: ["Información fragmentada entre bodegas periféricas", "Registros manuales y duplicados", "Baja trazabilidad de traspasos internos", "Necesidad de acceso para distintos perfiles operativos"],
-        actionPlan: ["Panel consolidado de bodegas", "Registro digital de movimientos y traspasos", "Consulta actualizada de existencias", "Historial de responsables y fechas", "Acceso segmentado por roles"],
-        scalability: ["Incorporación de nuevas bodegas y unidades", "Alertas basadas en consumo", "Integración con sistemas internos de salud", "Reportería por unidad y centro de costo"]
-    },
-    {
-        id: "juntosapp",
-        category: "Proyectos en desarrollo",
-        name: "JuntosApp",
-        short: "Acompañamiento estudiantil",
-        type: "Aplicación / Educación inclusiva",
-        status: "Prototipo",
-        accent: "#a78bfa",
-        accentRgb: "167, 139, 250",
-        image: "assets/img/desarrolladorcodificando.png",
-        imageAlt: "Concepto visual de JuntosApp",
-        url: null,
-        summary: "Aplicación interactiva para apoyar a estudiantes con necesidades especiales mediante actividades, seguimiento de progreso y acompañamiento para familias y profesores.",
-        metrics: [["Estado", "Prototipo"], ["Sector", "Educación"], ["Enfoque", "Inclusión"], ["Experiencia", "Gamificada"]],
-        stack: "JavaScript / Gamificación / Registro de progreso / UX accesible",
-        journey: [
-            ["Una entrada amable y predecible", "La experiencia utiliza instrucciones simples, señales visuales y una estructura constante para reducir carga cognitiva.", "UX accesible", "Autonomía"],
-            ["Actividades adaptadas al móvil", "Los ejercicios aprovechan interacciones táctiles y sesiones breves para acompañar distintos ritmos de aprendizaje.", "Interacción", "Participación"],
-            ["Motivación mediante progreso", "Logros y retroalimentación positiva convierten el avance en una experiencia visible y significativa.", "Gamificación", "Motivación"],
-            ["Seguimiento para adultos responsables", "Familias y profesores pueden observar evolución y detectar áreas donde se necesita mayor apoyo.", "Progreso", "Acompañamiento"],
-            ["Contenido adaptable por estudiante", "La arquitectura contempla nuevos ejercicios, niveles y rutas personalizadas para diferentes necesidades.", "Personalización", "Escala"],
-        ],
-        analysis: ["Necesidad de actividades digitales más inclusivas", "Baja motivación en herramientas tradicionales", "Falta de seguimiento claro del progreso", "Dificultad para conectar estudiantes, familias y profesores"],
-        actionPlan: ["Aplicación accesible y fácil de comprender", "Actividades interactivas y breves", "Sistema de logros y refuerzo positivo", "Registro visual del progreso", "Perfiles para acompañamiento familiar y docente"],
-        scalability: ["Biblioteca ampliable de actividades", "Rutas personalizadas por estudiante", "Panel para profesores y profesionales", "Métricas y reportes de evolución"]
+        analysis: ["Registros manuales en una bodega periférica", "Necesidad de conocer existencias actualizadas", "Trazabilidad de entradas y salidas", "Acceso operativo desde dispositivos móviles"],
+        actionPlan: ["Modelo de stock por bodega", "Registro digital de movimientos", "Perfiles operativos", "Consulta móvil de existencias", "Bitácora de responsables"],
+        scalability: ["Nuevas unidades y bodegas", "Alertas por consumo", "Reportes por unidad", "Integración con sistemas institucionales"]
     }
 ];
 
-const categoryOrder = ["Presencias digitales", "Soluciones digitales", "Proyectos en desarrollo"];
+const categoryOrder = ["Casos reales", "Soluciones digitales", "En desarrollo"];
 const categoryIcons = {
-    "Presencias digitales": "globe-2",
+    "Casos reales": "badge-check",
     "Soluciones digitales": "panels-top-left",
-    "Proyectos en desarrollo": "flask-conical"
+    "En desarrollo": "flask-conical"
 };
 const projectNav = document.getElementById("projectNav");
 const visualTrack = document.getElementById("visualTrack");
@@ -224,7 +350,13 @@ const currentSlideLabel = document.getElementById("currentSlide");
 const totalSlidesLabel = document.getElementById("totalSlides");
 const syncedSlider = document.getElementById("syncedSlider");
 const routeLoader = document.getElementById("routeLoader");
-const requestedProject = new URLSearchParams(window.location.search).get("proyecto");
+const projectAliases = {
+    "control-gestion": "tool-warehouse-control",
+    "cipapp": "suizcorp",
+    "hfbapp": "hospital-felix-bulnes"
+};
+const rawRequestedProject = new URLSearchParams(window.location.search).get("proyecto");
+const requestedProject = projectAliases[rawRequestedProject] || rawRequestedProject;
 let currentProject = null;
 let currentSlide = 0;
 let pointerStartX = null;
@@ -284,28 +416,37 @@ function renderMetrics(project) {
 }
 
 function renderSlides(project) {
-    visualTrack.innerHTML = project.journey.map((slide, index) => `
-        <article class="visual-slide">
-            <div class="screen-frame">
-                <img src="${project.image}" alt="${project.imageAlt}: ${slide[0]}" loading="${index ? "lazy" : "eager"}">
-                <span class="screen-badge">${slide[2]}</span>
-            </div>
-        </article>
-    `).join("");
+    visualTrack.innerHTML = project.journey.map((slide, index) => {
+        const visual = slide.image
+            ? `<img src="${slide.image}" alt="${slide.alt}" loading="${index ? "lazy" : "eager"}" decoding="async">`
+            : `<div class="project-status-visual" role="img" aria-label="${slide.statusVisual.label}: ${slide.statusVisual.stage}">
+                    <span>${slide.statusVisual.stage}</span>
+                    <strong>${slide.statusVisual.label}</strong>
+                    <small>${slide.statusVisual.detail}</small>
+               </div>`;
 
-    copyTrack.innerHTML = project.journey.map((slide, index) => `
+        return `
+            <article class="visual-slide">
+                <div class="screen-frame">
+                    ${visual}
+                    <span class="screen-badge">${slide.focus}</span>
+                </div>
+            </article>`;
+    }).join("");
+
+    copyTrack.innerHTML = project.journey.map((slide) => `
         <article class="copy-slide">
-            <h3>${slide[0]}</h3>
-            <p>${slide[1]}</p>
+            <h3>${slide.title}</h3>
+            <p>${slide.description}</p>
             <div class="copy-detail">
-                <div><span>Foco</span><strong>${slide[2]}</strong></div>
-                <div><span>Resultado</span><strong>${slide[3]}</strong></div>
+                <div><span>Foco</span><strong>${slide.focus}</strong></div>
+                <div><span>Resultado</span><strong>${slide.result}</strong></div>
             </div>
         </article>
     `).join("");
 
     sliderDots.innerHTML = project.journey.map((slide, index) => `
-        <button class="slider-dot" type="button" data-slide="${index}" aria-label="Ver ${slide[0]}"></button>
+        <button class="slider-dot" type="button" data-slide="${index}" aria-label="Ver ${slide.title}"></button>
     `).join("");
 
     sliderDots.querySelectorAll("[data-slide]").forEach((button) => {
@@ -437,6 +578,8 @@ function updateClock() {
 }
 
 renderNavigation();
+const portfolioProjectCount = document.getElementById("portfolioProjectCount");
+if (portfolioProjectCount) portfolioProjectCount.textContent = `${projects.length} elementos disponibles`;
 selectProject(requestedProject, { initial: true });
 updateClock();
 setInterval(updateClock, 30000);
