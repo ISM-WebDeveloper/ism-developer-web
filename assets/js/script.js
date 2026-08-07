@@ -644,3 +644,135 @@ configuratorDialog?.addEventListener("cancel", (event) => {
     event.preventDefault();
     closeConfiguratorDialog();
 });
+
+
+// SLIDER COLABORACIÓN ISM
+// Carrusel simple con navegación manual y autoplay cada 5 segundos.
+
+const collaborationSlider = document.querySelector('[data-collaboration-slider]');
+
+if (collaborationSlider) {
+    const slides = [...collaborationSlider.querySelectorAll('.collaboration-slide')];
+    const dots = [...collaborationSlider.querySelectorAll('[data-collaboration-dot]')];
+    const prevBtn = collaborationSlider.querySelector('[data-collaboration-prev]');
+    const nextBtn = collaborationSlider.querySelector('[data-collaboration-next]');
+    let activeIndex = slides.findIndex((slide) => slide.classList.contains('is-active'));
+    let sliderTimer;
+
+    if (activeIndex < 0) activeIndex = 0;
+
+    const renderCollaborationSlide = (newIndex) => {
+        const previousIndex = activeIndex;
+        activeIndex = (newIndex + slides.length) % slides.length;
+
+        slides.forEach((slide, index) => {
+            const isActive = index === activeIndex;
+            slide.classList.toggle('is-active', isActive);
+            slide.classList.toggle('is-leaving-left', index === previousIndex && previousIndex !== activeIndex);
+            slide.setAttribute('aria-hidden', String(!isActive));
+        });
+
+        dots.forEach((dot, index) => {
+            const isActive = index === activeIndex;
+            dot.classList.toggle('is-active', isActive);
+            dot.setAttribute('aria-selected', String(isActive));
+        });
+    };
+
+    const startCollaborationAutoplay = () => {
+        clearInterval(sliderTimer);
+        sliderTimer = setInterval(() => {
+            renderCollaborationSlide(activeIndex + 1);
+        }, 5000);
+    };
+
+    prevBtn?.addEventListener('click', () => {
+        renderCollaborationSlide(activeIndex - 1);
+        startCollaborationAutoplay();
+    });
+
+    nextBtn?.addEventListener('click', () => {
+        renderCollaborationSlide(activeIndex + 1);
+        startCollaborationAutoplay();
+    });
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            renderCollaborationSlide(index);
+            startCollaborationAutoplay();
+        });
+    });
+
+    collaborationSlider.addEventListener('mouseenter', () => clearInterval(sliderTimer));
+    collaborationSlider.addEventListener('mouseleave', startCollaborationAutoplay);
+    collaborationSlider.addEventListener('focusin', () => clearInterval(sliderTimer));
+    collaborationSlider.addEventListener('focusout', startCollaborationAutoplay);
+
+    renderCollaborationSlide(activeIndex);
+    startCollaborationAutoplay();
+}
+
+
+// STORY SLIDER | COLABORACIÓN ISM
+// Sección completa con autoplay cada 8 segundos y navegación manual.
+
+const storySlider = document.querySelector('[data-story-slider]');
+
+if (storySlider) {
+    const slides = [...storySlider.querySelectorAll('[data-story-slide]')];
+    const dots = [...storySlider.querySelectorAll('[data-story-dot]')];
+    const prevButton = storySlider.querySelector('[data-story-prev]');
+    const nextButton = storySlider.querySelector('[data-story-next]');
+    let currentStory = slides.findIndex((slide) => slide.classList.contains('is-active'));
+    let storyTimer;
+
+    if (currentStory < 0) currentStory = 0;
+
+    const showStory = (index) => {
+        currentStory = (index + slides.length) % slides.length;
+
+        slides.forEach((slide, slideIndex) => {
+            const isActive = slideIndex === currentStory;
+            slide.classList.toggle('is-active', isActive);
+            slide.setAttribute('aria-hidden', String(!isActive));
+        });
+
+        dots.forEach((dot, dotIndex) => {
+            const isActive = dotIndex === currentStory;
+            dot.classList.toggle('is-active', isActive);
+            dot.setAttribute('aria-selected', String(isActive));
+        });
+    };
+
+    const restartStoryAutoplay = () => {
+        clearInterval(storyTimer);
+        storyTimer = setInterval(() => {
+            showStory(currentStory + 1);
+        }, 8000);
+    };
+
+    prevButton?.addEventListener('click', () => {
+        showStory(currentStory - 1);
+        restartStoryAutoplay();
+    });
+
+    nextButton?.addEventListener('click', () => {
+        showStory(currentStory + 1);
+        restartStoryAutoplay();
+    });
+
+    dots.forEach((dot, dotIndex) => {
+        dot.addEventListener('click', () => {
+            showStory(dotIndex);
+            restartStoryAutoplay();
+        });
+    });
+
+    storySlider.addEventListener('mouseenter', () => clearInterval(storyTimer));
+    storySlider.addEventListener('mouseleave', restartStoryAutoplay);
+    storySlider.addEventListener('focusin', () => clearInterval(storyTimer));
+    storySlider.addEventListener('focusout', restartStoryAutoplay);
+
+    showStory(currentStory);
+    restartStoryAutoplay();
+}

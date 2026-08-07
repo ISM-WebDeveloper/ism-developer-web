@@ -38,7 +38,7 @@
     <meta name="twitter:image" content="https://www.ismdeveloper.cl/assets/img/og-ism-developer.jpg" />
 
     <link rel="preload" href="assets/img/ignaciodesarrollador.jpg" as="image" type="image/jpeg" />
-    <link rel="stylesheet" href="assets/css/style.css?v=2.0.31" />
+    <link rel="stylesheet" href="assets/css/style.css?v=2.0.40" />
     <link rel="stylesheet" href="assets/css/privacy-consent.css?v=2.0.24" />
     <link rel="stylesheet" href="assets/css/accessibility.css?v=2.0.24" />
 
@@ -518,54 +518,58 @@
             </div>
         </dialog>
 
-        <!-- 4. PRODUCTOS -->
-        <section class="section products-section section-light" id="productos" aria-labelledby="productos-title">
-            <div class="section-title">
-                <p>Soluciones con alcance claro</p>
-                <h2 id="productos-title" class="section-heading-emphasis">Productos para cada etapa <span class="section-heading-accent">de tu negocio</span></h2>
-            </div>
-
-            <div class="product-grid">
-                <article class="card product-card reveal">
-                    <i data-lucide="panel-top" class="card-icon"></i>
-                    <p class="product-label">Presencia digital</p>
-                    <h3>Landing Profesional</h3>
-                    <p>Una página clara, responsive y preparada para presentar tu negocio y recibir contactos.</p>
-                    <strong class="product-price">1,93 UF</strong>
-                    <a class="service-card-cta" href="#contacto"
-                        aria-label="Evaluar Landing Profesional">Evaluar solución <span aria-hidden="true">→</span></a>
+        <!-- 4. COLABORACIÓN -->
+        <section class="section collaboration-story-section" id="productos" aria-labelledby="productos-title">
+            <div class="collaboration-story-slider reveal" data-story-slider aria-roledescription="carrusel" aria-label="Mensajes de colaboración, determinación y crecimiento">
+                <article class="story-slide is-active" data-story-slide="0" aria-hidden="false">
+                    <div class="story-slide-background" aria-hidden="true">
+                        <img src="assets/img/collaboration/slide-colaboracion.png" alt="" width="1672" height="941" loading="lazy" decoding="async">
+                    </div>
+                    <div class="story-slide-overlay"></div>
+                    <div class="story-slide-content">
+                        <h2 id="productos-title">Colaboración</h2>
+                        <p>Crecer también es aprender a escuchar, sumar miradas y construir junto a otros una mejor forma de avanzar.</p>
+                        <a class="story-slide-link" href="#contacto">Conversemos y conectemos ideas <span aria-hidden="true">→</span></a>
+                    </div>
                 </article>
 
-                <article class="card product-card product-card-featured reveal">
-                    <span class="product-badge">Recomendada</span>
-                    <i data-lucide="calendar-check" class="card-icon"></i>
-                    <p class="product-label">Reservas y atención</p>
-                    <h3>Agenda Profesional</h3>
-                    <p>Una experiencia de agenda para ordenar disponibilidad, solicitudes y coordinación con clientes.</p>
-                    <strong class="product-price">3,65 UF</strong>
-                    <a class="service-card-cta" href="#contacto"
-                        aria-label="Evaluar Agenda Profesional">Evaluar solución <span aria-hidden="true">→</span></a>
+                <article class="story-slide" data-story-slide="1" aria-hidden="true">
+                    <div class="story-slide-background" aria-hidden="true">
+                        <img src="assets/img/collaboration/slide-determinacion.png" alt="" width="1672" height="941" loading="lazy" decoding="async">
+                    </div>
+                    <div class="story-slide-overlay"></div>
+                    <div class="story-slide-content">
+                        <h2>Determinación</h2>
+                        <p>Seguir avanzando exige foco, constancia y la decisión de construir oportunidades sin dejar de vivir lo que importa.</p>
+                        <a class="story-slide-link" href="#configurador-servicios">Impulsa tu siguiente paso <span aria-hidden="true">→</span></a>
+                    </div>
                 </article>
 
-                <article class="card product-card reveal">
-                    <i data-lucide="layers-3" class="card-icon"></i>
-                    <p class="product-label">Presencia avanzada</p>
-                    <h3>Profesional Plus</h3>
-                    <p>Más contenido, estructura comercial e interacciones para una presencia digital preparada para crecer.</p>
-                    <strong class="product-price">6,10 UF</strong>
-                    <a class="service-card-cta" href="#contacto"
-                        aria-label="Evaluar Profesional Plus">Evaluar solución <span aria-hidden="true">→</span></a>
+                <article class="story-slide" data-story-slide="2" aria-hidden="true">
+                    <div class="story-slide-background" aria-hidden="true">
+                        <img src="assets/img/collaboration/slide-atrevete.png" alt="" width="1672" height="941" loading="lazy" decoding="async">
+                    </div>
+                    <div class="story-slide-overlay"></div>
+                    <div class="story-slide-content">
+                        <h2>Atrévete a más</h2>
+                        <p>Un negocio que evoluciona gana libertad, abre nuevas posibilidades y puede acompañarte donde decidas crecer.</p>
+                        <a class="story-slide-link" href="#contacto">Hablemos de tu crecimiento <span aria-hidden="true">→</span></a>
+                    </div>
                 </article>
 
-                <article class="card product-card reveal">
-                    <i data-lucide="workflow" class="card-icon"></i>
-                    <p class="product-label">Necesidad específica</p>
-                    <h3>Sistema a medida</h3>
-                    <p>Una solución diseñada según procesos, usuarios, integraciones y objetivos definidos en conjunto.</p>
-                    <strong class="product-price product-price-custom">Cotización por alcance</strong>
-                    <a class="service-card-cta" href="#contacto"
-                        aria-label="Evaluar sistema a medida">Evaluar solución <span aria-hidden="true">→</span></a>
-                </article>
+                <div class="story-slider-controls" aria-label="Controles del carrusel">
+                    <button class="story-slider-arrow" type="button" data-story-prev aria-label="Slide anterior">
+                        <i data-lucide="arrow-left"></i>
+                    </button>
+                    <div class="story-slider-dots" role="tablist" aria-label="Seleccionar slide">
+                        <button class="story-slider-dot is-active" type="button" data-story-dot="0" aria-label="Ir a Colaboración" aria-selected="true"></button>
+                        <button class="story-slider-dot" type="button" data-story-dot="1" aria-label="Ir a Determinación" aria-selected="false"></button>
+                        <button class="story-slider-dot" type="button" data-story-dot="2" aria-label="Ir a Atrévete a más" aria-selected="false"></button>
+                    </div>
+                    <button class="story-slider-arrow" type="button" data-story-next aria-label="Siguiente slide">
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -990,287 +994,54 @@
             </div>
         </section>
 
-        <!-- 9. ISM PROJECT VAULT -->
-        <section class="section project-vault-section" id="proyectos" aria-labelledby="proyectos-title">
-            <div class="vault-shell reveal">
-                <div class="vault-header">
-                    <div>
-                        <p class="vault-kicker">ISM Project Vault</p>
-                        <h2 id="proyectos-title" class="section-heading-emphasis">Portafolio de <span class="section-heading-accent">Proyectos</span></h2>
+        <!-- 9. PORTAFOLIO ISM -->
+        <section class="section ism-portfolio-section" id="proyectos" aria-labelledby="proyectos-title">
+            <div class="ism-portfolio-shell reveal">
+                <header class="ism-portfolio-header">
+                    <div class="ism-portfolio-heading">
+                        <p class="ism-portfolio-eyebrow">Portafolio ISM</p>
+                        <h2 id="proyectos-title" class="section-heading-emphasis">
+                            Soluciones construidas para <span class="section-heading-accent">problemas reales.</span>
+                        </h2>
+                        <p class="ism-portfolio-intro">
+                            Casos, herramientas y pilotos desarrollados para ordenar procesos, mejorar la atención
+                            y convertir necesidades reales en soluciones digitales aplicables a otros negocios.
+                        </p>
                     </div>
-                    <a class="vault-dashboard-link" href="portafolio.html" data-track-event="project_click"
-                        data-track-category="portfolio" data-track-label="Explorar portafolio">
-                        Explorar portafolio
+
+                    <a class="ism-portfolio-main-link" href="portafolio.html"
+                        data-track-event="project_click" data-track-category="portfolio"
+                        data-track-label="Ver portafolio completo desde landing">
+                        Ver portafolio completo
                         <span aria-hidden="true">→</span>
                     </a>
+                </header>
+
+                <div class="ism-portfolio-tabs" role="tablist" aria-label="Categorías del portafolio">
+                    <button class="ism-portfolio-tab is-active" id="portfolioTabClientes" type="button" role="tab"
+                        aria-selected="true" aria-controls="portfolioPanel" tabindex="0" data-portfolio-tab="clients">
+                        <span>Casos reales</span><strong>3</strong>
+                    </button>
+                    <button class="ism-portfolio-tab" id="portfolioTabHerramientas" type="button" role="tab"
+                        aria-selected="false" aria-controls="portfolioPanel" tabindex="-1" data-portfolio-tab="tools">
+                        <span>Soluciones digitales</span><strong>6</strong>
+                    </button>
+                    <button class="ism-portfolio-tab" id="portfolioTabDesarrollo" type="button" role="tab"
+                        aria-selected="false" aria-controls="portfolioPanel" tabindex="-1" data-portfolio-tab="dev">
+                        <span>En desarrollo</span><strong>2</strong>
+                    </button>
                 </div>
 
-                <div class="vault-tabs" role="tablist" aria-label="Categorías de proyectos">
-                    <button class="vault-tab active" id="vaultTabPresencias" type="button" role="tab" aria-selected="true" aria-controls="vaultPanel" tabindex="0" data-vault-filter="presencias">
-                        <span>Presencias Digitales</span>
-                        <strong data-vault-count="presencias">0</strong>
-                    </button>
-                    <button class="vault-tab" id="vaultTabSoluciones" type="button" role="tab" aria-selected="false" aria-controls="vaultPanel" tabindex="-1" data-vault-filter="soluciones">
-                        <span>Soluciones Digitales</span>
-                        <strong data-vault-count="soluciones">0</strong>
-                    </button>
-                    <button class="vault-tab" id="vaultTabDesarrollo" type="button" role="tab" aria-selected="false" aria-controls="vaultPanel" tabindex="-1" data-vault-filter="desarrollo">
-                        <span>Proyectos en Desarrollo</span>
-                        <strong data-vault-count="desarrollo">0</strong>
-                    </button>
-                </div>
-                <p class="sr-only" id="vaultSelectionStatus" role="status" aria-live="polite"></p>
-
-                <div class="vault-workspace" id="vaultPanel" role="tabpanel" aria-labelledby="vaultTabPresencias" tabindex="0">
-                    <div class="vault-carousel">
-                        <button class="vault-arrow vault-arrow-prev" type="button" aria-label="Proyecto anterior">
-                            <span>&lt;</span>
-                        </button>
-
-                        <div class="vault-track" aria-live="off" aria-label="Proyectos de la categoría seleccionada">
-                        <button class="vault-node project-proestakis" type="button" data-project-id="constructora-proestakis" data-category="presencias"
-                            data-name="Constructora Proestakis" data-type="Presencia Digital" data-status="Publicado"
-                            data-stage="Cliente activo" data-date="Sitio publicado"
-                            data-tech="HTML5, CSS3, JS, Vercel"
-                            data-link="https://constructora-proestakis.vercel.app/"
-                            data-action="Ver"
-                            data-description="Sitio corporativo para una constructora, enfocado en comunicar experiencia, capacidad técnica y presencia profesional.">
-                            <span class="vault-status published">Publicado</span>
-                            <span class="vault-preview preview-image">
-                                <img src="assets/img/perf/project-proestakis-800.webp" alt="Vista previa de Constructora Proestakis"
-                                    width="800" height="368" loading="lazy" decoding="async">
-                            </span>
-                            <span class="vault-node-meta">
-                                <small>Presencia Digital</small>
-                                <strong>Constructora Proestakis</strong>
-                                <em>Sitio corporativo</em>
-                            </span>
-                            <span class="vault-tags">
-                                <span>HTML5</span>
-                                <span>Vercel</span>
-                                <span>Responsive</span>
-                            </span>
-                            <span class="vault-mobile-detail"></span>
-                        </button>
-
-                        <button class="vault-node project-badiasalud active" type="button" data-project-id="badiasalud"
-                            data-category="presencias" data-case-study="true"
-                            data-name="Badiasalud" data-type="Presencia digital + Agenda móvil" data-status="Publicado"
-                            data-stage="Caso de estudio" data-date="Sitio publicado"
-                            data-tech="TypeScript, Tailwind CSS, JavaScript, Vercel, Supabase, Node.js"
-                            data-link="https://www.badiasalud.cl"
-                            data-action="Ver"
-                            data-description="Presencia digital profesional y agenda móvil para Javier Badilla, enfermero independiente. La solución comunica su experiencia y servicios, e impulsa Badiasalud mediante una herramienta escalable.">
-                            <span class="vault-status published">Publicado</span>
-                            <span class="vault-preview preview-image">
-                                <img src="assets/img/perf/badiasaludhero-800.webp" alt="Vista previa de Badiasalud.cl"
-                                    width="800" height="397" loading="lazy" decoding="async">
-                            </span>
-                            <span class="vault-node-meta">
-                                <small>Presencia Digital + Agenda móvil</small>
-                                <strong>Badiasalud</strong>
-                                <em>Presencia profesional</em>
-                            </span>
-                            <span class="vault-tags">
-                                <span>TypeScript</span>
-                                <span>Vercel</span>
-                                <span>Responsive</span>
-                            </span>
-                            <span class="vault-mobile-detail"></span>
-                        </button>
-
-                        <button class="vault-node project-lecasse" type="button" data-project-id="lecasse-it-services"
-                            data-category="presencias" data-case-study="true"
-                            data-name="Lecasse IT Services" data-type="Presencia Digital" data-status="Publicado"
-                            data-stage="Caso de estudio" data-date="Sitio publicado"
-                            data-tech="HTML5, CSS3, JS, Vercel"
-                            data-link="https://lecasse.vercel.app/"
-                            data-action="Ver"
-                            data-description="Presencia digital para servicios tecnológicos, diseñada para presentar capacidades, ordenar la propuesta de valor y reforzar una imagen profesional.">
-                            <span class="vault-status published">Publicado</span>
-                            <span class="vault-preview preview-image">
-                                <img src="assets/img/perf/project-lecasse-800.webp" alt="Vista previa de Lecasse IT Services"
-                                    width="800" height="356" loading="lazy" decoding="async">
-                            </span>
-                            <span class="vault-node-meta">
-                                <small>Presencia Digital</small>
-                                <strong>Lecasse IT Services</strong>
-                                <em>Servicios tecnológicos</em>
-                            </span>
-                            <span class="vault-tags">
-                                <span>Web</span>
-                                <span>Vercel</span>
-                                <span>UI</span>
-                            </span>
-                            <span class="vault-mobile-detail"></span>
-                        </button>
-
-                        <button class="vault-node project-maige" type="button" data-project-id="maige-palace" data-category="presencias"
-                            data-name="Maige Palace" data-type="Presencia Digital" data-status="Demo"
-                            data-stage="Link por confirmar" data-date="Landing en ajuste"
-                            data-tech="HTML5, CSS3, JS, Catálogo visual"
-                            data-link="#contacto"
-                            data-action="Consultar avance"
-                            data-description="Landing visual para una marca de accesorios, orientada a destacar productos, identidad de marca y futuras acciones comerciales.">
-                            <span class="vault-status demo">Demo</span>
-                            <span class="vault-preview preview-image">
-                                <img src="assets/img/perf/project-maige-palace-800.webp" alt="Vista previa de Maige Palace"
-                                    width="800" height="346" loading="lazy" decoding="async">
-                            </span>
-                            <span class="vault-node-meta">
-                                <small>Presencia Digital</small>
-                                <strong>Maige Palace</strong>
-                                <em>Catálogo y marca</em>
-                            </span>
-                            <span class="vault-tags">
-                                <span>Landing</span>
-                                <span>Marca</span>
-                                <span>Catálogo</span>
-                            </span>
-                            <span class="vault-mobile-detail"></span>
-                        </button>
-
-                        <button class="vault-node project-control" type="button" data-project-id="control-gestion"
-                            data-category="soluciones" data-case-study="true"
-                            data-name="ISM Gestión Control" data-type="Sistema web interno" data-status="Piloto interno"
-                            data-stage="Caso de estudio interno" data-date="Inventario y operaciones"
-                            data-tech="React, TypeScript, Supabase, PostgreSQL"
-                            data-link="#contacto"
-                            data-action="Conversar solución"
-                            data-description="Sistema web interno para centralizar inventario, recepciones, entregas, alertas, herramientas e historial operativo con acceso diferenciado por roles.">
-                            <span class="vault-status development">Piloto interno</span>
-                            <span class="vault-preview preview-inventory">
-                                <span class="preview-toolbar"></span>
-                                <span class="preview-table"></span>
-                                <span class="preview-chart"></span>
-                            </span>
-                            <span class="vault-node-meta">
-                                <small>Sistema Web</small>
-                                <strong>ISM Gestión Control</strong>
-                                <em>Inventario y operaciones</em>
-                            </span>
-                            <span class="vault-tags">
-                                <span>React</span>
-                                <span>Supabase</span>
-                                <span>PostgreSQL</span>
-                            </span>
-                            <span class="vault-mobile-detail"></span>
-                        </button>
-
-                        <button class="vault-node project-cip" type="button" data-project-id="cipapp" data-category="desarrollo"
-                            data-name="CIPApp" data-type="Proyecto en Desarrollo" data-status="En desarrollo"
-                            data-stage="Faenas de construcción" data-date="Control de bodega"
-                            data-tech="JavaScript, Supabase, SQL, Mobile UI"
-                            data-link="#contacto"
-                            data-action="Conocer avance"
-                            data-description="Sistema móvil para faenas de construcción, orientado a agilizar movimientos de bodega, controlar existencias y mantener trazabilidad histórica.">
-                            <span class="vault-status development">En desarrollo</span>
-                            <span class="vault-preview preview-image">
-                                    <img class="preview-contain" src="assets/img/perf/project-cipapp-360.webp" alt="Vista previa de CIPApp"
-                                        width="360" height="464" loading="lazy" decoding="async">
-                            </span>
-                            <span class="vault-node-meta">
-                                <small>Proyecto en Desarrollo</small>
-                                <strong>CIPApp</strong>
-                                <em>Bodega para faenas</em>
-                            </span>
-                            <span class="vault-tags">
-                                <span>Logística</span>
-                                <span>Mobile</span>
-                                <span>SQL</span>
-                            </span>
-                            <span class="vault-mobile-detail"></span>
-                        </button>
-
-                        <button class="vault-node project-hfb" type="button" data-project-id="hfbapp" data-category="desarrollo" data-name="HFBApp"
-                            data-type="Proyecto en Desarrollo" data-status="En desarrollo" data-stage="Área salud"
-                            data-date="Bodegas periféricas" data-tech="JavaScript, Supabase, SQL, Mobile UI"
-                            data-link="#contacto"
-                            data-action="Conocer avance"
-                            data-description="Sistema para bodegas periféricas del área de salud, diseñado para mejorar control de existencias, logística interna y registro histórico.">
-                            <span class="vault-status development">En desarrollo</span>
-                            <span class="vault-preview preview-ism">
-                                <span class="preview-toolbar"></span>
-                                <span class="preview-orbit"></span>
-                                <span class="preview-logo">HFB</span>
-                            </span>
-                            <span class="vault-node-meta">
-                                <small>Proyecto en Desarrollo</small>
-                                <strong>HFBApp</strong>
-                                <em>Bodegas área salud</em>
-                            </span>
-                            <span class="vault-tags">
-                                <span>Salud</span>
-                                <span>Inventario</span>
-                                <span>Mobile</span>
-                            </span>
-                            <span class="vault-mobile-detail"></span>
-                        </button>
-
-                        <button class="vault-node project-juntos" type="button" data-project-id="juntosapp" data-category="desarrollo" data-name="JuntosApp"
-                            data-type="Proyecto en Desarrollo" data-status="Prototipo" data-stage="Educación inclusiva"
-                            data-date="Acompañamiento estudiantil" data-tech="JavaScript, Gamificación, Registro de progreso, UX"
-                            data-link="#contacto"
-                            data-action="Conocer prototipo"
-                            data-description="Aplicación interactiva para apoyar a estudiantes con necesidades especiales, conectando actividades, seguimiento de progreso y acompañamiento para familias y profesores.">
-                            <span class="vault-status prototype">Prototipo</span>
-                            <span class="vault-preview preview-lab">
-                                <span class="preview-toolbar"></span>
-                                <span class="preview-radar"></span>
-                                <span class="preview-dots"></span>
-                            </span>
-                            <span class="vault-node-meta">
-                                <small>Proyecto en Desarrollo</small>
-                                <strong>JuntosApp</strong>
-                                <em>Acompañamiento estudiantil</em>
-                            </span>
-                            <span class="vault-tags">
-                                <span>Educación</span>
-                                <span>Juego</span>
-                                <span>Progreso</span>
-                            </span>
-                            <span class="vault-mobile-detail"></span>
-                        </button>
-                        </div>
-
-                        <button class="vault-arrow vault-arrow-next" type="button" aria-label="Proyecto siguiente">
-                            <span>&gt;</span>
-                        </button>
-
-                        <div class="vault-index" aria-label="Índice de proyectos"></div>
-                    </div>
-
-                    <aside class="vault-inspector" aria-label="Preview del proyecto seleccionado">
-                        <div class="vault-inspector-preview">
-                            <div class="inspector-visual preview-image">
-                                <img src="assets/img/perf/badiasaludhero-800.webp" alt="Vista previa de Badiasalud"
-                                    width="800" height="397" loading="lazy" decoding="async">
-                            </div>
-                        </div>
-                        <div class="vault-inspector-content">
-                            <p id="vaultInspectorType">Presencia digital + Agenda móvil</p>
-                            <div class="vault-inspector-title">
-                                <h3 id="vaultInspectorName">Badiasalud</h3>
-                                <span id="vaultInspectorStatus">Publicado</span>
-                            </div>
-                            <p id="vaultInspectorDescription" class="vault-inspector-description">
-                                Presencia digital profesional y agenda móvil para organizar servicios, disponibilidad
-                                y solicitudes de atención.
-                            </p>
-                            <small id="vaultInspectorTech">TypeScript, Tailwind CSS, Supabase, Vercel</small>
-                            <div class="vault-inspector-meta">
-                                <span id="vaultInspectorStage">Caso de estudio</span>
-                                <span id="vaultInspectorDate">Sitio publicado</span>
-                            </div>
-                        <a href="portafolio.html?proyecto=badiasalud" id="vaultInspectorLink"
-                                data-track-event="project_click" data-track-category="portfolio"
-                                data-track-label="Ver caso de estudio Badiasalud" data-project-id="badiasalud">
-                                Ver caso de estudio
-                            </a>
-                        </div>
-                    </aside>
+                <div class="ism-portfolio-panel" id="portfolioPanel" role="tabpanel"
+                    aria-labelledby="portfolioTabClientes" tabindex="0">
+                    <noscript>
+                        <p class="ism-portfolio-noscript">
+                            Revisa los casos de Badiasalud, Constructora Proestakis y Lecasse en el portafolio completo.
+                        </p>
+                    </noscript>
                 </div>
 
+                <p class="sr-only" id="portfolioSelectionStatus" role="status" aria-live="polite"></p>
             </div>
         </section>
 
@@ -1445,11 +1216,6 @@
                 </div>
 
                 <form class="contact-form" id="contactForm" aria-describedby="contactFormNote contactFormStatus">
-                    <div class="contact-form-brand">
-                        <img src="assets/img/ismlogo2.0-horizontal-640-opt.webp" alt="ISM Developer - formulario de contacto"
-                            width="640" height="255" loading="lazy" decoding="async">
-                    </div>
-
                     <div class="contact-form-grid">
                         <div class="contact-field">
                             <label for="contactNombre">Nombre <span aria-hidden="true">*</span><span class="sr-only"> (obligatorio)</span></label>
@@ -1532,7 +1298,7 @@
                 <h4>Servicios</h4>
                 <a href="#servicios">Servicios digitales</a>
                 <a href="configurador/">Configurar servicios</a>
-                <a href="#productos">Productos</a>
+                <a href="#productos">Colaboración</a>
                 <a href="#madurez-digital">Madurez digital</a>
             </div>
 
@@ -1620,7 +1386,7 @@
     </footer>
 
     <script src="assets/js/reveal-compat.js?v=2.0.24" defer></script>
-    <script src="assets/js/script.js?v=2.0.24" defer></script>
+    <script src="assets/js/script.js?v=2.0.29" defer></script>
     <script src="assets/js/accessibility.js?v=2.0.24" defer></script>
 </body>
 
