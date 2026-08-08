@@ -1,26 +1,26 @@
-# ISM Developer Web
+# ISM Developer Web · v2.0.0
 
-Sitio oficial y portafolio interactivo de ISM Developer.
+Sitio oficial, portafolio interactivo y configurador de servicios de ISM Developer.
 
-## Estructura
+## Publicación
+
+La aplicación principal es un sitio estático multipágina y el configurador compilado se publica desde `configurador/`.
 
 ```text
-assets/
-  css/       Estilos del sitio y de los catálogos
-  img/       Imágenes, logotipos e iconos
-  js/        Lógica del sitio y analítica
-  vendor/    Librerías locales de terceros
-index.html
-servicios/
-  index.html
-proyectos/
-  index.html
-servicios.html    Redirección compatible hacia /servicios/
-portafolio.html   Redirección compatible hacia /proyectos/
-manifest.webmanifest
-robots.txt
-sitemap.xml
+index.html                 Landing principal
+portafolio.html            Portafolio detallado
+privacidad.html            Política de privacidad
+servicios.html             Redirección compatible a #servicios
+configurador/              Build público del configurador
+assets/                    CSS, JavaScript, imágenes e iconos públicos
+manifest.webmanifest       Manifest del sitio
+robots.txt                 Directivas para buscadores
+sitemap.xml                Sitemap público
+vercel.json                Cabeceras, CSP y caché de producción
+.vercelignore              Excluye fuentes y documentación del despliegue
 ```
+
+El código fuente del configurador permanece en `apps/configurador-servicios/` para desarrollo y reconstrucción, pero `.vercelignore` evita publicarlo como recurso estático.
 
 ## Desarrollo local
 
@@ -28,10 +28,12 @@ sitemap.xml
 npm run dev
 ```
 
-El servidor queda disponible en `http://127.0.0.1:4173`.
+Servidor local: `http://127.0.0.1:4173`.
 
-## Verificación
+## Auditoría
 
 ```powershell
 npm run validate
 ```
+
+Ejecuta validación de sintaxis y referencias, presupuesto de rendimiento, seguridad/privacidad, accesibilidad y compatibilidad moderna.

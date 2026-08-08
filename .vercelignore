@@ -1,0 +1,10 @@
+# Archivos de desarrollo y documentación interna; no son necesarios en producción.
+.agents/
+apps/
+scripts/
+src/
+*.md
+*.ps1
+*.txt
+cspell.json
+server.mjs
