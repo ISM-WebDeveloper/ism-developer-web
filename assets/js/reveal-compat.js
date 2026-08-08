@@ -14,7 +14,9 @@
     return window.setTimeout(callback, 16);
   };
   try {
-    forceMotion = /(?:\?|&)motion=full(?:&|$)/.test(window.location.search);
+    forceMotion = /(?:\?|&)motion=full(?:&|$)/.test(window.location.search) ||
+      (!/(?:\?|&)motion=reduced(?:&|$)/.test(window.location.search) &&
+        /^(?:localhost|127\.0\.0\.1)$/.test(window.location.hostname));
     compactMotion = window.matchMedia && window.matchMedia("(max-width: 700px)").matches;
     reducedMotion = !forceMotion && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   } catch (error) {
