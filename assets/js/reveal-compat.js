@@ -3,6 +3,7 @@
   var root = document.documentElement;
   var compactMotion = false;
   var reducedMotion = false;
+  var forceMotion = false;
   var pending = [];
   var sections = [];
   var ticking = false;
@@ -13,8 +14,9 @@
     return window.setTimeout(callback, 16);
   };
   try {
+    forceMotion = /(?:\?|&)motion=full(?:&|$)/.test(window.location.search);
     compactMotion = window.matchMedia && window.matchMedia("(max-width: 700px)").matches;
-    reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    reducedMotion = !forceMotion && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   } catch (error) {
     compactMotion = false;
     reducedMotion = false;
@@ -41,12 +43,27 @@
     return result;
   }
   function setReveal(element, variant, delay) {
+    var motionVariant = variant || "fade-up";
     if (!element) return;
     addClass(element, "reveal");
     if (!element.getAttribute("data-reveal")) {
-      element.setAttribute("data-reveal", variant || "fade-up");
+      element.setAttribute("data-reveal", motionVariant);
     }
-    element.style.transitionDelay = Math.max(0, Math.round(delay || 0)) + "ms";
+    if (!reducedMotion) {
+      if (motionVariant === "card-rise") {
+        element.style.transform = compactMotion ? "translate3d(0,46px,0) scale(.96)" : "perspective(1000px) translate3d(0,72px,0) scale(.92) rotateX(6deg)";
+      } else if (motionVariant === "soft-zoom") {
+        element.style.transform = "translate3d(0,28px,0) scale(.88)";
+      } else if (motionVariant === "pop") {
+        element.style.transform = compactMotion ? "translate3d(0,24px,0) scale(.84)" : "translate3d(0,30px,0) scale(.72)";
+      } else if (motionVariant === "clip-up") {
+        element.style.transform = compactMotion ? "translate3d(0,44px,0) scale(.97)" : "translate3d(0,76px,0) scale(.94)";
+      }
+      if (forceMotion && element.style.transform) {
+        element.style.setProperty("transform", element.style.transform, "important");
+      }
+    }
+    element.style.setProperty("transition-delay", Math.max(0, Math.round(delay || 0)) + "ms", forceMotion ? "important" : "");
   }
   function revealAll(selector, variant, delay) {
     var elements = document.querySelectorAll(selector);
@@ -112,27 +129,15 @@
     pending = toArray(document.querySelectorAll(".reveal"));
     sections = toArray(document.querySelectorAll("main > section, footer"));
   }
-  function animateRevealDetail(element, delay) {
-    var variant = element.getAttribute("data-reveal") || "";
-    var detail;
-    if (reducedMotion || !/card-rise|pop|soft-zoom/.test(variant) || !element.animate) return;
-    detail = element.querySelector("img, svg");
-    if (!detail || !detail.animate) return;
-    window.setTimeout(function () {
-      detail.animate([
-        { opacity: 0.62, transform: "translateY(8px) scale(0.92)" },
-        { opacity: 1, transform: "translateY(0) scale(1)" }
-      ], { duration: 720, easing: "cubic-bezier(0.16, 1, 0.3, 1)" });
-    }, delay + 120);
-  }
   function activateReveal(element) {
     var delay = parseFloat(element.style.transitionDelay) || 0;
     addClass(element, "is-revealed");
+    if (!reducedMotion) element.style.setProperty("transform", "none", forceMotion ? "important" : "");
     element.removeAttribute("aria-hidden");
-    animateRevealDetail(element, delay);
     window.setTimeout(function () {
       addClass(element, "motion-settled");
       element.style.transitionDelay = "0ms";
+      element.style.removeProperty("transform");
     }, delay + 1420);
   }
   function updateSections(viewportHeight) {
@@ -183,11 +188,11 @@
       x = (event.clientX - rect.left) / rect.width - 0.5;
       y = (event.clientY - rect.top) / rect.height - 0.5;
       element.style.transitionDuration = "140ms";
-      element.style.transform = "perspective(1000px) translate3d(0,-4px,0) rotateX(" + (-y * 3.4).toFixed(2) + "deg) rotateY(" + (x * 3.4).toFixed(2) + "deg)";
+      element.style.setProperty("transform", "perspective(1000px) translate3d(0,-7px,0) rotateX(" + (-y * 5.4).toFixed(2) + "deg) rotateY(" + (x * 5.4).toFixed(2) + "deg)", forceMotion ? "important" : "");
     }, false);
     element.addEventListener("mouseleave", function () {
       element.style.transitionDuration = "440ms";
-      element.style.transform = "";
+      element.style.removeProperty("transform");
       resetTimer = window.setTimeout(function () {
         element.style.transitionDuration = "";
       }, 460);
@@ -245,6 +250,7 @@
     }
     prepareRevealElements();
     addClass(root, "motion-ready");
+    if (forceMotion) addClass(root, "motion-forced");
     if (reducedMotion) addClass(root, "motion-reduced");
     root.setAttribute("data-motion-engine", "compat-scroll");
     prepareSurfaceMotion();
