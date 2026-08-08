@@ -6,6 +6,9 @@
   var pending = [];
   var sections = [];
   var ticking = false;
+  var depthLayers = [];
+  var depthTicking = false;
+  var finePointer = false;
   var requestFrame = window.requestAnimationFrame || function (callback) {
     return window.setTimeout(callback, 16);
   };
@@ -84,32 +87,53 @@
     revealAll(".section-title", "fade-up", 0);
     revealAll(".about-visual", "clip-left", 0);
     revealAll(".about-content", "fade-right", compactMotion ? 90 : 170);
-    revealGroup(".service-showcase-grid", ".service-showcase-card", ["card-rise", "soft-zoom"], 125, 650);
+    revealGroup(".service-showcase-grid", ".service-showcase-card", ["card-rise"], 105, 540);
     revealAll(".service-showcase-note", "fade-up", compactMotion ? 100 : 220);
-    revealGroup(".products-section .product-grid", ".product-card", ["card-rise", "soft-zoom"], 135, 620);
-    revealGroup(".maturity-grid", ".maturity-card-premium", ["clip-up", "soft-zoom"], 145, 650);
+    revealAll(".collaboration-story-slider", "soft-zoom", 0);
+    revealGroup(".products-section .product-grid", ".product-card", ["card-rise"], 120, 520);
+    revealGroup(".maturity-grid", ".maturity-card-premium", ["card-rise"], 120, 520);
     revealAll(".maturity-note", "fade-up", compactMotion ? 100 : 220);
-    revealGroup(".process-map", ".process-step", ["fade-left", "card-rise", "fade-right"], 115, 580);
+    revealGroup(".process-map", ".process-step", ["card-rise"], 95, 475);
     revealAll(".tools-panel", "soft-zoom", 0);
     revealGroup(".tools-grid", ".tool-card", ["pop"], 70, 700);
     revealAll(".tools-bottom-mark", "fade-up", compactMotion ? 80 : 180);
     revealAll(".dashboard-mockup", "clip-up", 0);
     revealAll(".vault-shell", "soft-zoom", 0);
-    var faqColumns = document.querySelectorAll(".faq-column");
-    if (faqColumns.length > 0) setReveal(faqColumns[0], "fade-left", 0);
-    if (faqColumns.length > 1) setReveal(faqColumns[faqColumns.length - 1], "fade-right", compactMotion ? 80 : 160);
+    revealAll(".configurator-cta-heading", "fade-up", 0);
+    revealAll(".configurator-cta-shell", "clip-up", compactMotion ? 80 : 150);
+    revealAll(".ism-portfolio-header", "fade-up", 0);
+    revealAll(".ism-portfolio-tabs", "fade-up", compactMotion ? 70 : 130);
+    revealAll(".ism-portfolio-panel", "soft-zoom", compactMotion ? 100 : 190);
     revealGroup(".faq-column", ".faq-item", ["fade-up"], 90, 360);
     revealAll(".contact-intro", "fade-left", 0);
     revealAll(".contact-form", "fade-right", compactMotion ? 85 : 170);
-    revealGroup(".contact-points", "div", ["fade-up"], 110, 360);
     revealDirectChildren(".footer-grid", ["fade-up", "soft-zoom"], 120, 480);
     revealAll(".footer-bottom", "fade-up", compactMotion ? 75 : 160);
     pending = toArray(document.querySelectorAll(".reveal"));
     sections = toArray(document.querySelectorAll("main > section, footer"));
   }
+  function animateRevealDetail(element, delay) {
+    var variant = element.getAttribute("data-reveal") || "";
+    var detail;
+    if (reducedMotion || !/card-rise|pop|soft-zoom/.test(variant) || !element.animate) return;
+    detail = element.querySelector("img, svg");
+    if (!detail || !detail.animate) return;
+    window.setTimeout(function () {
+      detail.animate([
+        { opacity: 0.62, transform: "translateY(8px) scale(0.92)" },
+        { opacity: 1, transform: "translateY(0) scale(1)" }
+      ], { duration: 720, easing: "cubic-bezier(0.16, 1, 0.3, 1)" });
+    }, delay + 120);
+  }
   function activateReveal(element) {
+    var delay = parseFloat(element.style.transitionDelay) || 0;
     addClass(element, "is-revealed");
     element.removeAttribute("aria-hidden");
+    animateRevealDetail(element, delay);
+    window.setTimeout(function () {
+      addClass(element, "motion-settled");
+      element.style.transitionDelay = "0ms";
+    }, delay + 1420);
   }
   function updateSections(viewportHeight) {
     var index;
@@ -143,11 +167,88 @@
     ticking = true;
     requestFrame(revealVisibleElements);
   }
+  function clamp(value, minimum, maximum) {
+    return Math.max(minimum, Math.min(maximum, value));
+  }
+  function enableSurfaceTilt(element) {
+    var resetTimer;
+    addClass(element, "motion-surface");
+    element.addEventListener("mousemove", function (event) {
+      var rect;
+      var x;
+      var y;
+      if (hasClass(element, "reveal") && !hasClass(element, "is-revealed")) return;
+      window.clearTimeout(resetTimer);
+      rect = element.getBoundingClientRect();
+      x = (event.clientX - rect.left) / rect.width - 0.5;
+      y = (event.clientY - rect.top) / rect.height - 0.5;
+      element.style.transitionDuration = "140ms";
+      element.style.transform = "perspective(1000px) translate3d(0,-4px,0) rotateX(" + (-y * 3.4).toFixed(2) + "deg) rotateY(" + (x * 3.4).toFixed(2) + "deg)";
+    }, false);
+    element.addEventListener("mouseleave", function () {
+      element.style.transitionDuration = "440ms";
+      element.style.transform = "";
+      resetTimer = window.setTimeout(function () {
+        element.style.transitionDuration = "";
+      }, 460);
+    }, false);
+  }
+  function prepareSurfaceMotion() {
+    var surfaces;
+    var index;
+    if (compactMotion || reducedMotion || !finePointer) return;
+    surfaces = document.querySelectorAll(".service-showcase-card,.maturity-card-premium,.process-step,.tool-card,.configurator-cta-shell");
+    for (index = 0; index < surfaces.length; index += 1) enableSurfaceTilt(surfaces[index]);
+  }
+  function addDepthLayers(selector, strength, scale) {
+    var elements = document.querySelectorAll(selector);
+    var index;
+    for (index = 0; index < elements.length; index += 1) {
+      elements[index].style.willChange = "transform";
+      depthLayers.push({ element: elements[index], strength: strength, scale: scale });
+    }
+  }
+  function updateDepthMotion() {
+    var viewportHeight = window.innerHeight || root.clientHeight || 800;
+    var index;
+    depthTicking = false;
+    for (index = 0; index < depthLayers.length; index += 1) {
+      var layer = depthLayers[index];
+      var rect = layer.element.getBoundingClientRect();
+      var progress;
+      var shift;
+      if (rect.bottom < -80 || rect.top > viewportHeight + 80) continue;
+      progress = (rect.top + rect.height * 0.5 - viewportHeight * 0.5) / (viewportHeight + rect.height);
+      shift = clamp(progress * layer.strength, -layer.strength, layer.strength);
+      layer.element.style.transform = "translate3d(0," + shift.toFixed(2) + "px,0) scale(" + layer.scale + ")";
+    }
+  }
+  function scheduleDepthMotion() {
+    if (depthTicking) return;
+    depthTicking = true;
+    requestFrame(updateDepthMotion);
+  }
+  function prepareDepthMotion() {
+    if (compactMotion || reducedMotion) return;
+    addDepthLayers(".hero-portrait", 24, 1);
+    addDepthLayers(".about-orbit-image", 16, 1.025);
+    addDepthLayers(".story-slide-background picture", 18, 1.035);
+    window.addEventListener("scroll", scheduleDepthMotion, false);
+    window.addEventListener("resize", scheduleDepthMotion, false);
+    scheduleDepthMotion();
+  }
   function initialize() {
+    try {
+      finePointer = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    } catch (error) {
+      finePointer = false;
+    }
     prepareRevealElements();
     addClass(root, "motion-ready");
     if (reducedMotion) addClass(root, "motion-reduced");
     root.setAttribute("data-motion-engine", "compat-scroll");
+    prepareSurfaceMotion();
+    prepareDepthMotion();
     window.addEventListener("scroll", scheduleRevealCheck, false);
     window.addEventListener("resize", scheduleRevealCheck, false);
     window.addEventListener("orientationchange", scheduleRevealCheck, false);
