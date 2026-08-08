@@ -14,14 +14,13 @@
     return window.setTimeout(callback, 16);
   };
   try {
-    forceMotion = /(?:\?|&)motion=full(?:&|$)/.test(window.location.search) ||
-      (!/(?:\?|&)motion=reduced(?:&|$)/.test(window.location.search) &&
-        /^(?:localhost|127\.0\.0\.1)$/.test(window.location.hostname));
+    reducedMotion = /(?:\?|&)motion=reduced(?:&|$)/.test(window.location.search);
+    forceMotion = !reducedMotion;
     compactMotion = window.matchMedia && window.matchMedia("(max-width: 700px)").matches;
-    reducedMotion = !forceMotion && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   } catch (error) {
     compactMotion = false;
     reducedMotion = false;
+    forceMotion = true;
   }
   function hasClass(element, className) {
     return (" " + element.className + " ").indexOf(" " + className + " ") !== -1;
@@ -156,13 +155,14 @@
   function revealVisibleElements() {
     var viewportHeight = window.innerHeight || root.clientHeight || 800;
     var entryLine = viewportHeight * (compactMotion ? 0.88 : 0.78);
+    var atPageEnd = (window.pageYOffset || root.scrollTop || 0) + viewportHeight >= root.scrollHeight - 2;
     var nextPending = [];
     var index;
     ticking = false;
     for (index = 0; index < pending.length; index += 1) {
       var element = pending[index];
       var rect = element.getBoundingClientRect();
-      var isInsideViewport = rect.top <= entryLine && rect.bottom >= 0;
+      var isInsideViewport = (rect.top <= entryLine || atPageEnd) && rect.bottom >= 0;
       if (isInsideViewport) activateReveal(element);
       else nextPending.push(element);
     }
@@ -204,7 +204,7 @@
     var surfaces;
     var index;
     if (compactMotion || reducedMotion || !finePointer) return;
-    surfaces = document.querySelectorAll(".service-showcase-card,.maturity-card-premium,.process-step,.tool-card,.configurator-cta-shell");
+    surfaces = document.querySelectorAll(".service-showcase-card,.maturity-card-premium,.process-step,.tool-card,.configurator-cta-shell,.metric,.technical-card");
     for (index = 0; index < surfaces.length; index += 1) enableSurfaceTilt(surfaces[index]);
   }
   function addDepthLayers(selector, strength, scale) {
@@ -266,6 +266,8 @@
       requestFrame(scheduleRevealCheck);
     });
   }
+  removeClass(root, forceMotion ? "motion-reduced" : "motion-forced");
+  addClass(root, forceMotion ? "motion-forced" : "motion-reduced");
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initialize, false);
   } else {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="motion-forced">
 
 <head>
     <meta charset="UTF-8">
@@ -17,8 +17,10 @@
     <meta property="og:url" content="https://www.ismdeveloper.cl/portafolio.html">
     <link rel="canonical" href="https://www.ismdeveloper.cl/portafolio.html">
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-    <link rel="stylesheet" href="assets/css/portafolio.css?v=2.0.26">
-    <link rel="stylesheet" href="assets/css/accessibility.css?v=2.0.24">
+    <script src="assets/js/reveal-compat.js?v=2.1.2" defer></script>
+    <link rel="stylesheet" href="assets/css/portafolio.css?v=2.1.1">
+    <link rel="stylesheet" href="assets/css/premium-motion.css?v=2.1.1">
+    <link rel="stylesheet" href="assets/css/accessibility.css?v=2.1.1">
     <link rel="stylesheet" href="assets/css/privacy-consent.css?v=2.0.24">
     <script src="assets/vendor/lucide.min.js" defer></script>
     <script src="assets/js/privacy-consent.js?v=2.0.24" defer></script>
@@ -34,7 +36,7 @@
     <p class="sr-only" id="portfolioProjectStatus" role="status" aria-live="polite"></p>
     <div class="dashboard-shell">
         <aside class="project-sidebar" id="projectSidebar" aria-label="Proyectos del portafolio">
-            <div class="sidebar-head">
+            <div class="sidebar-head reveal" data-reveal="fade-up">
                 <a href="index.html" class="sidebar-brand" aria-label="Volver a ISM Developer">
                     <img class="sidebar-brand-full" src="assets/img/ismlogo2.0-horizontal-640-opt.webp" alt="ISM Developer" width="640" height="255">
                     <img class="sidebar-brand-mark" src="assets/img/ismlogo2.0-horizontal-640-opt.webp" alt="" width="640" height="255" aria-hidden="true">
@@ -45,13 +47,13 @@
             </div>
 
             <div class="sidebar-title">
-                <span>Portafolio ISM</span>
-                <p>Selecciona un caso, solución o desarrollo para revisar su detalle.</p>
+                <span class="reveal" data-reveal="fade-right">Portafolio ISM</span>
+                <p class="reveal" data-reveal="fade-right">Selecciona un caso, solución o desarrollo para revisar su detalle.</p>
             </div>
 
-            <nav class="project-nav" id="projectNav" aria-label="Listado de proyectos"></nav>
+            <nav class="project-nav reveal" id="projectNav" data-reveal="clip-up" aria-label="Listado de proyectos"></nav>
 
-            <div class="sidebar-footer">
+            <div class="sidebar-footer reveal" data-reveal="fade-up">
                 <span class="live-dot" aria-hidden="true"></span>
                 <div>
                     <strong>Portafolio operativo</strong>
@@ -64,7 +66,7 @@
         </aside>
 
         <main class="dashboard-main" id="portfolioMain" tabindex="-1">
-            <header class="dashboard-topbar">
+            <header class="dashboard-topbar reveal" data-reveal="fade-up">
                 <div class="topbar-left">
                     <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Abrir lista de proyectos" aria-controls="projectSidebar" aria-expanded="false">
                         <i data-lucide="panel-left"></i>
@@ -81,7 +83,7 @@
             </header>
 
             <div class="dashboard-content">
-                <section class="project-hero" aria-labelledby="projectTitle">
+                <section class="project-hero reveal" data-reveal="fade-up" aria-labelledby="projectTitle">
                     <div class="project-heading">
                         <div>
                             <p class="project-eyebrow" id="projectType"></p>
@@ -99,7 +101,7 @@
                     <div class="project-metrics" id="projectMetrics"></div>
                 </section>
 
-                <section class="project-showcase" aria-label="Recorrido visual del proyecto">
+                <section class="project-showcase reveal" data-reveal="soft-zoom" aria-label="Recorrido visual del proyecto">
                     <div class="showcase-topline">
                         <div>
                             <span>Recorrido visual</span>
@@ -128,7 +130,7 @@
                     </div>
                 </section>
 
-                <section class="technical-section" aria-labelledby="technicalTitle">
+                <section class="technical-section reveal" data-reveal="card-rise" aria-labelledby="technicalTitle">
                     <div class="section-heading">
                         <div>
                             <p>Ficha técnica</p>
@@ -139,7 +141,7 @@
                     <div class="technical-grid" id="technicalGrid"></div>
                 </section>
 
-                <section class="project-cta">
+                <section class="project-cta reveal" data-reveal="clip-up">
                     <div>
                         <span>¿Tienes una necesidad similar?</span>
                         <h2>Conversemos sobre tu próximo proyecto.</h2>
