@@ -52,13 +52,13 @@
     }
     if (!reducedMotion) {
       if (motionVariant === "card-rise") {
-        element.style.transform = compactMotion ? "translate3d(0,46px,0) scale(.96)" : "perspective(1000px) translate3d(0,72px,0) scale(.92) rotateX(6deg)";
+        element.style.transform = compactMotion ? "translate3d(0,30px,0) scale(.98)" : "translate3d(0,44px,0) scale(.965)";
       } else if (motionVariant === "soft-zoom") {
-        element.style.transform = "translate3d(0,28px,0) scale(.88)";
+        element.style.transform = "translate3d(0,20px,0) scale(.95)";
       } else if (motionVariant === "pop") {
-        element.style.transform = compactMotion ? "translate3d(0,24px,0) scale(.84)" : "translate3d(0,30px,0) scale(.72)";
+        element.style.transform = compactMotion ? "translate3d(0,16px,0) scale(.94)" : "translate3d(0,22px,0) scale(.9)";
       } else if (motionVariant === "clip-up") {
-        element.style.transform = compactMotion ? "translate3d(0,44px,0) scale(.97)" : "translate3d(0,76px,0) scale(.94)";
+        element.style.transform = compactMotion ? "translate3d(0,28px,0) scale(.985)" : "translate3d(0,42px,0) scale(.97)";
       }
       if (forceMotion && element.style.transform) {
         element.style.setProperty("transform", element.style.transform, "important");
@@ -104,34 +104,35 @@
   function prepareRevealElements() {
     revealAll(".section-title", "fade-up", 0);
     revealAll(".about-visual", "clip-left", 0);
-    revealAll(".about-content", "fade-right", compactMotion ? 90 : 170);
-    revealGroup(".service-showcase-grid", ".service-showcase-card", ["card-rise"], 105, 540);
-    revealAll(".service-showcase-note", "fade-up", compactMotion ? 100 : 220);
+    revealAll(".about-content", "fade-right", compactMotion ? 60 : 110);
+    revealGroup(".service-showcase-grid", ".service-showcase-card", ["card-rise"], 72, 360);
+    revealAll(".service-showcase-note", "fade-up", compactMotion ? 70 : 130);
     revealAll(".collaboration-story-slider", "soft-zoom", 0);
-    revealGroup(".products-section .product-grid", ".product-card", ["card-rise"], 120, 520);
-    revealGroup(".maturity-grid", ".maturity-card-premium", ["card-rise"], 120, 520);
-    revealAll(".maturity-note", "fade-up", compactMotion ? 100 : 220);
-    revealGroup(".process-map", ".process-step", ["card-rise"], 95, 475);
+    revealGroup(".products-section .product-grid", ".product-card", ["card-rise"], 82, 340);
+    revealGroup(".maturity-grid", ".maturity-card-premium", ["card-rise"], 82, 340);
+    revealAll(".maturity-note", "fade-up", compactMotion ? 70 : 130);
+    revealGroup(".process-map", ".process-step", ["card-rise"], 68, 280);
     revealAll(".tools-panel", "soft-zoom", 0);
-    revealGroup(".tools-grid", ".tool-card", ["pop"], 70, 700);
-    revealAll(".tools-bottom-mark", "fade-up", compactMotion ? 80 : 180);
+    revealGroup(".tools-grid", ".tool-card", ["pop"], 42, 360);
+    revealAll(".tools-bottom-mark", "fade-up", compactMotion ? 55 : 110);
     revealAll(".dashboard-mockup", "clip-up", 0);
     revealAll(".vault-shell", "soft-zoom", 0);
     revealAll(".configurator-cta-heading", "fade-up", 0);
-    revealAll(".configurator-cta-shell", "clip-up", compactMotion ? 80 : 150);
+    revealAll(".configurator-cta-shell", "clip-up", compactMotion ? 55 : 100);
     revealAll(".ism-portfolio-header", "fade-up", 0);
-    revealAll(".ism-portfolio-tabs", "fade-up", compactMotion ? 70 : 130);
-    revealAll(".ism-portfolio-panel", "soft-zoom", compactMotion ? 100 : 190);
-    revealGroup(".faq-column", ".faq-item", ["fade-up"], 90, 360);
+    revealAll(".ism-portfolio-tabs", "fade-up", compactMotion ? 50 : 90);
+    revealAll(".ism-portfolio-panel", "soft-zoom", compactMotion ? 70 : 120);
+    revealGroup(".faq-column", ".faq-item", ["fade-up"], 62, 250);
     revealAll(".contact-intro", "fade-left", 0);
-    revealAll(".contact-form", "fade-right", compactMotion ? 85 : 170);
-    revealDirectChildren(".footer-grid", ["fade-up", "soft-zoom"], 120, 480);
-    revealAll(".footer-bottom", "fade-up", compactMotion ? 75 : 160);
+    revealAll(".contact-form", "fade-right", compactMotion ? 60 : 110);
+    revealDirectChildren(".footer-grid", ["fade-up", "soft-zoom"], 75, 300);
+    revealAll(".footer-bottom", "fade-up", compactMotion ? 50 : 100);
     pending = toArray(document.querySelectorAll(".reveal"));
     sections = toArray(document.querySelectorAll("main > section, footer"));
   }
   function activateReveal(element) {
     var delay = parseFloat(element.style.transitionDelay) || 0;
+    element.style.willChange = "opacity,transform";
     addClass(element, "is-revealed");
     if (!reducedMotion) element.style.setProperty("transform", "none", forceMotion ? "important" : "");
     element.removeAttribute("aria-hidden");
@@ -139,7 +140,8 @@
       addClass(element, "motion-settled");
       element.style.transitionDelay = "0ms";
       element.style.removeProperty("transform");
-    }, delay + 1420);
+      element.style.removeProperty("will-change");
+    }, delay + 1100);
   }
   function updateSections(viewportHeight) {
     var index;
@@ -189,15 +191,15 @@
       rect = element.getBoundingClientRect();
       x = (event.clientX - rect.left) / rect.width - 0.5;
       y = (event.clientY - rect.top) / rect.height - 0.5;
-      element.style.transitionDuration = "140ms";
-      element.style.setProperty("transform", "perspective(1000px) translate3d(0,-7px,0) rotateX(" + (-y * 5.4).toFixed(2) + "deg) rotateY(" + (x * 5.4).toFixed(2) + "deg)", forceMotion ? "important" : "");
+      element.style.transitionDuration = "120ms";
+      element.style.setProperty("transform", "perspective(1000px) translate3d(0,-4px,0) rotateX(" + (-y * 3.2).toFixed(2) + "deg) rotateY(" + (x * 3.2).toFixed(2) + "deg)", forceMotion ? "important" : "");
     }, false);
     element.addEventListener("mouseleave", function () {
-      element.style.transitionDuration = "440ms";
+      element.style.transitionDuration = "320ms";
       element.style.removeProperty("transform");
       resetTimer = window.setTimeout(function () {
         element.style.transitionDuration = "";
-      }, 460);
+      }, 340);
     }, false);
   }
   function prepareSurfaceMotion() {
@@ -237,9 +239,9 @@
   }
   function prepareDepthMotion() {
     if (compactMotion || reducedMotion) return;
-    addDepthLayers(".hero-portrait", 24, 1);
-    addDepthLayers(".about-orbit-image", 16, 1.025);
-    addDepthLayers(".story-slide-background picture", 18, 1.035);
+    addDepthLayers(".hero-portrait", 14, 1);
+    addDepthLayers(".about-orbit-image", 9, 1.015);
+    addDepthLayers(".story-slide-background picture", 8, 1.02);
     window.addEventListener("scroll", scheduleDepthMotion, false);
     window.addEventListener("resize", scheduleDepthMotion, false);
     scheduleDepthMotion();
