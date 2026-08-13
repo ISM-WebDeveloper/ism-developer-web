@@ -328,97 +328,53 @@ input:focus-visible {
     font-size: 14px;
 }
 
-.guide-orb {
+.guide-intro-visual {
     position: relative;
-    aspect-ratio: 1;
-    display: grid;
-    place-items: center;
+    min-height: 330px;
+    align-self: stretch;
+    display: flex;
+    align-items: flex-end;
     overflow: hidden;
-    border: 1px solid rgba(56, 189, 248, 0.28);
-    border-radius: 50%;
-    background:
-        radial-gradient(circle at 40% 30%, rgba(125, 211, 252, 0.32), transparent 18%),
-        radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.18), rgba(2, 6, 23, 0.08) 58%, rgba(2, 6, 23, 0.75) 73%);
-    box-shadow: inset 0 0 60px rgba(56, 189, 248, 0.09), 0 0 60px rgba(14, 165, 233, 0.09);
+    border: 1px solid rgba(103, 232, 249, 0.28);
+    border-radius: 20px;
+    background-image:
+        linear-gradient(180deg, rgba(3, 10, 20, 0.02) 34%, rgba(3, 10, 20, 0.88) 100%),
+        url("../img/guia-asistida-colaboracion.webp");
+    background-position: 50% 42%;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.025), 0 24px 58px rgba(0, 0, 0, 0.34);
 }
 
-.guide-orb::after {
+.guide-intro-visual::after {
     position: absolute;
     inset: 0;
     content: "";
-    background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.1) 50%, transparent 65%);
-    transform: translateX(-100%);
-    animation: guide-orb-shine 5s ease-in-out infinite;
+    pointer-events: none;
+    background: linear-gradient(120deg, rgba(56, 189, 248, 0.1), transparent 38%, rgba(103, 232, 249, 0.05));
 }
 
-@keyframes guide-orb-shine {
-    0%,
-    60% {
-        transform: translateX(-100%);
-    }
-
-    85%,
-    100% {
-        transform: translateX(100%);
-    }
-}
-
-.guide-orb-ring {
-    position: absolute;
-    border-radius: 50%;
-}
-
-.guide-orb-ring-one {
-    inset: 17%;
-    border: 1px dashed rgba(125, 211, 252, 0.26);
-    animation: guide-ring-spin 18s linear infinite;
-}
-
-.guide-orb-ring-two {
-    inset: 32%;
-    border: 1px solid rgba(125, 211, 252, 0.2);
-    box-shadow: 0 0 24px rgba(56, 189, 248, 0.18);
-}
-
-@keyframes guide-ring-spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.guide-orb-icon {
-    position: absolute;
-    top: 27%;
-    width: 42px;
-    height: 42px;
-    display: grid;
-    place-items: center;
-    color: #07111f;
-    border-radius: 14px;
-    background: linear-gradient(135deg, var(--guide-cyan), var(--guide-cyan-bright));
-    box-shadow: 0 12px 30px rgba(56, 189, 248, 0.24);
-}
-
-.guide-orb-icon svg {
-    width: 22px;
-    height: 22px;
-}
-
-.guide-orb > strong {
+.guide-intro-visual > span {
     position: relative;
-    margin-top: 40px;
-    color: #eafaff;
-    font-size: 30px;
-    letter-spacing: 0.08em;
+    z-index: 1;
+    margin: 14px;
+    padding: 8px 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #dff8ff;
+    border: 1px solid rgba(125, 211, 252, 0.22);
+    border-radius: 9px;
+    background: rgba(3, 12, 23, 0.74);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(10px);
+    font-size: 10px;
+    font-weight: 850;
 }
 
-.guide-orb > strong small {
-    display: block;
-    margin-top: 1px;
-    color: var(--guide-cyan);
-    font-size: 9px;
-    letter-spacing: 0.22em;
-    text-align: center;
+.guide-intro-visual svg {
+    width: 15px;
+    height: 15px;
+    color: var(--guide-cyan-bright);
 }
 
 .guide-lesson {
@@ -1069,6 +1025,12 @@ input:focus-visible {
     font-weight: 900;
 }
 
+.guide-map-node > span svg {
+    width: 15px;
+    height: 15px;
+    stroke-width: 1.9;
+}
+
 .guide-map-node.is-active > span {
     color: #06111f;
     border-color: var(--guide-cyan);
@@ -1197,9 +1159,23 @@ input:focus-visible {
 }
 
 @media (max-width: 720px) {
+    html,
+    body {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .guide-app {
+        height: 100svh;
+        min-height: 0;
+        overflow: hidden;
+    }
+
     .guide-nav {
-        min-height: 72px;
+        min-height: 64px;
+        height: 64px;
         padding: 8px 16px;
+        flex: 0 0 auto;
     }
 
     .guide-brand {
@@ -1217,10 +1193,16 @@ input:focus-visible {
 
     .guide-shell {
         width: min(100% - 20px, 1240px);
-        padding: 12px 0 22px;
+        min-height: 0;
+        padding: 8px 0;
+        overflow: hidden;
+        align-items: stretch;
     }
 
     .guide-experience {
+        min-height: 0;
+        height: 100%;
+        grid-template-rows: auto minmax(0, 1fr);
         gap: 10px;
     }
 
@@ -1277,7 +1259,7 @@ input:focus-visible {
         grid-template-columns: 1fr;
     }
 
-    .guide-orb {
+    .guide-intro-visual {
         display: none;
     }
 
@@ -1301,7 +1283,14 @@ input:focus-visible {
     }
 
     .guide-main {
-        min-height: 620px;
+        min-height: 0;
+        height: 100%;
+    }
+
+    .guide-screen {
+        overflow: auto;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(56, 189, 248, 0.28) transparent;
     }
 
     .guide-actions {
@@ -1323,8 +1312,174 @@ input:focus-visible {
     }
 
     .guide-footer {
-        flex-wrap: wrap;
+        min-height: 30px;
+        height: 30px;
+        padding-block: 5px;
+        flex: 0 0 auto;
+        flex-wrap: nowrap;
         gap: 10px 16px;
+    }
+}
+
+@media (min-width: 981px) {
+    html,
+    body {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .guide-app {
+        height: 100svh;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .guide-nav {
+        min-height: 68px;
+        height: 68px;
+        padding-block: 7px;
+        flex: 0 0 auto;
+    }
+
+    .guide-brand {
+        width: 172px;
+    }
+
+    .guide-shell {
+        min-height: 0;
+        padding: 14px 0;
+        overflow: hidden;
+        align-items: stretch;
+    }
+
+    .guide-experience {
+        min-height: 0;
+        height: 100%;
+        gap: 16px;
+    }
+
+    .guide-main,
+    .guide-aside {
+        min-height: 0;
+        height: 100%;
+        border-radius: 22px;
+    }
+
+    .guide-main-top {
+        padding: 16px 24px 0;
+    }
+
+    .guide-progress {
+        margin-top: 9px;
+    }
+
+    .guide-screen {
+        padding: 20px 24px 14px;
+        overflow: auto;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(56, 189, 248, 0.28) transparent;
+    }
+
+    .guide-title {
+        margin-bottom: 9px;
+        font-size: clamp(28px, 3vw, 42px);
+    }
+
+    .guide-lead {
+        margin-bottom: 14px;
+        font-size: 14px;
+        line-height: 1.52;
+    }
+
+    .guide-intro-layout {
+        height: 100%;
+        margin: 0;
+        grid-template-columns: minmax(0, 0.9fr) minmax(260px, 0.78fr);
+        gap: 22px;
+    }
+
+    .guide-intro-points {
+        margin-top: 18px;
+        gap: 8px;
+    }
+
+    .guide-intro-points p {
+        font-size: 12px;
+    }
+
+    .guide-intro-visual {
+        min-height: 0;
+        height: 100%;
+    }
+
+    .guide-actions {
+        padding: 0 24px 16px;
+    }
+
+    .guide-aside {
+        padding: 18px;
+    }
+
+    .guide-aside-heading p {
+        margin-bottom: 8px;
+    }
+
+    .guide-project-map {
+        padding: 6px 0 10px;
+        gap: 6px;
+    }
+
+    .guide-map-node {
+        min-height: 45px;
+        padding: 7px 9px;
+    }
+
+    .guide-aside-divider {
+        margin: 2px 0 10px;
+    }
+
+    .guide-learning {
+        gap: 6px;
+    }
+
+    .guide-maturity {
+        padding: 10px 12px;
+    }
+
+    .guide-footer {
+        min-height: 34px;
+        height: 34px;
+        padding-block: 6px;
+        flex: 0 0 auto;
+    }
+}
+
+@media (min-width: 981px) and (max-height: 760px) {
+    .guide-nav {
+        min-height: 60px;
+        height: 60px;
+    }
+
+    .guide-shell {
+        padding-block: 10px;
+    }
+
+    .guide-footer {
+        min-height: 30px;
+        height: 30px;
+    }
+
+    .guide-screen {
+        padding-top: 16px;
+    }
+
+    .guide-aside-heading p,
+    .guide-maturity p {
+        display: none;
+    }
+
+    .guide-project-map {
+        padding-bottom: 7px;
     }
 }
 
