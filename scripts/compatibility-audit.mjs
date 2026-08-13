@@ -9,7 +9,7 @@ const read = (path) => readFileSync(join(root, path), "utf8");
 const fail = (message) => errors.push(message);
 const note = (message) => notices.push(message);
 
-const pages = ["index.html", "portafolio.html", "privacidad.html", "configurador/index.html"]
+const pages = ["index.html", "portafolio.html", "privacidad.html", "configurador/index.html", "guia-web/index.html"]
     .filter((path) => existsSync(join(root, path)));
 
 for (const page of pages) {
@@ -33,6 +33,7 @@ const jsPaths = [
     "assets/js/analytics.js",
     "assets/js/reveal-compat.js",
     "assets/js/script.js",
+    "assets/js/guia-web.js",
     "assets/js/accessibility.js",
     "assets/js/portfolio-accessibility.js"
 ].filter((path) => existsSync(join(root, path)));
@@ -73,6 +74,7 @@ const cssPaths = [
     "assets/css/privacy-consent.css",
     "assets/css/privacy-policy.css",
     "assets/css/accessibility.css",
+    "assets/css/guia-web.css",
     "assets/css/configurador-placeholder.css"
 ].filter((path) => existsSync(join(root, path)));
 

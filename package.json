@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "node server.mjs",
     "start": "node server.mjs",
-    "check": "node --check assets/js/privacy-consent.js && node --check assets/js/analytics.js && node --check assets/js/reveal-compat.js && node --check assets/js/script.js && node --check assets/vendor/lucide-index.min.js && node --check scripts/performance-budget.mjs && node --check scripts/security-audit.mjs && node --check scripts/validate-site.mjs && node --check assets/js/accessibility.js && node --check assets/js/portfolio-accessibility.js && node --check scripts/accessibility-audit.mjs && node --check server.mjs && node --check scripts/compatibility-audit.mjs",
+    "check": "node --check assets/js/privacy-consent.js && node --check assets/js/analytics.js && node --check assets/js/reveal-compat.js && node --check assets/js/script.js && node --check assets/js/guia-web.js && node --check assets/vendor/lucide-index.min.js && node --check scripts/performance-budget.mjs && node --check scripts/security-audit.mjs && node --check scripts/validate-site.mjs && node --check assets/js/accessibility.js && node --check assets/js/portfolio-accessibility.js && node --check scripts/accessibility-audit.mjs && node --check server.mjs && node --check scripts/compatibility-audit.mjs",
     "validate": "npm run check && node scripts/validate-site.mjs && npm run audit:performance && npm run audit:security && npm run audit:accessibility && npm run audit:compatibility",
     "audit:performance": "node scripts/performance-budget.mjs",
     "audit:security": "node scripts/security-audit.mjs",

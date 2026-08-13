@@ -39,7 +39,7 @@
 
     <link rel="preload" href="assets/img/ignaciodesarrollador.webp" as="image" type="image/webp" />
     <script src="assets/js/reveal-compat.js?v=2.2.0" defer></script>
-    <link rel="stylesheet" href="assets/css/style.css?v=2.0.48" />
+    <link rel="stylesheet" href="assets/css/style.css?v=2.0.49" />
     <link rel="stylesheet" href="assets/css/premium-motion.css?v=2.2.0" />
     <link rel="stylesheet" href="assets/css/privacy-consent.css?v=2.0.24" />
     <link rel="stylesheet" href="assets/css/accessibility.css?v=2.1.1" />
@@ -172,7 +172,7 @@
             <ul class="nav-links" id="primaryNav">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
-                <li><a href="configurador/">Configurar</a></li>
+                <li><a href="#configurador-servicios">Orientación</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
                 <li><a href="#proceso">Proceso</a></li>
                 <li><a href="#sobre-mi">Sobre mí</a></li>
@@ -246,9 +246,9 @@
 
                 <div class="about-visual reveal">
                     <div class="about-orbit image-test" aria-label="Imagen sobre experiencia y desarrollo">
-                        <img class="about-orbit-image" src="assets/img/jiLhj.jpg.jpeg"
-                            alt="Ilustración tecnológica con globos de herramientas de desarrollo"
-                            width="960" height="640" loading="lazy" decoding="async">
+                        <img class="about-orbit-image" src="assets/img/experiencia-desarrollo-720.webp"
+                            alt="Collage de rubros empresariales y desarrollo tecnológico"
+                            width="720" height="720" loading="lazy" decoding="async">
                         <div class="about-orbit-glow"></div>
                         <div class="about-orbit-route route-a"></div>
                         <div class="about-orbit-route route-b"></div>
@@ -906,101 +906,82 @@
 
         </section>
 
-        <!-- 7. CONFIGURADOR DE SERVICIOS -->
+        <!-- 7. HERRAMIENTAS DE ORIENTACIÓN ISM -->
         <section class="section configurator-cta-section" id="configurador-servicios"
             aria-labelledby="configurator-cta-title">
             <div class="configurator-cta-heading reveal">
                 <p class="configurator-cta-kicker">
-                    <span>Producto ISM</span>
-                    Herramienta desarrollada por ISM Developer
+                    <span>Herramientas ISM</span>
+                    Dos formas de comenzar
                 </p>
 
                 <h2 id="configurator-cta-title" class="section-heading-emphasis">
-                    Una primera evaluación <span class="section-heading-accent">clara, guiada y transparente.</span>
+                    Elige cómo quieres <span class="section-heading-accent">dar el primer paso.</span>
                 </h2>
+                <p>
+                    Configura un alcance técnico en detalle o deja que nuestro asistente te oriente con preguntas simples.
+                </p>
             </div>
 
-            <div class="configurator-cta-shell reveal">
-                <div class="configurator-cta-copy">
-                    <p class="configurator-cta-product-label">Configurador de servicios ISM</p>
+            <div class="configurator-tools-shell reveal">
+                <article class="configurator-tool-card configurator-tool-card--technical">
+                    <div class="configurator-tool-brand" aria-hidden="true">
+                        <img src="assets/img/ismlogo2.0-horizontal-640-opt.webp" alt="" width="560" height="223" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="configurator-tool-icon configurator-tool-icon--technical" aria-hidden="true">
+                        <i data-lucide="sliders-horizontal"></i>
+                    </div>
 
-                    <p class="configurator-cta-description configurator-cta-description--lead">
-                        Convierte una necesidad en un alcance ordenado antes de solicitar una cotización formal.
+                    <p class="configurator-tool-eyebrow">Exploración técnica</p>
+                    <h3>Configurador de servicios</h3>
+                    <p class="configurator-tool-copy">
+                        Selecciona líneas de servicio, actividades y niveles para construir un alcance técnico ordenado y detallado.
                     </p>
 
-                    <p class="configurator-cta-description">
-                        La herramienta está pensada para empresas, emprendimientos y procesos que necesitan dimensionar
-                        una solución digital. El resultado es referencial y sirve como base para revisar el alcance junto
-                        a ISM Developer.
+                    <div class="configurator-tool-highlights" aria-label="Características del configurador">
+                        <span><i data-lucide="layers-3" aria-hidden="true"></i>6 líneas de servicio</span>
+                        <span><i data-lucide="calculator" aria-hidden="true"></i>Estimación referencial</span>
+                    </div>
+
+                    <a class="btn-primary configurator-tool-action" href="configurador/"
+                        data-track-event="configurator_open" data-track-category="conversion"
+                        data-track-label="Abrir configurador técnico">
+                        Abrir configurador
+                        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </a>
+                </article>
+
+                <article class="configurator-tool-card configurator-tool-card--assistant">
+                    <div class="configurator-tool-brand" aria-hidden="true">
+                        <img src="assets/img/ismlogo2.0-horizontal-640-opt.webp" alt="" width="560" height="223" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="configurator-tool-icon configurator-tool-icon--assistant" aria-hidden="true">
+                        <i data-lucide="wand-sparkles"></i>
+                    </div>
+
+                    <p class="configurator-tool-eyebrow">Orientación asistida</p>
+                    <h3>Guía Web ISM</h3>
+                    <p class="configurator-tool-copy">
+                        Responde preguntas simples y descubre qué tipo de sitio web se ajusta mejor a tu negocio y a tus objetivos.
                     </p>
 
-                    <div class="configurator-cta-actions">
-                        <a class="btn-primary configurator-cta-primary" href="configurador/"
-                            data-track-event="configurator_open" data-track-category="conversion"
-                            data-track-label="CTA sección configurador">
-                            Abrir configurador
-                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-                        </a>
-
-                        <a class="configurator-cta-secondary" href="#servicios">
-                            Revisar servicios
-                            <span aria-hidden="true">→</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="configurator-cta-preview" aria-label="Vista previa ilustrativa del configurador">
-                    <div class="configurator-preview-top">
-                        <div>
-                            <span>Tu configuración</span>
-                            <strong>Desarrollo e Implementación</strong>
-                        </div>
-                        <b>Vista previa</b>
+                    <div class="configurator-tool-highlights" aria-label="Características de la guía web">
+                        <span><i data-lucide="messages-square" aria-hidden="true"></i>Recorrido guiado</span>
+                        <span><i data-lucide="sparkles" aria-hidden="true"></i>Recomendación personalizada</span>
                     </div>
 
-                    <div class="configurator-preview-services">
-                        <article>
-                            <span class="configurator-preview-icon"><i data-lucide="globe-2" aria-hidden="true"></i></span>
-                            <div>
-                                <strong>Sitio web profesional</strong>
-                                <small>12 actividades seleccionadas</small>
-                            </div>
-                            <b>24,5 HH</b>
-                        </article>
-
-                        <article>
-                            <span class="configurator-preview-icon"><i data-lucide="workflow" aria-hidden="true"></i></span>
-                            <div>
-                                <strong>Integración y automatización</strong>
-                                <small>4 actividades seleccionadas</small>
-                            </div>
-                            <b>18 HH</b>
-                        </article>
-                    </div>
-
-                    <div class="configurator-preview-level">
-                        <div class="configurator-preview-level__head">
-                            <span>Nivel calculado automáticamente</span>
-                            <strong>Estándar</strong>
-                        </div>
-                        <div class="configurator-preview-meter" aria-hidden="true">
-                            <span></span>
-                            <span class="active"></span>
-                            <span></span>
-                        </div>
-                        <div class="configurator-preview-labels" aria-hidden="true">
-                            <span>Inicial</span>
-                            <span>Estándar</span>
-                            <span>Avanzado</span>
-                        </div>
-                    </div>
-
-                    <div class="configurator-preview-total">
-                        <span>Esfuerzo técnico estimado</span>
-                        <strong>42,5 HH</strong>
-                    </div>
-                </div>
+                    <a class="btn-primary configurator-tool-action configurator-tool-action--assistant" href="guia-web/"
+                        data-track-event="guide_web_open" data-track-category="conversion"
+                        data-track-label="Probar Guía Web ISM">
+                        Probar la guía
+                        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </a>
+                </article>
             </div>
+
+            <p class="configurator-tools-note reveal">
+                Ambas herramientas entregan una orientación inicial. El alcance definitivo se revisa contigo antes de cotizar.
+            </p>
         </section>
 
         <!-- 9. PORTAFOLIO ISM -->
@@ -1306,7 +1287,8 @@
             <div class="footer-column">
                 <h4>Servicios</h4>
                 <a href="#servicios">Servicios digitales</a>
-                <a href="configurador/">Configurar servicios</a>
+                <a href="#configurador-servicios">Herramientas de orientación</a>
+                <a href="guia-web/">Guía Web ISM</a>
                 <a href="#productos">Colaboración</a>
                 <a href="#madurez-digital">Madurez digital</a>
             </div>
@@ -1315,6 +1297,7 @@
                 <h4>Navegación</h4>
                 <a href="#servicios">Servicios</a>
                 <a href="configurador/">Configurador</a>
+                <a href="guia-web/">Guía Web</a>
                 <a href="#proyectos">Proyectos</a>
                 <a href="#proceso">Proceso</a>
                 <a href="#sobre-mi">Sobre mí</a>

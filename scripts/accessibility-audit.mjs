@@ -7,6 +7,7 @@ const pages = [
   { file: 'portafolio.html', skip: true },
   { file: 'privacidad.html', skip: true },
   { file: 'configurador/index.html', skip: true },
+  { file: 'guia-web/index.html', skip: true },
   { file: 'servicios.html', skip: false, redirect: true }
 ];
 

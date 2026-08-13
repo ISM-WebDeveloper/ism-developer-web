@@ -7,12 +7,14 @@ const htmlFiles = [
     "index.html",
     "servicios.html",
     "portafolio.html",
-    "privacidad.html"
+    "privacidad.html",
+    "guia-web/index.html"
 ];
 const indexableFiles = new Set([
     "index.html",
     "portafolio.html",
-    "privacidad.html"
+    "privacidad.html",
+    "guia-web/index.html"
 ]);
 const errors = [];
 const warnings = [];
@@ -233,7 +235,8 @@ const sitemap = read("sitemap.xml");
 for (const cleanUrl of [
     "https://www.ismdeveloper.cl/",
     "https://www.ismdeveloper.cl/portafolio.html",
-    "https://www.ismdeveloper.cl/privacidad.html"
+    "https://www.ismdeveloper.cl/privacidad.html",
+    "https://www.ismdeveloper.cl/guia-web/"
 ]) {
     if (!sitemap.includes(`<loc>${cleanUrl}</loc>`)) {
         report(errors, "sitemap.xml", `falta ${cleanUrl}.`);

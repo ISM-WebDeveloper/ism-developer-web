@@ -82,7 +82,7 @@ for (const token of [
     if (!consent.includes(token)) fail(`privacy-consent.js no declara ${token}.`);
 }
 
-for (const page of ["index.html", "portafolio.html", "privacidad.html"]) {
+for (const page of ["index.html", "portafolio.html", "privacidad.html", "guia-web/index.html"]) {
     const html = read(page);
     const consentPosition = html.indexOf("assets/js/privacy-consent.js");
     const analyticsPosition = html.indexOf("assets/js/analytics.js");

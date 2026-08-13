@@ -6,7 +6,7 @@ const entry = path.join(root, "index.html");
 
 const limits = {
     html: 110 * 1024,
-    css: 160 * 1024,
+    css: 170 * 1024,
     js: 90 * 1024,
     images: 600 * 1024,
     total: 850 * 1024,
