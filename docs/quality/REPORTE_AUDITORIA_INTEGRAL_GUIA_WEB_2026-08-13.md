@@ -24,7 +24,7 @@ Evaluación global: **8,7 / 10**.
 ## Mejoras implementadas
 
 1. La antigua llamada exclusiva al configurador se convirtió en una sección compartida, dividida en dos áreas iguales en escritorio y apilada de forma segura en móvil.
-2. Cada herramienta incluye logotipo oficial, icono premium, título, explicación, atributos destacados y enlace propio.
+2. Cada herramienta incluye un icono premium propio, título, explicación, atributos destacados y enlace directo, sin repetir el logotipo dentro de las tarjetas.
 3. Se creó `/guia-web/` como página productiva con ocho pasos, recomendación personalizada y resumen final.
 4. El envío simulado del demo fue sustituido por una solicitud real preparada para WhatsApp, con enlace de respaldo si la primera apertura es bloqueada.
 5. Se incorporaron validación de datos, etiquetas accesibles, estados seleccionados con `aria-pressed`, progreso anunciado, enlace de salto y compatibilidad con reducción de movimiento.

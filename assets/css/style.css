@@ -3,39 +3,57 @@
 
 /* Herramientas de orientación: configurador + Guía Web ISM */
 .configurator-cta-section .configurator-cta-heading {
-    width: min(100%, 1040px);
-    margin-bottom: clamp(28px, 4vw, 42px);
+    width: min(100%, 1240px);
+    margin-bottom: clamp(16px, 2.2vh, 22px);
     text-align: center;
 }
 
 .configurator-cta-section .configurator-cta-heading h2 {
-    max-width: 900px;
+    max-width: 1180px;
     margin-inline: auto;
     white-space: normal;
 }
 
 .configurator-cta-section .configurator-cta-heading > p:last-child {
-    max-width: 720px;
-    margin: 14px auto 0;
+    max-width: 760px;
+    margin: 8px auto 0;
     color: #9fb2c5;
-    font-size: clamp(14px, 1.3vw, 17px);
-    line-height: 1.6;
+    font-size: clamp(13px, 1.05vw, 15px);
+    line-height: 1.5;
 }
 
 .configurator-tools-shell {
     position: relative;
     z-index: 2;
-    width: min(100%, 1180px);
+    width: min(100%, 1240px);
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     overflow: hidden;
-    border: 1px solid rgba(56, 189, 248, 0.24);
-    border-radius: 30px;
+    isolation: isolate;
+    border: 1px solid rgba(93, 214, 255, 0.36);
+    border-radius: 22px;
     background:
-        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.1), transparent 32%),
-        linear-gradient(145deg, rgba(11, 29, 49, 0.94), rgba(4, 13, 25, 0.96));
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 30px 80px rgba(0, 0, 0, 0.36);
+        linear-gradient(115deg, rgba(56, 189, 248, 0.055), transparent 28%, transparent 72%, rgba(34, 211, 238, 0.045)),
+        linear-gradient(145deg, rgba(11, 29, 49, 0.97), rgba(4, 13, 25, 0.98));
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.09),
+        inset 0 0 48px rgba(14, 165, 233, 0.035),
+        0 24px 64px rgba(0, 0, 0, 0.38),
+        0 0 34px rgba(56, 189, 248, 0.09);
+}
+
+.configurator-tools-shell::after {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    content: "";
+    pointer-events: none;
+    border-radius: inherit;
+    background:
+        linear-gradient(90deg, transparent 0%, rgba(103, 232, 249, 0.22) 50%, transparent 100%) top / 58% 1px no-repeat,
+        linear-gradient(90deg, transparent 0%, rgba(14, 165, 233, 0.16) 50%, transparent 100%) bottom / 76% 1px no-repeat;
+    opacity: 0.9;
 }
 
 .configurator-tools-shell::before {
@@ -54,8 +72,8 @@
 .configurator-tool-card {
     position: relative;
     min-width: 0;
-    min-height: 530px;
-    padding: clamp(34px, 4vw, 52px);
+    min-height: 372px;
+    padding: clamp(22px, 2.6vw, 34px) clamp(28px, 3.5vw, 46px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,36 +82,10 @@
     text-align: center;
 }
 
-.configurator-tool-card::before,
-.configurator-tool-card::after {
-    position: absolute;
-    content: "";
-    pointer-events: none;
-    border-radius: 50%;
-}
-
-.configurator-tool-card::before {
-    top: -120px;
-    width: 310px;
-    height: 310px;
-    background: rgba(56, 189, 248, 0.07);
-    filter: blur(68px);
-}
-
-.configurator-tool-card::after {
-    right: 12%;
-    bottom: 12%;
-    width: 110px;
-    height: 110px;
-    border: 1px solid rgba(56, 189, 248, 0.075);
-    background: rgba(56, 189, 248, 0.018);
-}
-
 .configurator-tool-card--assistant {
-    background: radial-gradient(circle at 80% 85%, rgba(56, 189, 248, 0.08), transparent 30%);
+    background: linear-gradient(180deg, rgba(56, 189, 248, 0.025), transparent 38%);
 }
 
-.configurator-tool-brand,
 .configurator-tool-icon,
 .configurator-tool-eyebrow,
 .configurator-tool-card h3,
@@ -104,54 +96,29 @@
     z-index: 4;
 }
 
-.configurator-tool-brand {
-    width: 154px;
-    height: 50px;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.78;
-}
-
-.configurator-tool-brand img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
 .configurator-tool-icon {
-    width: 82px;
-    height: 82px;
-    margin-bottom: 22px;
+    width: 84px;
+    height: 72px;
+    margin-bottom: 3px;
     display: grid;
     place-items: center;
     color: #7dd3fc;
-    border: 1px solid rgba(56, 189, 248, 0.38);
-    border-radius: 25px;
-    background:
-        radial-gradient(circle at 34% 28%, rgba(125, 211, 252, 0.2), transparent 28%),
-        linear-gradient(145deg, rgba(14, 165, 233, 0.16), rgba(4, 15, 28, 0.82));
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.11), 0 17px 42px rgba(0, 0, 0, 0.28), 0 0 36px rgba(56, 189, 248, 0.09);
-    transform: rotate(-3deg);
+    filter: drop-shadow(0 12px 22px rgba(14, 165, 233, 0.3));
 }
 
 .configurator-tool-icon--assistant {
-    color: #06111f;
-    border-color: rgba(125, 229, 255, 0.62);
-    background: linear-gradient(135deg, #38bdf8, #67e8f9);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 18px 44px rgba(14, 165, 233, 0.25), 0 0 42px rgba(56, 189, 248, 0.13);
-    transform: rotate(3deg);
+    color: #67e8f9;
+    filter: drop-shadow(0 12px 24px rgba(34, 211, 238, 0.34));
 }
 
 .configurator-tool-icon svg {
-    width: 37px;
-    height: 37px;
-    stroke-width: 1.8;
+    width: 54px;
+    height: 54px;
+    stroke-width: 1.45;
 }
 
 .configurator-tool-eyebrow {
-    margin: 0 0 9px;
+    margin: 0 0 6px;
     color: #7dd3fc;
     font-size: 10px;
     font-weight: 900;
@@ -162,24 +129,24 @@
 .configurator-tool-card h3 {
     margin: 0;
     color: #fff;
-    font-size: clamp(25px, 2.5vw, 34px);
+    font-size: clamp(24px, 2.25vw, 31px);
     line-height: 1.08;
     letter-spacing: -0.03em;
 }
 
 .configurator-tool-copy {
     max-width: 440px;
-    min-height: 76px;
-    margin: 15px auto 0;
+    min-height: 58px;
+    margin: 10px auto 0;
     color: #a8b8c8;
     font-size: clamp(13px, 1.1vw, 15px);
-    line-height: 1.62;
+    line-height: 1.5;
     text-wrap: pretty;
 }
 
 .configurator-tool-highlights {
-    min-height: 68px;
-    margin-top: 21px;
+    min-height: 45px;
+    margin-top: 14px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -188,15 +155,15 @@
 }
 
 .configurator-tool-highlights span {
-    min-height: 36px;
-    padding: 0 11px;
+    min-height: 34px;
+    padding: 0 12px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 7px;
     color: #b9cfdf;
     border: 1px solid rgba(148, 210, 230, 0.14);
-    border-radius: 999px;
+    border-radius: 8px;
     background: rgba(3, 14, 27, 0.5);
     font-size: 10px;
     font-weight: 800;
@@ -209,12 +176,12 @@
 }
 
 .configurator-tool-action {
-    min-width: 210px;
-    min-height: 52px;
-    margin-top: 13px;
+    min-width: 218px;
+    min-height: 48px;
+    margin-top: 7px;
     gap: 10px;
     border: 1px solid rgba(125, 229, 255, 0.46);
-    border-radius: 13px;
+    border-radius: 8px;
     background: linear-gradient(135deg, #0ea5e9, #22d3ee);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 18px 38px rgba(14, 165, 233, 0.24);
     transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
@@ -239,11 +206,73 @@
     position: relative;
     z-index: 2;
     max-width: 740px;
-    margin: 18px auto 0;
+    margin: 10px auto 0;
     color: #70879b;
     font-size: 11px;
     line-height: 1.5;
     text-align: center;
+}
+
+@media (min-width: 1080px) {
+    .configurator-cta-section {
+        height: 100svh;
+        min-height: 660px;
+        max-height: 100svh;
+        padding-top: clamp(22px, 3.5vh, 34px);
+        padding-bottom: clamp(20px, 3vh, 30px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .configurator-cta-section .configurator-cta-heading h2 {
+        white-space: nowrap;
+        font-size: clamp(36px, 3.55vw, 52px);
+        line-height: 1.02;
+    }
+
+    .configurator-cta-section .configurator-cta-kicker {
+        margin-bottom: 7px;
+    }
+}
+
+@media (min-width: 1080px) and (max-height: 700px) {
+    .configurator-cta-section .configurator-cta-heading {
+        margin-bottom: 12px;
+    }
+
+    .configurator-cta-section .configurator-cta-heading h2 {
+        font-size: clamp(34px, 3.2vw, 46px);
+    }
+
+    .configurator-cta-section .configurator-cta-heading > p:last-child {
+        margin-top: 5px;
+        font-size: 12px;
+    }
+
+    .configurator-tool-card {
+        min-height: 344px;
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+
+    .configurator-tool-icon {
+        height: 62px;
+    }
+
+    .configurator-tool-icon svg {
+        width: 48px;
+        height: 48px;
+    }
+
+    .configurator-tool-copy {
+        min-height: 50px;
+        margin-top: 7px;
+    }
+
+    .configurator-tool-highlights {
+        margin-top: 10px;
+    }
 }
 
 @media (max-width: 860px) {
@@ -262,7 +291,7 @@
     }
 
     .configurator-tool-card {
-        min-height: 500px;
+        min-height: 420px;
     }
 }
 
@@ -272,7 +301,7 @@
     }
 
     .configurator-tools-shell {
-        border-radius: 24px;
+        border-radius: 18px;
     }
 
     .configurator-tool-card {
@@ -280,21 +309,15 @@
         padding: 36px 21px 38px;
     }
 
-    .configurator-tool-brand {
-        width: 138px;
-        margin-bottom: 18px;
-    }
-
     .configurator-tool-icon {
-        width: 72px;
-        height: 72px;
-        margin-bottom: 19px;
-        border-radius: 22px;
+        width: 82px;
+        height: 70px;
+        margin-bottom: 3px;
     }
 
     .configurator-tool-icon svg {
-        width: 32px;
-        height: 32px;
+        width: 52px;
+        height: 52px;
     }
 
     .configurator-tool-copy,
