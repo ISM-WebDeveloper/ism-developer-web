@@ -994,6 +994,10 @@ input:focus-visible {
     text-transform: uppercase;
 }
 
+.guide-aside-heading {
+    text-align: center;
+}
+
 .guide-aside-heading h2 {
     margin: 7px 0 5px;
     color: #fff;
@@ -1283,6 +1287,10 @@ input:focus-visible {
         gap: 5px;
     }
 
+    .guide-main.is-welcome .guide-intro-copy {
+        transform: translateY(12px);
+    }
+
     .guide-intro-points > div {
         grid-template-columns: 26px minmax(0, 1fr);
         gap: 8px;
@@ -1561,6 +1569,10 @@ input:focus-visible {
         align-items: center;
     }
 
+    .guide-main.is-welcome .guide-intro-copy {
+        transform: translateY(38px);
+    }
+
     .guide-intro-points {
         margin-top: 30px;
         gap: 7px;
@@ -1680,6 +1692,10 @@ input:focus-visible {
     .guide-screen {
         padding-top: 12px;
         padding-bottom: 8px;
+    }
+
+    .guide-main.is-welcome .guide-intro-copy {
+        transform: translateY(28px);
     }
 
     .guide-main-top {
