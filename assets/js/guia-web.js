@@ -344,6 +344,8 @@
 
     function updateNavigation() {
         var progress = state.step === 0 ? 4 : Math.round((state.step / totalSteps) * 100);
+
+        selectors.main.classList.toggle("is-welcome", state.step === 0);
         var nextLabel = "Continuar";
 
         selectors.screens.forEach(function (screen) {
@@ -428,6 +430,7 @@
         });
         selectors.mainTop.hidden = true;
         selectors.actionsBar.hidden = true;
+        selectors.main.classList.remove("is-welcome");
         selectors.successScreen.classList.add("is-visible");
 
         if (typeof window.trackEvent === "function") {
