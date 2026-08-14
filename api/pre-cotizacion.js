@@ -1,5 +1,5 @@
 /**
- * API · Pre-cotización Guía Web ISM
+ * API · Pre-cotización Guía Web ISM · P2.0
  *
  * Responsabilidades:
  * - Validar y normalizar el payload recibido desde la guía.
@@ -87,9 +87,19 @@ function buildEmail(payload, contact) {
     const project = payload.project || {};
     const recommendation = payload.recommendation || {};
     const maturity = recommendation.maturity || {};
-    const suggestions = Array.isArray(recommendation.suggestions)
-        ? recommendation.suggestions.map((item) => clean(item?.title, 160)).filter(Boolean)
-        : [];
+    const suggestions = Array.isArray(recommendation.suggestions) ? recommendation.suggestions : [];
+    const acceptedSuggestions = suggestions
+        .filter((item) => clean(item?.decision, 20) === "accepted")
+        .map((item) => clean(item?.title, 160))
+        .filter(Boolean);
+    const rejectedSuggestions = suggestions
+        .filter((item) => clean(item?.decision, 20) === "rejected")
+        .map((item) => clean(item?.title, 160))
+        .filter(Boolean);
+    const pendingSuggestions = suggestions
+        .filter((item) => !["accepted", "rejected"].includes(clean(item?.decision, 20)))
+        .map((item) => clean(item?.title, 160))
+        .filter(Boolean);
     const rows = [
         ["Nombre", contact.name],
         ["Negocio", contact.business || "No indicado"],
@@ -103,7 +113,9 @@ function buildEmail(payload, contact) {
         ["Solución sugerida", clean(recommendation.title, 180) || "No indicada"],
         ["Tipo interno", clean(recommendation.type, 40) || "No indicado"],
         ["Momento digital", clean(maturity.title, 120) || "No indicado"],
-        ["Sugerencias ISM", suggestions.length ? suggestions.join(", ") : "Sin sugerencias"],
+        ["Sugerencias agregadas", acceptedSuggestions.length ? acceptedSuggestions.join(", ") : "Ninguna"],
+        ["Sugerencias descartadas", rejectedSuggestions.length ? rejectedSuggestions.join(", ") : "Ninguna"],
+        ["Sugerencias sin decisión", pendingSuggestions.length ? pendingSuggestions.join(", ") : "Ninguna"],
         ["Compromiso de respuesta", "Dentro de las primeras 48 horas hábiles"],
         ["Tarifa interna", `${Number(payload?.internal?.hourlyRateUF || 0.7).toFixed(1)} UF/HH (no visible al prospecto)`]
     ];

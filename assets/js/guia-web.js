@@ -1,14 +1,17 @@
 /**
  * Guía Web ISM · Lógica principal
- * Versión de parche: P1.1
+ * Versión de parche: P2.0
  *
- * Responsabilidades de este archivo:
+ * Responsabilidades:
  * - Mantener el estado temporal de la guía en el navegador.
- * - Renderizar opciones, progreso, recomendaciones y resumen.
- * - Validar los datos de contacto del prospecto.
- * - Construir el payload comercial y enviarlo a /api/pre-cotizacion.
+ * - Renderizar preguntas, progreso, estructura del proyecto y resultado.
+ * - Aplicar reglas determinísticas de recomendación y madurez digital.
+ * - Registrar recomendaciones aceptadas, descartadas o pendientes.
+ * - Validar los datos del prospecto y enviarlos a /api/pre-cotizacion.
  *
- * Importante: la tarifa interna (0,7 UF/HH) nunca se muestra al prospecto.
+ * Importante:
+ * - La guía utiliza lenguaje comercial simple; no expone arquitectura ni HH.
+ * - La tarifa interna de 0,7 UF/HH viaja solo en el payload interno de ISM.
  */
 (function () {
     "use strict";
@@ -25,7 +28,7 @@
         presence: [],
         content: [],
         actions: [],
-        recommendations: [],
+        recommendationDecisions: {},
         contact: {
             name: "",
             business: "",
@@ -36,28 +39,32 @@
     };
 
     // =====================================================================
-    // 02. CONFIGURACIÓN Y CATÁLOGO VISIBLE
-    // Datos simples orientados al cliente; no contienen detalle técnico/HH.
+    // 02. CATÁLOGO VISIBLE Y CONFIGURACIÓN DE LA EXPERIENCIA
+    // Textos simples orientados al cliente; no contienen detalle técnico/HH.
     // =====================================================================
 
-    var totalSteps = 8;
+    var totalSteps = 7;
 
     var data = {
         goals: [
             ["clientes", "Conseguir clientes", "Que nuevas personas te encuentren y te contacten.", "target"],
             ["reservas", "Recibir reservas", "Que elijan un servicio, fecha u horario.", "calendar-check"],
             ["servicios", "Mostrar mis servicios", "Explicar qué haces y cómo puedes ayudar.", "layers-3"],
-            ["consultas", "Recibir consultas", "Llevar al visitante a WhatsApp o a un formulario.", "message-square"],
+            ["consultas", "Recibir consultas", "Llevar al visitante a un canal de contacto.", "message-square"],
             ["portafolio", "Mostrar mi trabajo", "Presentar proyectos, casos o resultados reales.", "panel-top"],
-            ["ventas", "Vender online", "Mostrar productos y facilitar pedidos o compras.", "truck"]
+            ["ventas", "Vender online", "Mostrar productos y facilitar pedidos o compras.", "truck"],
+            ["procesos", "Digitalizar un proceso", "Reducir tareas manuales, coordinaciones o registros repetitivos.", "workflow"]
         ],
         industries: [
             ["salud", "Salud y bienestar", "Profesionales, centros, terapias y estética.", "badge-check"],
-            ["belleza", "Belleza o barbería", "Barberías, salones, uñas y cuidado personal.", "sparkles"],
-            ["profesional", "Profesional independiente", "Asesoría y servicios especializados.", "pencil-ruler"],
+            ["belleza", "Belleza y cuidado personal", "Barberías, salones, uñas y servicios afines.", "sparkles"],
+            ["profesional", "Profesional independiente", "Asesorías y servicios especializados.", "pencil-ruler"],
             ["comercio", "Comercio o tienda", "Productos, stock, pedidos y ventas.", "truck"],
-            ["b2b", "Empresa o servicios B2B", "Servicios dirigidos a otras empresas.", "handshake"],
-            ["otro", "Otro negocio", "Construcción, gastronomía, turismo u otro rubro.", "rocket"]
+            ["gastronomia", "Gastronomía", "Restaurantes, cafeterías y servicios de comida.", "layers-3"],
+            ["turismo", "Turismo o alojamiento", "Experiencias, reservas, hospedaje y actividades.", "route"],
+            ["construccion", "Construcción o servicios técnicos", "Obras, mantención y servicios especializados.", "settings"],
+            ["b2b", "Empresa o servicios B2B", "Servicios dirigidos principalmente a otras empresas.", "handshake"],
+            ["otro", "Otro negocio", "Si tu actividad no encaja en las alternativas anteriores.", "rocket"]
         ],
         presence: [
             ["social", "Instagram o Facebook", "Uso redes sociales para mostrar mi negocio.", "messages-square"],
@@ -65,6 +72,7 @@
             ["maps", "Google Maps", "Tengo una ficha o ubicación visible.", "route"],
             ["web", "Página web", "Ya cuento con un sitio web propio.", "monitor"],
             ["booking", "Sistema de reservas", "Uso una agenda o plataforma de reservas.", "calendar-check"],
+            ["shop", "Tienda online", "Ya vendo o recibo pedidos mediante una plataforma.", "truck"],
             ["none", "Nada todavía", "Estoy comenzando mi presencia digital.", "rocket"]
         ],
         essentials: [
@@ -87,8 +95,10 @@
             ["form", "Enviar un formulario", "Antecedentes ordenados del interesado.", "panel-top"],
             ["booking", "Reservar una hora", "Elegir un servicio, fecha u horario.", "calendar-check"],
             ["quote", "Pedir una cotización", "Enviar una solicitud con antecedentes.", "send"],
-            ["shop", "Comprar o pedir", "Revisar un catálogo o iniciar una compra.", "truck"],
-            ["account", "Ingresar a una cuenta", "Acceder a información o funciones privadas.", "shield-check"]
+            ["shop", "Comprar o hacer un pedido", "Revisar productos e iniciar una compra.", "truck"],
+            ["account", "Ingresar a una cuenta", "Acceder a información o funciones privadas.", "shield-check"],
+            ["automation", "Automatizar una tarea", "Reducir pasos repetitivos o coordinaciones manuales.", "workflow"],
+            ["integration", "Conectar con otro sistema", "Compartir información con una plataforma que ya utilizas.", "server"]
         ]
     };
 
@@ -97,7 +107,6 @@
         "Objetivos",
         "Tu negocio",
         "Situación actual",
-        "Base incluida",
         "Contenido",
         "Acciones",
         "Recomendación",
@@ -106,13 +115,12 @@
 
     // =====================================================================
     // 03. REFERENCIAS DEL DOM
-    // Se centralizan los elementos persistentes para evitar búsquedas repetidas.
+    // Elementos persistentes consultados durante todo el recorrido.
     // =====================================================================
 
     var selectors = {
         screens: document.querySelectorAll(".guide-screen"),
         main: document.getElementById("guideMain"),
-        mainTop: document.getElementById("guideMainTop"),
         progressBar: document.getElementById("progressBar"),
         progressTrack: document.getElementById("progressTrack"),
         stepIndicator: document.getElementById("stepIndicator"),
@@ -122,7 +130,7 @@
     };
 
     // =====================================================================
-    // 04. UTILIDADES GENERALES Y SELECCIÓN
+    // 04. UTILIDADES GENERALES Y MANEJO DE SELECCIONES
     // =====================================================================
 
     /** Regenera los iconos Lucide insertados dinámicamente. */
@@ -132,11 +140,19 @@
         }
     }
 
-    function findLabel(collection, id) {
-        var item = collection.find(function (entry) {
+    function findItem(collection, id) {
+        return collection.find(function (entry) {
             return entry[0] === id;
         });
+    }
+
+    function findLabel(collection, id) {
+        var item = findItem(collection, id);
         return item ? item[1] : id;
+    }
+
+    function includes(collection, id) {
+        return collection.includes(id);
     }
 
     function isSelected(key, id, single) {
@@ -159,6 +175,7 @@
 
         current.push(id);
 
+        // "Nada todavía" es excluyente respecto del resto de presencia digital.
         if (key === "presence" && id === "none") {
             state.presence = ["none"];
         } else if (key === "presence" && id !== "none") {
@@ -172,7 +189,7 @@
     // 05. COMPONENTES DINÁMICOS DE OPCIONES
     // =====================================================================
 
-    /** Crea una tarjeta seleccionable y sincroniza su estado accesible. */
+    /** Crea una tarjeta seleccionable y mantiene aria-pressed sincronizado. */
     function createChoice(item, key, single) {
         var id = item[0];
         var title = item[1];
@@ -192,11 +209,12 @@
             "<strong>" + title + "</strong>",
             "<small>" + description + "</small>",
             "</span>",
-            "</span>",
+            "</span>"
         ].join("");
 
         button.addEventListener("click", function () {
             toggleSelection(key, id, single);
+            pruneRecommendationDecisions();
             renderAll();
         });
 
@@ -230,54 +248,173 @@
         });
     }
 
-    function includes(collection, id) {
-        return collection.includes(id);
-    }
-
     // =====================================================================
     // 06. MOTOR DE ORIENTACIÓN ISM
-    // Reglas determinísticas: convierten respuestas simples en sugerencias.
+    // Reglas determinísticas que convierten respuestas simples en sugerencias.
     // =====================================================================
 
-    /** Devuelve un máximo de cuatro recomendaciones contextuales. */
+    function recommendation(id, title, description, shortLabel, icon, featured) {
+        return {
+            id: id,
+            title: title,
+            description: description,
+            shortLabel: shortLabel || title,
+            icon: icon || "plus",
+            featured: Boolean(featured)
+        };
+    }
+
+    /** Devuelve recomendaciones contextuales sin repetir lo que el usuario ya eligió. */
     function getRecommendations() {
         var recommendations = [];
 
-        if (includes(state.goals, "reservas") || includes(state.actions, "booking")) {
-            recommendations.push(["Horarios y reglas de atención", "Ayudan a que el sistema de reservas muestre disponibilidad real y reduzca coordinaciones manuales."]);
+        if ((includes(state.goals, "reservas") || includes(state.actions, "booking"))) {
+            recommendations.push(recommendation(
+                "availability",
+                "Horarios y disponibilidad",
+                "Ayudan a que una reserva muestre opciones claras y reduzca coordinaciones manuales.",
+                "Horarios",
+                "calendar-check",
+                true
+            ));
         }
+
         if ((state.industry === "salud" || state.industry === "profesional") && !includes(state.content, "team")) {
-            recommendations.push(["Perfil profesional", "Mostrar experiencia, especialidad y enfoque genera confianza antes del primer contacto."]);
+            recommendations.push(recommendation(
+                "professional-profile",
+                "Perfil profesional",
+                "Mostrar experiencia, especialidad y enfoque genera confianza antes del contacto.",
+                "Perfil profesional",
+                "pencil-ruler",
+                true
+            ));
         }
-        if (state.industry === "belleza" && !includes(state.content, "gallery")) {
-            recommendations.push(["Galería de resultados", "En este rubro, ver trabajos reales ayuda a decidir antes de reservar."]);
+
+        if ((state.industry === "belleza" || state.industry === "construccion") && !includes(state.content, "gallery")) {
+            recommendations.push(recommendation(
+                "portfolio-gallery",
+                "Galería de trabajos",
+                "Ver resultados reales ayuda a evaluar la calidad antes de consultar.",
+                "Galería",
+                "monitor",
+                true
+            ));
         }
-        if (includes(state.goals, "clientes") && !includes(state.actions, "whatsapp") && !includes(state.actions, "form")) {
-            recommendations.push(["Un canal de contacto visible", "El visitante debería poder dar el siguiente paso sin buscar tus datos."]);
+
+        if ((includes(state.goals, "clientes") || includes(state.goals, "consultas")) && !includes(state.actions, "whatsapp") && !includes(state.actions, "form")) {
+            recommendations.push(recommendation(
+                "contact-channel",
+                "Un canal de contacto visible",
+                "El visitante debería poder dar el siguiente paso sin buscar tus datos.",
+                "Contacto",
+                "message-square",
+                true
+            ));
         }
-        if (includes(state.goals, "ventas") || includes(state.actions, "shop")) {
-            recommendations.push(["Información de entrega o retiro", "Aclara el proceso y reduce preguntas antes de comprar o hacer un pedido."]);
+
+        if ((includes(state.goals, "ventas") || includes(state.actions, "shop")) && state.industry !== "b2b") {
+            recommendations.push(recommendation(
+                "delivery-info",
+                "Entrega, despacho o retiro",
+                "Aclarar cómo recibirá su compra reduce dudas antes de hacer un pedido.",
+                "Entrega o retiro",
+                "truck",
+                false
+            ));
         }
+
         if (!includes(state.content, "faq")) {
-            recommendations.push(["Preguntas frecuentes", "Pueden resolver dudas repetidas antes de que una persona te contacte."]);
+            recommendations.push(recommendation(
+                "faq",
+                "Preguntas frecuentes",
+                "Resuelven dudas repetidas antes de que una persona tenga que escribirte.",
+                "Preguntas frecuentes",
+                "messages-square",
+                false
+            ));
         }
-        if (!includes(state.presence, "maps") && ["salud", "belleza", "comercio"].includes(state.industry)) {
-            recommendations.push(["Presencia local", "Una ficha de ubicación bien conectada puede facilitar que te encuentren cerca de tu zona."]);
+
+        if (!includes(state.presence, "maps") && ["salud", "belleza", "comercio", "gastronomia", "turismo"].includes(state.industry)) {
+            recommendations.push(recommendation(
+                "local-presence",
+                "Ubicación y presencia local",
+                "Facilita que personas cercanas encuentren tu negocio y sepan cómo llegar.",
+                "Ubicación",
+                "route",
+                false
+            ));
         }
+
+        if (includes(state.goals, "procesos") && !includes(state.actions, "automation") && !includes(state.actions, "integration")) {
+            recommendations.push(recommendation(
+                "process-review",
+                "Revisar el proceso actual",
+                "Antes de automatizar conviene identificar qué pasos se repiten, quién participa y dónde se pierde tiempo.",
+                "Proceso actual",
+                "workflow",
+                true
+            ));
+        }
+
+        if (includes(state.actions, "integration")) {
+            recommendations.push(recommendation(
+                "integration-scope",
+                "Definir qué información se conecta",
+                "Una integración necesita dejar claro qué datos entran, salen y cuándo deben sincronizarse.",
+                "Datos a integrar",
+                "server",
+                true
+            ));
+        }
+
         if (recommendations.length < 2) {
-            recommendations.push(["Medición de contactos", "Saber qué botones y canales generan consultas permite mejorar la web con evidencia."]);
+            recommendations.push(recommendation(
+                "measurement",
+                "Medición de contactos",
+                "Conocer qué botones generan consultas permite mejorar la solución con evidencia.",
+                "Analítica básica",
+                "trending-up",
+                false
+            ));
         }
 
         return recommendations.slice(0, 4);
     }
 
-    /** Clasifica el proyecto en una solución comercial inicial. */
+    /** Elimina decisiones antiguas si una recomendación deja de aplicar. */
+    function pruneRecommendationDecisions() {
+        var validIds = getRecommendations().map(function (item) { return item.id; });
+        Object.keys(state.recommendationDecisions).forEach(function (id) {
+            if (!validIds.includes(id)) delete state.recommendationDecisions[id];
+        });
+    }
+
+    function setRecommendationDecision(id, decision) {
+        if (state.recommendationDecisions[id] === decision) {
+            delete state.recommendationDecisions[id];
+        } else {
+            state.recommendationDecisions[id] = decision;
+        }
+        renderAll();
+    }
+
+    function getRecommendationDecision(id) {
+        return state.recommendationDecisions[id] || "pending";
+    }
+
+    /** Clasifica el proyecto en una solución inicial sin exponer códigos al usuario. */
     function getSolution() {
+        if (includes(state.actions, "integration")) {
+            return ["Integración o solución conectada", "Tu proyecto necesita intercambiar información con otra plataforma o sistema.", "INT"];
+        }
+        if (includes(state.actions, "automation") || includes(state.goals, "procesos")) {
+            return ["Solución digital con automatización", "El foco está en reducir tareas manuales y ordenar un proceso de tu negocio.", "AUTOMATION"];
+        }
         if (includes(state.actions, "account")) {
-            return ["Solución web personalizada", "Tu proyecto incluye usuarios o información privada, por lo que se acerca a una aplicación web.", "APP"];
+            return ["Aplicación web personalizada", "Tu proyecto incorpora usuarios o información privada y supera una web informativa tradicional.", "APP"];
         }
         if (includes(state.actions, "shop") || includes(state.goals, "ventas")) {
-            return ["Tienda online o solución comercial", "Una plataforma para mostrar productos, recibir pedidos y preparar el proceso de compra.", "SHOP"];
+            return ["Tienda online o solución comercial", "Una experiencia para mostrar productos, recibir pedidos y preparar el proceso de compra.", "SHOP"];
         }
         if (includes(state.actions, "booking") || includes(state.goals, "reservas")) {
             return ["Sitio web profesional con reservas", "Una presencia clara con un recorrido para elegir servicio, fecha u horario.", "BOOKING"];
@@ -288,24 +425,73 @@
         return ["Sitio web profesional", "Una presencia clara para presentar tu negocio, generar confianza y facilitar el contacto.", "WEB"];
     }
 
-    /** Estima el momento digital para explicar el siguiente paso al usuario. */
+    /**
+     * Prioridad de madurez: Evolución > Consolidación > Optimización > Primeros pasos.
+     * Así una función avanzada nunca queda clasificada por debajo de una web existente.
+     */
     function getMaturity() {
-        if (includes(state.presence, "web") || includes(state.presence, "booking")) {
-            return ["Optimización digital", "Ya tienes una base digital. El siguiente paso es mejorar la experiencia o automatizar procesos."];
+        var advanced = includes(state.actions, "account") || includes(state.actions, "automation") || includes(state.actions, "integration") || includes(state.goals, "procesos");
+        var transactional = includes(state.actions, "shop") || includes(state.actions, "booking") || includes(state.goals, "ventas") || includes(state.goals, "reservas");
+        var existingBase = includes(state.presence, "web") || includes(state.presence, "booking") || includes(state.presence, "shop");
+        var somePresence = existingBase || includes(state.presence, "social") || includes(state.presence, "whatsapp") || includes(state.presence, "maps");
+
+        if (advanced) {
+            return ["Evolución digital", "Tu proyecto ya incorpora procesos, usuarios o conexiones que requieren una solución más avanzada."];
         }
-        if (includes(state.actions, "account") || includes(state.actions, "shop")) {
-            return ["Evolución digital", "Tu proyecto incorpora funciones más avanzadas que una web informativa."];
+        if (transactional && existingBase) {
+            return ["Consolidación digital", "Ya tienes una base y ahora buscas convertirla en una experiencia más completa para tus clientes."];
         }
-        return ["Primeros pasos", "Estamos armando una base clara para que te encuentren y te contacten con facilidad."];
+        if (somePresence) {
+            return ["Optimización digital", "Ya cuentas con presencia digital; ahora estamos ordenando cómo convertirla en una experiencia más útil."];
+        }
+        return ["Primeros pasos", "Estamos construyendo una base clara para que te encuentren, entiendan tu propuesta y puedan avanzar."];
     }
 
     // =====================================================================
-    // 07. RENDERIZADO DE RESULTADOS, PANEL LATERAL Y NAVEGACIÓN
+    // 07. RESULTADO, RECOMENDACIONES Y ESTRUCTURA VISUAL DEL PROYECTO
     // =====================================================================
+
+    function getAcceptedRecommendations() {
+        return getRecommendations().filter(function (item) {
+            return getRecommendationDecision(item.id) === "accepted";
+        });
+    }
+
+    function getRejectedRecommendations() {
+        return getRecommendations().filter(function (item) {
+            return getRecommendationDecision(item.id) === "rejected";
+        });
+    }
+
+    function renderRecommendationCard(item) {
+        var decision = getRecommendationDecision(item.id);
+        var card = document.createElement("article");
+        var headerLabel = item.featured ? "Recomendado" : "Complementario";
+
+        card.className = "guide-recommendation" + (item.featured ? " is-featured" : "") + " is-" + decision;
+        card.innerHTML = [
+            '<span class="guide-recommendation-label"><i data-lucide="' + item.icon + '" aria-hidden="true"></i>' + headerLabel + "</span>",
+            "<h3>" + item.title + "</h3>",
+            "<p>" + item.description + "</p>",
+            '<div class="guide-recommendation-actions">',
+            '<button type="button" class="guide-recommendation-button guide-recommendation-button--accept" data-decision="accepted"><i data-lucide="badge-check" aria-hidden="true"></i>' + (decision === "accepted" ? "Agregado" : "Agregar") + "</button>",
+            '<button type="button" class="guide-recommendation-button guide-recommendation-button--reject" data-decision="rejected"><i data-lucide="x" aria-hidden="true"></i>' + (decision === "rejected" ? "Descartado" : "Ahora no") + "</button>",
+            "</div>"
+        ].join("");
+
+        card.querySelectorAll("[data-decision]").forEach(function (button) {
+            button.addEventListener("click", function () {
+                setRecommendationDecision(item.id, button.dataset.decision);
+            });
+        });
+
+        return card;
+    }
 
     function renderResult() {
         var solution = getSolution();
         var recommendations = getRecommendations();
+        var accepted = getAcceptedRecommendations();
         var resultTitle = document.getElementById("resultTitle");
         var resultCopy = document.getElementById("resultCopy");
         var finalTitle = document.getElementById("finalTitle");
@@ -314,22 +500,18 @@
         var recommendationBox = document.getElementById("recommendBox");
         var selectedTags = [];
 
-        state.content.forEach(function (id) {
-            selectedTags.push(findLabel(data.content, id));
-        });
-        state.actions.forEach(function (id) {
-            selectedTags.push(findLabel(data.actions, id));
-        });
+        state.content.forEach(function (id) { selectedTags.push(findLabel(data.content, id)); });
+        state.actions.forEach(function (id) { selectedTags.push(findLabel(data.actions, id)); });
+        accepted.forEach(function (item) { selectedTags.push(item.shortLabel); });
 
-        selectedTags = Array.from(new Set(selectedTags)).slice(0, 8);
-        state.recommendations = recommendations.map(function (item) {
-            return item[0];
-        });
+        selectedTags = Array.from(new Set(selectedTags)).slice(0, 10);
 
         resultTitle.textContent = solution[0];
         resultCopy.textContent = solution[1];
         finalTitle.textContent = solution[0];
-        finalSummary.textContent = "Seleccionaste " + state.content.length + " secciones y " + state.actions.length + " funciones. ISM sumó " + recommendations.length + " sugerencias para revisar contigo.";
+        finalSummary.textContent = accepted.length
+            ? "Incorporaste " + accepted.length + (accepted.length === 1 ? " sugerencia" : " sugerencias") + " de ISM a tu orientación inicial."
+            : "Tu configuración queda lista para que ISM revise el alcance contigo.";
 
         tags.replaceChildren();
         (selectedTags.length ? selectedTags : ["Configuración inicial"]).forEach(function (label) {
@@ -340,15 +522,8 @@
         });
 
         recommendationBox.replaceChildren();
-        recommendations.forEach(function (recommendation, index) {
-            var card = document.createElement("article");
-            card.className = "guide-recommendation" + (index < 2 ? " is-featured" : "");
-            card.innerHTML = [
-                '<span><i data-lucide="' + (index < 2 ? "star" : "plus") + '" aria-hidden="true"></i>' + (index < 2 ? "Recomendado" : "Complementario") + "</span>",
-                "<h3>" + recommendation[0] + "</h3>",
-                "<p>" + recommendation[1] + "</p>"
-            ].join("");
-            recommendationBox.appendChild(card);
+        recommendations.forEach(function (item) {
+            recommendationBox.appendChild(renderRecommendationCard(item));
         });
     }
 
@@ -357,44 +532,90 @@
         if (!lesson) return;
 
         if (includes(state.presence, "social") && !includes(state.presence, "web")) {
-            lesson.innerHTML = '<i data-lucide="lightbulb" aria-hidden="true"></i><p><strong>Redes y web cumplen roles distintos:</strong> las redes ayudan a descubrirte; tu web concentra información y acciones en un espacio propio.</p>';
+            lesson.innerHTML = '<i data-lucide="lightbulb" aria-hidden="true"></i><p><strong>Tu red social ya aporta visibilidad:</strong> una web puede ordenar la información y concentrar las acciones importantes.</p>';
+        } else if (includes(state.presence, "web")) {
+            lesson.innerHTML = '<i data-lucide="search-check" aria-hidden="true"></i><p><strong>Ya tienes una base:</strong> podemos enfocarnos en mejorar el recorrido o incorporar nuevas funciones.</p>';
+        } else if (includes(state.presence, "none")) {
+            lesson.innerHTML = '<i data-lucide="rocket" aria-hidden="true"></i><p><strong>Partir desde cero también es una ventaja:</strong> podemos ordenar la solución desde el objetivo principal.</p>';
         } else {
-            lesson.innerHTML = '<i data-lucide="lightbulb" aria-hidden="true"></i><p><strong>Dato útil:</strong> redes sociales, WhatsApp y una web propia cumplen funciones diferentes y pueden trabajar juntas.</p>';
+            lesson.innerHTML = '<i data-lucide="lightbulb" aria-hidden="true"></i><p><strong>Cada canal cumple un rol:</strong> ahora veremos cómo reunirlos en una experiencia más clara.</p>';
+        }
+    }
+
+    /** Construye la estructura lateral con secciones y acciones reales del proyecto. */
+    function getProjectNodes() {
+        var nodes = [{ label: "Inicio", detail: "Punto de entrada", icon: "target", kind: "base" }];
+
+        state.content.forEach(function (id) {
+            var item = findItem(data.content, id);
+            if (item) nodes.push({ label: item[1], detail: "Contenido", icon: item[3], kind: "content" });
+        });
+
+        state.actions.forEach(function (id) {
+            var item = findItem(data.actions, id);
+            if (item) nodes.push({ label: item[1], detail: "Acción", icon: item[3], kind: "action" });
+        });
+
+        getAcceptedRecommendations().forEach(function (item) {
+            nodes.push({ label: item.shortLabel, detail: "Sugerencia agregada", icon: item.icon, kind: "recommendation" });
+        });
+
+        return nodes;
+    }
+
+    function renderProjectMap() {
+        var container = document.getElementById("projectMap");
+        if (!container) return;
+
+        var nodes = getProjectNodes();
+        var maxVisible = 7;
+        var visible = nodes.slice(0, maxVisible);
+        var remaining = Math.max(0, nodes.length - maxVisible);
+
+        container.replaceChildren();
+        visible.forEach(function (node, index) {
+            var item = document.createElement("div");
+            item.className = "guide-map-node is-active" + (node.kind === "recommendation" ? " is-recommended" : "");
+            item.innerHTML = [
+                '<span><i data-lucide="' + node.icon + '" aria-hidden="true"></i></span>',
+                "<div><strong>" + node.label + "</strong><small>" + node.detail + "</small></div>"
+            ].join("");
+            container.appendChild(item);
+        });
+
+        if (remaining > 0) {
+            var more = document.createElement("div");
+            more.className = "guide-map-more";
+            more.textContent = "+ " + remaining + (remaining === 1 ? " elemento más" : " elementos más");
+            container.appendChild(more);
         }
     }
 
     function updateAside() {
-        var activeNodes = {
-            inicio: true,
-            contenido: state.step >= 5 || state.content.length > 0,
-            accion: state.step >= 6 || state.actions.length > 0,
-            resultado: state.step >= 7
-        };
         var maturity = getMaturity();
-
-        Object.keys(activeNodes).forEach(function (name) {
-            var node = document.querySelector('[data-node="' + name + '"]');
-            if (node) node.classList.toggle("is-active", activeNodes[name]);
-        });
-
+        renderProjectMap();
         document.getElementById("maturityTitle").textContent = maturity[0];
         document.getElementById("maturityCopy").textContent = maturity[1];
     }
+
+    // =====================================================================
+    // 08. NAVEGACIÓN, PROGRESO Y VALIDACIÓN DE CADA PASO
+    // =====================================================================
 
     function canContinue() {
         if (state.step === 1) return state.goals.length > 0;
         if (state.step === 2) return Boolean(state.industry);
         if (state.step === 3) return state.presence.length > 0;
-        if (state.step === 5) return state.content.length > 0;
-        if (state.step === 6) return state.actions.length > 0;
+        if (state.step === 4) return state.content.length > 0;
+        if (state.step === 5) return state.actions.length > 0;
         return true;
     }
 
     function updateNavigation() {
         var progress = state.step === 0 ? 4 : Math.round((state.step / totalSteps) * 100);
+        var nextLabel = "Continuar";
 
         selectors.main.classList.toggle("is-welcome", state.step === 0);
-        var nextLabel = "Continuar";
 
         selectors.screens.forEach(function (screen) {
             screen.classList.toggle("is-active", Number(screen.dataset.step) === state.step);
@@ -406,14 +627,14 @@
         selectors.progressBar.style.width = progress + "%";
         selectors.progressTrack.setAttribute("aria-valuenow", String(state.step));
         selectors.backButton.hidden = state.step === 0;
-        selectors.nextButton.hidden = state.step === 8;
+        selectors.nextButton.hidden = state.step === 7;
         selectors.nextButton.disabled = !canContinue();
-        selectors.actionsBar.classList.toggle("is-final", state.step === 8);
+        selectors.actionsBar.classList.toggle("is-final", state.step === 7);
 
         if (state.step === 0) nextLabel = "Comenzar";
-        if (state.step === 7) nextLabel = "Continuar con mi solicitud";
+        if (state.step === 6) nextLabel = "Continuar con mi solicitud";
 
-        selectors.nextButton.innerHTML = nextLabel + '<i data-lucide="arrow-right" aria-hidden="true"></i>';
+        selectors.nextButton.innerHTML = nextLabel + '<i data-lucide="send" aria-hidden="true"></i>';
     }
 
     function renderAll() {
@@ -431,43 +652,16 @@
         if (goalsStatus) {
             goalsStatus.textContent = state.goals.length
                 ? "Has elegido " + state.goals.length + (state.goals.length === 1 ? " objetivo." : " objetivos.")
-                : "Puedes seleccionar todos los objetivos que correspondan.";
+                : "Puedes seleccionar más de un objetivo.";
         }
-
 
         refreshIcons();
     }
 
     // =====================================================================
-    // 08. RESUMEN COMERCIAL Y DATOS DEL PROSPECTO
-    // Estas funciones preparan la información que llegará a ISM.
+    // 09. RESUMEN COMERCIAL Y PAYLOAD PARA ISM
+    // La decisión de cada recomendación queda registrada para el levantamiento.
     // =====================================================================
-
-    function selectedLabels(collection, selected) {
-        var labels = selected.map(function (id) {
-            return findLabel(collection, id);
-        });
-
-        return labels.length ? labels.join(", ") : "No seleccionado";
-    }
-
-    function getSummaryRows() {
-        var solution = getSolution();
-        var recommendations = getRecommendations().map(function (item) {
-            return item[0] + ": " + item[1];
-        });
-
-        return [
-            ["Recomendación", solution[0]],
-            ["Descripción", solution[1]],
-            ["Rubro", findLabel(data.industries, state.industry) || "No indicado"],
-            ["Objetivos", selectedLabels(data.goals, state.goals)],
-            ["Presencia actual", selectedLabels(data.presence, state.presence)],
-            ["Contenido", selectedLabels(data.content, state.content)],
-            ["Acciones", selectedLabels(data.actions, state.actions)],
-            ["Sugerencias ISM", recommendations.join(" | ")]
-        ];
-    }
 
     function getContactData() {
         return {
@@ -487,10 +681,7 @@
         status.dataset.tone = tone || "info";
     }
 
-    /**
-     * Construye el contrato de datos enviado al backend.
-     * La sección `internal` es exclusiva para ISM y no se renderiza en la UI.
-     */
+    /** Construye el contrato de datos enviado al backend. */
     function buildSubmissionPayload() {
         var solution = getSolution();
         var maturity = getMaturity();
@@ -500,7 +691,7 @@
         state.contact = contact;
 
         return {
-            schemaVersion: "1.0",
+            schemaVersion: "1.1",
             source: "guia-web-ism",
             submittedAt: new Date().toISOString(),
             contact: contact,
@@ -520,7 +711,12 @@
                 type: solution[2],
                 maturity: { title: maturity[0], description: maturity[1] },
                 suggestions: recommendations.map(function (item) {
-                    return { title: item[0], description: item[1] };
+                    return {
+                        id: item.id,
+                        title: item.title,
+                        description: item.description,
+                        decision: getRecommendationDecision(item.id)
+                    };
                 })
             },
             serviceCommitment: {
@@ -559,10 +755,9 @@
     }
 
     // =====================================================================
-    // 09. VALIDACIÓN Y ENVÍO DE LA PRECOTIZACIÓN
+    // 10. ENVÍO DE LA PRECOTIZACIÓN
     // =====================================================================
 
-    /** Envía el levantamiento al endpoint server-side y comunica el resultado. */
     async function submitPrequote(event) {
         event.preventDefault();
 
@@ -612,7 +807,7 @@
     }
 
     // =====================================================================
-    // 10. CONTROL DE PASOS, EVENTOS E INICIALIZACIÓN
+    // 11. CONTROL DE PASOS, EVENTOS E INICIALIZACIÓN
     // =====================================================================
 
     function moveToStep(nextStep) {
@@ -620,7 +815,6 @@
         renderAll();
     }
 
-    // Eventos principales de navegación.
     selectors.nextButton.addEventListener("click", function () {
         if (!canContinue()) return;
         moveToStep(state.step + 1);
@@ -630,10 +824,8 @@
         moveToStep(state.step - 1);
     });
 
-    // El formulario controla el cierre comercial de la guía.
     document.getElementById("prequoteForm").addEventListener("submit", submitPrequote);
 
-    // Render inicial: carga contenido fijo y sincroniza toda la interfaz.
     renderEssentials();
     renderAll();
 }());

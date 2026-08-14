@@ -20,11 +20,11 @@
     <link rel="stylesheet" href="../assets/css/accessibility.css?v=2.1.1" />
     <link rel="stylesheet" href="../assets/css/privacy-consent.css?v=2.0.24" />
     <link rel="preload" href="../assets/img/guia-asistida-colaboracion.webp" as="image" type="image/webp" />
-    <link rel="stylesheet" href="../assets/css/guia-web.css?v=1.7.1" />
+    <link rel="stylesheet" href="../assets/css/guia-web.css?v=1.8.0" />
     <script src="../assets/vendor/lucide-index.min.js" defer></script>
     <script src="../assets/js/privacy-consent.js?v=2.0.24" defer></script>
     <script src="../assets/js/analytics.js?v=2.0.24" defer></script>
-    <script src="../assets/js/guia-web.js?v=1.4.1" defer></script>
+    <script src="../assets/js/guia-web.js?v=1.5.0" defer></script>
 </head>
 <body>
     <!-- ================================================================
@@ -42,7 +42,7 @@
             <div class="guide-nav-actions">
                 <span class="guide-duration"><i data-lucide="clock-3" aria-hidden="true"></i>Guía interactiva · 3 min</span>
                 <a class="guide-back-link" href="../index.html#configurador-servicios">
-                    <i data-lucide="arrow-left" aria-hidden="true"></i>
+                    <i data-lucide="route" aria-hidden="true"></i>
                     Volver al sitio
                 </a>
             </div>
@@ -60,7 +60,7 @@
                             <span id="stepIndicator">Bienvenida</span>
                         </div>
                         <div class="guide-progress" role="progressbar" aria-label="Progreso de la guía"
-                            aria-valuemin="0" aria-valuemax="8" aria-valuenow="0" id="progressTrack">
+                            aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" id="progressTrack">
                             <span id="progressBar"></span>
                         </div>
                     </div>
@@ -71,12 +71,12 @@
                             <div class="guide-intro-copy">
                                 <p class="guide-eyebrow"><i data-lucide="sparkles" aria-hidden="true"></i>Orientación simple y cercana</p>
                                 <h1 class="guide-title" id="guideTitle">Descubre qué tipo de web necesita <span>tu negocio.</span></h1>
-                                <p class="guide-lead">Responde algunas preguntas simples. Al final recibirás una recomendación inicial y podrás compartirla directamente con ISM Developer.</p>
+                                <p class="guide-lead">Responde preguntas simples y construye una primera orientación para tu proyecto, sin tecnicismos.</p>
 
                                 <div class="guide-intro-points" aria-label="Beneficios de la guía">
-                                    <div><span><i data-lucide="lightbulb" aria-hidden="true"></i></span><p>Aprende lo esencial con explicaciones breves.</p></div>
-                                    <div><span><i data-lucide="search-check" aria-hidden="true"></i></span><p>Recibe sugerencias según lo que realmente buscas.</p></div>
-                                    <div><span><i data-lucide="route" aria-hidden="true"></i></span><p>Prepara una orientación lista para revisar con ISM.</p></div>
+                                    <div><span><i data-lucide="lightbulb" aria-hidden="true"></i></span><p>Explicaciones breves, sin lenguaje técnico.</p></div>
+                                    <div><span><i data-lucide="route" aria-hidden="true"></i></span><p>Tu proyecto va tomando forma mientras avanzas.</p></div>
+                                    <div><span><i data-lucide="search-check" aria-hidden="true"></i></span><p>Al final tendrás una orientación inicial para revisar.</p></div>
                                 </div>
                             </div>
 
@@ -86,8 +86,8 @@
                     <!-- PASO 1 · Objetivos del proyecto -->
                     <section class="guide-screen" data-step="1" aria-labelledby="goalsTitle">
                         <h2 class="guide-title" id="goalsTitle">¿Qué quieres <span>lograr</span> con tu web?</h2>
-                        <p class="guide-lead">Elige todos los objetivos que correspondan. Así orientamos la solución a lo que realmente importa para tu negocio.</p>
-                        <div class="guide-lesson"><i data-lucide="lightbulb" aria-hidden="true"></i><p><strong>Consejo:</strong> una buena web se diseña alrededor de lo que quieres que haga el visitante.</p></div>
+                        <p class="guide-lead">Elige los objetivos que mejor representen lo que esperas conseguir.</p>
+                        <div class="guide-lesson"><i data-lucide="lightbulb" aria-hidden="true"></i><p><strong>Piensa en la acción principal:</strong> contactar, reservar, comprar o conocer mejor tu negocio.</p></div>
                         <div class="guide-choice-grid" id="goalsGrid" aria-label="Objetivos del sitio web"></div>
                         <p class="guide-selection-status" id="goalsStatus" role="status" aria-live="polite"></p>
                     </section>
@@ -95,8 +95,8 @@
                     <!-- PASO 2 · Rubro / tipo de negocio -->
                     <section class="guide-screen" data-step="2" aria-labelledby="industryTitle">
                         <h2 class="guide-title" id="industryTitle">¿A qué se dedica <span>tu negocio?</span></h2>
-                        <p class="guide-lead">Cada rubro necesita un recorrido distinto. Elige la opción más cercana a lo que haces.</p>
-                        <div class="guide-lesson"><i data-lucide="lightbulb" aria-hidden="true"></i><p><strong>Por qué importa:</strong> una tienda, un profesional de salud y una empresa B2B no deberían tener el mismo recorrido digital.</p></div>
+                        <p class="guide-lead">Elige la alternativa que más se acerque a tu actividad.</p>
+                        <div class="guide-lesson"><i data-lucide="lightbulb" aria-hidden="true"></i><p><strong>Tu rubro cambia las prioridades:</strong> no todos los negocios necesitan las mismas funciones.</p></div>
                         <div class="guide-choice-grid guide-choice-grid--three" id="industryGrid" aria-label="Rubro del negocio"></div>
                     </section>
 
@@ -108,63 +108,61 @@
                         <div class="guide-choice-grid" id="presenceGrid" aria-label="Presencia digital actual"></div>
                     </section>
 
-                    <!-- PASO 4 · Base profesional incluida por ISM -->
-                    <section class="guide-screen" data-step="4" aria-labelledby="essentialsTitle">
-                        <h2 class="guide-title" id="essentialsTitle">Esto ya viene <span>incluido.</span></h2>
-                        <p class="guide-lead">Hay bases técnicas que no deberían negociarse como extras. En ISM forman parte de una solución profesional.</p>
-                        <div class="guide-essentials" id="essentialsGrid"></div>
-                        <p class="guide-included"><i data-lucide="badge-check" aria-hidden="true"></i>Incluido en cada proyecto web ISM</p>
-                        <div class="guide-lesson guide-lesson--spaced"><i data-lucide="shield-check" aria-hidden="true"></i><p><strong>En resumen:</strong> tu web debe verse bien en celular, cargar rápido, ser segura y facilitar el contacto.</p></div>
-                    </section>
-
-                    <!-- PASO 5 · Contenido que necesita mostrar -->
-                    <section class="guide-screen" data-step="5" aria-labelledby="contentTitle">
+                    <!-- PASO 4 · Contenido que necesita mostrar -->
+                    <section class="guide-screen" data-step="4" aria-labelledby="contentTitle">
                         <h2 class="guide-title" id="contentTitle">¿Qué quieres <span>mostrar?</span></h2>
-                        <p class="guide-lead">Selecciona las secciones que ayudarán a entender quién eres y por qué deberían contactarte.</p>
-                        <div class="guide-lesson"><i data-lucide="lightbulb" aria-hidden="true"></i><p><strong>Consejo:</strong> conviene priorizar menos secciones, pero bien enfocadas en ayudar a decidir.</p></div>
+                        <p class="guide-lead">Selecciona lo que ayudará a una persona a entender tu negocio y tomar una decisión.</p>
+                        <div class="guide-lesson"><i data-lucide="lightbulb" aria-hidden="true"></i><p><strong>Menos puede ser más:</strong> prioriza contenido útil antes que llenar el sitio de secciones.</p></div>
                         <div class="guide-choice-grid" id="contentGrid" aria-label="Contenido deseado"></div>
                     </section>
 
-                    <!-- PASO 6 · Acciones que realizará el visitante -->
-                    <section class="guide-screen" data-step="6" aria-labelledby="actionsTitle">
+                    <!-- PASO 5 · Acciones que realizará el visitante -->
+                    <section class="guide-screen" data-step="5" aria-labelledby="actionsTitle">
                         <h2 class="guide-title" id="actionsTitle">¿Qué quieres que puedan <span>hacer?</span></h2>
-                        <p class="guide-lead">Define las acciones principales: contactar, reservar, pedir una cotización o comprar.</p>
-                        <div class="guide-lesson"><i data-lucide="lightbulb" aria-hidden="true"></i><p><strong>Una buena función</strong> reduce pasos manuales y deja claro el siguiente paso para tu cliente.</p></div>
+                        <p class="guide-lead">Elige las acciones que deberían poder realizar directamente desde tu solución digital.</p>
+                        <div class="guide-lesson"><i data-lucide="workflow" aria-hidden="true"></i><p><strong>Una función aporta valor</strong> cuando reduce pasos, esperas o tareas que hoy haces manualmente.</p></div>
                         <div class="guide-choice-grid" id="actionsGrid" aria-label="Acciones deseadas"></div>
                     </section>
 
-                    <!-- PASO 7 · Recomendación generada por el motor ISM -->
-                    <section class="guide-screen" data-step="7" aria-labelledby="resultHeading">
+                    <!-- PASO 6 · Recomendación, sugerencias y complementos incluidos -->
+                    <section class="guide-screen" data-step="6" aria-labelledby="resultHeading">
                         <h2 class="guide-title" id="resultHeading">Tu solución <span>recomendada</span></h2>
-                        <p class="guide-lead">Con base en tus respuestas, esta es la orientación inicial que te proponemos.</p>
+                        <p class="guide-lead">Con tus respuestas ya podemos proponer una primera estructura y algunos complementos útiles.</p>
 
                         <div class="guide-result-hero">
-                            <p class="guide-result-kicker"><i data-lucide="sparkles" aria-hidden="true"></i>Recomendación ISM</p>
+                            <p class="guide-result-kicker"><i data-lucide="sparkles" aria-hidden="true"></i>Orientación ISM</p>
                             <h3 id="resultTitle">Sitio web profesional</h3>
                             <p id="resultCopy">Una presencia clara para presentar tu negocio y facilitar el contacto.</p>
                             <div class="guide-tags" id="resultTags"></div>
-                            <div class="guide-trust-row">
-                                <span><i data-lucide="check" aria-hidden="true"></i>Orientación sin compromiso</span>
-                                <span><i data-lucide="check" aria-hidden="true"></i>Respuesta dentro de 48 horas hábiles</span>
-                                <span><i data-lucide="check" aria-hidden="true"></i>Revisión humana del alcance</span>
-                            </div>
                         </div>
 
-                        <p class="guide-section-label">Sugerencias para potenciar tu proyecto</p>
+                        <p class="guide-section-label">Sugerencias para tu caso</p>
                         <div class="guide-recommendations" id="recommendBox"></div>
+
+                        <section class="guide-included-complement" aria-labelledby="essentialsTitle">
+                            <div class="guide-included-heading">
+                                <div>
+                                    <p class="guide-section-label">Complemento ISM</p>
+                                    <h3 id="essentialsTitle">Y además, tu proyecto parte con una <span>base profesional.</span></h3>
+                                </div>
+                                <p class="guide-included"><i data-lucide="badge-check" aria-hidden="true"></i>Incluido por ISM</p>
+                            </div>
+                            <p class="guide-included-copy">Estos elementos técnicos no se configuran como extras: forman parte de nuestra base de trabajo.</p>
+                            <div class="guide-essentials" id="essentialsGrid"></div>
+                        </section>
                     </section>
 
-                    <!-- PASO 8 · Captura del prospecto y envío a ISM -->
-                    <section class="guide-screen guide-screen--finish" data-step="8" aria-labelledby="finishTitle">
+                    <!-- PASO 7 · Captura del prospecto y envío a ISM -->
+                    <section class="guide-screen guide-screen--finish" data-step="7" aria-labelledby="finishTitle">
                         <div class="guide-finish-layout">
                             <p class="guide-result-kicker"><i data-lucide="sparkles" aria-hidden="true"></i>Orientación completada</p>
-                            <h2 class="guide-title" id="finishTitle">Tu orientación <span>está lista.</span></h2>
-                            <p class="guide-lead">Ya preparamos un primer levantamiento de tu proyecto. Déjanos tus datos y revisaremos personalmente esta orientación antes de contactarte.</p>
+                            <h2 class="guide-title" id="finishTitle">Tu proyecto ya tiene una <span>primera forma.</span></h2>
+                            <p class="guide-lead">Déjanos tus datos para revisar este levantamiento contigo.</p>
 
                             <div class="guide-result-summary">
-                                <span>Tu recomendación</span>
+                                <span>Orientación inicial</span>
                                 <strong id="finalTitle">Sitio web profesional</strong>
-                                <p id="finalSummary">Tu configuración y las sugerencias de ISM.</p>
+                                <p id="finalSummary">Tu configuración y las sugerencias que decidiste incorporar.</p>
                             </div>
 
                             <!-- Formulario comercial: solo solicita los datos necesarios para continuar. -->
@@ -203,7 +201,7 @@
                                     <span><i data-lucide="clock-3" aria-hidden="true"></i></span>
                                     <div>
                                         <strong>Respuesta dentro de las primeras 48 horas hábiles</strong>
-                                        <p>Revisaremos personalmente tu levantamiento antes de responderte. No enviamos una cotización automática.</p>
+                                        <p>Un integrante de ISM revisará tu levantamiento antes de contactarte.</p>
                                     </div>
                                 </div>
 
@@ -219,10 +217,10 @@
                     <!-- Navegación entre pasos; en el último paso el envío lo controla el formulario. -->
                     <div class="guide-actions" id="actionsBar">
                         <button class="guide-button guide-button--ghost" id="backBtn" type="button">
-                            <i data-lucide="arrow-left" aria-hidden="true"></i>Atrás
+                            <i data-lucide="route" aria-hidden="true"></i>Atrás
                         </button>
                         <button class="guide-button guide-button--primary" id="nextBtn" type="button">
-                            Comenzar<i data-lucide="arrow-right" aria-hidden="true"></i>
+                            Comenzar<i data-lucide="send" aria-hidden="true"></i>
                         </button>
                     </div>
                 </section>
@@ -234,24 +232,16 @@
                     <div class="guide-aside-heading">
                         <span>Tu recorrido</span>
                         <h2 id="mapTitle">Tu web toma forma</h2>
-                        <p>Cada respuesta suma a una orientación más útil para tu negocio.</p>
+                        <p>Se actualiza con lo que eliges durante la guía.</p>
                     </div>
 
-                    <div class="guide-project-map" id="projectMap">
-                        <div class="guide-map-node is-active" data-node="inicio"><span><i data-lucide="target" aria-hidden="true"></i></span><div><strong>Objetivo y contexto</strong><small>La base de tu presencia</small></div></div>
-                        <div class="guide-map-node" data-node="contenido"><span><i data-lucide="panel-top" aria-hidden="true"></i></span><div><strong>Contenido</strong><small>Lo que necesitas mostrar</small></div></div>
-                        <div class="guide-map-node" data-node="accion"><span><i data-lucide="send" aria-hidden="true"></i></span><div><strong>Acciones</strong><small>Lo que podrá hacer tu cliente</small></div></div>
-                        <div class="guide-map-node" data-node="resultado"><span><i data-lucide="lightbulb" aria-hidden="true"></i></span><div><strong>Recomendación</strong><small>Una orientación para avanzar</small></div></div>
-                    </div>
+                    <div class="guide-project-map" id="projectMap" aria-live="polite"></div>
 
                     <div class="guide-aside-divider"></div>
 
-                    <div class="guide-learning">
-                        <p class="guide-aside-label">Cómo funciona</p>
-                        <div><i data-lucide="target" aria-hidden="true"></i><span>Definimos qué quieres lograr</span></div>
-                        <div><i data-lucide="panel-top" aria-hidden="true"></i><span>Entendemos tu rubro y situación actual</span></div>
-                        <div><i data-lucide="workflow" aria-hidden="true"></i><span>Elegimos contenido y acciones</span></div>
-                        <div><i data-lucide="badge-check" aria-hidden="true"></i><span>ISM te orienta con claridad</span></div>
+                    <div class="guide-project-note">
+                        <i data-lucide="lightbulb" aria-hidden="true"></i>
+                        <p>La estructura cambia con tus selecciones y con las recomendaciones que decidas agregar.</p>
                     </div>
 
                     <div class="guide-maturity">
