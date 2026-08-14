@@ -17,50 +17,50 @@
     var data = {
         goals: [
             ["clientes", "Conseguir clientes", "Que nuevas personas te encuentren y te contacten.", "target"],
-            ["reservas", "Recibir reservas", "Que elijan un servicio, fecha u horario.", "calendar-days"],
-            ["servicios", "Mostrar mis servicios", "Explicar qué haces y cómo puedes ayudar.", "briefcase-business"],
-            ["consultas", "Recibir consultas", "Llevar al visitante a WhatsApp o a un formulario.", "message-circle"],
-            ["portafolio", "Mostrar mi trabajo", "Presentar proyectos, casos o resultados reales.", "images"],
-            ["ventas", "Vender online", "Mostrar productos y facilitar pedidos o compras.", "shopping-cart"]
+            ["reservas", "Recibir reservas", "Que elijan un servicio, fecha u horario.", "calendar-check"],
+            ["servicios", "Mostrar mis servicios", "Explicar qué haces y cómo puedes ayudar.", "layers-3"],
+            ["consultas", "Recibir consultas", "Llevar al visitante a WhatsApp o a un formulario.", "message-square"],
+            ["portafolio", "Mostrar mi trabajo", "Presentar proyectos, casos o resultados reales.", "panel-top"],
+            ["ventas", "Vender online", "Mostrar productos y facilitar pedidos o compras.", "truck"]
         ],
         industries: [
-            ["salud", "Salud y bienestar", "Profesionales, centros, terapias y estética.", "heart-pulse"],
-            ["belleza", "Belleza o barbería", "Barberías, salones, uñas y cuidado personal.", "scissors"],
-            ["profesional", "Profesional independiente", "Asesoría y servicios especializados.", "user-round"],
-            ["comercio", "Comercio o tienda", "Productos, stock, pedidos y ventas.", "store"],
-            ["b2b", "Empresa o servicios B2B", "Servicios dirigidos a otras empresas.", "building-2"],
-            ["otro", "Otro negocio", "Construcción, gastronomía, turismo u otro rubro.", "globe-2"]
+            ["salud", "Salud y bienestar", "Profesionales, centros, terapias y estética.", "badge-check"],
+            ["belleza", "Belleza o barbería", "Barberías, salones, uñas y cuidado personal.", "sparkles"],
+            ["profesional", "Profesional independiente", "Asesoría y servicios especializados.", "pencil-ruler"],
+            ["comercio", "Comercio o tienda", "Productos, stock, pedidos y ventas.", "truck"],
+            ["b2b", "Empresa o servicios B2B", "Servicios dirigidos a otras empresas.", "handshake"],
+            ["otro", "Otro negocio", "Construcción, gastronomía, turismo u otro rubro.", "rocket"]
         ],
         presence: [
-            ["social", "Instagram o Facebook", "Uso redes sociales para mostrar mi negocio.", "instagram"],
-            ["whatsapp", "WhatsApp", "Atiendo o coordino directamente por WhatsApp.", "message-circle"],
-            ["maps", "Google Maps", "Tengo una ficha o ubicación visible.", "map-pin"],
+            ["social", "Instagram o Facebook", "Uso redes sociales para mostrar mi negocio.", "messages-square"],
+            ["whatsapp", "WhatsApp", "Atiendo o coordino directamente por WhatsApp.", "message-square"],
+            ["maps", "Google Maps", "Tengo una ficha o ubicación visible.", "route"],
             ["web", "Página web", "Ya cuento con un sitio web propio.", "monitor"],
             ["booking", "Sistema de reservas", "Uso una agenda o plataforma de reservas.", "calendar-check"],
             ["none", "Nada todavía", "Estoy comenzando mi presencia digital.", "rocket"]
         ],
         essentials: [
-            ["Adaptable", "Se ve bien en celular y computador.", "smartphone"],
+            ["Adaptable", "Se ve bien en celular y computador.", "monitor"],
             ["Segura", "Cuenta con una conexión HTTPS.", "shield-check"],
-            ["Optimizada", "Tiene una carga rápida y ordenada.", "gauge"],
-            ["SEO inicial", "Incluye una base para buscadores.", "search"],
-            ["Contacto claro", "Facilita el siguiente paso del visitante.", "mouse-pointer-click"]
+            ["Optimizada", "Tiene una carga rápida y ordenada.", "trending-up"],
+            ["SEO inicial", "Incluye una base para buscadores.", "search-check"],
+            ["Contacto claro", "Facilita el siguiente paso del visitante.", "message-square"]
         ],
         content: [
-            ["services", "Servicios", "Qué ofreces y cómo ayudas a tus clientes.", "list-tree"],
-            ["prices", "Precios o planes", "Valores, alternativas o planes disponibles.", "badge-dollar-sign"],
-            ["about", "Sobre nosotros", "Historia, experiencia y propuesta de valor.", "building-2"],
-            ["team", "Equipo o profesionales", "Quiénes están detrás del servicio.", "users-round"],
-            ["gallery", "Galería o trabajos", "Resultados, proyectos o productos.", "images"],
+            ["services", "Servicios", "Qué ofreces y cómo ayudas a tus clientes.", "layers-3"],
+            ["prices", "Precios o planes", "Valores, alternativas o planes disponibles.", "database"],
+            ["about", "Sobre nosotros", "Historia, experiencia y propuesta de valor.", "panel-top"],
+            ["team", "Equipo o profesionales", "Quiénes están detrás del servicio.", "handshake"],
+            ["gallery", "Galería o trabajos", "Resultados, proyectos o productos.", "monitor"],
             ["faq", "Preguntas frecuentes", "Respuestas antes del primer contacto.", "messages-square"]
         ],
         actions: [
-            ["whatsapp", "Conversar por WhatsApp", "Un canal de contacto rápido y directo.", "message-circle"],
-            ["form", "Enviar un formulario", "Antecedentes ordenados del interesado.", "file-text"],
+            ["whatsapp", "Conversar por WhatsApp", "Un canal de contacto rápido y directo.", "message-square"],
+            ["form", "Enviar un formulario", "Antecedentes ordenados del interesado.", "panel-top"],
             ["booking", "Reservar una hora", "Elegir un servicio, fecha u horario.", "calendar-check"],
             ["quote", "Pedir una cotización", "Enviar una solicitud con antecedentes.", "send"],
-            ["shop", "Comprar o pedir", "Revisar un catálogo o iniciar una compra.", "shopping-cart"],
-            ["account", "Ingresar a una cuenta", "Acceder a información o funciones privadas.", "lock-keyhole"]
+            ["shop", "Comprar o pedir", "Revisar un catálogo o iniciar una compra.", "truck"],
+            ["account", "Ingresar a una cuenta", "Acceder a información o funciones privadas.", "shield-check"]
         ]
     };
 
@@ -107,7 +107,7 @@
         return single ? state[key] === id : state[key].includes(id);
     }
 
-    function toggleSelection(key, id, single, max) {
+    function toggleSelection(key, id, single) {
         if (single) {
             state[key] = id;
             return;
@@ -118,12 +118,6 @@
 
         if (existingIndex >= 0) {
             current.splice(existingIndex, 1);
-            return;
-        }
-
-        if (max && current.length >= max) {
-            var status = document.getElementById("goalsStatus");
-            if (status) status.textContent = "Puedes elegir hasta " + max + " objetivos. Desmarca uno para cambiarlo.";
             return;
         }
 
@@ -138,7 +132,7 @@
         }
     }
 
-    function createChoice(item, key, single, max) {
+    function createChoice(item, key, single) {
         var id = item[0];
         var title = item[1];
         var description = item[2];
@@ -151,29 +145,30 @@
         button.dataset.id = id;
         button.setAttribute("aria-pressed", String(selected));
         button.innerHTML = [
-            '<span class="guide-choice-check"><i data-lucide="check" aria-hidden="true"></i></span>',
             '<span class="guide-choice-head">',
             '<span class="guide-choice-icon"><i data-lucide="' + iconName + '" aria-hidden="true"></i></span>',
+            '<span class="guide-choice-copy">',
             "<strong>" + title + "</strong>",
+            "<small>" + description + "</small>",
             "</span>",
-            "<small>" + description + "</small>"
+            "</span>",
         ].join("");
 
         button.addEventListener("click", function () {
-            toggleSelection(key, id, single, max);
+            toggleSelection(key, id, single);
             renderAll();
         });
 
         return button;
     }
 
-    function renderChoices(containerId, items, key, single, max) {
+    function renderChoices(containerId, items, key, single) {
         var container = document.getElementById(containerId);
         if (!container) return;
 
         container.replaceChildren();
         items.forEach(function (item) {
-            container.appendChild(createChoice(item, key, single, max));
+            container.appendChild(createChoice(item, key, single));
         });
     }
 
@@ -368,7 +363,7 @@
     }
 
     function renderAll() {
-        renderChoices("goalsGrid", data.goals, "goals", false, 3);
+        renderChoices("goalsGrid", data.goals, "goals", false);
         renderChoices("industryGrid", data.industries, "industry", true);
         renderChoices("presenceGrid", data.presence, "presence", false);
         renderChoices("contentGrid", data.content, "content", false);
@@ -379,10 +374,10 @@
         updateNavigation();
 
         var goalsStatus = document.getElementById("goalsStatus");
-        if (goalsStatus && state.goals.length < 3) {
+        if (goalsStatus) {
             goalsStatus.textContent = state.goals.length
-                ? "Has elegido " + state.goals.length + " de 3 objetivos posibles."
-                : "Puedes seleccionar hasta 3 objetivos.";
+                ? "Has elegido " + state.goals.length + (state.goals.length === 1 ? " objetivo." : " objetivos.")
+                : "Puedes seleccionar todos los objetivos que correspondan.";
         }
 
         refreshIcons();
