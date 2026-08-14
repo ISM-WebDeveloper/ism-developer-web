@@ -1099,6 +1099,11 @@ input:focus-visible {
 }
 
 .guide-learning {
+    width: fit-content;
+    max-width: 100%;
+    flex: 1;
+    align-self: center;
+    align-content: center;
     display: grid;
     gap: 9px;
 }
