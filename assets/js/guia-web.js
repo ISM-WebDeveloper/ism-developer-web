@@ -73,7 +73,7 @@
         "Contenido",
         "Acciones",
         "Recomendación",
-        "Contacto"
+        "Exportar o contactar"
     ];
 
     var selectors = {
@@ -85,9 +85,7 @@
         stepIndicator: document.getElementById("stepIndicator"),
         backButton: document.getElementById("backBtn"),
         nextButton: document.getElementById("nextBtn"),
-        actionsBar: document.getElementById("actionsBar"),
-        contactForm: document.getElementById("guideContactForm"),
-        successScreen: document.getElementById("successScreen")
+        actionsBar: document.getElementById("actionsBar")
     };
 
     function refreshIcons() {
@@ -353,11 +351,12 @@
         selectors.progressBar.style.width = progress + "%";
         selectors.progressTrack.setAttribute("aria-valuenow", String(state.step));
         selectors.backButton.hidden = state.step === 0;
+        selectors.nextButton.hidden = state.step === 8;
         selectors.nextButton.disabled = !canContinue();
+        selectors.actionsBar.classList.toggle("is-final", state.step === 8);
 
         if (state.step === 0) nextLabel = "Comenzar";
-        if (state.step === 7) nextLabel = "Revisar con ISM";
-        if (state.step === 8) nextLabel = "Continuar por WhatsApp";
+        if (state.step === 7) nextLabel = "Ver opciones de salida";
 
         selectors.nextButton.innerHTML = nextLabel + '<i data-lucide="arrow-right" aria-hidden="true"></i>';
     }
@@ -380,97 +379,242 @@
                 : "Puedes seleccionar todos los objetivos que correspondan.";
         }
 
+        document.getElementById("continueWhatsappBtn").href = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(buildWhatsAppMessage());
+
         refreshIcons();
     }
 
-    function buildWhatsAppMessage() {
-        var solution = getSolution();
-        var formData = new FormData(selectors.contactForm);
-        var business = String(formData.get("business") || "").trim() || "No indicado";
-        var goals = state.goals.map(function (id) { return findLabel(data.goals, id); }).join(", ");
-        var presence = state.presence.map(function (id) { return findLabel(data.presence, id); }).join(", ");
-        var content = state.content.map(function (id) { return findLabel(data.content, id); }).join(", ");
-        var actions = state.actions.map(function (id) { return findLabel(data.actions, id); }).join(", ");
+    function selectedLabels(collection, selected) {
+        var labels = selected.map(function (id) {
+            return findLabel(collection, id);
+        });
 
-        return [
-            "Hola, Ignacio. Completé la Guía Web ISM y quiero revisar mi orientación.",
-            "",
-            "Nombre: " + String(formData.get("name") || "").trim(),
-            "Negocio o empresa: " + business,
-            "Correo: " + String(formData.get("email") || "").trim(),
-            "Teléfono: " + String(formData.get("phone") || "").trim(),
-            "",
-            "Recomendación: " + solution[0],
-            "Rubro: " + findLabel(data.industries, state.industry),
-            "Objetivos: " + goals,
-            "Presencia actual: " + presence,
-            "Contenido: " + content,
-            "Acciones: " + actions,
-            "Sugerencias ISM: " + state.recommendations.join(", ")
-        ].join("\n");
+        return labels.length ? labels.join(", ") : "No seleccionado";
     }
 
-    function submitGuide() {
-        if (!selectors.contactForm.checkValidity()) {
-            selectors.contactForm.reportValidity();
-            return;
-        }
-
-        var whatsappUrl = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(buildWhatsAppMessage());
-        var fallback = document.getElementById("whatsappFallback");
-
-        fallback.href = whatsappUrl;
-        selectors.screens.forEach(function (screen) {
-            screen.classList.remove("is-active");
+    function getSummaryRows() {
+        var solution = getSolution();
+        var recommendations = getRecommendations().map(function (item) {
+            return item[0] + ": " + item[1];
         });
-        selectors.mainTop.hidden = true;
-        selectors.actionsBar.hidden = true;
-        selectors.main.classList.remove("is-welcome");
-        selectors.successScreen.classList.add("is-visible");
 
+        return [
+            ["Recomendación", solution[0]],
+            ["Descripción", solution[1]],
+            ["Rubro", findLabel(data.industries, state.industry) || "No indicado"],
+            ["Objetivos", selectedLabels(data.goals, state.goals)],
+            ["Presencia actual", selectedLabels(data.presence, state.presence)],
+            ["Contenido", selectedLabels(data.content, state.content)],
+            ["Acciones", selectedLabels(data.actions, state.actions)],
+            ["Sugerencias ISM", recommendations.join(" | ")]
+        ];
+    }
+
+    function setExportStatus(message) {
+        var status = document.getElementById("exportStatus");
+        if (status) status.textContent = message;
+    }
+
+    function trackExport(format) {
         if (typeof window.trackEvent === "function") {
-            window.trackEvent("guide_web_submit", {
-                event_category: "conversion",
+            window.trackEvent("guide_web_export", {
+                event_category: "engagement",
+                export_format: format,
                 solution_type: getSolution()[2],
                 section: "guia-web"
             });
         }
+    }
 
-        window.open(whatsappUrl, "_blank", "noopener,noreferrer");
-        selectors.successScreen.querySelector("h2").focus({ preventScroll: true });
-        refreshIcons();
+    function downloadBlob(blob, filename) {
+        var url = URL.createObjectURL(blob);
+        var link = document.createElement("a");
+
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.setTimeout(function () {
+            URL.revokeObjectURL(url);
+        }, 1000);
+    }
+
+    function csvCell(value) {
+        return '"' + String(value).replace(/"/g, '""') + '"';
+    }
+
+    function exportExcel() {
+        var rows = [
+            ["Guía Web ISM", "Resumen de orientación"],
+            ["Fecha", new Date().toLocaleDateString("es-CL")]
+        ].concat(getSummaryRows());
+        var csv = "sep=;\r\n" + rows.map(function (row) {
+            return row.map(csvCell).join(";");
+        }).join("\r\n");
+
+        downloadBlob(
+            new Blob(["\ufeff", csv], { type: "text/csv;charset=utf-8" }),
+            "orientacion-web-ism.csv"
+        );
+        setExportStatus("Excel preparado: la descarga comenzó correctamente.");
+        trackExport("excel_csv");
+    }
+
+    function normalizePdfText(value) {
+        return String(value)
+            .replace(/[–—]/g, "-")
+            .replace(/[“”]/g, '"')
+            .replace(/[‘’]/g, "'")
+            .normalize("NFC")
+            .replace(/[^\x20-\xFF]/g, "");
+    }
+
+    function escapePdfText(value) {
+        return normalizePdfText(value)
+            .replace(/\\/g, "\\\\")
+            .replace(/\(/g, "\\(")
+            .replace(/\)/g, "\\)");
+    }
+
+    function wrapPdfText(value, maxLength) {
+        var words = normalizePdfText(value).split(/\s+/).filter(Boolean);
+        var lines = [];
+        var current = "";
+
+        words.forEach(function (word) {
+            var candidate = current ? current + " " + word : word;
+            if (candidate.length <= maxLength) {
+                current = candidate;
+            } else {
+                if (current) lines.push(current);
+                current = word;
+            }
+        });
+
+        if (current) lines.push(current);
+        return lines.length ? lines : [""];
+    }
+
+    function createPdfBlob() {
+        var entries = [];
+        var rows = getSummaryRows();
+        var pages = [[]];
+        var pageIndex = 0;
+        var y = 742;
+
+        entries.push({ text: "ISM DEVELOPER", size: 9, bold: true, color: "0.03 0.56 0.75", after: 14 });
+        entries.push({ text: "Orientación Web ISM", size: 22, bold: true, color: "0.05 0.12 0.2", after: 8 });
+        entries.push({ text: "Resumen generado el " + new Date().toLocaleDateString("es-CL"), size: 9, bold: false, color: "0.38 0.45 0.52", after: 18 });
+
+        rows.forEach(function (row) {
+            var valueLines = wrapPdfText(row[1], 88);
+            entries.push({ text: row[0].toUpperCase(), size: 8, bold: true, color: "0.03 0.56 0.75", after: 4 });
+            valueLines.forEach(function (line, index) {
+                entries.push({
+                    text: line,
+                    size: 10,
+                    bold: false,
+                    color: "0.15 0.22 0.3",
+                    after: index === valueLines.length - 1 ? 10 : 3
+                });
+            });
+        });
+
+        entries.forEach(function (entry) {
+            var height = entry.size * 1.25 + entry.after;
+            if (y - height < 52) {
+                pageIndex += 1;
+                pages.push([]);
+                y = 742;
+            }
+            entry.y = y;
+            pages[pageIndex].push(entry);
+            y -= height;
+        });
+
+        var objects = [];
+        objects[1] = "<< /Type /Catalog /Pages 2 0 R >>";
+        objects[3] = "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>";
+        objects[4] = "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>";
+
+        var pageIds = [];
+        pages.forEach(function (page, index) {
+            var pageId = 5 + index * 2;
+            var contentId = pageId + 1;
+            var commands = ["q 0.03 0.56 0.75 rg 44 764 524 3 re f Q"];
+
+            page.forEach(function (entry) {
+                commands.push([
+                    "BT /" + (entry.bold ? "F2" : "F1") + " " + entry.size + " Tf",
+                    entry.color + " rg",
+                    "1 0 0 1 44 " + entry.y.toFixed(2) + " Tm",
+                    "(" + escapePdfText(entry.text) + ") Tj ET"
+                ].join(" "));
+            });
+
+            commands.push(
+                "BT /F1 8 Tf 0.45 0.51 0.57 rg 1 0 0 1 44 28 Tm (ISM Developer - Página " + (index + 1) + " de " + pages.length + ") Tj ET"
+            );
+
+            var streamData = commands.join("\n") + "\n";
+            pageIds.push(pageId + " 0 R");
+            objects[pageId] = "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents " + contentId + " 0 R >>";
+            objects[contentId] = "<< /Length " + streamData.length + " >>\nstream\n" + streamData + "endstream";
+        });
+
+        objects[2] = "<< /Type /Pages /Kids [" + pageIds.join(" ") + "] /Count " + pages.length + " >>";
+
+        var pdf = "%PDF-1.4\n%âãÏÓ\n";
+        var offsets = [0];
+        var index;
+
+        for (index = 1; index < objects.length; index += 1) {
+            offsets[index] = pdf.length;
+            pdf += index + " 0 obj\n" + objects[index] + "\nendobj\n";
+        }
+
+        var xrefOffset = pdf.length;
+        pdf += "xref\n0 " + objects.length + "\n0000000000 65535 f \n";
+        for (index = 1; index < objects.length; index += 1) {
+            pdf += String(offsets[index]).padStart(10, "0") + " 00000 n \n";
+        }
+        pdf += "trailer\n<< /Size " + objects.length + " /Root 1 0 R >>\nstartxref\n" + xrefOffset + "\n%%EOF";
+
+        var bytes = new Uint8Array(pdf.length);
+        for (index = 0; index < pdf.length; index += 1) {
+            bytes[index] = pdf.charCodeAt(index) & 255;
+        }
+
+        return new Blob([bytes], { type: "application/pdf" });
+    }
+
+    function exportPdf() {
+        downloadBlob(createPdfBlob(), "orientacion-web-ism.pdf");
+        setExportStatus("PDF preparado: la descarga comenzó correctamente.");
+        trackExport("pdf");
+    }
+
+    function buildWhatsAppMessage() {
+        return [
+            "Hola, Ignacio. Completé la Guía Web ISM y quiero revisar esta orientación:",
+            ""
+        ].concat(getSummaryRows().map(function (row) {
+            return row[0] + ": " + row[1];
+        })).join("\n");
+    }
+
+    function handleWhatsApp() {
+        setExportStatus("WhatsApp está abriendo con tu orientación completa.");
+        trackExport("whatsapp");
     }
 
     function moveToStep(nextStep) {
         state.step = Math.max(0, Math.min(totalSteps, nextStep));
         renderAll();
-
-        if (window.matchMedia("(max-width: 980px)").matches) {
-            selectors.main.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-    }
-
-    function restartGuide() {
-        state.step = 0;
-        state.goals = [];
-        state.industry = null;
-        state.presence = [];
-        state.content = [];
-        state.actions = [];
-        state.recommendations = [];
-        selectors.contactForm.reset();
-        selectors.mainTop.hidden = false;
-        selectors.actionsBar.hidden = false;
-        selectors.successScreen.classList.remove("is-visible");
-        renderAll();
-        selectors.main.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     selectors.nextButton.addEventListener("click", function () {
-        if (state.step === 8) {
-            submitGuide();
-            return;
-        }
         if (!canContinue()) return;
         moveToStep(state.step + 1);
     });
@@ -479,12 +623,9 @@
         moveToStep(state.step - 1);
     });
 
-    selectors.contactForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-        submitGuide();
-    });
-
-    document.getElementById("restartBtn").addEventListener("click", restartGuide);
+    document.getElementById("exportExcelBtn").addEventListener("click", exportExcel);
+    document.getElementById("exportPdfBtn").addEventListener("click", exportPdf);
+    document.getElementById("continueWhatsappBtn").addEventListener("click", handleWhatsApp);
 
     renderEssentials();
     renderAll();

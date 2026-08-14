@@ -17,11 +17,11 @@
     <link rel="stylesheet" href="../assets/css/accessibility.css?v=2.1.1" />
     <link rel="stylesheet" href="../assets/css/privacy-consent.css?v=2.0.24" />
     <link rel="preload" href="../assets/img/guia-asistida-colaboracion.webp" as="image" type="image/webp" />
-    <link rel="stylesheet" href="../assets/css/guia-web.css?v=1.4.0" />
+    <link rel="stylesheet" href="../assets/css/guia-web.css?v=1.6.1" />
     <script src="../assets/vendor/lucide-index.min.js" defer></script>
     <script src="../assets/js/privacy-consent.js?v=2.0.24" defer></script>
     <script src="../assets/js/analytics.js?v=2.0.24" defer></script>
-    <script src="../assets/js/guia-web.js?v=1.2.0" defer></script>
+    <script src="../assets/js/guia-web.js?v=1.3.1" defer></script>
 </head>
 <body>
     <a class="skip-link" href="#guia-principal">Saltar a la guía</a>
@@ -137,50 +137,38 @@
                         <div class="guide-recommendations" id="recommendBox"></div>
                     </section>
 
-                    <section class="guide-screen" data-step="8" aria-labelledby="contactTitle">
-                        <h2 class="guide-title" id="contactTitle">¿Hablamos de <span>tu caso?</span></h2>
-                        <p class="guide-lead">Completa tus datos y enviaremos tu orientación preparada a WhatsApp para que puedas compartirla con ISM.</p>
+                    <section class="guide-screen guide-screen--finish" data-step="8" aria-labelledby="finishTitle">
+                        <div class="guide-finish-layout">
+                            <p class="guide-result-kicker"><i data-lucide="sparkles" aria-hidden="true"></i>Orientación completada</p>
+                            <h2 class="guide-title" id="finishTitle">Tu orientación <span>está lista.</span></h2>
+                            <p class="guide-lead">Descarga una copia o continúa directamente con ISM. Las tres opciones conservan las selecciones que acabas de definir.</p>
 
-                        <div class="guide-result-summary">
-                            <span>Tu recomendación</span>
-                            <strong id="finalTitle">Sitio web profesional</strong>
-                            <p id="finalSummary">Tu configuración y las sugerencias de ISM.</p>
-                        </div>
-
-                        <form class="guide-contact-form" id="guideContactForm" novalidate>
-                            <div class="guide-form-grid">
-                                <div class="guide-field">
-                                    <label for="guideName">Nombre <span aria-hidden="true">*</span></label>
-                                    <input id="guideName" name="name" autocomplete="name" maxlength="80" placeholder="Tu nombre" required />
-                                </div>
-                                <div class="guide-field">
-                                    <label for="guideBusiness">Negocio o empresa</label>
-                                    <input id="guideBusiness" name="business" autocomplete="organization" maxlength="120" placeholder="Nombre de tu negocio" />
-                                </div>
-                                <div class="guide-field">
-                                    <label for="guideEmail">Correo <span aria-hidden="true">*</span></label>
-                                    <input id="guideEmail" name="email" type="email" autocomplete="email" maxlength="160" placeholder="nombre@correo.cl" required />
-                                </div>
-                                <div class="guide-field">
-                                    <label for="guidePhone">Teléfono o WhatsApp <span aria-hidden="true">*</span></label>
-                                    <input id="guidePhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="24" minlength="8" placeholder="+56 9 1234 5678" required />
-                                </div>
+                            <div class="guide-result-summary">
+                                <span>Tu recomendación</span>
+                                <strong id="finalTitle">Sitio web profesional</strong>
+                                <p id="finalSummary">Tu configuración y las sugerencias de ISM.</p>
                             </div>
-                            <p class="guide-legal">Al continuar se abrirá WhatsApp con tu solicitud preparada. Tus datos solo se utilizarán para revisar esta orientación. Consulta nuestra <a href="../privacidad.html">política de privacidad</a>.</p>
-                        </form>
-                    </section>
 
-                    <section class="guide-success" id="successScreen" aria-labelledby="successTitle" aria-live="polite">
-                        <div>
-                            <span class="guide-success-icon"><i data-lucide="message-circle-check" aria-hidden="true"></i></span>
-                            <h2 id="successTitle" tabindex="-1">Tu orientación está lista</h2>
-                            <p>Abrimos WhatsApp con el resumen de tu proyecto. Solo falta que presiones “Enviar” para compartirlo con ISM Developer.</p>
-                            <a class="guide-button guide-button--primary" id="whatsappFallback" href="https://wa.me/56968374821" target="_blank" rel="noopener noreferrer">
-                                <i data-lucide="message-circle" aria-hidden="true"></i>Abrir WhatsApp nuevamente
-                            </a>
-                            <button class="guide-button guide-button--secondary" id="restartBtn" type="button">
-                                <i data-lucide="rotate-ccw" aria-hidden="true"></i>Reiniciar guía
-                            </button>
+                            <div class="guide-export-options" aria-label="Opciones para guardar o compartir la orientación">
+                                <button class="guide-export-card" id="exportExcelBtn" type="button">
+                                    <span><i data-lucide="database" aria-hidden="true"></i></span>
+                                    <strong>Exportar Excel</strong>
+                                    <small>Archivo CSV compatible</small>
+                                </button>
+                                <button class="guide-export-card" id="exportPdfBtn" type="button">
+                                    <span><i data-lucide="panel-top" aria-hidden="true"></i></span>
+                                    <strong>Exportar PDF</strong>
+                                    <small>Resumen listo para guardar</small>
+                                </button>
+                                <a class="guide-export-card guide-export-card--primary" id="continueWhatsappBtn" href="https://wa.me/56968374821" target="_blank" rel="noopener noreferrer">
+                                    <span><i data-lucide="message-square" aria-hidden="true"></i></span>
+                                    <strong>Continuar por WhatsApp</strong>
+                                    <small>Mensaje completo y preparado</small>
+                                </a>
+                            </div>
+
+                            <p class="guide-export-note">WhatsApp incluirá tu recomendación, objetivos, rubro, presencia actual, contenido, acciones y sugerencias de ISM.</p>
+                            <p class="guide-export-status" id="exportStatus" role="status" aria-live="polite"></p>
                         </div>
                     </section>
 
