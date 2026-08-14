@@ -1,5 +1,22 @@
+/**
+ * Guía Web ISM · Lógica principal
+ * Versión de parche: P1.1
+ *
+ * Responsabilidades de este archivo:
+ * - Mantener el estado temporal de la guía en el navegador.
+ * - Renderizar opciones, progreso, recomendaciones y resumen.
+ * - Validar los datos de contacto del prospecto.
+ * - Construir el payload comercial y enviarlo a /api/pre-cotizacion.
+ *
+ * Importante: la tarifa interna (0,7 UF/HH) nunca se muestra al prospecto.
+ */
 (function () {
     "use strict";
+
+    // =====================================================================
+    // 01. ESTADO DE SESIÓN
+    // Se conserva únicamente mientras la persona recorre la guía.
+    // =====================================================================
 
     var state = {
         step: 0,
@@ -8,11 +25,22 @@
         presence: [],
         content: [],
         actions: [],
-        recommendations: []
+        recommendations: [],
+        contact: {
+            name: "",
+            business: "",
+            email: "",
+            phone: "",
+            consent: false
+        }
     };
 
+    // =====================================================================
+    // 02. CONFIGURACIÓN Y CATÁLOGO VISIBLE
+    // Datos simples orientados al cliente; no contienen detalle técnico/HH.
+    // =====================================================================
+
     var totalSteps = 8;
-    var whatsappNumber = "56968374821";
 
     var data = {
         goals: [
@@ -73,8 +101,13 @@
         "Contenido",
         "Acciones",
         "Recomendación",
-        "Exportar o contactar"
+        "Datos y envío"
     ];
+
+    // =====================================================================
+    // 03. REFERENCIAS DEL DOM
+    // Se centralizan los elementos persistentes para evitar búsquedas repetidas.
+    // =====================================================================
 
     var selectors = {
         screens: document.querySelectorAll(".guide-screen"),
@@ -88,6 +121,11 @@
         actionsBar: document.getElementById("actionsBar")
     };
 
+    // =====================================================================
+    // 04. UTILIDADES GENERALES Y SELECCIÓN
+    // =====================================================================
+
+    /** Regenera los iconos Lucide insertados dinámicamente. */
     function refreshIcons() {
         if (window.lucide && typeof window.lucide.createIcons === "function") {
             window.lucide.createIcons();
@@ -130,6 +168,11 @@
         }
     }
 
+    // =====================================================================
+    // 05. COMPONENTES DINÁMICOS DE OPCIONES
+    // =====================================================================
+
+    /** Crea una tarjeta seleccionable y sincroniza su estado accesible. */
     function createChoice(item, key, single) {
         var id = item[0];
         var title = item[1];
@@ -191,6 +234,12 @@
         return collection.includes(id);
     }
 
+    // =====================================================================
+    // 06. MOTOR DE ORIENTACIÓN ISM
+    // Reglas determinísticas: convierten respuestas simples en sugerencias.
+    // =====================================================================
+
+    /** Devuelve un máximo de cuatro recomendaciones contextuales. */
     function getRecommendations() {
         var recommendations = [];
 
@@ -222,6 +271,7 @@
         return recommendations.slice(0, 4);
     }
 
+    /** Clasifica el proyecto en una solución comercial inicial. */
     function getSolution() {
         if (includes(state.actions, "account")) {
             return ["Solución web personalizada", "Tu proyecto incluye usuarios o información privada, por lo que se acerca a una aplicación web.", "APP"];
@@ -238,6 +288,7 @@
         return ["Sitio web profesional", "Una presencia clara para presentar tu negocio, generar confianza y facilitar el contacto.", "WEB"];
     }
 
+    /** Estima el momento digital para explicar el siguiente paso al usuario. */
     function getMaturity() {
         if (includes(state.presence, "web") || includes(state.presence, "booking")) {
             return ["Optimización digital", "Ya tienes una base digital. El siguiente paso es mejorar la experiencia o automatizar procesos."];
@@ -247,6 +298,10 @@
         }
         return ["Primeros pasos", "Estamos armando una base clara para que te encuentren y te contacten con facilidad."];
     }
+
+    // =====================================================================
+    // 07. RENDERIZADO DE RESULTADOS, PANEL LATERAL Y NAVEGACIÓN
+    // =====================================================================
 
     function renderResult() {
         var solution = getSolution();
@@ -356,7 +411,7 @@
         selectors.actionsBar.classList.toggle("is-final", state.step === 8);
 
         if (state.step === 0) nextLabel = "Comenzar";
-        if (state.step === 7) nextLabel = "Ver opciones de salida";
+        if (state.step === 7) nextLabel = "Continuar con mi solicitud";
 
         selectors.nextButton.innerHTML = nextLabel + '<i data-lucide="arrow-right" aria-hidden="true"></i>';
     }
@@ -379,10 +434,14 @@
                 : "Puedes seleccionar todos los objetivos que correspondan.";
         }
 
-        document.getElementById("continueWhatsappBtn").href = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(buildWhatsAppMessage());
 
         refreshIcons();
     }
+
+    // =====================================================================
+    // 08. RESUMEN COMERCIAL Y DATOS DEL PROSPECTO
+    // Estas funciones preparan la información que llegará a ISM.
+    // =====================================================================
 
     function selectedLabels(collection, selected) {
         var labels = selected.map(function (id) {
@@ -410,210 +469,158 @@
         ];
     }
 
-    function setExportStatus(message) {
-        var status = document.getElementById("exportStatus");
-        if (status) status.textContent = message;
+    function getContactData() {
+        return {
+            name: document.getElementById("contactName").value.trim(),
+            business: document.getElementById("contactBusiness").value.trim(),
+            email: document.getElementById("contactEmail").value.trim(),
+            phone: document.getElementById("contactPhone").value.trim(),
+            consent: document.getElementById("contactConsent").checked
+        };
     }
 
-    function trackExport(format) {
-        if (typeof window.trackEvent === "function") {
-            window.trackEvent("guide_web_export", {
-                event_category: "engagement",
-                export_format: format,
-                solution_type: getSolution()[2],
-                section: "guia-web"
-            });
-        }
+    function setSubmitStatus(message, tone) {
+        var status = document.getElementById("submitStatus");
+        if (!status) return;
+
+        status.textContent = message;
+        status.dataset.tone = tone || "info";
     }
 
-    function downloadBlob(blob, filename) {
-        var url = URL.createObjectURL(blob);
-        var link = document.createElement("a");
+    /**
+     * Construye el contrato de datos enviado al backend.
+     * La sección `internal` es exclusiva para ISM y no se renderiza en la UI.
+     */
+    function buildSubmissionPayload() {
+        var solution = getSolution();
+        var maturity = getMaturity();
+        var contact = getContactData();
+        var recommendations = getRecommendations();
 
-        link.href = url;
-        link.download = filename;
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
-        window.setTimeout(function () {
-            URL.revokeObjectURL(url);
-        }, 1000);
-    }
+        state.contact = contact;
 
-    function csvCell(value) {
-        return '"' + String(value).replace(/"/g, '""') + '"';
-    }
-
-    function exportExcel() {
-        var rows = [
-            ["Guía Web ISM", "Resumen de orientación"],
-            ["Fecha", new Date().toLocaleDateString("es-CL")]
-        ].concat(getSummaryRows());
-        var csv = "sep=;\r\n" + rows.map(function (row) {
-            return row.map(csvCell).join(";");
-        }).join("\r\n");
-
-        downloadBlob(
-            new Blob(["\ufeff", csv], { type: "text/csv;charset=utf-8" }),
-            "orientacion-web-ism.csv"
-        );
-        setExportStatus("Excel preparado: la descarga comenzó correctamente.");
-        trackExport("excel_csv");
-    }
-
-    function normalizePdfText(value) {
-        return String(value)
-            .replace(/[–—]/g, "-")
-            .replace(/[“”]/g, '"')
-            .replace(/[‘’]/g, "'")
-            .normalize("NFC")
-            .replace(/[^\x20-\xFF]/g, "");
-    }
-
-    function escapePdfText(value) {
-        return normalizePdfText(value)
-            .replace(/\\/g, "\\\\")
-            .replace(/\(/g, "\\(")
-            .replace(/\)/g, "\\)");
-    }
-
-    function wrapPdfText(value, maxLength) {
-        var words = normalizePdfText(value).split(/\s+/).filter(Boolean);
-        var lines = [];
-        var current = "";
-
-        words.forEach(function (word) {
-            var candidate = current ? current + " " + word : word;
-            if (candidate.length <= maxLength) {
-                current = candidate;
-            } else {
-                if (current) lines.push(current);
-                current = word;
+        return {
+            schemaVersion: "1.0",
+            source: "guia-web-ism",
+            submittedAt: new Date().toISOString(),
+            contact: contact,
+            project: {
+                industry: {
+                    id: state.industry,
+                    label: findLabel(data.industries, state.industry) || "No indicado"
+                },
+                goals: state.goals.map(function (id) { return { id: id, label: findLabel(data.goals, id) }; }),
+                presence: state.presence.map(function (id) { return { id: id, label: findLabel(data.presence, id) }; }),
+                content: state.content.map(function (id) { return { id: id, label: findLabel(data.content, id) }; }),
+                actions: state.actions.map(function (id) { return { id: id, label: findLabel(data.actions, id) }; })
+            },
+            recommendation: {
+                title: solution[0],
+                description: solution[1],
+                type: solution[2],
+                maturity: { title: maturity[0], description: maturity[1] },
+                suggestions: recommendations.map(function (item) {
+                    return { title: item[0], description: item[1] };
+                })
+            },
+            serviceCommitment: {
+                initialResponseWithinBusinessHours: 48
+            },
+            internal: {
+                hourlyRateUF: 0.7,
+                hourlyRateVisibleToProspect: false
             }
-        });
-
-        if (current) lines.push(current);
-        return lines.length ? lines : [""];
+        };
     }
 
-    function createPdfBlob() {
-        var entries = [];
-        var rows = getSummaryRows();
-        var pages = [[]];
-        var pageIndex = 0;
-        var y = 742;
+    function validateContactForm() {
+        var form = document.getElementById("prequoteForm");
+        var contact = getContactData();
 
-        entries.push({ text: "ISM DEVELOPER", size: 9, bold: true, color: "0.03 0.56 0.75", after: 14 });
-        entries.push({ text: "Orientación Web ISM", size: 22, bold: true, color: "0.05 0.12 0.2", after: 8 });
-        entries.push({ text: "Resumen generado el " + new Date().toLocaleDateString("es-CL"), size: 9, bold: false, color: "0.38 0.45 0.52", after: 18 });
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            setSubmitStatus("Completa los campos obligatorios antes de enviar.", "error");
+            return false;
+        }
 
-        rows.forEach(function (row) {
-            var valueLines = wrapPdfText(row[1], 88);
-            entries.push({ text: row[0].toUpperCase(), size: 8, bold: true, color: "0.03 0.56 0.75", after: 4 });
-            valueLines.forEach(function (line, index) {
-                entries.push({
-                    text: line,
-                    size: 10,
-                    bold: false,
-                    color: "0.15 0.22 0.3",
-                    after: index === valueLines.length - 1 ? 10 : 3
+        if (contact.name.length < 2) {
+            setSubmitStatus("Indica un nombre válido para poder identificar tu solicitud.", "error");
+            document.getElementById("contactName").focus();
+            return false;
+        }
+
+        if (contact.phone.replace(/\D/g, "").length < 8) {
+            setSubmitStatus("Revisa el teléfono o WhatsApp ingresado.", "error");
+            document.getElementById("contactPhone").focus();
+            return false;
+        }
+
+        return true;
+    }
+
+    // =====================================================================
+    // 09. VALIDACIÓN Y ENVÍO DE LA PRECOTIZACIÓN
+    // =====================================================================
+
+    /** Envía el levantamiento al endpoint server-side y comunica el resultado. */
+    async function submitPrequote(event) {
+        event.preventDefault();
+
+        var honeypot = document.getElementById("companyWebsite");
+        var button = document.getElementById("submitPrequoteBtn");
+
+        if (honeypot && honeypot.value) {
+            setSubmitStatus("Solicitud recibida.", "success");
+            return;
+        }
+
+        if (!validateContactForm()) return;
+
+        var payload = buildSubmissionPayload();
+        button.disabled = true;
+        button.setAttribute("aria-busy", "true");
+        setSubmitStatus("Enviando tu levantamiento a ISM Developer…", "info");
+
+        try {
+            var response = await fetch("/api/pre-cotizacion", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+            var result = await response.json().catch(function () { return {}; });
+
+            if (!response.ok) {
+                throw new Error(result.error || "No fue posible enviar la solicitud.");
+            }
+
+            setSubmitStatus("Solicitud enviada. Revisaremos tu levantamiento y te responderemos dentro de las primeras 48 horas hábiles.", "success");
+
+            if (typeof window.trackEvent === "function") {
+                window.trackEvent("guide_web_prequote_submit", {
+                    event_category: "lead",
+                    solution_type: getSolution()[2],
+                    section: "guia-web"
                 });
-            });
-        });
-
-        entries.forEach(function (entry) {
-            var height = entry.size * 1.25 + entry.after;
-            if (y - height < 52) {
-                pageIndex += 1;
-                pages.push([]);
-                y = 742;
             }
-            entry.y = y;
-            pages[pageIndex].push(entry);
-            y -= height;
-        });
-
-        var objects = [];
-        objects[1] = "<< /Type /Catalog /Pages 2 0 R >>";
-        objects[3] = "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>";
-        objects[4] = "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>";
-
-        var pageIds = [];
-        pages.forEach(function (page, index) {
-            var pageId = 5 + index * 2;
-            var contentId = pageId + 1;
-            var commands = ["q 0.03 0.56 0.75 rg 44 764 524 3 re f Q"];
-
-            page.forEach(function (entry) {
-                commands.push([
-                    "BT /" + (entry.bold ? "F2" : "F1") + " " + entry.size + " Tf",
-                    entry.color + " rg",
-                    "1 0 0 1 44 " + entry.y.toFixed(2) + " Tm",
-                    "(" + escapePdfText(entry.text) + ") Tj ET"
-                ].join(" "));
-            });
-
-            commands.push(
-                "BT /F1 8 Tf 0.45 0.51 0.57 rg 1 0 0 1 44 28 Tm (ISM Developer - Página " + (index + 1) + " de " + pages.length + ") Tj ET"
-            );
-
-            var streamData = commands.join("\n") + "\n";
-            pageIds.push(pageId + " 0 R");
-            objects[pageId] = "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents " + contentId + " 0 R >>";
-            objects[contentId] = "<< /Length " + streamData.length + " >>\nstream\n" + streamData + "endstream";
-        });
-
-        objects[2] = "<< /Type /Pages /Kids [" + pageIds.join(" ") + "] /Count " + pages.length + " >>";
-
-        var pdf = "%PDF-1.4\n%âãÏÓ\n";
-        var offsets = [0];
-        var index;
-
-        for (index = 1; index < objects.length; index += 1) {
-            offsets[index] = pdf.length;
-            pdf += index + " 0 obj\n" + objects[index] + "\nendobj\n";
+        } catch (error) {
+            console.error("Guía Web ISM:", error);
+            setSubmitStatus("No pudimos enviar tu solicitud en este momento. Inténtalo nuevamente o contáctanos desde el sitio.", "error");
+            button.disabled = false;
+        } finally {
+            button.removeAttribute("aria-busy");
         }
-
-        var xrefOffset = pdf.length;
-        pdf += "xref\n0 " + objects.length + "\n0000000000 65535 f \n";
-        for (index = 1; index < objects.length; index += 1) {
-            pdf += String(offsets[index]).padStart(10, "0") + " 00000 n \n";
-        }
-        pdf += "trailer\n<< /Size " + objects.length + " /Root 1 0 R >>\nstartxref\n" + xrefOffset + "\n%%EOF";
-
-        var bytes = new Uint8Array(pdf.length);
-        for (index = 0; index < pdf.length; index += 1) {
-            bytes[index] = pdf.charCodeAt(index) & 255;
-        }
-
-        return new Blob([bytes], { type: "application/pdf" });
     }
 
-    function exportPdf() {
-        downloadBlob(createPdfBlob(), "orientacion-web-ism.pdf");
-        setExportStatus("PDF preparado: la descarga comenzó correctamente.");
-        trackExport("pdf");
-    }
-
-    function buildWhatsAppMessage() {
-        return [
-            "Hola, Ignacio. Completé la Guía Web ISM y quiero revisar esta orientación:",
-            ""
-        ].concat(getSummaryRows().map(function (row) {
-            return row[0] + ": " + row[1];
-        })).join("\n");
-    }
-
-    function handleWhatsApp() {
-        setExportStatus("WhatsApp está abriendo con tu orientación completa.");
-        trackExport("whatsapp");
-    }
+    // =====================================================================
+    // 10. CONTROL DE PASOS, EVENTOS E INICIALIZACIÓN
+    // =====================================================================
 
     function moveToStep(nextStep) {
         state.step = Math.max(0, Math.min(totalSteps, nextStep));
         renderAll();
     }
 
+    // Eventos principales de navegación.
     selectors.nextButton.addEventListener("click", function () {
         if (!canContinue()) return;
         moveToStep(state.step + 1);
@@ -623,10 +630,10 @@
         moveToStep(state.step - 1);
     });
 
-    document.getElementById("exportExcelBtn").addEventListener("click", exportExcel);
-    document.getElementById("exportPdfBtn").addEventListener("click", exportPdf);
-    document.getElementById("continueWhatsappBtn").addEventListener("click", handleWhatsApp);
+    // El formulario controla el cierre comercial de la guía.
+    document.getElementById("prequoteForm").addEventListener("submit", submitPrequote);
 
+    // Render inicial: carga contenido fijo y sincroniza toda la interfaz.
     renderEssentials();
     renderAll();
 }());

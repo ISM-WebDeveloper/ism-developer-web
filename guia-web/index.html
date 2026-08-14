@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="es">
 <head>
+    <!-- ================================================================
+         METADATOS, SEO Y RECURSOS DE LA GUÍA
+         ================================================================ -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#050b14" />
@@ -17,13 +20,16 @@
     <link rel="stylesheet" href="../assets/css/accessibility.css?v=2.1.1" />
     <link rel="stylesheet" href="../assets/css/privacy-consent.css?v=2.0.24" />
     <link rel="preload" href="../assets/img/guia-asistida-colaboracion.webp" as="image" type="image/webp" />
-    <link rel="stylesheet" href="../assets/css/guia-web.css?v=1.6.2" />
+    <link rel="stylesheet" href="../assets/css/guia-web.css?v=1.7.1" />
     <script src="../assets/vendor/lucide-index.min.js" defer></script>
     <script src="../assets/js/privacy-consent.js?v=2.0.24" defer></script>
     <script src="../assets/js/analytics.js?v=2.0.24" defer></script>
-    <script src="../assets/js/guia-web.js?v=1.3.1" defer></script>
+    <script src="../assets/js/guia-web.js?v=1.4.1" defer></script>
 </head>
 <body>
+    <!-- ================================================================
+         ACCESIBILIDAD Y NAVEGACIÓN SUPERIOR
+         ================================================================ -->
     <a class="skip-link" href="#guia-principal">Saltar a la guía</a>
 
     <div class="guide-app">
@@ -42,6 +48,9 @@
             </div>
         </header>
 
+        <!-- ============================================================
+             EXPERIENCIA PRINCIPAL DE LA GUÍA
+             ============================================================ -->
         <main class="guide-shell" id="guia-principal">
             <div class="guide-experience">
                 <section class="guide-main" id="guideMain" aria-labelledby="guideTitle">
@@ -56,6 +65,7 @@
                         </div>
                     </div>
 
+                    <!-- PASO 0 · Bienvenida -->
                     <section class="guide-screen is-active" data-step="0">
                         <div class="guide-intro-layout">
                             <div class="guide-intro-copy">
@@ -73,6 +83,7 @@
                         </div>
                     </section>
 
+                    <!-- PASO 1 · Objetivos del proyecto -->
                     <section class="guide-screen" data-step="1" aria-labelledby="goalsTitle">
                         <h2 class="guide-title" id="goalsTitle">¿Qué quieres <span>lograr</span> con tu web?</h2>
                         <p class="guide-lead">Elige todos los objetivos que correspondan. Así orientamos la solución a lo que realmente importa para tu negocio.</p>
@@ -81,6 +92,7 @@
                         <p class="guide-selection-status" id="goalsStatus" role="status" aria-live="polite"></p>
                     </section>
 
+                    <!-- PASO 2 · Rubro / tipo de negocio -->
                     <section class="guide-screen" data-step="2" aria-labelledby="industryTitle">
                         <h2 class="guide-title" id="industryTitle">¿A qué se dedica <span>tu negocio?</span></h2>
                         <p class="guide-lead">Cada rubro necesita un recorrido distinto. Elige la opción más cercana a lo que haces.</p>
@@ -88,6 +100,7 @@
                         <div class="guide-choice-grid guide-choice-grid--three" id="industryGrid" aria-label="Rubro del negocio"></div>
                     </section>
 
+                    <!-- PASO 3 · Situación digital actual -->
                     <section class="guide-screen" data-step="3" aria-labelledby="presenceTitle">
                         <h2 class="guide-title" id="presenceTitle">¿Cómo te encuentran <span>hoy?</span></h2>
                         <p class="guide-lead">Marca todo lo que ya usas. Si estás partiendo desde cero, también está bien.</p>
@@ -95,6 +108,7 @@
                         <div class="guide-choice-grid" id="presenceGrid" aria-label="Presencia digital actual"></div>
                     </section>
 
+                    <!-- PASO 4 · Base profesional incluida por ISM -->
                     <section class="guide-screen" data-step="4" aria-labelledby="essentialsTitle">
                         <h2 class="guide-title" id="essentialsTitle">Esto ya viene <span>incluido.</span></h2>
                         <p class="guide-lead">Hay bases técnicas que no deberían negociarse como extras. En ISM forman parte de una solución profesional.</p>
@@ -103,6 +117,7 @@
                         <div class="guide-lesson guide-lesson--spaced"><i data-lucide="shield-check" aria-hidden="true"></i><p><strong>En resumen:</strong> tu web debe verse bien en celular, cargar rápido, ser segura y facilitar el contacto.</p></div>
                     </section>
 
+                    <!-- PASO 5 · Contenido que necesita mostrar -->
                     <section class="guide-screen" data-step="5" aria-labelledby="contentTitle">
                         <h2 class="guide-title" id="contentTitle">¿Qué quieres <span>mostrar?</span></h2>
                         <p class="guide-lead">Selecciona las secciones que ayudarán a entender quién eres y por qué deberían contactarte.</p>
@@ -110,6 +125,7 @@
                         <div class="guide-choice-grid" id="contentGrid" aria-label="Contenido deseado"></div>
                     </section>
 
+                    <!-- PASO 6 · Acciones que realizará el visitante -->
                     <section class="guide-screen" data-step="6" aria-labelledby="actionsTitle">
                         <h2 class="guide-title" id="actionsTitle">¿Qué quieres que puedan <span>hacer?</span></h2>
                         <p class="guide-lead">Define las acciones principales: contactar, reservar, pedir una cotización o comprar.</p>
@@ -117,6 +133,7 @@
                         <div class="guide-choice-grid" id="actionsGrid" aria-label="Acciones deseadas"></div>
                     </section>
 
+                    <!-- PASO 7 · Recomendación generada por el motor ISM -->
                     <section class="guide-screen" data-step="7" aria-labelledby="resultHeading">
                         <h2 class="guide-title" id="resultHeading">Tu solución <span>recomendada</span></h2>
                         <p class="guide-lead">Con base en tus respuestas, esta es la orientación inicial que te proponemos.</p>
@@ -128,7 +145,7 @@
                             <div class="guide-tags" id="resultTags"></div>
                             <div class="guide-trust-row">
                                 <span><i data-lucide="check" aria-hidden="true"></i>Orientación sin compromiso</span>
-                                <span><i data-lucide="check" aria-hidden="true"></i>Contacto directo por WhatsApp</span>
+                                <span><i data-lucide="check" aria-hidden="true"></i>Respuesta dentro de 48 horas hábiles</span>
                                 <span><i data-lucide="check" aria-hidden="true"></i>Revisión humana del alcance</span>
                             </div>
                         </div>
@@ -137,11 +154,12 @@
                         <div class="guide-recommendations" id="recommendBox"></div>
                     </section>
 
+                    <!-- PASO 8 · Captura del prospecto y envío a ISM -->
                     <section class="guide-screen guide-screen--finish" data-step="8" aria-labelledby="finishTitle">
                         <div class="guide-finish-layout">
                             <p class="guide-result-kicker"><i data-lucide="sparkles" aria-hidden="true"></i>Orientación completada</p>
                             <h2 class="guide-title" id="finishTitle">Tu orientación <span>está lista.</span></h2>
-                            <p class="guide-lead">Descarga una copia o continúa directamente con ISM. Las tres opciones conservan las selecciones que acabas de definir.</p>
+                            <p class="guide-lead">Ya preparamos un primer levantamiento de tu proyecto. Déjanos tus datos y revisaremos personalmente esta orientación antes de contactarte.</p>
 
                             <div class="guide-result-summary">
                                 <span>Tu recomendación</span>
@@ -149,29 +167,56 @@
                                 <p id="finalSummary">Tu configuración y las sugerencias de ISM.</p>
                             </div>
 
-                            <div class="guide-export-options" aria-label="Opciones para guardar o compartir la orientación">
-                                <button class="guide-export-card" id="exportExcelBtn" type="button">
-                                    <span><i data-lucide="database" aria-hidden="true"></i></span>
-                                    <strong>Exportar Excel</strong>
-                                    <small>Archivo CSV compatible</small>
-                                </button>
-                                <button class="guide-export-card" id="exportPdfBtn" type="button">
-                                    <span><i data-lucide="panel-top" aria-hidden="true"></i></span>
-                                    <strong>Exportar PDF</strong>
-                                    <small>Resumen listo para guardar</small>
-                                </button>
-                                <a class="guide-export-card guide-export-card--primary" id="continueWhatsappBtn" href="https://wa.me/56968374821" target="_blank" rel="noopener noreferrer">
-                                    <span><i data-lucide="message-square" aria-hidden="true"></i></span>
-                                    <strong>Continuar por WhatsApp</strong>
-                                    <small>Mensaje completo y preparado</small>
-                                </a>
-                            </div>
+                            <!-- Formulario comercial: solo solicita los datos necesarios para continuar. -->
+                            <form class="guide-contact-form" id="prequoteForm" novalidate>
+                                <div class="guide-contact-grid">
+                                    <label class="guide-field" for="contactName">
+                                        <span>Nombre <b aria-hidden="true">*</b></span>
+                                        <input id="contactName" name="name" type="text" autocomplete="name" maxlength="80" required placeholder="Tu nombre" />
+                                    </label>
+                                    <label class="guide-field" for="contactBusiness">
+                                        <span>Negocio <small>opcional</small></span>
+                                        <input id="contactBusiness" name="business" type="text" autocomplete="organization" maxlength="100" placeholder="Nombre de tu negocio" />
+                                    </label>
+                                    <label class="guide-field" for="contactEmail">
+                                        <span>Correo <b aria-hidden="true">*</b></span>
+                                        <input id="contactEmail" name="email" type="email" autocomplete="email" maxlength="120" required placeholder="nombre@correo.cl" />
+                                    </label>
+                                    <label class="guide-field" for="contactPhone">
+                                        <span>Teléfono / WhatsApp <b aria-hidden="true">*</b></span>
+                                        <input id="contactPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" required placeholder="+56 9 1234 5678" />
+                                    </label>
+                                </div>
 
-                            <p class="guide-export-note">WhatsApp incluirá tu recomendación, objetivos, rubro, presencia actual, contenido, acciones y sugerencias de ISM.</p>
-                            <p class="guide-export-status" id="exportStatus" role="status" aria-live="polite"></p>
+                                <!-- Honeypot silencioso para filtrar bots simples sin afectar la UX. -->
+                                <label class="guide-honeypot" for="companyWebsite" aria-hidden="true">
+                                    Sitio web
+                                    <input id="companyWebsite" name="website" type="text" tabindex="-1" autocomplete="off" />
+                                </label>
+
+                                <label class="guide-consent" for="contactConsent">
+                                    <input id="contactConsent" name="consent" type="checkbox" required />
+                                    <span>Acepto que ISM Developer me contacte respecto de esta solicitud. <a href="../privacidad.html" target="_blank" rel="noopener noreferrer">Ver privacidad</a>.</span>
+                                </label>
+
+                                <div class="guide-response-promise">
+                                    <span><i data-lucide="clock-3" aria-hidden="true"></i></span>
+                                    <div>
+                                        <strong>Respuesta dentro de las primeras 48 horas hábiles</strong>
+                                        <p>Revisaremos personalmente tu levantamiento antes de responderte. No enviamos una cotización automática.</p>
+                                    </div>
+                                </div>
+
+                                <button class="guide-submit-button" id="submitPrequoteBtn" type="submit">
+                                    Enviar mi precotización
+                                    <i data-lucide="send" aria-hidden="true"></i>
+                                </button>
+                                <p class="guide-submit-status" id="submitStatus" role="status" aria-live="polite"></p>
+                            </form>
                         </div>
                     </section>
 
+                    <!-- Navegación entre pasos; en el último paso el envío lo controla el formulario. -->
                     <div class="guide-actions" id="actionsBar">
                         <button class="guide-button guide-button--ghost" id="backBtn" type="button">
                             <i data-lucide="arrow-left" aria-hidden="true"></i>Atrás
@@ -182,6 +227,9 @@
                     </div>
                 </section>
 
+                <!-- ========================================================
+                     PANEL LATERAL · PROGRESO Y APRENDIZAJE
+                     ======================================================== -->
                 <aside class="guide-aside" aria-labelledby="mapTitle">
                     <div class="guide-aside-heading">
                         <span>Tu recorrido</span>
@@ -215,6 +263,9 @@
             </div>
         </main>
 
+        <!-- ============================================================
+             PIE DE PÁGINA
+             ============================================================ -->
         <footer class="guide-footer">
             <span>© 2026 ISM Developer</span>
             <a href="../privacidad.html">Privacidad</a>
