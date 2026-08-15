@@ -41,6 +41,8 @@ const GUIDE_OUTPUT_FILE = path.join(
   "ism-guide-catalog.js",
 );
 
+const TOLERANCE = 1e-9;
+
 const REQUIRED_HEADERS = [
   "Línea de servicio",
   "Código servicio",
@@ -58,6 +60,26 @@ const REQUIRED_HEADERS = [
   "Dependencias",
   "Estado",
 ];
+
+
+const FIXED_QUANTITY_UNITS = new Set(["Proyecto"]);
+
+// Actividades cuya cantidad puede repetirse aunque el catálogo parta en 1.
+// La lista evita mostrar selectores inútiles en actividades que solo ocurren
+// una vez por proyecto, pero permite dimensionar secciones/páginas repetibles.
+const ALWAYS_EDITABLE_ACTIVITY_CODES = new Set([
+  "WEB-009", // Sección estándar de contenido
+  "WEB-014", // Formulario de contacto
+  "WEB-016", // Página interna estándar
+]);
+
+// Códigos absorbidos por la v2.3. Si reaparecen, el catálogo fuente no está
+// realmente sincronizado con la versión simplificada.
+const RETIRED_ACTIVITY_CODES = new Set([
+  "WEB-002", "WEB-003", "WEB-004", "WEB-006", "WEB-020", "WEB-024",
+  "WEB-028", "WEB-031", "WEB-032", "WEB-034",
+  "APP-002", "APP-006", "APP-021", "APP-022", "APP-026",
+]);
 
 const AREA_DEFINITIONS = {
   "Desarrollo e Implementación": {
@@ -448,6 +470,12 @@ function validateCatalogRows(rows) {
       throw new Error(`Código de actividad duplicado: ${row.activityCode}.`);
     }
 
+    if (RETIRED_ACTIVITY_CODES.has(row.activityCode)) {
+      throw new Error(
+        `El catálogo v2.3 contiene el código retirado ${row.activityCode}. Revisa la fuente antes de sincronizar.`,
+      );
+    }
+
     activityCodes.add(row.activityCode);
 
     const existingService = serviceDefinitions.get(row.serviceCode);
@@ -470,6 +498,38 @@ function validateCatalogRows(rows) {
     activityLines: rows.length,
     serviceCodes: serviceDefinitions.size,
     uniqueActivityCodes: activityCodes.size,
+  };
+}
+
+
+function resolveActivityQuantityRule(row) {
+  const fixedByUnit = FIXED_QUANTITY_UNITS.has(row.unit);
+
+  if (fixedByUnit) {
+    if (!nearlyEqual(row.quantity, 1)) {
+      throw new Error(
+        `Fila ${row.rowNumber}: ${row.activityCode} usa unidad ${row.unit} y debe tener Cantidad base = 1.`,
+      );
+    }
+
+    return undefined;
+  }
+
+  const editable =
+    ALWAYS_EDITABLE_ACTIVITY_CODES.has(row.activityCode) ||
+    !nearlyEqual(row.quantity, 1);
+
+  if (!editable) {
+    return undefined;
+  }
+
+  return {
+    unit: "custom",
+    label: `Cantidad (${row.unit})`,
+    baseQuantity: 1,
+    defaultQuantity: Math.max(1, row.quantity),
+    minimum: 1,
+    editable: true,
   };
 }
 
@@ -497,17 +557,7 @@ function buildCatalog(rows, version, contingencyRate, hourlyRateUF) {
       },
     };
 
-    const quantityRule =
-      row.quantity !== 1
-        ? {
-            unit: "custom",
-            label: `Cantidad (${row.unit})`,
-            baseQuantity: 1,
-            defaultQuantity: row.quantity,
-            minimum: 0,
-            editable: true,
-          }
-        : undefined;
+    const quantityRule = resolveActivityQuantityRule(row);
 
     const activity = {
       id: slugify(row.activityCode),
@@ -624,6 +674,30 @@ function buildCatalog(rows, version, contingencyRate, hourlyRateUF) {
   };
 }
 
+
+function validateQuantitySemantics(catalog) {
+  const activities = catalog.areas.flatMap((area) =>
+    area.services.flatMap((service) => service.activities),
+  );
+  const byCode = new Map(activities.map((activity) => [activity.code, activity]));
+
+  const fixedCodes = ["WEB-005", "WEB-022", "WEB-023"];
+  const editableCodes = ["WEB-009", "WEB-014", "WEB-016"];
+
+  fixedCodes.forEach((code) => {
+    if (byCode.get(code)?.quantityRule) {
+      throw new Error(`${code} es una actividad única por proyecto y no debe exponer cantidad.`);
+    }
+  });
+
+  editableCodes.forEach((code) => {
+    const rule = byCode.get(code)?.quantityRule;
+    if (!rule?.editable || rule.minimum !== 1) {
+      throw new Error(`${code} debe permitir una cantidad editable desde 1.`);
+    }
+  });
+}
+
 // ==================================================
 // SERIALIZACIÓN
 // ==================================================
@@ -724,6 +798,7 @@ async function main() {
     contingencyRate,
     hourlyRateUF,
   );
+  validateQuantitySemantics(catalog);
 
   await writeFile(OUTPUT_FILE, createTypescriptFile(catalog), "utf8");
 

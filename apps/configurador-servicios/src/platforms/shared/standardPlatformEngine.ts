@@ -105,6 +105,7 @@ const INITIAL_STANDARD_STATE: BaseConfiguratorState = {
   quantities: {},
   selectedActivities: {},
   activityQuantities: {},
+  executionFactor: 1,
 };
 
 // ==================================================
@@ -155,6 +156,12 @@ function parseSavedState(raw: string): BaseConfiguratorState | null {
         typeof parsed.activityQuantities === "object"
           ? parsed.activityQuantities
           : {},
+      executionFactor:
+        typeof parsed.executionFactor === "number" &&
+        Number.isFinite(parsed.executionFactor) &&
+        parsed.executionFactor >= 0
+          ? parsed.executionFactor
+          : 1,
     };
   } catch {
     return null;

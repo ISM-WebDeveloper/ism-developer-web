@@ -34,7 +34,6 @@ import {
 import type {
   CatalogArea,
   CatalogService,
-  ServiceSize,
 } from "../../types/catalog";
 import type {
   StandardCatalogAction,
@@ -73,13 +72,6 @@ interface ServiceModuleCardProps {
   moduleHours: number;
 }
 
-interface AutomaticServiceLevel {
-  category: ServiceSize;
-  label: string;
-  range: string;
-  description: string;
-}
-
 type ExportReviewFormat = "excel" | "pdf";
 
 interface SummaryActivityItem {
@@ -89,52 +81,6 @@ interface SummaryActivityItem {
   quantityLabel: string | null;
   quantity: number | null;
   totalHours: number | null;
-}
-
-// ==================================================
-// COMPONENTES AUXILIARES
-// ==================================================
-
-const INITIAL_LEVEL_LIMIT = 35;
-const STANDARD_LEVEL_LIMIT = 60;
-
-const AUTOMATIC_SERVICE_LEVELS: AutomaticServiceLevel[] = [
-  {
-    category: "small",
-    label: "Inicial",
-    range: "Menos de 35 HH",
-    description: "Alcance acotado y componentes conocidos o reutilizables.",
-  },
-  {
-    category: "medium",
-    label: "Estándar",
-    range: "Desde 35 hasta menos de 60 HH",
-    description: "Solución de alcance medio con mayor coordinación y personalización.",
-  },
-  {
-    category: "high",
-    label: "Avanzado",
-    range: "60 HH o más",
-    description: "Solución amplia con más actividades, integración o control técnico.",
-  },
-];
-
-function resolveAutomaticServiceLevel(
-  technicalHours: number,
-): AutomaticServiceLevel | null {
-  if (technicalHours <= 0) {
-    return null;
-  }
-
-  if (technicalHours < INITIAL_LEVEL_LIMIT) {
-    return AUTOMATIC_SERVICE_LEVELS[0];
-  }
-
-  if (technicalHours < STANDARD_LEVEL_LIMIT) {
-    return AUTOMATIC_SERVICE_LEVELS[1];
-  }
-
-  return AUTOMATIC_SERVICE_LEVELS[2];
 }
 
 interface ServiceIconProps {
@@ -390,7 +336,7 @@ function ServiceModuleCard({
           </button>
 
           <div className="ibm-module-hours">
-            <small>Horas técnicas</small>
+            <small>HH base</small>
             <strong>
               {applicable
                 ? `${formatConfiguratorNumber(moduleHours * quantity)} h`
@@ -619,6 +565,8 @@ export function StandardPlatformCatalogPage({
       selectedServices: configuredServices,
       state: calculationState,
       contingencyRate: catalog.contingencyRate,
+      hourlyRateUF: catalog.hourlyRateUF,
+      executionFactor: state.executionFactor,
       getQuantity: quantityForSelectedService,
     });
   }, [
@@ -629,10 +577,6 @@ export function StandardPlatformCatalogPage({
     state,
   ]);
 
-  const automaticServiceLevel = useMemo(
-    () => resolveAutomaticServiceLevel(totals.technical),
-    [totals.technical],
-  );
 
   const warnings = useMemo(
     () => engine.getWarnings(state),
@@ -797,6 +741,17 @@ export function StandardPlatformCatalogPage({
         quantity,
       ),
     );
+  }
+
+  function changeExecutionFactor(percent: number) {
+    const normalizedPercent = Number.isFinite(percent)
+      ? Math.min(200, Math.max(0, percent))
+      : 100;
+
+    setState((current) => ({
+      ...current,
+      executionFactor: normalizedPercent / 100,
+    }));
   }
 
   function toggleExpanded(code: string) {
@@ -1026,7 +981,7 @@ export function StandardPlatformCatalogPage({
           area: area?.name ?? service.groupLabel,
           code: service.code,
           name: service.name,
-          category: automaticServiceLevel?.label ?? "Sin nivel",
+          category: "Base v2.3",
           unit: engine.getServiceUnit(service),
           quantity,
           technicalHours:
@@ -1040,16 +995,20 @@ export function StandardPlatformCatalogPage({
     return {
       title: engine.report.title,
       subtitle: engine.report.subtitle,
-      category: automaticServiceLevel?.label ?? "Sin nivel",
-      model:
-        automaticServiceLevel?.description ??
-        "Nivel pendiente de selección",
+      category: "Base v2.3",
+      model: "HH base + factor global al cierre + contingencia final",
       emittedAt: new Date(),
       contingencyRate: catalog.contingencyRate,
       services: reportServices,
       totals: {
         activities: totals.activities,
         technicalHours: totals.technical,
+        executionFactor: totals.executionFactor,
+        adjustedHours: totals.adjustedTechnical,
+        hourlyRateUF: totals.hourlyRateUF ?? 0,
+        technicalValueUF: totals.technicalValueUF ?? 0,
+        contingencyValueUF: totals.contingencyValueUF ?? 0,
+        finalValueUF: totals.finalValueUF ?? 0,
         contingencyHours: totals.contingency,
         commercialHours: totals.commercial,
         modules: totals.services.length,
@@ -1106,11 +1065,7 @@ export function StandardPlatformCatalogPage({
     }
   }
 
-  const automaticServiceLevelIndex = automaticServiceLevel
-    ? AUTOMATIC_SERVICE_LEVELS.findIndex(
-        (level) => level.category === automaticServiceLevel.category,
-      )
-    : -1;
+
 
   return (
     <div className="ibm-configurator">
@@ -1235,82 +1190,73 @@ export function StandardPlatformCatalogPage({
           <section className="ibm-panel ibm-summary">
             <h2>Resumen de tu solución</h2>
 
-            <div className="ism-level-card">
-              <div className="ism-level-card__header">
+            <div className="ism-final-value-card">
+              <div className="ism-final-value-card__header">
                 <div>
-                  <span>Nivel de servicio automático</span>
-                  <strong>
-                    {automaticServiceLevel?.label ?? "Sin nivel"}
-                  </strong>
+                  <span>Cálculo final del proyecto</span>
+                  <strong>Una sola base, ajustes al final</strong>
                 </div>
-
               </div>
 
-              <div
-                aria-label={
-                  automaticServiceLevel
-                    ? `Nivel ${automaticServiceLevel.label} calculado automáticamente según las horas técnicas del resumen`
-                    : "Nivel pendiente de selección"
-                }
-                className="ism-level-meter"
-                role="group"
-              >
-                {AUTOMATIC_SERVICE_LEVELS.map((level, index) => {
-                  const active = index === automaticServiceLevelIndex;
-                  const completed =
-                    automaticServiceLevelIndex >= 0 &&
-                    index < automaticServiceLevelIndex;
-
-                  return (
-                    <div
-                      className={`ism-level-segment${
-                        active ? " ism-level-segment--active" : ""
-                      }${
-                        completed
-                          ? " ism-level-segment--completed"
-                          : ""
-                      }`}
-                      key={level.category}
-                    >
-                      <span>{level.label}</span>
-                      <small>{level.range}</small>
-                    </div>
-                  );
-                })}
+              <div className="ibm-kpis ibm-kpis--base">
+                <div className="ibm-kpi">
+                  <span>Actividades</span>
+                  <strong>{Math.round(totals.activities)}</strong>
+                </div>
+                <div className="ibm-kpi">
+                  <span>HH base</span>
+                  <strong>{formatConfiguratorNumber(totals.technical)}</strong>
+                </div>
+                <div className="ibm-kpi">
+                  <span>Servicios</span>
+                  <strong>{totals.services.length}</strong>
+                </div>
               </div>
 
-              <p>
-                {automaticServiceLevel?.description ??
-                  "Selecciona un servicio para calcular el nivel automáticamente."}
-              </p>
-            </div>
+              <label className="ism-global-factor">
+                <span>Factor global de ejecución</span>
+                <div className="ism-global-factor__control">
+                  <input
+                    aria-label="Factor global de ejecución del proyecto"
+                    max="200"
+                    min="0"
+                    onChange={(event) =>
+                      changeExecutionFactor(Number(event.target.value || 100))
+                    }
+                    step="5"
+                    type="number"
+                    value={Math.round(state.executionFactor * 100)}
+                  />
+                  <b>%</b>
+                </div>
+                <small>
+                  100% = desarrollo base/nuevo. Reduce el porcentaje si existe
+                  reutilización real; aumenta solo ante esfuerzo extraordinario.
+                </small>
+              </label>
 
-            <div className="ibm-kpis">
-              <div className="ibm-kpi">
-                <span>Actividades</span>
-                <strong>{Math.round(totals.activities)}</strong>
+              <div className="ism-final-breakdown">
+                <div>
+                  <span>HH ajustadas</span>
+                  <strong>{formatConfiguratorNumber(totals.adjustedTechnical)} HH</strong>
+                </div>
+                <div>
+                  <span>Tarifa</span>
+                  <strong>{formatConfiguratorNumber(totals.hourlyRateUF ?? 0)} UF/HH</strong>
+                </div>
+                <div>
+                  <span>Valor técnico</span>
+                  <strong>{formatConfiguratorNumber(totals.technicalValueUF ?? 0)} UF</strong>
+                </div>
+                <div>
+                  <span>Contingencia final ({Math.round(catalog.contingencyRate * 100)}%)</span>
+                  <strong>+ {formatConfiguratorNumber(totals.contingencyValueUF ?? 0)} UF</strong>
+                </div>
               </div>
-              <div className="ibm-kpi">
-                <span>Horas técnicas</span>
-                <strong>
-                  {formatConfiguratorNumber(totals.technical)}
-                </strong>
-              </div>
-              <div className="ibm-kpi">
-                <span>Contingencia</span>
-                <strong>
-                  {formatConfiguratorNumber(totals.contingency)}
-                </strong>
-              </div>
-              <div className="ibm-kpi">
-                <span>Servicios</span>
-                <strong>{totals.services.length}</strong>
-              </div>
-              <div className="ibm-kpi ibm-kpi--total">
-                <span>Horas comerciales</span>
-                <strong>
-                  {formatConfiguratorNumber(totals.commercial)}
-                </strong>
+
+              <div className="ibm-kpi ibm-kpi--total ism-final-total">
+                <span>Total estimado</span>
+                <strong>{formatConfiguratorNumber(totals.finalValueUF ?? 0)} UF</strong>
               </div>
             </div>
 
@@ -1518,32 +1464,24 @@ export function StandardPlatformCatalogPage({
             <div className="ism-export-review__body">
               <section className="ism-export-review__overview">
                 <div>
-                  <span>Nivel automático</span>
-                  <strong>
-                    {automaticServiceLevel?.label ?? "Sin nivel"}
-                  </strong>
-                </div>
-                <div>
                   <span>Actividades</span>
                   <strong>{Math.round(totals.activities)}</strong>
                 </div>
                 <div>
-                  <span>Horas técnicas</span>
-                  <strong>
-                    {formatConfiguratorNumber(totals.technical)} HH
-                  </strong>
+                  <span>HH base</span>
+                  <strong>{formatConfiguratorNumber(totals.technical)} HH</strong>
                 </div>
                 <div>
-                  <span>Contingencia</span>
-                  <strong>
-                    {formatConfiguratorNumber(totals.contingency)} HH
-                  </strong>
+                  <span>Factor global</span>
+                  <strong>{Math.round(totals.executionFactor * 100)}%</strong>
+                </div>
+                <div>
+                  <span>HH ajustadas</span>
+                  <strong>{formatConfiguratorNumber(totals.adjustedTechnical)} HH</strong>
                 </div>
                 <div className="ism-export-review__commercial-total">
-                  <span>Horas comerciales</span>
-                  <strong>
-                    {formatConfiguratorNumber(totals.commercial)} HH
-                  </strong>
+                  <span>Total final</span>
+                  <strong>{formatConfiguratorNumber(totals.finalValueUF ?? 0)} UF</strong>
                 </div>
               </section>
 

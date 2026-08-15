@@ -10,17 +10,18 @@
     "build": "node ./node_modules/typescript/bin/tsc -b && node ./node_modules/vite/bin/vite.js build",
     "lint": "oxlint src vite.config.ts",
     "catalog:generate": "node scripts/generateCatalogs.mjs",
-    "preview": "vite preview",
-    "catalog:ism": "node scripts/generateIsmCatalog.mjs"
+    "catalog:ism": "node scripts/generateIsmCatalog.mjs",
+    "catalog:sync": "npm run catalog:ism",
+    "preview": "vite preview"
   },
   "dependencies": {
     "exceljs": "^4.4.0",
     "jspdf": "^4.2.1",
     "jspdf-autotable": "^5.0.8",
+    "jszip": "^3.10.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "react-router-dom": "7.18.2",
-    "jszip": "^3.10.1"
+    "react-router-dom": "7.18.2"
   },
   "devDependencies": {
     "@types/node": "^24.13.3",

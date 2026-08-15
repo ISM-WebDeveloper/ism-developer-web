@@ -47,11 +47,22 @@ npm run dev
 npm run build
 ```
 
-`npm run catalog:ism` debe ejecutarse después de modificar el Catálogo Maestro del Excel.
+`npm run catalog:ism` puede ejecutarse después de modificar el Catálogo Maestro del Excel.
 
 Además, `npm run dev` y `npm run build` ejecutan la sincronización automáticamente antes de iniciar o compilar. Por lo tanto, cambios de HH base, nombres, cantidades o estados realizados en el Excel fuente pasan a ambas herramientas al regenerar el catálogo.
 
 > Importante: los códigos de actividad (`WEB-xxx`, `APP-xxx`, `INT-xxx`) funcionan como claves de integración. Si se cambia o elimina un código, también debe revisarse la regla comercial de la Guía Web que lo utiliza.
+
+### Publicación del configurador
+
+El sitio público utiliza los archivos compilados de `/configurador/`. Por eso, después de editar el Excel o el código del configurador, ejecuta desde la raíz del sitio:
+
+```bash
+npm run configurator:build
+```
+
+El `prebuild` de la aplicación sincroniza automáticamente el Excel antes de compilar. No basta con hacer `push` de `src/` si no se actualiza también la salida compilada de `/configurador/`.
+
 
 ## Reglas implementadas
 
@@ -59,7 +70,8 @@ Además, `npm run dev` y `npm run build` ejecutan la sincronización automática
 - No existen factores de reutilización ni escenarios de horas por actividad.
 - La reutilización o esfuerzo extraordinario se define una sola vez como factor global al final del proyecto.
 - La contingencia se aplica una sola vez al total final.
-- Las cantidades diferentes de uno generan controles editables.
+- Las cantidades se muestran solo cuando representan unidades realmente repetibles. Las actividades por `Proyecto` son siempre 1 y no muestran selector.
+- `WEB-009` (sección estándar), `WEB-014` (formulario) y `WEB-016` (página interna) permiten ajustar cantidad aunque su base sea 1.
 - Las actividades obligatorias no pueden excluirse.
 - Las actividades opcionales comienzan desactivadas.
 - Las selecciones se guardan en `ism-configurator:services:v2.3`.
@@ -68,7 +80,7 @@ Además, `npm run dev` y `npm run build` ejecutan la sincronización automática
 
 ## Validación de esta entrega
 
-- Importador ejecutado correctamente: `21 servicios / 254 actividades`.
-- TypeScript ejecutado sin errores.
-- Build de producción ejecutado correctamente.
-- Oxlint no pudo ejecutarse en el entorno de preparación porque el ZIP original contenía dependencias nativas de Windows. Al ejecutar `npm install` en el equipo de trabajo se instalará el binding correspondiente al sistema operativo.
+- Importador v2.3 ejecutado correctamente: `21 servicios / 254 actividades / 0,70 UF/HH`.
+- Verificación de reglas de cantidad: actividades por proyecto sin selector; secciones/páginas repetibles con cantidad editable.
+- Códigos retirados de la v2.3 rechazados por el generador.
+- Archivos TypeScript/TSX intervenidos validados sintácticamente.

@@ -188,7 +188,15 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "Exclusiones: No incluye lógica avanzada, filtros ni contenido dinámico.",
                 "Dependencias: WEB-005",
                 "Estado de HH: Preliminar"
-              ]
+              ],
+              "quantityRule": {
+                "unit": "custom",
+                "label": "Cantidad (Sección)",
+                "baseQuantity": 1,
+                "defaultQuantity": 1,
+                "minimum": 1,
+                "editable": true
+              }
             },
             {
               "id": "web-010",
@@ -338,7 +346,15 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "Exclusiones: No incluye CRM, automatizaciones complejas, adjuntos pesados ni flujos de aprobación.",
                 "Dependencias: WEB-005",
                 "Estado de HH: Preliminar"
-              ]
+              ],
+              "quantityRule": {
+                "unit": "custom",
+                "label": "Cantidad (Formulario)",
+                "baseQuantity": 1,
+                "defaultQuantity": 1,
+                "minimum": 1,
+                "editable": true
+              }
             },
             {
               "id": "web-015",
@@ -399,7 +415,15 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "Exclusiones: No incluye lógica transaccional ni diseño completamente único por página.",
                 "Dependencias: WEB-005, WEB-007",
                 "Estado de HH: Preliminar"
-              ]
+              ],
+              "quantityRule": {
+                "unit": "custom",
+                "label": "Cantidad (Página)",
+                "baseQuantity": 1,
+                "defaultQuantity": 1,
+                "minimum": 1,
+                "editable": true
+              }
             },
             {
               "id": "web-017",
@@ -799,7 +823,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Rol)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -867,7 +891,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Pantalla)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -937,7 +961,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Pantalla)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -1005,7 +1029,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Entidad)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -1075,7 +1099,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Rol)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -1113,7 +1137,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Flujo)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -1530,7 +1554,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Regla)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -1886,7 +1910,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Cambio)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -1924,7 +1948,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Lote)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -1988,7 +2012,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Caso)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -2231,7 +2255,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Pantalla)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -2295,7 +2319,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Regla)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -2359,7 +2383,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Pantalla)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -2395,7 +2419,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Rol)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -2426,8 +2450,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Integración)",
                 "baseQuantity": 1,
-                "defaultQuantity": 0,
-                "minimum": 0,
+                "defaultQuantity": 1,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -2463,7 +2487,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Caso)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -2674,7 +2698,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Flujo)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -2712,7 +2736,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Dependencia)",
                 "baseQuantity": 1,
                 "defaultQuantity": 5,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -2748,7 +2772,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Módulo)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -2784,7 +2808,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Componente)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -2849,8 +2873,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Hallazgo)",
                 "baseQuantity": 1,
-                "defaultQuantity": 0,
-                "minimum": 0,
+                "defaultQuantity": 1,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -2882,7 +2906,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Flujo)",
                 "baseQuantity": 1,
                 "defaultQuantity": 5,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -3179,7 +3203,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Consulta)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -3395,7 +3419,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Servicio)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -3427,7 +3451,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Servicio)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -3459,7 +3483,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Servicio)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -3491,7 +3515,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Canal)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -3523,7 +3547,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Servicio)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -3603,7 +3627,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Caso)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -3702,7 +3726,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Fuente)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -3758,7 +3782,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Fuente)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -3790,7 +3814,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Fuente)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -3822,7 +3846,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Flujo)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -3902,7 +3926,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Regla)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -3934,7 +3958,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Caso)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -4009,7 +4033,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Métrica)",
                 "baseQuantity": 1,
                 "defaultQuantity": 6,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -4041,7 +4065,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Métrica)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -4073,7 +4097,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Host)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -4129,7 +4153,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Métrica)",
                 "baseQuantity": 1,
                 "defaultQuantity": 5,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -4185,7 +4209,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Flujo)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -4217,7 +4241,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Caso)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -4329,7 +4353,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Activo)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -4363,7 +4387,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Servicio)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -4419,7 +4443,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Job)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -4499,7 +4523,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Job)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -4531,7 +4555,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Activo)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -4563,7 +4587,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Canal)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -4640,7 +4664,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Proceso)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -4672,7 +4696,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Servicio)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -4706,7 +4730,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Servicio)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -4738,7 +4762,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Servicio)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -4772,7 +4796,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Servicio)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -4943,7 +4967,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Fuente)",
                 "baseQuantity": 1,
                 "defaultQuantity": 5,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -4975,7 +4999,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Categoría)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -5007,7 +5031,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Categoría)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -5039,7 +5063,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Sistema)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -5095,7 +5119,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Caso)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -5127,7 +5151,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Caso)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -5239,7 +5263,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Activo)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -5271,7 +5295,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Entorno)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -5303,7 +5327,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Cuenta)",
                 "baseQuantity": 1,
                 "defaultQuantity": 8,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -5335,7 +5359,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Cuenta)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -5511,7 +5535,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Entorno)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -5543,7 +5567,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Caso)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -5618,7 +5642,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Activo)",
                 "baseQuantity": 1,
                 "defaultQuantity": 6,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -5650,7 +5674,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Entorno)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -5682,7 +5706,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Entorno)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -5714,7 +5738,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Hallazgo)",
                 "baseQuantity": 1,
                 "defaultQuantity": 10,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -5746,7 +5770,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Hallazgo)",
                 "baseQuantity": 1,
                 "defaultQuantity": 10,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -5802,7 +5826,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Activo)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -5834,7 +5858,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Hallazgo)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -5866,7 +5890,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Activo)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -5898,7 +5922,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Entorno)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -5973,7 +5997,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Sistema)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -6005,7 +6029,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Rol)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -6037,7 +6061,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Rol)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -6117,7 +6141,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Rol)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -6173,7 +6197,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Cuenta)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -6229,7 +6253,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Caso)",
                 "baseQuantity": 1,
                 "defaultQuantity": 8,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -6304,7 +6328,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Escenario)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -6360,7 +6384,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Rol)",
                 "baseQuantity": 1,
                 "defaultQuantity": 5,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -6392,7 +6416,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Escenario)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -6424,7 +6448,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Escenario)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -6456,7 +6480,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Escenario)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -6512,7 +6536,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Fuente)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -6648,7 +6672,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Servicio)",
                 "baseQuantity": 1,
                 "defaultQuantity": 6,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -6680,7 +6704,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Canal)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -6740,7 +6764,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Nivel)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -6774,7 +6798,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Servicio)",
                 "baseQuantity": 1,
                 "defaultQuantity": 6,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -6806,7 +6830,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Formulario)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -6838,7 +6862,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Flujo)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -6870,7 +6894,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Rol)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -6902,7 +6926,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Plantilla)",
                 "baseQuantity": 1,
                 "defaultQuantity": 5,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -6960,7 +6984,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Caso)",
                 "baseQuantity": 1,
                 "defaultQuantity": 6,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -7035,7 +7059,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Proceso)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -7163,7 +7187,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Rol)",
                 "baseQuantity": 1,
                 "defaultQuantity": 5,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -7195,7 +7219,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Proceso)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -7227,7 +7251,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Regla)",
                 "baseQuantity": 1,
                 "defaultQuantity": 5,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -7259,7 +7283,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Indicador)",
                 "baseQuantity": 1,
                 "defaultQuantity": 6,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -7293,7 +7317,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Reporte)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -7325,7 +7349,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Caso)",
                 "baseQuantity": 1,
                 "defaultQuantity": 8,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -7400,7 +7424,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Sesión)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -7432,7 +7456,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Ticket)",
                 "baseQuantity": 1,
                 "defaultQuantity": 8,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -7464,7 +7488,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Ticket)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -7496,7 +7520,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Ticket)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -7528,7 +7552,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Cambio)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -7560,7 +7584,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Sesión)",
                 "baseQuantity": 1,
                 "defaultQuantity": 4,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -7640,7 +7664,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Hora)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             }
@@ -7691,7 +7715,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Fuente)",
                 "baseQuantity": 1,
                 "defaultQuantity": 6,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -7819,7 +7843,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Documento)",
                 "baseQuantity": 1,
                 "defaultQuantity": 3,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -7851,7 +7875,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Documento)",
                 "baseQuantity": 1,
                 "defaultQuantity": 2,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -7883,7 +7907,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Artículo)",
                 "baseQuantity": 1,
                 "defaultQuantity": 5,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },
@@ -7939,7 +7963,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Documento)",
                 "baseQuantity": 1,
                 "defaultQuantity": 5,
-                "minimum": 0,
+                "minimum": 1,
                 "editable": true
               }
             },

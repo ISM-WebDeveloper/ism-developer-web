@@ -41,7 +41,16 @@ export interface CatalogReportService {
 
 export interface CatalogReportTotals {
   activities: number;
+  /** HH base seleccionadas desde el catálogo. */
   technicalHours: number;
+  /** Ajuste global aplicado al cierre del proyecto. */
+  executionFactor: number;
+  adjustedHours: number;
+  hourlyRateUF: number;
+  technicalValueUF: number;
+  contingencyValueUF: number;
+  finalValueUF: number;
+  /** Campos heredados: se mantienen para compatibilidad interna. */
   contingencyHours: number;
   commercialHours: number;
   modules: number;
@@ -622,16 +631,12 @@ function buildExcelSummarySheet(
     report.totals.activities,
   );
 
-  worksheet.getCell("C6").value = "Horas técnicas";
+  worksheet.getCell("C6").value = "HH base";
   worksheet.getCell("C7").value =
     report.totals.technicalHours;
 
-  worksheet.getCell("E6").value =
-    `Contingencia ${formatPercentage(
-      report.contingencyRate,
-    )}`;
-  worksheet.getCell("E7").value =
-    report.totals.contingencyHours;
+  worksheet.getCell("E6").value = "Factor global";
+  worksheet.getCell("E7").value = report.totals.executionFactor;
 
   worksheet.getCell("G6").value = "Módulos";
   worksheet.getCell("G7").value =
@@ -673,13 +678,11 @@ function buildExcelSummarySheet(
   );
 
   worksheet.getCell("C7").numFmt = "0.00";
-  worksheet.getCell("E7").numFmt = "0.00";
+  worksheet.getCell("E7").numFmt = "0%";
 
   worksheet.mergeCells("A8:I8");
   worksheet.getCell("A8").value =
-    `Horas comerciales: ${formatDecimal(
-      report.totals.commercialHours,
-    )} h`;
+    `Total estimado: ${formatDecimal(report.totals.finalValueUF)} UF`;
   worksheet.getCell("A8").fill = {
     type: "pattern",
     pattern: "solid",
@@ -802,24 +805,17 @@ function buildExcelSummarySheet(
   const totalsStartRow = finalServiceRow + 2;
 
   const totalRows = [
+    ["Total de actividades incluidas", Math.round(report.totals.activities)],
+    ["HH base seleccionadas", report.totals.technicalHours],
+    ["Factor global de ejecución", report.totals.executionFactor],
+    ["HH ajustadas", report.totals.adjustedHours],
+    ["Tarifa UF/HH", report.totals.hourlyRateUF],
+    ["Valor técnico UF", report.totals.technicalValueUF],
     [
-      "Total de actividades incluidas",
-      Math.round(report.totals.activities),
+      `Contingencia final ${formatPercentage(report.contingencyRate)}`,
+      report.totals.contingencyValueUF,
     ],
-    [
-      "Total de horas técnicas",
-      report.totals.technicalHours,
-    ],
-    [
-      `Contingencia ${formatPercentage(
-        report.contingencyRate,
-      )}`,
-      report.totals.contingencyHours,
-    ],
-    [
-      "Total de horas comerciales",
-      report.totals.commercialHours,
-    ],
+    ["TOTAL FINAL UF", report.totals.finalValueUF],
   ] as const;
 
   totalRows.forEach(([label, value], index) => {
@@ -864,7 +860,8 @@ function buildExcelSummarySheet(
       applyExcelCellBorder(cell);
     });
 
-    valueCell.numFmt = "0.00";
+    valueCell.numFmt =
+      label === "Factor global de ejecución" ? "0%" : "0.00";
     worksheet.getRow(rowNumber).height =
       highlighted ? 26 : 22;
   });
@@ -1372,7 +1369,7 @@ function buildExcelDetailSheet(
     const valueCell = worksheet.getCell(currentRow, 6);
 
     labelCell.value =
-      "Total de horas técnicas del servicio";
+      "HH base del servicio";
     valueCell.value = service.technicalHours;
 
     [labelCell, valueCell].forEach((cell) => {
@@ -1558,37 +1555,27 @@ function drawPdfSummary(
   const boxes = [
     {
       label: "Actividades",
-      value: String(
-        Math.round(report.totals.activities),
-      ),
+      value: String(Math.round(report.totals.activities)),
       highlighted: false,
     },
     {
-      label: "Horas técnicas",
-      value: formatDecimal(
-        report.totals.technicalHours,
-      ),
+      label: "HH base",
+      value: formatDecimal(report.totals.technicalHours),
       highlighted: false,
     },
     {
-      label: `Contingencia ${formatPercentage(
-        report.contingencyRate,
-      )}`,
-      value: formatDecimal(
-        report.totals.contingencyHours,
-      ),
+      label: "Factor global",
+      value: formatPercentage(report.totals.executionFactor),
       highlighted: false,
     },
     {
-      label: "Módulos",
-      value: String(report.totals.modules),
+      label: "HH ajustadas",
+      value: formatDecimal(report.totals.adjustedHours),
       highlighted: false,
     },
     {
-      label: "Horas comerciales",
-      value: formatDecimal(
-        report.totals.commercialHours,
-      ),
+      label: "Total UF",
+      value: formatDecimal(report.totals.finalValueUF),
       highlighted: true,
     },
   ];
@@ -1763,24 +1750,17 @@ function drawPdfGeneralTotals(
   currentY += 11;
 
   const rows = [
+    ["Total de actividades incluidas", String(Math.round(report.totals.activities))],
+    ["HH base seleccionadas", formatDecimal(report.totals.technicalHours)],
+    ["Factor global de ejecución", formatPercentage(report.totals.executionFactor)],
+    ["HH ajustadas", formatDecimal(report.totals.adjustedHours)],
+    ["Tarifa UF/HH", formatDecimal(report.totals.hourlyRateUF)],
+    ["Valor técnico UF", formatDecimal(report.totals.technicalValueUF)],
     [
-      "Total de actividades incluidas",
-      String(Math.round(report.totals.activities)),
+      `Contingencia final ${formatPercentage(report.contingencyRate)}`,
+      formatDecimal(report.totals.contingencyValueUF),
     ],
-    [
-      "Total de horas técnicas",
-      formatDecimal(report.totals.technicalHours),
-    ],
-    [
-      `Contingencia ${formatPercentage(
-        report.contingencyRate,
-      )}`,
-      formatDecimal(report.totals.contingencyHours),
-    ],
-    [
-      "Total de horas comerciales",
-      formatDecimal(report.totals.commercialHours),
-    ],
+    ["TOTAL FINAL UF", formatDecimal(report.totals.finalValueUF)],
   ];
 
   rows.forEach(([label, value], index) => {
@@ -1994,7 +1974,7 @@ export async function exportCatalogReportToPdf(
           : [
               [
                 {
-                  content: "Total de horas técnicas del servicio",
+                  content: "HH base del servicio",
                   colSpan: 5,
                   styles: {
                     halign: "right",

@@ -2153,3 +2153,149 @@
     font-size: 0.7rem;
   }
 }
+
+/* ==================================================
+   V2.3 · CÁLCULO FINAL SIMPLIFICADO
+   Los porcentajes se aplican una sola vez al total.
+   ================================================== */
+
+.ism-final-value-card {
+  margin-bottom: 16px;
+  padding: 14px;
+  border: 1px solid #9be5f5;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #f2fcff 0%, #ffffff 100%);
+}
+
+.ism-final-value-card__header {
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.ism-final-value-card__header span,
+.ism-final-value-card__header strong {
+  display: block;
+}
+
+.ism-final-value-card__header span {
+  color: var(--ibm-muted);
+  font-size: 0.67rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.ism-final-value-card__header strong {
+  margin-top: 3px;
+  color: var(--ibm-ink);
+  font-size: 0.95rem;
+  font-weight: 850;
+}
+
+.ibm-kpis--base {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ibm-kpis--base .ibm-kpi {
+  padding: 10px 7px;
+}
+
+.ibm-kpis--base .ibm-kpi strong {
+  font-size: 1.05rem;
+}
+
+.ism-global-factor {
+  display: grid;
+  gap: 7px;
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid var(--ibm-line);
+  border-radius: 11px;
+  background: #ffffff;
+}
+
+.ism-global-factor > span {
+  color: var(--ibm-ink);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.ism-global-factor__control {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ism-global-factor__control input {
+  width: 92px;
+  min-height: 36px;
+  padding: 6px 10px;
+  border: 1px solid #a7c9d6;
+  border-radius: 9px;
+  color: var(--ibm-ink);
+  background: #f8fcfd;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-align: right;
+}
+
+.ism-global-factor__control input:focus {
+  border-color: var(--ibm-orange);
+  outline: 2px solid rgba(0, 200, 248, 0.2);
+}
+
+.ism-global-factor__control b {
+  color: var(--ibm-orange-dark);
+  font-size: 0.85rem;
+}
+
+.ism-global-factor small {
+  color: var(--ibm-muted);
+  font-size: 0.63rem;
+  line-height: 1.45;
+}
+
+.ism-final-breakdown {
+  margin-top: 12px;
+  border-top: 1px solid var(--ibm-line);
+}
+
+.ism-final-breakdown > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 2px;
+  border-bottom: 1px solid #e7eef2;
+}
+
+.ism-final-breakdown span {
+  color: var(--ibm-muted);
+  font-size: 0.68rem;
+}
+
+.ism-final-breakdown strong {
+  color: var(--ibm-ink);
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.ism-final-total {
+  margin-top: 12px;
+  padding: 14px;
+}
+
+.ism-final-total strong {
+  font-size: 1.65rem;
+}
+
+@media (max-width: 620px) {
+  .ibm-kpis--base {
+    grid-template-columns: 1fr;
+  }
+
+  .ism-final-breakdown > div {
+    align-items: flex-start;
+  }
+}

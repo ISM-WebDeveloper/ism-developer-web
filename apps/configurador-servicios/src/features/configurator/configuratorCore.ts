@@ -23,14 +23,30 @@ export interface BaseConfiguratorState {
   quantities: Record<string, number>;
   selectedActivities: Record<string, Record<number, boolean>>;
   activityQuantities?: Record<string, Record<string, number>>;
+  /**
+   * Ajuste global aplicado únicamente al cierre del proyecto.
+   * 1 = 100% (desarrollo base/nuevo); <1 reutilización; >1 esfuerzo extraordinario.
+   */
+  executionFactor: number;
 }
 
 export interface ConfiguratorTotals {
   services: CatalogService[];
+  /** HH base seleccionadas directamente desde el catálogo. */
   technical: number;
   activities: number;
+  /** Factor global aplicado al total, nunca a actividades individuales. */
+  executionFactor: number;
+  /** HH base después del factor global. */
+  adjustedTechnical: number;
+  /** Campos heredados para compatibilidad con reportes antiguos. */
   contingency: number;
   commercial: number;
+  /** Valorización final cuando el catálogo define tarifa UF/HH. */
+  hourlyRateUF: number | null;
+  technicalValueUF: number | null;
+  contingencyValueUF: number | null;
+  finalValueUF: number | null;
 }
 
 interface CalculateConfiguratorTotalsOptions<
@@ -39,6 +55,8 @@ interface CalculateConfiguratorTotalsOptions<
   selectedServices: CatalogService[];
   state: TState;
   contingencyRate: number;
+  hourlyRateUF?: number;
+  executionFactor?: number;
   getQuantity: (service: CatalogService) => number;
 }
 
@@ -251,6 +269,8 @@ export function calculateConfiguratorTotals<
   selectedServices,
   state,
   contingencyRate,
+  hourlyRateUF: optionsHourlyRateUF,
+  executionFactor: optionsExecutionFactor,
   getQuantity,
 }: CalculateConfiguratorTotalsOptions<TState>): ConfiguratorTotals {
   let technical = 0;
@@ -263,12 +283,35 @@ export function calculateConfiguratorTotals<
     activities += getServiceActivityCount(service, state) * quantity;
   });
 
+  const executionFactor = Math.max(0, optionsExecutionFactor ?? 1);
+  const adjustedTechnical = technical * executionFactor;
+  const resolvedHourlyRateUF =
+    typeof optionsHourlyRateUF === "number" && Number.isFinite(optionsHourlyRateUF)
+      ? optionsHourlyRateUF
+      : null;
+  const technicalValueUF =
+    resolvedHourlyRateUF === null
+      ? null
+      : adjustedTechnical * resolvedHourlyRateUF;
+  const contingencyValueUF =
+    technicalValueUF === null ? null : technicalValueUF * contingencyRate;
+
   return {
     services: selectedServices,
     technical,
     activities,
-    contingency: technical * contingencyRate,
-    commercial: technical * (1 + contingencyRate),
+    executionFactor,
+    adjustedTechnical,
+    // Compatibilidad: estas HH ya no se presentan como precio comercial.
+    contingency: adjustedTechnical * contingencyRate,
+    commercial: adjustedTechnical * (1 + contingencyRate),
+    hourlyRateUF: resolvedHourlyRateUF,
+    technicalValueUF,
+    contingencyValueUF,
+    finalValueUF:
+      technicalValueUF === null || contingencyValueUF === null
+        ? null
+        : technicalValueUF + contingencyValueUF,
   };
 }
 
