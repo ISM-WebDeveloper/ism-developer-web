@@ -2027,7 +2027,8 @@ input:focus-visible {
     text-underline-offset: 2px;
 }
 
-.guide-response-promise {
+
+/* ==========================================================================\n   21. VERIFICACIÓN ANTISPAM · CLOUDFLARE TURNSTILE\n   La tarjeta permanece discreta; el desafío solo aparece si Turnstile lo requiere.\n   ========================================================================== */\n\n.guide-security-check {\n    margin-top: 12px;\n    padding: 10px 12px;\n    border: 1px solid rgba(56, 189, 248, 0.16);\n    border-radius: 14px;\n    background: rgba(5, 16, 27, 0.46);\n}\n\n.guide-security-heading {\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    color: #dff7ff;\n    font-size: 0.79rem;\n}\n\n.guide-security-heading > span {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 28px;\n    height: 28px;\n    border-radius: 9px;\n    color: var(--guide-cyan);\n    background: rgba(56, 189, 248, 0.09);\n}\n\n.guide-security-heading svg {\n    width: 15px;\n    height: 15px;\n}\n\n.guide-turnstile {\n    width: 100%;\n    min-height: 1px;\n    margin-top: 8px;\n}\n\n.guide-turnstile iframe {\n    max-width: 100%;\n}\n\n.guide-turnstile-status {\n    min-height: 16px;\n    margin: 6px 0 0;\n    color: #7890a4;\n    font-size: 0.7rem;\n    line-height: 1.35;\n}\n\n.guide-turnstile-status[data-tone="success"] {\n    color: #86efac;\n}\n\n.guide-turnstile-status[data-tone="error"] {\n    color: #fca5a5;\n}\n\n.guide-response-promise {
     margin-top: 12px;
     padding: 11px 12px;
     display: flex;

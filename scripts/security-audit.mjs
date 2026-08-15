@@ -50,6 +50,18 @@ if (!globalRule) {
         if (!csp.includes(directive)) fail(`La CSP no contiene: ${directive}.`);
     }
 
+    for (const directive of [
+        "script-src",
+        "frame-src https://challenges.cloudflare.com"
+    ]) {
+        if (!csp.includes(directive)) fail(`La CSP no permite correctamente Turnstile: ${directive}.`);
+    }
+    if (!csp.includes("https://challenges.cloudflare.com")) {
+        fail("La CSP no permite el origen de Cloudflare Turnstile.");
+    } else {
+        pass("CSP compatible con Cloudflare Turnstile.");
+    }
+
     const index = read("index.html");
     const jsonLd = index.match(/<script\s+type=["']application\/ld\+json["']>([\s\S]*?)<\/script>/i)?.[1];
     if (!jsonLd) {
@@ -101,7 +113,9 @@ const privacy = read("privacidad.html");
 for (const statement of [
     "Google Analytics se activa solo si aceptas",
     "No activamos personalización publicitaria",
-    "El formulario no envía estos datos a un servidor"
+    "Guía Web ISM",
+    "Resend",
+    "Cloudflare Turnstile"
 ]) {
     if (!privacy.includes(statement)) fail(`La política no documenta: ${statement}`);
 }

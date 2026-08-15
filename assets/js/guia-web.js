@@ -8,6 +8,7 @@
  * - Aplicar reglas determinísticas de recomendación y madurez digital.
  * - Registrar recomendaciones aceptadas, descartadas o pendientes.
  * - Validar los datos del prospecto y enviarlos a /api/pre-cotizacion.
+ * - Ejecutar Turnstile y adjuntar un token de seguridad de un solo uso.
  *
  * Importante:
  * - La guía utiliza lenguaje comercial simple; no expone arquitectura ni HH.
@@ -35,6 +36,12 @@
             email: "",
             phone: "",
             consent: false
+        },
+        security: {
+            turnstileToken: "",
+            turnstileWidgetId: null,
+            turnstileReady: false,
+            turnstileLoading: false
         }
     };
 
@@ -659,7 +666,122 @@
     }
 
     // =====================================================================
-    // 09. RESUMEN COMERCIAL Y PAYLOAD PARA ISM
+    // 09. VERIFICACIÓN ANTISPAM · CLOUDFLARE TURNSTILE
+    // El sitekey es público y se obtiene desde una Function; el secret jamás
+    // llega al navegador. El token generado se valida nuevamente en servidor.
+    // =====================================================================
+
+    function setTurnstileStatus(message, tone) {
+        var status = document.getElementById("turnstileStatus");
+        if (!status) return;
+
+        status.textContent = message;
+        status.dataset.tone = tone || "info";
+    }
+
+    function setTurnstileToken(token) {
+        state.security.turnstileToken = String(token || "");
+        state.security.turnstileReady = Boolean(state.security.turnstileToken);
+
+        var button = document.getElementById("submitPrequoteBtn");
+        if (button && !button.getAttribute("aria-busy")) {
+            button.disabled = !state.security.turnstileReady;
+        }
+
+        if (state.security.turnstileReady) {
+            setTurnstileStatus("Verificación lista.", "success");
+        }
+    }
+
+    function resetTurnstile(message) {
+        setTurnstileToken("");
+
+        if (window.turnstile && state.security.turnstileWidgetId !== null) {
+            try {
+                window.turnstile.reset(state.security.turnstileWidgetId);
+            } catch (error) {
+                console.warn("Guía Web ISM · Turnstile reset:", error);
+            }
+        }
+
+        setTurnstileStatus(message || "Completa nuevamente la verificación de seguridad.", "error");
+    }
+
+    function waitForTurnstileApi(timeoutMs) {
+        var startedAt = Date.now();
+
+        return new Promise(function (resolve, reject) {
+            function check() {
+                if (window.turnstile && typeof window.turnstile.render === "function") {
+                    resolve(window.turnstile);
+                    return;
+                }
+
+                if (Date.now() - startedAt >= timeoutMs) {
+                    reject(new Error("Turnstile no cargó dentro del tiempo esperado."));
+                    return;
+                }
+
+                window.setTimeout(check, 100);
+            }
+
+            check();
+        });
+    }
+
+    async function prepareTurnstile() {
+        if (state.security.turnstileReady || state.security.turnstileWidgetId !== null || state.security.turnstileLoading) return;
+
+        var container = document.getElementById("turnstileWidget");
+        var button = document.getElementById("submitPrequoteBtn");
+        if (!container || !button) return;
+
+        state.security.turnstileLoading = true;
+        button.disabled = true;
+        setTurnstileStatus("Preparando verificación segura…", "info");
+
+        try {
+            var configResponse = await fetch("/api/turnstile-config", {
+                method: "GET",
+                headers: { Accept: "application/json" },
+                cache: "no-store"
+            });
+            var config = await configResponse.json().catch(function () { return {}; });
+
+            if (!configResponse.ok || !config.siteKey) {
+                throw new Error(config.error || "Turnstile no está configurado.");
+            }
+
+            var turnstile = await waitForTurnstileApi(8_000);
+            state.security.turnstileWidgetId = turnstile.render(container, {
+                sitekey: config.siteKey,
+                theme: "dark",
+                size: "flexible",
+                language: "es",
+                appearance: "interaction-only",
+                action: "prequote",
+                callback: function (token) {
+                    setTurnstileToken(token);
+                },
+                "expired-callback": function () {
+                    resetTurnstile("La verificación expiró. Inténtalo nuevamente.");
+                },
+                "error-callback": function () {
+                    setTurnstileToken("");
+                    setTurnstileStatus("No pudimos completar la verificación. Inténtalo nuevamente.", "error");
+                }
+            });
+        } catch (error) {
+            console.error("Guía Web ISM · Turnstile:", error);
+            setTurnstileToken("");
+            setTurnstileStatus("La verificación de seguridad no está disponible. Recarga la página e inténtalo nuevamente.", "error");
+        } finally {
+            state.security.turnstileLoading = false;
+        }
+    }
+
+    // =====================================================================
+    // 10. RESUMEN COMERCIAL Y PAYLOAD PARA ISM
     // La decisión de cada recomendación queda registrada para el levantamiento.
     // =====================================================================
 
@@ -691,7 +813,7 @@
         state.contact = contact;
 
         return {
-            schemaVersion: "1.1",
+            schemaVersion: "1.2",
             source: "guia-web-ism",
             submittedAt: new Date().toISOString(),
             contact: contact,
@@ -721,6 +843,9 @@
             },
             serviceCommitment: {
                 initialResponseWithinBusinessHours: 48
+            },
+            security: {
+                turnstileToken: state.security.turnstileToken
             },
             internal: {
                 hourlyRateUF: 0.7,
@@ -755,7 +880,7 @@
     }
 
     // =====================================================================
-    // 10. ENVÍO DE LA PRECOTIZACIÓN
+    // 11. ENVÍO DE LA PRECOTIZACIÓN
     // =====================================================================
 
     async function submitPrequote(event) {
@@ -771,6 +896,13 @@
 
         if (!validateContactForm()) return;
 
+        if (!state.security.turnstileToken) {
+            setTurnstileStatus("Completa la verificación de seguridad antes de enviar.", "error");
+            setSubmitStatus("Falta completar la verificación de seguridad.", "error");
+            await prepareTurnstile();
+            return;
+        }
+
         var payload = buildSubmissionPayload();
         button.disabled = true;
         button.setAttribute("aria-busy", "true");
@@ -785,6 +917,12 @@
             var result = await response.json().catch(function () { return {}; });
 
             if (!response.ok) {
+                if (response.status === 403 || result.code === "TURNSTILE_FAILED") {
+                    resetTurnstile("La verificación no pudo validarse. Completa una nueva verificación.");
+                } else {
+                    // El token es de un solo uso; ante cualquier error del backend se renueva.
+                    resetTurnstile("Renovamos la verificación para que puedas volver a intentarlo.");
+                }
                 throw new Error(result.error || "No fue posible enviar la solicitud.");
             }
 
@@ -807,12 +945,16 @@
     }
 
     // =====================================================================
-    // 11. CONTROL DE PASOS, EVENTOS E INICIALIZACIÓN
+    // 12. CONTROL DE PASOS, EVENTOS E INICIALIZACIÓN
     // =====================================================================
 
     function moveToStep(nextStep) {
         state.step = Math.max(0, Math.min(totalSteps, nextStep));
         renderAll();
+
+        if (state.step === totalSteps) {
+            prepareTurnstile();
+        }
     }
 
     selectors.nextButton.addEventListener("click", function () {

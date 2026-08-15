@@ -1,16 +1,18 @@
 /**
- * API · Pre-cotización Guía Web ISM · P2.0
+ * API · Pre-cotización Guía Web ISM · P3.0
  *
  * Responsabilidades:
  * - Validar y normalizar el payload recibido desde la guía.
  * - Evitar que datos sin sanitizar entren en el HTML del correo.
  * - Enviar el levantamiento a ISM mediante Resend.
  * - Mantener las credenciales exclusivamente en variables de entorno.
+ * - Validar el token de Cloudflare Turnstile antes de enviar el correo.
  *
  * Variables requeridas:
  * - RESEND_API_KEY
  * - PREQUOTE_FROM_EMAIL
  * - PREQUOTE_TO_EMAIL (opcional; tiene fallback corporativo)
+ * - TURNSTILE_SECRET_KEY
  */
 
 // ============================================================================
@@ -18,7 +20,10 @@
 // ============================================================================
 
 const RESEND_ENDPOINT = "https://api.resend.com/emails";
+const TURNSTILE_VERIFY_ENDPOINT = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
+const TURNSTILE_ACTION = "prequote";
 const MAX_BODY_BYTES = 48_000;
+const TURNSTILE_TIMEOUT_MS = 6_000;
 
 // ============================================================================
 // 02. RESPUESTAS HTTP Y NORMALIZACIÓN DE DATOS
@@ -78,8 +83,79 @@ function validatePayload(payload) {
     };
 }
 
+
 // ============================================================================
-// 04. CONSTRUCCIÓN DEL CORREO INTERNO ISM
+// 04. VALIDACIÓN SERVER-SIDE DE CLOUDFLARE TURNSTILE
+// Los tokens duran pocos minutos, son de un solo uso y jamás se validan en
+// el navegador. También comprobamos que action y hostname coincidan.
+// ============================================================================
+
+function getClientIp(request) {
+    const forwarded = String(request.headers.get("x-forwarded-for") || "");
+    return clean(forwarded.split(",")[0], 64);
+}
+
+async function validateTurnstile(request, payload) {
+    const secret = String(process.env.TURNSTILE_SECRET_KEY || "").trim();
+    const token = clean(payload?.security?.turnstileToken, 2_048);
+
+    if (!secret) {
+        return { ok: false, status: 503, code: "TURNSTILE_NOT_CONFIGURED", error: "La verificación de seguridad no está disponible." };
+    }
+    if (!token) {
+        return { ok: false, status: 403, code: "TURNSTILE_FAILED", error: "Completa la verificación de seguridad." };
+    }
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), TURNSTILE_TIMEOUT_MS);
+
+    try {
+        const body = {
+            secret,
+            response: token
+        };
+        const remoteIp = getClientIp(request);
+        if (remoteIp) body.remoteip = remoteIp;
+        if (globalThis.crypto?.randomUUID) body.idempotency_key = globalThis.crypto.randomUUID();
+
+        const response = await fetch(TURNSTILE_VERIFY_ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+            signal: controller.signal
+        });
+
+        if (!response.ok) {
+            console.error("Turnstile Siteverify HTTP:", response.status);
+            return { ok: false, status: 502, code: "TURNSTILE_UNAVAILABLE", error: "No pudimos completar la verificación de seguridad." };
+        }
+
+        const result = await response.json();
+        const requestHostname = new URL(request.url).hostname;
+        const actionMatches = result.action === TURNSTILE_ACTION;
+        const hostnameMatches = result.hostname === requestHostname;
+
+        if (!result.success || !actionMatches || !hostnameMatches) {
+            console.warn("Turnstile rechazado:", {
+                success: Boolean(result.success),
+                action: clean(result.action, 80),
+                hostname: clean(result.hostname, 180),
+                errorCodes: Array.isArray(result["error-codes"]) ? result["error-codes"].slice(0, 8) : []
+            });
+            return { ok: false, status: 403, code: "TURNSTILE_FAILED", error: "No pudimos validar la verificación de seguridad. Inténtalo nuevamente." };
+        }
+
+        return { ok: true };
+    } catch (error) {
+        console.error("Turnstile Siteverify:", error?.name || "Error", clean(error?.message, 200));
+        return { ok: false, status: 502, code: "TURNSTILE_UNAVAILABLE", error: "La verificación de seguridad no respondió a tiempo." };
+    } finally {
+        clearTimeout(timeout);
+    }
+}
+
+// ============================================================================
+// 05. CONSTRUCCIÓN DEL CORREO INTERNO ISM
 // El correo incluye el levantamiento comercial; no se envía al prospecto.
 // ============================================================================
 
@@ -152,7 +228,7 @@ function buildEmail(payload, contact) {
 }
 
 // ============================================================================
-// 05. PROCESAMIENTO DEL POST Y ENVÍO MEDIANTE RESEND
+// 06. PROCESAMIENTO DEL POST Y ENVÍO MEDIANTE RESEND
 // ============================================================================
 
 async function handlePost(request) {
@@ -168,6 +244,11 @@ async function handlePost(request) {
 
     const validation = validatePayload(payload);
     if (!validation.ok) return json({ error: validation.error }, 400);
+
+    const turnstileValidation = await validateTurnstile(request, payload);
+    if (!turnstileValidation.ok) {
+        return json({ error: turnstileValidation.error, code: turnstileValidation.code }, turnstileValidation.status);
+    }
 
     const apiKey = process.env.RESEND_API_KEY;
     const from = process.env.PREQUOTE_FROM_EMAIL;
@@ -205,7 +286,7 @@ async function handlePost(request) {
 }
 
 // ============================================================================
-// 06. HANDLER DE VERCEL FUNCTION
+// 07. HANDLER DE VERCEL FUNCTION
 // Solo POST procesa solicitudes; OPTIONS queda disponible para preflight.
 // ============================================================================
 

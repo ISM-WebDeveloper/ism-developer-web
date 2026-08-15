@@ -20,11 +20,14 @@
     <link rel="stylesheet" href="../assets/css/accessibility.css?v=2.1.1" />
     <link rel="stylesheet" href="../assets/css/privacy-consent.css?v=2.0.24" />
     <link rel="preload" href="../assets/img/guia-asistida-colaboracion.webp" as="image" type="image/webp" />
-    <link rel="stylesheet" href="../assets/css/guia-web.css?v=1.8.0" />
+    <link rel="preconnect" href="https://challenges.cloudflare.com" />
+    <link rel="stylesheet" href="../assets/css/guia-web.css?v=1.9.0" />
     <script src="../assets/vendor/lucide-index.min.js" defer></script>
+    <!-- Turnstile se renderiza explícitamente solo al llegar al formulario final. -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
     <script src="../assets/js/privacy-consent.js?v=2.0.24" defer></script>
     <script src="../assets/js/analytics.js?v=2.0.24" defer></script>
-    <script src="../assets/js/guia-web.js?v=1.5.0" defer></script>
+    <script src="../assets/js/guia-web.js?v=1.6.0" defer></script>
 </head>
 <body>
     <!-- ================================================================
@@ -197,6 +200,16 @@
                                     <span>Acepto que ISM Developer me contacte respecto de esta solicitud. <a href="../privacidad.html" target="_blank" rel="noopener noreferrer">Ver privacidad</a>.</span>
                                 </label>
 
+                                <!-- Verificación antispam: el sitekey público se obtiene desde Vercel. -->
+                                <div class="guide-security-check" id="turnstileBlock">
+                                    <div class="guide-security-heading">
+                                        <span><i data-lucide="shield-check" aria-hidden="true"></i></span>
+                                        <strong>Protección antispam</strong>
+                                    </div>
+                                    <div class="guide-turnstile" id="turnstileWidget" aria-label="Verificación de seguridad"></div>
+                                    <p class="guide-turnstile-status" id="turnstileStatus" role="status" aria-live="polite">Preparando verificación segura…</p>
+                                </div>
+
                                 <div class="guide-response-promise">
                                     <span><i data-lucide="clock-3" aria-hidden="true"></i></span>
                                     <div>
@@ -205,7 +218,7 @@
                                     </div>
                                 </div>
 
-                                <button class="guide-submit-button" id="submitPrequoteBtn" type="submit">
+                                <button class="guide-submit-button" id="submitPrequoteBtn" type="submit" disabled>
                                     Enviar mi precotización
                                     <i data-lucide="send" aria-hidden="true"></i>
                                 </button>
