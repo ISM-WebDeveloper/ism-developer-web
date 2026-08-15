@@ -2487,4 +2487,300 @@ input:focus-visible {
         font-size: 8px;
     }
 }
-\n\n/* ==========================================================================\n   22. P5 · RECORRIDO CON SCROLL, ALINEACIÓN Y CONFIRMACIÓN 8/8\n   Ajustes de UX solicitados tras las pruebas reales en producción.\n   ========================================================================== */\n\n/* El recorrido conserva todos los elementos elegidos y activa scroll cuando\n   supera el espacio disponible, evitando resúmenes del tipo “+ 2 elementos”. */\n.guide-project-map {\n    max-height: 340px;\n    overflow-y: auto;\n    overscroll-behavior: contain;\n    scrollbar-width: thin;\n    scrollbar-color: rgba(56, 189, 248, 0.42) rgba(255, 255, 255, 0.04);\n    padding-right: 5px;\n}\n\n.guide-project-map::-webkit-scrollbar {\n    width: 6px;\n}\n\n.guide-project-map::-webkit-scrollbar-track {\n    border-radius: 999px;\n    background: rgba(255, 255, 255, 0.04);\n}\n\n.guide-project-map::-webkit-scrollbar-thumb {\n    border-radius: 999px;\n    background: rgba(56, 189, 248, 0.42);\n}\n\n/* El estado de madurez se presenta como una conclusión, no como una nota\n   lateral alineada a la izquierda. */\n.guide-maturity {\n    text-align: center;\n}\n\n.guide-maturity > span,\n.guide-maturity strong,\n.guide-maturity p {\n    text-align: center;\n}\n\n/* Consentimiento centrado, manteniendo checkbox y texto juntos como una sola\n   unidad legible. */\n.guide-consent {\n    justify-content: center;\n    align-items: center;\n    text-align: center;\n}\n\n.guide-consent input {\n    margin-top: 0;\n    flex: 0 0 auto;\n}\n\n.guide-consent span {\n    max-width: 620px;\n}\n\n/* El paso de éxito ocupa la experiencia principal completa para entregar un\n   cierre claro y visible después del envío. */\n.guide-experience.is-success {\n    grid-template-columns: minmax(0, 1fr);\n}\n\n.guide-experience.is-success .guide-aside {\n    display: none;\n}\n\n.guide-main.is-success {\n    min-height: min(650px, calc(100vh - 150px));\n}\n\n.guide-main.is-success .guide-main-top {\n    margin-bottom: 0;\n}\n\n.guide-screen--success {\n    min-height: 500px;\n    place-items: center;\n    text-align: center;\n}\n\n.guide-screen--success.is-active {\n    display: grid;\n}\n\n.guide-success-layout {\n    width: min(760px, 100%);\n    margin: 0 auto;\n    padding: clamp(28px, 5vw, 54px);\n    display: grid;\n    justify-items: center;\n    gap: 14px;\n    border: 1px solid rgba(56, 189, 248, 0.2);\n    border-radius: 24px;\n    background: linear-gradient(180deg, rgba(8, 26, 43, 0.82), rgba(3, 13, 25, 0.94));\n}\n\n.guide-success-icon {\n    width: 74px;\n    height: 74px;\n    display: grid;\n    place-items: center;\n    color: #06111f;\n    border-radius: 22px;\n    background: var(--guide-cyan);\n}\n\n.guide-success-icon svg {\n    width: 38px;\n    height: 38px;\n    stroke-width: 2;\n}\n\n.guide-success-step {\n    margin: 2px 0 0;\n    color: #7dd3fc;\n    font-size: 11px;\n    font-weight: 900;\n    letter-spacing: 0.1em;\n    text-transform: uppercase;\n}\n\n.guide-success-title {\n    max-width: 680px;\n    margin: 0;\n    color: #f8fafc;\n    font-size: clamp(30px, 5vw, 54px);\n    line-height: 1.04;\n}\n\n.guide-success-title span {\n    color: var(--guide-cyan);\n}\n\n.guide-success-copy {\n    max-width: 590px;\n    margin: 0;\n    color: #91a7b9;\n    font-size: 14px;\n    line-height: 1.6;\n}\n\n.guide-success-promise {\n    width: min(560px, 100%);\n    margin-top: 4px;\n    padding: 13px 16px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    gap: 11px;\n    color: #d9e6f0;\n    border: 1px solid rgba(125, 211, 252, 0.16);\n    border-radius: 14px;\n    background: rgba(56, 189, 248, 0.045);\n    text-align: left;\n}\n\n.guide-success-promise > svg {\n    width: 21px;\n    height: 21px;\n    flex: 0 0 auto;\n    color: #7dd3fc;\n}\n\n.guide-success-promise strong {\n    display: block;\n    font-size: 12px;\n}\n\n.guide-success-promise p {\n    margin: 3px 0 0;\n    color: #71899d;\n    font-size: 10px;\n}\n\n.guide-success-actions {\n    margin-top: 4px;\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n    gap: 10px;\n}\n\n@media (max-width: 720px) {\n    .guide-project-map {\n        max-height: 280px;\n    }\n\n    .guide-success-layout {\n        padding: 28px 18px;\n        border-radius: 18px;\n    }\n\n    .guide-success-promise {\n        align-items: flex-start;\n    }\n\n    .guide-success-actions {\n        width: 100%;\n        flex-direction: column;\n    }\n\n    .guide-success-actions .guide-button {\n        width: 100%;\n        justify-content: center;\n    }\n}\n
+
+
+/* ==========================================================================
+   22. P5 · RECORRIDO CON SCROLL, ALINEACIÓN Y CONFIRMACIÓN 8/8
+   Ajustes de UX solicitados tras las pruebas reales en producción.
+   ========================================================================== */
+
+/* El recorrido conserva todos los elementos elegidos y activa scroll cuando
+   supera el espacio disponible, evitando resúmenes del tipo “+ 2 elementos”. */
+.guide-project-map {
+    max-height: 340px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(56, 189, 248, 0.42) rgba(255, 255, 255, 0.04);
+    padding-right: 5px;
+}
+
+.guide-project-map::-webkit-scrollbar {
+    width: 6px;
+}
+
+.guide-project-map::-webkit-scrollbar-track {
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.guide-project-map::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgba(56, 189, 248, 0.42);
+}
+
+/* El estado de madurez se presenta como una conclusión, no como una nota
+   lateral alineada a la izquierda. */
+.guide-maturity {
+    text-align: center;
+}
+
+.guide-maturity > span,
+.guide-maturity strong,
+.guide-maturity p {
+    text-align: center;
+}
+
+/* Consentimiento centrado, manteniendo checkbox y texto juntos como una sola
+   unidad legible. */
+.guide-consent {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.guide-consent input {
+    margin-top: 0;
+    flex: 0 0 auto;
+}
+
+.guide-consent span {
+    max-width: 620px;
+}
+
+/* El paso de éxito ocupa la experiencia principal completa para entregar un
+   cierre claro y visible después del envío. */
+.guide-experience.is-success {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.guide-experience.is-success .guide-aside {
+    display: none;
+}
+
+.guide-main.is-success {
+    min-height: min(650px, calc(100vh - 150px));
+}
+
+.guide-main.is-success .guide-main-top {
+    margin-bottom: 0;
+}
+
+.guide-screen--success {
+    min-height: 500px;
+    place-items: center;
+    text-align: center;
+}
+
+.guide-screen--success.is-active {
+    display: grid;
+}
+
+.guide-success-layout {
+    width: min(760px, 100%);
+    margin: 0 auto;
+    padding: clamp(28px, 5vw, 54px);
+    display: grid;
+    justify-items: center;
+    gap: 14px;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 24px;
+    background: linear-gradient(180deg, rgba(8, 26, 43, 0.82), rgba(3, 13, 25, 0.94));
+}
+
+.guide-success-icon {
+    width: 74px;
+    height: 74px;
+    display: grid;
+    place-items: center;
+    color: #06111f;
+    border-radius: 22px;
+    background: var(--guide-cyan);
+}
+
+.guide-success-icon svg {
+    width: 38px;
+    height: 38px;
+    stroke-width: 2;
+}
+
+.guide-success-step {
+    margin: 2px 0 0;
+    color: #7dd3fc;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.guide-success-title {
+    max-width: 680px;
+    margin: 0;
+    color: #f8fafc;
+    font-size: clamp(30px, 5vw, 54px);
+    line-height: 1.04;
+}
+
+.guide-success-title span {
+    color: var(--guide-cyan);
+}
+
+.guide-success-copy {
+    max-width: 590px;
+    margin: 0;
+    color: #91a7b9;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.guide-success-promise {
+    width: min(560px, 100%);
+    margin-top: 4px;
+    padding: 13px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    color: #d9e6f0;
+    border: 1px solid rgba(125, 211, 252, 0.16);
+    border-radius: 14px;
+    background: rgba(56, 189, 248, 0.045);
+    text-align: left;
+}
+
+.guide-success-promise > svg {
+    width: 21px;
+    height: 21px;
+    flex: 0 0 auto;
+    color: #7dd3fc;
+}
+
+.guide-success-promise strong {
+    display: block;
+    font-size: 12px;
+}
+
+.guide-success-promise p {
+    margin: 3px 0 0;
+    color: #71899d;
+    font-size: 10px;
+}
+
+.guide-success-actions {
+    margin-top: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+@media (max-width: 720px) {
+    .guide-project-map {
+        max-height: 280px;
+    }
+
+    .guide-success-layout {
+        padding: 28px 18px;
+        border-radius: 18px;
+    }
+
+    .guide-success-promise {
+        align-items: flex-start;
+    }
+
+    .guide-success-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .guide-success-actions .guide-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+/* ==========================================================================
+   23. P5.1 · CORRECCIÓN DE RENDERIZADO Y JERARQUÍA FINAL
+   Corrige el bloque P5 que había quedado serializado con saltos inválidos.
+   ========================================================================== */
+
+/* Consentimiento: unidad centrada y compacta. */
+.guide-consent {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.guide-consent span {
+    flex: 0 1 auto;
+}
+
+/* El recorrido scrollea solo en la lista; nota y momento digital permanecen fijos. */
+.guide-project-map {
+    min-height: 0;
+    max-height: min(360px, 44vh);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.guide-maturity {
+    width: 100%;
+    text-align: center;
+}
+
+/* Confirmación 8/8: cierre grande, centrado y sin competir con el panel lateral. */
+.guide-screen--success.is-active {
+    display: grid;
+    place-items: center;
+    padding: clamp(24px, 4vw, 46px);
+}
+
+.guide-success-layout {
+    width: min(820px, 100%);
+    min-height: 430px;
+    align-content: center;
+    justify-items: center;
+    text-align: center;
+}
+
+.guide-success-icon {
+    margin-inline: auto;
+}
+
+.guide-success-step {
+    text-align: center;
+}
+
+.guide-success-title {
+    text-align: center;
+    font-size: clamp(34px, 5vw, 56px);
+}
+
+.guide-success-copy {
+    text-align: center;
+    font-size: 15px;
+}
+
+.guide-success-promise {
+    text-align: center;
+}
+
+.guide-success-promise > div {
+    text-align: center;
+}
+
+@media (max-width: 720px) {
+    .guide-project-map {
+        max-height: 300px;
+    }
+
+    .guide-screen--success.is-active {
+        padding: 20px 14px;
+    }
+
+    .guide-success-layout {
+        min-height: 390px;
+    }
+}
