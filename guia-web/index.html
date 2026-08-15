@@ -21,13 +21,13 @@
     <link rel="stylesheet" href="../assets/css/privacy-consent.css?v=2.0.24" />
     <link rel="preload" href="../assets/img/guia-asistida-colaboracion.webp" as="image" type="image/webp" />
     <link rel="preconnect" href="https://challenges.cloudflare.com" />
-    <link rel="stylesheet" href="../assets/css/guia-web.css?v=1.9.0" />
+    <link rel="stylesheet" href="../assets/css/guia-web.css?v=1.10.0" />
     <script src="../assets/vendor/lucide-index.min.js" defer></script>
     <!-- Turnstile se renderiza explícitamente solo al llegar al formulario final. -->
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
     <script src="../assets/js/privacy-consent.js?v=2.0.24" defer></script>
     <script src="../assets/js/analytics.js?v=2.0.24" defer></script>
-    <script src="../assets/js/guia-web.js?v=1.6.0" defer></script>
+    <script src="../assets/js/guia-web.js?v=1.7.0" defer></script>
 </head>
 <body>
     <!-- ================================================================
@@ -63,7 +63,7 @@
                             <span id="stepIndicator">Bienvenida</span>
                         </div>
                         <div class="guide-progress" role="progressbar" aria-label="Progreso de la guía"
-                            aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" id="progressTrack">
+                            aria-valuemin="0" aria-valuemax="8" aria-valuenow="0" id="progressTrack">
                             <span id="progressBar"></span>
                         </div>
                     </div>
@@ -205,22 +205,28 @@
                                     presentan como una sola unidad para mantener la jerarquía visual.
                                 -->
                                 <div class="guide-submit-zone">
-                                    <div class="guide-security-check" id="turnstileBlock">
-                                        <div class="guide-security-heading">
-                                            <span><i data-lucide="shield-check" aria-hidden="true"></i></span>
-                                            <div>
-                                                <strong>Protección antispam</strong>
-                                                <p class="guide-turnstile-status" id="turnstileStatus" role="status" aria-live="polite">Preparando verificación segura…</p>
+                                    <!--
+                                        Franja de confianza: seguridad y plazo se muestran juntos para
+                                        cerrar el formulario sin crear bloques verticales innecesarios.
+                                    -->
+                                    <div class="guide-submit-meta">
+                                        <div class="guide-security-check" id="turnstileBlock">
+                                            <div class="guide-security-heading">
+                                                <span><i data-lucide="shield-check" aria-hidden="true"></i></span>
+                                                <div>
+                                                    <strong>Verificación segura</strong>
+                                                    <p class="guide-turnstile-status" id="turnstileStatus" role="status" aria-live="polite">Preparando protección antispam…</p>
+                                                </div>
                                             </div>
+                                            <div class="guide-turnstile" id="turnstileWidget" aria-label="Verificación de seguridad"></div>
                                         </div>
-                                        <div class="guide-turnstile" id="turnstileWidget" aria-label="Verificación de seguridad"></div>
-                                    </div>
 
-                                    <div class="guide-response-promise">
-                                        <span><i data-lucide="clock-3" aria-hidden="true"></i></span>
-                                        <div>
-                                            <strong>Respuesta en un máximo de 2 días hábiles</strong>
-                                            <p>Revisaremos personalmente tu levantamiento antes de contactarte.</p>
+                                        <div class="guide-response-promise">
+                                            <span><i data-lucide="clock-3" aria-hidden="true"></i></span>
+                                            <div>
+                                                <strong>Respuesta dentro de las primeras 48 hrs hábiles</strong>
+                                                <p>Revisamos personalmente tu solicitud.</p>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -231,6 +237,30 @@
                                     <p class="guide-submit-status" id="submitStatus" role="status" aria-live="polite"></p>
                                 </div>
                             </form>
+                        </div>
+                    </section>
+
+
+                    <!-- PASO 8 · Confirmación final de envío -->
+                    <section class="guide-screen guide-screen--success" data-step="8" aria-labelledby="successTitle">
+                        <div class="guide-success-layout">
+                            <div class="guide-success-icon" aria-hidden="true">
+                                <i data-lucide="badge-check"></i>
+                            </div>
+                            <p class="guide-success-step">Paso 8 de 8 · Solicitud enviada</p>
+                            <h2 class="guide-success-title" id="successTitle">¡Tu solicitud fue enviada <span>correctamente!</span></h2>
+                            <p class="guide-success-copy" id="successCopy">Recibimos tu levantamiento inicial. Lo revisaremos personalmente antes de contactarte.</p>
+                            <div class="guide-success-promise">
+                                <i data-lucide="clock-3" aria-hidden="true"></i>
+                                <div>
+                                    <strong>Respuesta dentro de las primeras 48 hrs hábiles</strong>
+                                    <p>Te contactaremos utilizando los datos que acabas de registrar.</p>
+                                </div>
+                            </div>
+                            <div class="guide-success-actions">
+                                <a class="guide-button guide-button--primary" href="../index.html">Volver a ISM Developer</a>
+                                <a class="guide-button guide-button--ghost" href="../servicios.html">Ver servicios</a>
+                            </div>
                         </div>
                     </section>
 

@@ -494,7 +494,7 @@ function buildEmail(payload, contact, technical) {
         ["Sugerencias agregadas", acceptedSuggestions.length ? acceptedSuggestions.join(", ") : "Ninguna"],
         ["Sugerencias descartadas", rejectedSuggestions.length ? rejectedSuggestions.join(", ") : "Ninguna"],
         ["Sugerencias sin decisión", pendingSuggestions.length ? pendingSuggestions.join(", ") : "Ninguna"],
-        ["Compromiso de respuesta", "Máximo 2 días hábiles"],
+        ["Compromiso de respuesta", "Dentro de las primeras 48 hrs hábiles"],
         ["Catálogo técnico", `ISM ${technical.catalogVersion}`],
         ["Módulos detectados", technical.modules.join(", ") || "Sitio web"],
         ["Servicios técnicos", technical.serviceCodes.join(", ") || "WEB-01"],

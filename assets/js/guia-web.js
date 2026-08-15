@@ -1,6 +1,6 @@
 /**
  * Guía Web ISM · Lógica principal
- * Versión de parche: P4.0
+ * Versión de parche: P5.0
  *
  * Responsabilidades:
  * - Mantener el estado temporal de la guía en el navegador.
@@ -50,7 +50,7 @@
     // Textos simples orientados al cliente; no contienen detalle técnico/HH.
     // =====================================================================
 
-    var totalSteps = 7;
+    var totalSteps = 8;
 
     var data = {
         goals: [
@@ -117,7 +117,8 @@
         "Contenido",
         "Acciones",
         "Recomendación",
-        "Datos y envío"
+        "Datos y envío",
+        "Confirmación"
     ];
 
     // =====================================================================
@@ -575,12 +576,11 @@
         if (!container) return;
 
         var nodes = getProjectNodes();
-        var maxVisible = 7;
-        var visible = nodes.slice(0, maxVisible);
-        var remaining = Math.max(0, nodes.length - maxVisible);
 
+        // P5: mostramos todos los elementos elegidos. Si la estructura crece,
+        // el contenedor lateral usa scroll en lugar de resumir con “+ N elementos”.
         container.replaceChildren();
-        visible.forEach(function (node, index) {
+        nodes.forEach(function (node) {
             var item = document.createElement("div");
             item.className = "guide-map-node is-active" + (node.kind === "recommendation" ? " is-recommended" : "");
             item.innerHTML = [
@@ -589,13 +589,6 @@
             ].join("");
             container.appendChild(item);
         });
-
-        if (remaining > 0) {
-            var more = document.createElement("div");
-            more.className = "guide-map-more";
-            more.textContent = "+ " + remaining + (remaining === 1 ? " elemento más" : " elementos más");
-            container.appendChild(more);
-        }
     }
 
     function updateAside() {
@@ -623,6 +616,10 @@
         var nextLabel = "Continuar";
 
         selectors.main.classList.toggle("is-welcome", state.step === 0);
+        selectors.main.classList.toggle("is-success", state.step === 8);
+
+        var experience = document.querySelector(".guide-experience");
+        if (experience) experience.classList.toggle("is-success", state.step === 8);
 
         selectors.screens.forEach(function (screen) {
             screen.classList.toggle("is-active", Number(screen.dataset.step) === state.step);
@@ -633,10 +630,11 @@
             : "Paso " + state.step + " de " + totalSteps + " · " + stepNames[state.step];
         selectors.progressBar.style.width = progress + "%";
         selectors.progressTrack.setAttribute("aria-valuenow", String(state.step));
-        selectors.backButton.hidden = state.step === 0;
-        selectors.nextButton.hidden = state.step === 7;
+        selectors.backButton.hidden = state.step === 0 || state.step === 8;
+        selectors.nextButton.hidden = state.step >= 7;
         selectors.nextButton.disabled = !canContinue();
         selectors.actionsBar.classList.toggle("is-final", state.step === 7);
+        selectors.actionsBar.hidden = state.step === 8;
 
         if (state.step === 0) nextLabel = "Comenzar";
         if (state.step === 6) nextLabel = "Continuar con mi solicitud";
@@ -848,7 +846,7 @@
                 })
             },
             serviceCommitment: {
-                initialResponseWithinBusinessDays: 2
+                initialResponseWithinBusinessHours: 48
             },
             security: {
                 turnstileToken: state.security.turnstileToken
@@ -928,7 +926,16 @@
                 throw new Error(result.error || "No fue posible enviar la solicitud.");
             }
 
-            setSubmitStatus("Solicitud enviada. Revisaremos tu levantamiento y te responderemos dentro de las primeras 48 horas hábiles.", "success");
+            setSubmitStatus("Solicitud enviada correctamente.", "success");
+
+            var contact = getContactData();
+            var successCopy = document.getElementById("successCopy");
+            if (successCopy) {
+                var firstName = contact.name.split(/\s+/)[0] || "";
+                successCopy.textContent = firstName
+                    ? firstName + ", recibimos tu levantamiento inicial. Lo revisaremos personalmente antes de contactarte."
+                    : "Recibimos tu levantamiento inicial. Lo revisaremos personalmente antes de contactarte.";
+            }
 
             if (typeof window.trackEvent === "function") {
                 window.trackEvent("guide_web_prequote_submit", {
@@ -937,6 +944,10 @@
                     section: "guia-web"
                 });
             }
+
+            // P5: el éxito no queda reducido a una línea bajo el botón; se
+            // transforma en el último paso completo de la experiencia (8/8).
+            moveToStep(8);
         } catch (error) {
             console.error("Guía Web ISM:", error);
             setSubmitStatus("No pudimos enviar tu solicitud en este momento. Inténtalo nuevamente o contáctanos desde el sitio.", "error");
@@ -954,7 +965,7 @@
         state.step = Math.max(0, Math.min(totalSteps, nextStep));
         renderAll();
 
-        if (state.step === totalSteps) {
+        if (state.step === 7) {
             prepareTurnstile();
         }
     }
