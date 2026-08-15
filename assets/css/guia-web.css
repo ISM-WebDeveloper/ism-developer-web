@@ -2028,52 +2028,138 @@ input:focus-visible {
 }
 
 
-/* ==========================================================================\n   21. VERIFICACIÓN ANTISPAM · CLOUDFLARE TURNSTILE\n   La tarjeta permanece discreta; el desafío solo aparece si Turnstile lo requiere.\n   ========================================================================== */\n\n.guide-security-check {\n    margin-top: 12px;\n    padding: 10px 12px;\n    border: 1px solid rgba(56, 189, 248, 0.16);\n    border-radius: 14px;\n    background: rgba(5, 16, 27, 0.46);\n}\n\n.guide-security-heading {\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    color: #dff7ff;\n    font-size: 0.79rem;\n}\n\n.guide-security-heading > span {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 28px;\n    height: 28px;\n    border-radius: 9px;\n    color: var(--guide-cyan);\n    background: rgba(56, 189, 248, 0.09);\n}\n\n.guide-security-heading svg {\n    width: 15px;\n    height: 15px;\n}\n\n.guide-turnstile {\n    width: 100%;\n    min-height: 1px;\n    margin-top: 8px;\n}\n\n.guide-turnstile iframe {\n    max-width: 100%;\n}\n\n.guide-turnstile-status {\n    min-height: 16px;\n    margin: 6px 0 0;\n    color: #7890a4;\n    font-size: 0.7rem;\n    line-height: 1.35;\n}\n\n.guide-turnstile-status[data-tone="success"] {\n    color: #86efac;\n}\n\n.guide-turnstile-status[data-tone="error"] {\n    color: #fca5a5;\n}\n\n.guide-response-promise {
-    margin-top: 12px;
-    padding: 11px 12px;
+/* ==========================================================================
+   21. CIERRE SEGURO · TURNSTILE + COMPROMISO + CTA
+   P4 compacta los tres elementos como una sola unidad visual. El desafío de
+   Turnstile conserva espacio únicamente cuando Cloudflare necesita mostrarlo.
+   ========================================================================== */
+
+.guide-submit-zone {
+    margin-top: 10px;
+    padding: 10px 12px 11px;
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    border-radius: 15px;
+    background: rgba(5, 16, 27, 0.5);
+}
+
+.guide-security-check {
+    padding: 0 0 8px;
+    border-bottom: 1px solid rgba(125, 211, 252, 0.1);
+}
+
+.guide-security-heading {
     display: flex;
     align-items: center;
-    gap: 10px;
-    border: 1px solid rgba(56, 189, 248, 0.24);
-    border-radius: 13px;
-    background: rgba(56, 189, 248, 0.06);
+    gap: 9px;
+    color: #dff7ff;
+}
+
+.guide-security-heading > span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    flex: 0 0 auto;
+    border-radius: 9px;
+    color: var(--guide-cyan);
+    background: rgba(56, 189, 248, 0.09);
+}
+
+.guide-security-heading > div {
+    min-width: 0;
+}
+
+.guide-security-heading strong {
+    display: block;
+    font-size: 10px;
+    line-height: 1.25;
+}
+
+.guide-security-heading svg {
+    width: 16px;
+    height: 16px;
+}
+
+.guide-turnstile {
+    width: 100%;
+    min-height: 1px;
+    margin-top: 6px;
+}
+
+.guide-turnstile iframe {
+    max-width: 100%;
+}
+
+.guide-turnstile-status {
+    min-height: 0;
+    margin: 2px 0 0;
+    color: #7890a4;
+    font-size: 9px;
+    line-height: 1.3;
+}
+
+.guide-turnstile-status[data-tone="success"] {
+    color: #86efac;
+}
+
+.guide-turnstile-status[data-tone="error"] {
+    color: #fca5a5;
+}
+
+.guide-security-check.is-verified .guide-turnstile {
+    display: none;
+}
+
+.guide-security-check.is-verified .guide-security-heading > span {
+    color: #86efac;
+    background: rgba(134, 239, 172, 0.08);
+}
+
+.guide-response-promise {
+    margin: 8px 0 0;
+    padding: 8px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 9px;
 }
 
 .guide-response-promise > span {
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
     display: grid;
     flex: 0 0 auto;
     place-items: center;
     color: var(--guide-cyan-bright);
-    border: 1px solid rgba(103, 232, 249, 0.22);
-    border-radius: 10px;
-    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(103, 232, 249, 0.18);
+    border-radius: 9px;
+    background: rgba(56, 189, 248, 0.06);
 }
 
 .guide-response-promise svg {
-    width: 17px;
-    height: 17px;
+    width: 15px;
+    height: 15px;
 }
 
 .guide-response-promise strong {
     display: block;
     color: #e8f8ff;
     font-size: 10px;
+    line-height: 1.25;
 }
 
 .guide-response-promise p {
-    margin: 3px 0 0;
+    margin: 2px 0 0;
     color: #7890a4;
     font-size: 9px;
-    line-height: 1.4;
+    line-height: 1.35;
 }
 
 .guide-submit-button {
     width: 100%;
-    min-height: 46px;
-    margin-top: 12px;
-    padding: 11px 16px;
+    min-height: 44px;
+    margin-top: 9px;
+    padding: 10px 16px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -2082,7 +2168,7 @@ input:focus-visible {
     border: 1px solid rgba(103, 232, 249, 0.7);
     border-radius: 12px;
     background: linear-gradient(135deg, var(--guide-cyan), var(--guide-cyan-bright));
-    box-shadow: 0 14px 34px rgba(56, 189, 248, 0.16);
+    box-shadow: 0 12px 28px rgba(56, 189, 248, 0.14);
     font: inherit;
     font-size: 11px;
     font-weight: 900;
@@ -2092,7 +2178,7 @@ input:focus-visible {
 
 .guide-submit-button:hover:not(:disabled) {
     transform: translateY(-1px);
-    box-shadow: 0 18px 38px rgba(56, 189, 248, 0.22);
+    box-shadow: 0 16px 34px rgba(56, 189, 248, 0.2);
 }
 
 .guide-submit-button:disabled {
@@ -2106,13 +2192,18 @@ input:focus-visible {
 }
 
 .guide-submit-status {
-    min-height: 18px;
-    margin: 7px 0 0;
+    min-height: 14px;
+    margin: 5px 0 0;
     text-align: center;
     color: #7dd3fc;
     font-size: 9px;
     font-weight: 800;
-    line-height: 1.4;
+    line-height: 1.35;
+}
+
+.guide-submit-status:empty {
+    min-height: 0;
+    margin-top: 0;
 }
 
 .guide-submit-status[data-tone="success"] {
@@ -2143,6 +2234,10 @@ input:focus-visible {
 
     .guide-field input {
         min-height: 40px;
+    }
+
+    .guide-submit-zone {
+        padding: 9px 10px 10px;
     }
 
     .guide-response-promise {

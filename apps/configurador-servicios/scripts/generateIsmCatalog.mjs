@@ -2,7 +2,7 @@
 // IMPORTACIONES
 // ==================================================
 
-import { readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -31,6 +31,14 @@ const AUDIT_FILE = path.join(
   PROJECT_ROOT,
   "catalog",
   "AUDITORIA_IMPORTACION_ISM.json",
+);
+
+const WEBSITE_ROOT = path.resolve(PROJECT_ROOT, "..", "..");
+const GUIDE_OUTPUT_FILE = path.join(
+  WEBSITE_ROOT,
+  "api",
+  "_generated",
+  "ism-guide-catalog.js",
 );
 
 const REQUIRED_HEADERS = [
@@ -663,6 +671,63 @@ function createTypescriptFile(catalog) {
   return `// ==================================================\n// IMPORTACIONES\n// ==================================================\n\nimport type { PlatformCatalog } from "../../../types/catalog";\n\n// ==================================================\n// CATÁLOGO GENERADO\n// ==================================================\n\n/**\n * Archivo generado desde Catalogo_Tecnico_Servicios_ISM_Developer_v2_1_Auditado.xlsx.\n * No editar manualmente. Modifica el Excel fuente y ejecuta npm run catalog:ism.\n */\nexport const ismServicesCatalog: PlatformCatalog = ${JSON.stringify(catalog, null, 2)};\n`;
 }
 
+
+
+function createGuideCatalogSnapshot(catalog) {
+  const developmentArea = catalog.areas.find(
+    (area) => area.id === "desarrollo-implementacion",
+  );
+
+  if (!developmentArea) {
+    throw new Error("No se encontró el área Desarrollo e Implementación.");
+  }
+
+  const allowedServices = new Set(["WEB-01", "APP-01", "INT-01"]);
+  const services = developmentArea.services
+    .filter((service) => allowedServices.has(service.code))
+    .map((service) => ({
+      code: service.code,
+      name: service.name,
+      maturity: service.maturity,
+      activities: service.activities.map((activity) => ({
+        code: activity.code,
+        name: activity.name,
+        phase: activity.phase,
+        unitLabel: activity.unitLabel,
+        defaultIncluded: activity.defaultIncluded,
+        mandatory: activity.mandatory,
+        validationStatus: activity.validationStatus,
+        hours: activity.hours,
+        defaultQuantity: activity.quantityRule?.defaultQuantity ?? 1,
+      })),
+    }));
+
+  return {
+    schemaVersion: "1.0",
+    catalogVersion: catalog.catalogVersion,
+    contingencyRate: catalog.contingencyRate,
+    area: {
+      id: developmentArea.id,
+      name: developmentArea.name,
+      services,
+    },
+  };
+}
+
+function createGuideJavascriptFile(catalog) {
+  const snapshot = createGuideCatalogSnapshot(catalog);
+
+  return `/**
+ * Catálogo técnico mínimo para la Guía Web ISM.
+ *
+ * ARCHIVO GENERADO: no editar manualmente.
+ * Fuente: apps/configurador-servicios/catalog/Catalogo_Tecnico_Servicios_ISM_Developer_v2_1_Auditado.xlsx
+ * Regeneración: npm --prefix apps/configurador-servicios run catalog:ism
+ */
+export const ismGuideTechnicalCatalog = ${JSON.stringify(snapshot, null, 2)};
+`;
+}
+
 // ==================================================
 // EJECUCIÓN
 // ==================================================
@@ -689,6 +754,13 @@ async function main() {
   const catalog = buildCatalog(rows, version, contingencyRate);
 
   await writeFile(OUTPUT_FILE, createTypescriptFile(catalog), "utf8");
+
+  await mkdir(path.dirname(GUIDE_OUTPUT_FILE), { recursive: true });
+  await writeFile(
+    GUIDE_OUTPUT_FILE,
+    createGuideJavascriptFile(catalog),
+    "utf8",
+  );
   await writeFile(
     AUDIT_FILE,
     `${JSON.stringify(
@@ -696,6 +768,7 @@ async function main() {
         generatedAt: new Date().toISOString(),
         source: path.relative(PROJECT_ROOT, SOURCE_FILE),
         output: path.relative(PROJECT_ROOT, OUTPUT_FILE),
+        guideOutput: path.relative(WEBSITE_ROOT, GUIDE_OUTPUT_FILE),
         catalogVersion: version,
         contingencyRate,
         lines: catalog.areas.map((area) => ({
@@ -713,7 +786,7 @@ async function main() {
   );
 
   console.log(
-    `Catálogo ISM generado: ${validation.serviceCodes} servicios y ${validation.activityLines} actividades.`,
+    `Catálogo ISM generado y sincronizado con Guía Web: ${validation.serviceCodes} servicios y ${validation.activityLines} actividades.`,
   );
 }
 

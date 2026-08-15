@@ -28,12 +28,15 @@ La aplicación no lee el Excel en producción. El script:
 scripts/generateIsmCatalog.mjs
 ```
 
-valida el libro y genera:
+valida el libro y genera dos salidas sincronizadas desde la misma fuente:
 
 ```text
 src/data/catalog/generated/ismServices.ts
+../../api/_generated/ism-guide-catalog.js
 catalog/AUDITORIA_IMPORTACION_ISM.json
 ```
+
+La primera alimenta el Configurador de Servicios. La segunda es un snapshot técnico mínimo utilizado exclusivamente por el backend de la Guía Web para estimaciones internas.
 
 ## Comandos
 
@@ -45,6 +48,10 @@ npm run build
 ```
 
 `npm run catalog:ism` debe ejecutarse después de modificar el Catálogo Maestro del Excel.
+
+Además, `npm run dev` y `npm run build` ejecutan la sincronización automáticamente antes de iniciar o compilar. Por lo tanto, cambios de HH, nombres, factores, cantidades o estados realizados en el Excel fuente pasan a ambas herramientas al regenerar el catálogo.
+
+> Importante: los códigos de actividad (`WEB-xxx`, `APP-xxx`, `INT-xxx`) funcionan como claves de integración. Si se cambia o elimina un código, también debe revisarse la regla comercial de la Guía Web que lo utiliza.
 
 ## Reglas implementadas
 

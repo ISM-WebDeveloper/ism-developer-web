@@ -4,7 +4,9 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "predev": "npm run catalog:ism",
     "dev": "vite",
+    "prebuild": "npm run catalog:ism",
     "build": "node ./node_modules/typescript/bin/tsc -b && node ./node_modules/vite/bin/vite.js build",
     "lint": "oxlint src vite.config.ts",
     "catalog:generate": "node scripts/generateCatalogs.mjs",

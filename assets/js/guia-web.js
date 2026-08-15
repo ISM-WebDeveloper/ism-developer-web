@@ -1,6 +1,6 @@
 /**
  * Guía Web ISM · Lógica principal
- * Versión de parche: P2.0
+ * Versión de parche: P4.0
  *
  * Responsabilidades:
  * - Mantener el estado temporal de la guía en el navegador.
@@ -12,7 +12,7 @@
  *
  * Importante:
  * - La guía utiliza lenguaje comercial simple; no expone arquitectura ni HH.
- * - La tarifa interna de 0,7 UF/HH viaja solo en el payload interno de ISM.
+ * - La tarifa y la estimación técnica se calculan exclusivamente en el servidor.
  */
 (function () {
     "use strict";
@@ -684,8 +684,14 @@
         state.security.turnstileReady = Boolean(state.security.turnstileToken);
 
         var button = document.getElementById("submitPrequoteBtn");
+        var block = document.getElementById("turnstileBlock");
+
         if (button && !button.getAttribute("aria-busy")) {
             button.disabled = !state.security.turnstileReady;
+        }
+
+        if (block) {
+            block.classList.toggle("is-verified", state.security.turnstileReady);
         }
 
         if (state.security.turnstileReady) {
@@ -813,7 +819,7 @@
         state.contact = contact;
 
         return {
-            schemaVersion: "1.2",
+            schemaVersion: "1.3",
             source: "guia-web-ism",
             submittedAt: new Date().toISOString(),
             contact: contact,
@@ -842,14 +848,10 @@
                 })
             },
             serviceCommitment: {
-                initialResponseWithinBusinessHours: 48
+                initialResponseWithinBusinessDays: 2
             },
             security: {
                 turnstileToken: state.security.turnstileToken
-            },
-            internal: {
-                hourlyRateUF: 0.7,
-                hourlyRateVisibleToProspect: false
             }
         };
     }

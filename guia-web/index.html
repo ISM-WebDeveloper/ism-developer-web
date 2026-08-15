@@ -200,29 +200,36 @@
                                     <span>Acepto que ISM Developer me contacte respecto de esta solicitud. <a href="../privacidad.html" target="_blank" rel="noopener noreferrer">Ver privacidad</a>.</span>
                                 </label>
 
-                                <!-- Verificación antispam: el sitekey público se obtiene desde Vercel. -->
-                                <div class="guide-security-check" id="turnstileBlock">
-                                    <div class="guide-security-heading">
-                                        <span><i data-lucide="shield-check" aria-hidden="true"></i></span>
-                                        <strong>Protección antispam</strong>
+                                <!--
+                                    Cierre de envío: seguridad, compromiso de respuesta y CTA se
+                                    presentan como una sola unidad para mantener la jerarquía visual.
+                                -->
+                                <div class="guide-submit-zone">
+                                    <div class="guide-security-check" id="turnstileBlock">
+                                        <div class="guide-security-heading">
+                                            <span><i data-lucide="shield-check" aria-hidden="true"></i></span>
+                                            <div>
+                                                <strong>Protección antispam</strong>
+                                                <p class="guide-turnstile-status" id="turnstileStatus" role="status" aria-live="polite">Preparando verificación segura…</p>
+                                            </div>
+                                        </div>
+                                        <div class="guide-turnstile" id="turnstileWidget" aria-label="Verificación de seguridad"></div>
                                     </div>
-                                    <div class="guide-turnstile" id="turnstileWidget" aria-label="Verificación de seguridad"></div>
-                                    <p class="guide-turnstile-status" id="turnstileStatus" role="status" aria-live="polite">Preparando verificación segura…</p>
-                                </div>
 
-                                <div class="guide-response-promise">
-                                    <span><i data-lucide="clock-3" aria-hidden="true"></i></span>
-                                    <div>
-                                        <strong>Respuesta dentro de las primeras 48 horas hábiles</strong>
-                                        <p>Un integrante de ISM revisará tu levantamiento antes de contactarte.</p>
+                                    <div class="guide-response-promise">
+                                        <span><i data-lucide="clock-3" aria-hidden="true"></i></span>
+                                        <div>
+                                            <strong>Respuesta en un máximo de 2 días hábiles</strong>
+                                            <p>Revisaremos personalmente tu levantamiento antes de contactarte.</p>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <button class="guide-submit-button" id="submitPrequoteBtn" type="submit" disabled>
-                                    Enviar mi precotización
-                                    <i data-lucide="send" aria-hidden="true"></i>
-                                </button>
-                                <p class="guide-submit-status" id="submitStatus" role="status" aria-live="polite"></p>
+                                    <button class="guide-submit-button" id="submitPrequoteBtn" type="submit" disabled>
+                                        Enviar mi precotización
+                                        <i data-lucide="send" aria-hidden="true"></i>
+                                    </button>
+                                    <p class="guide-submit-status" id="submitStatus" role="status" aria-live="polite"></p>
+                                </div>
                             </form>
                         </div>
                     </section>
