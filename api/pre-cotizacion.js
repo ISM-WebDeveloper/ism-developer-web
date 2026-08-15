@@ -1,5 +1,5 @@
 /**
- * API · Pre-cotización Guía Web ISM · P4.0
+ * API · Pre-cotización Guía Web ISM · P6.0
  *
  * Responsabilidades:
  * - Validar y normalizar el payload recibido desde la guía.
@@ -17,7 +17,7 @@
  */
 
 
-import { GUIDE_ACTIVITY_PROFILES, GUIDE_SERVICE_RULES, GUIDE_WEB_ACTIVITY_RULES } from "./_config/guide-technical-rules.js";
+import { GUIDE_ACTIVITY_PROFILES, GUIDE_SERVICE_RULES, GUIDE_STANDARD_SECTION_RULES, GUIDE_WEB_ACTIVITY_RULES } from "./_config/guide-technical-rules.js";
 import { ismGuideTechnicalCatalog } from "./_generated/ism-guide-catalog.js";
 
 // ============================================================================
@@ -272,7 +272,11 @@ function addProfile(selection, missingCodes, profile, reason) {
     });
 }
 
-function buildTechnicalEstimate(payload) {
+function countSelected(ids, candidates) {
+    return (candidates || []).reduce((total, id) => total + (ids.has(id) ? 1 : 0), 0);
+}
+
+export function buildTechnicalEstimate(payload) {
     const project = payload?.project || {};
     const recommendation = payload?.recommendation || {};
     const goals = itemIds(project.goals);
@@ -288,15 +292,26 @@ function buildTechnicalEstimate(payload) {
         "Referencia preliminar generada desde la guía; validar alcance y cantidades antes de cotizar."
     ]);
 
-    // Base de todo proyecto originado en la Guía Web.
-    addDefaultService(
+    // ------------------------------------------------------------------------
+    // P6.1 · Núcleo web real
+    // No se usa el servicio WEB-01 completo porque contiene integraciones y
+    // canales opcionales. El perfil webCore solo incorpora la base obligatoria.
+    // ------------------------------------------------------------------------
+    if (!TECHNICAL_SERVICE_INDEX.has(GUIDE_SERVICE_RULES.baseWebService)) {
+        missingCodes.add(GUIDE_SERVICE_RULES.baseWebService);
+    }
+    addProfile(
         selection,
         missingCodes,
-        GUIDE_SERVICE_RULES.baseWebService,
-        "Base web profesional"
+        GUIDE_ACTIVITY_PROFILES.webCore,
+        "Núcleo web profesional"
     );
 
-    // Opcionales web asociados a elecciones explícitas.
+    // ------------------------------------------------------------------------
+    // P6.2 · Contenido y canales explícitos
+    // Las elecciones simples se traducen a actividades WEB solo cuando fueron
+    // seleccionadas o cuando una recomendación fue aceptada.
+    // ------------------------------------------------------------------------
     content.forEach((id) => {
         addActivityList(
             selection,
@@ -320,7 +335,7 @@ function buildTechnicalEstimate(payload) {
             selection,
             missingCodes,
             GUIDE_WEB_ACTIVITY_RULES.presence[id],
-            `Presencia: ${id}`
+            `Presencia actual: ${id}`
         );
     });
 
@@ -333,62 +348,109 @@ function buildTechnicalEstimate(payload) {
         );
     });
 
-    // Funcionalidades que amplían la solución más allá de una web informativa.
-    if (actions.has("booking") || goals.has("reservas")) {
+    // WEB-009 representa una sección estándar. Aquí sí sumamos cantidad porque
+    // "Sobre nosotros", "Equipo" y "Precios" son secciones distintas.
+    let standardSectionCount = countSelected(
+        content,
+        GUIDE_STANDARD_SECTION_RULES.contentIds
+    );
+    standardSectionCount += countSelected(
+        accepted,
+        GUIDE_STANDARD_SECTION_RULES.acceptedSuggestionIds
+    );
+
+    // Si se acepta "Horarios" pero no se confirma una agenda, se interpreta
+    // como una sección informativa. Si existe booking, el perfil ya contempla
+    // la disponibilidad como parte del flujo funcional.
+    if (
+        accepted.has(GUIDE_STANDARD_SECTION_RULES.availabilitySuggestionId)
+        && !actions.has("booking")
+    ) {
+        standardSectionCount += 1;
+    }
+
+    if (standardSectionCount > 0) {
+        addTechnicalActivity(
+            selection,
+            missingCodes,
+            GUIDE_STANDARD_SECTION_RULES.activityCode,
+            standardSectionCount,
+            `${standardSectionCount} sección(es) estándar seleccionadas`
+        );
+    }
+
+    // ------------------------------------------------------------------------
+    // P6.3 · Funciones avanzadas confirmadas
+    // Regla principal de calibración: los OBJETIVOS orientan y recomiendan;
+    // solamente las ACCIONES confirmadas incorporan APP / INT a las HH.
+    // ------------------------------------------------------------------------
+    if (actions.has("booking")) {
         modules.add("Reservas / agenda");
         addProfile(
             selection,
             missingCodes,
             GUIDE_ACTIVITY_PROFILES.booking,
-            "Módulo de reservas"
+            "Módulo incremental de reservas"
         );
         reviewReasons.add("Confirmar reglas de agenda, disponibilidad, bloqueos y operación administrativa.");
+        reviewReasons.add("La referencia base no considera cuentas de pacientes/clientes salvo que se seleccione acceso privado.");
+    } else if (goals.has("reservas")) {
+        reviewReasons.add("El cliente declaró reservas como objetivo, pero no confirmó la acción 'Reservar una hora'; la agenda no se incluyó en HH.");
     }
 
-    if (actions.has("shop") || goals.has("ventas")) {
+    if (actions.has("shop")) {
         modules.add("Tienda / pedidos");
         addProfile(
             selection,
             missingCodes,
             GUIDE_ACTIVITY_PROFILES.shop,
-            "Módulo de tienda o pedidos"
+            "Módulo incremental de tienda o pedidos"
         );
-        reviewReasons.add("Validar catálogo, stock, despacho/retiro y medio de pago antes de cerrar la cotización.");
+        reviewReasons.add("Validar catálogo, stock, despacho/retiro y forma de cierre del pedido.");
+        reviewReasons.add("La referencia base de tienda no incluye pasarela de pago ni cuentas de cliente; confirmar si serán necesarias.");
+    } else if (goals.has("ventas")) {
+        reviewReasons.add("El cliente declaró venta online como objetivo, pero no confirmó 'Comprar o hacer un pedido'; la tienda no se incluyó en HH.");
     }
 
     if (actions.has("account")) {
-        modules.add("Aplicación con usuarios");
-        addDefaultService(
+        modules.add("Usuarios / acceso privado");
+        addProfile(
             selection,
             missingCodes,
-            GUIDE_SERVICE_RULES.accountService,
-            "Aplicación con usuarios y acceso privado"
+            GUIDE_ACTIVITY_PROFILES.account,
+            "Extensión de usuarios y acceso privado"
         );
-        reviewReasons.add("Confirmar cantidad de roles, pantallas, entidades y permisos.");
+        reviewReasons.add("Confirmar cantidad de roles, pantallas privadas, entidades y permisos.");
     }
 
-    if (actions.has("automation") || goals.has("procesos")) {
+    if (actions.has("automation")) {
         modules.add("Automatización");
         addProfile(
             selection,
             missingCodes,
             GUIDE_ACTIVITY_PROFILES.automation,
-            "Automatización de proceso"
+            "Automatización confirmada"
         );
-        reviewReasons.add("Levantar el proceso actual, excepciones y frecuencia de ejecución.");
+        reviewReasons.add("Levantar el proceso actual, excepciones, frecuencia y resultado esperado de la automatización.");
+    } else if (goals.has("procesos") && !actions.has("integration")) {
+        reviewReasons.add("El cliente quiere digitalizar un proceso, pero no confirmó automatización ni integración; INT no se incluyó en HH.");
     }
 
     if (actions.has("integration")) {
-        modules.add("Integración");
-        addDefaultService(
+        modules.add("Integración externa");
+        addProfile(
             selection,
             missingCodes,
-            GUIDE_SERVICE_RULES.integrationService,
-            "Integración con sistema externo"
+            GUIDE_ACTIVITY_PROFILES.integration,
+            "Integración externa confirmada"
         );
-        reviewReasons.add("Validar API, autenticación, límites y disponibilidad del sistema externo.");
+        reviewReasons.add("Validar API, autenticación, límites, disponibilidad y ownership del sistema externo.");
     }
 
+    // ------------------------------------------------------------------------
+    // P6.4 · Cálculo desde el catálogo maestro
+    // Las HH nunca se escriben aquí: se toman del snapshot sincronizado.
+    // ------------------------------------------------------------------------
     const technicalHours = { small: 0, medium: 0, high: 0 };
     const activities = [...selection.values()].map((entry) => {
         const scenarioHours = {};
@@ -438,6 +500,7 @@ function buildTechnicalEstimate(payload) {
     }
 
     return {
+        calibrationVersion: "P6.0 · incremental",
         catalogVersion: clean(ismGuideTechnicalCatalog.catalogVersion, 40) || "No indicada",
         contingencyRate: round2(contingencyRate),
         hourlyRateUF: round2(hourlyRateUF),
@@ -496,6 +559,7 @@ function buildEmail(payload, contact, technical) {
         ["Sugerencias sin decisión", pendingSuggestions.length ? pendingSuggestions.join(", ") : "Ninguna"],
         ["Compromiso de respuesta", "Dentro de las primeras 48 hrs hábiles"],
         ["Catálogo técnico", `ISM ${technical.catalogVersion}`],
+        ["Motor de calibración", technical.calibrationVersion],
         ["Módulos detectados", technical.modules.join(", ") || "Sitio web"],
         ["Servicios técnicos", technical.serviceCodes.join(", ") || "WEB-01"],
         ["Actividades técnicas", String(technical.activityCount)],

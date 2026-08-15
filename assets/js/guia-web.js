@@ -410,36 +410,52 @@
         return state.recommendationDecisions[id] || "pending";
     }
 
-    /** Clasifica el proyecto en una solución inicial sin exponer códigos al usuario. */
+    /**
+     * Clasifica la solución dando prioridad a FUNCIONES confirmadas.
+     * Los objetivos sirven para orientar y recomendar, pero no deben convertir
+     * por sí solos una web en APP/INT ni inflar el alcance técnico.
+     */
     function getSolution() {
         if (includes(state.actions, "integration")) {
             return ["Integración o solución conectada", "Tu proyecto necesita intercambiar información con otra plataforma o sistema.", "INT"];
         }
-        if (includes(state.actions, "automation") || includes(state.goals, "procesos")) {
+        if (includes(state.actions, "automation")) {
             return ["Solución digital con automatización", "El foco está en reducir tareas manuales y ordenar un proceso de tu negocio.", "AUTOMATION"];
         }
         if (includes(state.actions, "account")) {
             return ["Aplicación web personalizada", "Tu proyecto incorpora usuarios o información privada y supera una web informativa tradicional.", "APP"];
         }
-        if (includes(state.actions, "shop") || includes(state.goals, "ventas")) {
+        if (includes(state.actions, "shop")) {
             return ["Tienda online o solución comercial", "Una experiencia para mostrar productos, recibir pedidos y preparar el proceso de compra.", "SHOP"];
         }
-        if (includes(state.actions, "booking") || includes(state.goals, "reservas")) {
+        if (includes(state.actions, "booking")) {
             return ["Sitio web profesional con reservas", "Una presencia clara con un recorrido para elegir servicio, fecha u horario.", "BOOKING"];
         }
         if (includes(state.actions, "quote")) {
             return ["Sitio web profesional con captación", "Presenta tus servicios y convierte visitas en solicitudes de cotización ordenadas.", "LEAD"];
         }
+
+        // Intenciones todavía no confirmadas como función técnica.
+        if (includes(state.goals, "procesos")) {
+            return ["Solución digital por definir", "Detectamos una oportunidad de digitalización; primero conviene precisar qué tarea o proceso quieres mejorar.", "DISCOVERY"];
+        }
+        if (includes(state.goals, "ventas")) {
+            return ["Sitio web con enfoque comercial", "Una base para mostrar productos y definir después cómo quieres recibir pedidos o compras.", "COMMERCE"];
+        }
+        if (includes(state.goals, "reservas")) {
+            return ["Sitio web preparado para reservas", "Tu objetivo considera reservas; podemos definir si necesitas agenda online o solo información de horarios.", "BOOKING_INTENT"];
+        }
+
         return ["Sitio web profesional", "Una presencia clara para presentar tu negocio, generar confianza y facilitar el contacto.", "WEB"];
     }
 
     /**
      * Prioridad de madurez: Evolución > Consolidación > Optimización > Primeros pasos.
-     * Así una función avanzada nunca queda clasificada por debajo de una web existente.
+     * Solo las funciones avanzadas confirmadas elevan automáticamente la madurez.
      */
     function getMaturity() {
-        var advanced = includes(state.actions, "account") || includes(state.actions, "automation") || includes(state.actions, "integration") || includes(state.goals, "procesos");
-        var transactional = includes(state.actions, "shop") || includes(state.actions, "booking") || includes(state.goals, "ventas") || includes(state.goals, "reservas");
+        var advanced = includes(state.actions, "account") || includes(state.actions, "automation") || includes(state.actions, "integration");
+        var transactional = includes(state.actions, "shop") || includes(state.actions, "booking");
         var existingBase = includes(state.presence, "web") || includes(state.presence, "booking") || includes(state.presence, "shop");
         var somePresence = existingBase || includes(state.presence, "social") || includes(state.presence, "whatsapp") || includes(state.presence, "maps");
 
