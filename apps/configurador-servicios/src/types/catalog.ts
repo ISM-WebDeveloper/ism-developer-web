@@ -155,6 +155,7 @@ export interface PlatformCatalog {
   shortName: string;
   description: string;
   contingencyRate: number;
+  hourlyRateUF?: number;
   areas: CatalogArea[];
   summary: PlatformCatalogSummary;
   sizeDefinitions: Record<

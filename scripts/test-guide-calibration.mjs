@@ -1,10 +1,11 @@
 /**
- * Pruebas de calibración · Guía Web ISM · P6
+ * Pruebas de calibración · Guía Web ISM · Catálogo v2.3
  *
- * Evitan regresiones como:
- * - activar BOOKING solo por marcar "Recibir reservas" como objetivo;
- * - activar INT solo por declarar interés en digitalizar un proceso;
- * - cargar perfiles APP completos dentro de una web.
+ * Garantizan que:
+ * - objetivos comerciales no activen por sí solos módulos APP/INT;
+ * - el cálculo utilice una sola HH base por actividad;
+ * - tarifa y contingencia provengan del catálogo sincronizado;
+ * - el factor global de ejecución permanezca en 100% provisional en la guía.
  */
 
 import assert from "node:assert/strict";
@@ -33,7 +34,8 @@ const cases = [
             }
         },
         expectedModules: ["Sitio web", "Reservas / agenda"],
-        forbiddenModules: ["Tienda / pedidos", "Automatización", "Integración externa"]
+        forbiddenModules: ["Tienda / pedidos", "Automatización", "Integración externa"],
+        maxBaseHours: 45
     },
     {
         name: "Comercio + tienda; reservas solo como objetivo",
@@ -49,10 +51,11 @@ const cases = [
             }
         },
         expectedModules: ["Sitio web", "Tienda / pedidos"],
-        forbiddenModules: ["Reservas / agenda", "Automatización", "Integración externa"]
+        forbiddenModules: ["Reservas / agenda", "Automatización", "Integración externa"],
+        maxBaseHours: 60
     },
     {
-        name: "Stress comercial; digitalización sin automatización confirmada",
+        name: "Digitalización sin automatización confirmada",
         payload: {
             project: {
                 goals: [
@@ -72,7 +75,8 @@ const cases = [
             }
         },
         expectedModules: ["Sitio web", "Tienda / pedidos"],
-        forbiddenModules: ["Reservas / agenda", "Automatización", "Integración externa"]
+        forbiddenModules: ["Reservas / agenda", "Automatización", "Integración externa"],
+        maxBaseHours: 60
     }
 ];
 
@@ -87,13 +91,27 @@ for (const testCase of cases) {
         assert.ok(!estimate.modules.includes(module), `${testCase.name}: módulo indebido ${module}`);
     });
 
-    assert.ok(estimate.technicalHours.medium > 0, `${testCase.name}: HH estándar inválidas`);
-    assert.ok(estimate.commercialHours.medium > estimate.technicalHours.medium, `${testCase.name}: contingencia no aplicada`);
-    assert.equal(estimate.hourlyRateUF, 0.7, `${testCase.name}: tarifa fallback distinta de 0,7 UF/HH`);
+    assert.ok(estimate.baseHours > 0, `${testCase.name}: HH base inválidas`);
+    assert.ok(
+        estimate.baseHours <= testCase.maxBaseHours,
+        `${testCase.name}: HH base excesivas (${estimate.baseHours} > ${testCase.maxBaseHours})`
+    );
+    assert.equal(estimate.executionFactor, 1, `${testCase.name}: factor global de la guía debe ser 100%`);
+    assert.equal(estimate.hourlyRateUF, 0.7, `${testCase.name}: tarifa distinta de 0,7 UF/HH`);
+    assert.equal(estimate.contingencyRate, 0.2, `${testCase.name}: contingencia distinta de 20%`);
+    assert.equal(
+        estimate.adjustedHours,
+        estimate.baseHours,
+        `${testCase.name}: con factor 100% las HH ajustadas deben igualar las HH base`
+    );
+    assert.ok(
+        estimate.finalReferenceUF > estimate.technicalValueUF,
+        `${testCase.name}: la contingencia final no fue aplicada`
+    );
 
     console.log(`✓ ${testCase.name}`);
     console.log(`  Módulos: ${estimate.modules.join(", ")}`);
     console.log(`  Actividades: ${estimate.activityCount}`);
-    console.log(`  HH estándar: ${estimate.technicalHours.medium.toFixed(2)}`);
-    console.log(`  UF estándar: ${estimate.investmentUF.medium.toFixed(2)}`);
+    console.log(`  HH base: ${estimate.baseHours.toFixed(2)}`);
+    console.log(`  Referencia final: ${estimate.finalReferenceUF.toFixed(2)} UF`);
 }

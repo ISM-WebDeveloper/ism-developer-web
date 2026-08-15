@@ -58,26 +58,26 @@ function isActivitySelected(
 export const ismServicesEngine = createStandardPlatformEngine({
   id: "ism-servicios",
   catalog: ismServicesCatalog,
-  storageKey: "ism-configurator:services:v2.2",
+  storageKey: "ism-configurator:services:v2.3",
   actionEvent: "ism-configurator:services:action",
   categories: {
     small: {
-      label: "Inicial",
-      model: "Alcance funcional acotado",
+      label: "Base",
+      model: "HH base del catálogo",
       description:
-        "Implementación funcional con alcance definido, componentes conocidos y menor personalización.",
+        "La v2.3 utiliza una única duración base por actividad. Este nivel no modifica las horas.",
     },
     medium: {
-      label: "Estándar",
-      model: "Alcance recomendado",
+      label: "Base",
+      model: "HH base del catálogo",
       description:
-        "Configuración recomendada para la mayoría de los proyectos, con validaciones, coordinación y personalización media.",
+        "La v2.3 utiliza una única duración base por actividad. Este nivel no modifica las horas.",
     },
     high: {
-      label: "Avanzado",
-      model: "Mayor complejidad y control",
+      label: "Base",
+      model: "HH base del catálogo",
       description:
-        "Mayor personalización, integraciones, datos, seguridad, riesgo técnico y ciclos de validación ampliados.",
+        "La v2.3 utiliza una única duración base por actividad. Este nivel no modifica las horas.",
     },
   },
   serviceSection: {
@@ -95,11 +95,11 @@ export const ismServicesEngine = createStandardPlatformEngine({
     workbookDescription:
       "Reporte técnico generado desde el Configurador de Servicios ISM Developer.",
     notes: [
-      "El nivel de servicio se asigna automáticamente según las horas técnicas seleccionadas.",
-      "Inicial corresponde a menos de 35 HH, Estándar desde 35 HH y Avanzado desde 60 HH.",
-      "Las horas son referenciales y permanecen sujetas a validación técnica y comercial.",
+      "Cada actividad utiliza una única HH base definida en el Catálogo Maestro v2.3.",
+      "La reutilización o un esfuerzo extraordinario no modifican actividades individuales: se aplican como factor global al total del proyecto.",
+      "La contingencia se aplica una sola vez al final del cálculo.",
       "Las actividades obligatorias forman parte del alcance cuando se selecciona su servicio.",
-      "Las actividades opcionales no incluidas en la base deben seleccionarse expresamente.",
+      "Las actividades opcionales deben seleccionarse expresamente.",
     ],
   },
   metadata: {
@@ -107,8 +107,8 @@ export const ismServicesEngine = createStandardPlatformEngine({
     description:
       "Configurador técnico consolidado para dimensionar servicios digitales, continuidad, seguridad y soporte.",
     createdAt: "Agosto de 2026",
-    version: `0.2.0 · Catálogo ${ismServicesCatalog.catalogVersion ?? "2.1"}`,
-    source: "Catálogo Técnico ISM Developer v2.1 auditado",
+    version: `0.3.0 · Catálogo ${ismServicesCatalog.catalogVersion ?? "2.3"}`,
+    source: "Catálogo Técnico ISM Developer v2.3 simplificado",
   },
   warnings: (state) => {
     const warnings: string[] = [];

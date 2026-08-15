@@ -134,7 +134,9 @@ const EXCEL_MIME_TYPE =
   "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
 const DEFAULT_NOTES = [
-  "Inicial, Estándar y Avanzado son niveles automáticos definidos por las horas seleccionadas.",
+  "Cada actividad utiliza una única HH base definida en el catálogo técnico.",
+  "La reutilización o esfuerzo extraordinario se aplica al final mediante un factor global del proyecto.",
+  "La contingencia se aplica una sola vez sobre el total final.",
   "Las actividades recomendadas no están incluidas en las horas ni en el total del reporte.",
   "El resultado corresponde a una estimación técnica sujeta a revisión de ISM Developer.",
 ];

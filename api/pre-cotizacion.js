@@ -1,5 +1,5 @@
 /**
- * API · Pre-cotización Guía Web ISM · P6.0
+ * API · Pre-cotización Guía Web ISM · P6.1 / Catálogo v2.3
  *
  * Responsabilidades:
  * - Validar y normalizar el payload recibido desde la guía.
@@ -30,7 +30,6 @@ const TURNSTILE_ACTION = "prequote";
 const MAX_BODY_BYTES = 48_000;
 const TURNSTILE_TIMEOUT_MS = 6_000;
 const DEFAULT_HOURLY_RATE_UF = 0.7;
-const TECHNICAL_SCENARIOS = ["small", "medium", "high"];
 
 // ============================================================================
 // 02. RESPUESTAS HTTP Y NORMALIZACIÓN DE DATOS
@@ -189,10 +188,14 @@ function round2(value) {
 }
 
 function getHourlyRateUF() {
+    // La tarifa maestra proviene del Excel v2.3 sincronizado.
+    // ISM_HOURLY_RATE_UF queda como override operativo opcional.
     const configured = Number(process.env.ISM_HOURLY_RATE_UF);
-    return Number.isFinite(configured) && configured > 0
-        ? configured
-        : DEFAULT_HOURLY_RATE_UF;
+    const catalogRate = Number(ismGuideTechnicalCatalog.hourlyRateUF);
+
+    if (Number.isFinite(configured) && configured > 0) return configured;
+    if (Number.isFinite(catalogRate) && catalogRate > 0) return catalogRate;
+    return DEFAULT_HOURLY_RATE_UF;
 }
 
 function itemIds(items) {
@@ -293,13 +296,14 @@ export function buildTechnicalEstimate(payload) {
     ]);
 
     // ------------------------------------------------------------------------
-    // P6.1 · Núcleo web real
-    // No se usa el servicio WEB-01 completo porque contiene integraciones y
-    // canales opcionales. El perfil webCore solo incorpora la base obligatoria.
+    // P6.1 · Núcleo web desde catálogo v2.3
+    // El núcleo contiene solo procesos base. Los canales y funciones opcionales
+    // se agregan únicamente cuando existe una selección explícita.
     // ------------------------------------------------------------------------
     if (!TECHNICAL_SERVICE_INDEX.has(GUIDE_SERVICE_RULES.baseWebService)) {
         missingCodes.add(GUIDE_SERVICE_RULES.baseWebService);
     }
+
     addProfile(
         selection,
         missingCodes,
@@ -309,8 +313,6 @@ export function buildTechnicalEstimate(payload) {
 
     // ------------------------------------------------------------------------
     // P6.2 · Contenido y canales explícitos
-    // Las elecciones simples se traducen a actividades WEB solo cuando fueron
-    // seleccionadas o cuando una recomendación fue aceptada.
     // ------------------------------------------------------------------------
     content.forEach((id) => {
         addActivityList(
@@ -348,8 +350,7 @@ export function buildTechnicalEstimate(payload) {
         );
     });
 
-    // WEB-009 representa una sección estándar. Aquí sí sumamos cantidad porque
-    // "Sobre nosotros", "Equipo" y "Precios" son secciones distintas.
+    // WEB-009 representa una sección estándar y se multiplica por cantidad.
     let standardSectionCount = countSelected(
         content,
         GUIDE_STANDARD_SECTION_RULES.contentIds
@@ -359,9 +360,6 @@ export function buildTechnicalEstimate(payload) {
         GUIDE_STANDARD_SECTION_RULES.acceptedSuggestionIds
     );
 
-    // Si se acepta "Horarios" pero no se confirma una agenda, se interpreta
-    // como una sección informativa. Si existe booking, el perfil ya contempla
-    // la disponibilidad como parte del flujo funcional.
     if (
         accepted.has(GUIDE_STANDARD_SECTION_RULES.availabilitySuggestionId)
         && !actions.has("booking")
@@ -381,8 +379,7 @@ export function buildTechnicalEstimate(payload) {
 
     // ------------------------------------------------------------------------
     // P6.3 · Funciones avanzadas confirmadas
-    // Regla principal de calibración: los OBJETIVOS orientan y recomiendan;
-    // solamente las ACCIONES confirmadas incorporan APP / INT a las HH.
+    // Los objetivos orientan. Solo las ACCIONES confirmadas suman APP / INT.
     // ------------------------------------------------------------------------
     if (actions.has("booking")) {
         modules.add("Reservas / agenda");
@@ -448,18 +445,16 @@ export function buildTechnicalEstimate(payload) {
     }
 
     // ------------------------------------------------------------------------
-    // P6.4 · Cálculo desde el catálogo maestro
-    // Las HH nunca se escriben aquí: se toman del snapshot sincronizado.
+    // P6.4 · Cálculo v2.3: UNA HH base + ajustes globales al final
+    // La Guía utiliza 100% como factor provisional porque aún no se ha definido
+    // reutilización real. Ese factor se ajusta posteriormente al cotizar.
     // ------------------------------------------------------------------------
-    const technicalHours = { small: 0, medium: 0, high: 0 };
-    const activities = [...selection.values()].map((entry) => {
-        const scenarioHours = {};
+    let baseHours = 0;
 
-        TECHNICAL_SCENARIOS.forEach((scenario) => {
-            const hours = Number(entry.activity.hours?.[scenario] || 0) * entry.quantity;
-            scenarioHours[scenario] = round2(hours);
-            technicalHours[scenario] += hours;
-        });
+    const activities = [...selection.values()].map((entry) => {
+        const unitBaseHours = Number(entry.activity.baseHours || 0);
+        const totalBaseHours = unitBaseHours * entry.quantity;
+        baseHours += totalBaseHours;
 
         return {
             code: entry.activity.code,
@@ -471,27 +466,20 @@ export function buildTechnicalEstimate(payload) {
             unitLabel: entry.activity.unitLabel || "",
             validationStatus: entry.activity.validationStatus || "",
             reasons: entry.reasons,
-            hours: scenarioHours
+            unitBaseHours: round2(unitBaseHours),
+            totalBaseHours: round2(totalBaseHours)
         };
     });
 
-    TECHNICAL_SCENARIOS.forEach((scenario) => {
-        technicalHours[scenario] = round2(technicalHours[scenario]);
-    });
+    baseHours = round2(baseHours);
 
+    const executionFactor = 1;
+    const adjustedHours = round2(baseHours * executionFactor);
     const contingencyRate = Number(ismGuideTechnicalCatalog.contingencyRate || 0);
     const hourlyRateUF = getHourlyRateUF();
-    const contingencyHours = {};
-    const commercialHours = {};
-    const investmentUF = {};
-
-    TECHNICAL_SCENARIOS.forEach((scenario) => {
-        contingencyHours[scenario] = round2(technicalHours[scenario] * contingencyRate);
-        commercialHours[scenario] = round2(
-            technicalHours[scenario] + contingencyHours[scenario]
-        );
-        investmentUF[scenario] = round2(commercialHours[scenario] * hourlyRateUF);
-    });
+    const technicalValueUF = round2(adjustedHours * hourlyRateUF);
+    const contingencyValueUF = round2(technicalValueUF * contingencyRate);
+    const finalReferenceUF = round2(technicalValueUF + contingencyValueUF);
 
     if (missingCodes.size) {
         reviewReasons.add(
@@ -499,19 +487,25 @@ export function buildTechnicalEstimate(payload) {
         );
     }
 
+    reviewReasons.add(
+        "Factor global de ejecución usado por la guía: 100% provisional. Ajustar reutilización o esfuerzo extraordinario al cerrar el alcance."
+    );
+
     return {
-        calibrationVersion: "P6.0 · incremental",
+        calibrationVersion: "P6.1 · base única v2.3",
         catalogVersion: clean(ismGuideTechnicalCatalog.catalogVersion, 40) || "No indicada",
+        calculationModel: clean(ismGuideTechnicalCatalog.calculationModel, 80) || "single-base-hours-final-adjustments",
         contingencyRate: round2(contingencyRate),
         hourlyRateUF: round2(hourlyRateUF),
-        referenceScenario: "Estándar",
+        executionFactor,
         modules: [...modules],
         serviceCodes: [...new Set(activities.map((item) => item.serviceCode))],
         activityCount: activities.length,
-        technicalHours,
-        contingencyHours,
-        commercialHours,
-        investmentUF,
+        baseHours,
+        adjustedHours,
+        technicalValueUF,
+        contingencyValueUF,
+        finalReferenceUF,
         missingActivityCodes: [...missingCodes],
         reviewRequired: true,
         reviewReasons: [...reviewReasons],
@@ -563,15 +557,14 @@ function buildEmail(payload, contact, technical) {
         ["Módulos detectados", technical.modules.join(", ") || "Sitio web"],
         ["Servicios técnicos", technical.serviceCodes.join(", ") || "WEB-01"],
         ["Actividades técnicas", String(technical.activityCount)],
-        ["HH técnicas · Inicial", `${technical.technicalHours.small.toFixed(2)} HH`],
-        ["HH técnicas · Estándar", `${technical.technicalHours.medium.toFixed(2)} HH`],
-        ["HH técnicas · Avanzado", `${technical.technicalHours.high.toFixed(2)} HH`],
-        ["Contingencia comercial", `${Math.round(technical.contingencyRate * 100)}%`],
-        ["HH comerciales · Estándar", `${technical.commercialHours.medium.toFixed(2)} HH`],
+        ["HH base seleccionadas", `${technical.baseHours.toFixed(2)} HH`],
+        ["Factor global de ejecución", `${Math.round(technical.executionFactor * 100)}% · provisional`],
+        ["HH ajustadas", `${technical.adjustedHours.toFixed(2)} HH`],
         ["Tarifa interna", `${technical.hourlyRateUF.toFixed(2)} UF/HH`],
-        ["Referencia interna · Inicial", `${technical.investmentUF.small.toFixed(2)} UF`],
-        ["Referencia interna · Estándar", `${technical.investmentUF.medium.toFixed(2)} UF`],
-        ["Referencia interna · Avanzado", `${technical.investmentUF.high.toFixed(2)} UF`],
+        ["Valor técnico", `${technical.technicalValueUF.toFixed(2)} UF`],
+        ["Contingencia final", `${Math.round(technical.contingencyRate * 100)}%`],
+        ["Contingencia", `${technical.contingencyValueUF.toFixed(2)} UF`],
+        ["Referencia interna final", `${technical.finalReferenceUF.toFixed(2)} UF`],
         ["Estado", "REVISAR ANTES DE COTIZAR"]
     ];
 
@@ -583,7 +576,7 @@ function buildEmail(payload, contact, technical) {
         "Motivos de revisión:",
         ...technical.reviewReasons.map((reason) => `- ${reason}`),
         "",
-        "Desglose técnico estándar:",
+        "Desglose técnico · HH base:",
         ...technical.activities.map((item) =>
             `- ${item.code} · ${item.name} · ${item.quantity} ${item.unitLabel || "unidad"} · ${item.hours.medium.toFixed(2)} HH`
         ),
@@ -607,7 +600,7 @@ function buildEmail(payload, contact, technical) {
                 <td style="padding:7px 9px;border-bottom:1px solid #e7eef3;color:#0f6f91;font-size:11px;font-weight:700;white-space:nowrap;">${escapeHtml(item.code)}</td>
                 <td style="padding:7px 9px;border-bottom:1px solid #e7eef3;color:#10293d;font-size:11px;">${escapeHtml(item.name)}</td>
                 <td style="padding:7px 9px;border-bottom:1px solid #e7eef3;color:#476074;font-size:11px;text-align:center;">${escapeHtml(item.quantity)}</td>
-                <td style="padding:7px 9px;border-bottom:1px solid #e7eef3;color:#10293d;font-size:11px;text-align:right;white-space:nowrap;">${escapeHtml(item.hours.medium.toFixed(2))} HH</td>
+                <td style="padding:7px 9px;border-bottom:1px solid #e7eef3;color:#10293d;font-size:11px;text-align:right;white-space:nowrap;">${escapeHtml(item.totalBaseHours.toFixed(2))} HH</td>
             </tr>`)
         .join("");
 
@@ -627,7 +620,7 @@ function buildEmail(payload, contact, technical) {
                     </div>
 
                     <div style="margin:18px 0 0;">
-                        <strong style="display:block;margin:0 0 8px;color:#10293d;font-size:12px;">Desglose técnico · escenario estándar</strong>
+                        <strong style="display:block;margin:0 0 8px;color:#10293d;font-size:12px;">Desglose técnico · HH base</strong>
                         <div style="overflow-x:auto;">
                             <table role="presentation" style="width:100%;border-collapse:collapse;border:1px solid #e1ebf1;">
                                 <thead>

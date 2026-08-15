@@ -42,7 +42,7 @@ export function PlatformsPage() {
           className="floating-platform-card"
         >
           <header className="floating-platform-card__header">
-            <span className="eyebrow">Catálogo técnico v2.1</span>
+            <span className="eyebrow">Catálogo técnico v2.3</span>
             <h2 id="service-selector-title">Configura tus servicios</h2>
             <p>
               Un único punto de acceso para combinar soluciones de las seis
@@ -58,7 +58,7 @@ export function PlatformsPage() {
             <span className="platform-tile__icon">ISM</span>
             <span className="platform-tile__body">
               <strong>Configurador consolidado</strong>
-              <small>6 líneas · 21 servicios · 282 actividades</small>
+              <small>6 líneas · 21 servicios · 254 actividades</small>
             </span>
             <span aria-hidden="true" className="platform-tile__arrow">
               →
@@ -66,9 +66,9 @@ export function PlatformsPage() {
           </Link>
 
           <div className="landing-catalog-summary">
-            <span>Inicial</span>
-            <span>Estándar</span>
-            <span>Avanzado</span>
+            <span>HH base única</span>
+            <span>Factor global al final</span>
+            <span>Contingencia final</span>
           </div>
         </aside>
       </div>

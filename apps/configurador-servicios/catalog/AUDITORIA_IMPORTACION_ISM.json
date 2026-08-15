@@ -1,15 +1,18 @@
 {
-  "generatedAt": "2026-08-06T05:01:18.535Z",
-  "source": "catalog/Catalogo_Tecnico_Servicios_ISM_Developer_v2_1_Auditado.xlsx",
+  "generatedAt": "2026-08-15T06:53:11.956Z",
+  "source": "catalog/Catalogo_Tecnico_Servicios_ISM_Developer_v2_3_Simplificado_LIMPIO.xlsx",
   "output": "src/data/catalog/generated/ismServices.ts",
-  "catalogVersion": "2.1",
+  "guideOutput": "api/_generated/ism-guide-catalog.js",
+  "catalogVersion": "2.3",
+  "hourlyRateUF": 0.7,
   "contingencyRate": 0.2,
+  "calculationModel": "single-base-hours-final-adjustments",
   "lines": [
     {
       "id": "desarrollo-implementacion",
       "name": "Desarrollo e Implementación",
       "services": 3,
-      "activities": 78
+      "activities": 50
     },
     {
       "id": "mantenimiento-evolucion",
@@ -43,8 +46,8 @@
     }
   ],
   "totals": {
-    "activityLines": 282,
+    "activityLines": 254,
     "serviceCodes": 21,
-    "uniqueActivityCodes": 282
+    "uniqueActivityCodes": 254
   }
 }

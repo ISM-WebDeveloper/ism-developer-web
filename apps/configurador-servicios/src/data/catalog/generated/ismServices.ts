@@ -9,7 +9,7 @@ import type { PlatformCatalog } from "../../../types/catalog";
 // ==================================================
 
 /**
- * Archivo generado desde Catalogo_Tecnico_Servicios_ISM_Developer_v2_1_Auditado.xlsx.
+ * Archivo generado desde Catalogo_Tecnico_Servicios_ISM_Developer_v2_3_Simplificado_LIMPIO.xlsx.
  * No editar manualmente. Modifica el Excel fuente y ejecuta npm run catalog:ism.
  */
 export const ismServicesCatalog: PlatformCatalog = {
@@ -18,7 +18,8 @@ export const ismServicesCatalog: PlatformCatalog = {
   "shortName": "ISM Developer",
   "description": "Configurador técnico consolidado de servicios digitales, continuidad, seguridad y soporte.",
   "contingencyRate": 0.2,
-  "catalogVersion": "2.1",
+  "hourlyRateUF": 0.7,
+  "catalogVersion": "2.3",
   "areas": [
     {
       "id": "desarrollo-implementacion",
@@ -27,8 +28,8 @@ export const ismServicesCatalog: PlatformCatalog = {
       "order": 1,
       "summary": {
         "serviceCodes": 3,
-        "activityLines": 78,
-        "activities": 78
+        "activityLines": 50,
+        "activities": 50
       },
       "services": [
         {
@@ -39,558 +40,364 @@ export const ismServicesCatalog: PlatformCatalog = {
           "groupLabel": "Desarrollo e Implementación",
           "sourceSheet": "Catalogo Maestro",
           "unit": "service",
-          "sizeMode": "by-size",
-          "maturity": "01 · Primeros pasos digitales",
+          "sizeMode": "not-applicable",
           "activities": [
             {
               "id": "web-001",
               "code": "WEB-001",
-              "name": "Reunión inicial y levantamiento de objetivos",
+              "name": "Levantamiento y planificación inicial",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": true,
-              "phase": "Diagnóstico",
+              "phase": "Planificación",
               "unitLabel": "Proyecto",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Media",
               "baseHours": 1.5,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Brief de proyecto",
-              "scope": "Objetivos, público, oferta y resultados esperados",
+              "scope": "Incluye: objetivos y público objetivo; inventario de contenidos; propuesta de valor y CTA principal; mapa de navegación; orden de secciones; flujo general; wireframe base de la página principal.",
+              "exclusions": "No incluye redacción profesional completa, investigación de mercado extensa ni prototipo de alta fidelidad.",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.5,
-                "medium": 1.9500000000000002,
-                "high": 2.325
+                "fixed": 1.5
               },
               "notes": [
-                "Fase: Diagnóstico",
+                "Fase: Planificación",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Brief de proyecto",
-                "Alcance: Objetivos, público, oferta y resultados esperados",
-                "Estado de HH: Preliminar"
-              ]
-            },
-            {
-              "id": "web-002",
-              "code": "WEB-002",
-              "name": "Inventario de contenidos y recursos disponibles",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": true,
-              "phase": "Diagnóstico",
-              "unitLabel": "Proyecto",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Baja",
-              "baseHours": 1,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Inventario de contenidos",
-              "scope": "Textos, imágenes, documentos, accesos y recursos de marca",
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 1,
-                "medium": 1.15,
-                "high": 1.3
-              },
-              "notes": [
-                "Fase: Diagnóstico",
-                "Unidad: Proyecto",
-                "Complejidad: Baja",
-                "Entregable: Inventario de contenidos",
-                "Alcance: Textos, imágenes, documentos, accesos y recursos de marca",
-                "Estado de HH: Preliminar"
-              ]
-            },
-            {
-              "id": "web-003",
-              "code": "WEB-003",
-              "name": "Definición del mapa de navegación",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": true,
-              "phase": "Arquitectura",
-              "unitLabel": "Proyecto",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Media",
-              "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.8,
-              "deliverable": "Sitemap aprobado",
-              "scope": "Estructura de páginas, jerarquía y rutas",
-              "exclusions": "No incluye redacción completa",
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 0.8,
-                "medium": 1.04,
-                "high": 1.2400000000000002
-              },
-              "notes": [
-                "Fase: Arquitectura",
-                "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Sitemap aprobado",
-                "Alcance: Estructura de páginas, jerarquía y rutas",
-                "Exclusiones: No incluye redacción completa",
-                "Estado de HH: Preliminar"
-              ]
-            },
-            {
-              "id": "web-004",
-              "code": "WEB-004",
-              "name": "Wireframe general de la página principal",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": true,
-              "phase": "Arquitectura",
-              "unitLabel": "Proyecto",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Media",
-              "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.8,
-              "deliverable": "Wireframe",
-              "scope": "Orden de bloques, jerarquía y llamadas a la acción",
-              "exclusions": "No incluye prototipo de alta fidelidad",
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 1.2000000000000002,
-                "medium": 1.5600000000000003,
-                "high": 1.8600000000000003
-              },
-              "notes": [
-                "Fase: Arquitectura",
-                "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Wireframe",
-                "Alcance: Orden de bloques, jerarquía y llamadas a la acción",
-                "Exclusiones: No incluye prototipo de alta fidelidad",
+                "Incluye: objetivos y público objetivo; inventario de contenidos; propuesta de valor y CTA principal; mapa de navegación; orden de secciones; flujo general; wireframe base de la página principal.",
+                "Exclusiones: No incluye redacción profesional completa, investigación de mercado extensa ni prototipo de alta fidelidad.",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "web-005",
               "code": "WEB-005",
-              "name": "Creación del proyecto, repositorio y estructura base",
+              "name": "Preparación técnica y sistema visual base",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": true,
               "phase": "Preparación",
               "unitLabel": "Proyecto",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Baja",
-              "baseHours": 1,
-              "reuseType": "Alta",
-              "reuseFactor": 0.55,
-              "deliverable": "Repositorio inicial",
-              "scope": "Estructura técnica, control de versiones y configuración",
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 0.55,
-                "medium": 0.6325,
-                "high": 0.7150000000000001
-              },
-              "notes": [
-                "Fase: Preparación",
-                "Unidad: Proyecto",
-                "Complejidad: Baja",
-                "Entregable: Repositorio inicial",
-                "Alcance: Estructura técnica, control de versiones y configuración",
-                "Estado de HH: Preliminar"
+              "baseHours": 2,
+              "scope": "Incluye: creación/ajuste de repositorio; estructura del proyecto; configuración inicial; colores, tipografías, espaciados, botones y componentes base reutilizables.",
+              "exclusions": "No incluye branding completo ni diseño de identidad corporativa desde cero.",
+              "dependencies": [
+                "WEB-001"
               ],
-              "quantityRule": {
-                "unit": "custom",
-                "label": "Cantidad (Proyecto)",
-                "baseQuantity": 1,
-                "defaultQuantity": 0.5,
-                "minimum": 0,
-                "editable": true
-              }
-            },
-            {
-              "id": "web-006",
-              "code": "WEB-006",
-              "name": "Configuración de estilos, tipografías y tokens de marca",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": true,
-              "phase": "Preparación",
-              "unitLabel": "Proyecto",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Media",
-              "baseHours": 1.5,
-              "reuseType": "Alta",
-              "reuseFactor": 0.6,
-              "deliverable": "Sistema visual base",
-              "scope": "Colores, tipografías, botones, espaciados y componentes",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.8999999999999999,
-                "medium": 1.17,
-                "high": 1.3949999999999998
+                "fixed": 2
               },
               "notes": [
                 "Fase: Preparación",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Sistema visual base",
-                "Alcance: Colores, tipografías, botones, espaciados y componentes",
+                "Incluye: creación/ajuste de repositorio; estructura del proyecto; configuración inicial; colores, tipografías, espaciados, botones y componentes base reutilizables.",
+                "Exclusiones: No incluye branding completo ni diseño de identidad corporativa desde cero.",
+                "Dependencias: WEB-001",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "web-007",
               "code": "WEB-007",
-              "name": "Desarrollo de navbar y menú móvil",
+              "name": "Navbar, navegación principal y menú móvil",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": true,
               "phase": "Interfaz",
               "unitLabel": "Componente",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Media",
-              "baseHours": 1.5,
-              "reuseType": "Alta",
-              "reuseFactor": 0.55,
-              "deliverable": "Navbar funcional",
-              "scope": "Navegación de escritorio, enlaces, estados y comportamiento del menú móvil.",
-              "exclusions": "El ajuste responsive transversal del resto del sitio se contabiliza en WEB-022.",
+              "baseHours": 1.2,
+              "scope": "Incluye: logo, enlaces, CTA de navegación cuando corresponda, estados activos y comportamiento móvil.",
+              "exclusions": "No incluye megamenús complejos ni navegación dinámica por permisos.",
+              "dependencies": [
+                "WEB-001",
+                "WEB-005"
+              ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.8250000000000001,
-                "medium": 1.0725000000000002,
-                "high": 1.27875
+                "fixed": 1.2
               },
               "notes": [
                 "Fase: Interfaz",
+                "Condición: Base obligatorio",
                 "Unidad: Componente",
-                "Complejidad: Media",
-                "Entregable: Navbar funcional",
-                "Alcance: Navegación de escritorio, enlaces, estados y comportamiento del menú móvil.",
-                "Exclusiones: El ajuste responsive transversal del resto del sitio se contabiliza en WEB-022.",
+                "Incluye: logo, enlaces, CTA de navegación cuando corresponda, estados activos y comportamiento móvil.",
+                "Exclusiones: No incluye megamenús complejos ni navegación dinámica por permisos.",
+                "Dependencias: WEB-001, WEB-005",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "web-008",
               "code": "WEB-008",
-              "name": "Diseño y desarrollo del hero principal",
+              "name": "Hero principal y llamada a la acción",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": true,
               "phase": "Interfaz",
               "unitLabel": "Componente",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Alta",
-              "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.75,
-              "deliverable": "Hero implementado",
-              "scope": "Titular, texto, llamada a la acción, imagen y composición visual del bloque principal.",
-              "exclusions": "La adaptación responsive transversal se contabiliza en WEB-022. No incluye sesión fotográfica.",
+              "baseHours": 1.8,
+              "scope": "Incluye: titular, subtítulo, CTA, recurso visual entregado/disponible, composición y adaptación responsive.",
+              "exclusions": "No incluye sesión fotográfica, producción audiovisual ni ilustración compleja a medida.",
+              "dependencies": [
+                "WEB-001",
+                "WEB-005"
+              ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.5,
-                "medium": 2.175,
-                "high": 2.7
+                "fixed": 1.8
               },
               "notes": [
                 "Fase: Interfaz",
+                "Condición: Base obligatorio",
                 "Unidad: Componente",
-                "Complejidad: Alta",
-                "Entregable: Hero implementado",
-                "Alcance: Titular, texto, llamada a la acción, imagen y composición visual del bloque principal.",
-                "Exclusiones: La adaptación responsive transversal se contabiliza en WEB-022. No incluye sesión fotográfica.",
+                "Incluye: titular, subtítulo, CTA, recurso visual entregado/disponible, composición y adaptación responsive.",
+                "Exclusiones: No incluye sesión fotográfica, producción audiovisual ni ilustración compleja a medida.",
+                "Dependencias: WEB-001, WEB-005",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "web-009",
               "code": "WEB-009",
-              "name": "Desarrollo de sección estándar de contenido",
+              "name": "Sección estándar de contenido",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": false,
               "phase": "Interfaz",
               "unitLabel": "Sección",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Media",
-              "baseHours": 1.25,
-              "reuseType": "Alta",
-              "reuseFactor": 0.6,
-              "deliverable": "Secciones implementadas",
-              "scope": "Bloque de contenido con título, texto, imagen o tarjetas",
+              "baseHours": 1,
+              "scope": "Incluye por unidad: título, texto, imagen/icono, tarjetas simples o bloque informativo y adaptación responsive.",
+              "exclusions": "No incluye lógica avanzada, filtros ni contenido dinámico.",
+              "dependencies": [
+                "WEB-005"
+              ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.75,
-                "medium": 0.9750000000000001,
-                "high": 1.1625
+                "fixed": 1
               },
               "notes": [
                 "Fase: Interfaz",
+                "Condición: Base incluido",
                 "Unidad: Sección",
-                "Complejidad: Media",
-                "Entregable: Secciones implementadas",
-                "Alcance: Bloque de contenido con título, texto, imagen o tarjetas",
+                "Incluye: Incluye por unidad: título, texto, imagen/icono, tarjetas simples o bloque informativo y adaptación responsive.",
+                "Exclusiones: No incluye lógica avanzada, filtros ni contenido dinámico.",
+                "Dependencias: WEB-005",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "web-010",
               "code": "WEB-010",
-              "name": "Desarrollo de sección de servicios con tarjetas",
+              "name": "Sección de servicios con tarjetas",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": false,
               "phase": "Interfaz",
               "unitLabel": "Sección",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Media",
-              "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.7,
-              "deliverable": "Sección de servicios",
-              "scope": "Tarjetas, íconos, descripciones y CTA",
+              "baseHours": 1,
+              "scope": "Incluye: tarjetas de servicios, iconos o imágenes, descripciones breves y CTA relacionado.",
+              "exclusions": "No incluye catálogo transaccional, reservas ni cálculo dinámico de precios.",
+              "dependencies": [
+                "WEB-005"
+              ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.4,
-                "medium": 1.8199999999999998,
-                "high": 2.17
+                "fixed": 1
               },
               "notes": [
                 "Fase: Interfaz",
+                "Condición: Base incluido",
                 "Unidad: Sección",
-                "Complejidad: Media",
-                "Entregable: Sección de servicios",
-                "Alcance: Tarjetas, íconos, descripciones y CTA",
+                "Incluye: tarjetas de servicios, iconos o imágenes, descripciones breves y CTA relacionado.",
+                "Exclusiones: No incluye catálogo transaccional, reservas ni cálculo dinámico de precios.",
+                "Dependencias: WEB-005",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "web-011",
               "code": "WEB-011",
-              "name": "Desarrollo de galería o portafolio",
+              "name": "Galería o portafolio",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
               "mandatory": false,
               "phase": "Interfaz",
               "unitLabel": "Sección",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Alta",
-              "baseHours": 2.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.8,
-              "deliverable": "Galería funcional",
-              "scope": "Listado visual, modal o enlace a proyectos",
-              "exclusions": "Carga masiva de contenido",
+              "baseHours": 1.5,
+              "scope": "Incluye: grilla/slider, visualización de proyectos o trabajos, modal o navegación simple según alcance.",
+              "exclusions": "No incluye carga masiva, edición de imágenes ni CMS complejo.",
+              "dependencies": [
+                "WEB-005"
+              ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2,
-                "medium": 2.9,
-                "high": 3.6
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Interfaz",
+                "Condición: Opcional",
                 "Unidad: Sección",
-                "Complejidad: Alta",
-                "Entregable: Galería funcional",
-                "Alcance: Listado visual, modal o enlace a proyectos",
-                "Exclusiones: Carga masiva de contenido",
+                "Incluye: grilla/slider, visualización de proyectos o trabajos, modal o navegación simple según alcance.",
+                "Exclusiones: No incluye carga masiva, edición de imágenes ni CMS complejo.",
+                "Dependencias: WEB-005",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "web-012",
               "code": "WEB-012",
-              "name": "Desarrollo de testimonios o casos de éxito",
+              "name": "Testimonios o casos de éxito",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
               "mandatory": false,
               "phase": "Interfaz",
               "unitLabel": "Sección",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Media",
-              "baseHours": 1.25,
-              "reuseType": "Alta",
-              "reuseFactor": 0.6,
-              "deliverable": "Sección de testimonios",
-              "scope": "Tarjetas, datos, jerarquía visual y comportamiento del componente.",
-              "exclusions": "La adaptación responsive transversal se contabiliza en WEB-022.",
+              "baseHours": 1.5,
+              "scope": "Incluye: tarjetas, autor, cargo/empresa cuando aplique y adaptación responsive.",
+              "exclusions": "No incluye producción de testimonios ni validación legal de contenido.",
+              "dependencies": [
+                "WEB-005"
+              ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.75,
-                "medium": 0.9750000000000001,
-                "high": 1.1625
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Interfaz",
+                "Condición: Opcional",
                 "Unidad: Sección",
-                "Complejidad: Media",
-                "Entregable: Sección de testimonios",
-                "Alcance: Tarjetas, datos, jerarquía visual y comportamiento del componente.",
-                "Exclusiones: La adaptación responsive transversal se contabiliza en WEB-022.",
+                "Incluye: tarjetas, autor, cargo/empresa cuando aplique y adaptación responsive.",
+                "Exclusiones: No incluye producción de testimonios ni validación legal de contenido.",
+                "Dependencias: WEB-005",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "web-013",
               "code": "WEB-013",
-              "name": "Desarrollo de preguntas frecuentes",
+              "name": "Preguntas frecuentes",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
               "mandatory": false,
               "phase": "Interfaz",
               "unitLabel": "Sección",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Baja",
-              "baseHours": 1.25,
-              "reuseType": "Alta",
-              "reuseFactor": 0.6,
-              "deliverable": "FAQ interactiva",
-              "scope": "Acordeones y contenido entregado por cliente",
+              "baseHours": 1,
+              "scope": "Incluye: acordeón o listado estructurado, estados y contenido entregado por cliente.",
+              "exclusions": "No incluye redacción especializada ni base de conocimiento dinámica.",
+              "dependencies": [
+                "WEB-005"
+              ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.75,
-                "medium": 0.8624999999999999,
-                "high": 0.9750000000000001
+                "fixed": 1
               },
               "notes": [
                 "Fase: Interfaz",
+                "Condición: Opcional",
                 "Unidad: Sección",
-                "Complejidad: Baja",
-                "Entregable: FAQ interactiva",
-                "Alcance: Acordeones y contenido entregado por cliente",
+                "Incluye: acordeón o listado estructurado, estados y contenido entregado por cliente.",
+                "Exclusiones: No incluye redacción especializada ni base de conocimiento dinámica.",
+                "Dependencias: WEB-005",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "web-014",
               "code": "WEB-014",
-              "name": "Desarrollo de formulario de contacto",
+              "name": "Formulario de contacto con envío por correo",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
               "mandatory": false,
-              "phase": "Interfaz",
+              "phase": "Conversión",
               "unitLabel": "Formulario",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Alta",
-              "baseHours": 2.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.75,
-              "deliverable": "Formulario validado",
-              "scope": "Campos, validaciones, estados y confirmación",
-              "exclusions": "Integraciones CRM avanzadas",
+              "baseHours": 1,
+              "scope": "Incluye: campos, validaciones, estados, consentimiento básico, endpoint o servicio de envío, plantilla simple de correo y prueba de entrega.",
+              "exclusions": "No incluye CRM, automatizaciones complejas, adjuntos pesados ni flujos de aprobación.",
+              "dependencies": [
+                "WEB-005"
+              ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.875,
-                "medium": 2.71875,
-                "high": 3.375
+                "fixed": 1
               },
               "notes": [
-                "Fase: Interfaz",
+                "Fase: Conversión",
+                "Condición: Opcional",
                 "Unidad: Formulario",
-                "Complejidad: Alta",
-                "Entregable: Formulario validado",
-                "Alcance: Campos, validaciones, estados y confirmación",
-                "Exclusiones: Integraciones CRM avanzadas",
+                "Incluye: campos, validaciones, estados, consentimiento básico, endpoint o servicio de envío, plantilla simple de correo y prueba de entrega.",
+                "Exclusiones: No incluye CRM, automatizaciones complejas, adjuntos pesados ni flujos de aprobación.",
+                "Dependencias: WEB-005",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "web-015",
               "code": "WEB-015",
-              "name": "Desarrollo de footer",
+              "name": "Footer y cierre de navegación",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": true,
               "phase": "Interfaz",
               "unitLabel": "Componente",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Baja",
-              "baseHours": 0.75,
-              "reuseType": "Alta",
-              "reuseFactor": 0.55,
-              "deliverable": "Footer funcional",
-              "scope": "Datos de contacto, enlaces, redes y estructura del pie de página.",
-              "exclusions": "La adaptación responsive transversal se contabiliza en WEB-022.",
+              "baseHours": 1,
+              "scope": "Incluye: datos de contacto, enlaces legales/útiles, redes cuando existan y estructura responsive.",
+              "exclusions": "No incluye contenido legal redactado por ISM.",
+              "dependencies": [
+                "WEB-005"
+              ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.41250000000000003,
-                "medium": 0.474375,
-                "high": 0.5362500000000001
+                "fixed": 1
               },
               "notes": [
                 "Fase: Interfaz",
+                "Condición: Base obligatorio",
                 "Unidad: Componente",
-                "Complejidad: Baja",
-                "Entregable: Footer funcional",
-                "Alcance: Datos de contacto, enlaces, redes y estructura del pie de página.",
-                "Exclusiones: La adaptación responsive transversal se contabiliza en WEB-022.",
+                "Incluye: datos de contacto, enlaces legales/útiles, redes cuando existan y estructura responsive.",
+                "Exclusiones: No incluye contenido legal redactado por ISM.",
+                "Dependencias: WEB-005",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "web-016",
               "code": "WEB-016",
-              "name": "Desarrollo de página interna estándar",
+              "name": "Página interna estándar",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
               "mandatory": false,
-              "phase": "Página interna",
+              "phase": "Interfaz",
               "unitLabel": "Página",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Media",
-              "baseHours": 2.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.75,
-              "deliverable": "Página interna",
-              "scope": "Plantilla, contenido, responsive y navegación",
+              "baseHours": 1.5,
+              "scope": "Incluye: estructura reutilizando navbar/footer, hero interno y bloques estándar de contenido.",
+              "exclusions": "No incluye lógica transaccional ni diseño completamente único por página.",
+              "dependencies": [
+                "WEB-005",
+                "WEB-007"
+              ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.875,
-                "medium": 2.4375,
-                "high": 2.90625
+                "fixed": 1.5
               },
               "notes": [
-                "Fase: Página interna",
+                "Fase: Interfaz",
+                "Condición: Opcional",
                 "Unidad: Página",
-                "Complejidad: Media",
-                "Entregable: Página interna",
-                "Alcance: Plantilla, contenido, responsive y navegación",
+                "Incluye: estructura reutilizando navbar/footer, hero interno y bloques estándar de contenido.",
+                "Exclusiones: No incluye lógica transaccional ni diseño completamente único por página.",
+                "Dependencias: WEB-005, WEB-007",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -600,30 +407,23 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Integración de WhatsApp",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
               "mandatory": false,
-              "phase": "Integración",
+              "phase": "Integración ligera",
               "unitLabel": "Integración",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Baja",
               "baseHours": 0.5,
-              "reuseType": "Alta",
-              "reuseFactor": 0.5,
-              "deliverable": "Enlace WhatsApp",
-              "scope": "Botón, mensaje inicial y enlace validado",
+              "scope": "Incluye: enlace, mensaje inicial opcional, CTA y pruebas de funcionamiento.",
+              "exclusions": "No incluye chatbot, API oficial ni automatización de conversaciones.",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.25,
-                "medium": 0.2875,
-                "high": 0.325
+                "fixed": 0.5
               },
               "notes": [
-                "Fase: Integración",
+                "Fase: Integración ligera",
+                "Condición: Opcional",
                 "Unidad: Integración",
-                "Complejidad: Baja",
-                "Entregable: Enlace WhatsApp",
-                "Alcance: Botón, mensaje inicial y enlace validado",
+                "Incluye: enlace, mensaje inicial opcional, CTA y pruebas de funcionamiento.",
+                "Exclusiones: No incluye chatbot, API oficial ni automatización de conversaciones.",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -633,618 +433,269 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Integración de redes sociales",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
               "mandatory": false,
-              "phase": "Integración",
+              "phase": "Integración ligera",
               "unitLabel": "Integración",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Baja",
               "baseHours": 0.5,
-              "reuseType": "Alta",
-              "reuseFactor": 0.5,
-              "deliverable": "Enlaces sociales",
-              "scope": "Enlaces y comportamiento externo",
+              "scope": "Incluye: enlaces/iconos a redes definidas y verificación básica.",
+              "exclusions": "No incluye gestión de redes, feeds dinámicos ni APIs sociales.",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.25,
-                "medium": 0.2875,
-                "high": 0.325
+                "fixed": 0.5
               },
               "notes": [
-                "Fase: Integración",
+                "Fase: Integración ligera",
+                "Condición: Opcional",
                 "Unidad: Integración",
-                "Complejidad: Baja",
-                "Entregable: Enlaces sociales",
-                "Alcance: Enlaces y comportamiento externo",
+                "Incluye: enlaces/iconos a redes definidas y verificación básica.",
+                "Exclusiones: No incluye gestión de redes, feeds dinámicos ni APIs sociales.",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "web-019",
               "code": "WEB-019",
-              "name": "Integración de Google Maps",
+              "name": "Integración de mapa o ubicación",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
               "mandatory": false,
-              "phase": "Integración",
+              "phase": "Integración ligera",
               "unitLabel": "Integración",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Baja",
               "baseHours": 0.5,
-              "reuseType": "Alta",
-              "reuseFactor": 0.55,
-              "deliverable": "Mapa integrado",
-              "scope": "Ubicación, marcador, enlace y accesibilidad básica del mapa.",
-              "exclusions": "La adaptación responsive transversal se contabiliza en WEB-022.",
+              "scope": "Incluye: mapa embebido o enlace de ubicación y prueba responsive.",
+              "exclusions": "No incluye cálculo de rutas, geocodificación ni mapas personalizados.",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.275,
-                "medium": 0.31625,
-                "high": 0.35750000000000004
+                "fixed": 0.5
               },
               "notes": [
-                "Fase: Integración",
+                "Fase: Integración ligera",
+                "Condición: Opcional",
                 "Unidad: Integración",
-                "Complejidad: Baja",
-                "Entregable: Mapa integrado",
-                "Alcance: Ubicación, marcador, enlace y accesibilidad básica del mapa.",
-                "Exclusiones: La adaptación responsive transversal se contabiliza en WEB-022.",
-                "Estado de HH: Preliminar"
-              ]
-            },
-            {
-              "id": "web-020",
-              "code": "WEB-020",
-              "name": "Configuración de envío de formulario por correo",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": false,
-              "phase": "Integración",
-              "unitLabel": "Integración",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Alta",
-              "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.8,
-              "deliverable": "Correo transaccional",
-              "scope": "Recepción, validación y prueba de entrega",
-              "exclusions": "Costos de proveedor externo",
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 1.6,
-                "medium": 2.32,
-                "high": 2.8800000000000003
-              },
-              "notes": [
-                "Fase: Integración",
-                "Unidad: Integración",
-                "Complejidad: Alta",
-                "Entregable: Correo transaccional",
-                "Alcance: Recepción, validación y prueba de entrega",
-                "Exclusiones: Costos de proveedor externo",
+                "Incluye: mapa embebido o enlace de ubicación y prueba responsive.",
+                "Exclusiones: No incluye cálculo de rutas, geocodificación ni mapas personalizados.",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "web-021",
               "code": "WEB-021",
-              "name": "Carga y formato de contenidos entregados",
+              "name": "Carga y formato inicial de contenidos",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": false,
               "phase": "Contenido",
-              "unitLabel": "Página",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Media",
-              "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.75,
-              "deliverable": "Contenido publicado",
-              "scope": "Carga inicial, jerarquía y formato",
-              "exclusions": "Redacción profesional y traducción",
+              "unitLabel": "Proyecto",
+              "baseHours": 1.2,
+              "scope": "Incluye: carga, jerarquía, formato y ajustes menores sobre textos e imágenes entregados por el cliente.",
+              "exclusions": "No incluye copywriting profesional, traducción ni producción masiva de contenido.",
+              "dependencies": [
+                "WEB-001"
+              ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.125,
-                "medium": 1.4625000000000001,
-                "high": 1.7437500000000001
+                "fixed": 1.2
               },
               "notes": [
                 "Fase: Contenido",
-                "Unidad: Página",
-                "Complejidad: Media",
-                "Entregable: Contenido publicado",
-                "Alcance: Carga inicial, jerarquía y formato",
-                "Exclusiones: Redacción profesional y traducción",
+                "Condición: Base incluido",
+                "Unidad: Proyecto",
+                "Incluye: carga, jerarquía, formato y ajustes menores sobre textos e imágenes entregados por el cliente.",
+                "Exclusiones: No incluye copywriting profesional, traducción ni producción masiva de contenido.",
+                "Dependencias: WEB-001",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "web-022",
               "code": "WEB-022",
-              "name": "Implementación responsive integral",
+              "name": "Validación responsive y compatibilidad final",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": true,
-              "phase": "Responsive",
+              "phase": "Calidad",
               "unitLabel": "Proyecto",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Alta",
-              "baseHours": 3,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.8,
-              "deliverable": "Sitio responsive",
-              "scope": "Única actividad de construcción responsive transversal para móvil, tablet y escritorio.",
-              "exclusions": "No incluye las pruebas de compatibilidad, que se contabilizan en WEB-031.",
+              "baseHours": 2,
+              "scope": "Incluye: revisión final en móvil, tablet y escritorio; navegación; desbordes; foco; estados básicos y navegadores definidos. El responsive se construye desde el inicio en cada componente.",
+              "exclusions": "No incluye reconstruir componentes fuera de alcance.",
               "dependencies": [
                 "WEB-007",
                 "WEB-008",
                 "WEB-009",
                 "WEB-010",
                 "WEB-014",
-                "WEB-015 y actividades visuales seleccionadas"
+                "WEB-015"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.4000000000000004,
-                "medium": 3.4800000000000004,
-                "high": 4.320000000000001
+                "fixed": 2
               },
               "notes": [
-                "Fase: Responsive",
+                "Fase: Calidad",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Sitio responsive",
-                "Alcance: Única actividad de construcción responsive transversal para móvil, tablet y escritorio.",
-                "Exclusiones: No incluye las pruebas de compatibilidad, que se contabilizan en WEB-031.",
-                "Dependencias: WEB-007, WEB-008, WEB-009, WEB-010, WEB-014, WEB-015 y actividades visuales seleccionadas",
-                "Estado de HH: Preliminar"
-              ],
-              "quantityRule": {
-                "unit": "custom",
-                "label": "Cantidad (Proyecto)",
-                "baseQuantity": 1,
-                "defaultQuantity": 1.5,
-                "minimum": 0,
-                "editable": true
-              }
-            },
-            {
-              "id": "web-023",
-              "code": "WEB-023",
-              "name": "SEO técnico inicial y metadatos",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": false,
-              "phase": "SEO",
-              "unitLabel": "Proyecto",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Media",
-              "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.75,
-              "deliverable": "Metadatos configurados",
-              "scope": "Titles, descriptions, canonical y etiquetas sociales",
-              "exclusions": "Estrategia SEO mensual",
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 1.125,
-                "medium": 1.4625000000000001,
-                "high": 1.7437500000000001
-              },
-              "notes": [
-                "Fase: SEO",
-                "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Metadatos configurados",
-                "Alcance: Titles, descriptions, canonical y etiquetas sociales",
-                "Exclusiones: Estrategia SEO mensual",
+                "Incluye: revisión final en móvil, tablet y escritorio; navegación; desbordes; foco; estados básicos y navegadores definidos. El responsive se construye desde el inicio en cada componente.",
+                "Exclusiones: No incluye reconstruir componentes fuera de alcance.",
+                "Dependencias: WEB-007, WEB-008, WEB-009, WEB-010, WEB-014, WEB-015",
                 "Estado de HH: Preliminar"
               ]
             },
             {
-              "id": "web-024",
-              "code": "WEB-024",
-              "name": "Sitemap, robots y estructura indexable",
+              "id": "web-023",
+              "code": "WEB-023",
+              "name": "SEO técnico inicial e indexabilidad",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": false,
               "phase": "SEO",
               "unitLabel": "Proyecto",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Baja",
-              "baseHours": 0.75,
-              "reuseType": "Alta",
-              "reuseFactor": 0.55,
-              "deliverable": "Archivos SEO",
-              "scope": "Sitemap, robots y revisión de indexabilidad",
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 0.41250000000000003,
-                "medium": 0.474375,
-                "high": 0.5362500000000001
-              },
-              "notes": [
-                "Fase: SEO",
-                "Unidad: Proyecto",
-                "Complejidad: Baja",
-                "Entregable: Archivos SEO",
-                "Alcance: Sitemap, robots y revisión de indexabilidad",
-                "Estado de HH: Preliminar"
+              "baseHours": 1.5,
+              "scope": "Incluye: titles, descriptions, canonical, OG/social, sitemap, robots, revisión de indexabilidad y datos estructurados básicos cuando apliquen.",
+              "exclusions": "No incluye estrategia SEO mensual, link building ni investigación avanzada de palabras clave.",
+              "dependencies": [
+                "WEB-001"
               ],
-              "quantityRule": {
-                "unit": "custom",
-                "label": "Cantidad (Proyecto)",
-                "baseQuantity": 1,
-                "defaultQuantity": 0.5,
-                "minimum": 0,
-                "editable": true
-              }
-            },
-            {
-              "id": "web-025",
-              "code": "WEB-025",
-              "name": "Datos estructurados básicos",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": false,
-              "mandatory": false,
-              "phase": "SEO",
-              "unitLabel": "Proyecto",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Media",
-              "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.75,
-              "deliverable": "Schema básico",
-              "scope": "Organization, LocalBusiness o Service según alcance",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.75,
-                "medium": 0.9750000000000001,
-                "high": 1.1625
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: SEO",
+                "Condición: Base incluido",
                 "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Schema básico",
-                "Alcance: Organization, LocalBusiness o Service según alcance",
+                "Incluye: titles, descriptions, canonical, OG/social, sitemap, robots, revisión de indexabilidad y datos estructurados básicos cuando apliquen.",
+                "Exclusiones: No incluye estrategia SEO mensual, link building ni investigación avanzada de palabras clave.",
+                "Dependencias: WEB-001",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "web-026",
               "code": "WEB-026",
-              "name": "Optimización de imágenes y recursos",
+              "name": "Optimización técnica y accesibilidad básica",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": false,
-              "phase": "Rendimiento",
+              "phase": "Optimización",
               "unitLabel": "Proyecto",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Media",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.7,
-              "deliverable": "Recursos optimizados",
-              "scope": "Compresión, formatos, lazy loading y revisión de peso",
+              "scope": "Incluye: compresión/formato de imágenes, lazy loading, revisión de peso, semántica, contraste, foco, labels y navegación básica por teclado.",
+              "exclusions": "No incluye auditoría WCAG formal ni optimización avanzada de Core Web Vitals.",
+              "dependencies": [
+                "WEB-007:WEB-021"
+              ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.0499999999999998,
-                "medium": 1.3649999999999998,
-                "high": 1.6274999999999997
+                "fixed": 1.5
               },
               "notes": [
-                "Fase: Rendimiento",
+                "Fase: Optimización",
+                "Condición: Base incluido",
                 "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Recursos optimizados",
-                "Alcance: Compresión, formatos, lazy loading y revisión de peso",
-                "Estado de HH: Preliminar"
-              ]
-            },
-            {
-              "id": "web-027",
-              "code": "WEB-027",
-              "name": "Revisión de accesibilidad básica",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": false,
-              "phase": "Accesibilidad",
-              "unitLabel": "Proyecto",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Media",
-              "baseHours": 1.25,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.75,
-              "deliverable": "Checklist de accesibilidad",
-              "scope": "Semántica, contraste, foco, etiquetas y navegación",
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 0.9375,
-                "medium": 1.21875,
-                "high": 1.453125
-              },
-              "notes": [
-                "Fase: Accesibilidad",
-                "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Checklist de accesibilidad",
-                "Alcance: Semántica, contraste, foco, etiquetas y navegación",
-                "Estado de HH: Preliminar"
-              ]
-            },
-            {
-              "id": "web-028",
-              "code": "WEB-028",
-              "name": "Configuración de dominio, HTTPS y SSL",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": false,
-              "phase": "Seguridad",
-              "unitLabel": "Entorno",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Media",
-              "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.75,
-              "deliverable": "Dominio operativo",
-              "scope": "DNS, certificado y redirecciones",
-              "exclusions": "Compra o renovación del dominio",
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 1.125,
-                "medium": 1.4625000000000001,
-                "high": 1.7437500000000001
-              },
-              "notes": [
-                "Fase: Seguridad",
-                "Unidad: Entorno",
-                "Complejidad: Media",
-                "Entregable: Dominio operativo",
-                "Alcance: DNS, certificado y redirecciones",
-                "Exclusiones: Compra o renovación del dominio",
+                "Incluye: compresión/formato de imágenes, lazy loading, revisión de peso, semántica, contraste, foco, labels y navegación básica por teclado.",
+                "Exclusiones: No incluye auditoría WCAG formal ni optimización avanzada de Core Web Vitals.",
+                "Dependencias: WEB-007:WEB-021",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "web-029",
               "code": "WEB-029",
-              "name": "Configuración de analítica básica",
+              "name": "Analítica básica",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
               "mandatory": false,
               "phase": "Analítica",
-              "unitLabel": "Integración",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Media",
-              "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.75,
-              "deliverable": "Analítica instalada",
-              "scope": "Herramienta acordada y eventos básicos",
-              "exclusions": "Dashboard avanzado",
+              "unitLabel": "Proyecto",
+              "baseHours": 0.6,
+              "scope": "Incluye: configuración de herramienta analítica acordada, evento/pageview básico y validación.",
+              "exclusions": "No incluye dashboards BI ni estrategia de medición avanzada.",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.75,
-                "medium": 0.9750000000000001,
-                "high": 1.1625
+                "fixed": 0.6
               },
               "notes": [
                 "Fase: Analítica",
-                "Unidad: Integración",
-                "Complejidad: Media",
-                "Entregable: Analítica instalada",
-                "Alcance: Herramienta acordada y eventos básicos",
-                "Exclusiones: Dashboard avanzado",
+                "Condición: Opcional",
+                "Unidad: Proyecto",
+                "Incluye: configuración de herramienta analítica acordada, evento/pageview básico y validación.",
+                "Exclusiones: No incluye dashboards BI ni estrategia de medición avanzada.",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "web-030",
               "code": "WEB-030",
-              "name": "Pruebas funcionales y de navegación",
+              "name": "QA funcional y ciclo consolidado de correcciones",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Proyecto",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Media",
               "baseHours": 1.5,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Registro de pruebas",
-              "scope": "Enlaces, formularios, llamadas a la acción, estados y recorridos funcionales.",
-              "exclusions": "La compatibilidad visual entre dispositivos y navegadores se valida en WEB-031.",
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 1.5,
-                "medium": 1.9500000000000002,
-                "high": 2.325
-              },
-              "notes": [
-                "Fase: Calidad",
-                "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Registro de pruebas",
-                "Alcance: Enlaces, formularios, llamadas a la acción, estados y recorridos funcionales.",
-                "Exclusiones: La compatibilidad visual entre dispositivos y navegadores se valida en WEB-031.",
-                "Estado de HH: Preliminar"
-              ]
-            },
-            {
-              "id": "web-031",
-              "code": "WEB-031",
-              "name": "Validación responsive y compatibilidad entre navegadores",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": true,
-              "phase": "Calidad",
-              "unitLabel": "Proyecto",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Media",
-              "baseHours": 1.25,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Checklist multidispositivo",
-              "scope": "QA visual y funcional en móvil, tablet, escritorio y navegadores definidos. No agrega desarrollo responsive.",
-              "exclusions": "Las correcciones detectadas se ejecutan dentro del ciclo WEB-032.",
+              "scope": "Incluye: pruebas de navegación y formularios/acciones presentes, revisión de enlaces, un ciclo consolidado de observaciones y correcciones dentro del alcance.",
+              "exclusions": "No incluye cambios de alcance, nuevas secciones ni rediseño posterior a aprobación.",
               "dependencies": [
                 "WEB-022"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.25,
-                "medium": 1.625,
-                "high": 1.9375
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Calidad",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Checklist multidispositivo",
-                "Alcance: QA visual y funcional en móvil, tablet, escritorio y navegadores definidos. No agrega desarrollo responsive.",
-                "Exclusiones: Las correcciones detectadas se ejecutan dentro del ciclo WEB-032.",
+                "Incluye: pruebas de navegación y formularios/acciones presentes, revisión de enlaces, un ciclo consolidado de observaciones y correcciones dentro del alcance.",
+                "Exclusiones: No incluye cambios de alcance, nuevas secciones ni rediseño posterior a aprobación.",
                 "Dependencias: WEB-022",
-                "Estado de HH: Preliminar"
-              ]
-            },
-            {
-              "id": "web-032",
-              "code": "WEB-032",
-              "name": "Ciclo de correcciones posterior a revisión",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": false,
-              "phase": "Cierre",
-              "unitLabel": "Ciclo",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Media",
-              "baseHours": 2,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Ajustes cerrados",
-              "scope": "Un ciclo consolidado de observaciones",
-              "exclusions": "Cambios de alcance",
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 2,
-                "medium": 2.6,
-                "high": 3.1
-              },
-              "notes": [
-                "Fase: Cierre",
-                "Unidad: Ciclo",
-                "Complejidad: Media",
-                "Entregable: Ajustes cerrados",
-                "Alcance: Un ciclo consolidado de observaciones",
-                "Exclusiones: Cambios de alcance",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "web-033",
               "code": "WEB-033",
-              "name": "Despliegue en producción",
+              "name": "Publicación, dominio, SSL y entrega",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": true,
               "phase": "Publicación",
-              "unitLabel": "Entorno",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Media",
-              "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.75,
-              "deliverable": "Versión publicada",
-              "scope": "Build, variables, despliegue y validación",
+              "unitLabel": "Proyecto",
+              "baseHours": 1.5,
+              "scope": "Incluye: configuración de dominio/DNS disponible, HTTPS/SSL, variables de entorno, despliegue, validación final, accesos y recomendaciones de cierre.",
+              "exclusions": "No incluye compra de dominio, costos de hosting/proveedores ni migraciones complejas de DNS/correo.",
+              "dependencies": [
+                "WEB-030"
+              ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.75,
-                "medium": 0.9750000000000001,
-                "high": 1.1625
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Publicación",
-                "Unidad: Entorno",
-                "Complejidad: Media",
-                "Entregable: Versión publicada",
-                "Alcance: Build, variables, despliegue y validación",
-                "Estado de HH: Preliminar"
-              ]
-            },
-            {
-              "id": "web-034",
-              "code": "WEB-034",
-              "name": "Documentación, accesos y cierre",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": true,
-              "phase": "Entrega",
-              "unitLabel": "Proyecto",
-              "maturity": "01 · Primeros pasos digitales",
-              "complexity": "Baja",
-              "baseHours": 0.75,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Acta de entrega",
-              "scope": "Accesos, respaldo y recomendaciones",
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 0.75,
-                "medium": 0.8624999999999999,
-                "high": 0.9750000000000001
-              },
-              "notes": [
-                "Fase: Entrega",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Baja",
-                "Entregable: Acta de entrega",
-                "Alcance: Accesos, respaldo y recomendaciones",
+                "Incluye: configuración de dominio/DNS disponible, HTTPS/SSL, variables de entorno, despliegue, validación final, accesos y recomendaciones de cierre.",
+                "Exclusiones: No incluye compra de dominio, costos de hosting/proveedores ni migraciones complejas de DNS/correo.",
+                "Dependencias: WEB-030",
                 "Estado de HH: Preliminar"
               ]
             }
           ],
           "totals": {
-            "activityLines": 34,
-            "activities": 34,
+            "activityLines": 22,
+            "activities": 22,
             "hours": {
-              "small": 30.231250000000003,
-              "medium": 40.074062500000004,
-              "high": 48.1475
+              "fixed": 18.7
             }
           }
         },
@@ -1256,123 +707,63 @@ export const ismServicesCatalog: PlatformCatalog = {
           "groupLabel": "Desarrollo e Implementación",
           "sourceSheet": "Catalogo Maestro",
           "unit": "service",
-          "sizeMode": "by-size",
-          "maturity": "02 · Optimización digital",
+          "sizeMode": "not-applicable",
           "activities": [
             {
               "id": "app-001",
               "code": "APP-001",
-              "name": "Levantamiento de procesos, usuarios y objetivos",
+              "name": "Levantamiento funcional, alcance y flujos principales",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": true,
-              "phase": "Descubrimiento",
+              "phase": "Planificación",
               "unitLabel": "Proyecto",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 3,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Documento de alcance",
-              "scope": "Procesos actuales, actores, problemas y objetivos",
+              "baseHours": 1.5,
+              "scope": "Incluye: procesos actuales; actores; objetivos; historias/casos principales; criterios de aceptación; mapa de navegación; flujos y estados principales.",
+              "exclusions": "No incluye documentación regulatoria extensa, BPMN formal completo ni consultoría de procesos independiente.",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 3,
-                "medium": 4.35,
-                "high": 5.4
+                "fixed": 1.5
               },
               "notes": [
-                "Fase: Descubrimiento",
+                "Fase: Planificación",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Documento de alcance",
-                "Alcance: Procesos actuales, actores, problemas y objetivos",
-                "Estado de HH: Preliminar"
-              ]
-            },
-            {
-              "id": "app-002",
-              "code": "APP-002",
-              "name": "Definición de alcance funcional y criterios de aceptación",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": true,
-              "phase": "Descubrimiento",
-              "unitLabel": "Proyecto",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 3,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Backlog inicial",
-              "scope": "Historias, reglas y criterios de aceptación",
-              "dependencies": [
-                "APP-001"
-              ],
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 3,
-                "medium": 4.35,
-                "high": 5.4
-              },
-              "notes": [
-                "Fase: Descubrimiento",
-                "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Backlog inicial",
-                "Alcance: Historias, reglas y criterios de aceptación",
-                "Dependencias: APP-001",
+                "Incluye: procesos actuales; actores; objetivos; historias/casos principales; criterios de aceptación; mapa de navegación; flujos y estados principales.",
+                "Exclusiones: No incluye documentación regulatoria extensa, BPMN formal completo ni consultoría de procesos independiente.",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "app-003",
               "code": "APP-003",
-              "name": "Modelamiento de entidades y relaciones",
+              "name": "Modelo de datos y persistencia base",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": true,
               "phase": "Arquitectura",
               "unitLabel": "Proyecto",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 3.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Modelo de datos",
-              "scope": "Entidades, relaciones y restricciones",
+              "baseHours": 2.5,
+              "scope": "Incluye: entidades, relaciones, restricciones, esquema inicial, migraciones base y criterios de integridad.",
+              "exclusions": "No incluye migración masiva de datos ni modelamiento analítico avanzado.",
               "dependencies": [
-                "APP-002"
+                "APP-001"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.975,
-                "medium": 4.31375,
-                "high": 5.355
+                "fixed": 2.5
               },
               "notes": [
                 "Fase: Arquitectura",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Modelo de datos",
-                "Alcance: Entidades, relaciones y restricciones",
-                "Dependencias: APP-002",
+                "Incluye: entidades, relaciones, restricciones, esquema inicial, migraciones base y criterios de integridad.",
+                "Exclusiones: No incluye migración masiva de datos ni modelamiento analítico avanzado.",
+                "Dependencias: APP-001",
                 "Estado de HH: Preliminar"
-              ],
-              "quantityRule": {
-                "unit": "custom",
-                "label": "Cantidad (Proyecto)",
-                "baseQuantity": 1,
-                "defaultQuantity": 1.5,
-                "minimum": 0,
-                "editable": true
-              }
+              ]
             },
             {
               "id": "app-004",
@@ -1381,40 +772,33 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
-              "mandatory": true,
-              "phase": "Arquitectura",
+              "mandatory": false,
+              "phase": "Seguridad",
               "unitLabel": "Rol",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 1.25,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.8,
-              "deliverable": "Matriz de permisos",
-              "scope": "Acciones y visibilidad por rol",
+              "baseHours": 1,
+              "scope": "Incluye por rol: acciones permitidas, visibilidad, restricciones y criterios de protección.",
+              "exclusions": "No incluye implementación técnica; se realiza en APP-015.",
               "dependencies": [
-                "APP-002"
+                "APP-001"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1,
-                "medium": 1.45,
-                "high": 1.8
+                "fixed": 1
               },
               "notes": [
-                "Fase: Arquitectura",
+                "Fase: Seguridad",
+                "Condición: Base incluido",
                 "Unidad: Rol",
-                "Complejidad: Alta",
-                "Entregable: Matriz de permisos",
-                "Alcance: Acciones y visibilidad por rol",
-                "Dependencias: APP-002",
+                "Incluye: Incluye por rol: acciones permitidas, visibilidad, restricciones y criterios de protección.",
+                "Exclusiones: No incluye implementación técnica; se realiza en APP-015.",
+                "Dependencias: APP-001",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
                 "unit": "custom",
                 "label": "Cantidad (Rol)",
                 "baseQuantity": 1,
-                "defaultQuantity": 1.5,
+                "defaultQuantity": 2,
                 "minimum": 0,
                 "editable": true
               }
@@ -1422,94 +806,32 @@ export const ismServicesCatalog: PlatformCatalog = {
             {
               "id": "app-005",
               "code": "APP-005",
-              "name": "Arquitectura técnica y ambientes",
+              "name": "Arquitectura técnica, proyecto y ambientes",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": true,
               "phase": "Arquitectura",
               "unitLabel": "Proyecto",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 2.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Diagrama técnico",
-              "scope": "Frontend, backend, datos, servicios y despliegue",
+              "baseHours": 2,
+              "scope": "Incluye: frontend/backend/datos según alcance, repositorio, estructura del proyecto, variables y ambientes de trabajo.",
+              "exclusions": "No incluye infraestructura empresarial compleja ni alta disponibilidad.",
               "dependencies": [
-                "APP-002"
+                "APP-001"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.125,
-                "medium": 3.08125,
-                "high": 3.825
+                "fixed": 2
               },
               "notes": [
                 "Fase: Arquitectura",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Diagrama técnico",
-                "Alcance: Frontend, backend, datos, servicios y despliegue",
-                "Dependencias: APP-002",
+                "Incluye: frontend/backend/datos según alcance, repositorio, estructura del proyecto, variables y ambientes de trabajo.",
+                "Exclusiones: No incluye infraestructura empresarial compleja ni alta disponibilidad.",
+                "Dependencias: APP-001",
                 "Estado de HH: Preliminar"
-              ],
-              "quantityRule": {
-                "unit": "custom",
-                "label": "Cantidad (Proyecto)",
-                "baseQuantity": 1,
-                "defaultQuantity": 1.5,
-                "minimum": 0,
-                "editable": true
-              }
-            },
-            {
-              "id": "app-006",
-              "code": "APP-006",
-              "name": "Diseño del mapa de navegación y flujos principales",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": true,
-              "phase": "UX/UI",
-              "unitLabel": "Proyecto",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 2.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.8,
-              "deliverable": "Mapa de flujos",
-              "scope": "Definición UX de rutas, estados y recorridos antes de construir la interfaz.",
-              "exclusions": "La implementación visual se contabiliza en APP-009 y las pantallas en APP-010.",
-              "dependencies": [
-                "APP-002"
-              ],
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 2,
-                "medium": 2.9,
-                "high": 3.6
-              },
-              "notes": [
-                "Fase: UX/UI",
-                "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Mapa de flujos",
-                "Alcance: Definición UX de rutas, estados y recorridos antes de construir la interfaz.",
-                "Exclusiones: La implementación visual se contabiliza en APP-009 y las pantallas en APP-010.",
-                "Dependencias: APP-002",
-                "Estado de HH: Preliminar"
-              ],
-              "quantityRule": {
-                "unit": "custom",
-                "label": "Cantidad (Proyecto)",
-                "baseQuantity": 1,
-                "defaultQuantity": 1.5,
-                "minimum": 0,
-                "editable": true
-              }
+              ]
             },
             {
               "id": "app-007",
@@ -1521,30 +843,23 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "UX/UI",
               "unitLabel": "Pantalla",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.75,
-              "deliverable": "Wireframes",
-              "scope": "Estructura de pantallas y acciones",
+              "scope": "Incluye por pantalla: estructura, campos, acciones, estados y jerarquía necesaria para construir.",
+              "exclusions": "No incluye prototipo de alta fidelidad por cada pantalla.",
               "dependencies": [
-                "APP-006"
+                "APP-001"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.75,
-                "medium": 0.9750000000000001,
-                "high": 1.1625
+                "fixed": 1
               },
               "notes": [
                 "Fase: UX/UI",
+                "Condición: Base incluido",
                 "Unidad: Pantalla",
-                "Complejidad: Media",
-                "Entregable: Wireframes",
-                "Alcance: Estructura de pantallas y acciones",
-                "Dependencias: APP-006",
+                "Incluye: Incluye por pantalla: estructura, campos, acciones, estados y jerarquía necesaria para construir.",
+                "Exclusiones: No incluye prototipo de alta fidelidad por cada pantalla.",
+                "Dependencias: APP-001",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -1557,133 +872,64 @@ export const ismServicesCatalog: PlatformCatalog = {
               }
             },
             {
-              "id": "app-008",
-              "code": "APP-008",
-              "name": "Configuración del proyecto, repositorio y entornos",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": true,
-              "phase": "Preparación",
-              "unitLabel": "Proyecto",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
-              "baseHours": 2,
-              "reuseType": "Alta",
-              "reuseFactor": 0.6,
-              "deliverable": "Base técnica",
-              "scope": "Repositorios, variables, estructura y ambientes",
-              "dependencies": [
-                "APP-005"
-              ],
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 1.2,
-                "medium": 1.56,
-                "high": 1.8599999999999999
-              },
-              "notes": [
-                "Fase: Preparación",
-                "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Base técnica",
-                "Alcance: Repositorios, variables, estructura y ambientes",
-                "Dependencias: APP-005",
-                "Estado de HH: Preliminar"
-              ],
-              "quantityRule": {
-                "unit": "custom",
-                "label": "Cantidad (Proyecto)",
-                "baseQuantity": 1,
-                "defaultQuantity": 1.5,
-                "minimum": 0,
-                "editable": true
-              }
-            },
-            {
               "id": "app-009",
               "code": "APP-009",
-              "name": "Implementación de layout, navegación y sistema visual",
+              "name": "Shell de aplicación y sistema visual",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": true,
               "phase": "Frontend",
               "unitLabel": "Proyecto",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 4,
-              "reuseType": "Alta",
-              "reuseFactor": 0.65,
-              "deliverable": "Shell de aplicación",
-              "scope": "Construcción del shell de la aplicación, menú, cabeceras, estilos y componentes compartidos.",
-              "exclusions": "No incluye el diseño de flujos de APP-006 ni las pantallas CRUD de APP-010.",
+              "baseHours": 2.5,
+              "scope": "Incluye: layout, menú, encabezados, navegación, estilos, componentes base y comportamiento responsive del shell.",
+              "exclusions": "No incluye las pantallas CRUD específicas de APP-010.",
               "dependencies": [
-                "APP-006"
+                "APP-005",
+                "APP-007"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.6,
-                "medium": 3.77,
-                "high": 4.680000000000001
+                "fixed": 2.5
               },
               "notes": [
                 "Fase: Frontend",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Shell de aplicación",
-                "Alcance: Construcción del shell de la aplicación, menú, cabeceras, estilos y componentes compartidos.",
-                "Exclusiones: No incluye el diseño de flujos de APP-006 ni las pantallas CRUD de APP-010.",
-                "Dependencias: APP-006",
+                "Incluye: layout, menú, encabezados, navegación, estilos, componentes base y comportamiento responsive del shell.",
+                "Exclusiones: No incluye las pantallas CRUD específicas de APP-010.",
+                "Dependencias: APP-005, APP-007",
                 "Estado de HH: Preliminar"
-              ],
-              "quantityRule": {
-                "unit": "custom",
-                "label": "Cantidad (Proyecto)",
-                "baseQuantity": 1,
-                "defaultQuantity": 1.5,
-                "minimum": 0,
-                "editable": true
-              }
+              ]
             },
             {
               "id": "app-010",
               "code": "APP-010",
-              "name": "Implementación de interfaz CRUD estándar",
+              "name": "Interfaz CRUD estándar",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": false,
               "phase": "Frontend",
               "unitLabel": "Pantalla",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 4,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.8,
-              "deliverable": "Pantallas CRUD",
-              "scope": "Pantalla con listado, formulario, validaciones, estados y acciones de usuario.",
-              "exclusions": "La lógica y persistencia backend se contabilizan en APP-013.",
+              "baseHours": 2.5,
+              "scope": "Incluye por pantalla: listado, formulario, validaciones cliente, estados, mensajes y acciones de usuario.",
+              "exclusions": "No incluye backend/persistencia; se contabiliza en APP-013.",
               "dependencies": [
-                "APP-003"
+                "APP-003",
+                "APP-007"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 3.2,
-                "medium": 4.64,
-                "high": 5.760000000000001
+                "fixed": 2.5
               },
               "notes": [
                 "Fase: Frontend",
+                "Condición: Base incluido",
                 "Unidad: Pantalla",
-                "Complejidad: Alta",
-                "Entregable: Pantallas CRUD",
-                "Alcance: Pantalla con listado, formulario, validaciones, estados y acciones de usuario.",
-                "Exclusiones: La lógica y persistencia backend se contabilizan en APP-013.",
-                "Dependencias: APP-003",
+                "Incluye: Incluye por pantalla: listado, formulario, validaciones cliente, estados, mensajes y acciones de usuario.",
+                "Exclusiones: No incluye backend/persistencia; se contabiliza en APP-013.",
+                "Dependencias: APP-003, APP-007",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -1705,131 +951,60 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Frontend",
               "unitLabel": "Dashboard",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Dashboard",
-              "scope": "KPIs, filtros y visualización",
-              "exclusions": "Analítica predictiva",
+              "baseHours": 3.5,
+              "scope": "Incluye: KPIs acordados, tarjetas, filtros simples y visualización estándar.",
+              "exclusions": "No incluye analítica predictiva ni BI avanzado.",
               "dependencies": [
                 "APP-003"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 4.25,
-                "medium": 6.1625,
-                "high": 7.65
+                "fixed": 3.5
               },
               "notes": [
                 "Fase: Frontend",
+                "Condición: Opcional",
                 "Unidad: Dashboard",
-                "Complejidad: Alta",
-                "Entregable: Dashboard",
-                "Alcance: KPIs, filtros y visualización",
-                "Exclusiones: Analítica predictiva",
+                "Incluye: KPIs acordados, tarjetas, filtros simples y visualización estándar.",
+                "Exclusiones: No incluye analítica predictiva ni BI avanzado.",
                 "Dependencias: APP-003",
                 "Estado de HH: Preliminar"
-              ],
-              "quantityRule": {
-                "unit": "custom",
-                "label": "Cantidad (Dashboard)",
-                "baseQuantity": 1,
-                "defaultQuantity": 1.5,
-                "minimum": 0,
-                "editable": true
-              }
-            },
-            {
-              "id": "app-012",
-              "code": "APP-012",
-              "name": "Configuración de base de datos y migraciones",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": true,
-              "phase": "Backend",
-              "unitLabel": "Proyecto",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 3.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.8,
-              "deliverable": "Esquema desplegado",
-              "scope": "Tablas, restricciones y migraciones",
-              "dependencies": [
-                "APP-003"
-              ],
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 2.8000000000000003,
-                "medium": 4.0600000000000005,
-                "high": 5.040000000000001
-              },
-              "notes": [
-                "Fase: Backend",
-                "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Esquema desplegado",
-                "Alcance: Tablas, restricciones y migraciones",
-                "Dependencias: APP-003",
-                "Estado de HH: Preliminar"
-              ],
-              "quantityRule": {
-                "unit": "custom",
-                "label": "Cantidad (Proyecto)",
-                "baseQuantity": 1,
-                "defaultQuantity": 3,
-                "minimum": 0,
-                "editable": true
-              }
+              ]
             },
             {
               "id": "app-013",
               "code": "APP-013",
-              "name": "Implementación de servicio CRUD backend",
+              "name": "Servicio CRUD backend estándar",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": false,
               "phase": "Backend",
               "unitLabel": "Entidad",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 3,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.8,
-              "deliverable": "Servicios de datos",
-              "scope": "Operaciones de creación, consulta, actualización y eliminación con validaciones de servidor.",
-              "exclusions": "La interfaz de usuario se contabiliza en APP-010.",
+              "baseHours": 2.3,
+              "scope": "Incluye por entidad: crear, consultar, actualizar, eliminar cuando corresponda, validaciones de servidor y persistencia.",
+              "exclusions": "No incluye reglas de negocio complejas; se contabilizan en APP-016.",
               "dependencies": [
-                "APP-012"
+                "APP-003"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.4000000000000004,
-                "medium": 3.4800000000000004,
-                "high": 4.320000000000001
+                "fixed": 2.3
               },
               "notes": [
                 "Fase: Backend",
+                "Condición: Base incluido",
                 "Unidad: Entidad",
-                "Complejidad: Alta",
-                "Entregable: Servicios de datos",
-                "Alcance: Operaciones de creación, consulta, actualización y eliminación con validaciones de servidor.",
-                "Exclusiones: La interfaz de usuario se contabiliza en APP-010.",
-                "Dependencias: APP-012",
+                "Incluye: Incluye por entidad: crear, consultar, actualizar, eliminar cuando corresponda, validaciones de servidor y persistencia.",
+                "Exclusiones: No incluye reglas de negocio complejas; se contabilizan en APP-016.",
+                "Dependencias: APP-003",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
                 "unit": "custom",
                 "label": "Cantidad (Entidad)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 3,
                 "minimum": 0,
                 "editable": true
               }
@@ -1844,67 +1019,54 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Seguridad",
               "unitLabel": "Sistema",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Flujo de acceso",
-              "scope": "Ingreso, cierre, recuperación y estados",
+              "baseHours": 2.5,
+              "scope": "Incluye: login, logout, recuperación/restablecimiento y estados básicos de sesión.",
+              "exclusions": "No incluye SSO empresarial, MFA avanzado ni proveedor de identidad externo complejo.",
               "dependencies": [
-                "APP-012"
+                "APP-003",
+                "APP-005"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 4.25,
-                "medium": 6.1625,
-                "high": 7.65
+                "fixed": 2.5
               },
               "notes": [
                 "Fase: Seguridad",
+                "Condición: Base obligatorio",
                 "Unidad: Sistema",
-                "Complejidad: Alta",
-                "Entregable: Flujo de acceso",
-                "Alcance: Ingreso, cierre, recuperación y estados",
-                "Dependencias: APP-012",
+                "Incluye: login, logout, recuperación/restablecimiento y estados básicos de sesión.",
+                "Exclusiones: No incluye SSO empresarial, MFA avanzado ni proveedor de identidad externo complejo.",
+                "Dependencias: APP-003, APP-005",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "app-015",
               "code": "APP-015",
-              "name": "Autorización por roles y protección de rutas",
+              "name": "Autorización y protección por rol",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
-              "mandatory": true,
+              "mandatory": false,
               "phase": "Seguridad",
               "unitLabel": "Rol",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Permisos aplicados",
-              "scope": "Rutas, consultas y acciones protegidas",
+              "baseHours": 1.5,
+              "scope": "Incluye por rol: protección de rutas, acciones y consultas según matriz aprobada.",
+              "exclusions": "No incluye políticas multi-organización complejas fuera del alcance.",
               "dependencies": [
                 "APP-004",
                 "APP-014"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.7,
-                "medium": 2.465,
-                "high": 3.06
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Seguridad",
+                "Condición: Base incluido",
                 "Unidad: Rol",
-                "Complejidad: Alta",
-                "Entregable: Permisos aplicados",
-                "Alcance: Rutas, consultas y acciones protegidas",
+                "Incluye: Incluye por rol: protección de rutas, acciones y consultas según matriz aprobada.",
+                "Exclusiones: No incluye políticas multi-organización complejas fuera del alcance.",
                 "Dependencias: APP-004, APP-014",
                 "Estado de HH: Preliminar"
               ],
@@ -1912,7 +1074,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Rol)",
                 "baseQuantity": 1,
-                "defaultQuantity": 1.5,
+                "defaultQuantity": 2,
                 "minimum": 0,
                 "editable": true
               }
@@ -1920,36 +1082,29 @@ export const ismServicesCatalog: PlatformCatalog = {
             {
               "id": "app-016",
               "code": "APP-016",
-              "name": "Implementación de flujo de negocio estándar",
+              "name": "Flujo de negocio estándar",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": false,
               "phase": "Funcionalidad",
               "unitLabel": "Flujo",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Flujo funcional",
-              "scope": "Reglas, transiciones y persistencia",
+              "baseHours": 3,
+              "scope": "Incluye por flujo: reglas, validaciones, cambios de estado, persistencia y manejo de errores del proceso definido.",
+              "exclusions": "No incluye integraciones externas complejas; usar INT-01 cuando corresponda.",
               "dependencies": [
                 "APP-013"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 4.25,
-                "medium": 6.1625,
-                "high": 7.65
+                "fixed": 3
               },
               "notes": [
                 "Fase: Funcionalidad",
+                "Condición: Base incluido",
                 "Unidad: Flujo",
-                "Complejidad: Alta",
-                "Entregable: Flujo funcional",
-                "Alcance: Reglas, transiciones y persistencia",
+                "Incluye: Incluye por flujo: reglas, validaciones, cambios de estado, persistencia y manejo de errores del proceso definido.",
+                "Exclusiones: No incluye integraciones externas complejas; usar INT-01 cuando corresponda.",
                 "Dependencias: APP-013",
                 "Estado de HH: Preliminar"
               ],
@@ -1965,38 +1120,29 @@ export const ismServicesCatalog: PlatformCatalog = {
             {
               "id": "app-017",
               "code": "APP-017",
-              "name": "Notificación por correo",
+              "name": "Notificación operativa por correo",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
               "mandatory": false,
-              "phase": "Integración",
-              "unitLabel": "Integración",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 3,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Notificación operativa",
-              "scope": "Plantilla, envío, manejo de error y prueba",
-              "exclusions": "Costo del proveedor",
+              "phase": "Notificaciones",
+              "unitLabel": "Canal",
+              "baseHours": 1,
+              "scope": "Incluye: plantilla simple, envío, variables, manejo básico de error y prueba.",
+              "exclusions": "No incluye campañas, marketing automation ni proveedor de pago.",
               "dependencies": [
                 "APP-013"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.55,
-                "medium": 3.6975,
-                "high": 4.59
+                "fixed": 1
               },
               "notes": [
-                "Fase: Integración",
-                "Unidad: Integración",
-                "Complejidad: Alta",
-                "Entregable: Notificación operativa",
-                "Alcance: Plantilla, envío, manejo de error y prueba",
-                "Exclusiones: Costo del proveedor",
+                "Fase: Notificaciones",
+                "Condición: Opcional",
+                "Unidad: Canal",
+                "Incluye: plantilla simple, envío, variables, manejo básico de error y prueba.",
+                "Exclusiones: No incluye campañas, marketing automation ni proveedor de pago.",
                 "Dependencias: APP-013",
                 "Estado de HH: Preliminar"
               ]
@@ -2004,196 +1150,30 @@ export const ismServicesCatalog: PlatformCatalog = {
             {
               "id": "app-018",
               "code": "APP-018",
-              "name": "Exportación Excel",
+              "name": "Exportación o reporte estándar",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
               "mandatory": false,
-              "phase": "Integración",
-              "unitLabel": "Reporte",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
-              "baseHours": 3,
-              "reuseType": "Alta",
-              "reuseFactor": 0.65,
-              "deliverable": "Archivo Excel",
-              "scope": "Columnas, filtros, formato y descarga",
-              "dependencies": [
-                "APP-013"
-              ],
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 1.9500000000000002,
-                "medium": 2.535,
-                "high": 3.0225000000000004
-              },
-              "notes": [
-                "Fase: Integración",
-                "Unidad: Reporte",
-                "Complejidad: Media",
-                "Entregable: Archivo Excel",
-                "Alcance: Columnas, filtros, formato y descarga",
-                "Dependencias: APP-013",
-                "Estado de HH: Preliminar"
-              ]
-            },
-            {
-              "id": "app-019",
-              "code": "APP-019",
-              "name": "Exportación PDF",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": false,
-              "mandatory": false,
-              "phase": "Integración",
-              "unitLabel": "Reporte",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 4,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.8,
-              "deliverable": "Archivo PDF",
-              "scope": "Diseño, paginación, tablas y descarga",
-              "dependencies": [
-                "APP-013"
-              ],
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 3.2,
-                "medium": 4.64,
-                "high": 5.760000000000001
-              },
-              "notes": [
-                "Fase: Integración",
-                "Unidad: Reporte",
-                "Complejidad: Alta",
-                "Entregable: Archivo PDF",
-                "Alcance: Diseño, paginación, tablas y descarga",
-                "Dependencias: APP-013",
-                "Estado de HH: Preliminar"
-              ]
-            },
-            {
-              "id": "app-020",
-              "code": "APP-020",
-              "name": "Pruebas unitarias de reglas críticas",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": false,
-              "phase": "Calidad",
-              "unitLabel": "Regla",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
+              "phase": "Reportes",
+              "unitLabel": "Formato",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Suite de pruebas",
-              "scope": "Casos normales, límites y errores",
+              "scope": "Incluye por formato: selección de datos, columnas/campos, formato y descarga en Excel o PDF estándar.",
+              "exclusions": "No incluye documentos de alta complejidad gráfica o maquetación editorial.",
               "dependencies": [
-                "APP-016"
+                "APP-013"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.275,
-                "medium": 1.84875,
-                "high": 2.295
+                "fixed": 1.5
               },
               "notes": [
-                "Fase: Calidad",
-                "Unidad: Regla",
-                "Complejidad: Alta",
-                "Entregable: Suite de pruebas",
-                "Alcance: Casos normales, límites y errores",
-                "Dependencias: APP-016",
-                "Estado de HH: Preliminar"
-              ],
-              "quantityRule": {
-                "unit": "custom",
-                "label": "Cantidad (Regla)",
-                "baseQuantity": 1,
-                "defaultQuantity": 3,
-                "minimum": 0,
-                "editable": true
-              }
-            },
-            {
-              "id": "app-021",
-              "code": "APP-021",
-              "name": "Pruebas de integración y permisos",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": true,
-              "phase": "Calidad",
-              "unitLabel": "Proyecto",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 4,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Informe de pruebas",
-              "scope": "Datos, roles, rutas y flujos",
-              "dependencies": [
-                "APP-015",
-                "APP-016"
-              ],
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 4,
-                "medium": 5.8,
-                "high": 7.2
-              },
-              "notes": [
-                "Fase: Calidad",
-                "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Informe de pruebas",
-                "Alcance: Datos, roles, rutas y flujos",
-                "Dependencias: APP-015, APP-016",
-                "Estado de HH: Preliminar"
-              ]
-            },
-            {
-              "id": "app-022",
-              "code": "APP-022",
-              "name": "Validación responsive y experiencia de usuario",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": false,
-              "phase": "Calidad",
-              "unitLabel": "Proyecto",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
-              "baseHours": 3,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Checklist UX",
-              "scope": "Pruebas de adaptación, navegación, mensajes, estados y usabilidad. No incluye construcción de interfaz.",
-              "exclusions": "Los ajustes derivados se contabilizan en APP-027 cuando exceden correcciones menores.",
-              "dependencies": [
-                "APP-009"
-              ],
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 3,
-                "medium": 3.9000000000000004,
-                "high": 4.65
-              },
-              "notes": [
-                "Fase: Calidad",
-                "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Checklist UX",
-                "Alcance: Pruebas de adaptación, navegación, mensajes, estados y usabilidad. No incluye construcción de interfaz.",
-                "Exclusiones: Los ajustes derivados se contabilizan en APP-027 cuando exceden correcciones menores.",
-                "Dependencias: APP-009",
+                "Fase: Reportes",
+                "Condición: Opcional",
+                "Unidad: Formato",
+                "Incluye: Incluye por formato: selección de datos, columnas/campos, formato y descarga en Excel o PDF estándar.",
+                "Exclusiones: No incluye documentos de alta complejidad gráfica o maquetación editorial.",
+                "Dependencias: APP-013",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -2207,42 +1187,58 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Datos",
               "unitLabel": "Lote",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 5,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Datos migrados",
-              "scope": "Mapeo, validación, carga y conciliación",
-              "exclusions": "Limpieza extensa de datos",
+              "baseHours": 2.5,
+              "scope": "Incluye: mapeo, validación, carga y conciliación de un lote acotado.",
+              "exclusions": "No incluye limpieza extensa, deduplicación compleja ni ETL de gran volumen.",
               "dependencies": [
-                "APP-012"
+                "APP-003"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 5,
-                "medium": 7.25,
-                "high": 9
+                "fixed": 2.5
               },
               "notes": [
                 "Fase: Datos",
+                "Condición: Opcional",
                 "Unidad: Lote",
-                "Complejidad: Alta",
-                "Entregable: Datos migrados",
-                "Alcance: Mapeo, validación, carga y conciliación",
-                "Exclusiones: Limpieza extensa de datos",
-                "Dependencias: APP-012",
+                "Incluye: mapeo, validación, carga y conciliación de un lote acotado.",
+                "Exclusiones: No incluye limpieza extensa, deduplicación compleja ni ETL de gran volumen.",
+                "Dependencias: APP-003",
                 "Estado de HH: Preliminar"
+              ]
+            },
+            {
+              "id": "app-020",
+              "code": "APP-020",
+              "name": "QA funcional, integración, permisos y UX",
+              "activityCount": 1,
+              "countMode": "line",
+              "defaultIncluded": true,
+              "mandatory": true,
+              "phase": "Calidad",
+              "unitLabel": "Proyecto",
+              "baseHours": 2.5,
+              "scope": "Incluye: reglas críticas, flujos, datos, permisos presentes, navegación, mensajes, experiencia responsive y casos de error principales.",
+              "exclusions": "No incluye pruebas de carga avanzadas ni pentesting formal.",
+              "dependencies": [
+                "APP-010",
+                "APP-013",
+                "APP-015",
+                "APP-016"
               ],
-              "quantityRule": {
-                "unit": "custom",
-                "label": "Cantidad (Lote)",
-                "baseQuantity": 1,
-                "defaultQuantity": 0.5,
-                "minimum": 0,
-                "editable": true
-              }
+              "validationStatus": "Preliminar",
+              "hours": {
+                "fixed": 2.5
+              },
+              "notes": [
+                "Fase: Calidad",
+                "Condición: Base obligatorio",
+                "Unidad: Proyecto",
+                "Incluye: reglas críticas, flujos, datos, permisos presentes, navegación, mensajes, experiencia responsive y casos de error principales.",
+                "Exclusiones: No incluye pruebas de carga avanzadas ni pentesting formal.",
+                "Dependencias: APP-010, APP-013, APP-015, APP-016",
+                "Estado de HH: Preliminar"
+              ]
             },
             {
               "id": "app-024",
@@ -2254,152 +1250,62 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Despliegue",
               "unitLabel": "Entorno",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 3,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.8,
-              "deliverable": "Producción operativa",
-              "scope": "Variables, build, base de datos y validación",
-              "exclusions": "Costos de infraestructura",
+              "baseHours": 1.5,
+              "scope": "Incluye: variables, build, base de datos, migraciones acordadas, despliegue y validación técnica de producción.",
+              "exclusions": "No incluye costos de infraestructura ni arquitectura HA.",
               "dependencies": [
-                "APP-021"
+                "APP-020"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.4000000000000004,
-                "medium": 3.4800000000000004,
-                "high": 4.320000000000001
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Despliegue",
+                "Condición: Base obligatorio",
                 "Unidad: Entorno",
-                "Complejidad: Alta",
-                "Entregable: Producción operativa",
-                "Alcance: Variables, build, base de datos y validación",
-                "Exclusiones: Costos de infraestructura",
-                "Dependencias: APP-021",
+                "Incluye: variables, build, base de datos, migraciones acordadas, despliegue y validación técnica de producción.",
+                "Exclusiones: No incluye costos de infraestructura ni arquitectura HA.",
+                "Dependencias: APP-020",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "app-025",
               "code": "APP-025",
-              "name": "Capacitación de usuario administrador",
+              "name": "Capacitación, documentación y ciclo UAT",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": false,
               "phase": "Cierre",
-              "unitLabel": "Sesión",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
-              "baseHours": 2,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Capacitación",
-              "scope": "Uso, administración y resolución básica",
+              "unitLabel": "Proyecto",
+              "baseHours": 1.5,
+              "scope": "Incluye: capacitación básica de administrador, guía funcional/técnica mínima, un ciclo UAT y correcciones dentro del alcance.",
+              "exclusions": "No incluye capacitación masiva, manual extenso o nuevos requerimientos.",
               "dependencies": [
                 "APP-024"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2,
-                "medium": 2.6,
-                "high": 3.1
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Cierre",
-                "Unidad: Sesión",
-                "Complejidad: Media",
-                "Entregable: Capacitación",
-                "Alcance: Uso, administración y resolución básica",
-                "Dependencias: APP-024",
-                "Estado de HH: Preliminar"
-              ]
-            },
-            {
-              "id": "app-026",
-              "code": "APP-026",
-              "name": "Documentación técnica y funcional",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": true,
-              "phase": "Cierre",
-              "unitLabel": "Proyecto",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
-              "baseHours": 3,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Documentación",
-              "scope": "Arquitectura, instalación y uso",
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 3,
-                "medium": 3.9000000000000004,
-                "high": 4.65
-              },
-              "notes": [
-                "Fase: Cierre",
+                "Condición: Base incluido",
                 "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Documentación",
-                "Alcance: Arquitectura, instalación y uso",
-                "Estado de HH: Preliminar"
-              ]
-            },
-            {
-              "id": "app-027",
-              "code": "APP-027",
-              "name": "Ciclo de ajustes posterior a UAT",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": false,
-              "phase": "Cierre",
-              "unitLabel": "Ciclo",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 4,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Ajustes UAT",
-              "scope": "Correcciones dentro del alcance aprobado",
-              "exclusions": "Nuevas funcionalidades",
-              "dependencies": [
-                "APP-021"
-              ],
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 4,
-                "medium": 5.8,
-                "high": 7.2
-              },
-              "notes": [
-                "Fase: Cierre",
-                "Unidad: Ciclo",
-                "Complejidad: Alta",
-                "Entregable: Ajustes UAT",
-                "Alcance: Correcciones dentro del alcance aprobado",
-                "Exclusiones: Nuevas funcionalidades",
-                "Dependencias: APP-021",
+                "Incluye: capacitación básica de administrador, guía funcional/técnica mínima, un ciclo UAT y correcciones dentro del alcance.",
+                "Exclusiones: No incluye capacitación masiva, manual extenso o nuevos requerimientos.",
+                "Dependencias: APP-024",
                 "Estado de HH: Preliminar"
               ]
             }
           ],
           "totals": {
-            "activityLines": 27,
-            "activities": 27,
+            "activityLines": 18,
+            "activities": 18,
             "hours": {
-              "small": 86.42500000000001,
-              "medium": 123.50875,
-              "high": 152.5525
+              "fixed": 44.9
             }
           }
         },
@@ -2411,320 +1317,154 @@ export const ismServicesCatalog: PlatformCatalog = {
           "groupLabel": "Desarrollo e Implementación",
           "sourceSheet": "Catalogo Maestro",
           "unit": "service",
-          "sizeMode": "by-size",
-          "maturity": "02 · Optimización digital",
+          "sizeMode": "not-applicable",
           "activities": [
             {
               "id": "int-001",
               "code": "INT-001",
-              "name": "Levantamiento del proceso y puntos de integración",
+              "name": "Levantamiento y diseño de integración",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": true,
-              "phase": "Diagnóstico",
-              "unitLabel": "Proceso",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 2.5,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Mapa del proceso",
-              "scope": "Origen, destino, frecuencia, responsables y errores",
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 2.5,
-                "medium": 3.625,
-                "high": 4.5
-              },
-              "notes": [
-                "Fase: Diagnóstico",
-                "Unidad: Proceso",
-                "Complejidad: Alta",
-                "Entregable: Mapa del proceso",
-                "Alcance: Origen, destino, frecuencia, responsables y errores",
-                "Estado de HH: Preliminar"
-              ]
-            },
-            {
-              "id": "int-002",
-              "code": "INT-002",
-              "name": "Revisión de APIs, archivos o mecanismos disponibles",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": true,
-              "phase": "Diagnóstico",
+              "phase": "Planificación",
               "unitLabel": "Integración",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 2,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Evaluación técnica",
-              "scope": "Credenciales, límites, formatos y documentación",
-              "exclusions": "Licencias o accesos no disponibles",
-              "dependencies": [
-                "INT-001"
-              ],
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 2,
-                "medium": 2.9,
-                "high": 3.6
-              },
-              "notes": [
-                "Fase: Diagnóstico",
-                "Unidad: Integración",
-                "Complejidad: Alta",
-                "Entregable: Evaluación técnica",
-                "Alcance: Credenciales, límites, formatos y documentación",
-                "Exclusiones: Licencias o accesos no disponibles",
-                "Dependencias: INT-001",
-                "Estado de HH: Preliminar"
-              ]
-            },
-            {
-              "id": "int-003",
-              "code": "INT-003",
-              "name": "Diseño del mapeo de datos y transformaciones",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": true,
-              "phase": "Diseño",
-              "unitLabel": "Integración",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 3,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Matriz de mapeo",
-              "scope": "Especificación de campos de origen y destino, equivalencias, formatos y reglas de conversión.",
-              "exclusions": "La implementación de estas reglas se contabiliza en INT-010.",
-              "dependencies": [
-                "INT-002"
-              ],
+              "scope": "Incluye: proceso actual; sistemas involucrados; revisión de API/archivos/webhooks disponibles; mapeo de datos; transformaciones; estrategia de errores y reintentos.",
+              "exclusions": "No incluye desarrollo del conector ni automatización.",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 3,
-                "medium": 4.35,
-                "high": 5.4
+                "fixed": 3
               },
               "notes": [
-                "Fase: Diseño",
+                "Fase: Planificación",
+                "Condición: Base obligatorio",
                 "Unidad: Integración",
-                "Complejidad: Alta",
-                "Entregable: Matriz de mapeo",
-                "Alcance: Especificación de campos de origen y destino, equivalencias, formatos y reglas de conversión.",
-                "Exclusiones: La implementación de estas reglas se contabiliza en INT-010.",
-                "Dependencias: INT-002",
-                "Estado de HH: Preliminar"
-              ]
-            },
-            {
-              "id": "int-004",
-              "code": "INT-004",
-              "name": "Diseño de manejo de errores y reintentos",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": true,
-              "phase": "Diseño",
-              "unitLabel": "Integración",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Diseño de resiliencia",
-              "scope": "Errores, reintentos, alertas y trazabilidad",
-              "dependencies": [
-                "INT-002"
-              ],
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 1.7,
-                "medium": 2.465,
-                "high": 3.06
-              },
-              "notes": [
-                "Fase: Diseño",
-                "Unidad: Integración",
-                "Complejidad: Alta",
-                "Entregable: Diseño de resiliencia",
-                "Alcance: Errores, reintentos, alertas y trazabilidad",
-                "Dependencias: INT-002",
+                "Incluye: proceso actual; sistemas involucrados; revisión de API/archivos/webhooks disponibles; mapeo de datos; transformaciones; estrategia de errores y reintentos.",
+                "Exclusiones: No incluye desarrollo del conector ni automatización.",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "int-005",
               "code": "INT-005",
-              "name": "Configuración de credenciales y secretos",
+              "name": "Credenciales, secretos y configuración segura",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": true,
-              "phase": "Desarrollo",
+              "phase": "Preparación",
               "unitLabel": "Entorno",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
-              "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.8,
-              "deliverable": "Secretos configurados",
-              "scope": "Gestión segura de credenciales",
+              "baseHours": 1,
+              "scope": "Incluye: variables, secretos, permisos mínimos y prueba de conectividad.",
+              "exclusions": "No incluye alta de cuentas o costos de proveedores.",
               "dependencies": [
-                "INT-002"
+                "INT-001"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.2000000000000002,
-                "medium": 1.5600000000000003,
-                "high": 1.8600000000000003
+                "fixed": 1
               },
               "notes": [
-                "Fase: Desarrollo",
+                "Fase: Preparación",
+                "Condición: Base obligatorio",
                 "Unidad: Entorno",
-                "Complejidad: Media",
-                "Entregable: Secretos configurados",
-                "Alcance: Gestión segura de credenciales",
-                "Dependencias: INT-002",
+                "Incluye: variables, secretos, permisos mínimos y prueba de conectividad.",
+                "Exclusiones: No incluye alta de cuentas o costos de proveedores.",
+                "Dependencias: INT-001",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "int-006",
               "code": "INT-006",
-              "name": "Desarrollo de conector API estándar",
+              "name": "Conector API estándar",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": false,
               "phase": "Desarrollo",
               "unitLabel": "Integración",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Conector funcional",
-              "scope": "Autenticación, consultas, envío y manejo de respuesta",
+              "baseHours": 3.5,
+              "scope": "Incluye: autenticación, consulta/envío, validación de respuesta, manejo básico de errores y adaptación a contrato API conocido.",
+              "exclusions": "No incluye API sin documentación, protocolos no estándar o integración bidireccional compleja adicional.",
               "dependencies": [
-                "INT-003"
+                "INT-001",
+                "INT-005"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 4.25,
-                "medium": 6.1625,
-                "high": 7.65
+                "fixed": 3.5
               },
               "notes": [
                 "Fase: Desarrollo",
+                "Condición: Base incluido",
                 "Unidad: Integración",
-                "Complejidad: Alta",
-                "Entregable: Conector funcional",
-                "Alcance: Autenticación, consultas, envío y manejo de respuesta",
-                "Dependencias: INT-003",
+                "Incluye: autenticación, consulta/envío, validación de respuesta, manejo básico de errores y adaptación a contrato API conocido.",
+                "Exclusiones: No incluye API sin documentación, protocolos no estándar o integración bidireccional compleja adicional.",
+                "Dependencias: INT-001, INT-005",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "int-007",
               "code": "INT-007",
-              "name": "Importación o exportación por archivo",
+              "name": "Intercambio por archivo",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
               "mandatory": false,
               "phase": "Desarrollo",
               "unitLabel": "Formato",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 4,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.8,
-              "deliverable": "Proceso de archivo",
-              "scope": "CSV, XLSX o JSON con validación",
+              "baseHours": 2.2,
+              "scope": "Incluye: CSV/XLSX/JSON, validación de estructura, importación o exportación y manejo de errores básicos.",
+              "exclusions": "No incluye ETL masivo ni limpieza extensa de datos.",
               "dependencies": [
-                "INT-003"
+                "INT-001"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 3.2,
-                "medium": 4.64,
-                "high": 5.760000000000001
+                "fixed": 2.2
               },
               "notes": [
                 "Fase: Desarrollo",
+                "Condición: Opcional",
                 "Unidad: Formato",
-                "Complejidad: Alta",
-                "Entregable: Proceso de archivo",
-                "Alcance: CSV, XLSX o JSON con validación",
-                "Dependencias: INT-003",
+                "Incluye: CSV/XLSX/JSON, validación de estructura, importación o exportación y manejo de errores básicos.",
+                "Exclusiones: No incluye ETL masivo ni limpieza extensa de datos.",
+                "Dependencias: INT-001",
                 "Estado de HH: Preliminar"
-              ],
-              "quantityRule": {
-                "unit": "custom",
-                "label": "Cantidad (Formato)",
-                "baseQuantity": 1,
-                "defaultQuantity": 0,
-                "minimum": 0,
-                "editable": true
-              }
+              ]
             },
             {
               "id": "int-008",
               "code": "INT-008",
-              "name": "Implementación de webhook",
+              "name": "Webhook estándar",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
               "mandatory": false,
               "phase": "Desarrollo",
               "unitLabel": "Evento",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 3.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Webhook operativo",
-              "scope": "Recepción, validación, idempotencia y respuesta",
+              "baseHours": 2,
+              "scope": "Incluye: recepción, validación, idempotencia básica, respuesta y prueba.",
+              "exclusions": "No incluye alto volumen, colas distribuidas o firma propietaria compleja.",
               "dependencies": [
-                "INT-004"
+                "INT-001"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.975,
-                "medium": 4.31375,
-                "high": 5.355
+                "fixed": 2
               },
               "notes": [
                 "Fase: Desarrollo",
+                "Condición: Opcional",
                 "Unidad: Evento",
-                "Complejidad: Alta",
-                "Entregable: Webhook operativo",
-                "Alcance: Recepción, validación, idempotencia y respuesta",
-                "Dependencias: INT-004",
+                "Incluye: recepción, validación, idempotencia básica, respuesta y prueba.",
+                "Exclusiones: No incluye alto volumen, colas distribuidas o firma propietaria compleja.",
+                "Dependencias: INT-001",
                 "Estado de HH: Preliminar"
-              ],
-              "quantityRule": {
-                "unit": "custom",
-                "label": "Cantidad (Evento)",
-                "baseQuantity": 1,
-                "defaultQuantity": 0,
-                "minimum": 0,
-                "editable": true
-              }
+              ]
             },
             {
               "id": "int-009",
@@ -2736,76 +1476,60 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Automatización",
               "unitLabel": "Job",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
-              "baseHours": 3,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.8,
-              "deliverable": "Job programado",
-              "scope": "Frecuencia, ejecución y registro",
+              "baseHours": 2,
+              "scope": "Incluye: frecuencia, ejecución, validación básica y registro del resultado.",
+              "exclusions": "No incluye orquestación de múltiples jobs dependientes.",
               "dependencies": [
-                "INT-004"
+                "INT-001"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.4000000000000004,
-                "medium": 3.1200000000000006,
-                "high": 3.7200000000000006
+                "fixed": 2
               },
               "notes": [
                 "Fase: Automatización",
+                "Condición: Base incluido",
                 "Unidad: Job",
-                "Complejidad: Media",
-                "Entregable: Job programado",
-                "Alcance: Frecuencia, ejecución y registro",
-                "Dependencias: INT-004",
+                "Incluye: frecuencia, ejecución, validación básica y registro del resultado.",
+                "Exclusiones: No incluye orquestación de múltiples jobs dependientes.",
+                "Dependencias: INT-001",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "int-010",
               "code": "INT-010",
-              "name": "Implementación de reglas de negocio y transformaciones",
+              "name": "Regla o transformación de negocio",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": false,
               "phase": "Automatización",
               "unitLabel": "Regla",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Reglas implementadas",
-              "scope": "Construcción y validación de transformaciones, condiciones y reglas definidas en el mapeo.",
-              "exclusions": "No vuelve a incluir el diseño documental de INT-003.",
+              "baseHours": 1,
+              "scope": "Incluye por regla: condición, transformación, validación y manejo de caso esperado/error.",
+              "exclusions": "No incluye rediseño del proceso; se define en INT-001.",
               "dependencies": [
-                "INT-003"
+                "INT-001"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.275,
-                "medium": 1.84875,
-                "high": 2.295
+                "fixed": 1
               },
               "notes": [
                 "Fase: Automatización",
+                "Condición: Base incluido",
                 "Unidad: Regla",
-                "Complejidad: Alta",
-                "Entregable: Reglas implementadas",
-                "Alcance: Construcción y validación de transformaciones, condiciones y reglas definidas en el mapeo.",
-                "Exclusiones: No vuelve a incluir el diseño documental de INT-003.",
-                "Dependencias: INT-003",
+                "Incluye: Incluye por regla: condición, transformación, validación y manejo de caso esperado/error.",
+                "Exclusiones: No incluye rediseño del proceso; se define en INT-001.",
+                "Dependencias: INT-001",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
                 "unit": "custom",
                 "label": "Cantidad (Regla)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 2,
                 "minimum": 0,
                 "editable": true
               }
@@ -2813,266 +1537,101 @@ export const ismServicesCatalog: PlatformCatalog = {
             {
               "id": "int-011",
               "code": "INT-011",
-              "name": "Registro de ejecuciones y errores",
+              "name": "Registro de ejecuciones y alertas básicas",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": true,
               "phase": "Observabilidad",
               "unitLabel": "Integración",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
-              "baseHours": 2,
-              "reuseType": "Alta",
-              "reuseFactor": 0.65,
-              "deliverable": "Bitácora técnica",
-              "scope": "Estado, fecha, resultado y detalle",
+              "baseHours": 1,
+              "scope": "Incluye: fecha, estado, resultado, error, identificador y alerta básica por canal acordado cuando corresponda.",
+              "exclusions": "No incluye plataforma completa de observabilidad.",
               "dependencies": [
-                "INT-004"
+                "INT-006 o INT-009"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.3,
-                "medium": 1.6900000000000002,
-                "high": 2.015
+                "fixed": 1
               },
               "notes": [
                 "Fase: Observabilidad",
+                "Condición: Base obligatorio",
                 "Unidad: Integración",
-                "Complejidad: Media",
-                "Entregable: Bitácora técnica",
-                "Alcance: Estado, fecha, resultado y detalle",
-                "Dependencias: INT-004",
-                "Estado de HH: Preliminar"
-              ]
-            },
-            {
-              "id": "int-012",
-              "code": "INT-012",
-              "name": "Alertas de fallo de integración",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": false,
-              "mandatory": false,
-              "phase": "Observabilidad",
-              "unitLabel": "Canal",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
-              "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.8,
-              "deliverable": "Alerta configurada",
-              "scope": "Notificación por canal acordado",
-              "dependencies": [
-                "INT-011"
-              ],
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 1.2000000000000002,
-                "medium": 1.5600000000000003,
-                "high": 1.8600000000000003
-              },
-              "notes": [
-                "Fase: Observabilidad",
-                "Unidad: Canal",
-                "Complejidad: Media",
-                "Entregable: Alerta configurada",
-                "Alcance: Notificación por canal acordado",
-                "Dependencias: INT-011",
+                "Incluye: fecha, estado, resultado, error, identificador y alerta básica por canal acordado cuando corresponda.",
+                "Exclusiones: No incluye plataforma completa de observabilidad.",
+                "Dependencias: INT-006 o INT-009",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "int-013",
               "code": "INT-013",
-              "name": "Pruebas con datos de ejemplo",
+              "name": "QA de integración, datos, límites y seguridad",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": true,
               "phase": "Calidad",
-              "unitLabel": "Caso",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 1,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Casos ejecutados",
-              "scope": "Éxito, error, duplicado y datos incompletos",
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 1,
-                "medium": 1.45,
-                "high": 1.8
-              },
-              "notes": [
-                "Fase: Calidad",
-                "Unidad: Caso",
-                "Complejidad: Alta",
-                "Entregable: Casos ejecutados",
-                "Alcance: Éxito, error, duplicado y datos incompletos",
-                "Estado de HH: Preliminar"
-              ],
-              "quantityRule": {
-                "unit": "custom",
-                "label": "Cantidad (Caso)",
-                "baseQuantity": 1,
-                "defaultQuantity": 4,
-                "minimum": 0,
-                "editable": true
-              }
-            },
-            {
-              "id": "int-014",
-              "code": "INT-014",
-              "name": "Prueba de volumen y límites",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": false,
-              "mandatory": false,
-              "phase": "Calidad",
-              "unitLabel": "Prueba",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 2.5,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Resultado de carga",
-              "scope": "Volumen, tiempos y límites conocidos",
-              "dependencies": [
-                "INT-006"
-              ],
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 2.5,
-                "medium": 3.625,
-                "high": 4.5
-              },
-              "notes": [
-                "Fase: Calidad",
-                "Unidad: Prueba",
-                "Complejidad: Alta",
-                "Entregable: Resultado de carga",
-                "Alcance: Volumen, tiempos y límites conocidos",
-                "Dependencias: INT-006",
-                "Estado de HH: Preliminar"
-              ]
-            },
-            {
-              "id": "int-015",
-              "code": "INT-015",
-              "name": "Revisión de permisos y exposición de datos",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": true,
-              "phase": "Seguridad",
               "unitLabel": "Integración",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 1.5,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Checklist de seguridad",
-              "scope": "Mínimo privilegio y datos sensibles",
+              "baseHours": 2,
+              "scope": "Incluye: casos de éxito/error/duplicado/dato incompleto; volumen razonable; permisos; exposición de datos y mínimo privilegio.",
+              "exclusions": "No incluye pruebas de estrés empresariales ni pentesting formal.",
+              "dependencies": [
+                "INT-006",
+                "INT-009",
+                "INT-010"
+              ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.5,
-                "medium": 2.175,
-                "high": 2.7
+                "fixed": 2
               },
               "notes": [
-                "Fase: Seguridad",
+                "Fase: Calidad",
+                "Condición: Base obligatorio",
                 "Unidad: Integración",
-                "Complejidad: Alta",
-                "Entregable: Checklist de seguridad",
-                "Alcance: Mínimo privilegio y datos sensibles",
+                "Incluye: casos de éxito/error/duplicado/dato incompleto; volumen razonable; permisos; exposición de datos y mínimo privilegio.",
+                "Exclusiones: No incluye pruebas de estrés empresariales ni pentesting formal.",
+                "Dependencias: INT-006, INT-009, INT-010",
                 "Estado de HH: Preliminar"
               ]
             },
             {
               "id": "int-016",
               "code": "INT-016",
-              "name": "Configuración en producción",
+              "name": "Producción, documentación y runbook",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": true,
               "phase": "Despliegue",
-              "unitLabel": "Entorno",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
-              "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.8,
-              "deliverable": "Integración desplegada",
-              "scope": "Variables, secretos, job y validación",
+              "unitLabel": "Integración",
+              "baseHours": 1.5,
+              "scope": "Incluye: variables/secretos de producción, activación, validación, procedimiento operativo, reintentos y contactos.",
+              "exclusions": "No incluye soporte mensual posterior.",
               "dependencies": [
                 "INT-013"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.6,
-                "medium": 2.32,
-                "high": 2.8800000000000003
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Despliegue",
-                "Unidad: Entorno",
-                "Complejidad: Alta",
-                "Entregable: Integración desplegada",
-                "Alcance: Variables, secretos, job y validación",
-                "Dependencias: INT-013",
-                "Estado de HH: Preliminar"
-              ]
-            },
-            {
-              "id": "int-017",
-              "code": "INT-017",
-              "name": "Documentación y procedimiento operativo",
-              "activityCount": 1,
-              "countMode": "line",
-              "defaultIncluded": true,
-              "mandatory": true,
-              "phase": "Cierre",
-              "unitLabel": "Integración",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
-              "baseHours": 2,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Runbook de integración",
-              "scope": "Operación, errores, reintentos y contactos",
-              "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
-              "hours": {
-                "small": 2,
-                "medium": 2.6,
-                "high": 3.1
-              },
-              "notes": [
-                "Fase: Cierre",
+                "Condición: Base obligatorio",
                 "Unidad: Integración",
-                "Complejidad: Media",
-                "Entregable: Runbook de integración",
-                "Alcance: Operación, errores, reintentos y contactos",
+                "Incluye: variables/secretos de producción, activación, validación, procedimiento operativo, reintentos y contactos.",
+                "Exclusiones: No incluye soporte mensual posterior.",
+                "Dependencias: INT-013",
                 "Estado de HH: Preliminar"
               ]
             }
           ],
           "totals": {
-            "activityLines": 17,
-            "activities": 17,
+            "activityLines": 10,
+            "activities": 10,
             "hours": {
-              "small": 31.275,
-              "medium": 44.31375,
-              "high": 54.57000000000001
+              "fixed": 16
             }
           }
         }
@@ -3097,8 +1656,7 @@ export const ismServicesCatalog: PlatformCatalog = {
           "groupLabel": "Mantenimiento y Evolución",
           "sourceSheet": "Catalogo Maestro",
           "unit": "service",
-          "sizeMode": "by-size",
-          "maturity": "02 · Optimización digital",
+          "sizeMode": "not-applicable",
           "activities": [
             {
               "id": "mnt1-001",
@@ -3110,26 +1668,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Recepción",
               "unitLabel": "Incidente",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Baja",
               "baseHours": 0.5,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Ticket documentado",
               "scope": "Descripción, pasos, evidencia y entorno",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.5,
-                "medium": 0.575,
-                "high": 0.65
+                "fixed": 0.5
               },
               "notes": [
                 "Fase: Recepción",
+                "Condición: Base obligatorio",
                 "Unidad: Incidente",
-                "Complejidad: Baja",
-                "Entregable: Ticket documentado",
-                "Alcance: Descripción, pasos, evidencia y entorno",
+                "Incluye: Descripción, pasos, evidencia y entorno",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -3143,29 +1692,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Triage",
               "unitLabel": "Incidente",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
               "baseHours": 0.5,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Prioridad definida",
               "scope": "Impacto, urgencia, alcance y usuarios afectados",
               "dependencies": [
                 "MNT1-001"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.5,
-                "medium": 0.65,
-                "high": 0.775
+                "fixed": 0.5
               },
               "notes": [
                 "Fase: Triage",
+                "Condición: Base obligatorio",
                 "Unidad: Incidente",
-                "Complejidad: Media",
-                "Entregable: Prioridad definida",
-                "Alcance: Impacto, urgencia, alcance y usuarios afectados",
+                "Incluye: Impacto, urgencia, alcance y usuarios afectados",
                 "Dependencias: MNT1-001",
                 "Estado de HH: Preliminar"
               ]
@@ -3180,29 +1720,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Diagnóstico",
               "unitLabel": "Incidente",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Caso reproducible",
               "scope": "Pasos, datos y condiciones de reproducción",
               "dependencies": [
                 "MNT1-001"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.5,
-                "medium": 2.175,
-                "high": 2.7
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Diagnóstico",
+                "Condición: Base obligatorio",
                 "Unidad: Incidente",
-                "Complejidad: Alta",
-                "Entregable: Caso reproducible",
-                "Alcance: Pasos, datos y condiciones de reproducción",
+                "Incluye: Pasos, datos y condiciones de reproducción",
                 "Dependencias: MNT1-001",
                 "Estado de HH: Preliminar"
               ]
@@ -3217,29 +1748,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Diagnóstico",
               "unitLabel": "Incidente",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Causa probable",
               "scope": "Evidencia técnica y componentes involucrados",
               "dependencies": [
                 "MNT1-003"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2,
-                "medium": 2.9,
-                "high": 3.6
+                "fixed": 2
               },
               "notes": [
                 "Fase: Diagnóstico",
+                "Condición: Base obligatorio",
                 "Unidad: Incidente",
-                "Complejidad: Alta",
-                "Entregable: Causa probable",
-                "Alcance: Evidencia técnica y componentes involucrados",
+                "Incluye: Evidencia técnica y componentes involucrados",
                 "Dependencias: MNT1-003",
                 "Estado de HH: Preliminar"
               ]
@@ -3254,29 +1776,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Diagnóstico",
               "unitLabel": "Incidente",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Causa raíz",
               "scope": "Origen y condiciones que provocan el fallo",
               "dependencies": [
                 "MNT1-004"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.5,
-                "medium": 2.175,
-                "high": 2.7
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Diagnóstico",
+                "Condición: Base obligatorio",
                 "Unidad: Incidente",
-                "Complejidad: Alta",
-                "Entregable: Causa raíz",
-                "Alcance: Origen y condiciones que provocan el fallo",
+                "Incluye: Origen y condiciones que provocan el fallo",
                 "Dependencias: MNT1-004",
                 "Estado de HH: Preliminar"
               ]
@@ -3291,29 +1804,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Planificación",
               "unitLabel": "Cambio",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Plan de cambio",
               "scope": "Corrección, riesgo, pruebas y reversa",
               "dependencies": [
                 "MNT1-005"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.9,
-                "medium": 1.305,
-                "high": 1.62
+                "fixed": 1
               },
               "notes": [
                 "Fase: Planificación",
+                "Condición: Base obligatorio",
                 "Unidad: Cambio",
-                "Complejidad: Alta",
-                "Entregable: Plan de cambio",
-                "Alcance: Corrección, riesgo, pruebas y reversa",
+                "Incluye: Corrección, riesgo, pruebas y reversa",
                 "Dependencias: MNT1-005",
                 "Estado de HH: Preliminar"
               ]
@@ -3328,30 +1832,21 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Corrección",
               "unitLabel": "Cambio",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Código corregido",
               "scope": "Ajuste localizado sin cambio de arquitectura",
               "exclusions": "Mutuamente excluyente con MNT1-008 para el mismo incidente.",
               "dependencies": [
                 "MNT1-006"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.7,
-                "medium": 2.21,
-                "high": 2.635
+                "fixed": 2
               },
               "notes": [
                 "Fase: Corrección",
+                "Condición: Base incluido",
                 "Unidad: Cambio",
-                "Complejidad: Media",
-                "Entregable: Código corregido",
-                "Alcance: Ajuste localizado sin cambio de arquitectura",
+                "Incluye: Ajuste localizado sin cambio de arquitectura",
                 "Exclusiones: Mutuamente excluyente con MNT1-008 para el mismo incidente.",
                 "Dependencias: MNT1-006",
                 "Estado de HH: Preliminar"
@@ -3367,30 +1862,21 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Corrección",
               "unitLabel": "Cambio",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 4,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Código corregido",
               "scope": "Cambios en varios componentes o reglas",
               "exclusions": "Mutuamente excluyente con MNT1-007 para el mismo incidente.",
               "dependencies": [
                 "MNT1-006"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 4,
-                "medium": 5.8,
-                "high": 7.2
+                "fixed": 4
               },
               "notes": [
                 "Fase: Corrección",
+                "Condición: Opcional",
                 "Unidad: Cambio",
-                "Complejidad: Alta",
-                "Entregable: Código corregido",
-                "Alcance: Cambios en varios componentes o reglas",
+                "Incluye: Cambios en varios componentes o reglas",
                 "Exclusiones: Mutuamente excluyente con MNT1-007 para el mismo incidente.",
                 "Dependencias: MNT1-006",
                 "Estado de HH: Preliminar"
@@ -3414,30 +1900,21 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Datos",
               "unitLabel": "Lote",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 2.5,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Datos regularizados",
               "scope": "Script, respaldo y validación",
               "exclusions": "Recuperación forense",
               "dependencies": [
                 "MNT1-006"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.5,
-                "medium": 3.625,
-                "high": 4.5
+                "fixed": 2.5
               },
               "notes": [
                 "Fase: Datos",
+                "Condición: Opcional",
                 "Unidad: Lote",
-                "Complejidad: Alta",
-                "Entregable: Datos regularizados",
-                "Alcance: Script, respaldo y validación",
+                "Incluye: Script, respaldo y validación",
                 "Exclusiones: Recuperación forense",
                 "Dependencias: MNT1-006",
                 "Estado de HH: Preliminar"
@@ -3461,29 +1938,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Caso",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
               "baseHours": 1,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Caso validado",
               "scope": "Prueba directa del defecto",
               "dependencies": [
                 "MNT1-007"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1,
-                "medium": 1.3,
-                "high": 1.55
+                "fixed": 1
               },
               "notes": [
                 "Fase: Calidad",
+                "Condición: Base obligatorio",
                 "Unidad: Caso",
-                "Complejidad: Media",
-                "Entregable: Caso validado",
-                "Alcance: Prueba directa del defecto",
+                "Incluye: Prueba directa del defecto",
                 "Dependencias: MNT1-007",
                 "Estado de HH: Preliminar"
               ]
@@ -3498,29 +1966,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Caso",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Regresión validada",
               "scope": "Flujos cercanos y funciones relacionadas",
               "dependencies": [
                 "MNT1-010"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.675,
-                "medium": 0.97875,
-                "high": 1.215
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Calidad",
+                "Condición: Base obligatorio",
                 "Unidad: Caso",
-                "Complejidad: Alta",
-                "Entregable: Regresión validada",
-                "Alcance: Flujos cercanos y funciones relacionadas",
+                "Incluye: Flujos cercanos y funciones relacionadas",
                 "Dependencias: MNT1-010",
                 "Estado de HH: Preliminar"
               ],
@@ -3543,29 +2002,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Despliegue",
               "unitLabel": "Entorno",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Corrección desplegada",
               "scope": "Build, respaldo, despliegue y validación",
               "dependencies": [
                 "MNT1-011"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.275,
-                "medium": 1.84875,
-                "high": 2.295
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Despliegue",
+                "Condición: Base obligatorio",
                 "Unidad: Entorno",
-                "Complejidad: Alta",
-                "Entregable: Corrección desplegada",
-                "Alcance: Build, respaldo, despliegue y validación",
+                "Incluye: Build, respaldo, despliegue y validación",
                 "Dependencias: MNT1-011",
                 "Estado de HH: Preliminar"
               ]
@@ -3580,29 +2030,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Seguimiento",
               "unitLabel": "Periodo",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
               "baseHours": 1,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Seguimiento cerrado",
               "scope": "Revisión de logs y comportamiento",
               "dependencies": [
                 "MNT1-012"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1,
-                "medium": 1.3,
-                "high": 1.55
+                "fixed": 1
               },
               "notes": [
                 "Fase: Seguimiento",
+                "Condición: Base incluido",
                 "Unidad: Periodo",
-                "Complejidad: Media",
-                "Entregable: Seguimiento cerrado",
-                "Alcance: Revisión de logs y comportamiento",
+                "Incluye: Revisión de logs y comportamiento",
                 "Dependencias: MNT1-012",
                 "Estado de HH: Preliminar"
               ]
@@ -3617,26 +2058,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Cierre",
               "unitLabel": "Incidente",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Baja",
               "baseHours": 0.75,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Ticket cerrado",
               "scope": "Causa, solución, pruebas y recomendaciones",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.75,
-                "medium": 0.8624999999999999,
-                "high": 0.9750000000000001
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Cierre",
+                "Condición: Base obligatorio",
                 "Unidad: Incidente",
-                "Complejidad: Baja",
-                "Entregable: Ticket cerrado",
-                "Alcance: Causa, solución, pruebas y recomendaciones",
+                "Incluye: Causa, solución, pruebas y recomendaciones",
                 "Estado de HH: Preliminar"
               ]
             }
@@ -3645,9 +2077,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 14,
             "activities": 14,
             "hours": {
-              "small": 14.65,
-              "medium": 20.2375,
-              "high": 24.695000000000004
+              "fixed": 15.5
             }
           }
         },
@@ -3659,8 +2089,7 @@ export const ismServicesCatalog: PlatformCatalog = {
           "groupLabel": "Mantenimiento y Evolución",
           "sourceSheet": "Catalogo Maestro",
           "unit": "service",
-          "sizeMode": "by-size",
-          "maturity": "02 · Optimización digital",
+          "sizeMode": "not-applicable",
           "activities": [
             {
               "id": "mnt2-001",
@@ -3672,26 +2101,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Descubrimiento",
               "unitLabel": "Funcionalidad",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
               "baseHours": 1.5,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Solicitud definida",
               "scope": "Usuario, problema, resultado y contexto",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.5,
-                "medium": 1.9500000000000002,
-                "high": 2.325
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Descubrimiento",
+                "Condición: Base obligatorio",
                 "Unidad: Funcionalidad",
-                "Complejidad: Media",
-                "Entregable: Solicitud definida",
-                "Alcance: Usuario, problema, resultado y contexto",
+                "Incluye: Usuario, problema, resultado y contexto",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -3705,29 +2125,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Análisis",
               "unitLabel": "Funcionalidad",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 2.5,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Informe de impacto",
               "scope": "Código, datos, roles, integraciones y riesgos",
               "dependencies": [
                 "MNT2-001"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.5,
-                "medium": 3.625,
-                "high": 4.5
+                "fixed": 2.5
               },
               "notes": [
                 "Fase: Análisis",
+                "Condición: Base obligatorio",
                 "Unidad: Funcionalidad",
-                "Complejidad: Alta",
-                "Entregable: Informe de impacto",
-                "Alcance: Código, datos, roles, integraciones y riesgos",
+                "Incluye: Código, datos, roles, integraciones y riesgos",
                 "Dependencias: MNT2-001",
                 "Estado de HH: Preliminar"
               ]
@@ -3742,29 +2153,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Alcance",
               "unitLabel": "Funcionalidad",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
               "baseHours": 1.5,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Criterios aprobados",
               "scope": "Casos, reglas y definición de terminado",
               "dependencies": [
                 "MNT2-001"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.5,
-                "medium": 1.9500000000000002,
-                "high": 2.325
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Alcance",
+                "Condición: Base obligatorio",
                 "Unidad: Funcionalidad",
-                "Complejidad: Media",
-                "Entregable: Criterios aprobados",
-                "Alcance: Casos, reglas y definición de terminado",
+                "Incluye: Casos, reglas y definición de terminado",
                 "Dependencias: MNT2-001",
                 "Estado de HH: Preliminar"
               ]
@@ -3779,29 +2181,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Diseño",
               "unitLabel": "Flujo",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Flujo diseñado",
               "scope": "Interacciones, transiciones y excepciones",
               "dependencies": [
                 "MNT2-003"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.7,
-                "medium": 2.465,
-                "high": 3.06
+                "fixed": 2
               },
               "notes": [
                 "Fase: Diseño",
+                "Condición: Base obligatorio",
                 "Unidad: Flujo",
-                "Complejidad: Alta",
-                "Entregable: Flujo diseñado",
-                "Alcance: Interacciones, transiciones y excepciones",
+                "Incluye: Interacciones, transiciones y excepciones",
                 "Dependencias: MNT2-003",
                 "Estado de HH: Preliminar"
               ]
@@ -3816,29 +2209,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Diseño",
               "unitLabel": "Pantalla",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.8,
-              "deliverable": "Wireframes",
               "scope": "Componentes, campos y acciones",
               "dependencies": [
                 "MNT2-004"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.8,
-                "medium": 1.04,
-                "high": 1.2400000000000002
+                "fixed": 1
               },
               "notes": [
                 "Fase: Diseño",
+                "Condición: Base incluido",
                 "Unidad: Pantalla",
-                "Complejidad: Media",
-                "Entregable: Wireframes",
-                "Alcance: Componentes, campos y acciones",
+                "Incluye: Componentes, campos y acciones",
                 "Dependencias: MNT2-004",
                 "Estado de HH: Preliminar"
               ],
@@ -3861,29 +2245,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Datos",
               "unitLabel": "Entidad",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 2.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Migración de datos",
               "scope": "Tabla, columna, relación y restricciones",
               "dependencies": [
                 "MNT2-002"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.25,
-                "medium": 3.2624999999999997,
-                "high": 4.05
+                "fixed": 2.5
               },
               "notes": [
                 "Fase: Datos",
+                "Condición: Opcional",
                 "Unidad: Entidad",
-                "Complejidad: Alta",
-                "Entregable: Migración de datos",
-                "Alcance: Tabla, columna, relación y restricciones",
+                "Incluye: Tabla, columna, relación y restricciones",
                 "Dependencias: MNT2-002",
                 "Estado de HH: Preliminar"
               ]
@@ -3898,29 +2273,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Backend",
               "unitLabel": "Regla",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Reglas implementadas",
               "scope": "Validaciones y comportamiento esperado",
               "dependencies": [
                 "MNT2-003"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.8,
-                "medium": 2.61,
-                "high": 3.24
+                "fixed": 2
               },
               "notes": [
                 "Fase: Backend",
+                "Condición: Base incluido",
                 "Unidad: Regla",
-                "Complejidad: Alta",
-                "Entregable: Reglas implementadas",
-                "Alcance: Validaciones y comportamiento esperado",
+                "Incluye: Validaciones y comportamiento esperado",
                 "Dependencias: MNT2-003",
                 "Estado de HH: Preliminar"
               ],
@@ -3943,29 +2309,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Backend",
               "unitLabel": "Servicio",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 3,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Servicio funcional",
               "scope": "Consulta, persistencia y errores",
               "dependencies": [
                 "MNT2-006"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.7,
-                "medium": 3.915,
-                "high": 4.86
+                "fixed": 3
               },
               "notes": [
                 "Fase: Backend",
+                "Condición: Base incluido",
                 "Unidad: Servicio",
-                "Complejidad: Alta",
-                "Entregable: Servicio funcional",
-                "Alcance: Consulta, persistencia y errores",
+                "Incluye: Consulta, persistencia y errores",
                 "Dependencias: MNT2-006",
                 "Estado de HH: Preliminar"
               ]
@@ -3980,29 +2337,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Frontend",
               "unitLabel": "Pantalla",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 3,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.8,
-              "deliverable": "Interfaz funcional",
               "scope": "Estados, validaciones y responsive",
               "dependencies": [
                 "MNT2-005"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.4000000000000004,
-                "medium": 3.4800000000000004,
-                "high": 4.320000000000001
+                "fixed": 3
               },
               "notes": [
                 "Fase: Frontend",
+                "Condición: Base incluido",
                 "Unidad: Pantalla",
-                "Complejidad: Alta",
-                "Entregable: Interfaz funcional",
-                "Alcance: Estados, validaciones y responsive",
+                "Incluye: Estados, validaciones y responsive",
                 "Dependencias: MNT2-005",
                 "Estado de HH: Preliminar"
               ],
@@ -4025,29 +2373,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Seguridad",
               "unitLabel": "Rol",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Permisos aplicados",
               "scope": "Visibilidad y acciones por rol",
               "dependencies": [
                 "MNT2-002"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.85,
-                "medium": 1.2325,
-                "high": 1.53
+                "fixed": 1
               },
               "notes": [
                 "Fase: Seguridad",
+                "Condición: Base incluido",
                 "Unidad: Rol",
-                "Complejidad: Alta",
-                "Entregable: Permisos aplicados",
-                "Alcance: Visibilidad y acciones por rol",
+                "Incluye: Visibilidad y acciones por rol",
                 "Dependencias: MNT2-002",
                 "Estado de HH: Preliminar"
               ],
@@ -4070,26 +2409,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Integración",
               "unitLabel": "Integración",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 3,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Integración funcional",
               "scope": "Correo, Excel, PDF u otro canal",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.55,
-                "medium": 3.6975,
-                "high": 4.59
+                "fixed": 3
               },
               "notes": [
                 "Fase: Integración",
+                "Condición: Opcional",
                 "Unidad: Integración",
-                "Complejidad: Alta",
-                "Entregable: Integración funcional",
-                "Alcance: Correo, Excel, PDF u otro canal",
+                "Incluye: Correo, Excel, PDF u otro canal",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -4111,29 +2441,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Calidad",
               "unitLabel": "Caso",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Pruebas ejecutadas",
               "scope": "Casos normales, errores y límites",
               "dependencies": [
                 "MNT2-007"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.9,
-                "medium": 1.305,
-                "high": 1.62
+                "fixed": 1
               },
               "notes": [
                 "Fase: Calidad",
+                "Condición: Base incluido",
                 "Unidad: Caso",
-                "Complejidad: Alta",
-                "Entregable: Pruebas ejecutadas",
-                "Alcance: Casos normales, errores y límites",
+                "Incluye: Casos normales, errores y límites",
                 "Dependencias: MNT2-007",
                 "Estado de HH: Preliminar"
               ],
@@ -4156,26 +2477,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Proyecto",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 3,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Informe QA",
               "scope": "Flujo nuevo y funciones existentes relacionadas",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 3,
-                "medium": 4.35,
-                "high": 5.4
+                "fixed": 3
               },
               "notes": [
                 "Fase: Calidad",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Informe QA",
-                "Alcance: Flujo nuevo y funciones existentes relacionadas",
+                "Incluye: Flujo nuevo y funciones existentes relacionadas",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -4189,29 +2501,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Despliegue",
               "unitLabel": "Entorno",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Versión desplegada",
               "scope": "Respaldo, migración, build y validación",
               "dependencies": [
                 "MNT2-013"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.7,
-                "medium": 2.465,
-                "high": 3.06
+                "fixed": 2
               },
               "notes": [
                 "Fase: Despliegue",
+                "Condición: Base obligatorio",
                 "Unidad: Entorno",
-                "Complejidad: Alta",
-                "Entregable: Versión desplegada",
-                "Alcance: Respaldo, migración, build y validación",
+                "Incluye: Respaldo, migración, build y validación",
                 "Dependencias: MNT2-013",
                 "Estado de HH: Preliminar"
               ]
@@ -4226,26 +2529,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Cierre",
               "unitLabel": "Funcionalidad",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
               "baseHours": 1.5,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Guía de uso",
               "scope": "Cambios, uso y consideraciones",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.5,
-                "medium": 1.9500000000000002,
-                "high": 2.325
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Cierre",
+                "Condición: Base incluido",
                 "Unidad: Funcionalidad",
-                "Complejidad: Media",
-                "Entregable: Guía de uso",
-                "Alcance: Cambios, uso y consideraciones",
+                "Incluye: Cambios, uso y consideraciones",
                 "Estado de HH: Preliminar"
               ]
             }
@@ -4254,9 +2548,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 15,
             "activities": 15,
             "hours": {
-              "small": 30.5,
-              "medium": 43.31,
-              "high": 53.37500000000001
+              "fixed": 34
             }
           }
         },
@@ -4268,8 +2560,7 @@ export const ismServicesCatalog: PlatformCatalog = {
           "groupLabel": "Mantenimiento y Evolución",
           "sourceSheet": "Catalogo Maestro",
           "unit": "service",
-          "sizeMode": "by-size",
-          "maturity": "03 · Consolidación digital",
+          "sizeMode": "not-applicable",
           "activities": [
             {
               "id": "mnt3-001",
@@ -4281,26 +2572,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Auditoría",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 3,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Inventario técnico",
               "scope": "Frameworks, dependencias, servicios y despliegues",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 3,
-                "medium": 4.35,
-                "high": 5.4
+                "fixed": 3
               },
               "notes": [
                 "Fase: Auditoría",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Inventario técnico",
-                "Alcance: Frameworks, dependencias, servicios y despliegues",
+                "Incluye: Frameworks, dependencias, servicios y despliegues",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -4314,29 +2596,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Auditoría",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 4,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Matriz de deuda",
               "scope": "Complejidad, obsolescencia, seguridad y mantenibilidad",
               "dependencies": [
                 "MNT3-001"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 4,
-                "medium": 5.8,
-                "high": 7.2
+                "fixed": 4
               },
               "notes": [
                 "Fase: Auditoría",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Matriz de deuda",
-                "Alcance: Complejidad, obsolescencia, seguridad y mantenibilidad",
+                "Incluye: Complejidad, obsolescencia, seguridad y mantenibilidad",
                 "Dependencias: MNT3-001",
                 "Estado de HH: Preliminar"
               ]
@@ -4351,29 +2624,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Planificación",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 3,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Roadmap técnico",
               "scope": "Fases, prioridades, dependencias y reversa",
               "dependencies": [
                 "MNT3-002"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 3,
-                "medium": 4.35,
-                "high": 5.4
+                "fixed": 3
               },
               "notes": [
                 "Fase: Planificación",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Roadmap técnico",
-                "Alcance: Fases, prioridades, dependencias y reversa",
+                "Incluye: Fases, prioridades, dependencias y reversa",
                 "Dependencias: MNT3-002",
                 "Estado de HH: Preliminar"
               ]
@@ -4388,29 +2652,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Preparación",
               "unitLabel": "Flujo",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Pruebas base",
               "scope": "Comportamiento actual protegido antes de cambios",
               "dependencies": [
                 "MNT3-003"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2,
-                "medium": 2.9,
-                "high": 3.6
+                "fixed": 2
               },
               "notes": [
                 "Fase: Preparación",
+                "Condición: Base obligatorio",
                 "Unidad: Flujo",
-                "Complejidad: Alta",
-                "Entregable: Pruebas base",
-                "Alcance: Comportamiento actual protegido antes de cambios",
+                "Incluye: Comportamiento actual protegido antes de cambios",
                 "Dependencias: MNT3-003",
                 "Estado de HH: Preliminar"
               ],
@@ -4433,30 +2688,21 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Dependencias",
               "unitLabel": "Dependencia",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Dependencias actualizadas",
               "scope": "Actualización rutinaria de versión compatible, ajustes menores y verificación básica por dependencia.",
               "exclusions": "La remediación adicional de vulnerabilidades complejas se contabiliza en MNT3-009.",
               "dependencies": [
                 "MNT3-004"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.675,
-                "medium": 0.8775000000000001,
-                "high": 1.0462500000000001
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Dependencias",
+                "Condición: Base incluido",
                 "Unidad: Dependencia",
-                "Complejidad: Media",
-                "Entregable: Dependencias actualizadas",
-                "Alcance: Actualización rutinaria de versión compatible, ajustes menores y verificación básica por dependencia.",
+                "Incluye: Actualización rutinaria de versión compatible, ajustes menores y verificación básica por dependencia.",
                 "Exclusiones: La remediación adicional de vulnerabilidades complejas se contabiliza en MNT3-009.",
                 "Dependencias: MNT3-004",
                 "Estado de HH: Preliminar"
@@ -4480,29 +2726,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Código",
               "unitLabel": "Módulo",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 5,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Módulos refactorizados",
               "scope": "Separación de responsabilidades y legibilidad",
               "dependencies": [
                 "MNT3-004"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 5,
-                "medium": 7.25,
-                "high": 9
+                "fixed": 5
               },
               "notes": [
                 "Fase: Código",
+                "Condición: Base incluido",
                 "Unidad: Módulo",
-                "Complejidad: Alta",
-                "Entregable: Módulos refactorizados",
-                "Alcance: Separación de responsabilidades y legibilidad",
+                "Incluye: Separación de responsabilidades y legibilidad",
                 "Dependencias: MNT3-004",
                 "Estado de HH: Preliminar"
               ],
@@ -4525,29 +2762,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Arquitectura",
               "unitLabel": "Componente",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 3,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Componente reusable",
               "scope": "Interfaces, pruebas y documentación",
               "dependencies": [
                 "MNT3-006"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.7,
-                "medium": 3.915,
-                "high": 4.86
+                "fixed": 3
               },
               "notes": [
                 "Fase: Arquitectura",
+                "Condición: Opcional",
                 "Unidad: Componente",
-                "Complejidad: Alta",
-                "Entregable: Componente reusable",
-                "Alcance: Interfaces, pruebas y documentación",
+                "Incluye: Interfaces, pruebas y documentación",
                 "Dependencias: MNT3-006",
                 "Estado de HH: Preliminar"
               ],
@@ -4570,29 +2798,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Datos",
               "unitLabel": "Migración",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 4,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Migración validada",
               "scope": "Transformación, respaldo y conciliación",
               "dependencies": [
                 "MNT3-003"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 4,
-                "medium": 5.8,
-                "high": 7.2
+                "fixed": 4
               },
               "notes": [
                 "Fase: Datos",
+                "Condición: Opcional",
                 "Unidad: Migración",
-                "Complejidad: Alta",
-                "Entregable: Migración validada",
-                "Alcance: Transformación, respaldo y conciliación",
+                "Incluye: Transformación, respaldo y conciliación",
                 "Dependencias: MNT3-003",
                 "Estado de HH: Preliminar"
               ]
@@ -4607,30 +2826,21 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Seguridad",
               "unitLabel": "Hallazgo",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Hallazgos cerrados",
               "scope": "Análisis y remediación adicional cuando la actualización estándar no resuelve el hallazgo.",
               "exclusions": "No sumar si el hallazgo queda resuelto únicamente con MNT3-005.",
               "dependencies": [
                 "MNT3-005"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.35,
-                "medium": 1.9575,
-                "high": 2.43
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Seguridad",
+                "Condición: Opcional",
                 "Unidad: Hallazgo",
-                "Complejidad: Alta",
-                "Entregable: Hallazgos cerrados",
-                "Alcance: Análisis y remediación adicional cuando la actualización estándar no resuelve el hallazgo.",
+                "Incluye: Análisis y remediación adicional cuando la actualización estándar no resuelve el hallazgo.",
                 "Exclusiones: No sumar si el hallazgo queda resuelto únicamente con MNT3-005.",
                 "Dependencias: MNT3-005",
                 "Estado de HH: Preliminar"
@@ -4654,26 +2864,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Flujo",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Suite de regresión",
               "scope": "Flujos críticos y casos de error",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1,
-                "medium": 1.45,
-                "high": 1.8
+                "fixed": 1
               },
               "notes": [
                 "Fase: Calidad",
+                "Condición: Base obligatorio",
                 "Unidad: Flujo",
-                "Complejidad: Alta",
-                "Entregable: Suite de regresión",
-                "Alcance: Flujos críticos y casos de error",
+                "Incluye: Flujos críticos y casos de error",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -4695,26 +2896,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Rendimiento",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 3,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Informe comparativo",
               "scope": "Métricas acordadas y resultados",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 3,
-                "medium": 4.35,
-                "high": 5.4
+                "fixed": 3
               },
               "notes": [
                 "Fase: Rendimiento",
+                "Condición: Opcional",
                 "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Informe comparativo",
-                "Alcance: Métricas acordadas y resultados",
+                "Incluye: Métricas acordadas y resultados",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -4728,29 +2920,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Despliegue",
               "unitLabel": "Entorno",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Plan operativo",
               "scope": "Pasos, responsables, respaldo y retorno",
               "dependencies": [
                 "MNT3-003"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2,
-                "medium": 2.9,
-                "high": 3.6
+                "fixed": 2
               },
               "notes": [
                 "Fase: Despliegue",
+                "Condición: Base obligatorio",
                 "Unidad: Entorno",
-                "Complejidad: Alta",
-                "Entregable: Plan operativo",
-                "Alcance: Pasos, responsables, respaldo y retorno",
+                "Incluye: Pasos, responsables, respaldo y retorno",
                 "Dependencias: MNT3-003",
                 "Estado de HH: Preliminar"
               ]
@@ -4765,29 +2948,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Despliegue",
               "unitLabel": "Entorno",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 3,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Versión modernizada",
               "scope": "Ejecución, validación y seguimiento",
               "dependencies": [
                 "MNT3-012"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 3,
-                "medium": 4.35,
-                "high": 5.4
+                "fixed": 3
               },
               "notes": [
                 "Fase: Despliegue",
+                "Condición: Base obligatorio",
                 "Unidad: Entorno",
-                "Complejidad: Alta",
-                "Entregable: Versión modernizada",
-                "Alcance: Ejecución, validación y seguimiento",
+                "Incluye: Ejecución, validación y seguimiento",
                 "Dependencias: MNT3-012",
                 "Estado de HH: Preliminar"
               ]
@@ -4802,26 +2976,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Cierre",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 2.5,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Documentación actualizada",
               "scope": "Arquitectura, dependencias y operación",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.5,
-                "medium": 3.25,
-                "high": 3.875
+                "fixed": 2.5
               },
               "notes": [
                 "Fase: Cierre",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Documentación actualizada",
-                "Alcance: Arquitectura, dependencias y operación",
+                "Incluye: Arquitectura, dependencias y operación",
                 "Estado de HH: Preliminar"
               ]
             }
@@ -4830,9 +2995,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 14,
             "activities": 14,
             "hours": {
-              "small": 41.875,
-              "medium": 59.83749999999999,
-              "high": 73.90625
+              "fixed": 42.25
             }
           }
         },
@@ -4844,8 +3007,7 @@ export const ismServicesCatalog: PlatformCatalog = {
           "groupLabel": "Mantenimiento y Evolución",
           "sourceSheet": "Catalogo Maestro",
           "unit": "service",
-          "sizeMode": "by-size",
-          "maturity": "03 · Consolidación digital",
+          "sizeMode": "not-applicable",
           "activities": [
             {
               "id": "mnt4-001",
@@ -4857,26 +3019,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Medición",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 1.5,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Métricas objetivo",
               "scope": "Tiempos, volumen y experiencia esperada",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.5,
-                "medium": 1.9500000000000002,
-                "high": 2.325
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Medición",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Métricas objetivo",
-                "Alcance: Tiempos, volumen y experiencia esperada",
+                "Incluye: Tiempos, volumen y experiencia esperada",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -4890,30 +3043,21 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Medición",
               "unitLabel": "Entorno",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2.5,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Línea base",
               "scope": "Medición inicial reproducible antes de realizar cambios.",
               "exclusions": "La comparación final se contabiliza en MNT4-010.",
               "dependencies": [
                 "MNT4-001"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.5,
-                "medium": 3.625,
-                "high": 4.5
+                "fixed": 2.5
               },
               "notes": [
                 "Fase: Medición",
+                "Condición: Base obligatorio",
                 "Unidad: Entorno",
-                "Complejidad: Alta",
-                "Entregable: Línea base",
-                "Alcance: Medición inicial reproducible antes de realizar cambios.",
+                "Incluye: Medición inicial reproducible antes de realizar cambios.",
                 "Exclusiones: La comparación final se contabiliza en MNT4-010.",
                 "Dependencias: MNT4-001",
                 "Estado de HH: Preliminar"
@@ -4929,29 +3073,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Diagnóstico",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2.5,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Hallazgos frontend",
               "scope": "Carga, renderizado, recursos y red",
               "dependencies": [
                 "MNT4-002"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.5,
-                "medium": 3.625,
-                "high": 4.5
+                "fixed": 2.5
               },
               "notes": [
                 "Fase: Diagnóstico",
+                "Condición: Base incluido",
                 "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Hallazgos frontend",
-                "Alcance: Carga, renderizado, recursos y red",
+                "Incluye: Carga, renderizado, recursos y red",
                 "Dependencias: MNT4-002",
                 "Estado de HH: Preliminar"
               ]
@@ -4966,29 +3101,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Diagnóstico",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 3,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Hallazgos backend",
               "scope": "Tiempos, consultas, bloqueos y recursos",
               "dependencies": [
                 "MNT4-002"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 3,
-                "medium": 4.35,
-                "high": 5.4
+                "fixed": 3
               },
               "notes": [
                 "Fase: Diagnóstico",
+                "Condición: Base incluido",
                 "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Hallazgos backend",
-                "Alcance: Tiempos, consultas, bloqueos y recursos",
+                "Incluye: Tiempos, consultas, bloqueos y recursos",
                 "Dependencias: MNT4-002",
                 "Estado de HH: Preliminar"
               ]
@@ -5003,29 +3129,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Optimización",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 3,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Frontend optimizado",
               "scope": "Imágenes, carga diferida y empaquetado",
               "dependencies": [
                 "MNT4-003"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.55,
-                "medium": 3.6975,
-                "high": 4.59
+                "fixed": 3
               },
               "notes": [
                 "Fase: Optimización",
+                "Condición: Base incluido",
                 "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Frontend optimizado",
-                "Alcance: Imágenes, carga diferida y empaquetado",
+                "Incluye: Imágenes, carga diferida y empaquetado",
                 "Dependencias: MNT4-003",
                 "Estado de HH: Preliminar"
               ]
@@ -5040,29 +3157,20 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Optimización",
               "unitLabel": "Consulta",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Consultas optimizadas",
               "scope": "Índices, filtros, caché o reescritura",
               "dependencies": [
                 "MNT4-004"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.5,
-                "medium": 2.175,
-                "high": 2.7
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Optimización",
+                "Condición: Base incluido",
                 "Unidad: Consulta",
-                "Complejidad: Alta",
-                "Entregable: Consultas optimizadas",
-                "Alcance: Índices, filtros, caché o reescritura",
+                "Incluye: Índices, filtros, caché o reescritura",
                 "Dependencias: MNT4-004",
                 "Estado de HH: Preliminar"
               ],
@@ -5085,26 +3193,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Optimización",
               "unitLabel": "Capa",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Caché operativa",
               "scope": "Política, expiración e invalidación",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.25,
-                "medium": 3.2624999999999997,
-                "high": 4.05
+                "fixed": 2.5
               },
               "notes": [
                 "Fase: Optimización",
+                "Condición: Opcional",
                 "Unidad: Capa",
-                "Complejidad: Alta",
-                "Entregable: Caché operativa",
-                "Alcance: Política, expiración e invalidación",
+                "Incluye: Política, expiración e invalidación",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -5118,26 +3217,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Optimización",
               "unitLabel": "Flujo",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Flujo optimizado",
               "scope": "Carga incremental y límites",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.8,
-                "medium": 2.61,
-                "high": 3.24
+                "fixed": 2
               },
               "notes": [
                 "Fase: Optimización",
+                "Condición: Opcional",
                 "Unidad: Flujo",
-                "Complejidad: Alta",
-                "Entregable: Flujo optimizado",
-                "Alcance: Carga incremental y límites",
+                "Incluye: Carga incremental y límites",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -5151,27 +3241,18 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Validación",
               "unitLabel": "Prueba",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 3,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Resultado de carga",
               "scope": "Volumen y concurrencia acordados",
               "exclusions": "Pruebas de estrés masivas",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 3,
-                "medium": 4.35,
-                "high": 5.4
+                "fixed": 3
               },
               "notes": [
                 "Fase: Validación",
+                "Condición: Opcional",
                 "Unidad: Prueba",
-                "Complejidad: Alta",
-                "Entregable: Resultado de carga",
-                "Alcance: Volumen y concurrencia acordados",
+                "Incluye: Volumen y concurrencia acordados",
                 "Exclusiones: Pruebas de estrés masivas",
                 "Estado de HH: Preliminar"
               ]
@@ -5186,30 +3267,21 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Validación",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 2,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Informe comparativo",
               "scope": "Repetición de la medición inicial y comparación documentada de resultados.",
               "exclusions": "No vuelve a incluir la captura inicial de MNT4-002.",
               "dependencies": [
                 "MNT4-002"
               ],
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2,
-                "medium": 2.6,
-                "high": 3.1
+                "fixed": 2
               },
               "notes": [
                 "Fase: Validación",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Informe comparativo",
-                "Alcance: Repetición de la medición inicial y comparación documentada de resultados.",
+                "Incluye: Repetición de la medición inicial y comparación documentada de resultados.",
                 "Exclusiones: No vuelve a incluir la captura inicial de MNT4-002.",
                 "Dependencias: MNT4-002",
                 "Estado de HH: Preliminar"
@@ -5225,26 +3297,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Despliegue",
               "unitLabel": "Entorno",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Cambio estabilizado",
               "scope": "Despliegue, métricas y seguimiento",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2,
-                "medium": 2.9,
-                "high": 3.6
+                "fixed": 2
               },
               "notes": [
                 "Fase: Despliegue",
+                "Condición: Base obligatorio",
                 "Unidad: Entorno",
-                "Complejidad: Alta",
-                "Entregable: Cambio estabilizado",
-                "Alcance: Despliegue, métricas y seguimiento",
+                "Incluye: Despliegue, métricas y seguimiento",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -5258,26 +3321,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Cierre",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Baja",
               "baseHours": 1,
-              "reuseType": "No",
-              "reuseFactor": 1,
-              "deliverable": "Registro técnico",
               "scope": "Cambios, resultados y próximos pasos",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1,
-                "medium": 1.15,
-                "high": 1.3
+                "fixed": 1
               },
               "notes": [
                 "Fase: Cierre",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Baja",
-                "Entregable: Registro técnico",
-                "Alcance: Cambios, resultados y próximos pasos",
+                "Incluye: Cambios, resultados y próximos pasos",
                 "Estado de HH: Preliminar"
               ]
             }
@@ -5286,9 +3340,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 12,
             "activities": 12,
             "hours": {
-              "small": 21.55,
-              "medium": 30.422499999999996,
-              "high": 37.415
+              "fixed": 22
             }
           }
         }
@@ -5313,8 +3365,7 @@ export const ismServicesCatalog: PlatformCatalog = {
           "groupLabel": "Monitoreo y Observabilidad",
           "sourceSheet": "Catalogo Maestro",
           "unit": "service",
-          "sizeMode": "by-size",
-          "maturity": "03 · Consolidación digital",
+          "sizeMode": "not-applicable",
           "activities": [
             {
               "id": "mon1-001",
@@ -5326,26 +3377,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Diagnóstico",
               "unitLabel": "Servicio",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Inventario monitoreable",
               "scope": "URLs, APIs, jobs y dependencias",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.6375,
-                "medium": 0.82875,
-                "high": 0.9881249999999999
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Diagnóstico",
+                "Condición: Base obligatorio",
                 "Unidad: Servicio",
-                "Complejidad: Media",
-                "Entregable: Inventario monitoreable",
-                "Alcance: URLs, APIs, jobs y dependencias",
+                "Incluye: URLs, APIs, jobs y dependencias",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -5367,26 +3409,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Diseño",
               "unitLabel": "Servicio",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Matriz de indicadores",
               "scope": "Estado, latencia, código y contenido esperado",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.6375,
-                "medium": 0.82875,
-                "high": 0.9881249999999999
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Diseño",
+                "Condición: Base obligatorio",
                 "Unidad: Servicio",
-                "Complejidad: Media",
-                "Entregable: Matriz de indicadores",
-                "Alcance: Estado, latencia, código y contenido esperado",
+                "Incluye: Estado, latencia, código y contenido esperado",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -5408,26 +3441,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Configuración",
               "unitLabel": "Servicio",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Chequeos activos",
               "scope": "Frecuencia, timeout y criterio de éxito",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.85,
-                "medium": 1.105,
-                "high": 1.3175
+                "fixed": 1
               },
               "notes": [
                 "Fase: Configuración",
+                "Condición: Base incluido",
                 "Unidad: Servicio",
-                "Complejidad: Media",
-                "Entregable: Chequeos activos",
-                "Alcance: Frecuencia, timeout y criterio de éxito",
+                "Incluye: Frecuencia, timeout y criterio de éxito",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -5449,26 +3473,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Configuración",
               "unitLabel": "Canal",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Alertas operativas",
               "scope": "Umbrales, destinatarios y escalamiento",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.85,
-                "medium": 1.105,
-                "high": 1.3175
+                "fixed": 1
               },
               "notes": [
                 "Fase: Configuración",
+                "Condición: Base incluido",
                 "Unidad: Canal",
-                "Complejidad: Media",
-                "Entregable: Alertas operativas",
-                "Alcance: Umbrales, destinatarios y escalamiento",
+                "Incluye: Umbrales, destinatarios y escalamiento",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -5490,26 +3505,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Configuración",
               "unitLabel": "Servicio",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Baja",
               "baseHours": 0.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Ventanas definidas",
               "scope": "Supresión de alertas planificadas",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.425,
-                "medium": 0.48874999999999996,
-                "high": 0.5525
+                "fixed": 0.5
               },
               "notes": [
                 "Fase: Configuración",
+                "Condición: Opcional",
                 "Unidad: Servicio",
-                "Complejidad: Baja",
-                "Entregable: Ventanas definidas",
-                "Alcance: Supresión de alertas planificadas",
+                "Incluye: Supresión de alertas planificadas",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -5531,26 +3537,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Visualización",
               "unitLabel": "Dashboard",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Dashboard",
               "scope": "Estado, histórico y tendencia",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.125,
-                "medium": 3.08125,
-                "high": 3.825
+                "fixed": 2.5
               },
               "notes": [
                 "Fase: Visualización",
+                "Condición: Base incluido",
                 "Unidad: Dashboard",
-                "Complejidad: Alta",
-                "Entregable: Dashboard",
-                "Alcance: Estado, histórico y tendencia",
+                "Incluye: Estado, histórico y tendencia",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -5564,26 +3561,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Reportes",
               "unitLabel": "Reporte",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Reporte base",
               "scope": "Disponibilidad, eventos y observaciones",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.7,
-                "medium": 2.21,
-                "high": 2.635
+                "fixed": 2
               },
               "notes": [
                 "Fase: Reportes",
+                "Condición: Base incluido",
                 "Unidad: Reporte",
-                "Complejidad: Media",
-                "Entregable: Reporte base",
-                "Alcance: Disponibilidad, eventos y observaciones",
+                "Incluye: Disponibilidad, eventos y observaciones",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -5597,26 +3585,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Caso",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Prueba de alertamiento",
               "scope": "Detección, notificación y recuperación",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.85,
-                "medium": 1.2325,
-                "high": 1.53
+                "fixed": 1
               },
               "notes": [
                 "Fase: Calidad",
+                "Condición: Base obligatorio",
                 "Unidad: Caso",
-                "Complejidad: Alta",
-                "Entregable: Prueba de alertamiento",
-                "Alcance: Detección, notificación y recuperación",
+                "Incluye: Detección, notificación y recuperación",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -5638,26 +3617,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Operación",
               "unitLabel": "Documento",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Runbook",
               "scope": "Validación, escalamiento y comunicación",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.275,
-                "medium": 1.6575,
-                "high": 1.9762499999999998
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Operación",
+                "Condición: Base obligatorio",
                 "Unidad: Documento",
-                "Complejidad: Media",
-                "Entregable: Runbook",
-                "Alcance: Validación, escalamiento y comunicación",
+                "Incluye: Validación, escalamiento y comunicación",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -5671,26 +3641,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Despliegue",
               "unitLabel": "Entorno",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Monitoreo estabilizado",
               "scope": "Activación, observación y ajustes",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.275,
-                "medium": 1.84875,
-                "high": 2.295
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Despliegue",
+                "Condición: Base obligatorio",
                 "Unidad: Entorno",
-                "Complejidad: Alta",
-                "Entregable: Monitoreo estabilizado",
-                "Alcance: Activación, observación y ajustes",
+                "Incluye: Activación, observación y ajustes",
                 "Estado de HH: Preliminar"
               ]
             }
@@ -5699,9 +3660,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 10,
             "activities": 10,
             "hours": {
-              "small": 16.15,
-              "medium": 21.759999999999998,
-              "high": 26.307499999999997
+              "fixed": 19
             }
           }
         },
@@ -5713,8 +3672,7 @@ export const ismServicesCatalog: PlatformCatalog = {
           "groupLabel": "Monitoreo y Observabilidad",
           "sourceSheet": "Catalogo Maestro",
           "unit": "service",
-          "sizeMode": "by-size",
-          "maturity": "03 · Consolidación digital",
+          "sizeMode": "not-applicable",
           "activities": [
             {
               "id": "mon2-001",
@@ -5726,26 +3684,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Diagnóstico",
               "unitLabel": "Fuente",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Inventario de logs",
               "scope": "Aplicación, servidor, base de datos y servicios",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.6375,
-                "medium": 0.82875,
-                "high": 0.9881249999999999
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Diagnóstico",
+                "Condición: Base obligatorio",
                 "Unidad: Fuente",
-                "Complejidad: Media",
-                "Entregable: Inventario de logs",
-                "Alcance: Aplicación, servidor, base de datos y servicios",
+                "Incluye: Aplicación, servidor, base de datos y servicios",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -5767,26 +3716,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Diseño",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Esquema de logs",
               "scope": "Nivel, fecha, usuario, correlación y contexto",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.7,
-                "medium": 2.465,
-                "high": 3.06
+                "fixed": 2
               },
               "notes": [
                 "Fase: Diseño",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Esquema de logs",
-                "Alcance: Nivel, fecha, usuario, correlación y contexto",
+                "Incluye: Nivel, fecha, usuario, correlación y contexto",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -5800,26 +3740,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Implementación",
               "unitLabel": "Fuente",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Fuentes conectadas",
               "scope": "Agente, librería o integración",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.275,
-                "medium": 1.84875,
-                "high": 2.295
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Implementación",
+                "Condición: Base incluido",
                 "Unidad: Fuente",
-                "Complejidad: Alta",
-                "Entregable: Fuentes conectadas",
-                "Alcance: Agente, librería o integración",
+                "Incluye: Agente, librería o integración",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -5841,26 +3772,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Implementación",
               "unitLabel": "Fuente",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Logs normalizados",
               "scope": "Campos, formatos y errores",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.85,
-                "medium": 1.2325,
-                "high": 1.53
+                "fixed": 1
               },
               "notes": [
                 "Fase: Implementación",
+                "Condición: Base incluido",
                 "Unidad: Fuente",
-                "Complejidad: Alta",
-                "Entregable: Logs normalizados",
-                "Alcance: Campos, formatos y errores",
+                "Incluye: Campos, formatos y errores",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -5882,26 +3804,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Trazabilidad",
               "unitLabel": "Flujo",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Trazas correlacionadas",
               "scope": "Seguimiento entre componentes",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.275,
-                "medium": 1.84875,
-                "high": 2.295
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Trazabilidad",
+                "Condición: Opcional",
                 "Unidad: Flujo",
-                "Complejidad: Alta",
-                "Entregable: Trazas correlacionadas",
-                "Alcance: Seguimiento entre componentes",
+                "Incluye: Seguimiento entre componentes",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -5923,26 +3836,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Retención",
               "unitLabel": "Entorno",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Política aplicada",
               "scope": "Periodo, volumen y eliminación",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.275,
-                "medium": 1.6575,
-                "high": 1.9762499999999998
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Retención",
+                "Condición: Base obligatorio",
                 "Unidad: Entorno",
-                "Complejidad: Media",
-                "Entregable: Política aplicada",
-                "Alcance: Periodo, volumen y eliminación",
+                "Incluye: Periodo, volumen y eliminación",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -5956,26 +3860,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Visualización",
               "unitLabel": "Dashboard",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 3,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Dashboard de logs",
               "scope": "Errores, niveles y tendencias",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.55,
-                "medium": 3.6975,
-                "high": 4.59
+                "fixed": 3
               },
               "notes": [
                 "Fase: Visualización",
+                "Condición: Base incluido",
                 "Unidad: Dashboard",
-                "Complejidad: Alta",
-                "Entregable: Dashboard de logs",
-                "Alcance: Errores, niveles y tendencias",
+                "Incluye: Errores, niveles y tendencias",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -5989,26 +3884,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Alertas",
               "unitLabel": "Regla",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Reglas de alerta",
               "scope": "Patrones, frecuencia y severidad",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.85,
-                "medium": 1.2325,
-                "high": 1.53
+                "fixed": 1
               },
               "notes": [
                 "Fase: Alertas",
+                "Condición: Base incluido",
                 "Unidad: Regla",
-                "Complejidad: Alta",
-                "Entregable: Reglas de alerta",
-                "Alcance: Patrones, frecuencia y severidad",
+                "Incluye: Patrones, frecuencia y severidad",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -6030,26 +3916,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Caso",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Pruebas de logs",
               "scope": "Generación, recepción y consulta",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.6375,
-                "medium": 0.82875,
-                "high": 0.9881249999999999
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Calidad",
+                "Condición: Base obligatorio",
                 "Unidad: Caso",
-                "Complejidad: Media",
-                "Entregable: Pruebas de logs",
-                "Alcance: Generación, recepción y consulta",
+                "Incluye: Generación, recepción y consulta",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -6071,26 +3948,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Operación",
               "unitLabel": "Documento",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Runbook",
               "scope": "Búsquedas, filtros y escalamiento",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.275,
-                "medium": 1.6575,
-                "high": 1.9762499999999998
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Operación",
+                "Condición: Base obligatorio",
                 "Unidad: Documento",
-                "Complejidad: Media",
-                "Entregable: Runbook",
-                "Alcance: Búsquedas, filtros y escalamiento",
+                "Incluye: Búsquedas, filtros y escalamiento",
                 "Estado de HH: Preliminar"
               ]
             }
@@ -6099,9 +3967,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 10,
             "activities": 10,
             "hours": {
-              "small": 22.95,
-              "medium": 32.129999999999995,
-              "high": 39.3975
+              "fixed": 27
             }
           }
         },
@@ -6113,8 +3979,7 @@ export const ismServicesCatalog: PlatformCatalog = {
           "groupLabel": "Monitoreo y Observabilidad",
           "sourceSheet": "Catalogo Maestro",
           "unit": "service",
-          "sizeMode": "by-size",
-          "maturity": "03 · Consolidación digital",
+          "sizeMode": "not-applicable",
           "activities": [
             {
               "id": "mon3-001",
@@ -6126,26 +3991,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Diagnóstico",
               "unitLabel": "Métrica",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Catálogo de métricas",
               "scope": "CPU, memoria, latencia, errores y volumen",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.425,
-                "medium": 0.5525,
-                "high": 0.65875
+                "fixed": 0.5
               },
               "notes": [
                 "Fase: Diagnóstico",
+                "Condición: Base obligatorio",
                 "Unidad: Métrica",
-                "Complejidad: Media",
-                "Entregable: Catálogo de métricas",
-                "Alcance: CPU, memoria, latencia, errores y volumen",
+                "Incluye: CPU, memoria, latencia, errores y volumen",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -6167,26 +4023,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Instrumentación",
               "unitLabel": "Métrica",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Métricas emitidas",
               "scope": "Código, etiquetas y frecuencia",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.275,
-                "medium": 1.84875,
-                "high": 2.295
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Instrumentación",
+                "Condición: Base incluido",
                 "Unidad: Métrica",
-                "Complejidad: Alta",
-                "Entregable: Métricas emitidas",
-                "Alcance: Código, etiquetas y frecuencia",
+                "Incluye: Código, etiquetas y frecuencia",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -6208,26 +4055,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Infraestructura",
               "unitLabel": "Host",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Hosts monitoreados",
               "scope": "Agente, permisos y conectividad",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.275,
-                "medium": 1.84875,
-                "high": 2.295
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Infraestructura",
+                "Condición: Base incluido",
                 "Unidad: Host",
-                "Complejidad: Alta",
-                "Entregable: Hosts monitoreados",
-                "Alcance: Agente, permisos y conectividad",
+                "Incluye: Agente, permisos y conectividad",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -6249,26 +4087,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Visualización",
               "unitLabel": "Dashboard",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 3,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Dashboard operacional",
               "scope": "Salud, capacidad y rendimiento",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.55,
-                "medium": 3.6975,
-                "high": 4.59
+                "fixed": 3
               },
               "notes": [
                 "Fase: Visualización",
+                "Condición: Base incluido",
                 "Unidad: Dashboard",
-                "Complejidad: Alta",
-                "Entregable: Dashboard operacional",
-                "Alcance: Salud, capacidad y rendimiento",
+                "Incluye: Salud, capacidad y rendimiento",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -6282,26 +4111,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Alertas",
               "unitLabel": "Métrica",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Alertas de rendimiento",
               "scope": "Umbral, duración y severidad",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.6375,
-                "medium": 0.924375,
-                "high": 1.1475
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Alertas",
+                "Condición: Base incluido",
                 "Unidad: Métrica",
-                "Complejidad: Alta",
-                "Entregable: Alertas de rendimiento",
-                "Alcance: Umbral, duración y severidad",
+                "Incluye: Umbral, duración y severidad",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -6323,26 +4143,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Capacidad",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Informe de capacidad",
               "scope": "Consumo, tendencia y proyección",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.125,
-                "medium": 3.08125,
-                "high": 3.825
+                "fixed": 2.5
               },
               "notes": [
                 "Fase: Capacidad",
+                "Condición: Opcional",
                 "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Informe de capacidad",
-                "Alcance: Consumo, tendencia y proyección",
+                "Incluye: Consumo, tendencia y proyección",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -6356,26 +4167,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Experiencia",
               "unitLabel": "Flujo",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Métrica de negocio",
               "scope": "Tiempo y resultado de transacción",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.275,
-                "medium": 1.84875,
-                "high": 2.295
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Experiencia",
+                "Condición: Opcional",
                 "Unidad: Flujo",
-                "Complejidad: Alta",
-                "Entregable: Métrica de negocio",
-                "Alcance: Tiempo y resultado de transacción",
+                "Incluye: Tiempo y resultado de transacción",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -6397,26 +4199,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Caso",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Pruebas de alertas",
               "scope": "Generación y recepción",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.6375,
-                "medium": 0.82875,
-                "high": 0.9881249999999999
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Calidad",
+                "Condición: Base obligatorio",
                 "Unidad: Caso",
-                "Complejidad: Media",
-                "Entregable: Pruebas de alertas",
-                "Alcance: Generación y recepción",
+                "Incluye: Generación y recepción",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -6438,26 +4231,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Reportes",
               "unitLabel": "Reporte",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Reporte de rendimiento",
               "scope": "Indicadores, eventos y recomendaciones",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.7,
-                "medium": 2.21,
-                "high": 2.635
+                "fixed": 2
               },
               "notes": [
                 "Fase: Reportes",
+                "Condición: Base incluido",
                 "Unidad: Reporte",
-                "Complejidad: Media",
-                "Entregable: Reporte de rendimiento",
-                "Alcance: Indicadores, eventos y recomendaciones",
+                "Incluye: Indicadores, eventos y recomendaciones",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -6471,26 +4255,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Operación",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.85,
-              "deliverable": "Guía operativa",
               "scope": "Dashboards, alertas y mantenimiento",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.275,
-                "medium": 1.6575,
-                "high": 1.9762499999999998
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Operación",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Guía operativa",
-                "Alcance: Dashboards, alertas y mantenimiento",
+                "Incluye: Dashboards, alertas y mantenimiento",
                 "Estado de HH: Preliminar"
               ]
             }
@@ -6499,9 +4274,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 10,
             "activities": 10,
             "hours": {
-              "small": 21.4625,
-              "medium": 29.909374999999997,
-              "high": 36.613749999999996
+              "fixed": 25.25
             }
           }
         }
@@ -6526,8 +4299,7 @@ export const ismServicesCatalog: PlatformCatalog = {
           "groupLabel": "Respaldo y Continuidad",
           "sourceSheet": "Catalogo Maestro",
           "unit": "service",
-          "sizeMode": "by-size",
-          "maturity": "03 · Consolidación digital",
+          "sizeMode": "not-applicable",
           "activities": [
             {
               "id": "bcp1-001",
@@ -6539,26 +4311,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Diagnóstico",
               "unitLabel": "Activo",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Inventario de respaldo",
               "scope": "Sistemas, datos, propietarios y criticidad",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.66,
-                "medium": 0.8580000000000001,
-                "high": 1.0230000000000001
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Diagnóstico",
+                "Condición: Base obligatorio",
                 "Unidad: Activo",
-                "Complejidad: Media",
-                "Entregable: Inventario de respaldo",
-                "Alcance: Sistemas, datos, propietarios y criticidad",
+                "Incluye: Sistemas, datos, propietarios y criticidad",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -6580,27 +4343,18 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Diseño",
               "unitLabel": "Servicio",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Objetivos de recuperación",
               "scope": "Validación básica de objetivos necesarios para definir frecuencia y restauración del respaldo.",
               "exclusions": "Si se incluye BCP-02, reutilizar la definición formal de BCP2-003 y no duplicar este esfuerzo.",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.88,
-                "medium": 1.276,
-                "high": 1.584
+                "fixed": 1
               },
               "notes": [
                 "Fase: Diseño",
+                "Condición: Base obligatorio",
                 "Unidad: Servicio",
-                "Complejidad: Alta",
-                "Entregable: Objetivos de recuperación",
-                "Alcance: Validación básica de objetivos necesarios para definir frecuencia y restauración del respaldo.",
+                "Incluye: Validación básica de objetivos necesarios para definir frecuencia y restauración del respaldo.",
                 "Exclusiones: Si se incluye BCP-02, reutilizar la definición formal de BCP2-003 y no duplicar este esfuerzo.",
                 "Estado de HH: Preliminar"
               ],
@@ -6623,26 +4377,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Diseño",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Política de respaldo",
               "scope": "Frecuencia, retención, cifrado y ubicación",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.76,
-                "medium": 2.552,
-                "high": 3.168
+                "fixed": 2
               },
               "notes": [
                 "Fase: Diseño",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Política de respaldo",
-                "Alcance: Frecuencia, retención, cifrado y ubicación",
+                "Incluye: Frecuencia, retención, cifrado y ubicación",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -6656,26 +4401,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Implementación",
               "unitLabel": "Job",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Jobs configurados",
               "scope": "Origen, destino, horario y retención",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.32,
-                "medium": 1.914,
-                "high": 2.3760000000000003
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Implementación",
+                "Condición: Base incluido",
                 "Unidad: Job",
-                "Complejidad: Alta",
-                "Entregable: Jobs configurados",
-                "Alcance: Origen, destino, horario y retención",
+                "Incluye: Origen, destino, horario y retención",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -6697,26 +4433,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Implementación",
               "unitLabel": "Entorno",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Respaldo protegido",
               "scope": "Claves, permisos y acceso restringido",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.32,
-                "medium": 1.914,
-                "high": 2.3760000000000003
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Implementación",
+                "Condición: Base incluido",
                 "Unidad: Entorno",
-                "Complejidad: Alta",
-                "Entregable: Respaldo protegido",
-                "Alcance: Claves, permisos y acceso restringido",
+                "Incluye: Claves, permisos y acceso restringido",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -6730,26 +4457,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Implementación",
               "unitLabel": "Destino",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Copia externa",
               "scope": "Transferencia, validación y retención",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.76,
-                "medium": 2.552,
-                "high": 3.168
+                "fixed": 2
               },
               "notes": [
                 "Fase: Implementación",
+                "Condición: Opcional",
                 "Unidad: Destino",
-                "Complejidad: Alta",
-                "Entregable: Copia externa",
-                "Alcance: Transferencia, validación y retención",
+                "Incluye: Transferencia, validación y retención",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -6763,26 +4481,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Validación",
               "unitLabel": "Job",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Jobs validados",
               "scope": "Ejecución, duración y resultado",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.66,
-                "medium": 0.8580000000000001,
-                "high": 1.0230000000000001
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Validación",
+                "Condición: Base obligatorio",
                 "Unidad: Job",
-                "Complejidad: Media",
-                "Entregable: Jobs validados",
-                "Alcance: Ejecución, duración y resultado",
+                "Incluye: Ejecución, duración y resultado",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -6804,26 +4513,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Restauración",
               "unitLabel": "Activo",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Restauración probada",
               "scope": "Recuperación y validación de integridad",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.76,
-                "medium": 2.552,
-                "high": 3.168
+                "fixed": 2
               },
               "notes": [
                 "Fase: Restauración",
+                "Condición: Base obligatorio",
                 "Unidad: Activo",
-                "Complejidad: Alta",
-                "Entregable: Restauración probada",
-                "Alcance: Recuperación y validación de integridad",
+                "Incluye: Recuperación y validación de integridad",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -6845,26 +4545,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Alertas",
               "unitLabel": "Canal",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Alertas activas",
               "scope": "Fallo, retraso o ausencia de respaldo",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.66,
-                "medium": 0.8580000000000001,
-                "high": 1.0230000000000001
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Alertas",
+                "Condición: Base incluido",
                 "Unidad: Canal",
-                "Complejidad: Media",
-                "Entregable: Alertas activas",
-                "Alcance: Fallo, retraso o ausencia de respaldo",
+                "Incluye: Fallo, retraso o ausencia de respaldo",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -6886,27 +4577,18 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Operación",
               "unitLabel": "Documento",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Runbook",
               "scope": "Procedimiento operativo del job, validación, alertas y restauración del respaldo.",
               "exclusions": "No reemplaza el procedimiento integral de recuperación ante desastres de BCP2-005.",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.76,
-                "medium": 2.2880000000000003,
-                "high": 2.728
+                "fixed": 2
               },
               "notes": [
                 "Fase: Operación",
+                "Condición: Base obligatorio",
                 "Unidad: Documento",
-                "Complejidad: Media",
-                "Entregable: Runbook",
-                "Alcance: Procedimiento operativo del job, validación, alertas y restauración del respaldo.",
+                "Incluye: Procedimiento operativo del job, validación, alertas y restauración del respaldo.",
                 "Exclusiones: No reemplaza el procedimiento integral de recuperación ante desastres de BCP2-005.",
                 "Estado de HH: Preliminar"
               ]
@@ -6916,9 +4598,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 10,
             "activities": 10,
             "hours": {
-              "small": 20.900000000000002,
-              "medium": 29.150000000000006,
-              "high": 35.695
+              "fixed": 23.75
             }
           }
         },
@@ -6930,8 +4610,7 @@ export const ismServicesCatalog: PlatformCatalog = {
           "groupLabel": "Respaldo y Continuidad",
           "sourceSheet": "Catalogo Maestro",
           "unit": "service",
-          "sizeMode": "by-size",
-          "maturity": "03 · Consolidación digital",
+          "sizeMode": "not-applicable",
           "activities": [
             {
               "id": "bcp2-001",
@@ -6943,26 +4622,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Análisis",
               "unitLabel": "Proceso",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1.25,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Matriz BIA",
               "scope": "Criticidad, dependencia e impacto",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.1,
-                "medium": 1.595,
-                "high": 1.9800000000000002
+                "fixed": 1.25
               },
               "notes": [
                 "Fase: Análisis",
+                "Condición: Base obligatorio",
                 "Unidad: Proceso",
-                "Complejidad: Alta",
-                "Entregable: Matriz BIA",
-                "Alcance: Criticidad, dependencia e impacto",
+                "Incluye: Criticidad, dependencia e impacto",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -6984,26 +4654,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Análisis",
               "unitLabel": "Servicio",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Mapa de dependencias",
               "scope": "Infraestructura, datos, terceros y personas",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.66,
-                "medium": 0.8580000000000001,
-                "high": 1.0230000000000001
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Análisis",
+                "Condición: Base obligatorio",
                 "Unidad: Servicio",
-                "Complejidad: Media",
-                "Entregable: Mapa de dependencias",
-                "Alcance: Infraestructura, datos, terceros y personas",
+                "Incluye: Infraestructura, datos, terceros y personas",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -7025,27 +4686,18 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Objetivos",
               "unitLabel": "Servicio",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Objetivos DR",
               "scope": "Objetivos aprobados por servicio crítico, alineados con impacto, dependencias y estrategia de recuperación.",
               "exclusions": "Sustituye la definición básica de BCP1-002 cuando ambos servicios forman parte de la misma propuesta.",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.88,
-                "medium": 1.276,
-                "high": 1.584
+                "fixed": 1
               },
               "notes": [
                 "Fase: Objetivos",
+                "Condición: Base obligatorio",
                 "Unidad: Servicio",
-                "Complejidad: Alta",
-                "Entregable: Objetivos DR",
-                "Alcance: Objetivos aprobados por servicio crítico, alineados con impacto, dependencias y estrategia de recuperación.",
+                "Incluye: Objetivos aprobados por servicio crítico, alineados con impacto, dependencias y estrategia de recuperación.",
                 "Exclusiones: Sustituye la definición básica de BCP1-002 cuando ambos servicios forman parte de la misma propuesta.",
                 "Estado de HH: Preliminar"
               ],
@@ -7068,26 +4720,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Estrategia",
               "unitLabel": "Servicio",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Estrategia DR",
               "scope": "Sitio, restauración, prioridades y secuencia",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.76,
-                "medium": 2.552,
-                "high": 3.168
+                "fixed": 2
               },
               "notes": [
                 "Fase: Estrategia",
+                "Condición: Base obligatorio",
                 "Unidad: Servicio",
-                "Complejidad: Alta",
-                "Entregable: Estrategia DR",
-                "Alcance: Sitio, restauración, prioridades y secuencia",
+                "Incluye: Sitio, restauración, prioridades y secuencia",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -7109,27 +4752,18 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Procedimientos",
               "unitLabel": "Servicio",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Procedimientos",
               "scope": "Secuencia integral para recuperar servicios, dependencias, datos y responsables después de un desastre.",
               "exclusions": "No duplica el procedimiento operativo del job de respaldo documentado en BCP1-010.",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.2,
-                "medium": 3.19,
-                "high": 3.9600000000000004
+                "fixed": 2.5
               },
               "notes": [
                 "Fase: Procedimientos",
+                "Condición: Base incluido",
                 "Unidad: Servicio",
-                "Complejidad: Alta",
-                "Entregable: Procedimientos",
-                "Alcance: Secuencia integral para recuperar servicios, dependencias, datos y responsables después de un desastre.",
+                "Incluye: Secuencia integral para recuperar servicios, dependencias, datos y responsables después de un desastre.",
                 "Exclusiones: No duplica el procedimiento operativo del job de respaldo documentado en BCP1-010.",
                 "Estado de HH: Preliminar"
               ],
@@ -7152,26 +4786,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Comunicación",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Plan de comunicación",
               "scope": "Contactos, severidad y mensajes",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.32,
-                "medium": 1.7160000000000002,
-                "high": 2.0460000000000003
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Comunicación",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Plan de comunicación",
-                "Alcance: Contactos, severidad y mensajes",
+                "Incluye: Contactos, severidad y mensajes",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -7185,26 +4810,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Pruebas",
               "unitLabel": "Escenario",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Guion de prueba",
               "scope": "Alcance, éxito y riesgos",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.76,
-                "medium": 2.552,
-                "high": 3.168
+                "fixed": 2
               },
               "notes": [
                 "Fase: Pruebas",
+                "Condición: Base obligatorio",
                 "Unidad: Escenario",
-                "Complejidad: Alta",
-                "Entregable: Guion de prueba",
-                "Alcance: Alcance, éxito y riesgos",
+                "Incluye: Alcance, éxito y riesgos",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -7218,26 +4834,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Pruebas",
               "unitLabel": "Ejercicio",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 4,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Ejercicio ejecutado",
               "scope": "Tiempos, decisiones y evidencias",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 3.52,
-                "medium": 5.104,
-                "high": 6.336
+                "fixed": 4
               },
               "notes": [
                 "Fase: Pruebas",
+                "Condición: Base obligatorio",
                 "Unidad: Ejercicio",
-                "Complejidad: Alta",
-                "Entregable: Ejercicio ejecutado",
-                "Alcance: Tiempos, decisiones y evidencias",
+                "Incluye: Tiempos, decisiones y evidencias",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -7251,26 +4858,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Mejora",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Plan de mejora",
               "scope": "Hallazgos, responsables y fechas",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.76,
-                "medium": 2.2880000000000003,
-                "high": 2.728
+                "fixed": 2
               },
               "notes": [
                 "Fase: Mejora",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Plan de mejora",
-                "Alcance: Hallazgos, responsables y fechas",
+                "Incluye: Hallazgos, responsables y fechas",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -7284,26 +4882,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Operación",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Baja",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Calendario DR",
               "scope": "Periodicidad y responsables",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.88,
-                "medium": 1.012,
-                "high": 1.1440000000000001
+                "fixed": 1
               },
               "notes": [
                 "Fase: Operación",
+                "Condición: Base incluido",
                 "Unidad: Proyecto",
-                "Complejidad: Baja",
-                "Entregable: Calendario DR",
-                "Alcance: Periodicidad y responsables",
+                "Incluye: Periodicidad y responsables",
                 "Estado de HH: Preliminar"
               ]
             }
@@ -7312,9 +4901,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 10,
             "activities": 10,
             "hours": {
-              "small": 31.680000000000003,
-              "medium": 44.81400000000001,
-              "high": 55.153999999999996
+              "fixed": 36
             }
           }
         },
@@ -7326,8 +4913,7 @@ export const ismServicesCatalog: PlatformCatalog = {
           "groupLabel": "Respaldo y Continuidad",
           "sourceSheet": "Catalogo Maestro",
           "unit": "service",
-          "sizeMode": "by-size",
-          "maturity": "03 · Consolidación digital",
+          "sizeMode": "not-applicable",
           "activities": [
             {
               "id": "bcp3-001",
@@ -7339,26 +4925,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Diagnóstico",
               "unitLabel": "Fuente",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Inventario clasificado",
               "scope": "Tipo, criticidad y propietario",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.66,
-                "medium": 0.8580000000000001,
-                "high": 1.0230000000000001
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Diagnóstico",
+                "Condición: Base obligatorio",
                 "Unidad: Fuente",
-                "Complejidad: Media",
-                "Entregable: Inventario clasificado",
-                "Alcance: Tipo, criticidad y propietario",
+                "Incluye: Tipo, criticidad y propietario",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -7380,26 +4957,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Requisitos",
               "unitLabel": "Categoría",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Matriz de requisitos",
               "scope": "Necesidades contractuales y operativas",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.88,
-                "medium": 1.276,
-                "high": 1.584
+                "fixed": 1
               },
               "notes": [
                 "Fase: Requisitos",
+                "Condición: Base obligatorio",
                 "Unidad: Categoría",
-                "Complejidad: Alta",
-                "Entregable: Matriz de requisitos",
-                "Alcance: Necesidades contractuales y operativas",
+                "Incluye: Necesidades contractuales y operativas",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -7421,26 +4989,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Diseño",
               "unitLabel": "Categoría",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Matriz de retención",
               "scope": "Periodo, evento inicial y disposición",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.88,
-                "medium": 1.276,
-                "high": 1.584
+                "fixed": 1
               },
               "notes": [
                 "Fase: Diseño",
+                "Condición: Base obligatorio",
                 "Unidad: Categoría",
-                "Complejidad: Alta",
-                "Entregable: Matriz de retención",
-                "Alcance: Periodo, evento inicial y disposición",
+                "Incluye: Periodo, evento inicial y disposición",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -7462,26 +5021,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Implementación",
               "unitLabel": "Sistema",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Políticas aplicadas",
               "scope": "Archivado, conservación y eliminación",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.76,
-                "medium": 2.552,
-                "high": 3.168
+                "fixed": 2
               },
               "notes": [
                 "Fase: Implementación",
+                "Condición: Base incluido",
                 "Unidad: Sistema",
-                "Complejidad: Alta",
-                "Entregable: Políticas aplicadas",
-                "Alcance: Archivado, conservación y eliminación",
+                "Incluye: Archivado, conservación y eliminación",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -7503,26 +5053,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Implementación",
               "unitLabel": "Destino",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Archivo operativo",
               "scope": "Ubicación, acceso y costos",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.76,
-                "medium": 2.552,
-                "high": 3.168
+                "fixed": 2
               },
               "notes": [
                 "Fase: Implementación",
+                "Condición: Opcional",
                 "Unidad: Destino",
-                "Complejidad: Alta",
-                "Entregable: Archivo operativo",
-                "Alcance: Ubicación, acceso y costos",
+                "Incluye: Ubicación, acceso y costos",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -7536,26 +5077,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Control",
               "unitLabel": "Caso",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Excepciones registradas",
               "scope": "Litigio, auditoría o necesidad especial",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.66,
-                "medium": 0.8580000000000001,
-                "high": 1.0230000000000001
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Control",
+                "Condición: Base incluido",
                 "Unidad: Caso",
-                "Complejidad: Media",
-                "Entregable: Excepciones registradas",
-                "Alcance: Litigio, auditoría o necesidad especial",
+                "Incluye: Litigio, auditoría o necesidad especial",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -7577,26 +5109,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Validación",
               "unitLabel": "Caso",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Política validada",
               "scope": "Conservación, archivo y eliminación",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.88,
-                "medium": 1.276,
-                "high": 1.584
+                "fixed": 1
               },
               "notes": [
                 "Fase: Validación",
+                "Condición: Base obligatorio",
                 "Unidad: Caso",
-                "Complejidad: Alta",
-                "Entregable: Política validada",
-                "Alcance: Conservación, archivo y eliminación",
+                "Incluye: Conservación, archivo y eliminación",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -7618,26 +5141,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Gobierno",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Responsables definidos",
               "scope": "Propietario, aprobador y periodicidad",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.88,
-                "medium": 1.1440000000000001,
-                "high": 1.364
+                "fixed": 1
               },
               "notes": [
                 "Fase: Gobierno",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Responsables definidos",
-                "Alcance: Propietario, aprobador y periodicidad",
+                "Incluye: Propietario, aprobador y periodicidad",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -7651,26 +5165,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Cierre",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Documento de retención",
               "scope": "Matriz, reglas y operación",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.32,
-                "medium": 1.7160000000000002,
-                "high": 2.0460000000000003
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Cierre",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Documento de retención",
-                "Alcance: Matriz, reglas y operación",
+                "Incluye: Matriz, reglas y operación",
                 "Estado de HH: Preliminar"
               ]
             }
@@ -7679,9 +5184,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 9,
             "activities": 9,
             "hours": {
-              "small": 20.68,
-              "medium": 28.864000000000004,
-              "high": 35.35399999999999
+              "fixed": 23.5
             }
           }
         }
@@ -7706,8 +5209,7 @@ export const ismServicesCatalog: PlatformCatalog = {
           "groupLabel": "Ciberseguridad",
           "sourceSheet": "Catalogo Maestro",
           "unit": "service",
-          "sizeMode": "by-size",
-          "maturity": "03 · Consolidación digital",
+          "sizeMode": "not-applicable",
           "activities": [
             {
               "id": "sec1-001",
@@ -7719,26 +5221,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Diagnóstico",
               "unitLabel": "Activo",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Inventario de seguridad",
               "scope": "Sistemas, aplicaciones, bases y servicios",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.675,
-                "medium": 0.8775000000000001,
-                "high": 1.0462500000000001
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Diagnóstico",
+                "Condición: Base obligatorio",
                 "Unidad: Activo",
-                "Complejidad: Media",
-                "Entregable: Inventario de seguridad",
-                "Alcance: Sistemas, aplicaciones, bases y servicios",
+                "Incluye: Sistemas, aplicaciones, bases y servicios",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -7760,26 +5253,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Diagnóstico",
               "unitLabel": "Entorno",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Línea base",
               "scope": "Configuraciones, puertos, cuentas y políticas",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.35,
-                "medium": 1.9575,
-                "high": 2.43
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Diagnóstico",
+                "Condición: Base obligatorio",
                 "Unidad: Entorno",
-                "Complejidad: Alta",
-                "Entregable: Línea base",
-                "Alcance: Configuraciones, puertos, cuentas y políticas",
+                "Incluye: Configuraciones, puertos, cuentas y políticas",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -7801,26 +5285,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Accesos",
               "unitLabel": "Cuenta",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 0.25,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Matriz de cuentas",
               "scope": "Cuentas activas, privilegios y propietarios",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.225,
-                "medium": 0.32625,
-                "high": 0.405
+                "fixed": 0.25
               },
               "notes": [
                 "Fase: Accesos",
+                "Condición: Base obligatorio",
                 "Unidad: Cuenta",
-                "Complejidad: Alta",
-                "Entregable: Matriz de cuentas",
-                "Alcance: Cuentas activas, privilegios y propietarios",
+                "Incluye: Cuentas activas, privilegios y propietarios",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -7842,26 +5317,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Accesos",
               "unitLabel": "Cuenta",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.25,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Cuentas regularizadas",
               "scope": "Cuentas por defecto, huérfanas o excesivas",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.225,
-                "medium": 0.29250000000000004,
-                "high": 0.34875
+                "fixed": 0.25
               },
               "notes": [
                 "Fase: Accesos",
+                "Condición: Base incluido",
                 "Unidad: Cuenta",
-                "Complejidad: Media",
-                "Entregable: Cuentas regularizadas",
-                "Alcance: Cuentas por defecto, huérfanas o excesivas",
+                "Incluye: Cuentas por defecto, huérfanas o excesivas",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -7883,26 +5349,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Configuración",
               "unitLabel": "Entorno",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 4,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "SO endurecido",
               "scope": "Servicios, políticas, permisos y auditoría",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 3.6,
-                "medium": 5.22,
-                "high": 6.48
+                "fixed": 4
               },
               "notes": [
                 "Fase: Configuración",
+                "Condición: Base incluido",
                 "Unidad: Entorno",
-                "Complejidad: Alta",
-                "Entregable: SO endurecido",
-                "Alcance: Servicios, políticas, permisos y auditoría",
+                "Incluye: Servicios, políticas, permisos y auditoría",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -7916,26 +5373,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Configuración",
               "unitLabel": "Aplicación",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 3,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Aplicación endurecida",
               "scope": "Cabeceras, configuración, secretos y errores",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.7,
-                "medium": 3.915,
-                "high": 4.86
+                "fixed": 3
               },
               "notes": [
                 "Fase: Configuración",
+                "Condición: Opcional",
                 "Unidad: Aplicación",
-                "Complejidad: Alta",
-                "Entregable: Aplicación endurecida",
-                "Alcance: Cabeceras, configuración, secretos y errores",
+                "Incluye: Cabeceras, configuración, secretos y errores",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -7949,26 +5397,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Configuración",
               "unitLabel": "Base de datos",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 3,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "BD endurecida",
               "scope": "Usuarios, red, cifrado y auditoría",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.7,
-                "medium": 3.915,
-                "high": 4.86
+                "fixed": 3
               },
               "notes": [
                 "Fase: Configuración",
+                "Condición: Opcional",
                 "Unidad: Base de datos",
-                "Complejidad: Alta",
-                "Entregable: BD endurecida",
-                "Alcance: Usuarios, red, cifrado y auditoría",
+                "Incluye: Usuarios, red, cifrado y auditoría",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -7982,26 +5421,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Red",
               "unitLabel": "Entorno",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Superficie reducida",
               "scope": "Puertos, protocolos y servicios",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.35,
-                "medium": 1.9575,
-                "high": 2.43
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Red",
+                "Condición: Base incluido",
                 "Unidad: Entorno",
-                "Complejidad: Alta",
-                "Entregable: Superficie reducida",
-                "Alcance: Puertos, protocolos y servicios",
+                "Incluye: Puertos, protocolos y servicios",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -8015,26 +5445,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Criptografía",
               "unitLabel": "Entorno",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Cifrado validado",
               "scope": "TLS, algoritmos y configuración",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.35,
-                "medium": 1.9575,
-                "high": 2.43
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Criptografía",
+                "Condición: Base incluido",
                 "Unidad: Entorno",
-                "Complejidad: Alta",
-                "Entregable: Cifrado validado",
-                "Alcance: TLS, algoritmos y configuración",
+                "Incluye: TLS, algoritmos y configuración",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -8048,26 +5469,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Auditoría",
               "unitLabel": "Entorno",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Auditoría activa",
               "scope": "Accesos, cambios y eventos críticos",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.35,
-                "medium": 1.9575,
-                "high": 2.43
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Auditoría",
+                "Condición: Base incluido",
                 "Unidad: Entorno",
-                "Complejidad: Alta",
-                "Entregable: Auditoría activa",
-                "Alcance: Accesos, cambios y eventos críticos",
+                "Incluye: Accesos, cambios y eventos críticos",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -8081,26 +5493,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Validación",
               "unitLabel": "Entorno",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Checklist validado",
               "scope": "Comparación y evidencias",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.9,
-                "medium": 1.305,
-                "high": 1.62
+                "fixed": 1
               },
               "notes": [
                 "Fase: Validación",
+                "Condición: Base obligatorio",
                 "Unidad: Entorno",
-                "Complejidad: Alta",
-                "Entregable: Checklist validado",
-                "Alcance: Comparación y evidencias",
+                "Incluye: Comparación y evidencias",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -8122,26 +5525,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Caso",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Pruebas funcionales",
               "scope": "Operación posterior al hardening",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.45,
-                "medium": 0.5850000000000001,
-                "high": 0.6975
+                "fixed": 0.5
               },
               "notes": [
                 "Fase: Calidad",
+                "Condición: Base obligatorio",
                 "Unidad: Caso",
-                "Complejidad: Media",
-                "Entregable: Pruebas funcionales",
-                "Alcance: Operación posterior al hardening",
+                "Incluye: Operación posterior al hardening",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -8163,26 +5557,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Cierre",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Informe de hardening",
               "scope": "Cambios, excepciones y recomendaciones",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.8,
-                "medium": 2.3400000000000003,
-                "high": 2.79
+                "fixed": 2
               },
               "notes": [
                 "Fase: Cierre",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Informe de hardening",
-                "Alcance: Cambios, excepciones y recomendaciones",
+                "Incluye: Cambios, excepciones y recomendaciones",
                 "Estado de HH: Preliminar"
               ]
             }
@@ -8191,9 +5576,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 13,
             "activities": 13,
             "hours": {
-              "small": 21.15,
-              "medium": 29.5875,
-              "high": 36.27
+              "fixed": 23.5
             }
           }
         },
@@ -8205,8 +5588,7 @@ export const ismServicesCatalog: PlatformCatalog = {
           "groupLabel": "Ciberseguridad",
           "sourceSheet": "Catalogo Maestro",
           "unit": "service",
-          "sizeMode": "by-size",
-          "maturity": "03 · Consolidación digital",
+          "sizeMode": "not-applicable",
           "activities": [
             {
               "id": "sec2-001",
@@ -8218,26 +5600,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Alcance",
               "unitLabel": "Activo",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Alcance definido",
               "scope": "Activos, propietarios y criticidad",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.45,
-                "medium": 0.5850000000000001,
-                "high": 0.6975
+                "fixed": 0.5
               },
               "notes": [
                 "Fase: Alcance",
+                "Condición: Base obligatorio",
                 "Unidad: Activo",
-                "Complejidad: Media",
-                "Entregable: Alcance definido",
-                "Alcance: Activos, propietarios y criticidad",
+                "Incluye: Activos, propietarios y criticidad",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -8259,26 +5632,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Preparación",
               "unitLabel": "Entorno",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Accesos preparados",
               "scope": "Credenciales, horarios y respaldo",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.675,
-                "medium": 0.8775000000000001,
-                "high": 1.0462500000000001
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Preparación",
+                "Condición: Base obligatorio",
                 "Unidad: Entorno",
-                "Complejidad: Media",
-                "Entregable: Accesos preparados",
-                "Alcance: Credenciales, horarios y respaldo",
+                "Incluye: Credenciales, horarios y respaldo",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -8300,26 +5664,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Detección",
               "unitLabel": "Entorno",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Resultado de escaneo",
               "scope": "Hallazgos técnicos y evidencia",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.8,
-                "medium": 2.61,
-                "high": 3.24
+                "fixed": 2
               },
               "notes": [
                 "Fase: Detección",
+                "Condición: Base incluido",
                 "Unidad: Entorno",
-                "Complejidad: Alta",
-                "Entregable: Resultado de escaneo",
-                "Alcance: Hallazgos técnicos y evidencia",
+                "Incluye: Hallazgos técnicos y evidencia",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -8341,26 +5696,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Análisis",
               "unitLabel": "Hallazgo",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 0.2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Hallazgos validados",
               "scope": "Evidencia y aplicabilidad",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.18000000000000002,
-                "medium": 0.261,
-                "high": 0.32400000000000007
+                "fixed": 0.2
               },
               "notes": [
                 "Fase: Análisis",
+                "Condición: Base obligatorio",
                 "Unidad: Hallazgo",
-                "Complejidad: Alta",
-                "Entregable: Hallazgos validados",
-                "Alcance: Evidencia y aplicabilidad",
+                "Incluye: Evidencia y aplicabilidad",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -8382,26 +5728,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Riesgo",
               "unitLabel": "Hallazgo",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 0.2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Matriz de riesgo",
               "scope": "Severidad, exposición e impacto",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.18000000000000002,
-                "medium": 0.261,
-                "high": 0.32400000000000007
+                "fixed": 0.2
               },
               "notes": [
                 "Fase: Riesgo",
+                "Condición: Base obligatorio",
                 "Unidad: Hallazgo",
-                "Complejidad: Alta",
-                "Entregable: Matriz de riesgo",
-                "Alcance: Severidad, exposición e impacto",
+                "Incluye: Severidad, exposición e impacto",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -8423,26 +5760,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Planificación",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Plan de remediación",
               "scope": "Orden, responsables, riesgo y reversa",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.8,
-                "medium": 2.61,
-                "high": 3.24
+                "fixed": 2
               },
               "notes": [
                 "Fase: Planificación",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Plan de remediación",
-                "Alcance: Orden, responsables, riesgo y reversa",
+                "Incluye: Orden, responsables, riesgo y reversa",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -8456,26 +5784,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Remediación",
               "unitLabel": "Activo",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Activos parchados",
               "scope": "Respaldo, actualización y validación",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.9,
-                "medium": 1.305,
-                "high": 1.62
+                "fixed": 1
               },
               "notes": [
                 "Fase: Remediación",
+                "Condición: Base incluido",
                 "Unidad: Activo",
-                "Complejidad: Alta",
-                "Entregable: Activos parchados",
-                "Alcance: Respaldo, actualización y validación",
+                "Incluye: Respaldo, actualización y validación",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -8497,26 +5816,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Remediación",
               "unitLabel": "Hallazgo",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Mitigación aplicada",
               "scope": "Cambio compensatorio o configuración",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.9,
-                "medium": 1.305,
-                "high": 1.62
+                "fixed": 1
               },
               "notes": [
                 "Fase: Remediación",
+                "Condición: Opcional",
                 "Unidad: Hallazgo",
-                "Complejidad: Alta",
-                "Entregable: Mitigación aplicada",
-                "Alcance: Cambio compensatorio o configuración",
+                "Incluye: Cambio compensatorio o configuración",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -8538,26 +5848,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Activo",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Operación validada",
               "scope": "Funciones críticas después del parche",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.45,
-                "medium": 0.5850000000000001,
-                "high": 0.6975
+                "fixed": 0.5
               },
               "notes": [
                 "Fase: Calidad",
+                "Condición: Base obligatorio",
                 "Unidad: Activo",
-                "Complejidad: Media",
-                "Entregable: Operación validada",
-                "Alcance: Funciones críticas después del parche",
+                "Incluye: Funciones críticas después del parche",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -8579,26 +5880,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Revalidación",
               "unitLabel": "Entorno",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Hallazgos revalidados",
               "scope": "Cierre o riesgo residual",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.35,
-                "medium": 1.9575,
-                "high": 2.43
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Revalidación",
+                "Condición: Base obligatorio",
                 "Unidad: Entorno",
-                "Complejidad: Alta",
-                "Entregable: Hallazgos revalidados",
-                "Alcance: Cierre o riesgo residual",
+                "Incluye: Cierre o riesgo residual",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -8620,26 +5912,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Cierre",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Informe de vulnerabilidades",
               "scope": "Estado, riesgo residual y recomendaciones",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.8,
-                "medium": 2.3400000000000003,
-                "high": 2.79
+                "fixed": 2
               },
               "notes": [
                 "Fase: Cierre",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Informe de vulnerabilidades",
-                "Alcance: Estado, riesgo residual y recomendaciones",
+                "Incluye: Estado, riesgo residual y recomendaciones",
                 "Estado de HH: Preliminar"
               ]
             }
@@ -8648,9 +5931,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 11,
             "activities": 11,
             "hours": {
-              "small": 22.950000000000003,
-              "medium": 32.129999999999995,
-              "high": 39.3975
+              "fixed": 25.5
             }
           }
         },
@@ -8662,8 +5943,7 @@ export const ismServicesCatalog: PlatformCatalog = {
           "groupLabel": "Ciberseguridad",
           "sourceSheet": "Catalogo Maestro",
           "unit": "service",
-          "sizeMode": "by-size",
-          "maturity": "03 · Consolidación digital",
+          "sizeMode": "not-applicable",
           "activities": [
             {
               "id": "sec3-001",
@@ -8675,26 +5955,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Diagnóstico",
               "unitLabel": "Sistema",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Inventario de accesos",
               "scope": "Usuarios, grupos, permisos y propietarios",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.35,
-                "medium": 1.9575,
-                "high": 2.43
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Diagnóstico",
+                "Condición: Base obligatorio",
                 "Unidad: Sistema",
-                "Complejidad: Alta",
-                "Entregable: Inventario de accesos",
-                "Alcance: Usuarios, grupos, permisos y propietarios",
+                "Incluye: Usuarios, grupos, permisos y propietarios",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -8716,26 +5987,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Diseño",
               "unitLabel": "Rol",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Modelo RBAC",
               "scope": "Responsabilidades, permisos y conflictos",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.9,
-                "medium": 1.305,
-                "high": 1.62
+                "fixed": 1
               },
               "notes": [
                 "Fase: Diseño",
+                "Condición: Base obligatorio",
                 "Unidad: Rol",
-                "Complejidad: Alta",
-                "Entregable: Modelo RBAC",
-                "Alcance: Responsabilidades, permisos y conflictos",
+                "Incluye: Responsabilidades, permisos y conflictos",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -8757,26 +6019,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Diseño",
               "unitLabel": "Rol",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Matriz de permisos",
               "scope": "Lectura, edición, aprobación y administración",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.9,
-                "medium": 1.305,
-                "high": 1.62
+                "fixed": 1
               },
               "notes": [
                 "Fase: Diseño",
+                "Condición: Base obligatorio",
                 "Unidad: Rol",
-                "Complejidad: Alta",
-                "Entregable: Matriz de permisos",
-                "Alcance: Lectura, edición, aprobación y administración",
+                "Incluye: Lectura, edición, aprobación y administración",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -8798,26 +6051,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Autenticación",
               "unitLabel": "Sistema",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 3,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "MFA operativo",
               "scope": "Enrolamiento, recuperación y excepción",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.7,
-                "medium": 3.915,
-                "high": 4.86
+                "fixed": 3
               },
               "notes": [
                 "Fase: Autenticación",
+                "Condición: Base incluido",
                 "Unidad: Sistema",
-                "Complejidad: Alta",
-                "Entregable: MFA operativo",
-                "Alcance: Enrolamiento, recuperación y excepción",
+                "Incluye: Enrolamiento, recuperación y excepción",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -8831,26 +6075,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Autenticación",
               "unitLabel": "Sistema",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Políticas aplicadas",
               "scope": "Complejidad, bloqueo, duración y recuperación",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.35,
-                "medium": 1.9575,
-                "high": 2.43
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Autenticación",
+                "Condición: Base incluido",
                 "Unidad: Sistema",
-                "Complejidad: Alta",
-                "Entregable: Políticas aplicadas",
-                "Alcance: Complejidad, bloqueo, duración y recuperación",
+                "Incluye: Complejidad, bloqueo, duración y recuperación",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -8864,26 +6099,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Autorización",
               "unitLabel": "Rol",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Permisos ajustados",
               "scope": "Reducción de privilegios y accesos heredados",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.9,
-                "medium": 1.305,
-                "high": 1.62
+                "fixed": 1
               },
               "notes": [
                 "Fase: Autorización",
+                "Condición: Base incluido",
                 "Unidad: Rol",
-                "Complejidad: Alta",
-                "Entregable: Permisos ajustados",
-                "Alcance: Reducción de privilegios y accesos heredados",
+                "Incluye: Reducción de privilegios y accesos heredados",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -8905,26 +6131,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Ciclo de vida",
               "unitLabel": "Proceso",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Procedimiento JML",
               "scope": "Solicitud, aprobación, ejecución y evidencia",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.8,
-                "medium": 2.3400000000000003,
-                "high": 2.79
+                "fixed": 2
               },
               "notes": [
                 "Fase: Ciclo de vida",
+                "Condición: Base obligatorio",
                 "Unidad: Proceso",
-                "Complejidad: Media",
-                "Entregable: Procedimiento JML",
-                "Alcance: Solicitud, aprobación, ejecución y evidencia",
+                "Incluye: Solicitud, aprobación, ejecución y evidencia",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -8938,26 +6155,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Cuentas",
               "unitLabel": "Cuenta",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 0.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Cuentas controladas",
               "scope": "Propietario, secreto, uso y rotación",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.45,
-                "medium": 0.6525,
-                "high": 0.81
+                "fixed": 0.5
               },
               "notes": [
                 "Fase: Cuentas",
+                "Condición: Opcional",
                 "Unidad: Cuenta",
-                "Complejidad: Alta",
-                "Entregable: Cuentas controladas",
-                "Alcance: Propietario, secreto, uso y rotación",
+                "Incluye: Propietario, secreto, uso y rotación",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -8979,26 +6187,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Auditoría",
               "unitLabel": "Sistema",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Logs de acceso",
               "scope": "Ingreso, fallo, bloqueo y cambios",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.35,
-                "medium": 1.9575,
-                "high": 2.43
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Auditoría",
+                "Condición: Base incluido",
                 "Unidad: Sistema",
-                "Complejidad: Alta",
-                "Entregable: Logs de acceso",
-                "Alcance: Ingreso, fallo, bloqueo y cambios",
+                "Incluye: Ingreso, fallo, bloqueo y cambios",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -9012,26 +6211,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Caso",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 0.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Casos de acceso",
               "scope": "Permitidos, denegados y recuperación",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.45,
-                "medium": 0.6525,
-                "high": 0.81
+                "fixed": 0.5
               },
               "notes": [
                 "Fase: Calidad",
+                "Condición: Base obligatorio",
                 "Unidad: Caso",
-                "Complejidad: Alta",
-                "Entregable: Casos de acceso",
-                "Alcance: Permitidos, denegados y recuperación",
+                "Incluye: Permitidos, denegados y recuperación",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -9053,26 +6243,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Cierre",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Guía de administración",
               "scope": "Roles, accesos y operación",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.8,
-                "medium": 2.3400000000000003,
-                "high": 2.79
+                "fixed": 2
               },
               "notes": [
                 "Fase: Cierre",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Guía de administración",
-                "Alcance: Roles, accesos y operación",
+                "Incluye: Roles, accesos y operación",
                 "Estado de HH: Preliminar"
               ]
             }
@@ -9081,9 +6262,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 11,
             "activities": 11,
             "hours": {
-              "small": 26.100000000000005,
-              "medium": 37.305,
-              "high": 46.080000000000005
+              "fixed": 29
             }
           }
         },
@@ -9095,8 +6274,7 @@ export const ismServicesCatalog: PlatformCatalog = {
           "groupLabel": "Ciberseguridad",
           "sourceSheet": "Catalogo Maestro",
           "unit": "service",
-          "sizeMode": "by-size",
-          "maturity": "04 · Evolución digital",
+          "sizeMode": "not-applicable",
           "activities": [
             {
               "id": "sec4-001",
@@ -9108,26 +6286,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Escenarios",
               "unitLabel": "Escenario",
-              "maturity": "04 · Evolución digital",
-              "complexity": "Alta",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Catálogo de escenarios",
               "scope": "Acceso, malware, fuga e indisponibilidad",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.675,
-                "medium": 0.97875,
-                "high": 1.215
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Escenarios",
+                "Condición: Base obligatorio",
                 "Unidad: Escenario",
-                "Complejidad: Alta",
-                "Entregable: Catálogo de escenarios",
-                "Alcance: Acceso, malware, fuga e indisponibilidad",
+                "Incluye: Acceso, malware, fuga e indisponibilidad",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -9149,26 +6318,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Clasificación",
               "unitLabel": "Proyecto",
-              "maturity": "04 · Evolución digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Matriz de severidad",
               "scope": "Impacto, urgencia y escalamiento",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.35,
-                "medium": 1.9575,
-                "high": 2.43
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Clasificación",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Matriz de severidad",
-                "Alcance: Impacto, urgencia y escalamiento",
+                "Incluye: Impacto, urgencia y escalamiento",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -9182,26 +6342,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Organización",
               "unitLabel": "Rol",
-              "maturity": "04 · Evolución digital",
-              "complexity": "Media",
               "baseHours": 0.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Matriz RACI",
               "scope": "Responsables, suplentes y contactos",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.45,
-                "medium": 0.5850000000000001,
-                "high": 0.6975
+                "fixed": 0.5
               },
               "notes": [
                 "Fase: Organización",
+                "Condición: Base obligatorio",
                 "Unidad: Rol",
-                "Complejidad: Media",
-                "Entregable: Matriz RACI",
-                "Alcance: Responsables, suplentes y contactos",
+                "Incluye: Responsables, suplentes y contactos",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -9223,26 +6374,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Procedimientos",
               "unitLabel": "Escenario",
-              "maturity": "04 · Evolución digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Playbooks de análisis",
               "scope": "Evidencia, validación y clasificación",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.35,
-                "medium": 1.9575,
-                "high": 2.43
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Procedimientos",
+                "Condición: Base incluido",
                 "Unidad: Escenario",
-                "Complejidad: Alta",
-                "Entregable: Playbooks de análisis",
-                "Alcance: Evidencia, validación y clasificación",
+                "Incluye: Evidencia, validación y clasificación",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -9264,26 +6406,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Procedimientos",
               "unitLabel": "Escenario",
-              "maturity": "04 · Evolución digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Playbooks de contención",
               "scope": "Aislamiento, bloqueo y limpieza",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.8,
-                "medium": 2.61,
-                "high": 3.24
+                "fixed": 2
               },
               "notes": [
                 "Fase: Procedimientos",
+                "Condición: Base incluido",
                 "Unidad: Escenario",
-                "Complejidad: Alta",
-                "Entregable: Playbooks de contención",
-                "Alcance: Aislamiento, bloqueo y limpieza",
+                "Incluye: Aislamiento, bloqueo y limpieza",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -9305,26 +6438,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Procedimientos",
               "unitLabel": "Escenario",
-              "maturity": "04 · Evolución digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Playbooks de recuperación",
               "scope": "Restauración, validación y retorno",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.35,
-                "medium": 1.9575,
-                "high": 2.43
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Procedimientos",
+                "Condición: Base incluido",
                 "Unidad: Escenario",
-                "Complejidad: Alta",
-                "Entregable: Playbooks de recuperación",
-                "Alcance: Restauración, validación y retorno",
+                "Incluye: Restauración, validación y retorno",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -9346,26 +6470,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Comunicación",
               "unitLabel": "Proyecto",
-              "maturity": "04 · Evolución digital",
-              "complexity": "Media",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Plan de comunicación",
               "scope": "Interna, cliente y terceros",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.35,
-                "medium": 1.7550000000000001,
-                "high": 2.0925000000000002
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Comunicación",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Plan de comunicación",
-                "Alcance: Interna, cliente y terceros",
+                "Incluye: Interna, cliente y terceros",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -9379,26 +6494,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Evidencia",
               "unitLabel": "Fuente",
-              "maturity": "04 · Evolución digital",
-              "complexity": "Alta",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Fuentes preparadas",
               "scope": "Logs, respaldos y auditoría",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.675,
-                "medium": 0.97875,
-                "high": 1.215
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Evidencia",
+                "Condición: Base incluido",
                 "Unidad: Fuente",
-                "Complejidad: Alta",
-                "Entregable: Fuentes preparadas",
-                "Alcance: Logs, respaldos y auditoría",
+                "Incluye: Logs, respaldos y auditoría",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -9420,26 +6526,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Simulación",
               "unitLabel": "Ejercicio",
-              "maturity": "04 · Evolución digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Guion de simulación",
               "scope": "Escenario, decisiones y criterios",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.8,
-                "medium": 2.61,
-                "high": 3.24
+                "fixed": 2
               },
               "notes": [
                 "Fase: Simulación",
+                "Condición: Base obligatorio",
                 "Unidad: Ejercicio",
-                "Complejidad: Alta",
-                "Entregable: Guion de simulación",
-                "Alcance: Escenario, decisiones y criterios",
+                "Incluye: Escenario, decisiones y criterios",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -9453,26 +6550,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Simulación",
               "unitLabel": "Ejercicio",
-              "maturity": "04 · Evolución digital",
-              "complexity": "Alta",
               "baseHours": 3,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Simulación ejecutada",
               "scope": "Tiempos, coordinación y evidencia",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.7,
-                "medium": 3.915,
-                "high": 4.86
+                "fixed": 3
               },
               "notes": [
                 "Fase: Simulación",
+                "Condición: Base obligatorio",
                 "Unidad: Ejercicio",
-                "Complejidad: Alta",
-                "Entregable: Simulación ejecutada",
-                "Alcance: Tiempos, coordinación y evidencia",
+                "Incluye: Tiempos, coordinación y evidencia",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -9486,26 +6574,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Mejora",
               "unitLabel": "Proyecto",
-              "maturity": "04 · Evolución digital",
-              "complexity": "Media",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.9,
-              "deliverable": "Plan de mejora",
               "scope": "Hallazgos, acciones y responsables",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.8,
-                "medium": 2.3400000000000003,
-                "high": 2.79
+                "fixed": 2
               },
               "notes": [
                 "Fase: Mejora",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Plan de mejora",
-                "Alcance: Hallazgos, acciones y responsables",
+                "Incluye: Hallazgos, acciones y responsables",
                 "Estado de HH: Preliminar"
               ]
             }
@@ -9514,9 +6593,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 11,
             "activities": 11,
             "hours": {
-              "small": 25.650000000000002,
-              "medium": 36.3825,
-              "high": 44.82
+              "fixed": 28.5
             }
           }
         }
@@ -9541,8 +6618,7 @@ export const ismServicesCatalog: PlatformCatalog = {
           "groupLabel": "Soporte y Gestión",
           "sourceSheet": "Catalogo Maestro",
           "unit": "service",
-          "sizeMode": "by-size",
-          "maturity": "02 · Optimización digital",
+          "sizeMode": "not-applicable",
           "activities": [
             {
               "id": "sup1-001",
@@ -9554,26 +6630,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Diseño",
               "unitLabel": "Servicio",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
               "baseHours": 0.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Catálogo de atención",
               "scope": "Servicios, solicitudes y exclusiones",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.44,
-                "medium": 0.5720000000000001,
-                "high": 0.682
+                "fixed": 0.5
               },
               "notes": [
                 "Fase: Diseño",
+                "Condición: Base obligatorio",
                 "Unidad: Servicio",
-                "Complejidad: Media",
-                "Entregable: Catálogo de atención",
-                "Alcance: Servicios, solicitudes y exclusiones",
+                "Incluye: Servicios, solicitudes y exclusiones",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -9595,26 +6662,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Diseño",
               "unitLabel": "Canal",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Canales definidos",
               "scope": "Formulario, correo o portal",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.66,
-                "medium": 0.8580000000000001,
-                "high": 1.0230000000000001
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Diseño",
+                "Condición: Base obligatorio",
                 "Unidad: Canal",
-                "Complejidad: Media",
-                "Entregable: Canales definidos",
-                "Alcance: Formulario, correo o portal",
+                "Incluye: Formulario, correo o portal",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -9636,27 +6694,18 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Proceso",
               "unitLabel": "Proyecto",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 2.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Flujo de tickets",
               "scope": "Configuración operativa de estados, asignación y cierre sobre una definición básica.",
               "exclusions": "El diseño formal de procesos ITSM se cotiza en SUP-02.",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.2,
-                "medium": 3.19,
-                "high": 3.9600000000000004
+                "fixed": 2.5
               },
               "notes": [
                 "Fase: Proceso",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Flujo de tickets",
-                "Alcance: Configuración operativa de estados, asignación y cierre sobre una definición básica.",
+                "Incluye: Configuración operativa de estados, asignación y cierre sobre una definición básica.",
                 "Exclusiones: El diseño formal de procesos ITSM se cotiza en SUP-02.",
                 "Estado de HH: Preliminar"
               ]
@@ -9671,27 +6720,18 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Proceso",
               "unitLabel": "Nivel",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 0.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Matriz de prioridad",
               "scope": "Configuración en la herramienta de niveles previamente acordados.",
               "exclusions": "La definición metodológica completa se cotiza en SUP-02.",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.44,
-                "medium": 0.638,
-                "high": 0.792
+                "fixed": 0.5
               },
               "notes": [
                 "Fase: Proceso",
+                "Condición: Base obligatorio",
                 "Unidad: Nivel",
-                "Complejidad: Alta",
-                "Entregable: Matriz de prioridad",
-                "Alcance: Configuración en la herramienta de niveles previamente acordados.",
+                "Incluye: Configuración en la herramienta de niveles previamente acordados.",
                 "Exclusiones: La definición metodológica completa se cotiza en SUP-02.",
                 "Estado de HH: Preliminar"
               ],
@@ -9714,27 +6754,18 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "SLA",
               "unitLabel": "Servicio",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 0.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Matriz SLA",
               "scope": "Configuración de tiempos de respuesta, resolución y cobertura en la herramienta.",
               "exclusions": "La definición y gobierno formal de SLA se cotizan en SUP-02.",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.44,
-                "medium": 0.638,
-                "high": 0.792
+                "fixed": 0.5
               },
               "notes": [
                 "Fase: SLA",
+                "Condición: Base obligatorio",
                 "Unidad: Servicio",
-                "Complejidad: Alta",
-                "Entregable: Matriz SLA",
-                "Alcance: Configuración de tiempos de respuesta, resolución y cobertura en la herramienta.",
+                "Incluye: Configuración de tiempos de respuesta, resolución y cobertura en la herramienta.",
                 "Exclusiones: La definición y gobierno formal de SLA se cotizan en SUP-02.",
                 "Estado de HH: Preliminar"
               ],
@@ -9757,26 +6788,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Configuración",
               "unitLabel": "Formulario",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Formularios operativos",
               "scope": "Campos, validaciones y clasificación",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.88,
-                "medium": 1.1440000000000001,
-                "high": 1.364
+                "fixed": 1
               },
               "notes": [
                 "Fase: Configuración",
+                "Condición: Base incluido",
                 "Unidad: Formulario",
-                "Complejidad: Media",
-                "Entregable: Formularios operativos",
-                "Alcance: Campos, validaciones y clasificación",
+                "Incluye: Campos, validaciones y clasificación",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -9798,26 +6820,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Configuración",
               "unitLabel": "Flujo",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Flujos configurados",
               "scope": "Asignación, notificación y escalamiento",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.32,
-                "medium": 1.914,
-                "high": 2.3760000000000003
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Configuración",
+                "Condición: Base incluido",
                 "Unidad: Flujo",
-                "Complejidad: Alta",
-                "Entregable: Flujos configurados",
-                "Alcance: Asignación, notificación y escalamiento",
+                "Incluye: Asignación, notificación y escalamiento",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -9839,26 +6852,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Configuración",
               "unitLabel": "Rol",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Accesos configurados",
               "scope": "Agentes, administradores y solicitantes",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.66,
-                "medium": 0.957,
-                "high": 1.1880000000000002
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Configuración",
+                "Condición: Base incluido",
                 "Unidad: Rol",
-                "Complejidad: Alta",
-                "Entregable: Accesos configurados",
-                "Alcance: Agentes, administradores y solicitantes",
+                "Incluye: Agentes, administradores y solicitantes",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -9880,26 +6884,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Comunicación",
               "unitLabel": "Plantilla",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Baja",
               "baseHours": 0.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Plantillas",
               "scope": "Recepción, actualización y cierre",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.44,
-                "medium": 0.506,
-                "high": 0.5720000000000001
+                "fixed": 0.5
               },
               "notes": [
                 "Fase: Comunicación",
+                "Condición: Base incluido",
                 "Unidad: Plantilla",
-                "Complejidad: Baja",
-                "Entregable: Plantillas",
-                "Alcance: Recepción, actualización y cierre",
+                "Incluye: Recepción, actualización y cierre",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -9921,27 +6916,18 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Reportes",
               "unitLabel": "Reporte",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Reporte operativo",
               "scope": "Vista inicial de volumen, tiempos y estado para validar la operación.",
               "exclusions": "La reportería operacional avanzada se contabiliza en SUP2-010.",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.76,
-                "medium": 2.2880000000000003,
-                "high": 2.728
+                "fixed": 2
               },
               "notes": [
                 "Fase: Reportes",
+                "Condición: Base incluido",
                 "Unidad: Reporte",
-                "Complejidad: Media",
-                "Entregable: Reporte operativo",
-                "Alcance: Vista inicial de volumen, tiempos y estado para validar la operación.",
+                "Incluye: Vista inicial de volumen, tiempos y estado para validar la operación.",
                 "Exclusiones: La reportería operacional avanzada se contabiliza en SUP2-010.",
                 "Estado de HH: Preliminar"
               ]
@@ -9956,26 +6942,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Caso",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
               "baseHours": 0.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Piloto validado",
               "scope": "Creación, asignación, atención y cierre",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.44,
-                "medium": 0.5720000000000001,
-                "high": 0.682
+                "fixed": 0.5
               },
               "notes": [
                 "Fase: Calidad",
+                "Condición: Base obligatorio",
                 "Unidad: Caso",
-                "Complejidad: Media",
-                "Entregable: Piloto validado",
-                "Alcance: Creación, asignación, atención y cierre",
+                "Incluye: Creación, asignación, atención y cierre",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -9997,26 +6974,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Entrega",
               "unitLabel": "Sesión",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Mesa de ayuda entregada",
               "scope": "Uso, administración y soporte",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.76,
-                "medium": 2.2880000000000003,
-                "high": 2.728
+                "fixed": 2
               },
               "notes": [
                 "Fase: Entrega",
+                "Condición: Base obligatorio",
                 "Unidad: Sesión",
-                "Complejidad: Media",
-                "Entregable: Mesa de ayuda entregada",
-                "Alcance: Uso, administración y soporte",
+                "Incluye: Uso, administración y soporte",
                 "Estado de HH: Preliminar"
               ]
             }
@@ -10025,9 +6993,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 12,
             "activities": 12,
             "hours": {
-              "small": 26.180000000000003,
-              "medium": 35.387,
-              "high": 42.834
+              "fixed": 29.75
             }
           }
         },
@@ -10039,8 +7005,7 @@ export const ismServicesCatalog: PlatformCatalog = {
           "groupLabel": "Soporte y Gestión",
           "sourceSheet": "Catalogo Maestro",
           "unit": "service",
-          "sizeMode": "by-size",
-          "maturity": "03 · Consolidación digital",
+          "sizeMode": "not-applicable",
           "activities": [
             {
               "id": "sup2-001",
@@ -10052,26 +7017,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Gobierno",
               "unitLabel": "Proceso",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Alcance ITSM",
               "scope": "Incidente, solicitud, problema y cambio",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.66,
-                "medium": 0.957,
-                "high": 1.1880000000000002
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Gobierno",
+                "Condición: Base obligatorio",
                 "Unidad: Proceso",
-                "Complejidad: Alta",
-                "Entregable: Alcance ITSM",
-                "Alcance: Incidente, solicitud, problema y cambio",
+                "Incluye: Incidente, solicitud, problema y cambio",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -10093,26 +7049,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Proceso",
               "unitLabel": "Proceso",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Proceso de incidentes",
               "scope": "Registro, clasificación, escalamiento y cierre",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.76,
-                "medium": 2.552,
-                "high": 3.168
+                "fixed": 2
               },
               "notes": [
                 "Fase: Proceso",
+                "Condición: Base obligatorio",
                 "Unidad: Proceso",
-                "Complejidad: Alta",
-                "Entregable: Proceso de incidentes",
-                "Alcance: Registro, clasificación, escalamiento y cierre",
+                "Incluye: Registro, clasificación, escalamiento y cierre",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -10126,26 +7073,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Proceso",
               "unitLabel": "Proceso",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Proceso de solicitudes",
               "scope": "Catálogo, aprobación y entrega",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.32,
-                "medium": 1.7160000000000002,
-                "high": 2.0460000000000003
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Proceso",
+                "Condición: Base obligatorio",
                 "Unidad: Proceso",
-                "Complejidad: Media",
-                "Entregable: Proceso de solicitudes",
-                "Alcance: Catálogo, aprobación y entrega",
+                "Incluye: Catálogo, aprobación y entrega",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -10159,26 +7097,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Proceso",
               "unitLabel": "Proceso",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Proceso de cambios",
               "scope": "Riesgo, aprobación, reversa y validación",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.76,
-                "medium": 2.552,
-                "high": 3.168
+                "fixed": 2
               },
               "notes": [
                 "Fase: Proceso",
+                "Condición: Base obligatorio",
                 "Unidad: Proceso",
-                "Complejidad: Alta",
-                "Entregable: Proceso de cambios",
-                "Alcance: Riesgo, aprobación, reversa y validación",
+                "Incluye: Riesgo, aprobación, reversa y validación",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -10192,26 +7121,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Proceso",
               "unitLabel": "Proceso",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Proceso de problemas",
               "scope": "Causa raíz y error conocido",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.32,
-                "medium": 1.914,
-                "high": 2.3760000000000003
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Proceso",
+                "Condición: Opcional",
                 "Unidad: Proceso",
-                "Complejidad: Alta",
-                "Entregable: Proceso de problemas",
-                "Alcance: Causa raíz y error conocido",
+                "Incluye: Causa raíz y error conocido",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -10225,26 +7145,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Roles",
               "unitLabel": "Rol",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 0.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Matriz RACI",
               "scope": "Responsables y escalamiento",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.44,
-                "medium": 0.638,
-                "high": 0.792
+                "fixed": 0.5
               },
               "notes": [
                 "Fase: Roles",
+                "Condición: Base obligatorio",
                 "Unidad: Rol",
-                "Complejidad: Alta",
-                "Entregable: Matriz RACI",
-                "Alcance: Responsables y escalamiento",
+                "Incluye: Responsables y escalamiento",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -10266,26 +7177,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Herramienta",
               "unitLabel": "Proceso",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Herramienta configurada",
               "scope": "Campos, vistas, estados y permisos",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.32,
-                "medium": 1.914,
-                "high": 2.3760000000000003
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Herramienta",
+                "Condición: Base incluido",
                 "Unidad: Proceso",
-                "Complejidad: Alta",
-                "Entregable: Herramienta configurada",
-                "Alcance: Campos, vistas, estados y permisos",
+                "Incluye: Campos, vistas, estados y permisos",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -10307,26 +7209,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Automatización",
               "unitLabel": "Regla",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Reglas automáticas",
               "scope": "Condiciones, responsables y avisos",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.66,
-                "medium": 0.957,
-                "high": 1.1880000000000002
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Automatización",
+                "Condición: Opcional",
                 "Unidad: Regla",
-                "Complejidad: Alta",
-                "Entregable: Reglas automáticas",
-                "Alcance: Condiciones, responsables y avisos",
+                "Incluye: Condiciones, responsables y avisos",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -10348,26 +7241,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Indicadores",
               "unitLabel": "Indicador",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Catálogo de KPIs",
               "scope": "Volumen, cumplimiento y tendencia",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.44,
-                "medium": 0.5720000000000001,
-                "high": 0.682
+                "fixed": 0.5
               },
               "notes": [
                 "Fase: Indicadores",
+                "Condición: Base obligatorio",
                 "Unidad: Indicador",
-                "Complejidad: Media",
-                "Entregable: Catálogo de KPIs",
-                "Alcance: Volumen, cumplimiento y tendencia",
+                "Incluye: Volumen, cumplimiento y tendencia",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -10389,27 +7273,18 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Reportes",
               "unitLabel": "Reporte",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Reportes ITSM",
               "scope": "Reportes periódicos por estado, SLA, carga, tendencia y cumplimiento.",
               "exclusions": "No vuelve a incluir el reporte inicial de puesta en marcha de SUP1-010.",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.32,
-                "medium": 1.7160000000000002,
-                "high": 2.0460000000000003
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Reportes",
+                "Condición: Base incluido",
                 "Unidad: Reporte",
-                "Complejidad: Media",
-                "Entregable: Reportes ITSM",
-                "Alcance: Reportes periódicos por estado, SLA, carga, tendencia y cumplimiento.",
+                "Incluye: Reportes periódicos por estado, SLA, carga, tendencia y cumplimiento.",
                 "Exclusiones: No vuelve a incluir el reporte inicial de puesta en marcha de SUP1-010.",
                 "Estado de HH: Preliminar"
               ],
@@ -10432,26 +7307,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Piloto",
               "unitLabel": "Caso",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 0.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Piloto ejecutado",
               "scope": "Casos y retroalimentación",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.44,
-                "medium": 0.638,
-                "high": 0.792
+                "fixed": 0.5
               },
               "notes": [
                 "Fase: Piloto",
+                "Condición: Base obligatorio",
                 "Unidad: Caso",
-                "Complejidad: Alta",
-                "Entregable: Piloto ejecutado",
-                "Alcance: Casos y retroalimentación",
+                "Incluye: Casos y retroalimentación",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -10473,26 +7339,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Cierre",
               "unitLabel": "Proyecto",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Procesos entregados",
               "scope": "Procedimientos y mejoras",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.76,
-                "medium": 2.2880000000000003,
-                "high": 2.728
+                "fixed": 2
               },
               "notes": [
                 "Fase: Cierre",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Procesos entregados",
-                "Alcance: Procedimientos y mejoras",
+                "Incluye: Procedimientos y mejoras",
                 "Estado de HH: Preliminar"
               ]
             }
@@ -10501,9 +7358,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 12,
             "activities": 12,
             "hours": {
-              "small": 25.520000000000003,
-              "medium": 35.75,
-              "high": 43.846000000000004
+              "fixed": 29
             }
           }
         },
@@ -10515,8 +7370,7 @@ export const ismServicesCatalog: PlatformCatalog = {
           "groupLabel": "Soporte y Gestión",
           "sourceSheet": "Catalogo Maestro",
           "unit": "service",
-          "sizeMode": "by-size",
-          "maturity": "03 · Consolidación digital",
+          "sizeMode": "not-applicable",
           "activities": [
             {
               "id": "sup3-001",
@@ -10528,26 +7382,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Gestión",
               "unitLabel": "Sesión",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Plan mensual",
               "scope": "Prioridades, responsables y consumo",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.44,
-                "medium": 0.5720000000000001,
-                "high": 0.682
+                "fixed": 0.5
               },
               "notes": [
                 "Fase: Gestión",
+                "Condición: Base obligatorio",
                 "Unidad: Sesión",
-                "Complejidad: Media",
-                "Entregable: Plan mensual",
-                "Alcance: Prioridades, responsables y consumo",
+                "Incluye: Prioridades, responsables y consumo",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -10569,26 +7414,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Gestión",
               "unitLabel": "Ticket",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.25,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Tickets clasificados",
               "scope": "Impacto, urgencia y estimación",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.22,
-                "medium": 0.28600000000000003,
-                "high": 0.341
+                "fixed": 0.25
               },
               "notes": [
                 "Fase: Gestión",
+                "Condición: Base obligatorio",
                 "Unidad: Ticket",
-                "Complejidad: Media",
-                "Entregable: Tickets clasificados",
-                "Alcance: Impacto, urgencia y estimación",
+                "Incluye: Impacto, urgencia y estimación",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -10610,26 +7446,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Soporte",
               "unitLabel": "Ticket",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Incidentes resueltos",
               "scope": "Diagnóstico, corrección y cierre",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.32,
-                "medium": 1.7160000000000002,
-                "high": 2.0460000000000003
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Soporte",
+                "Condición: Base incluido",
                 "Unidad: Ticket",
-                "Complejidad: Media",
-                "Entregable: Incidentes resueltos",
-                "Alcance: Diagnóstico, corrección y cierre",
+                "Incluye: Diagnóstico, corrección y cierre",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -10651,26 +7478,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Soporte",
               "unitLabel": "Ticket",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Solicitudes atendidas",
               "scope": "Configuración o apoyo funcional",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.88,
-                "medium": 1.1440000000000001,
-                "high": 1.364
+                "fixed": 1
               },
               "notes": [
                 "Fase: Soporte",
+                "Condición: Base incluido",
                 "Unidad: Ticket",
-                "Complejidad: Media",
-                "Entregable: Solicitudes atendidas",
-                "Alcance: Configuración o apoyo funcional",
+                "Incluye: Configuración o apoyo funcional",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -10692,26 +7510,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Evolución",
               "unitLabel": "Cambio",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Alta",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Cambios menores",
               "scope": "Ajuste acotado con pruebas",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.76,
-                "medium": 2.552,
-                "high": 3.168
+                "fixed": 2
               },
               "notes": [
                 "Fase: Evolución",
+                "Condición: Base incluido",
                 "Unidad: Cambio",
-                "Complejidad: Alta",
-                "Entregable: Cambios menores",
-                "Alcance: Ajuste acotado con pruebas",
+                "Incluye: Ajuste acotado con pruebas",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -10733,26 +7542,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Prevención",
               "unitLabel": "Sesión",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 0.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Revisión preventiva",
               "scope": "Eventos y riesgos recurrentes",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.44,
-                "medium": 0.5720000000000001,
-                "high": 0.682
+                "fixed": 0.5
               },
               "notes": [
                 "Fase: Prevención",
+                "Condición: Opcional",
                 "Unidad: Sesión",
-                "Complejidad: Media",
-                "Entregable: Revisión preventiva",
-                "Alcance: Eventos y riesgos recurrentes",
+                "Incluye: Eventos y riesgos recurrentes",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -10774,26 +7574,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Documentación",
               "unitLabel": "Documento",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Baja",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Documentación actualizada",
               "scope": "Cambios y soluciones recurrentes",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.88,
-                "medium": 1.012,
-                "high": 1.1440000000000001
+                "fixed": 1
               },
               "notes": [
                 "Fase: Documentación",
+                "Condición: Base incluido",
                 "Unidad: Documento",
-                "Complejidad: Baja",
-                "Entregable: Documentación actualizada",
-                "Alcance: Cambios y soluciones recurrentes",
+                "Incluye: Cambios y soluciones recurrentes",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -10807,26 +7598,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Reporte",
               "unitLabel": "Reporte",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Reporte mensual",
               "scope": "Consumo, cumplimiento y recomendaciones",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.32,
-                "medium": 1.7160000000000002,
-                "high": 2.0460000000000003
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Reporte",
+                "Condición: Base obligatorio",
                 "Unidad: Reporte",
-                "Complejidad: Media",
-                "Entregable: Reporte mensual",
-                "Alcance: Consumo, cumplimiento y recomendaciones",
+                "Incluye: Consumo, cumplimiento y recomendaciones",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -10840,26 +7622,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Coordinación",
               "unitLabel": "Hora",
-              "maturity": "03 · Consolidación digital",
-              "complexity": "Media",
               "baseHours": 1,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Seguimiento",
               "scope": "Dependencias, accesos y coordinaciones",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.88,
-                "medium": 1.1440000000000001,
-                "high": 1.364
+                "fixed": 1
               },
               "notes": [
                 "Fase: Coordinación",
+                "Condición: Base incluido",
                 "Unidad: Hora",
-                "Complejidad: Media",
-                "Entregable: Seguimiento",
-                "Alcance: Dependencias, accesos y coordinaciones",
+                "Incluye: Dependencias, accesos y coordinaciones",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -10876,9 +7649,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 9,
             "activities": 9,
             "hours": {
-              "small": 19.8,
-              "medium": 26.136000000000003,
-              "high": 31.35
+              "fixed": 22.5
             }
           }
         },
@@ -10890,8 +7661,7 @@ export const ismServicesCatalog: PlatformCatalog = {
           "groupLabel": "Soporte y Gestión",
           "sourceSheet": "Catalogo Maestro",
           "unit": "service",
-          "sizeMode": "by-size",
-          "maturity": "02 · Optimización digital",
+          "sizeMode": "not-applicable",
           "activities": [
             {
               "id": "sup4-001",
@@ -10903,26 +7673,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Inventario",
               "unitLabel": "Fuente",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
               "baseHours": 0.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Inventario documental",
               "scope": "Documentos, responsables y vigencia",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.44,
-                "medium": 0.5720000000000001,
-                "high": 0.682
+                "fixed": 0.5
               },
               "notes": [
                 "Fase: Inventario",
+                "Condición: Base obligatorio",
                 "Unidad: Fuente",
-                "Complejidad: Media",
-                "Entregable: Inventario documental",
-                "Alcance: Documentos, responsables y vigencia",
+                "Incluye: Documentos, responsables y vigencia",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -10944,26 +7705,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Diseño",
               "unitLabel": "Proyecto",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Arquitectura documental",
               "scope": "Categorías, nomenclatura y acceso",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.32,
-                "medium": 1.7160000000000002,
-                "high": 2.0460000000000003
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Diseño",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Media",
-                "Entregable: Arquitectura documental",
-                "Alcance: Categorías, nomenclatura y acceso",
+                "Incluye: Categorías, nomenclatura y acceso",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -10977,26 +7729,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Gobierno",
               "unitLabel": "Proyecto",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Reglas documentales",
               "scope": "Estados, responsables y publicación",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.32,
-                "medium": 1.914,
-                "high": 2.3760000000000003
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Gobierno",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Complejidad: Alta",
-                "Entregable: Reglas documentales",
-                "Alcance: Estados, responsables y publicación",
+                "Incluye: Estados, responsables y publicación",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -11010,26 +7753,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Documentación",
               "unitLabel": "Documento",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 4,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Manual de usuario",
               "scope": "Flujos, pantallas y preguntas frecuentes",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 3.52,
-                "medium": 5.104,
-                "high": 6.336
+                "fixed": 4
               },
               "notes": [
                 "Fase: Documentación",
+                "Condición: Base incluido",
                 "Unidad: Documento",
-                "Complejidad: Alta",
-                "Entregable: Manual de usuario",
-                "Alcance: Flujos, pantallas y preguntas frecuentes",
+                "Incluye: Flujos, pantallas y preguntas frecuentes",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -11043,26 +7777,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Documentación",
               "unitLabel": "Documento",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 4,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Manual técnico",
               "scope": "Arquitectura, instalación y operación",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 3.52,
-                "medium": 5.104,
-                "high": 6.336
+                "fixed": 4
               },
               "notes": [
                 "Fase: Documentación",
+                "Condición: Opcional",
                 "Unidad: Documento",
-                "Complejidad: Alta",
-                "Entregable: Manual técnico",
-                "Alcance: Arquitectura, instalación y operación",
+                "Incluye: Arquitectura, instalación y operación",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -11076,26 +7801,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Documentación",
               "unitLabel": "Documento",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Procedimientos",
               "scope": "Objetivo, pasos, responsables y evidencia",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.76,
-                "medium": 2.2880000000000003,
-                "high": 2.728
+                "fixed": 2
               },
               "notes": [
                 "Fase: Documentación",
+                "Condición: Base incluido",
                 "Unidad: Documento",
-                "Complejidad: Media",
-                "Entregable: Procedimientos",
-                "Alcance: Objetivo, pasos, responsables y evidencia",
+                "Incluye: Objetivo, pasos, responsables y evidencia",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -11117,26 +7833,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Documentación",
               "unitLabel": "Documento",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Alta",
               "baseHours": 2.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Runbooks",
               "scope": "Eventos frecuentes, diagnóstico y escalamiento",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 2.2,
-                "medium": 3.19,
-                "high": 3.9600000000000004
+                "fixed": 2.5
               },
               "notes": [
                 "Fase: Documentación",
+                "Condición: Base incluido",
                 "Unidad: Documento",
-                "Complejidad: Alta",
-                "Entregable: Runbooks",
-                "Alcance: Eventos frecuentes, diagnóstico y escalamiento",
+                "Incluye: Eventos frecuentes, diagnóstico y escalamiento",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -11158,26 +7865,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Contenido",
               "unitLabel": "Artículo",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
               "baseHours": 0.75,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Artículos",
               "scope": "Problema, solución y palabras clave",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.66,
-                "medium": 0.8580000000000001,
-                "high": 1.0230000000000001
+                "fixed": 0.75
               },
               "notes": [
                 "Fase: Contenido",
+                "Condición: Base incluido",
                 "Unidad: Artículo",
-                "Complejidad: Media",
-                "Entregable: Artículos",
-                "Alcance: Problema, solución y palabras clave",
+                "Incluye: Problema, solución y palabras clave",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -11199,26 +7897,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": false,
               "phase": "Publicación",
               "unitLabel": "Entorno",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
               "baseHours": 2,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Base publicada",
               "scope": "Estructura, permisos y búsqueda",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.76,
-                "medium": 2.2880000000000003,
-                "high": 2.728
+                "fixed": 2
               },
               "notes": [
                 "Fase: Publicación",
+                "Condición: Opcional",
                 "Unidad: Entorno",
-                "Complejidad: Media",
-                "Entregable: Base publicada",
-                "Alcance: Estructura, permisos y búsqueda",
+                "Incluye: Estructura, permisos y búsqueda",
                 "Estado de HH: Preliminar"
               ]
             },
@@ -11232,26 +7921,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Documento",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
               "baseHours": 0.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Documentos revisados",
               "scope": "Exactitud, claridad y vigencia",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 0.44,
-                "medium": 0.5720000000000001,
-                "high": 0.682
+                "fixed": 0.5
               },
               "notes": [
                 "Fase: Calidad",
+                "Condición: Base obligatorio",
                 "Unidad: Documento",
-                "Complejidad: Media",
-                "Entregable: Documentos revisados",
-                "Alcance: Exactitud, claridad y vigencia",
+                "Incluye: Exactitud, claridad y vigencia",
                 "Estado de HH: Preliminar"
               ],
               "quantityRule": {
@@ -11273,26 +7953,17 @@ export const ismServicesCatalog: PlatformCatalog = {
               "mandatory": true,
               "phase": "Entrega",
               "unitLabel": "Sesión",
-              "maturity": "02 · Optimización digital",
-              "complexity": "Media",
               "baseHours": 1.5,
-              "reuseType": "Parcial",
-              "reuseFactor": 0.88,
-              "deliverable": "Transferencia realizada",
               "scope": "Uso, mantenimiento y responsabilidades",
               "validationStatus": "Preliminar",
-              "calibrationSource": "Estimación técnica ISM · Validar",
               "hours": {
-                "small": 1.32,
-                "medium": 1.7160000000000002,
-                "high": 2.0460000000000003
+                "fixed": 1.5
               },
               "notes": [
                 "Fase: Entrega",
+                "Condición: Base obligatorio",
                 "Unidad: Sesión",
-                "Complejidad: Media",
-                "Entregable: Transferencia realizada",
-                "Alcance: Uso, mantenimiento y responsabilidades",
+                "Incluye: Uso, mantenimiento y responsabilidades",
                 "Estado de HH: Preliminar"
               ]
             }
@@ -11301,9 +7972,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 11,
             "activities": 11,
             "hours": {
-              "small": 25.300000000000004,
-              "medium": 34.276,
-              "high": 41.525
+              "fixed": 28.75
             }
           }
         }
@@ -11312,18 +7981,21 @@ export const ismServicesCatalog: PlatformCatalog = {
   ],
   "summary": {
     "serviceCodes": 21,
-    "activityLines": 282,
-    "activities": 282
+    "activityLines": 254,
+    "activities": 254
   },
   "sizeDefinitions": {
-    "small": "Inicial: implementación funcional con alcance acotado y componentes conocidos.",
-    "medium": "Estándar: alcance recomendado, con validaciones, coordinación y personalización media.",
-    "high": "Avanzado: mayor personalización, integración, datos, seguridad, riesgo y ciclos de validación."
+    "small": "Base única del catálogo v2.3.",
+    "medium": "Base única del catálogo v2.3.",
+    "high": "Base única del catálogo v2.3."
   },
   "notes": [
-    "Catálogo técnico ISM Developer versión 2.1.",
-    "Las horas del documento fuente se encuentran en estado preliminar hasta ser calibradas con proyectos reales.",
+    "Catálogo técnico ISM Developer versión 2.3.",
+    "Cada actividad posee una sola HH base. No existen factores por actividad ni escenarios Inicial/Estándar/Avanzado.",
+    "Tarifa maestra: 0.70 UF/HH.",
+    "La reutilización o esfuerzo extraordinario se aplica como un único factor global al total del proyecto.",
+    "La contingencia final del catálogo es 20% y se aplica una sola vez al final.",
     "Las actividades obligatorias no pueden excluirse cuando el servicio está seleccionado.",
-    "Las actividades no incluidas en el alcance base comienzan desactivadas."
+    "Las actividades opcionales comienzan desactivadas."
   ]
 };

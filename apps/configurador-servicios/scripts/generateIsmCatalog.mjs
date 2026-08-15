@@ -17,7 +17,7 @@ const PROJECT_ROOT = path.resolve(CURRENT_DIR, "..");
 const SOURCE_FILE = path.join(
   PROJECT_ROOT,
   "catalog",
-  "Catalogo_Tecnico_Servicios_ISM_Developer_v2_1_Auditado.xlsx",
+  "Catalogo_Tecnico_Servicios_ISM_Developer_v2_3_Simplificado_LIMPIO.xlsx",
 );
 const OUTPUT_FILE = path.join(
   PROJECT_ROOT,
@@ -45,31 +45,18 @@ const REQUIRED_HEADERS = [
   "Línea de servicio",
   "Código servicio",
   "Servicio / solución",
-  "Madurez",
   "Fase",
   "Código actividad",
-  "Actividad / entregable",
+  "Actividad / proceso",
+  "Condición",
   "Unidad",
   "Cantidad base",
-  "Incluida base",
-  "Obligatoria",
-  "HH unitarias desde cero",
-  "Reutilización",
-  "Factor reutilización ISM",
-  "HH unitarias configurador",
-  "Complejidad",
-  "Factor Inicial",
-  "Factor Estándar",
-  "Factor Avanzado",
-  "HH Inicial",
-  "HH Estándar",
-  "HH Avanzado",
-  "Dependencias",
-  "Entregable verificable",
-  "Alcance / criterio",
+  "HH base / unidad",
+  "Valor base UF / unidad",
+  "Qué incluye",
   "Exclusiones",
-  "Estado validación",
-  "Fuente / calibración",
+  "Dependencias",
+  "Estado",
 ];
 
 const AREA_DEFINITIONS = {
@@ -111,9 +98,6 @@ const AREA_DEFINITIONS = {
   },
 };
 
-const BOOLEAN_VALUES = new Set(["Sí", "No"]);
-const TOLERANCE = 0.000001;
-
 // ==================================================
 // FUNCIONES XML / XLSX
 // ==================================================
@@ -144,7 +128,18 @@ function parseAttributes(source) {
 }
 
 function normalizeZipPath(target) {
-  return target.replace(/^\//, "").replace(/\\/g, "/");
+  const normalized = target.replace(/^\//, "").replace(/\\/g, "/");
+
+  // Excel guarda los targets de workbook.xml.rels relativos a /xl/.
+  // Algunos exportadores escriben "/xl/worksheets/..." y Excel Desktop
+  // suele escribir "worksheets/...". Aceptamos ambos formatos para que
+  // el catálogo pueda editarse y guardarse normalmente en Excel sin romper
+  // la sincronización automática.
+  if (normalized.startsWith("xl/")) {
+    return normalized;
+  }
+
+  return path.posix.normalize(path.posix.join("xl", normalized));
 }
 
 function columnIndexFromReference(reference) {
@@ -336,7 +331,7 @@ function getParameter(parametersRows, parameterName) {
 // VALIDACIÓN Y TRANSFORMACIÓN
 // ==================================================
 
-function parseCatalogRows(catalogRows) {
+function parseCatalogRows(catalogRows, hourlyRateUF) {
   const headerCells = catalogRows.get(5);
 
   if (!headerCells) {
@@ -362,69 +357,60 @@ function parseCatalogRows(catalogRows) {
       continue;
     }
 
-    const included = asText(read(cells, "Incluida base"));
-    const mandatory = asText(read(cells, "Obligatoria"));
-
-    if (!BOOLEAN_VALUES.has(included)) {
-      throw new Error(`Fila ${rowNumber}: Incluida base debe ser Sí o No.`);
-    }
-
-    if (!BOOLEAN_VALUES.has(mandatory)) {
-      throw new Error(`Fila ${rowNumber}: Obligatoria debe ser Sí o No.`);
-    }
-
-    const quantity = asNumber(read(cells, "Cantidad base"), "Cantidad base", rowNumber);
-    const configuredUnitHours = asNumber(
-      read(cells, "HH unitarias configurador"),
-      "HH unitarias configurador",
+    const condition = asText(read(cells, "Condición"));
+    const quantity = asNumber(
+      read(cells, "Cantidad base"),
+      "Cantidad base",
       rowNumber,
     );
-    const initialFactor = asNumber(read(cells, "Factor Inicial"), "Factor Inicial", rowNumber);
-    const standardFactor = asNumber(read(cells, "Factor Estándar"), "Factor Estándar", rowNumber);
-    const advancedFactor = asNumber(read(cells, "Factor Avanzado"), "Factor Avanzado", rowNumber);
+    const baseUnitHours = asNumber(
+      read(cells, "HH base / unidad"),
+      "HH base / unidad",
+      rowNumber,
+    );
+    const workbookUnitValueUF = asNumber(
+      read(cells, "Valor base UF / unidad"),
+      "Valor base UF / unidad",
+      rowNumber,
+    );
 
-    if (quantity < 0 || configuredUnitHours < 0) {
-      throw new Error(`Fila ${rowNumber}: cantidad y horas no pueden ser negativas.`);
+    if (quantity < 0 || baseUnitHours < 0) {
+      throw new Error(
+        `Fila ${rowNumber}: cantidad y horas base no pueden ser negativas.`,
+      );
     }
+
+    const expectedUnitValueUF = baseUnitHours * hourlyRateUF;
+
+    if (Math.abs(expectedUnitValueUF - workbookUnitValueUF) > 0.000001) {
+      throw new Error(
+        `Fila ${rowNumber}: Valor base UF / unidad no coincide con HH base × tarifa.`,
+      );
+    }
+
+    const mandatory = condition === "Base obligatorio";
+    const defaultIncluded =
+      mandatory || condition === "Base incluido";
 
     const row = {
       rowNumber,
       line: asText(read(cells, "Línea de servicio")),
       serviceCode: asText(read(cells, "Código servicio")),
       serviceName: asText(read(cells, "Servicio / solución")),
-      maturity: asText(read(cells, "Madurez")),
       phase: asText(read(cells, "Fase")),
       activityCode: asText(read(cells, "Código actividad")),
-      activityName: asText(read(cells, "Actividad / entregable")),
+      activityName: asText(read(cells, "Actividad / proceso")),
+      condition,
       unit: asText(read(cells, "Unidad")),
       quantity,
-      included: included === "Sí",
-      mandatory: mandatory === "Sí",
-      baseHours: asNumber(
-        read(cells, "HH unitarias desde cero"),
-        "HH unitarias desde cero",
-        rowNumber,
-      ),
-      reuseType: asText(read(cells, "Reutilización")),
-      reuseFactor: asNumber(
-        read(cells, "Factor reutilización ISM"),
-        "Factor reutilización ISM",
-        rowNumber,
-      ),
-      configuredUnitHours,
-      complexity: asText(read(cells, "Complejidad")),
-      initialFactor,
-      standardFactor,
-      advancedFactor,
-      workbookInitialHours: asNumber(read(cells, "HH Inicial"), "HH Inicial", rowNumber),
-      workbookStandardHours: asNumber(read(cells, "HH Estándar"), "HH Estándar", rowNumber),
-      workbookAdvancedHours: asNumber(read(cells, "HH Avanzado"), "HH Avanzado", rowNumber),
-      dependencies: splitDependencies(read(cells, "Dependencias")),
-      deliverable: asText(read(cells, "Entregable verificable")),
-      scope: asText(read(cells, "Alcance / criterio")),
+      baseUnitHours,
+      unitValueUF: workbookUnitValueUF,
+      scope: asText(read(cells, "Qué incluye")),
       exclusions: asText(read(cells, "Exclusiones")),
-      validationStatus: asText(read(cells, "Estado validación")),
-      calibrationSource: asText(read(cells, "Fuente / calibración")),
+      dependencies: splitDependencies(read(cells, "Dependencias")),
+      validationStatus: asText(read(cells, "Estado")),
+      mandatory,
+      defaultIncluded,
     };
 
     if (
@@ -437,23 +423,9 @@ function parseCatalogRows(catalogRows) {
       throw new Error(`Fila ${rowNumber}: contiene campos obligatorios vacíos.`);
     }
 
-    const expectedInitial = row.included
-      ? row.quantity * row.configuredUnitHours * row.initialFactor
-      : 0;
-    const expectedStandard = row.included
-      ? row.quantity * row.configuredUnitHours * row.standardFactor
-      : 0;
-    const expectedAdvanced = row.included
-      ? row.quantity * row.configuredUnitHours * row.advancedFactor
-      : 0;
-
-    if (
-      !nearlyEqual(expectedInitial, row.workbookInitialHours) ||
-      !nearlyEqual(expectedStandard, row.workbookStandardHours) ||
-      !nearlyEqual(expectedAdvanced, row.workbookAdvancedHours)
-    ) {
+    if (!["Base obligatorio", "Base incluido", "Opcional"].includes(condition)) {
       throw new Error(
-        `Fila ${rowNumber}: las horas calculadas no coinciden con los factores y la cantidad.`,
+        `Fila ${rowNumber}: Condición debe ser Base obligatorio, Base incluido u Opcional.`,
       );
     }
 
@@ -479,11 +451,11 @@ function validateCatalogRows(rows) {
     activityCodes.add(row.activityCode);
 
     const existingService = serviceDefinitions.get(row.serviceCode);
-    const currentDefinition = [row.line, row.serviceName, row.maturity].join("|");
+    const currentDefinition = [row.line, row.serviceName].join("|");
 
     if (existingService && existingService !== currentDefinition) {
       throw new Error(
-        `El servicio ${row.serviceCode} tiene nombre, línea o madurez inconsistentes.`,
+        `El servicio ${row.serviceCode} tiene nombre o línea inconsistentes.`,
       );
     }
 
@@ -501,7 +473,7 @@ function validateCatalogRows(rows) {
   };
 }
 
-function buildCatalog(rows, version, contingencyRate) {
+function buildCatalog(rows, version, contingencyRate, hourlyRateUF) {
   const servicesByArea = new Map();
 
   for (const row of rows) {
@@ -515,19 +487,16 @@ function buildCatalog(rows, version, contingencyRate) {
       groupLabel: row.line,
       sourceSheet: "Catalogo Maestro",
       unit: "service",
-      sizeMode: "by-size",
-      maturity: row.maturity,
+      // v2.3 tiene una sola HH base por actividad.
+      sizeMode: "not-applicable",
       activities: [],
       totals: {
         activityLines: 0,
         activities: 0,
-        hours: { small: 0, medium: 0, high: 0 },
+        hours: { fixed: 0 },
       },
     };
 
-    const initialUnitHours = row.configuredUnitHours * row.initialFactor;
-    const standardUnitHours = row.configuredUnitHours * row.standardFactor;
-    const advancedUnitHours = row.configuredUnitHours * row.advancedFactor;
     const quantityRule =
       row.quantity !== 1
         ? {
@@ -546,33 +515,24 @@ function buildCatalog(rows, version, contingencyRate) {
       name: row.activityName,
       activityCount: 1,
       countMode: "line",
-      defaultIncluded: row.included,
+      defaultIncluded: row.defaultIncluded,
       mandatory: row.mandatory,
       phase: row.phase,
       unitLabel: row.unit,
-      maturity: row.maturity,
-      complexity: row.complexity,
-      baseHours: row.baseHours,
-      reuseType: row.reuseType,
-      reuseFactor: row.reuseFactor,
-      deliverable: row.deliverable || undefined,
+      baseHours: row.baseUnitHours,
       scope: row.scope || undefined,
       exclusions: row.exclusions || undefined,
       dependencies:
         row.dependencies.length > 0 ? row.dependencies : undefined,
       validationStatus: row.validationStatus || undefined,
-      calibrationSource: row.calibrationSource || undefined,
       hours: {
-        small: initialUnitHours,
-        medium: standardUnitHours,
-        high: advancedUnitHours,
+        fixed: row.baseUnitHours,
       },
       notes: compact([
         row.phase ? `Fase: ${row.phase}` : "",
+        row.condition ? `Condición: ${row.condition}` : "",
         row.unit ? `Unidad: ${row.unit}` : "",
-        row.complexity ? `Complejidad: ${row.complexity}` : "",
-        row.deliverable ? `Entregable: ${row.deliverable}` : "",
-        row.scope ? `Alcance: ${row.scope}` : "",
+        row.scope ? `Incluye: ${row.scope.replace(/^Incluye:\s*/i, "")}` : "",
         row.exclusions ? `Exclusiones: ${row.exclusions}` : "",
         row.dependencies.length > 0
           ? `Dependencias: ${row.dependencies.join(", ")}`
@@ -588,10 +548,8 @@ function buildCatalog(rows, version, contingencyRate) {
     service.totals.activityLines += 1;
     service.totals.activities += 1;
 
-    if (row.included) {
-      service.totals.hours.small += initialUnitHours * row.quantity;
-      service.totals.hours.medium += standardUnitHours * row.quantity;
-      service.totals.hours.high += advancedUnitHours * row.quantity;
+    if (row.defaultIncluded) {
+      service.totals.hours.fixed += row.baseUnitHours * row.quantity;
     }
 
     areaServices.set(row.serviceCode, service);
@@ -630,6 +588,7 @@ function buildCatalog(rows, version, contingencyRate) {
     description:
       "Configurador técnico consolidado de servicios digitales, continuidad, seguridad y soporte.",
     contingencyRate,
+    hourlyRateUF,
     catalogVersion: version,
     areas,
     summary: {
@@ -646,19 +605,21 @@ function buildCatalog(rows, version, contingencyRate) {
         0,
       ),
     },
+    // Se mantienen las claves por compatibilidad con el motor estándar.
+    // No representan factores de precio ni modifican las HH v2.3.
     sizeDefinitions: {
-      small:
-        "Inicial: implementación funcional con alcance acotado y componentes conocidos.",
-      medium:
-        "Estándar: alcance recomendado, con validaciones, coordinación y personalización media.",
-      high:
-        "Avanzado: mayor personalización, integración, datos, seguridad, riesgo y ciclos de validación.",
+      small: "Base única del catálogo v2.3.",
+      medium: "Base única del catálogo v2.3.",
+      high: "Base única del catálogo v2.3.",
     },
     notes: [
       `Catálogo técnico ISM Developer versión ${version}.`,
-      "Las horas del documento fuente se encuentran en estado preliminar hasta ser calibradas con proyectos reales.",
+      "Cada actividad posee una sola HH base. No existen factores por actividad ni escenarios Inicial/Estándar/Avanzado.",
+      `Tarifa maestra: ${hourlyRateUF.toFixed(2)} UF/HH.`,
+      "La reutilización o esfuerzo extraordinario se aplica como un único factor global al total del proyecto.",
+      `La contingencia final del catálogo es ${Math.round(contingencyRate * 100)}% y se aplica una sola vez al final.`,
       "Las actividades obligatorias no pueden excluirse cuando el servicio está seleccionado.",
-      "Las actividades no incluidas en el alcance base comienzan desactivadas.",
+      "Las actividades opcionales comienzan desactivadas.",
     ],
   };
 }
@@ -668,10 +629,8 @@ function buildCatalog(rows, version, contingencyRate) {
 // ==================================================
 
 function createTypescriptFile(catalog) {
-  return `// ==================================================\n// IMPORTACIONES\n// ==================================================\n\nimport type { PlatformCatalog } from "../../../types/catalog";\n\n// ==================================================\n// CATÁLOGO GENERADO\n// ==================================================\n\n/**\n * Archivo generado desde Catalogo_Tecnico_Servicios_ISM_Developer_v2_1_Auditado.xlsx.\n * No editar manualmente. Modifica el Excel fuente y ejecuta npm run catalog:ism.\n */\nexport const ismServicesCatalog: PlatformCatalog = ${JSON.stringify(catalog, null, 2)};\n`;
+  return `// ==================================================\n// IMPORTACIONES\n// ==================================================\n\nimport type { PlatformCatalog } from "../../../types/catalog";\n\n// ==================================================\n// CATÁLOGO GENERADO\n// ==================================================\n\n/**\n * Archivo generado desde Catalogo_Tecnico_Servicios_ISM_Developer_v2_3_Simplificado_LIMPIO.xlsx.\n * No editar manualmente. Modifica el Excel fuente y ejecuta npm run catalog:ism.\n */\nexport const ismServicesCatalog: PlatformCatalog = ${JSON.stringify(catalog, null, 2)};\n`;
 }
-
-
 
 function createGuideCatalogSnapshot(catalog) {
   const developmentArea = catalog.areas.find(
@@ -688,7 +647,6 @@ function createGuideCatalogSnapshot(catalog) {
     .map((service) => ({
       code: service.code,
       name: service.name,
-      maturity: service.maturity,
       activities: service.activities.map((activity) => ({
         code: activity.code,
         name: activity.name,
@@ -697,15 +655,17 @@ function createGuideCatalogSnapshot(catalog) {
         defaultIncluded: activity.defaultIncluded,
         mandatory: activity.mandatory,
         validationStatus: activity.validationStatus,
-        hours: activity.hours,
+        baseHours: activity.hours.fixed,
         defaultQuantity: activity.quantityRule?.defaultQuantity ?? 1,
       })),
     }));
 
   return {
-    schemaVersion: "1.0",
+    schemaVersion: "2.0",
     catalogVersion: catalog.catalogVersion,
+    hourlyRateUF: catalog.hourlyRateUF,
     contingencyRate: catalog.contingencyRate,
+    calculationModel: "single-base-hours-final-adjustments",
     area: {
       id: developmentArea.id,
       name: developmentArea.name,
@@ -721,7 +681,7 @@ function createGuideJavascriptFile(catalog) {
  * Catálogo técnico mínimo para la Guía Web ISM.
  *
  * ARCHIVO GENERADO: no editar manualmente.
- * Fuente: apps/configurador-servicios/catalog/Catalogo_Tecnico_Servicios_ISM_Developer_v2_1_Auditado.xlsx
+ * Fuente: apps/configurador-servicios/catalog/Catalogo_Tecnico_Servicios_ISM_Developer_v2_3_Simplificado_LIMPIO.xlsx
  * Regeneración: npm --prefix apps/configurador-servicios run catalog:ism
  */
 export const ismGuideTechnicalCatalog = ${JSON.stringify(snapshot, null, 2)};
@@ -743,15 +703,27 @@ async function main() {
     );
   }
 
-  const rows = parseCatalogRows(catalogRows);
-  const validation = validateCatalogRows(rows);
-  const version = asText(getParameter(parameterRows, "Versión del catálogo")) || "2.1";
-  const contingencyRate = asNumber(
-    getParameter(parameterRows, "Contingencia comercial"),
-    "Contingencia comercial",
+  const version =
+    asText(getParameter(parameterRows, "Versión del catálogo")) || "2.3";
+  const hourlyRateUF = asNumber(
+    getParameter(parameterRows, "Tarifa base"),
+    "Tarifa base",
     9,
   );
-  const catalog = buildCatalog(rows, version, contingencyRate);
+  const contingencyRate = asNumber(
+    getParameter(parameterRows, "Contingencia final"),
+    "Contingencia final",
+    10,
+  );
+
+  const rows = parseCatalogRows(catalogRows, hourlyRateUF);
+  const validation = validateCatalogRows(rows);
+  const catalog = buildCatalog(
+    rows,
+    version,
+    contingencyRate,
+    hourlyRateUF,
+  );
 
   await writeFile(OUTPUT_FILE, createTypescriptFile(catalog), "utf8");
 
@@ -770,7 +742,9 @@ async function main() {
         output: path.relative(PROJECT_ROOT, OUTPUT_FILE),
         guideOutput: path.relative(WEBSITE_ROOT, GUIDE_OUTPUT_FILE),
         catalogVersion: version,
+        hourlyRateUF,
         contingencyRate,
+        calculationModel: "single-base-hours-final-adjustments",
         lines: catalog.areas.map((area) => ({
           id: area.id,
           name: area.name,
@@ -786,7 +760,7 @@ async function main() {
   );
 
   console.log(
-    `Catálogo ISM generado y sincronizado con Guía Web: ${validation.serviceCodes} servicios y ${validation.activityLines} actividades.`,
+    `Catálogo ISM v${version} generado y sincronizado: ${validation.serviceCodes} servicios, ${validation.activityLines} actividades, ${hourlyRateUF.toFixed(2)} UF/HH.`,
   );
 }
 
