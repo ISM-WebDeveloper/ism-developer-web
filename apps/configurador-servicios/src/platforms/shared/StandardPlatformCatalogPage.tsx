@@ -86,6 +86,18 @@ interface ServiceIconProps {
   serviceCode: string;
 }
 
+function getServiceLevel(estimatedHours: number): "Básico" | "Avanzado" | "PowerUp" {
+  if (estimatedHours > 45) {
+    return "PowerUp";
+  }
+
+  if (estimatedHours > 30) {
+    return "Avanzado";
+  }
+
+  return "Básico";
+}
+
 function ServiceIcon({ serviceCode }: ServiceIconProps) {
   const iconName = (() => {
     const iconByService: Record<string, string> = {
@@ -1155,6 +1167,14 @@ export function StandardPlatformCatalogPage({
                 <div className="ibm-kpi">
                   <span>Servicios</span>
                   <strong>{totals.services.length}</strong>
+                </div>
+                <div className="ibm-kpi">
+                  <span>Nivel de servicio</span>
+                  <strong>
+                    {totals.services.length > 0
+                      ? getServiceLevel(totals.commercial)
+                      : "—"}
+                  </strong>
                 </div>
               </div>
 

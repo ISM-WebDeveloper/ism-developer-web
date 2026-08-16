@@ -252,13 +252,24 @@ export const ismGuideTechnicalCatalog = {
           },
           {
             "code": "WEB-033",
-            "name": "Publicación, dominio, SSL y entrega",
+            "name": "Publicación, SSL y entrega",
             "phase": "Publicación",
             "unitLabel": "Proyecto",
             "defaultIncluded": true,
             "mandatory": true,
             "validationStatus": "Preliminar",
-            "baseHours": 1.5,
+            "baseHours": 1.1,
+            "defaultQuantity": 1
+          },
+          {
+            "code": "WEB-035",
+            "name": "Configuración, actualización o migración de dominio/DNS",
+            "phase": "Publicación",
+            "unitLabel": "Proyecto",
+            "defaultIncluded": false,
+            "mandatory": false,
+            "validationStatus": "Preliminar",
+            "baseHours": 0.4,
             "defaultQuantity": 1
           }
         ]

@@ -28,8 +28,8 @@ export const ismServicesCatalog: PlatformCatalog = {
       "order": 1,
       "summary": {
         "serviceCodes": 3,
-        "activityLines": 50,
-        "activities": 50
+        "activityLines": 51,
+        "activities": 51
       },
       "services": [
         {
@@ -687,39 +687,69 @@ export const ismServicesCatalog: PlatformCatalog = {
             {
               "id": "web-033",
               "code": "WEB-033",
-              "name": "Publicación, dominio, SSL y entrega",
+              "name": "Publicación, SSL y entrega",
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
               "mandatory": true,
               "phase": "Publicación",
               "unitLabel": "Proyecto",
-              "baseHours": 1.5,
-              "scope": "Incluye: configuración de dominio/DNS disponible, HTTPS/SSL, variables de entorno, despliegue, validación final, accesos y recomendaciones de cierre.",
-              "exclusions": "No incluye compra de dominio, costos de hosting/proveedores ni migraciones complejas de DNS/correo.",
+              "baseHours": 1.1,
+              "scope": "Incluye: HTTPS/SSL, variables de entorno, despliegue, validación final de producción, accesos y recomendaciones de cierre.",
+              "exclusions": "No incluye compra, renovación, configuración o migración de dominio/DNS ni costos de hosting/proveedores. El trabajo de dominio se selecciona por separado cuando corresponda.",
               "dependencies": [
                 "WEB-030"
               ],
               "validationStatus": "Preliminar",
               "hours": {
-                "fixed": 1.5
+                "fixed": 1.1
               },
               "notes": [
                 "Fase: Publicación",
                 "Condición: Base obligatorio",
                 "Unidad: Proyecto",
-                "Incluye: configuración de dominio/DNS disponible, HTTPS/SSL, variables de entorno, despliegue, validación final, accesos y recomendaciones de cierre.",
-                "Exclusiones: No incluye compra de dominio, costos de hosting/proveedores ni migraciones complejas de DNS/correo.",
+                "Incluye: HTTPS/SSL, variables de entorno, despliegue, validación final de producción, accesos y recomendaciones de cierre.",
+                "Exclusiones: No incluye compra, renovación, configuración o migración de dominio/DNS ni costos de hosting/proveedores. El trabajo de dominio se selecciona por separado cuando corresponda.",
+                "Dependencias: WEB-030",
+                "Estado de HH: Preliminar"
+              ]
+            },
+            {
+              "id": "web-035",
+              "code": "WEB-035",
+              "name": "Configuración, actualización o migración de dominio/DNS",
+              "activityCount": 1,
+              "countMode": "line",
+              "defaultIncluded": false,
+              "mandatory": false,
+              "phase": "Publicación",
+              "unitLabel": "Proyecto",
+              "baseHours": 0.4,
+              "scope": "Incluye: conexión de dominio existente, ajustes DNS necesarios para la publicación o migración simple entre proveedores, validación de propagación y vinculación al hosting.",
+              "exclusions": "No incluye compra o renovación del dominio, recuperación de cuentas, migración compleja de correo ni incidencias avanzadas con registradores o proveedores.",
+              "dependencies": [
+                "WEB-030"
+              ],
+              "validationStatus": "Preliminar",
+              "hours": {
+                "fixed": 0.4
+              },
+              "notes": [
+                "Fase: Publicación",
+                "Condición: Opcional",
+                "Unidad: Proyecto",
+                "Incluye: conexión de dominio existente, ajustes DNS necesarios para la publicación o migración simple entre proveedores, validación de propagación y vinculación al hosting.",
+                "Exclusiones: No incluye compra o renovación del dominio, recuperación de cuentas, migración compleja de correo ni incidencias avanzadas con registradores o proveedores.",
                 "Dependencias: WEB-030",
                 "Estado de HH: Preliminar"
               ]
             }
           ],
           "totals": {
-            "activityLines": 22,
-            "activities": 22,
+            "activityLines": 23,
+            "activities": 23,
             "hours": {
-              "fixed": 18.7
+              "fixed": 18.3
             }
           }
         },
@@ -8005,8 +8035,8 @@ export const ismServicesCatalog: PlatformCatalog = {
   ],
   "summary": {
     "serviceCodes": 21,
-    "activityLines": 254,
-    "activities": 254
+    "activityLines": 255,
+    "activities": 255
   },
   "sizeDefinitions": {
     "small": "Base única del catálogo v2.3.",
