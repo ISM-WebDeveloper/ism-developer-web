@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T07:37:47.819Z",
+  "generatedAt": "2026-08-16T05:53:35.242Z",
   "source": "catalog\\Catalogo_Tecnico_Servicios_ISM_Developer_v2_3_Simplificado_LIMPIO.xlsx",
   "output": "src\\data\\catalog\\generated\\ismServices.ts",
   "guideOutput": "api\\_generated\\ism-guide-catalog.js",

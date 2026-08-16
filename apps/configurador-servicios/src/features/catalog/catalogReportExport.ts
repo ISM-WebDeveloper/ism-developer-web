@@ -143,11 +143,9 @@ const EXCEL_MIME_TYPE =
   "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
 const DEFAULT_NOTES = [
-  "Cada actividad utiliza una única HH base definida en el catálogo técnico.",
-  "La reutilización o esfuerzo extraordinario se aplica al final mediante un factor global del proyecto.",
-  "La contingencia se aplica una sola vez sobre el total final.",
-  "Las actividades recomendadas no están incluidas en las horas ni en el total del reporte.",
-  "El resultado corresponde a una estimación técnica sujeta a revisión de ISM Developer.",
+  "Las horas indicadas corresponden a una estimación aproximada del alcance seleccionado.",
+  "Las actividades recomendadas no forman parte del alcance seleccionado.",
+  "El resultado está sujeto a revisión técnica y confirmación de alcance por ISM Developer.",
 ];
 
 const PDF_TOTAL_PAGES_PLACEHOLDER =
@@ -180,14 +178,6 @@ function getFormattedDate(date: Date): string {
 function formatDecimal(value: number): string {
   return new Intl.NumberFormat("es-CL", {
     minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format(value);
-}
-
-function formatPercentage(value: number): string {
-  return new Intl.NumberFormat("es-CL", {
-    style: "percent",
-    minimumFractionDigits: 0,
     maximumFractionDigits: 2,
   }).format(value);
 }
@@ -421,7 +411,7 @@ function addExcelCorporateHeader(
   };
 
   worksheet.getCell("C4").value =
-    `Categoría: ${report.category} · Modelo: ${report.model}`;
+    `Categoría: ${report.category} · Estimación referencial`;
 
   worksheet.getCell("G4").value =
     `Emitido: ${getFormattedDate(report.emittedAt)}`;
@@ -631,12 +621,12 @@ function buildExcelSummarySheet(
     report.totals.activities,
   );
 
-  worksheet.getCell("C6").value = "HH base";
+  worksheet.getCell("C6").value = "Servicios";
   worksheet.getCell("C7").value =
-    report.totals.technicalHours;
+    report.services.length;
 
-  worksheet.getCell("E6").value = "Factor global";
-  worksheet.getCell("E7").value = report.totals.executionFactor;
+  worksheet.getCell("E6").value = "Módulos";
+  worksheet.getCell("E7").value = report.totals.modules;
 
   worksheet.getCell("G6").value = "Módulos";
   worksheet.getCell("G7").value =
@@ -677,12 +667,9 @@ function buildExcelSummarySheet(
     },
   );
 
-  worksheet.getCell("C7").numFmt = "0.00";
-  worksheet.getCell("E7").numFmt = "0%";
-
   worksheet.mergeCells("A8:I8");
   worksheet.getCell("A8").value =
-    `Total estimado: ${formatDecimal(report.totals.finalValueUF)} UF`;
+    `Horas estimadas aproximadas: ${formatDecimal(report.totals.commercialHours)} HH`;
   worksheet.getCell("A8").fill = {
     type: "pattern",
     pattern: "solid",
@@ -724,7 +711,7 @@ function buildExcelSummarySheet(
     "Cantidad",
     "Seleccionadas",
     "Recomendadas*",
-    "HH técnicas",
+    "Estado",
   ]);
 
   report.services.forEach((service, index) => {
@@ -743,7 +730,7 @@ function buildExcelSummarySheet(
       service.quantity,
       includedCount,
       excludedCount,
-      service.technicalHours,
+      "Incluido",
     ];
 
     values.forEach((value, columnIndex) => {
@@ -806,16 +793,8 @@ function buildExcelSummarySheet(
 
   const totalRows = [
     ["Total de actividades incluidas", Math.round(report.totals.activities)],
-    ["HH base seleccionadas", report.totals.technicalHours],
-    ["Factor global de ejecución", report.totals.executionFactor],
-    ["HH ajustadas", report.totals.adjustedHours],
-    ["Tarifa UF/HH", report.totals.hourlyRateUF],
-    ["Valor técnico UF", report.totals.technicalValueUF],
-    [
-      `Contingencia final ${formatPercentage(report.contingencyRate)}`,
-      report.totals.contingencyValueUF,
-    ],
-    ["TOTAL FINAL UF", report.totals.finalValueUF],
+    ["Servicios seleccionados", report.services.length],
+    ["HORAS ESTIMADAS APROXIMADAS", report.totals.commercialHours],
   ] as const;
 
   totalRows.forEach(([label, value], index) => {
@@ -860,8 +839,7 @@ function buildExcelSummarySheet(
       applyExcelCellBorder(cell);
     });
 
-    valueCell.numFmt =
-      label === "Factor global de ejecución" ? "0%" : "0.00";
+    valueCell.numFmt = "0.00";
     worksheet.getRow(rowNumber).height =
       highlighted ? 26 : 22;
   });
@@ -978,8 +956,8 @@ function appendExcelActivitySection(
     "Actividad",
     "N.º actividades",
     "Cantidad",
-    "HH unitarias",
-    "HH totales",
+    "Alcance",
+    "Estado",
     "Área",
     "Código",
     "Servicio",
@@ -993,8 +971,8 @@ function appendExcelActivitySection(
       getReportActivityDescription(activity),
       activity.activityCount,
       service.quantity,
-      activity.unitHours ?? "N/R",
-      recommended ? 0 : activity.totalHours ?? "N/R",
+      activity.scopeLabel ?? service.unit,
+      recommended ? "Recomendada" : "Incluida",
       service.area,
       service.code,
       service.name,
@@ -1239,9 +1217,7 @@ function buildExcelDetailSheet(
       {
         cell: worksheet.getCell(currentRow, 7),
         value:
-          `Unidad: ${service.unit} · HH técnicas: ${formatDecimal(
-            service.technicalHours,
-          )}`,
+          `Unidad: ${service.unit} · Incluido en estimación`,
       },
     ];
 
@@ -1369,8 +1345,8 @@ function buildExcelDetailSheet(
     const valueCell = worksheet.getCell(currentRow, 6);
 
     labelCell.value =
-      "HH base del servicio";
-    valueCell.value = service.technicalHours;
+      "Estado del servicio";
+    valueCell.value = "Incluido en estimación";
 
     [labelCell, valueCell].forEach((cell) => {
       cell.fill = {
@@ -1497,7 +1473,7 @@ function drawPdfCorporateHeader(
   pdf.text(report.subtitle, 55, 15);
 
   pdf.text(
-    `Categoría: ${report.category} · Modelo: ${report.model}`,
+    `Categoría: ${report.category} · Estimación referencial`,
     55,
     20,
   );
@@ -1559,23 +1535,18 @@ function drawPdfSummary(
       highlighted: false,
     },
     {
-      label: "HH base",
-      value: formatDecimal(report.totals.technicalHours),
+      label: "Servicios",
+      value: String(report.services.length),
       highlighted: false,
     },
     {
-      label: "Factor global",
-      value: formatPercentage(report.totals.executionFactor),
+      label: "Módulos",
+      value: String(report.totals.modules),
       highlighted: false,
     },
     {
-      label: "HH ajustadas",
-      value: formatDecimal(report.totals.adjustedHours),
-      highlighted: false,
-    },
-    {
-      label: "Total UF",
-      value: formatDecimal(report.totals.finalValueUF),
+      label: "Horas estimadas aprox.",
+      value: `${formatDecimal(report.totals.commercialHours)} HH`,
       highlighted: true,
     },
   ];
@@ -1671,9 +1642,7 @@ function drawPdfServiceHeader(
   );
 
   pdf.text(
-    `Cantidad: ${service.quantity} · HH técnicas: ${formatDecimal(
-      service.technicalHours,
-    )}`,
+    `Cantidad: ${service.quantity} · Incluido en estimación`,
     pageWidth - 15,
     y + 16,
     {
@@ -1751,16 +1720,8 @@ function drawPdfGeneralTotals(
 
   const rows = [
     ["Total de actividades incluidas", String(Math.round(report.totals.activities))],
-    ["HH base seleccionadas", formatDecimal(report.totals.technicalHours)],
-    ["Factor global de ejecución", formatPercentage(report.totals.executionFactor)],
-    ["HH ajustadas", formatDecimal(report.totals.adjustedHours)],
-    ["Tarifa UF/HH", formatDecimal(report.totals.hourlyRateUF)],
-    ["Valor técnico UF", formatDecimal(report.totals.technicalValueUF)],
-    [
-      `Contingencia final ${formatPercentage(report.contingencyRate)}`,
-      formatDecimal(report.totals.contingencyValueUF),
-    ],
-    ["TOTAL FINAL UF", formatDecimal(report.totals.finalValueUF)],
+    ["Servicios seleccionados", String(report.services.length)],
+    ["HORAS ESTIMADAS APROXIMADAS", `${formatDecimal(report.totals.commercialHours)} HH`],
   ];
 
   rows.forEach(([label, value], index) => {
@@ -1951,8 +1912,8 @@ export async function exportCatalogReportToPdf(
             "Actividad",
             "N.º act.",
             "Cantidad",
-            "HH unit.",
-            "HH total",
+            "Alcance",
+            "Estado",
           ],
         ],
         body: section.activities.map((activity) => [
@@ -1960,40 +1921,10 @@ export async function exportCatalogReportToPdf(
           getReportActivityDescription(activity),
           String(activity.activityCount),
           String(service.quantity),
-          activity.unitHours === null
-            ? "N/R"
-            : formatDecimal(activity.unitHours),
-          section.recommended
-            ? "0,00"
-            : activity.totalHours === null
-              ? "N/R"
-              : formatDecimal(activity.totalHours),
+          activity.scopeLabel ?? service.unit,
+          section.recommended ? "Recomendada" : "Incluida",
         ]),
-        foot: section.recommended
-          ? undefined
-          : [
-              [
-                {
-                  content: "HH base del servicio",
-                  colSpan: 5,
-                  styles: {
-                    halign: "right",
-                    fillColor: PDF_COLORS.orangeSoft,
-                    textColor: PDF_COLORS.orangeDark,
-                    fontStyle: "bold",
-                  },
-                },
-                {
-                  content: formatDecimal(service.technicalHours),
-                  styles: {
-                    halign: "right",
-                    fillColor: PDF_COLORS.orangeSoft,
-                    textColor: PDF_COLORS.orangeDark,
-                    fontStyle: "bold",
-                  },
-                },
-              ],
-            ],
+        foot: undefined,
         styles: {
           font: "helvetica",
           fontSize: 7.2,

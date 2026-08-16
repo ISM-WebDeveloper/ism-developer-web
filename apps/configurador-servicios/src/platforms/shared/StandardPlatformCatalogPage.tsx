@@ -69,7 +69,6 @@ interface ServiceModuleCardProps {
     quantity: number,
   ) => void;
   quantity: number;
-  moduleHours: number;
 }
 
 type ExportReviewFormat = "excel" | "pdf";
@@ -259,7 +258,6 @@ function ServiceModuleCard({
   onActivityChange,
   onActivityQuantityChange,
   quantity,
-  moduleHours,
 }: ServiceModuleCardProps) {
   const selected = state.selected[service.code] === true;
   const notes = engine.getServiceNotes(service);
@@ -335,14 +333,6 @@ function ServiceModuleCard({
               : `Ver actividades (${service.activities.length})`}
           </button>
 
-          <div className="ibm-module-hours">
-            <small>HH base</small>
-            <strong>
-              {applicable
-                ? `${formatConfiguratorNumber(moduleHours * quantity)} h`
-                : "N/R"}
-            </strong>
-          </div>
         </div>
       </div>
 
@@ -367,11 +357,6 @@ function ServiceModuleCard({
               activity,
               index,
             );
-            const hours = getConfiguredActivityHours(
-              state,
-              service.code,
-              activity,
-            );
             const activityQuantity =
               getConfiguredActivityQuantity(
                 state,
@@ -379,14 +364,6 @@ function ServiceModuleCard({
                 activity,
               );
             const quantityRule = activity.quantityRule;
-            const baseHours = getActivityHours(
-              activity,
-              state.category,
-            );
-            const unitHours =
-              quantityRule && baseHours !== null
-                ? baseHours / quantityRule.baseQuantity
-                : null;
             const quantityInputId = `${service.code}-${activity.id}-quantity`;
 
             return (
@@ -455,19 +432,6 @@ function ServiceModuleCard({
                   ) : null}
                 </div>
 
-                <div className="ibm-activity-hours">
-                  <strong>
-                    {hours === null
-                      ? "N/R"
-                      : `${formatConfiguratorNumber(hours)} HH`}
-                  </strong>
-
-                  {quantityRule && unitHours !== null ? (
-                    <small>
-                      {formatConfiguratorNumber(unitHours)} HH c/u
-                    </small>
-                  ) : null}
-                </div>
               </div>
             );
           })}
@@ -519,7 +483,7 @@ export function StandardPlatformCatalogPage({
     [services],
   );
   const calculationState = useMemo<StandardConfiguratorState>(
-    () => ({ ...state, category: "small" }),
+    () => ({ ...state, category: "small", executionFactor: 1 }),
     [state],
   );
   const activeArea = useMemo(
@@ -566,7 +530,7 @@ export function StandardPlatformCatalogPage({
       state: calculationState,
       contingencyRate: catalog.contingencyRate,
       hourlyRateUF: catalog.hourlyRateUF,
-      executionFactor: state.executionFactor,
+      executionFactor: 1,
       getQuantity: quantityForSelectedService,
     });
   }, [
@@ -741,17 +705,6 @@ export function StandardPlatformCatalogPage({
         quantity,
       ),
     );
-  }
-
-  function changeExecutionFactor(percent: number) {
-    const normalizedPercent = Number.isFinite(percent)
-      ? Math.min(200, Math.max(0, percent))
-      : 100;
-
-    setState((current) => ({
-      ...current,
-      executionFactor: normalizedPercent / 100,
-    }));
   }
 
   function toggleExpanded(code: string) {
@@ -996,7 +949,7 @@ export function StandardPlatformCatalogPage({
       title: engine.report.title,
       subtitle: engine.report.subtitle,
       category: "Base v2.3",
-      model: "HH base + factor global al cierre + contingencia final",
+      model: "Estimación aproximada de alcance",
       emittedAt: new Date(),
       contingencyRate: catalog.contingencyRate,
       services: reportServices,
@@ -1140,10 +1093,6 @@ export function StandardPlatformCatalogPage({
                         engine={engine}
                         expanded={expandedCodes.has(service.code)}
                         key={service.id}
-                        moduleHours={getServiceHours(
-                          service,
-                          calculationState,
-                        )}
                         onActivityChange={(activityIndex, checked) =>
                           changeActivity(
                             service.code,
@@ -1193,8 +1142,8 @@ export function StandardPlatformCatalogPage({
             <div className="ism-final-value-card">
               <div className="ism-final-value-card__header">
                 <div>
-                  <span>Cálculo final del proyecto</span>
-                  <strong>Una sola base, ajustes al final</strong>
+                  <span>Estimación de alcance</span>
+                  <strong>Resumen referencial de tu configuración</strong>
                 </div>
               </div>
 
@@ -1204,60 +1153,19 @@ export function StandardPlatformCatalogPage({
                   <strong>{Math.round(totals.activities)}</strong>
                 </div>
                 <div className="ibm-kpi">
-                  <span>HH base</span>
-                  <strong>{formatConfiguratorNumber(totals.technical)}</strong>
-                </div>
-                <div className="ibm-kpi">
                   <span>Servicios</span>
                   <strong>{totals.services.length}</strong>
                 </div>
               </div>
 
-              <label className="ism-global-factor">
-                <span>Factor global de ejecución</span>
-                <div className="ism-global-factor__control">
-                  <input
-                    aria-label="Factor global de ejecución del proyecto"
-                    max="200"
-                    min="0"
-                    onChange={(event) =>
-                      changeExecutionFactor(Number(event.target.value || 100))
-                    }
-                    step="5"
-                    type="number"
-                    value={Math.round(state.executionFactor * 100)}
-                  />
-                  <b>%</b>
-                </div>
-                <small>
-                  100% = desarrollo base/nuevo. Reduce el porcentaje si existe
-                  reutilización real; aumenta solo ante esfuerzo extraordinario.
-                </small>
-              </label>
-
-              <div className="ism-final-breakdown">
-                <div>
-                  <span>HH ajustadas</span>
-                  <strong>{formatConfiguratorNumber(totals.adjustedTechnical)} HH</strong>
-                </div>
-                <div>
-                  <span>Tarifa</span>
-                  <strong>{formatConfiguratorNumber(totals.hourlyRateUF ?? 0)} UF/HH</strong>
-                </div>
-                <div>
-                  <span>Valor técnico</span>
-                  <strong>{formatConfiguratorNumber(totals.technicalValueUF ?? 0)} UF</strong>
-                </div>
-                <div>
-                  <span>Contingencia final ({Math.round(catalog.contingencyRate * 100)}%)</span>
-                  <strong>+ {formatConfiguratorNumber(totals.contingencyValueUF ?? 0)} UF</strong>
-                </div>
-              </div>
-
               <div className="ibm-kpi ibm-kpi--total ism-final-total">
-                <span>Total estimado</span>
-                <strong>{formatConfiguratorNumber(totals.finalValueUF ?? 0)} UF</strong>
+                <span>Horas estimadas aproximadas</span>
+                <strong>{formatConfiguratorNumber(totals.commercial)} HH</strong>
               </div>
+
+              <p className="ibm-footer-note">
+                Estimación referencial sujeta a revisión técnica de ISM Developer.
+              </p>
             </div>
 
             <div className="ibm-summary-list">
@@ -1265,10 +1173,6 @@ export function StandardPlatformCatalogPage({
                 totals.services.map((service) => {
                   const summaryActivities = getSummaryActivities(service);
                   const summaryExpanded = expandedSummaryCodes.has(service.code);
-                  const serviceHours =
-                    getServiceHours(service, calculationState) *
-                    quantityForSelectedService(service);
-
                   return (
                     <article
                       className={`ism-summary-service${
@@ -1293,9 +1197,6 @@ export function StandardPlatformCatalogPage({
                         </span>
 
                         <span className="ism-summary-service__result">
-                          <strong>
-                            {formatConfiguratorNumber(serviceHours)} HH
-                          </strong>
                           <span
                             aria-hidden="true"
                             className="ism-summary-service__chevron"
@@ -1323,13 +1224,6 @@ export function StandardPlatformCatalogPage({
                                 </small>
                               </div>
 
-                              <strong>
-                                {activity.totalHours === null
-                                  ? "N/R"
-                                  : `${formatConfiguratorNumber(
-                                      activity.totalHours,
-                                    )} HH`}
-                              </strong>
                             </div>
                           ))}
                         </div>
@@ -1371,14 +1265,8 @@ export function StandardPlatformCatalogPage({
             </div>
 
             <div className="ibm-footer-note">
-              El nivel se asigna automáticamente según las horas
-              técnicas seleccionadas: Inicial bajo 35 HH, Estándar
-              desde 35 HH y Avanzado desde 60 HH.
-              <br />
-              Contingencia comercial: {" "}
-              <b>{catalog.contingencyRate * 100}%</b>.
-              <br />
-              El resultado está sujeto a revisión técnica.
+              Las horas mostradas son aproximadas y pueden variar después de la
+              revisión técnica y confirmación del alcance.
             </div>
           </section>
 
@@ -1468,20 +1356,12 @@ export function StandardPlatformCatalogPage({
                   <strong>{Math.round(totals.activities)}</strong>
                 </div>
                 <div>
-                  <span>HH base</span>
-                  <strong>{formatConfiguratorNumber(totals.technical)} HH</strong>
-                </div>
-                <div>
-                  <span>Factor global</span>
-                  <strong>{Math.round(totals.executionFactor * 100)}%</strong>
-                </div>
-                <div>
-                  <span>HH ajustadas</span>
-                  <strong>{formatConfiguratorNumber(totals.adjustedTechnical)} HH</strong>
+                  <span>Servicios</span>
+                  <strong>{totals.services.length}</strong>
                 </div>
                 <div className="ism-export-review__commercial-total">
-                  <span>Total final</span>
-                  <strong>{formatConfiguratorNumber(totals.finalValueUF ?? 0)} UF</strong>
+                  <span>Horas estimadas aproximadas</span>
+                  <strong>{formatConfiguratorNumber(totals.commercial)} HH</strong>
                 </div>
               </section>
 
@@ -1490,10 +1370,6 @@ export function StandardPlatformCatalogPage({
                   const selectedActivities = getSummaryActivities(service);
                   const recommendedActivities =
                     getRecommendedActivities(service);
-                  const serviceHours =
-                    getServiceHours(service, calculationState) *
-                    quantityForSelectedService(service);
-
                   return (
                     <section
                       className="ism-export-review__service"
@@ -1509,9 +1385,6 @@ export function StandardPlatformCatalogPage({
                               : ""}
                           </p>
                         </div>
-                        <strong>
-                          {formatConfiguratorNumber(serviceHours)} HH
-                        </strong>
                       </header>
 
                       <section className="ism-export-review__activity-section">
@@ -1534,13 +1407,6 @@ export function StandardPlatformCatalogPage({
                                     : ""}
                                 </small>
                               </div>
-                              <strong>
-                                {activity.totalHours === null
-                                  ? "N/R"
-                                  : `${formatConfiguratorNumber(
-                                      activity.totalHours,
-                                    )} HH`}
-                              </strong>
                             </div>
                           ))}
                         </div>
@@ -1565,13 +1431,6 @@ export function StandardPlatformCatalogPage({
                                       : ""}
                                   </small>
                                 </div>
-                                <strong>
-                                  {activity.totalHours === null
-                                    ? "N/R"
-                                    : `${formatConfiguratorNumber(
-                                        activity.totalHours,
-                                      )} HH ref.`}
-                                </strong>
                               </div>
                             ))}
                           </div>
@@ -1583,8 +1442,7 @@ export function StandardPlatformCatalogPage({
               </div>
 
               <p className="ism-export-review__recommendation-note">
-                * Las recomendaciones no están incluidas en las horas ni en el
-                total de la exportación.
+                * Las recomendaciones no forman parte del alcance seleccionado.
               </p>
 
               {warnings.length > 0 ? (
