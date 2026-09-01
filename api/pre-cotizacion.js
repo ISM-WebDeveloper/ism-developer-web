@@ -63,6 +63,14 @@ function listLabels(items) {
     return items.map((item) => clean(item?.label || item, 120)).filter(Boolean).join(", ");
 }
 
+// Formatea HH técnicas sin permitir que una inconsistencia del catálogo
+// rompa el envío completo del prospecto. Si el valor no es válido, el correo
+// se envía igualmente y deja la HH como N/D para revisión interna.
+function formatTechnicalHours(value) {
+    const numericValue = Number(value);
+    return Number.isFinite(numericValue) ? numericValue.toFixed(2) : "N/D";
+}
+
 // ============================================================================
 // 03. VALIDACIÓN SERVER-SIDE DEL PROSPECTO
 // Nunca se confía únicamente en la validación realizada por el navegador.
@@ -578,7 +586,7 @@ function buildEmail(payload, contact, technical) {
         "",
         "Desglose técnico · HH base:",
         ...technical.activities.map((item) =>
-            `- ${item.code} · ${item.name} · ${item.quantity} ${item.unitLabel || "unidad"} · ${item.hours.medium.toFixed(2)} HH`
+            `- ${item.code} · ${item.name} · ${item.quantity} ${item.unitLabel || "unidad"} · ${formatTechnicalHours(item.totalBaseHours)} HH`
         ),
         "",
         `Fecha: ${clean(payload.submittedAt, 80) || new Date().toISOString()}`
@@ -600,7 +608,7 @@ function buildEmail(payload, contact, technical) {
                 <td style="padding:7px 9px;border-bottom:1px solid #e7eef3;color:#0f6f91;font-size:11px;font-weight:700;white-space:nowrap;">${escapeHtml(item.code)}</td>
                 <td style="padding:7px 9px;border-bottom:1px solid #e7eef3;color:#10293d;font-size:11px;">${escapeHtml(item.name)}</td>
                 <td style="padding:7px 9px;border-bottom:1px solid #e7eef3;color:#476074;font-size:11px;text-align:center;">${escapeHtml(item.quantity)}</td>
-                <td style="padding:7px 9px;border-bottom:1px solid #e7eef3;color:#10293d;font-size:11px;text-align:right;white-space:nowrap;">${escapeHtml(item.totalBaseHours.toFixed(2))} HH</td>
+                <td style="padding:7px 9px;border-bottom:1px solid #e7eef3;color:#10293d;font-size:11px;text-align:right;white-space:nowrap;">${escapeHtml(formatTechnicalHours(item.totalBaseHours))} HH</td>
             </tr>`)
         .join("");
 

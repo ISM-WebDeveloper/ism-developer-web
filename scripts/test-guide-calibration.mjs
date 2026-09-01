@@ -9,6 +9,7 @@
  */
 
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import { buildTechnicalEstimate } from "../api/pre-cotizacion.js";
 
 function item(id, label = id) {
@@ -115,3 +116,22 @@ for (const testCase of cases) {
     console.log(`  HH base: ${estimate.baseHours.toFixed(2)}`);
     console.log(`  Referencia final: ${estimate.finalReferenceUF.toFixed(2)} UF`);
 }
+
+// Regresión P6.6 · el correo interno no puede depender del modelo legacy
+// Small/Medium/High. Este chequeo evita volver a publicar una referencia
+// como `item.hours.medium`, que provoca HTTP 500 al construir el email.
+const prequoteSource = await readFile(
+    new URL("../api/pre-cotizacion.js", import.meta.url),
+    "utf8"
+);
+
+assert.ok(
+    !prequoteSource.includes("item.hours.medium"),
+    "Pre-cotización: reapareció la referencia legacy item.hours.medium"
+);
+assert.ok(
+    prequoteSource.includes("formatTechnicalHours(item.totalBaseHours)"),
+    "Pre-cotización: el desglose debe usar totalBaseHours del catálogo v2.3"
+);
+
+console.log("✓ Contrato de correo v2.3 · sin referencias legacy Medium");
