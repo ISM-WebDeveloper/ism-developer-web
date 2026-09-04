@@ -1,62 +1,65 @@
-ISM Developer · PORTAFOLIO 2.0 · FASE 5
+ISM Developer · PORTAFOLIO 2.0 · FASE 6
 Fecha: 2026-09-04
 
 OBJETIVO
 -------
-Eliminar la redundancia entre Servicios, Soluciones y Portafolio.
+Agregar evidencia visual a las páginas de producto sin inventar capturas ni
+exponer identidades privadas.
 
-NUEVO ROL DE CADA SECCIÓN
--------------------------
-SERVICIOS
-Qué puede contratar el cliente:
-desarrollo, mantenimiento, asesoría, integraciones, etc.
+ISM PRESENCIA DIGITAL
+---------------------
+- 6 evidencias visuales publicables.
+- Badia Nurse Shield.
+- Constructora Proestakis.
+- Lecasse IT Services.
+- Zoom/lightbox accesible para revisar las capturas.
 
-SOLUCIONES
-Catálogo de productos propios:
-ISM Presencia Digital
-ISM Stock Control
-ISM Gestión Control
-ISM Boutique
+ISM STOCK CONTROL
+-----------------
+- Se publica únicamente la vista representativa disponible que no expone
+  la identidad privada del cliente.
+- NO se publica control-bodega-operativo.webp porque conserva branding
+  antiguo/privado.
+- Se deja indicado que nuevas capturas se incorporarán cuando estén
+  completamente rebrandizadas como ISM Stock Control.
 
-PORTAFOLIO
-Evidencia:
-casos de éxito + herramientas implementadas.
+ISM GESTIÓN CONTROL
+-------------------
+- Los 3 SVG existentes se muestran explícitamente como referencias/
+  CAPTURAS PENDIENTES.
+- No se presentan como screenshots reales.
 
-CAMBIOS
--------
-HOME
-- La sección Portafolio ya NO repite los 4 Productos ISM.
-- Solo muestra:
-  1. Casos de éxito
-  2. Herramientas ISM
-- El CTA "Explorar soluciones" lleva al catálogo de productos.
+ISM BOUTIQUE
+------------
+- No se inventan pantallas.
+- Se deja un estado visual de evidencia pendiente para Productos/Stock y
+  Ventas/Clientes hasta disponer de capturas reales aprobadas.
 
-PORTAFOLIO.HTML
-- El sidebar ya NO muestra Productos ISM.
-- Categorías visibles:
-  1. Casos de éxito
-  2. Herramientas ISM
-- Si una URL antigua intenta abrir un producto, se normaliza a un caso relacionado o al primer caso.
-- Los casos ahora usan lenguaje:
-  Punto de partida / Solución implementada / Evolución posible.
-- Cada caso sigue enlazando al Producto ISM que lo originó.
-
-SOLUCIONES
-- Se elimina "Ver ficha en portafolio" de cada producto.
-- Se reemplaza por "Ver casos y herramientas".
-- /soluciones/ explica explícitamente que es el catálogo de productos.
+NUEVO
+-----
+assets/js/soluciones.js
+- Lightbox de evidencia.
+- Cierre con botón, fondo o tecla ESC.
+- Retorno del foco al elemento que abrió la imagen.
 
 CACHÉ
 -----
-script.js        v2.0.39
-portafolio.js    v2.0.29
-portafolio.css   v2.3.2
+soluciones.css v3.2.0
+soluciones.js  v1.0.0
+
+ARCHIVOS DEL PARCHE
+-------------------
+assets/css/soluciones.css
+assets/js/soluciones.js
+soluciones/index.html
+soluciones/ism-presencia-digital/index.html
+soluciones/ism-stock-control/index.html
+soluciones/ism-gestion-control/index.html
+soluciones/ism-boutique/index.html
 
 VALIDACIONES
 ------------
-- script.js: OK
-- portafolio.js: OK
-- Home sin tab Productos ISM: OK
-- Portafolio sin categoría Productos ISM visible: OK
-- Páginas de producto sin CTA duplicado: OK
-- Referencias antiguas Suiz Corp / Hospital Félix Bulnes / CIPApp / HFBApp: 0
+- soluciones.js: sintaxis OK.
+- Imágenes de evidencia referenciadas: existen.
+- Captura stock con branding privado/antiguo excluida.
+- Referencias textuales Suiz Corp / Hospital Félix Bulnes / CIPApp / HFBApp: 0.
