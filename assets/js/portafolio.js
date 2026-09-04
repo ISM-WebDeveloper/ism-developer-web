@@ -386,6 +386,148 @@ const projects = [
     }
 ];
 
+
+const commercialProfiles = {
+    "ism-presencia-digital": {
+        kicker: "Producto ISM",
+        title: "Una base profesional que se adapta al negocio.",
+        badge: "Base reutilizable · Personalización por rubro",
+        audienceTitle: "Para quién está pensado",
+        audience: [
+            "Empresas y profesionales que necesitan un canal digital propio.",
+            "Negocios que dependen demasiado de redes sociales o mensajería.",
+            "Equipos que quieren presentar servicios con mayor claridad y confianza.",
+            "Proyectos que necesitan una base preparada para sumar agenda, catálogo o automatizaciones."
+        ],
+        capabilitiesTitle: "Qué puede incluir",
+        capabilities: [
+            "Sitio responsive alineado con la identidad de marca.",
+            "Arquitectura comercial, formularios y llamadas a la acción.",
+            "SEO técnico inicial, analítica y canales de contacto.",
+            "Agenda, catálogo, paneles privados e integraciones según alcance."
+        ],
+        casesKicker: "Casos de éxito",
+        casesTitle: "Una misma línea, adaptada a distintos rubros",
+        cases: [
+            { name: "Badia Nurse Shield", meta: "Salud · Web + agenda + gestión", status: "Publicado", projectId: "badiasalud" },
+            { name: "Constructora Proestakis", meta: "Construcción · Presencia corporativa", status: "Publicado", projectId: "constructora-proestakis" },
+            { name: "Lecasse IT Services", meta: "Tecnología · Servicios B2B", status: "Publicado", projectId: "lecasse-it-services" }
+        ],
+        casesNote: "Cada implementación conserva la base del producto, pero se adapta a la marca, el rubro, los procesos y los objetivos del cliente.",
+        model: "Base ISM + personalización + publicación",
+        modelDetail: "Definimos el objetivo, adaptamos la experiencia y habilitamos las funciones que realmente necesita el negocio.",
+        action: "Solicitar ISM Presencia Digital"
+    },
+    "ism-stock-control": {
+        kicker: "Producto ISM",
+        title: "Inventario y trazabilidad sin depender de registros dispersos.",
+        badge: "Producto activo · Operación adaptable",
+        audienceTitle: "Para quién está pensado",
+        audience: [
+            "Bodegas y faenas con entradas, entregas y movimientos frecuentes.",
+            "Empresas con inventario distribuido entre proyectos o ubicaciones.",
+            "Equipos que necesitan saber quién retiró, recibió o movió un recurso.",
+            "Operaciones que requieren trazabilidad desde computador y celular."
+        ],
+        capabilitiesTitle: "Qué puede incluir",
+        capabilities: [
+            "Stock general, por proyecto y por bodega.",
+            "Recepciones, entregas, devoluciones y movimientos.",
+            "Usuarios, roles, bitácora e historial operacional.",
+            "Importaciones, exportaciones, alertas, firma y evidencias según alcance."
+        ],
+        casesKicker: "Implementaciones",
+        casesTitle: "El producto se valida en operaciones reales",
+        cases: [
+            { name: "Implementación operacional privada", meta: "Inventario · bodegas · trazabilidad", status: "Caso privado" }
+        ],
+        casesNote: "Las implementaciones de clientes se publican únicamente cuando existe autorización. La identidad de proyectos privados no se expone en el portafolio.",
+        model: "Base ISM + configuración operacional",
+        modelDetail: "Adaptamos bodegas, roles, movimientos, reglas y reportes a la operación real sin reconstruir el sistema desde cero.",
+        action: "Solicitar ISM Stock Control"
+    },
+    "ism-gestion-control": {
+        kicker: "Producto ISM",
+        title: "Una capa de control para ordenar procesos y responsables.",
+        badge: "Producto modular · En evolución",
+        audienceTitle: "Para quién está pensado",
+        audience: [
+            "Empresas con procesos internos repartidos entre planillas y mensajes.",
+            "Operaciones que necesitan asignar responsables y mantener historial.",
+            "Equipos que administran recursos, solicitudes, estados o aprobaciones.",
+            "Organizaciones que necesitan crecer por módulos sin perder trazabilidad."
+        ],
+        capabilitiesTitle: "Qué puede incluir",
+        capabilities: [
+            "Dashboard operacional y estados de proceso.",
+            "Usuarios, roles, responsables y permisos por función.",
+            "Registro de operaciones, recursos, movimientos y bitácora.",
+            "Reportes, alertas, aprobaciones e integraciones según necesidad."
+        ],
+        casesKicker: "Validación del producto",
+        casesTitle: "Pilotos e implementaciones sin exponer proyectos privados",
+        cases: [
+            { name: "Piloto de gestión operacional", meta: "Recursos · responsables · procesos", status: "Piloto privado" }
+        ],
+        casesNote: "El producto se presenta de forma independiente del cliente. Cuando una implementación sea publicable, se incorporará como caso de éxito asociado.",
+        model: "Base modular + procesos del cliente",
+        modelDetail: "Partimos desde módulos reutilizables y configuramos entidades, permisos, estados y flujos según el proceso que se necesita controlar.",
+        action: "Solicitar ISM Gestión Control"
+    },
+    "ism-boutique": {
+        kicker: "Producto ISM",
+        title: "Gestión simple para vender, controlar stock y conocer clientes.",
+        badge: "Mobile first · En desarrollo",
+        audienceTitle: "Para quién está pensado",
+        audience: [
+            "Boutiques, tiendas de ropa y emprendimientos de accesorios.",
+            "Negocios que venden desde celular, feria, redes sociales o local físico.",
+            "Emprendimientos que necesitan controlar stock sin un ERP complejo.",
+            "Tiendas que quieren construir historial de ventas y clientes frecuentes."
+        ],
+        capabilitiesTitle: "Qué puede incluir",
+        capabilities: [
+            "Productos, categorías, tallas, colores y stock.",
+            "Ventas, clientes, historial y seguimiento comercial.",
+            "Alertas, inventarios manuales y exportaciones.",
+            "Catálogo o presencia digital conectada al control interno."
+        ],
+        casesKicker: "Primera implementación",
+        casesTitle: "El producto se está construyendo junto a una operación real",
+        cases: [
+            { name: "Primera implementación comercial", meta: "Boutique · stock · ventas · clientes", status: "En desarrollo" }
+        ],
+        casesNote: "La primera implementación servirá para validar el flujo diario antes de publicar nuevos casos de éxito.",
+        model: "Base retail + identidad y operación del negocio",
+        modelDetail: "La solución prioriza uso móvil, tareas simples y módulos que puedan crecer conforme aumenta la operación.",
+        action: "Consultar ISM Boutique"
+    }
+};
+
+const caseProductRelations = {
+    "badiasalud": {
+        productId: "ism-presencia-digital",
+        productName: "ISM Presencia Digital",
+        title: "Una implementación real de ISM Presencia Digital.",
+        adapted: ["Identidad y propuesta de servicios", "Agenda y disponibilidad", "Panel privado de gestión", "Experiencia orientada a pacientes"],
+        proves: ["La presencia digital puede evolucionar a sistema", "Una misma base puede incorporar agenda", "El producto se adapta a un profesional independiente"]
+    },
+    "constructora-proestakis": {
+        productId: "ism-presencia-digital",
+        productName: "ISM Presencia Digital",
+        title: "Una implementación corporativa de ISM Presencia Digital.",
+        adapted: ["Identidad corporativa", "Servicios y capacidad técnica", "Portafolio visual", "Contacto comercial"],
+        proves: ["El producto funciona en servicios técnicos", "Puede comunicar experiencia y confianza", "La estructura se adapta a venta B2B"]
+    },
+    "lecasse-it-services": {
+        productId: "ism-presencia-digital",
+        productName: "ISM Presencia Digital",
+        title: "Una implementación tecnológica de ISM Presencia Digital.",
+        adapted: ["Servicios tecnológicos", "Propuesta B2B", "Arquitectura de contenido", "Contacto y posicionamiento"],
+        proves: ["La base se adapta a una oferta técnica", "Permite ordenar servicios complejos", "Mantiene una identidad propia por cliente"]
+    }
+};
+
 const categoryOrder = ["Productos ISM", "Casos de éxito", "Herramientas ISM"];
 const categoryIcons = {
     "Productos ISM": "boxes",
@@ -523,6 +665,110 @@ function renderTechnical(project) {
     `).join("");
 }
 
+
+function renderCommercial(project) {
+    const section = document.getElementById("commercialSection");
+    if (!section) return;
+
+    const profile = commercialProfiles[project.id];
+    const relation = caseProductRelations[project.id];
+    const audienceTitle = document.getElementById("commercialAudienceTitle");
+    const capabilitiesTitle = document.getElementById("commercialCapabilitiesTitle");
+    const casesGrid = document.getElementById("commercialCases");
+    const casesNote = document.getElementById("commercialCasesNote");
+    const casesCount = document.getElementById("commercialCasesCount");
+    const action = document.getElementById("commercialAction");
+
+    section.classList.toggle("is-product-profile", Boolean(profile));
+    section.classList.toggle("is-case-profile", Boolean(relation));
+    section.classList.toggle("is-tool-profile", project.category === "Herramientas ISM");
+
+    let view;
+
+    if (profile) {
+        view = profile;
+    } else if (relation) {
+        view = {
+            kicker: "Caso de éxito",
+            title: relation.title,
+            badge: `Implementación de ${relation.productName}`,
+            audienceTitle: "Qué se adaptó al cliente",
+            audience: relation.adapted,
+            capabilitiesTitle: "Qué demuestra este caso",
+            capabilities: relation.proves,
+            casesKicker: "Producto relacionado",
+            casesTitle: "Este caso fortalece una solución ISM reutilizable",
+            cases: [{ name: relation.productName, meta: "Producto ISM · Ver ficha completa", status: "Ver producto", projectId: relation.productId }],
+            casesNote: "El cliente es el caso de implementación; el producto permanece como una solución propia de ISM Developer.",
+            model: "Producto ISM + adaptación para el cliente",
+            modelDetail: "El caso muestra cómo una base reutilizable se personaliza sin perder la identidad ni los objetivos particulares del negocio.",
+            action: `Quiero una solución similar`
+        };
+    } else {
+        view = {
+            kicker: "Herramienta ISM",
+            title: "Una herramienta creada para ordenar una tarea concreta.",
+            badge: "Herramienta complementaria",
+            audienceTitle: "Cuándo puede ser útil",
+            audience: project.analysis.slice(0, 4),
+            capabilitiesTitle: "Qué resuelve",
+            capabilities: project.actionPlan.slice(0, 4),
+            casesKicker: "Ecosistema ISM",
+            casesTitle: "Puede integrarse con otras soluciones",
+            cases: [{ name: "Soluciones ISM Developer", meta: "Productos, sistemas y automatizaciones", status: "Complementaria" }],
+            casesNote: "Las herramientas ISM pueden utilizarse de forma independiente o incorporarse como parte de una solución de mayor alcance.",
+            model: "Herramienta + configuración según alcance",
+            modelDetail: "Se define el flujo, los usuarios y la información que necesita controlar antes de integrarla o implementarla.",
+            action: "Consultar esta herramienta"
+        };
+    }
+
+    document.getElementById("commercialKicker").textContent = view.kicker;
+    document.getElementById("commercialTitle").textContent = view.title;
+    document.getElementById("commercialBadge").textContent = view.badge;
+    audienceTitle.textContent = view.audienceTitle;
+    capabilitiesTitle.textContent = view.capabilitiesTitle;
+    document.getElementById("commercialAudience").innerHTML = view.audience.map((item) => `<li>${item}</li>`).join("");
+    document.getElementById("commercialCapabilities").innerHTML = view.capabilities.map((item) => `<li>${item}</li>`).join("");
+    document.getElementById("commercialCasesKicker").textContent = view.casesKicker;
+    document.getElementById("commercialCasesTitle").textContent = view.casesTitle;
+    casesCount.textContent = `${view.cases.length} ${view.cases.length === 1 ? "referencia" : "referencias"}`;
+    casesNote.textContent = view.casesNote;
+    document.getElementById("commercialModel").textContent = view.model;
+    document.getElementById("commercialModelDetail").textContent = view.modelDetail;
+    action.firstChild.textContent = `${view.action} `;
+
+    casesGrid.innerHTML = view.cases.map((item) => {
+        const content = `
+            <span class="commercial-case-status">${item.status}</span>
+            <strong>${item.name}</strong>
+            <small>${item.meta}</small>
+            ${item.projectId ? '<span class="commercial-case-arrow" aria-hidden="true">→</span>' : ''}`;
+
+        return item.projectId
+            ? `<a class="commercial-case-card" href="portafolio.html?proyecto=${item.projectId}" aria-label="Ver ${item.name}">${content}</a>`
+            : `<article class="commercial-case-card is-private">${content}</article>`;
+    }).join("");
+
+    const projectCtaEyebrow = document.getElementById("projectCtaEyebrow");
+    const projectCtaTitle = document.getElementById("projectCtaTitle");
+    const projectCtaLink = document.getElementById("projectCtaLink");
+
+    if (profile) {
+        projectCtaEyebrow.textContent = "¿Quieres implementar este producto?";
+        projectCtaTitle.textContent = `Adaptamos ${project.name} a tu operación.`;
+        projectCtaLink.firstChild.textContent = "Solicitar implementación ";
+    } else if (relation) {
+        projectCtaEyebrow.textContent = "¿Necesitas un resultado similar?";
+        projectCtaTitle.textContent = `Podemos adaptar ${relation.productName} a tu negocio.`;
+        projectCtaLink.firstChild.textContent = "Conversar implementación ";
+    } else {
+        projectCtaEyebrow.textContent = "¿Te serviría esta herramienta?";
+        projectCtaTitle.textContent = "Revisemos cómo integrarla en tu flujo de trabajo.";
+        projectCtaLink.firstChild.textContent = "Consultar herramienta ";
+    }
+}
+
 function selectProject(id, options = {}) {
     const project = projects.find((item) => item.id === id) || projects[0];
     currentProject = project;
@@ -555,6 +801,7 @@ function selectProject(id, options = {}) {
     renderMetrics(project);
     renderSlides(project);
     renderTechnical(project);
+    renderCommercial(project);
     setSlide(0);
 
     const url = new URL(window.location.href);

@@ -18,14 +18,14 @@
     <link rel="canonical" href="https://www.ismdeveloper.cl/portafolio.html">
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
     <script src="assets/js/reveal-compat.js?v=2.2.0" defer></script>
-    <link rel="stylesheet" href="assets/css/portafolio.css?v=2.2.0">
+    <link rel="stylesheet" href="assets/css/portafolio.css?v=2.3.0">
     <link rel="stylesheet" href="assets/css/premium-motion.css?v=2.2.0">
     <link rel="stylesheet" href="assets/css/accessibility.css?v=2.1.1">
     <link rel="stylesheet" href="assets/css/privacy-consent.css?v=2.0.24">
     <script src="assets/vendor/lucide.min.js" defer></script>
     <script src="assets/js/privacy-consent.js?v=2.0.24" defer></script>
     <script src="assets/js/analytics.js?v=2.0.24" defer></script>
-    <script src="assets/js/portafolio.js?v=2.0.26" defer></script>
+    <script src="assets/js/portafolio.js?v=2.0.27" defer></script>
     <script src="assets/js/portfolio-accessibility.js?v=2.0.24" defer></script>
     <script src="assets/js/accessibility.js?v=2.0.24" defer></script>
     <title>Productos y casos de éxito | ISM Developer</title>
@@ -141,12 +141,61 @@
                     <div class="technical-grid" id="technicalGrid"></div>
                 </section>
 
+                <section class="commercial-section reveal" id="commercialSection" data-reveal="card-rise"
+                    aria-labelledby="commercialTitle">
+                    <div class="section-heading commercial-heading">
+                        <div>
+                            <p id="commercialKicker">Producto ISM</p>
+                            <h2 id="commercialTitle">Una solución preparada para adaptarse.</h2>
+                        </div>
+                        <span id="commercialBadge">Base ISM + personalización</span>
+                    </div>
+
+                    <div class="commercial-value-grid">
+                        <article class="commercial-value-card">
+                            <span class="commercial-card-icon"><i data-lucide="users-round"></i></span>
+                            <h3 id="commercialAudienceTitle">Para quién está pensado</h3>
+                            <ul id="commercialAudience"></ul>
+                        </article>
+
+                        <article class="commercial-value-card">
+                            <span class="commercial-card-icon"><i data-lucide="blocks"></i></span>
+                            <h3 id="commercialCapabilitiesTitle">Qué puede incluir</h3>
+                            <ul id="commercialCapabilities"></ul>
+                        </article>
+                    </div>
+
+                    <div class="commercial-cases-block">
+                        <div class="commercial-cases-heading">
+                            <div>
+                                <p id="commercialCasesKicker">Implementaciones</p>
+                                <h3 id="commercialCasesTitle">Casos que fortalecen el producto</h3>
+                            </div>
+                            <span id="commercialCasesCount"></span>
+                        </div>
+                        <div class="commercial-cases-grid" id="commercialCases"></div>
+                        <p class="commercial-cases-note" id="commercialCasesNote"></p>
+                    </div>
+
+                    <div class="commercial-delivery">
+                        <div>
+                            <span id="commercialModelLabel">Modelo de implementación</span>
+                            <strong id="commercialModel">Base ISM + adaptación por negocio</strong>
+                            <p id="commercialModelDetail">Partimos desde una base desarrollada y personalizamos alcance, identidad, procesos e integraciones.</p>
+                        </div>
+                        <a id="commercialAction" href="index.html#contacto">
+                            Solicitar implementación
+                            <i data-lucide="arrow-up-right"></i>
+                        </a>
+                    </div>
+                </section>
+
                 <section class="project-cta reveal" data-reveal="clip-up">
                     <div>
-                        <span>¿Tienes una necesidad similar?</span>
-                        <h2>Conversemos sobre tu próximo proyecto.</h2>
+                        <span id="projectCtaEyebrow">¿Tienes una necesidad similar?</span>
+                        <h2 id="projectCtaTitle">Conversemos sobre tu próximo proyecto.</h2>
                     </div>
-                    <a href="index.html#contacto">Iniciar conversación <i data-lucide="arrow-up-right"></i></a>
+                    <a id="projectCtaLink" href="index.html#contacto">Iniciar conversación <i data-lucide="arrow-up-right"></i></a>
                 </section>
             </div>
         </main>
