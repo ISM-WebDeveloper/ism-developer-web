@@ -182,3 +182,190 @@ a:focus-visible,button:focus-visible{outline:3px solid rgba(var(--accent-rgb),.7
     html{scroll-behavior:auto}
     *,*::before,*::after{transition:none!important;animation:none!important}
 }
+
+/* ==================================================
+   SOLUCIONES ISM · FASE 4
+   Breadcrumbs + relacionados + ecosistema
+   ================================================== */
+.solution-breadcrumbs {
+    width: min(calc(100% - 40px), var(--max));
+    margin: 0 auto;
+    padding-top: 22px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #7f91a8;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.solution-breadcrumbs a {
+    color: #a8b8ca;
+}
+
+.solution-breadcrumbs a:hover {
+    color: var(--accent);
+}
+
+.solution-breadcrumbs i {
+    width: 13px;
+    height: 13px;
+    color: #526378;
+}
+
+.solution-related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.solution-related-card {
+    min-height: 180px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(var(--related-rgb), 0.22);
+    border-radius: 18px;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(var(--related-rgb), 0.12), transparent 42%),
+        rgba(7, 19, 34, 0.72);
+    transition:
+        transform 0.22s ease,
+        border-color 0.22s ease;
+}
+
+.solution-related-card:hover,
+.solution-related-card:focus-visible {
+    transform: translateY(-3px);
+    border-color: rgba(var(--related-rgb), 0.56);
+}
+
+.solution-related-card span {
+    color: rgb(var(--related-rgb));
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+}
+
+.solution-related-card h3 {
+    margin: 10px 0 8px;
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 1.15;
+}
+
+.solution-related-card p {
+    color: #9dacbf;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.solution-related-card strong {
+    margin-top: auto;
+    padding-top: 18px;
+    color: #e8f6ff;
+    font-size: 12px;
+}
+
+.solution-ecosystem {
+    width: min(calc(100% - 40px), var(--max));
+    margin: 0 auto 72px;
+    padding: 30px;
+    border: 1px solid rgba(var(--accent-rgb), 0.20);
+    border-radius: 22px;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(var(--accent-rgb), 0.10), transparent 46%),
+        rgba(6, 17, 31, 0.68);
+}
+
+.solution-ecosystem > p {
+    max-width: 760px;
+    margin: 8px auto 24px;
+    color: #9dacbf;
+    text-align: center;
+}
+
+.solution-ecosystem-flow {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+
+.solution-ecosystem-node {
+    min-width: 150px;
+    min-height: 82px;
+    padding: 14px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(var(--accent-rgb), 0.22);
+    border-radius: 16px;
+    color: #e7f5ff;
+    background: rgba(8, 23, 40, 0.72);
+    text-align: center;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.solution-ecosystem-arrow {
+    color: var(--accent);
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.solutions-index-actions {
+    width: min(calc(100% - 40px), var(--max));
+    margin: -54px auto 64px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+    .solution-related-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .solution-ecosystem-flow {
+        grid-template-columns: 1fr;
+        width: min(100%, 420px);
+        margin: 0 auto;
+    }
+
+    .solution-ecosystem-arrow {
+        transform: rotate(90deg);
+        text-align: center;
+    }
+}
+
+@media (max-width: 720px) {
+    .solution-breadcrumbs,
+    .solution-ecosystem,
+    .solutions-index-actions {
+        width: calc(100% - 28px);
+    }
+
+    .solution-breadcrumbs {
+        padding-top: 16px;
+        flex-wrap: wrap;
+    }
+
+    .solution-ecosystem {
+        margin-bottom: 52px;
+        padding: 24px 18px;
+    }
+
+    .solutions-index-actions {
+        margin-top: -38px;
+        margin-bottom: 50px;
+    }
+
+    .solutions-index-actions .solution-button-primary,
+    .solutions-index-actions .solution-button-secondary {
+        width: min(100%, 300px);
+    }
+}
+

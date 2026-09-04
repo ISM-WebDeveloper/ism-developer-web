@@ -1,46 +1,62 @@
-ISM Developer · PORTAFOLIO 2.0 · FASE 3
+ISM Developer · PORTAFOLIO 2.0 · FASE 4
 Fecha: 2026-09-04
 
-NUEVAS URLS
-/soluciones/
-/soluciones/ism-presencia-digital/
-/soluciones/ism-stock-control/
-/soluciones/ism-gestion-control/
-/soluciones/ism-boutique/
+OBJETIVO
+-------
+Integrar el nuevo catálogo de Productos ISM con el resto del sitio y fortalecer
+la navegación/comercialización sin rediseñar las páginas aprobadas.
 
-IMPLEMENTADO
-- Página índice de Soluciones ISM.
-- Página comercial individual para cada producto.
-- SEO propio: title, description, canonical, Open Graph y Schema Service + BreadcrumbList.
-- Home: Productos ISM llevan a su página comercial.
-- Portafolio: cada producto muestra acceso a su página propia.
-- Casos de éxito de Presencia Digital se mantienen conectados al producto.
-- /proyectos/: botones de producto llevan a /soluciones/.
-- sitemap.xml actualizado.
-- Sin referencias públicas a Suiz Corp, Hospital Félix Bulnes, CIPApp o HFBApp.
+CAMBIOS
+-------
+HOME
+- El nav cambia "Proyectos" por "Soluciones".
+- Footer incorpora Productos ISM, Soluciones y Portafolio.
+- La sección Portafolio ahora tiene dos accesos:
+  1) Explorar soluciones
+  2) Casos y herramientas
 
-ARCHIVOS NUEVOS
+/SOLUCIONES/
+- Nueva explicación visual:
+  Producto ISM -> Adaptación al cliente -> Caso de éxito
+- Acceso directo al Portafolio.
+- Acceso directo al Configurador.
+
+/SOLUCIONES/<PRODUCTO>/
+- Breadcrumbs visibles.
+- Sección "También puede conectarse con otras soluciones".
+- Enlaces internos entre todos los Productos ISM.
+- Se mantiene la ficha comercial y SEO de Fase 3.
+
+PORTAFOLIO
+- Nuevo acceso "Soluciones ISM" desde la barra superior.
+- En mobile se convierte en botón compacto con icono.
+
+SEO
+- sitemap.xml agrega lastmod 2026-09-04 a las 5 URLs de /soluciones/.
+
+CACHÉ
+------
+style.css       v2.0.53
+portafolio.css  v2.3.1
+soluciones.css  v3.1.0
+
+ARCHIVOS MODIFICADOS
+--------------------
+index.html
+assets/css/style.css
+portafolio.html
+assets/css/portafolio.css
 assets/css/soluciones.css
 soluciones/index.html
 soluciones/ism-presencia-digital/index.html
 soluciones/ism-stock-control/index.html
 soluciones/ism-gestion-control/index.html
 soluciones/ism-boutique/index.html
-
-ARCHIVOS MODIFICADOS
-index.html
-assets/js/script.js
-portafolio.html
-assets/js/portafolio.js
-src/index_proyectos.html
 sitemap.xml
 
-CACHÉ
-script.js v2.0.38
-portafolio.js v2.0.28
-soluciones.css v3.0.0
-
-VALIDACIÓN
+VALIDACIONES
+------------
 - script.js: sintaxis OK
 - portafolio.js: sintaxis OK
-- conceptos antiguos en superficie Fase 3: 0
+- Enlaces locales de las 5 páginas /soluciones/: OK
+- Referencias públicas a Suiz Corp / Hospital Félix Bulnes / CIPApp / HFBApp: 0
