@@ -329,3 +329,81 @@
         width: min(100%, 280px);
     }
 }
+
+/* ========================================================= */
+/* PATCH MOBILE 2026-09-04                                  */
+/* Centrado servicios + madurez y logo navbar ligeramente   */
+/* mayor. Solo afecta pantallas <= 600px.                   */
+/* ========================================================= */
+@media (max-width: 600px) {
+    /* Navbar: aumentar el logo sin modificar desktop. */
+    .premium-navbar:not(.scrolled) .nav-brand,
+    .premium-navbar.scrolled .nav-brand,
+    .nav-brand {
+        width: 134px;
+        max-width: 134px;
+    }
+
+    .premium-navbar:not(.scrolled) .nav-logo,
+    .premium-navbar.scrolled .nav-logo,
+    .nav-logo {
+        width: 128px;
+        max-width: 128px;
+        height: auto;
+    }
+
+    /* Servicios: centrar toda la información textual en mobile. */
+    .service-showcase-content {
+        justify-items: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .service-showcase-title {
+        width: 100%;
+        text-align: center;
+    }
+
+    .service-showcase-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .service-showcase-description {
+        width: 100%;
+        text-align: center;
+        text-wrap: balance;
+    }
+
+    .service-showcase-action {
+        justify-self: center;
+        align-self: center;
+        text-align: center;
+    }
+
+    /* Madurez: centrar contenido y eliminar altura blanca sobrante. */
+    .maturity-card-premium {
+        min-height: 0;
+    }
+
+    .maturity-card-content {
+        min-height: 0;
+        padding: 56px 24px 28px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: center;
+    }
+
+    .maturity-card-content h3,
+    .maturity-card-content p {
+        width: 100%;
+        text-align: center;
+    }
+
+    .maturity-card-accent {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
