@@ -682,6 +682,27 @@
     }
     </style>
 
+<style id="ism-service-alignment-v123">
+#servicios .service-showcase-card{cursor:default}
+#servicios .service-showcase-content{width:100%;align-items:stretch;text-align:center}
+#servicios .service-showcase-title{width:100%;margin-inline:auto;text-align:center}
+#servicios .service-showcase-title::after{margin-left:auto;margin-right:auto}
+#servicios .service-showcase-description{width:100%;max-width:none;flex:1 1 auto;margin-inline:auto;text-align:justify;text-align-last:left;hyphens:auto;overflow-wrap:anywhere}
+#servicios .service-showcase-action{width:fit-content;max-width:100%;margin-left:auto;margin-right:auto;align-self:center;text-align:center;text-decoration:none;cursor:pointer;position:relative;z-index:3;transition:color .2s ease,transform .2s ease}
+#servicios .service-showcase-action:hover,#servicios .service-showcase-action:focus-visible{color:#0284c7;transform:translateY(-1px)}
+#proyectos .ism-portfolio-tabs{margin:8px auto 12px;padding:8px}
+#proyectos .ism-portfolio-tab{min-height:48px;padding:0 18px;gap:12px;font-size:13px}
+#proyectos .ism-portfolio-tab strong{min-width:28px;height:28px;font-size:11px}
+@media(max-width:600px){
+#servicios .service-showcase-content{align-items:stretch!important;text-align:center!important}
+#servicios .service-showcase-title{width:100%!important;max-width:292px!important;margin-inline:auto!important;text-align:center!important}
+#servicios .service-showcase-title::after{margin-left:auto!important;margin-right:auto!important}
+#servicios .service-showcase-description{width:100%!important;max-width:100%!important;flex:1 1 auto!important;margin-inline:auto!important;text-align:justify!important;text-align-last:left!important}
+#servicios .service-showcase-action{width:fit-content!important;margin-inline:auto!important;align-self:center!important;text-align:center!important}
+#proyectos .ism-portfolio-tabs{width:fit-content!important;max-width:calc(100% - 20px)!important;margin:14px auto 20px!important;padding:9px!important;overflow:visible!important}
+#proyectos .ism-portfolio-tab{min-height:50px!important;padding:0 20px!important;font-size:13px!important}
+}
+</style>
 </head>
 
 <body>
@@ -893,13 +914,7 @@
                 </header>
 
                 <div class="service-showcase-grid" aria-label="Servicios configurables">
-                    <a class="service-showcase-card reveal"
-                        href="configurador/?servicio=desarrollo-implementacion"
-                        data-configurator-link
-                        data-service-name="Desarrollo e Implementación"
-                        data-track-event="service_configurator_open"
-                        data-track-category="services"
-                        data-track-label="Desarrollo e Implementación">
+                    <article class="service-showcase-card reveal">
                         <span class="service-showcase-media">
                             <img src="assets/img/perf/servicio-desarrollo-640.webp"
                                 alt="Visual tecnológico de desarrollo e implementación"
@@ -911,17 +926,11 @@
                                 Construimos sitios, aplicaciones, integraciones y soluciones digitales
                                 preparadas para crecer.
                             </span>
-                            <span class="service-showcase-action">Configurar este servicio</span>
+                            <a class="service-showcase-action" href="configurador/?servicio=desarrollo-implementacion" data-configurator-link data-service-name="Desarrollo e Implementación" data-track-event="service_configurator_open" data-track-category="services" data-track-label="Desarrollo e Implementación">Configurar este servicio</a>
                         </span>
-                    </a>
+                    </article>
 
-                    <a class="service-showcase-card reveal"
-                        href="configurador/?servicio=mantenimiento-evolucion"
-                        data-configurator-link
-                        data-service-name="Mantenimiento y Evolución"
-                        data-track-event="service_configurator_open"
-                        data-track-category="services"
-                        data-track-label="Mantenimiento y Evolución">
+                    <article class="service-showcase-card reveal">
                         <span class="service-showcase-media">
                             <img src="assets/img/perf/servicio-mantenimiento-640.webp"
                                 alt="Visual tecnológico de mantenimiento y evolución"
@@ -933,17 +942,11 @@
                                 Mejoramos, actualizamos y optimizamos soluciones existentes para mantenerlas
                                 estables y vigentes.
                             </span>
-                            <span class="service-showcase-action">Configurar este servicio</span>
+                            <a class="service-showcase-action" href="configurador/?servicio=mantenimiento-evolucion" data-configurator-link data-service-name="Mantenimiento y Evolución" data-track-event="service_configurator_open" data-track-category="services" data-track-label="Mantenimiento y Evolución">Configurar este servicio</a>
                         </span>
-                    </a>
+                    </article>
 
-                    <a class="service-showcase-card reveal"
-                        href="configurador/?servicio=monitoreo-observabilidad"
-                        data-configurator-link
-                        data-service-name="Monitoreo y Observabilidad"
-                        data-track-event="service_configurator_open"
-                        data-track-category="services"
-                        data-track-label="Monitoreo y Observabilidad">
+                    <article class="service-showcase-card reveal">
                         <span class="service-showcase-media">
                             <img src="assets/img/perf/servicio-monitoreo-640.webp"
                                 alt="Visual tecnológico de monitoreo y observabilidad"
@@ -955,17 +958,11 @@
                                 Supervisamos disponibilidad, rendimiento y eventos para anticipar problemas
                                 y responder a tiempo.
                             </span>
-                            <span class="service-showcase-action">Configurar este servicio</span>
+                            <a class="service-showcase-action" href="configurador/?servicio=monitoreo-observabilidad" data-configurator-link data-service-name="Monitoreo y Observabilidad" data-track-event="service_configurator_open" data-track-category="services" data-track-label="Monitoreo y Observabilidad">Configurar este servicio</a>
                         </span>
-                    </a>
+                    </article>
 
-                    <a class="service-showcase-card reveal"
-                        href="configurador/?servicio=respaldo-continuidad"
-                        data-configurator-link
-                        data-service-name="Respaldo y Continuidad Operacional"
-                        data-track-event="service_configurator_open"
-                        data-track-category="services"
-                        data-track-label="Respaldo y Continuidad Operacional">
+                    <article class="service-showcase-card reveal">
                         <span class="service-showcase-media">
                             <img src="assets/img/perf/servicio-respaldo-640.webp"
                                 alt="Visual tecnológico de respaldo y continuidad operacional"
@@ -977,17 +974,11 @@
                                 Protegemos la información y preparamos la recuperación para reducir el impacto
                                 de incidentes.
                             </span>
-                            <span class="service-showcase-action">Configurar este servicio</span>
+                            <a class="service-showcase-action" href="configurador/?servicio=respaldo-continuidad" data-configurator-link data-service-name="Respaldo y Continuidad Operacional" data-track-event="service_configurator_open" data-track-category="services" data-track-label="Respaldo y Continuidad Operacional">Configurar este servicio</a>
                         </span>
-                    </a>
+                    </article>
 
-                    <a class="service-showcase-card reveal"
-                        href="configurador/?servicio=ciberseguridad-proteccion"
-                        data-configurator-link
-                        data-service-name="Ciberseguridad y Protección Digital"
-                        data-track-event="service_configurator_open"
-                        data-track-category="services"
-                        data-track-label="Ciberseguridad y Protección Digital">
+                    <article class="service-showcase-card reveal">
                         <span class="service-showcase-media">
                             <img src="assets/img/perf/servicio-ciberseguridad-640.webp"
                                 alt="Visual tecnológico de ciberseguridad y protección digital"
@@ -999,17 +990,11 @@
                                 Fortalecemos accesos, datos y plataformas mediante medidas de seguridad
                                 adaptadas al negocio.
                             </span>
-                            <span class="service-showcase-action">Configurar este servicio</span>
+                            <a class="service-showcase-action" href="configurador/?servicio=ciberseguridad-proteccion" data-configurator-link data-service-name="Ciberseguridad y Protección Digital" data-track-event="service_configurator_open" data-track-category="services" data-track-label="Ciberseguridad y Protección Digital">Configurar este servicio</a>
                         </span>
-                    </a>
+                    </article>
 
-                    <a class="service-showcase-card reveal"
-                        href="configurador/?servicio=soporte-gestion"
-                        data-configurator-link
-                        data-service-name="Soporte y Gestión de Servicios"
-                        data-track-event="service_configurator_open"
-                        data-track-category="services"
-                        data-track-label="Soporte y Gestión de Servicios">
+                    <article class="service-showcase-card reveal">
                         <span class="service-showcase-media">
                             <img src="assets/img/perf/servicio-soporte-640.webp"
                                 alt="Visual tecnológico de soporte y gestión de servicios"
@@ -1021,13 +1006,13 @@
                                 Organizamos solicitudes, incidentes y seguimiento para una operación
                                 más clara y confiable.
                             </span>
-                            <span class="service-showcase-action">Configurar este servicio</span>
+                            <a class="service-showcase-action" href="configurador/?servicio=soporte-gestion" data-configurator-link data-service-name="Soporte y Gestión de Servicios" data-track-event="service_configurator_open" data-track-category="services" data-track-label="Soporte y Gestión de Servicios">Configurar este servicio</a>
                         </span>
-                    </a>
+                    </article>
                 </div>
 
                 <p class="service-showcase-note">
-                    Cada tarjeta abrirá el configurador correspondiente y conservará el servicio seleccionado.
+                    Usa “Configurar este servicio” para abrir el configurador con esa selección.
                 </p>
             </div>
         </section>
@@ -1913,7 +1898,7 @@
         </div>
     </footer>
 
-    <script src="assets/js/script.js?v=2.0.41" defer></script>
+    <script src="assets/js/script.js?v=2.0.43" defer></script>
     <script src="assets/js/accessibility.js?v=2.0.24" defer></script>
 </body>
 

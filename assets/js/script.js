@@ -706,7 +706,7 @@ faqItems.forEach((item, index) => {
   });
 });
 // CONFIGURADOR DE SERVICIOS
-// Las tarjetas conservan su href como respaldo y muestran una confirmación antes de navegar.
+// Solo el CTA Configurar este servicio abre la confirmación.
 const configuratorLinks = document.querySelectorAll("[data-configurator-link]");
 const configuratorDialog = document.getElementById("serviceConfiguratorDialog");
 const configuratorDescription = document.getElementById("serviceConfiguratorDescription");
