@@ -1,10 +1,161 @@
 const projects = [
     {
+        id: "ism-presencia-digital",
+        category: "Productos ISM",
+        name: "ISM Presencia Digital",
+        short: "Sitios y canales digitales profesionales",
+        type: "Producto ISM / Presencia digital",
+        status: "Disponible",
+        accent: "#16bdf2",
+        accentRgb: "22, 189, 242",
+        url: null,
+        summary: "Producto de ISM Developer para construir una presencia digital profesional, clara y escalable. La misma base se adapta al rubro, identidad y objetivos de cada cliente, incorporando sitio web, contacto, captación y funciones según necesidad.",
+        metrics: [["Estado", "Disponible"], ["Tipo", "Producto ISM"], ["Enfoque", "Captación"], ["Casos", "3 publicados"]],
+        stack: "Sitio web · Responsive · SEO inicial · Integraciones",
+        journey: [
+            {
+                title: "Una solución adaptable a distintos rubros",
+                description: "ISM Presencia Digital se implementa sobre una base profesional que se personaliza según marca, servicios, público y objetivos comerciales de cada negocio.",
+                focus: "Producto",
+                result: "Base reutilizable",
+                image: "assets/img/portfolio/proestakis-principal.webp",
+                alt: "Ejemplo de implementación corporativa de ISM Presencia Digital"
+            },
+            {
+                title: "Puede incorporar funciones además del sitio",
+                description: "Cuando el negocio lo necesita, la presencia digital puede conectarse con agendas, formularios, paneles privados u otros módulos sin reconstruir toda la solución desde cero.",
+                focus: "Evolución",
+                result: "Escalabilidad",
+                image: "assets/img/portfolio/badia-nurse-shield-agenda.webp",
+                alt: "Ejemplo de agenda conectada a una implementación de ISM Presencia Digital"
+            },
+            {
+                title: "Casos reales que validan el producto",
+                description: "Badia Nurse Shield, Constructora Proestakis y Lecasse IT Services muestran cómo la misma línea de producto puede adaptarse a salud, construcción y servicios tecnológicos.",
+                focus: "Casos de éxito",
+                result: "Validación",
+                image: "assets/img/portfolio/lecasse-principal.webp",
+                alt: "Ejemplo tecnológico de implementación de ISM Presencia Digital"
+            }
+        ],
+        analysis: ["Negocios sin una presencia digital profesional", "Sitios que no explican bien los servicios", "Dependencia exclusiva de redes sociales o mensajería", "Necesidad de una base preparada para crecer"],
+        actionPlan: ["Diseño responsive alineado con la marca", "Arquitectura de contenido y llamadas a la acción", "Contacto y canales comerciales", "SEO técnico inicial", "Integraciones según el alcance"],
+        scalability: ["Agenda y reservas", "Catálogo o portafolio", "Paneles privados", "Automatizaciones e integraciones", "Nuevos módulos comerciales"]
+    },
+    {
+        id: "ism-stock-control",
+        category: "Productos ISM",
+        name: "ISM Stock Control",
+        short: "Inventario, bodegas y trazabilidad",
+        type: "Producto ISM / Inventario y logística",
+        status: "Producto activo",
+        accent: "#22d3ee",
+        accentRgb: "34, 211, 238",
+        url: null,
+        summary: "Sistema de ISM Developer para controlar stock, bodegas, recepciones, entregas, herramientas y movimientos con trazabilidad por usuario y operación. Está pensado para adaptarse a empresas con inventario físico y trabajo en terreno.",
+        metrics: [["Estado", "Producto activo"], ["Foco", "Stock"], ["Operación", "Multi-bodega"], ["Acceso", "Roles"]],
+        stack: "Bodegas · Stock · Movimientos · Roles · Trazabilidad",
+        journey: [
+            {
+                title: "Visión central de inventario y operación",
+                description: "El panel permite revisar existencias, movimientos y estado general desde una vista administrativa preparada para distintos roles y bodegas.",
+                focus: "Administración",
+                result: "Control central",
+                image: "assets/img/portfolio/control-bodega-admin.webp",
+                alt: "Panel administrador de ISM Stock Control"
+            },
+            {
+                title: "Registro operativo desde terreno",
+                description: "Recepciones, entregas, búsquedas y movimientos se registran desde una interfaz móvil para mantener la trazabilidad en el mismo punto donde ocurre la operación.",
+                focus: "Operación móvil",
+                result: "Trazabilidad",
+                image: "assets/img/portfolio/control-bodega-operativo.webp",
+                alt: "Interfaz operativa móvil de ISM Stock Control"
+            }
+        ],
+        analysis: ["Inventario distribuido entre planillas y registros manuales", "Diferencias entre stock físico y registros", "Falta de trazabilidad por responsable", "Necesidad de operar desde dispositivos móviles"],
+        actionPlan: ["Stock general y por bodega", "Recepción, entrega y movimientos", "Perfiles por rol", "Historial y bitácora", "Importación y exportación de información"],
+        scalability: ["Nuevas bodegas y proyectos", "Alertas de stock y mantenimiento", "Flujos de aprobación", "Firma y evidencias", "Integración con compras y abastecimiento"]
+    },
+    {
+        id: "ism-gestion-control",
+        category: "Productos ISM",
+        name: "ISM Gestión Control",
+        short: "Gestión operacional y control interno",
+        type: "Producto ISM / Gestión operacional",
+        status: "En evolución",
+        accent: "#34d399",
+        accentRgb: "52, 211, 153",
+        url: null,
+        summary: "Plataforma de gestión operacional para centralizar recursos, responsables, movimientos y procesos internos. Su objetivo es reemplazar registros aislados por una operación trazable, ordenada y adaptable a distintas áreas de una organización.",
+        metrics: [["Estado", "En evolución"], ["Tipo", "Producto ISM"], ["Foco", "Operaciones"], ["Modelo", "Modular"]],
+        stack: "Procesos · Recursos · Roles · Registros · Reportes",
+        journey: [
+            {
+                title: "Resumen operacional en un solo lugar",
+                description: "Los indicadores principales y estados de operación se concentran en una vista para reducir la dispersión de información y facilitar el seguimiento diario.",
+                focus: "Dashboard",
+                result: "Visibilidad",
+                image: "assets/img/project-ism-gestion-control-dashboard.svg",
+                alt: "Vista conceptual del dashboard de ISM Gestión Control"
+            },
+            {
+                title: "Recursos e inventario conectados con la gestión",
+                description: "La solución permite relacionar existencias, responsables y movimientos dentro de un mismo flujo de control, sin limitarse a un único rubro.",
+                focus: "Recursos",
+                result: "Orden",
+                image: "assets/img/project-ism-gestion-control-inventario.svg",
+                alt: "Vista conceptual de recursos e inventario en ISM Gestión Control"
+            },
+            {
+                title: "Procesos trazables y preparados para evolucionar",
+                description: "La arquitectura modular permite incorporar nuevas unidades, permisos, flujos y reportes conforme crece la operación.",
+                focus: "Operaciones",
+                result: "Escalabilidad",
+                image: "assets/img/project-ism-gestion-control-operaciones.svg",
+                alt: "Vista conceptual de operaciones en ISM Gestión Control"
+            }
+        ],
+        analysis: ["Información operacional distribuida", "Procesos manuales difíciles de auditar", "Falta de visibilidad sobre responsables y movimientos", "Necesidad de una herramienta adaptable a distintas áreas"],
+        actionPlan: ["Modelo de usuarios y roles", "Registro central de operaciones", "Control de recursos y responsables", "Bitácora e historial", "Paneles y reportes según el proceso"],
+        scalability: ["Nuevas áreas o unidades", "Flujos de aprobación", "Alertas y automatizaciones", "Integración con otros sistemas", "Indicadores y reportería avanzada"]
+    },
+    {
+        id: "ism-boutique",
+        category: "Productos ISM",
+        name: "ISM Boutique",
+        short: "Gestión comercial para boutiques",
+        type: "Producto ISM / Comercio minorista",
+        status: "En desarrollo",
+        accent: "#f9a8d4",
+        accentRgb: "249, 168, 212",
+        url: null,
+        summary: "Producto orientado a boutiques y pequeños comercios para centralizar productos, stock, ventas, clientes y seguimiento comercial desde una interfaz simple y adaptable al trabajo diario.",
+        metrics: [["Estado", "En desarrollo"], ["Sector", "Retail"], ["Foco", "Ventas + stock"], ["Diseño", "Mobile first"]],
+        stack: "Productos · Stock · Ventas · Clientes · Exportaciones",
+        journey: [
+            {
+                title: "Producto en etapa de desarrollo",
+                description: "La primera versión se está construyendo con foco en operación simple, control de productos, ventas y clientes para negocios de bajo y mediano flujo.",
+                focus: "Producto",
+                result: "Validación",
+                statusVisual: {
+                    stage: "Producto en desarrollo",
+                    label: "ISM Boutique",
+                    detail: "Stock · ventas · clientes · mobile first"
+                }
+            }
+        ],
+        analysis: ["Stock administrado manualmente", "Ventas sin historial central", "Dificultad para identificar clientes frecuentes", "Necesidad de operar fácilmente desde celular"],
+        actionPlan: ["Catálogo y categorías", "Control de stock", "Registro de ventas", "Clientes y fidelización", "Exportación de información"],
+        scalability: ["Catálogo público", "Alertas y promociones", "Reportes comerciales", "Integración con presencia digital", "Automatizaciones de seguimiento"]
+    },
+    {
         id: "badiasalud",
-        category: "Casos reales",
+        category: "Casos de éxito",
         name: "Badia Nurse Shield",
         short: "Sitio web + agenda",
-        type: "Caso real / Salud y agendamiento",
+        type: "Caso de éxito / ISM Presencia Digital",
         status: "Publicado",
         accent: "#16bdf2",
         accentRgb: "22, 189, 242",
@@ -44,10 +195,10 @@ const projects = [
     },
     {
         id: "constructora-proestakis",
-        category: "Casos reales",
+        category: "Casos de éxito",
         name: "Constructora Proestakis",
         short: "Presencia corporativa",
-        type: "Caso real / Construcción",
+        type: "Caso de éxito / ISM Presencia Digital",
         status: "Publicado",
         accent: "#fb923c",
         accentRgb: "251, 146, 60",
@@ -87,10 +238,10 @@ const projects = [
     },
     {
         id: "lecasse-it-services",
-        category: "Casos reales",
+        category: "Casos de éxito",
         name: "Lecasse IT Services",
         short: "Presencia tecnológica",
-        type: "Caso real / Tecnología B2B",
+        type: "Caso de éxito / ISM Presencia Digital",
         status: "Publicado",
         accent: "#38bdf8",
         accentRgb: "56, 189, 248",
@@ -130,10 +281,10 @@ const projects = [
     },
     {
         id: "tool-service-hours",
-        category: "Soluciones digitales",
+        category: "Herramientas ISM",
         name: "Control de horas de servicios",
         short: "HH, clientes y seguimiento",
-        type: "Solución digital / Gestión de servicios",
+        type: "Herramienta ISM / Gestión de servicios",
         status: "Disponible",
         accent: "#2563eb",
         accentRgb: "37, 99, 235",
@@ -165,7 +316,7 @@ const projects = [
     },
     {
         id: "tool-service-sizing",
-        category: "Soluciones digitales",
+        category: "Herramientas ISM",
         name: "Dimensionador de servicios",
         short: "Alcance y estimación técnica",
         type: "Solución digital / Configuración y cotización",
@@ -200,7 +351,7 @@ const projects = [
     },
     {
         id: "tool-availability-agenda",
-        category: "Soluciones digitales",
+        category: "Herramientas ISM",
         name: "Control de disponibilidad con agenda",
         short: "Horarios, cupos y reservas",
         type: "Solución digital / Agendamiento",
@@ -232,114 +383,14 @@ const projects = [
         analysis: ["Coordinación manual de horarios", "Cruces de agenda", "Disponibilidad que cambia durante el mes", "Necesidad de mostrar cupos reales"],
         actionPlan: ["Agenda mensual configurable", "Cálculo de cupos", "Activación y bloqueo de días", "Visualización de reservas ocupadas", "Reglas de horario por servicio"],
         scalability: ["Recordatorios automáticos", "Pagos y confirmaciones", "Múltiples profesionales", "Integración con calendarios externos"]
-    },
-    {
-        id: "tool-warehouse-control",
-        category: "Soluciones digitales",
-        name: "Control de bodega",
-        short: "Stock y trazabilidad",
-        type: "Solución digital / Inventario",
-        status: "Disponible",
-        accent: "#22d3ee",
-        accentRgb: "34, 211, 238",
-        url: null,
-        summary: "Centraliza existencias, movimientos y responsables para que bodegas y operaciones mantengan información trazable y actualizada desde terreno.",
-        metrics: [["Estado", "Disponible"], ["Foco", "Inventario"], ["Uso", "Móvil"], ["Control", "Trazabilidad"]],
-        stack: "Stock · Movimientos · Bodegas · Trazabilidad",
-        journey: [
-            {
-                title: "Administración general desde el móvil",
-                description: "El panel administrador resume usuarios, productos, alertas, movimientos y valor del stock para entregar una visión ejecutiva de la operación.",
-                focus: "Administración",
-                result: "Visibilidad",
-                image: "assets/img/portfolio/control-bodega-admin.webp",
-                alt: "Panel administrador móvil de la herramienta de control de bodega"
-            },
-            {
-                title: "Operación directa en el punto donde ocurre",
-                description: "El usuario de bodega puede buscar, recibir y entregar artículos desde un flujo móvil diseñado para registrar movimientos sin volver a planillas de papel.",
-                focus: "Operación móvil",
-                result: "Trazabilidad",
-                image: "assets/img/portfolio/control-bodega-operativo.webp",
-                alt: "Interfaz móvil operativa de la herramienta de control de bodega"
-            }
-        ],
-        analysis: ["Existencias distribuidas entre registros manuales", "Dificultad para conocer stock y ubicación", "Falta de trazabilidad por usuario", "Necesidad de registrar movimientos desde terreno"],
-        actionPlan: ["Consulta y búsqueda de artículos", "Recepción y entrega digital", "Control de inventario por bodega", "Historial de movimientos", "Acceso diferenciado por roles"],
-        scalability: ["Múltiples bodegas y proyectos", "Alertas de stock y mantenimiento", "Importación y exportación de inventario", "Integración con compras y abastecimiento"]
-    },
-    {
-        id: "suizcorp",
-        category: "En desarrollo",
-        name: "SuizCorp",
-        short: "Piloto de control de bodega",
-        type: "Piloto activo / Inventario y logística",
-        status: "Piloto activo",
-        accent: "#22d3ee",
-        accentRgb: "34, 211, 238",
-        url: null,
-        summary: "Piloto real de control de bodegas, inventario, movimientos, herramientas y trazabilidad con roles diferenciados para operación, supervisión y administración.",
-        metrics: [["Estado", "Piloto activo"], ["Bodegas", "2"], ["Enfoque", "Stock"], ["Acceso", "Roles"]],
-        stack: "Bodegas · Stock · Movimientos · Roles",
-        journey: [
-            {
-                title: "Panel administrador del piloto",
-                description: "La implementación permite revisar indicadores globales y administrar la operación desde una vista móvil adaptada al contexto del piloto.",
-                focus: "Administración",
-                result: "Control central",
-                image: "assets/img/portfolio/control-bodega-admin.webp",
-                alt: "Panel administrador del piloto SuizCorp"
-            },
-            {
-                title: "Flujo operativo para usuario de bodega",
-                description: "Recepción, entrega, búsqueda y otras acciones se concentran en una interfaz móvil para registrar movimientos directamente desde la operación.",
-                focus: "Bodega",
-                result: "Registro en terreno",
-                image: "assets/img/portfolio/control-bodega-operativo.webp",
-                alt: "Interfaz operativa del piloto SuizCorp"
-            }
-        ],
-        analysis: ["Control distribuido entre bodegas", "Necesidad de operar desde dispositivos móviles", "Diferencias entre stock físico y registros", "Trazabilidad por usuario y movimiento"],
-        actionPlan: ["Roles de trabajador, supervisor y administrador", "Recepción, entrega, préstamo y devolución", "Importación de inventario", "Stock general y por bodega", "Bitácora y evidencias"],
-        scalability: ["Más proyectos y bodegas", "Alertas y mantenimiento", "Flujos de aprobación", "Reportería e integración con abastecimiento"]
-    },
-    {
-        id: "hospital-felix-bulnes",
-        category: "En desarrollo",
-        name: "Hospital Félix Bulnes",
-        short: "Bodega periférica hospitalaria",
-        type: "Piloto en desarrollo / Logística en salud",
-        status: "En desarrollo",
-        accent: "#34d399",
-        accentRgb: "52, 211, 153",
-        url: null,
-        summary: "Piloto orientado a una bodega periférica hospitalaria para mejorar control de existencias, movimientos y registro operacional desde dispositivos móviles.",
-        metrics: [["Estado", "En desarrollo"], ["Sector", "Salud"], ["Foco", "Bodega periférica"], ["Uso", "Móvil"]],
-        stack: "Bodega periférica · Stock · Movimientos · Uso móvil",
-        journey: [
-            {
-                title: "Piloto en etapa de implementación",
-                description: "El alcance está orientado a digitalizar el control de una bodega periférica, manteniendo trazabilidad de existencias y movimientos sin presentar como terminadas funciones que aún están en desarrollo.",
-                focus: "Bodega periférica",
-                result: "Validación",
-                statusVisual: {
-                    stage: "Piloto en desarrollo",
-                    label: "Hospital Félix Bulnes",
-                    detail: "Stock · movimientos · operación móvil"
-                }
-            }
-        ],
-        analysis: ["Registros manuales en una bodega periférica", "Necesidad de conocer existencias actualizadas", "Trazabilidad de entradas y salidas", "Acceso operativo desde dispositivos móviles"],
-        actionPlan: ["Modelo de stock por bodega", "Registro digital de movimientos", "Perfiles operativos", "Consulta móvil de existencias", "Bitácora de responsables"],
-        scalability: ["Nuevas unidades y bodegas", "Alertas por consumo", "Reportes por unidad", "Integración con sistemas institucionales"]
     }
 ];
 
-const categoryOrder = ["Casos reales", "Soluciones digitales", "En desarrollo"];
+const categoryOrder = ["Productos ISM", "Casos de éxito", "Herramientas ISM"];
 const categoryIcons = {
-    "Casos reales": "badge-check",
-    "Soluciones digitales": "panels-top-left",
-    "En desarrollo": "flask-conical"
+    "Productos ISM": "boxes",
+    "Casos de éxito": "badge-check",
+    "Herramientas ISM": "panels-top-left"
 };
 const projectNav = document.getElementById("projectNav");
 const visualTrack = document.getElementById("visualTrack");
@@ -351,9 +402,8 @@ const totalSlidesLabel = document.getElementById("totalSlides");
 const syncedSlider = document.getElementById("syncedSlider");
 const routeLoader = document.getElementById("routeLoader");
 const projectAliases = {
-    "control-gestion": "tool-warehouse-control",
-    "cipapp": "suizcorp",
-    "hfbapp": "hospital-felix-bulnes"
+    "tool-warehouse-control": "ism-stock-control",
+    "control-gestion": "ism-stock-control"
 };
 const rawRequestedProject = new URLSearchParams(window.location.search).get("proyecto");
 const requestedProject = projectAliases[rawRequestedProject] || rawRequestedProject;
@@ -480,7 +530,7 @@ function selectProject(id, options = {}) {
 
     document.documentElement.style.setProperty("--accent", project.accent);
     document.documentElement.style.setProperty("--accent-rgb", project.accentRgb);
-    document.title = `${project.name} | Portafolio ISM Developer`;
+    document.title = `${project.name} | Soluciones ISM Developer`;
     document.getElementById("projectType").textContent = project.type;
     document.getElementById("projectTitle").textContent = project.name;
     document.getElementById("projectSummary").textContent = project.summary;

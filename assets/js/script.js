@@ -157,135 +157,143 @@ if (portfolioSection) {
   const portfolioData = {
     clients: [
       {
-        id: "badiasalud",
-        name: "Badia Nurse Shield",
-        label: "Presencia digital + agenda",
-        status: "Publicado",
-        type: "Caso real",
-        description: "Una presencia profesional conectada con acceso a reservas para reducir coordinación manual y facilitar nuevas solicitudes de atención.",
-        useCase: "Profesionales independientes y centros que necesitan presentar servicios y ordenar la reserva de horas desde un canal propio.",
-        stack: "TypeScript · Tailwind CSS · Supabase · Vercel",
-        icon: "calendar-check",
-        link: "portafolio.html?proyecto=badiasalud",
+        id: "ism-presencia-digital",
+        name: "ISM Presencia Digital",
+        label: "Sitios y canales profesionales",
+        status: "Disponible",
+        type: "Producto ISM",
+        description: "Una base profesional y adaptable para presentar servicios, captar oportunidades y conectar nuevas funciones según las necesidades de cada negocio.",
+        useCase: "Empresas, profesionales y emprendimientos que necesitan un canal digital propio preparado para crecer.",
+        stack: "Web · Responsive · SEO inicial · Integraciones",
+        icon: "monitor-smartphone",
+        link: "portafolio.html?proyecto=ism-presencia-digital",
         images: [
-          { src: "assets/img/portfolio/badia-nurse-shield-sitio.webp", alt: "Sitio web de Badia Nurse Shield para atención de enfermería domiciliaria", label: "Sitio web" },
-          { src: "assets/img/portfolio/badia-nurse-shield-agenda.webp", alt: "Panel privado de agenda y disponibilidad de Badia Nurse Shield", label: "Agenda y disponibilidad" },
-          { src: "assets/img/portfolio/badia-nurse-shield-panel.webp", alt: "Panel de procedimientos y configuración profesional de Badia Nurse Shield", label: "Gestión interna" }
+          { src: "assets/img/portfolio/proestakis-principal.webp", alt: "Implementación corporativa de ISM Presencia Digital", label: "Implementación corporativa" },
+          { src: "assets/img/portfolio/badia-nurse-shield-sitio.webp", alt: "Implementación de salud de ISM Presencia Digital", label: "Implementación en salud" },
+          { src: "assets/img/portfolio/lecasse-principal.webp", alt: "Implementación tecnológica de ISM Presencia Digital", label: "Implementación tecnológica" }
         ]
       },
       {
-        id: "constructora-proestakis",
-        name: "Constructora Proestakis",
-        label: "Presencia digital corporativa",
-        status: "Publicado",
-        type: "Caso real",
-        description: "Una vitrina digital para presentar experiencia, capacidad técnica y servicios desde un canal profesional propio orientado a nuevos clientes.",
-        useCase: "Constructoras y empresas de servicios que necesitan respaldar su experiencia, mostrar capacidades y convertir visitas en oportunidades comerciales.",
-        stack: "HTML5 · CSS3 · JavaScript · Vercel",
-        icon: "truck",
-        link: "portafolio.html?proyecto=constructora-proestakis",
+        id: "ism-stock-control",
+        name: "ISM Stock Control",
+        label: "Inventario, bodegas y trazabilidad",
+        status: "Producto activo",
+        type: "Producto ISM",
+        description: "Control de stock, bodegas, recepciones, entregas y movimientos con trazabilidad por usuario y operación.",
+        useCase: "Bodegas, faenas y empresas que necesitan conocer existencias, responsables y movimientos en tiempo real.",
+        stack: "Stock · Bodegas · Movimientos · Roles",
+        icon: "package-search",
+        link: "portafolio.html?proyecto=ism-stock-control",
         images: [
-          { src: "assets/img/portfolio/proestakis-principal.webp", alt: "Sitio corporativo publicado de Constructora Proestakis", label: "Vista principal" },
-          { src: "assets/img/portfolio/proestakis-cifras.webp", alt: "Bloque de capacidades y cifras de Constructora Proestakis", label: "Capacidad técnica" },
-          { src: "assets/img/portfolio/proestakis-propuesta.webp", alt: "Propuesta de valor del sitio de Constructora Proestakis", label: "Propuesta de valor" }
+          { src: "assets/img/portfolio/control-bodega-admin.webp", alt: "Panel administrador de ISM Stock Control", label: "Panel administrador" },
+          { src: "assets/img/portfolio/control-bodega-operativo.webp", alt: "Operación móvil de ISM Stock Control", label: "Operación móvil" }
         ]
       },
       {
-        id: "lecasse-it-services",
-        name: "Lecasse IT Services",
-        label: "Presencia digital tecnológica",
-        status: "Publicado",
-        type: "Caso real",
-        description: "Una presencia tecnológica que ordena servicios y propuesta de valor para que potenciales clientes entiendan rápidamente las capacidades de la empresa.",
-        useCase: "Empresas B2B que venden conocimiento técnico y necesitan explicar servicios complejos de forma clara, visual y profesional.",
-        stack: "HTML5 · CSS3 · JavaScript · Vercel",
-        icon: "server",
-        link: "portafolio.html?proyecto=lecasse-it-services",
+        id: "ism-gestion-control",
+        name: "ISM Gestión Control",
+        label: "Gestión operacional y procesos",
+        status: "En evolución",
+        type: "Producto ISM",
+        description: "Centraliza recursos, responsables, movimientos y procesos internos para transformar registros aislados en una operación trazable.",
+        useCase: "Organizaciones que necesitan ordenar procesos internos y mantener una visión central de su operación.",
+        stack: "Procesos · Recursos · Roles · Reportes",
+        icon: "workflow",
+        link: "portafolio.html?proyecto=ism-gestion-control",
         images: [
-          { src: "assets/img/portfolio/lecasse-principal.webp", alt: "Sitio publicado de Lecasse IT Services", label: "Vista principal" },
-          { src: "assets/img/portfolio/lecasse-servicios.webp", alt: "Tarjetas de servicios de Lecasse IT Services", label: "Servicios" },
-          { src: "assets/img/portfolio/lecasse-hero.webp", alt: "Propuesta principal del sitio Lecasse IT Services", label: "Propuesta principal" }
+          { src: "assets/img/project-ism-gestion-control-dashboard.svg", alt: "Dashboard conceptual de ISM Gestión Control", label: "Dashboard" },
+          { src: "assets/img/project-ism-gestion-control-inventario.svg", alt: "Vista de recursos de ISM Gestión Control", label: "Recursos" },
+          { src: "assets/img/project-ism-gestion-control-operaciones.svg", alt: "Vista de operaciones de ISM Gestión Control", label: "Operaciones" }
+        ]
+      },
+      {
+        id: "ism-boutique",
+        name: "ISM Boutique",
+        label: "Stock, ventas y clientes",
+        status: "En desarrollo",
+        type: "Producto ISM",
+        description: "Gestión comercial para boutiques y pequeños comercios con foco en productos, inventario, ventas, clientes y uso desde celular.",
+        useCase: "Boutiques, tiendas y emprendimientos que necesitan dejar atrás registros dispersos y controlar su operación diaria.",
+        stack: "Productos · Stock · Ventas · Clientes",
+        icon: "shopping-bag",
+        link: "portafolio.html?proyecto=ism-boutique",
+        images: [
+          { pending: true, label: "Panel de ISM Boutique", alt: "Próxima vista del panel de ISM Boutique" },
+          { pending: true, label: "Gestión de productos", alt: "Próxima vista de productos de ISM Boutique" }
         ]
       }
     ],
     tools: [
       {
-        id: "tool-service-hours",
-        name: "Control de horas de servicios",
-        label: "Horas, actividades y reportes",
-        status: "Disponible",
-        type: "Solución digital",
-        description: "Centraliza horas de servicio, actividades y reportes para reemplazar planillas dispersas y mejorar el control de lo ejecutado.",
-        useCase: "Empresas de servicios que necesitan registrar horas por cliente, responsable o actividad y respaldar posteriormente su gestión o cobro.",
-        stack: "Horas · Actividades · Clientes · Reportes",
-        icon: "clock-3",
-        link: "portafolio.html?proyecto=tool-service-hours",
-        images: [
-          { src: "assets/img/portfolio/control-horas-login.webp", alt: "Pantalla de acceso privado del sistema de control de horas de servicio", label: "Acceso privado" },
-          { src: "assets/img/portfolio/control-horas-b2b.webp", alt: "Panel de oportunidades B2B del sistema de control de horas de servicio", label: "Oportunidades B2B" }
-        ]
-      },
-      {
-        id: "tool-service-sizing",
-        name: "Dimensionador de servicios",
-        label: "Alcance y estimación técnica",
-        status: "Disponible",
-        type: "Solución digital",
-        description: "Convierte servicios, actividades y cantidades en una estimación técnica ordenada para revisar el alcance antes de preparar una cotización formal.",
-        useCase: "Negocios que ofrecen servicios configurables y necesitan estandarizar cómo levantan alcance, esfuerzo y entregables antes de cotizar.",
-        stack: "Servicios · Actividades · HH · Exportación",
-        icon: "target",
-        link: "portafolio.html?proyecto=tool-service-sizing",
-        images: [
-          { src: "assets/img/portfolio/dimensionador-servicios-general.webp", alt: "Vista principal del configurador de servicios ISM Developer", label: "Vista general" },
-          { src: "assets/img/portfolio/dimensionador-servicios-detalle.webp", alt: "Desglose de actividades y resumen técnico del configurador de servicios ISM Developer", label: "Detalle y resumen" }
-        ]
-      },
-      {
-        id: "tool-availability-agenda",
-        name: "Control de disponibilidad con agenda",
-        label: "Disponibilidad y agendamiento",
-        status: "Disponible",
-        type: "Solución digital",
-        description: "Permite publicar disponibilidad y ordenar el agendamiento para que clientes y equipos trabajen sobre horarios realmente disponibles.",
-        useCase: "Profesionales y negocios que trabajan con horas, cupos o atención programada y quieren disminuir mensajes y cruces de agenda.",
-        stack: "Agenda · Disponibilidad · Horarios · Reservas",
+        id: "badiasalud",
+        name: "Badia Nurse Shield",
+        label: "Caso de éxito · ISM Presencia Digital",
+        status: "Publicado",
+        type: "Caso de éxito",
+        description: "Presencia profesional conectada con agenda y gestión privada para facilitar reservas y reducir coordinación manual.",
+        useCase: "Ejemplo real de cómo ISM Presencia Digital puede evolucionar desde una web profesional hacia una solución con agenda y panel privado.",
+        stack: "TypeScript · Tailwind CSS · Supabase · Vercel",
         icon: "calendar-check",
-        link: "portafolio.html?proyecto=tool-availability-agenda",
+        link: "portafolio.html?proyecto=badiasalud",
         images: [
-          { src: "assets/img/portfolio/agenda-disponibilidad-dia-activo.webp", alt: "Panel de agenda con un día activo y cupos disponibles", label: "Día con disponibilidad" },
-          { src: "assets/img/portfolio/agenda-disponibilidad-dia-cerrado.webp", alt: "Panel de agenda con un día cerrado y sin cupos disponibles", label: "Día cerrado" }
+          { src: "assets/img/portfolio/badia-nurse-shield-sitio.webp", alt: "Sitio web de Badia Nurse Shield", label: "Sitio web" },
+          { src: "assets/img/portfolio/badia-nurse-shield-agenda.webp", alt: "Agenda de Badia Nurse Shield", label: "Agenda" },
+          { src: "assets/img/portfolio/badia-nurse-shield-panel.webp", alt: "Panel de Badia Nurse Shield", label: "Gestión interna" }
         ]
       },
       {
-        id: "tool-warehouse-control",
-        name: "Control de bodega",
-        label: "Stock, movimientos y trazabilidad",
-        status: "Disponible",
-        type: "Solución digital",
-        description: "Centraliza existencias, movimientos y responsables para que bodegas y operaciones mantengan información trazable y actualizada.",
-        useCase: "Bodegas, faenas y operaciones que necesitan saber qué existe, dónde está y quién realizó cada movimiento.",
-        stack: "Stock · Movimientos · Bodegas · Trazabilidad",
-        icon: "database",
-        link: "portafolio.html?proyecto=tool-warehouse-control",
+        id: "constructora-proestakis",
+        name: "Constructora Proestakis",
+        label: "Caso de éxito · ISM Presencia Digital",
+        status: "Publicado",
+        type: "Caso de éxito",
+        description: "Presencia corporativa para comunicar experiencia, capacidad técnica y servicios desde un canal profesional propio.",
+        useCase: "Ejemplo real de adaptación de ISM Presencia Digital a una empresa de construcción y servicios técnicos.",
+        stack: "HTML5 · CSS3 · JavaScript · Vercel",
+        icon: "truck",
+        link: "portafolio.html?proyecto=constructora-proestakis",
         images: [
-          { src: "assets/img/portfolio/control-bodega-admin.webp", alt: "Panel administrador del sistema Control de Bodega con resumen general y financiero", label: "Panel administrador" },
-          { src: "assets/img/portfolio/control-bodega-operativo.webp", alt: "Panel operativo móvil de Control de Bodega para recepción, entrega y consulta de artículos", label: "Operación de bodega" }
+          { src: "assets/img/portfolio/proestakis-principal.webp", alt: "Sitio corporativo de Constructora Proestakis", label: "Vista principal" },
+          { src: "assets/img/portfolio/proestakis-cifras.webp", alt: "Capacidades de Constructora Proestakis", label: "Capacidad técnica" },
+          { src: "assets/img/portfolio/proestakis-propuesta.webp", alt: "Propuesta de valor de Constructora Proestakis", label: "Propuesta de valor" }
         ]
       },
+      {
+        id: "lecasse-it-services",
+        name: "Lecasse IT Services",
+        label: "Caso de éxito · ISM Presencia Digital",
+        status: "Publicado",
+        type: "Caso de éxito",
+        description: "Presencia tecnológica diseñada para ordenar servicios y explicar una propuesta B2B de forma clara y profesional.",
+        useCase: "Ejemplo real de adaptación de ISM Presencia Digital a una empresa de servicios tecnológicos.",
+        stack: "HTML5 · CSS3 · JavaScript · Vercel",
+        icon: "server",
+        link: "portafolio.html?proyecto=lecasse-it-services",
+        images: [
+          { src: "assets/img/portfolio/lecasse-principal.webp", alt: "Sitio de Lecasse IT Services", label: "Vista principal" },
+          { src: "assets/img/portfolio/lecasse-servicios.webp", alt: "Servicios de Lecasse IT Services", label: "Servicios" },
+          { src: "assets/img/portfolio/lecasse-hero.webp", alt: "Propuesta principal de Lecasse IT Services", label: "Propuesta principal" }
+        ]
+      }
     ],
     dev: [
       {
-        name: "SuizCorp",
-        status: "Piloto activo",
-        description: "Control de bodegas, inventario, movimientos, herramientas y trazabilidad con roles diferenciados para operación, supervisión y administración.",
-        features: ["2 bodegas", "Roles", "Importación Excel", "Trazabilidad"]
+        name: "Control de horas de servicios",
+        status: "Herramienta ISM",
+        description: "Centraliza horas, actividades, clientes y reportes para mantener trazabilidad de servicios ejecutados.",
+        features: ["Horas", "Actividades", "Clientes", "Reportes"]
       },
       {
-        name: "Hospital Félix Bulnes",
-        status: "Piloto en desarrollo",
-        description: "Solución orientada a una bodega periférica hospitalaria para mejorar control de existencias, movimientos y registro operacional desde dispositivos móviles.",
-        features: ["Bodega periférica", "Stock", "Movimientos", "Uso móvil"]
+        name: "Dimensionador de servicios",
+        status: "Herramienta ISM",
+        description: "Estandariza el levantamiento de alcance, esfuerzo y actividades antes de preparar una cotización formal.",
+        features: ["Servicios", "Actividades", "HH", "Exportación"]
+      },
+      {
+        name: "Control de disponibilidad con agenda",
+        status: "Herramienta ISM",
+        description: "Organiza disponibilidad, horarios y reservas para reducir mensajes y cruces de agenda.",
+        features: ["Agenda", "Disponibilidad", "Horarios", "Reservas"]
       }
     ]
   };
@@ -341,7 +349,7 @@ if (portfolioSection) {
   const renderWorkbench = (items, selectedIndex, selectorLabel) => {
     const selectedItem = items[selectedIndex];
     return `
-      <div class="ism-portfolio-workbench${selectorLabel === "Soluciones aplicables" ? " is-tools" : ""}">
+      <div class="ism-portfolio-workbench${selectorLabel === "Productos ISM" ? " is-tools" : ""}">
         <div class="ism-portfolio-selector">
           <span class="ism-portfolio-selector-label">${selectorLabel}</span>
           ${items.map((item, index) => `
@@ -442,9 +450,9 @@ if (portfolioSection) {
     void portfolioPanel.offsetWidth;
     portfolioPanel.classList.add("is-switching");
     if (state.tab === "clients") {
-      portfolioPanel.innerHTML = renderWorkbench(portfolioData.clients, state.selected.clients, "Casos reales");
+      portfolioPanel.innerHTML = renderWorkbench(portfolioData.clients, state.selected.clients, "Productos ISM");
     } else if (state.tab === "tools") {
-      portfolioPanel.innerHTML = renderWorkbench(portfolioData.tools, state.selected.tools, "Soluciones aplicables");
+      portfolioPanel.innerHTML = renderWorkbench(portfolioData.tools, state.selected.tools, "Casos de éxito");
     } else {
       portfolioPanel.innerHTML = renderDevelopment();
     }
@@ -452,7 +460,7 @@ if (portfolioSection) {
     if (activeTab) portfolioPanel.setAttribute("aria-labelledby", activeTab.id);
     if (portfolioStatus) {
       if (state.tab === "dev") {
-        portfolioStatus.textContent = "Mostrando proyectos reales en desarrollo.";
+        portfolioStatus.textContent = "Mostrando herramientas complementarias de ISM Developer.";
       } else {
         const current = (state.tab === "clients" ? portfolioData.clients : portfolioData.tools)[state.selected[state.tab]];
         portfolioStatus.textContent = `Mostrando ${current.name}.`;
