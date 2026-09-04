@@ -1,0 +1,46 @@
+ISM Developer · PORTAFOLIO 2.0 · FASE 3
+Fecha: 2026-09-04
+
+NUEVAS URLS
+/soluciones/
+/soluciones/ism-presencia-digital/
+/soluciones/ism-stock-control/
+/soluciones/ism-gestion-control/
+/soluciones/ism-boutique/
+
+IMPLEMENTADO
+- Página índice de Soluciones ISM.
+- Página comercial individual para cada producto.
+- SEO propio: title, description, canonical, Open Graph y Schema Service + BreadcrumbList.
+- Home: Productos ISM llevan a su página comercial.
+- Portafolio: cada producto muestra acceso a su página propia.
+- Casos de éxito de Presencia Digital se mantienen conectados al producto.
+- /proyectos/: botones de producto llevan a /soluciones/.
+- sitemap.xml actualizado.
+- Sin referencias públicas a Suiz Corp, Hospital Félix Bulnes, CIPApp o HFBApp.
+
+ARCHIVOS NUEVOS
+assets/css/soluciones.css
+soluciones/index.html
+soluciones/ism-presencia-digital/index.html
+soluciones/ism-stock-control/index.html
+soluciones/ism-gestion-control/index.html
+soluciones/ism-boutique/index.html
+
+ARCHIVOS MODIFICADOS
+index.html
+assets/js/script.js
+portafolio.html
+assets/js/portafolio.js
+src/index_proyectos.html
+sitemap.xml
+
+CACHÉ
+script.js v2.0.38
+portafolio.js v2.0.28
+soluciones.css v3.0.0
+
+VALIDACIÓN
+- script.js: sintaxis OK
+- portafolio.js: sintaxis OK
+- conceptos antiguos en superficie Fase 3: 0

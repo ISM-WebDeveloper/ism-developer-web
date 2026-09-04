@@ -1,6 +1,7 @@
 const projects = [
     {
         id: "ism-presencia-digital",
+        detailUrl: "soluciones/ism-presencia-digital/",
         category: "Productos ISM",
         name: "ISM Presencia Digital",
         short: "Sitios y canales digitales profesionales",
@@ -44,6 +45,7 @@ const projects = [
     },
     {
         id: "ism-stock-control",
+        detailUrl: "soluciones/ism-stock-control/",
         category: "Productos ISM",
         name: "ISM Stock Control",
         short: "Inventario, bodegas y trazabilidad",
@@ -79,6 +81,7 @@ const projects = [
     },
     {
         id: "ism-gestion-control",
+        detailUrl: "soluciones/ism-gestion-control/",
         category: "Productos ISM",
         name: "ISM Gestión Control",
         short: "Gestión operacional y control interno",
@@ -122,6 +125,7 @@ const projects = [
     },
     {
         id: "ism-boutique",
+        detailUrl: "soluciones/ism-boutique/",
         category: "Productos ISM",
         name: "ISM Boutique",
         short: "Gestión comercial para boutiques",
@@ -745,9 +749,12 @@ function renderCommercial(project) {
             <small>${item.meta}</small>
             ${item.projectId ? '<span class="commercial-case-arrow" aria-hidden="true">→</span>' : ''}`;
 
-        return item.projectId
-            ? `<a class="commercial-case-card" href="portafolio.html?proyecto=${item.projectId}" aria-label="Ver ${item.name}">${content}</a>`
-            : `<article class="commercial-case-card is-private">${content}</article>`;
+        if (item.projectId) {
+            const relatedProject = projects.find((projectItem) => projectItem.id === item.projectId);
+            const relatedHref = relatedProject?.detailUrl || `portafolio.html?proyecto=${item.projectId}`;
+            return `<a class="commercial-case-card" href="${relatedHref}" aria-label="Ver ${item.name}">${content}</a>`;
+        }
+        return `<article class="commercial-case-card is-private">${content}</article>`;
     }).join("");
 
     const projectCtaEyebrow = document.getElementById("projectCtaEyebrow");
@@ -783,8 +790,21 @@ function selectProject(id, options = {}) {
     document.getElementById("techStack").textContent = project.stack;
 
     const externalLink = document.getElementById("externalProjectLink");
-    externalLink.hidden = !project.url;
-    if (project.url) externalLink.href = project.url;
+    const externalLinkLabel = document.getElementById("externalProjectLinkLabel");
+    const primaryLink = project.detailUrl || project.url;
+
+    externalLink.hidden = !primaryLink;
+    if (primaryLink) {
+        externalLink.href = primaryLink;
+        externalLinkLabel.textContent = project.detailUrl ? "Ver página del producto" : "Visitar proyecto";
+        if (project.detailUrl) {
+            externalLink.removeAttribute("target");
+            externalLink.removeAttribute("rel");
+        } else {
+            externalLink.target = "_blank";
+            externalLink.rel = "noopener noreferrer";
+        }
+    }
 
     projectNav.querySelectorAll("[data-project]").forEach((button) => {
         const isActive = button.dataset.project === project.id;

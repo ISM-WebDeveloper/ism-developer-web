@@ -166,7 +166,7 @@ if (portfolioSection) {
         useCase: "Empresas, profesionales y emprendimientos que necesitan un canal digital propio preparado para crecer.",
         stack: "Web · Responsive · SEO inicial · Integraciones",
         icon: "monitor-smartphone",
-        link: "portafolio.html?proyecto=ism-presencia-digital",
+        link: "soluciones/ism-presencia-digital/",
         images: [
           { src: "assets/img/portfolio/proestakis-principal.webp", alt: "Implementación corporativa de ISM Presencia Digital", label: "Implementación corporativa" },
           { src: "assets/img/portfolio/badia-nurse-shield-sitio.webp", alt: "Implementación de salud de ISM Presencia Digital", label: "Implementación en salud" },
@@ -183,7 +183,7 @@ if (portfolioSection) {
         useCase: "Bodegas, faenas y empresas que necesitan conocer existencias, responsables y movimientos en tiempo real.",
         stack: "Stock · Bodegas · Movimientos · Roles",
         icon: "package-search",
-        link: "portafolio.html?proyecto=ism-stock-control",
+        link: "soluciones/ism-stock-control/",
         images: [
           { src: "assets/img/portfolio/control-bodega-admin.webp", alt: "Panel administrador de ISM Stock Control", label: "Panel administrador" },
           { src: "assets/img/portfolio/control-bodega-operativo.webp", alt: "Operación móvil de ISM Stock Control", label: "Operación móvil" }
@@ -199,7 +199,7 @@ if (portfolioSection) {
         useCase: "Organizaciones que necesitan ordenar procesos internos y mantener una visión central de su operación.",
         stack: "Procesos · Recursos · Roles · Reportes",
         icon: "workflow",
-        link: "portafolio.html?proyecto=ism-gestion-control",
+        link: "soluciones/ism-gestion-control/",
         images: [
           { src: "assets/img/project-ism-gestion-control-dashboard.svg", alt: "Dashboard conceptual de ISM Gestión Control", label: "Dashboard" },
           { src: "assets/img/project-ism-gestion-control-inventario.svg", alt: "Vista de recursos de ISM Gestión Control", label: "Recursos" },
@@ -216,7 +216,7 @@ if (portfolioSection) {
         useCase: "Boutiques, tiendas y emprendimientos que necesitan dejar atrás registros dispersos y controlar su operación diaria.",
         stack: "Productos · Stock · Ventas · Clientes",
         icon: "shopping-bag",
-        link: "portafolio.html?proyecto=ism-boutique",
+        link: "soluciones/ism-boutique/",
         images: [
           { pending: true, label: "Panel de ISM Boutique", alt: "Próxima vista del panel de ISM Boutique" },
           { pending: true, label: "Gestión de productos", alt: "Próxima vista de productos de ISM Boutique" }
