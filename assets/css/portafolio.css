@@ -128,3 +128,6 @@ body.sidebar-collapsed .nav-group.expanded .nav-group-toggle{border-color:rgba(v
     }
 }
 
+
+/* CLIENTES ISM · FASE 11 */
+.ism-site-footer{margin-left:var(--sidebar);transition:margin-left .52s cubic-bezier(.22,.8,.22,1)}body.sidebar-collapsed .ism-site-footer{margin-left:var(--sidebar-compact)}@media(max-width:760px){.ism-site-footer,body.sidebar-collapsed .ism-site-footer{margin-left:0}}

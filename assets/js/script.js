@@ -151,7 +151,6 @@ if (aboutPins.length && !aboutOrbit?.classList.contains("image-test")) {
 // Presenta casos reales, soluciones reutilizables y pilotos activos sin extender la landing.
 const portfolioSection = document.querySelector(".ism-portfolio-section");
 if (portfolioSection) {
-  const portfolioTabs = [...portfolioSection.querySelectorAll("[data-portfolio-tab]")];
   const portfolioPanel = document.getElementById("portfolioPanel");
   const portfolioStatus = document.getElementById("portfolioSelectionStatus");
   const portfolioData = {
@@ -160,11 +159,11 @@ if (portfolioSection) {
       {
         id: "badiasalud",
         name: "Badia Nurse Shield",
-        label: "Caso de éxito · ISM Presencia Digital",
+        label: "Cliente ISM · ISM Presencia Digital",
         status: "Publicado",
-        type: "Caso de éxito",
+        type: "Cliente ISM",
         description: "Presencia profesional conectada con agenda y gestión privada para facilitar reservas y reducir coordinación manual.",
-        useCase: "Ejemplo real de cómo ISM Presencia Digital puede evolucionar desde una web profesional hacia una solución con agenda y panel privado.",
+        useCase: "Implementación real de cómo ISM Presencia Digital puede evolucionar desde una web profesional hacia una solución con agenda y panel privado.",
         stack: "TypeScript · Tailwind CSS · Supabase · Vercel",
         icon: "calendar-check",
         link: "portafolio.html?proyecto=badiasalud",
@@ -177,11 +176,11 @@ if (portfolioSection) {
       {
         id: "constructora-proestakis",
         name: "Constructora Proestakis",
-        label: "Caso de éxito · ISM Presencia Digital",
+        label: "Cliente ISM · ISM Presencia Digital",
         status: "Publicado",
-        type: "Caso de éxito",
+        type: "Cliente ISM",
         description: "Presencia corporativa para comunicar experiencia, capacidad técnica y servicios desde un canal profesional propio.",
-        useCase: "Ejemplo real de adaptación de ISM Presencia Digital a una empresa de construcción y servicios técnicos.",
+        useCase: "Implementación real de ISM Presencia Digital a una empresa de construcción y servicios técnicos.",
         stack: "HTML5 · CSS3 · JavaScript · Vercel",
         icon: "truck",
         link: "portafolio.html?proyecto=constructora-proestakis",
@@ -194,11 +193,11 @@ if (portfolioSection) {
       {
         id: "lecasse-it-services",
         name: "Lecasse IT Services",
-        label: "Caso de éxito · ISM Presencia Digital",
+        label: "Cliente ISM · ISM Presencia Digital",
         status: "Publicado",
-        type: "Caso de éxito",
+        type: "Cliente ISM",
         description: "Presencia tecnológica diseñada para ordenar servicios y explicar una propuesta B2B de forma clara y profesional.",
-        useCase: "Ejemplo real de adaptación de ISM Presencia Digital a una empresa de servicios tecnológicos.",
+        useCase: "Implementación real de ISM Presencia Digital a una empresa de servicios tecnológicos.",
         stack: "HTML5 · CSS3 · JavaScript · Vercel",
         icon: "server",
         link: "portafolio.html?proyecto=lecasse-it-services",
@@ -207,28 +206,6 @@ if (portfolioSection) {
           { src: "assets/img/portfolio/lecasse-servicios.webp", alt: "Servicios de Lecasse IT Services", label: "Servicios" },
           { src: "assets/img/portfolio/lecasse-hero.webp", alt: "Propuesta principal de Lecasse IT Services", label: "Propuesta principal" }
         ]
-      }
-    
-    ],
-    dev: [
-
-      {
-        name: "Control de horas de servicios",
-        status: "Herramienta ISM",
-        description: "Centraliza horas, actividades, clientes y reportes para mantener trazabilidad de servicios ejecutados.",
-        features: ["Horas", "Actividades", "Clientes", "Reportes"]
-      },
-      {
-        name: "Dimensionador de servicios",
-        status: "Herramienta ISM",
-        description: "Estandariza el levantamiento de alcance, esfuerzo y actividades antes de preparar una cotización formal.",
-        features: ["Servicios", "Actividades", "HH", "Exportación"]
-      },
-      {
-        name: "Control de disponibilidad con agenda",
-        status: "Herramienta ISM",
-        description: "Organiza disponibilidad, horarios y reservas para reducir mensajes y cruces de agenda.",
-        features: ["Agenda", "Disponibilidad", "Horarios", "Reservas"]
       }
     
     ]
@@ -285,7 +262,7 @@ if (portfolioSection) {
   const renderWorkbench = (items, selectedIndex, selectorLabel) => {
     const selectedItem = items[selectedIndex];
     return `
-      <div class="ism-portfolio-workbench${selectorLabel === "Casos de éxito" ? " is-tools" : ""}">
+      <div class="ism-portfolio-workbench">
         <div class="ism-portfolio-selector">
           <span class="ism-portfolio-selector-label">${selectorLabel}</span>
           ${items.map((item, index) => `
@@ -304,22 +281,7 @@ if (portfolioSection) {
       </div>
     `;
   };
-  const renderDevelopment = () => `
-    <div class="ism-portfolio-dev-grid">
-      ${portfolioData.dev.map((project) => `
-        <article class="ism-portfolio-dev-card">
-          <span class="ism-portfolio-dev-badge">${project.status}</span>
-          <h3>${project.name}</h3>
-          <p>${project.description}</p>
-          <ul class="ism-portfolio-dev-list" aria-label="Características confirmadas de ${project.name}">
-            ${project.features.map((feature) => `<li>${feature}</li>`).join("")}
-          </ul>
-        </article>
-      `).join("")}
-    </div>
-  `;
   const state = {
-    tab: "clients",
     selected: { clients: 0 }
   };
   const syncLucide = () => {
@@ -369,13 +331,13 @@ if (portfolioSection) {
     portfolioPanel.querySelectorAll("[data-portfolio-item-index]").forEach((button) => {
       button.addEventListener("click", () => {
         const index = Number(button.dataset.portfolioItemIndex);
-        state.selected[state.tab] = index;
+        state.selected.clients = index;
         renderCurrentPanel();
       });
     });
     portfolioPanel.querySelectorAll("[data-portfolio-image-index]").forEach((button) => {
       button.addEventListener("click", () => {
-        const item = items[state.selected[state.tab]];
+        const item = items[state.selected.clients];
         updateGalleryImage(item, Number(button.dataset.portfolioImageIndex));
       });
     });
@@ -385,54 +347,14 @@ if (portfolioSection) {
     portfolioPanel.classList.remove("is-switching");
     void portfolioPanel.offsetWidth;
     portfolioPanel.classList.add("is-switching");
-    if (state.tab === "clients") {
-      portfolioPanel.innerHTML = renderWorkbench(portfolioData.clients, state.selected.clients, "Casos de éxito");
-    } else {
-      portfolioPanel.innerHTML = renderDevelopment();
-    }
-    const activeTab = portfolioTabs.find((tab) => tab.dataset.portfolioTab === state.tab);
-    if (activeTab) portfolioPanel.setAttribute("aria-labelledby", activeTab.id);
+    portfolioPanel.innerHTML = renderWorkbench(portfolioData.clients, state.selected.clients, "Clientes ISM");
     if (portfolioStatus) {
-      if (state.tab === "dev") {
-        portfolioStatus.textContent = "Mostrando herramientas complementarias de ISM Developer.";
-      } else {
-        const current = portfolioData.clients[state.selected.clients];
-        portfolioStatus.textContent = `Mostrando ${current.name}.`;
-      }
+      const current = portfolioData.clients[state.selected.clients];
+      portfolioStatus.textContent = `Mostrando ${current.name}.`;
     }
     bindPanelInteractions();
     syncLucide();
   };
-  portfolioTabs.forEach((tab, index) => {
-    tab.addEventListener("click", () => {
-      state.tab = tab.dataset.portfolioTab;
-      portfolioTabs.forEach((item) => {
-        const active = item === tab;
-        item.classList.toggle("is-active", active);
-        item.setAttribute("aria-selected", String(active));
-        item.tabIndex = active ? 0 : -1;
-      });
-      renderCurrentPanel();
-      if (window.trackEvent) {
-        window.trackEvent("portfolio_tab_open", {
-          event_category: "portfolio",
-          event_label: tab.textContent.trim(),
-          section: "proyectos"
-        });
-      }
-    });
-    tab.addEventListener("keydown", (event) => {
-      let nextIndex = null;
-      if (event.key === "ArrowRight" || event.key === "ArrowDown") nextIndex = (index + 1) % portfolioTabs.length;
-      if (event.key === "ArrowLeft" || event.key === "ArrowUp") nextIndex = (index - 1 + portfolioTabs.length) % portfolioTabs.length;
-      if (event.key === "Home") nextIndex = 0;
-      if (event.key === "End") nextIndex = portfolioTabs.length - 1;
-      if (nextIndex === null) return;
-      event.preventDefault();
-      portfolioTabs[nextIndex].focus();
-      portfolioTabs[nextIndex].click();
-    });
-  });
   renderCurrentPanel();
 }
 // ISM PROJECT VAULT

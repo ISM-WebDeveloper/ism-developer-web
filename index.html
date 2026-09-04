@@ -173,10 +173,9 @@
             <ul class="nav-links" id="primaryNav">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#configurador-servicios">Orientación</a></li>
                 <li><a href="soluciones/">Soluciones</a></li>
+                <li><a href="#proyectos">Clientes ISM</a></li>
                 <li><a href="#proceso">Proceso</a></li>
-                <li><a href="#sobre-mi">Sobre mí</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
     
@@ -912,7 +911,7 @@
             aria-labelledby="configurator-cta-title">
             <div class="configurator-cta-heading reveal">
                 <p class="configurator-cta-kicker">
-                    <span>Herramientas ISM</span>
+                    <span>Orientación ISM</span>
                     Dos formas de comenzar
                 </p>
 
@@ -920,7 +919,7 @@
                     Elige cómo quieres <span class="section-heading-accent">dar el primer paso.</span>
                 </h2>
                 <p>
-                    Configura un alcance técnico en detalle o deja que nuestro asistente te oriente con preguntas simples.
+                    Configura un alcance técnico en detalle o usa una guía asistida para ordenar tu necesidad antes de conversar.
                 </p>
             </div>
 
@@ -984,46 +983,39 @@
             <div class="ism-portfolio-shell reveal">
                 <header class="ism-portfolio-header">
                     <div class="ism-portfolio-heading">
-                        <p class="ism-portfolio-eyebrow">Resultados y evidencia</p>
+                        <p class="ism-portfolio-eyebrow">Clientes ISM</p>
                         <h2 id="proyectos-title" class="section-heading-emphasis">
-                            Implementaciones que muestran <span class="section-heading-accent">cómo trabajamos en la práctica.</span>
+                            Empresas y profesionales que ya han <span class="section-heading-accent">construido junto a ISM.</span>
                         </h2>
                         <p class="ism-portfolio-intro">
-                            Aquí mostramos casos reales y herramientas propias. Los Productos ISM viven en Soluciones; el portafolio demuestra cómo esas bases se adaptan a necesidades concretas.
+                            Cada cliente parte desde una necesidad distinta. Aquí mostramos implementaciones reales y cómo una Solución ISM se adapta al contexto, identidad y operación de cada negocio.
                         </p>
                     </div>
 
                     <div class="ism-portfolio-header-actions">
-                        <a class="ism-portfolio-main-link" href="soluciones/"
-                            data-track-event="solution_hub_click" data-track-category="solutions"
-                            data-track-label="Explorar soluciones ISM desde landing">
-                            Explorar soluciones
+                        <a class="ism-portfolio-main-link" href="portafolio.html"
+                            data-track-event="clients_click" data-track-category="clients"
+                            data-track-label="Conocer Clientes ISM desde landing">
+                            Conocer Clientes ISM
                             <span aria-hidden="true">→</span>
                         </a>
-                        <a class="ism-portfolio-secondary-link" href="portafolio.html"
-                            data-track-event="portfolio_click" data-track-category="portfolio"
-                            data-track-label="Ver casos y herramientas desde landing">
-                            Casos y herramientas
+                        <a class="ism-portfolio-secondary-link" href="soluciones/"
+                            data-track-event="solution_hub_click" data-track-category="solutions"
+                            data-track-label="Explorar Soluciones ISM desde landing">
+                            Explorar soluciones
                         </a>
                     </div>
                 </header>
 
-                <div class="ism-portfolio-tabs" role="tablist" aria-label="Categorías del portafolio">
-                    <button class="ism-portfolio-tab is-active" id="portfolioTabClientes" type="button" role="tab"
-                        aria-selected="true" aria-controls="portfolioPanel" tabindex="0" data-portfolio-tab="clients">
-                        <span>Casos de éxito</span><strong>3</strong>
-                    </button>
-                    <button class="ism-portfolio-tab" id="portfolioTabDesarrollo" type="button" role="tab"
-                        aria-selected="false" aria-controls="portfolioPanel" tabindex="-1" data-portfolio-tab="dev">
-                        <span>Herramientas ISM</span><strong>3</strong>
-                    </button>
+                <div class="ism-portfolio-tabs" aria-label="Resumen de Clientes ISM">
+                    <div class="ism-portfolio-tab is-active"><span>Clientes ISM</span><strong>3</strong></div>
                 </div>
 
                 <div class="ism-portfolio-panel" id="portfolioPanel" role="tabpanel"
-                    aria-labelledby="portfolioTabClientes" tabindex="0">
+                    aria-label="Clientes ISM" tabindex="0">
                     <noscript>
                         <p class="ism-portfolio-noscript">
-                            Explora casos reales y herramientas propias en el portafolio completo.
+                            Conoce Clientes ISM e implementaciones reales en la vista completa.
                         </p>
                     </noscript>
                 </div>
@@ -1205,7 +1197,7 @@
                 <div class="contact-product-context" id="contactProductContext" hidden>
                     <span class="contact-product-context__eyebrow">Consulta contextual</span>
                     <div>
-                        <strong id="contactProductContextTitle">Producto ISM seleccionado</strong>
+                        <strong id="contactProductContextTitle">Solución ISM seleccionada</strong>
                         <p id="contactProductContextText">La solución quedará preseleccionada en el formulario.</p>
                     </div>
                     <i data-lucide="badge-check" aria-hidden="true"></i>
@@ -1232,7 +1224,7 @@
                             <label for="contactServicio">Solución de interés <span aria-hidden="true">*</span><span class="sr-only"> (obligatorio)</span></label>
                             <select id="contactServicio" name="servicio" required>
                                 <option value="">Selecciona una opción</option>
-                                <optgroup label="Productos ISM">
+                                <optgroup label="Soluciones ISM">
                                     <option value="ISM Presencia Digital">ISM Presencia Digital</option>
                                     <option value="ISM Stock Control">ISM Stock Control</option>
                                     <option value="ISM Gestión Control">ISM Gestión Control</option>
@@ -1297,13 +1289,11 @@
             </div>
 
             <div class="footer-column">
-                <h4>Servicios</h4>
-                <a href="#servicios">Servicios digitales</a>
-                <a href="soluciones/">Productos ISM</a>
-                <a href="#configurador-servicios">Herramientas de orientación</a>
+                <h4>Soluciones</h4>
+                <a href="soluciones/">Soluciones ISM</a>
+                <a href="configurador/">Configurador de Servicios</a>
                 <a href="guia-web/">Guía Web ISM</a>
-                <a href="#productos">Colaboración</a>
-                <a href="#madurez-digital">Madurez digital</a>
+                <a href="portafolio.html">Clientes ISM</a>
             </div>
 
             <div class="footer-column">
@@ -1312,9 +1302,9 @@
                 <a href="configurador/">Configurador</a>
                 <a href="guia-web/">Guía Web</a>
                 <a href="soluciones/">Soluciones</a>
-                <a href="portafolio.html">Portafolio</a>
+                <a href="portafolio.html">Clientes ISM</a>
                 <a href="#proceso">Proceso</a>
-                <a href="#sobre-mi">Sobre mí</a>
+                <a href="#sobre-mi">Sobre ISM</a>
                 <a href="#contacto">Contacto</a>
             </div>
 
@@ -1391,7 +1381,7 @@
         </div>
     </footer>
 
-    <script src="assets/js/script.js?v=2.0.40" defer></script>
+    <script src="assets/js/script.js?v=2.0.41" defer></script>
     <script src="assets/js/accessibility.js?v=2.0.24" defer></script>
 </body>
 

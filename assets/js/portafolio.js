@@ -2,16 +2,16 @@ const projects = [
     {
         id: "ism-presencia-digital",
         detailUrl: "soluciones/ism-presencia-digital/",
-        category: "Productos ISM",
+        category: "Soluciones ISM",
         name: "ISM Presencia Digital",
         short: "Sitios y canales digitales profesionales",
-        type: "Producto ISM / Presencia digital",
+        type: "Solución ISM / Presencia digital",
         status: "Disponible",
         accent: "#16bdf2",
         accentRgb: "22, 189, 242",
         url: null,
         summary: "Producto de ISM Developer para construir una presencia digital profesional, clara y escalable. La misma base se adapta al rubro, identidad y objetivos de cada cliente, incorporando sitio web, contacto, captación y funciones según necesidad.",
-        metrics: [["Estado", "Disponible"], ["Tipo", "Producto ISM"], ["Enfoque", "Captación"], ["Casos", "3 publicados"]],
+        metrics: [["Estado", "Disponible"], ["Tipo", "Solución ISM"], ["Enfoque", "Captación"], ["Casos", "3 publicados"]],
         stack: "Sitio web · Responsive · SEO inicial · Integraciones",
         journey: [
             {
@@ -33,7 +33,7 @@ const projects = [
             {
                 title: "Casos reales que validan el producto",
                 description: "Badia Nurse Shield, Constructora Proestakis y Lecasse IT Services muestran cómo la misma línea de producto puede adaptarse a salud, construcción y servicios tecnológicos.",
-                focus: "Casos de éxito",
+                focus: "Clientes ISM",
                 result: "Validación",
                 image: "assets/img/portfolio/lecasse-principal.webp",
                 alt: "Ejemplo tecnológico de implementación de ISM Presencia Digital"
@@ -46,10 +46,10 @@ const projects = [
     {
         id: "ism-stock-control",
         detailUrl: "soluciones/ism-stock-control/",
-        category: "Productos ISM",
+        category: "Soluciones ISM",
         name: "ISM Stock Control",
         short: "Inventario, bodegas y trazabilidad",
-        type: "Producto ISM / Inventario y logística",
+        type: "Solución ISM / Inventario y logística",
         status: "Producto activo",
         accent: "#22d3ee",
         accentRgb: "34, 211, 238",
@@ -82,16 +82,16 @@ const projects = [
     {
         id: "ism-gestion-control",
         detailUrl: "soluciones/ism-gestion-control/",
-        category: "Productos ISM",
+        category: "Soluciones ISM",
         name: "ISM Gestión Control",
         short: "Gestión operacional y control interno",
-        type: "Producto ISM / Gestión operacional",
+        type: "Solución ISM / Gestión operacional",
         status: "En evolución",
         accent: "#34d399",
         accentRgb: "52, 211, 153",
         url: null,
         summary: "Plataforma de gestión operacional para centralizar recursos, responsables, movimientos y procesos internos. Su objetivo es reemplazar registros aislados por una operación trazable, ordenada y adaptable a distintas áreas de una organización.",
-        metrics: [["Estado", "En evolución"], ["Tipo", "Producto ISM"], ["Foco", "Operaciones"], ["Modelo", "Modular"]],
+        metrics: [["Estado", "En evolución"], ["Tipo", "Solución ISM"], ["Foco", "Operaciones"], ["Modelo", "Modular"]],
         stack: "Procesos · Recursos · Roles · Registros · Reportes",
         journey: [
             {
@@ -126,10 +126,10 @@ const projects = [
     {
         id: "ism-boutique",
         detailUrl: "soluciones/ism-boutique/",
-        category: "Productos ISM",
+        category: "Soluciones ISM",
         name: "ISM Boutique",
         short: "Gestión comercial para boutiques",
-        type: "Producto ISM / Comercio minorista",
+        type: "Solución ISM / Comercio minorista",
         status: "En desarrollo",
         accent: "#f9a8d4",
         accentRgb: "249, 168, 212",
@@ -156,10 +156,10 @@ const projects = [
     },
     {
         id: "badiasalud",
-        category: "Casos de éxito",
+        category: "Clientes ISM",
         name: "Badia Nurse Shield",
         short: "Sitio web + agenda",
-        type: "Caso de éxito / ISM Presencia Digital",
+        type: "Cliente ISM / ISM Presencia Digital",
         status: "Publicado",
         accent: "#16bdf2",
         accentRgb: "22, 189, 242",
@@ -199,10 +199,10 @@ const projects = [
     },
     {
         id: "constructora-proestakis",
-        category: "Casos de éxito",
+        category: "Clientes ISM",
         name: "Constructora Proestakis",
         short: "Presencia corporativa",
-        type: "Caso de éxito / ISM Presencia Digital",
+        type: "Cliente ISM / ISM Presencia Digital",
         status: "Publicado",
         accent: "#fb923c",
         accentRgb: "251, 146, 60",
@@ -242,10 +242,10 @@ const projects = [
     },
     {
         id: "lecasse-it-services",
-        category: "Casos de éxito",
+        category: "Clientes ISM",
         name: "Lecasse IT Services",
         short: "Presencia tecnológica",
-        type: "Caso de éxito / ISM Presencia Digital",
+        type: "Cliente ISM / ISM Presencia Digital",
         status: "Publicado",
         accent: "#38bdf8",
         accentRgb: "56, 189, 248",
@@ -285,7 +285,7 @@ const projects = [
     },
     {
         id: "tool-service-hours",
-        category: "Herramientas ISM",
+        category: "Soluciones ISM",
         name: "Control de horas de servicios",
         short: "HH, clientes y seguimiento",
         type: "Herramienta ISM / Gestión de servicios",
@@ -320,7 +320,7 @@ const projects = [
     },
     {
         id: "tool-service-sizing",
-        category: "Herramientas ISM",
+        category: "Soluciones ISM",
         name: "Dimensionador de servicios",
         short: "Alcance y estimación técnica",
         type: "Solución digital / Configuración y cotización",
@@ -355,7 +355,7 @@ const projects = [
     },
     {
         id: "tool-availability-agenda",
-        category: "Herramientas ISM",
+        category: "Soluciones ISM",
         name: "Control de disponibilidad con agenda",
         short: "Horarios, cupos y reservas",
         type: "Solución digital / Agendamiento",
@@ -393,7 +393,7 @@ const projects = [
 
 const commercialProfiles = {
     "ism-presencia-digital": {
-        kicker: "Producto ISM",
+        kicker: "Solución ISM",
         title: "Una base profesional que se adapta al negocio.",
         badge: "Base reutilizable · Personalización por rubro",
         audienceTitle: "Para quién está pensado",
@@ -410,20 +410,20 @@ const commercialProfiles = {
             "SEO técnico inicial, analítica y canales de contacto.",
             "Agenda, catálogo, paneles privados e integraciones según alcance."
         ],
-        casesKicker: "Casos de éxito",
+        casesKicker: "Clientes ISM",
         casesTitle: "Una misma línea, adaptada a distintos rubros",
         cases: [
             { name: "Badia Nurse Shield", meta: "Salud · Web + agenda + gestión", status: "Publicado", projectId: "badiasalud" },
             { name: "Constructora Proestakis", meta: "Construcción · Presencia corporativa", status: "Publicado", projectId: "constructora-proestakis" },
             { name: "Lecasse IT Services", meta: "Tecnología · Servicios B2B", status: "Publicado", projectId: "lecasse-it-services" }
         ],
-        casesNote: "Cada implementación conserva la base del producto, pero se adapta a la marca, el rubro, los procesos y los objetivos del cliente.",
+        casesNote: "Cada implementación conserva la base de la solución, pero se adapta a la marca, el rubro, los procesos y los objetivos del cliente.",
         model: "Base ISM + personalización + publicación",
         modelDetail: "Definimos el objetivo, adaptamos la experiencia y habilitamos las funciones que realmente necesita el negocio.",
         action: "Solicitar ISM Presencia Digital"
     },
     "ism-stock-control": {
-        kicker: "Producto ISM",
+        kicker: "Solución ISM",
         title: "Inventario y trazabilidad sin depender de registros dispersos.",
         badge: "Producto activo · Operación adaptable",
         audienceTitle: "Para quién está pensado",
@@ -441,7 +441,7 @@ const commercialProfiles = {
             "Importaciones, exportaciones, alertas, firma y evidencias según alcance."
         ],
         casesKicker: "Implementaciones",
-        casesTitle: "El producto se valida en operaciones reales",
+        casesTitle: "La solución se valida en operaciones reales",
         cases: [
             { name: "Implementación operacional privada", meta: "Inventario · bodegas · trazabilidad", status: "Caso privado" }
         ],
@@ -451,7 +451,7 @@ const commercialProfiles = {
         action: "Solicitar ISM Stock Control"
     },
     "ism-gestion-control": {
-        kicker: "Producto ISM",
+        kicker: "Solución ISM",
         title: "Una capa de control para ordenar procesos y responsables.",
         badge: "Producto modular · En evolución",
         audienceTitle: "Para quién está pensado",
@@ -468,18 +468,18 @@ const commercialProfiles = {
             "Registro de operaciones, recursos, movimientos y bitácora.",
             "Reportes, alertas, aprobaciones e integraciones según necesidad."
         ],
-        casesKicker: "Validación del producto",
+        casesKicker: "Validación de la solución",
         casesTitle: "Pilotos e implementaciones sin exponer proyectos privados",
         cases: [
             { name: "Piloto de gestión operacional", meta: "Recursos · responsables · procesos", status: "Piloto privado" }
         ],
-        casesNote: "El producto se presenta de forma independiente del cliente. Cuando una implementación sea publicable, se incorporará como caso de éxito asociado.",
+        casesNote: "La solución se presenta de forma independiente del cliente. Cuando una implementación sea publicable, se incorporará como cliente e implementación asociado.",
         model: "Base modular + procesos del cliente",
         modelDetail: "Partimos desde módulos reutilizables y configuramos entidades, permisos, estados y flujos según el proceso que se necesita controlar.",
         action: "Solicitar ISM Gestión Control"
     },
     "ism-boutique": {
-        kicker: "Producto ISM",
+        kicker: "Solución ISM",
         title: "Gestión simple para vender, controlar stock y conocer clientes.",
         badge: "Mobile first · En desarrollo",
         audienceTitle: "Para quién está pensado",
@@ -497,11 +497,11 @@ const commercialProfiles = {
             "Catálogo o presencia digital conectada al control interno."
         ],
         casesKicker: "Primera implementación",
-        casesTitle: "El producto se está construyendo junto a una operación real",
+        casesTitle: "La solución se está construyendo junto a una operación real",
         cases: [
             { name: "Primera implementación comercial", meta: "Boutique · stock · ventas · clientes", status: "En desarrollo" }
         ],
-        casesNote: "La primera implementación servirá para validar el flujo diario antes de publicar nuevos casos de éxito.",
+        casesNote: "La primera implementación servirá para validar el flujo diario antes de publicar nuevos clientes e implementaciones.",
         model: "Base retail + identidad y operación del negocio",
         modelDetail: "La solución prioriza uso móvil, tareas simples y módulos que puedan crecer conforme aumenta la operación.",
         action: "Consultar ISM Boutique"
@@ -514,7 +514,7 @@ const caseProductRelations = {
         productName: "ISM Presencia Digital",
         title: "Una implementación real de ISM Presencia Digital.",
         adapted: ["Identidad y propuesta de servicios", "Agenda y disponibilidad", "Panel privado de gestión", "Experiencia orientada a pacientes"],
-        proves: ["La presencia digital puede evolucionar a sistema", "Una misma base puede incorporar agenda", "El producto se adapta a un profesional independiente"]
+        proves: ["La presencia digital puede evolucionar a sistema", "Una misma base puede incorporar agenda", "La solución se adapta a un profesional independiente"]
     },
     "constructora-proestakis": {
         productId: "ism-presencia-digital",
@@ -532,11 +532,9 @@ const caseProductRelations = {
     }
 };
 
-const categoryOrder = ["Casos de éxito", "Herramientas ISM"];
+const categoryOrder = ["Clientes ISM"];
 const categoryIcons = {
-    "Productos ISM": "boxes",
-    "Casos de éxito": "badge-check",
-    "Herramientas ISM": "panels-top-left"
+    "Clientes ISM": "users-round"
 };
 const projectNav = document.getElementById("projectNav");
 const visualTrack = document.getElementById("visualTrack");
@@ -554,10 +552,10 @@ const projectAliases = {
 const rawRequestedProject = new URLSearchParams(window.location.search).get("proyecto");
 let requestedProject = projectAliases[rawRequestedProject] || rawRequestedProject;
 
-const visiblePortfolioProjects = projects.filter((project) => project.category !== "Productos ISM");
+const visiblePortfolioProjects = projects.filter((project) => project.category === "Clientes ISM");
 const requestedEntry = projects.find((project) => project.id === requestedProject);
 
-if (requestedEntry?.category === "Productos ISM") {
+if (requestedEntry?.category === "Soluciones ISM") {
     const relatedCase = Object.entries(caseProductRelations)
         .find(([, relation]) => relation.productId === requestedEntry.id)?.[0];
 
@@ -706,7 +704,7 @@ function renderCommercial(project) {
 
     section.classList.toggle("is-product-profile", Boolean(profile));
     section.classList.toggle("is-case-profile", Boolean(relation));
-    section.classList.toggle("is-tool-profile", project.category === "Herramientas ISM");
+    section.classList.toggle("is-tool-profile", false);
 
     let view;
 
@@ -714,7 +712,7 @@ function renderCommercial(project) {
         view = profile;
     } else if (relation) {
         view = {
-            kicker: "Caso de éxito",
+            kicker: "Cliente ISM",
             title: relation.title,
             badge: `Implementación de ${relation.productName}`,
             audienceTitle: "Qué se adaptó al cliente",
@@ -723,9 +721,9 @@ function renderCommercial(project) {
             capabilities: relation.proves,
             casesKicker: "Producto relacionado",
             casesTitle: "Este caso fortalece una solución ISM reutilizable",
-            cases: [{ name: relation.productName, meta: "Producto ISM · Ver ficha completa", status: "Ver producto", projectId: relation.productId }],
-            casesNote: "El cliente es el caso de implementación; el producto permanece como una solución propia de ISM Developer.",
-            model: "Producto ISM + adaptación para el cliente",
+            cases: [{ name: relation.productName, meta: "Solución ISM · Ver ficha completa", status: "Ver solución", projectId: relation.productId }],
+            casesNote: "El cliente es el caso de implementación; el solución permanece como una solución propia de ISM Developer.",
+            model: "Solución ISM + adaptación para el cliente",
             modelDetail: "El caso muestra cómo una base reutilizable se personaliza sin perder la identidad ni los objetivos particulares del negocio.",
             action: `Quiero una solución similar`
         };
@@ -787,7 +785,7 @@ function renderCommercial(project) {
         projectCtaTitle.textContent = `Adaptamos ${project.name} a tu operación.`;
         projectCtaLink.firstChild.textContent = "Solicitar implementación ";
     } else if (relation) {
-        projectCtaEyebrow.textContent = "¿Necesitas un resultado similar?";
+        projectCtaEyebrow.textContent = "¿Necesitas una implementación similar?";
         projectCtaTitle.textContent = `Podemos adaptar ${relation.productName} a tu negocio.`;
         projectCtaLink.firstChild.textContent = "Conversar implementación ";
     } else {
@@ -804,7 +802,7 @@ function selectProject(id, options = {}) {
 
     document.documentElement.style.setProperty("--accent", project.accent);
     document.documentElement.style.setProperty("--accent-rgb", project.accentRgb);
-    document.title = `${project.name} | Caso de éxito | ISM Developer`;
+    document.title = `${project.name} | Cliente ISM | ISM Developer`;
     document.getElementById("projectType").textContent = project.type;
     document.getElementById("projectTitle").textContent = project.name;
     document.getElementById("projectSummary").textContent = project.summary;
@@ -817,7 +815,7 @@ function selectProject(id, options = {}) {
     externalLink.hidden = !primaryLink;
     if (primaryLink) {
         externalLink.href = primaryLink;
-        externalLinkLabel.textContent = project.detailUrl ? "Ver página del producto" : "Visitar proyecto";
+        externalLinkLabel.textContent = project.detailUrl ? "Ver página de la solución" : "Visitar proyecto";
         if (project.detailUrl) {
             externalLink.removeAttribute("target");
             externalLink.removeAttribute("rel");
