@@ -153,7 +153,38 @@ const portfolioSection = document.querySelector(".ism-portfolio-section");
 if (portfolioSection) {
   const portfolioPanel = document.getElementById("portfolioPanel");
   const portfolioStatus = document.getElementById("portfolioSelectionStatus");
+  const portfolioTabs = [...portfolioSection.querySelectorAll("[data-portfolio-tab]")];
   const portfolioData = {
+    solutions: [
+      {
+        name: "ISM Presencia Digital",
+        status: "Disponible",
+        description: "Presencia profesional, captación y canales digitales adaptables al negocio.",
+        features: ["Sitio web", "Responsive", "SEO inicial", "Integraciones"],
+        link: "soluciones/ism-presencia-digital/"
+      },
+      {
+        name: "ISM Stock Control",
+        status: "Activa",
+        description: "Inventario, bodegas, movimientos y trazabilidad para operaciones con stock físico.",
+        features: ["Stock", "Bodegas", "Roles", "Trazabilidad"],
+        link: "soluciones/ism-stock-control/"
+      },
+      {
+        name: "ISM Gestión Control",
+        status: "En evolución",
+        description: "Gestión operacional para centralizar procesos, recursos, responsables y reportes.",
+        features: ["Procesos", "Recursos", "Roles", "Reportes"],
+        link: "soluciones/ism-gestion-control/"
+      },
+      {
+        name: "ISM Boutique",
+        status: "En desarrollo",
+        description: "Gestión comercial simple para boutiques y pequeños comercios.",
+        features: ["Productos", "Stock", "Ventas", "Clientes"],
+        link: "soluciones/ism-boutique/"
+      }
+    ],
     clients: [
 
       {
@@ -281,7 +312,27 @@ if (portfolioSection) {
       </div>
     `;
   };
+  const renderSolutions = () => `
+    <div class="ism-portfolio-dev-grid">
+      ${portfolioData.solutions.map((solution) => `
+        <article class="ism-portfolio-dev-card">
+          <span class="ism-portfolio-dev-badge">${solution.status}</span>
+          <h3>${solution.name}</h3>
+          <p>${solution.description}</p>
+          <ul class="ism-portfolio-dev-list" aria-label="Capacidades de ${solution.name}">
+            ${solution.features.map((feature) => `<li>${feature}</li>`).join("")}
+          </ul>
+          <a class="ism-portfolio-detail-link" href="${solution.link}"
+            data-track-event="solution_click" data-track-category="solutions"
+            data-track-label="${solution.name}">
+            Ver solución <span aria-hidden="true">→</span>
+          </a>
+        </article>
+      `).join("")}
+    </div>
+  `;
   const state = {
+    tab: "clients",
     selected: { clients: 0 }
   };
   const syncLucide = () => {
@@ -326,7 +377,7 @@ if (portfolioSection) {
     }, 120);
   };
   const bindPanelInteractions = () => {
-    if (!portfolioPanel) return;
+    if (!portfolioPanel || state.tab !== "clients") return;
     const items = portfolioData.clients;
     portfolioPanel.querySelectorAll("[data-portfolio-item-index]").forEach((button) => {
       button.addEventListener("click", () => {
@@ -347,14 +398,37 @@ if (portfolioSection) {
     portfolioPanel.classList.remove("is-switching");
     void portfolioPanel.offsetWidth;
     portfolioPanel.classList.add("is-switching");
-    portfolioPanel.innerHTML = renderWorkbench(portfolioData.clients, state.selected.clients, "Clientes ISM");
-    if (portfolioStatus) {
-      const current = portfolioData.clients[state.selected.clients];
-      portfolioStatus.textContent = `Mostrando ${current.name}.`;
+
+    portfolioTabs.forEach((tab) => {
+      const active = tab.dataset.portfolioTab === state.tab;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", String(active));
+    });
+
+    if (state.tab === "solutions") {
+      portfolioPanel.innerHTML = renderSolutions();
+      portfolioPanel.setAttribute("aria-label", "Soluciones ISM");
+      if (portfolioStatus) portfolioStatus.textContent = "Mostrando 4 Soluciones ISM disponibles.";
+    } else {
+      portfolioPanel.innerHTML = renderWorkbench(portfolioData.clients, state.selected.clients, "Clientes ISM");
+      portfolioPanel.setAttribute("aria-label", "Clientes ISM");
+      if (portfolioStatus) {
+        const current = portfolioData.clients[state.selected.clients];
+        portfolioStatus.textContent = `Mostrando ${current.name}.`;
+      }
     }
+
     bindPanelInteractions();
     syncLucide();
   };
+
+  portfolioTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      state.tab = tab.dataset.portfolioTab === "solutions" ? "solutions" : "clients";
+      renderCurrentPanel();
+    });
+  });
+
   renderCurrentPanel();
 }
 // ISM PROJECT VAULT
