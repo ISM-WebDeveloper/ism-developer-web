@@ -331,79 +331,95 @@
 }
 
 /* ========================================================= */
-/* PATCH MOBILE 2026-09-04                                  */
-/* Centrado servicios + madurez y logo navbar ligeramente   */
-/* mayor. Solo afecta pantallas <= 600px.                   */
+/* ISM MOBILE FIX v2 - 2026-09-04                           */
+/* SOLO MOBILE: navbar + servicios + madurez                */
 /* ========================================================= */
 @media (max-width: 600px) {
-    /* Navbar: aumentar el logo sin modificar desktop. */
+
+    /* ---------- NAVBAR / LOGO ---------- */
     .premium-navbar:not(.scrolled) .nav-brand,
     .premium-navbar.scrolled .nav-brand,
     .nav-brand {
-        width: 134px;
-        max-width: 134px;
+        width: 142px !important;
+        max-width: 142px !important;
+        flex: 0 0 142px;
     }
 
     .premium-navbar:not(.scrolled) .nav-logo,
     .premium-navbar.scrolled .nav-logo,
     .nav-logo {
-        width: 128px;
-        max-width: 128px;
-        height: auto;
+        width: 136px !important;
+        max-width: 136px !important;
+        height: auto !important;
+        object-fit: contain;
     }
 
-    /* Servicios: centrar toda la información textual en mobile. */
+    /* ---------- SERVICIOS ---------- */
     .service-showcase-content {
-        justify-items: center;
-        align-items: center;
-        text-align: center;
+        justify-items: center !important;
+        align-items: center !important;
+        text-align: center !important;
     }
 
     .service-showcase-title {
-        width: 100%;
-        text-align: center;
+        width: 100% !important;
+        text-align: center !important;
     }
 
     .service-showcase-title::after {
-        left: 50%;
-        transform: translateX(-50%);
+        left: 50% !important;
+        transform: translateX(-50%) !important;
     }
 
     .service-showcase-description {
-        width: 100%;
-        text-align: center;
-        text-wrap: balance;
+        width: 100% !important;
+        text-align: center !important;
+        text-align-last: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 
     .service-showcase-action {
-        justify-self: center;
-        align-self: center;
-        text-align: center;
+        width: 100% !important;
+        justify-self: center !important;
+        align-self: center !important;
+        text-align: center !important;
     }
 
-    /* Madurez: centrar contenido y eliminar altura blanca sobrante. */
+    /* ---------- MADUREZ DIGITAL ---------- */
     .maturity-card-premium {
-        min-height: 0;
+        min-height: 0 !important;
     }
 
     .maturity-card-content {
-        min-height: 0;
-        padding: 56px 24px 28px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        text-align: center;
+        min-height: 0 !important;
+        padding: 58px 24px 30px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        text-align: center !important;
     }
 
-    .maturity-card-content h3,
-    .maturity-card-content p {
-        width: 100%;
-        text-align: center;
+    .maturity-card-content h3 {
+        width: 100% !important;
+        min-height: 0 !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
+        justify-content: center !important;
     }
 
     .maturity-card-accent {
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .maturity-card-content p {
+        width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
+        text-align-last: center !important;
     }
 }
