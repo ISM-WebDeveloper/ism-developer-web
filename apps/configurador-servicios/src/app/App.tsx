@@ -38,36 +38,77 @@ function dispatchCatalogAction(action: CatalogAction) {
 
 export default function App() {
   const [mobileActionsHidden, setMobileActionsHidden] = useState(false);
+  const [mobileNavFollowing, setMobileNavFollowing] = useState(false);
 
   useEffect(() => {
     const scrollContainer = document.querySelector<HTMLElement>(".ibm-configurator");
+    const mobileQuery = window.matchMedia("(max-width: 760px)");
 
     if (!scrollContainer) {
       return;
     }
 
     const container = scrollContainer;
-    let lastScrollTop = container.scrollTop;
+    let idleTimer: number | undefined;
 
-    function handleScroll() {
-      const currentScrollTop = container.scrollTop;
-      const delta = currentScrollTop - lastScrollTop;
-
-      if (currentScrollTop < 96) {
-        setMobileActionsHidden(false);
-      } else if (delta > 8) {
-        setMobileActionsHidden(true);
-      } else if (delta < -8) {
-        setMobileActionsHidden(false);
+    function clearIdleTimer() {
+      if (idleTimer !== undefined) {
+        window.clearTimeout(idleTimer);
+        idleTimer = undefined;
       }
-
-      lastScrollTop = currentScrollTop;
     }
 
-    container.addEventListener("scroll", handleScroll, { passive: true });
+    function scheduleIdleHide() {
+      clearIdleTimer();
+
+      if (!mobileQuery.matches || container.scrollTop <= 18) {
+        return;
+      }
+
+      idleTimer = window.setTimeout(() => {
+        setMobileActionsHidden(true);
+      }, 3000);
+    }
+
+    function syncMobileNavigation() {
+      if (!mobileQuery.matches) {
+        clearIdleTimer();
+        setMobileNavFollowing(false);
+        setMobileActionsHidden(false);
+        return;
+      }
+
+      const isAtTop = container.scrollTop <= 18;
+
+      if (isAtTop) {
+        clearIdleTimer();
+        setMobileNavFollowing(false);
+        setMobileActionsHidden(false);
+        return;
+      }
+
+      // Cuando existe desplazamiento, el header principal se retira
+      // y el segundo nav queda como única barra de navegación.
+      setMobileNavFollowing(true);
+
+      // Cualquier movimiento vuelve a mostrar la barra de acciones.
+      setMobileActionsHidden(false);
+      scheduleIdleHide();
+    }
+
+    function handleViewportChange() {
+      syncMobileNavigation();
+    }
+
+    container.addEventListener("scroll", syncMobileNavigation, { passive: true });
+    mobileQuery.addEventListener("change", handleViewportChange);
+
+    syncMobileNavigation();
 
     return () => {
-      container.removeEventListener("scroll", handleScroll);
+      clearIdleTimer();
+      container.removeEventListener("scroll", syncMobileNavigation);
+      mobileQuery.removeEventListener("change", handleViewportChange);
     };
   }, []);
 
@@ -77,7 +118,7 @@ export default function App() {
         Saltar al contenido principal
       </a>
 
-      <header className="main-header main-header--configurator">
+      <header className={`main-header main-header--configurator${mobileNavFollowing ? " main-header--mobile-away" : ""}`}>
         <div className="main-header__identity">
           <a
             aria-label="Volver al inicio de ISM Developer"
@@ -144,7 +185,7 @@ export default function App() {
 
       <nav
         aria-label="Acciones rápidas del configurador"
-        className={`mobile-action-dock${mobileActionsHidden ? " mobile-action-dock--hidden" : ""}`}
+        className={`mobile-action-dock${mobileNavFollowing ? " mobile-action-dock--following" : ""}${mobileActionsHidden ? " mobile-action-dock--hidden" : ""}`}
       >
         <a
           aria-label="Volver al sitio"
