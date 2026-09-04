@@ -17,6 +17,7 @@
     "configurator:catalog": "npm --prefix apps/configurador-servicios run catalog:ism",
     "catalog:sync": "npm --prefix apps/configurador-servicios run catalog:ism",
     "configurator:build": "npm --prefix apps/configurador-servicios run build",
-    "test:guide-calibration": "node scripts/test-guide-calibration.mjs"
+    "test:guide-calibration": "node scripts/test-guide-calibration.mjs",
+    "qa:final": "npm run validate && node scripts/final-qa.mjs"
   }
 }

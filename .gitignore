@@ -1,1 +1,12 @@
 apps/configurador-servicios/node_modules/
+
+# Paquetes temporales generados durante parches/revisiones locales
+ISMDeveloper_PATCH_*.zip
+ISMDeveloper_PATCH_*/
+LEEME.txt
+
+# Archivos temporales del sistema/editor
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
