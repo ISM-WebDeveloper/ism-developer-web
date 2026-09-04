@@ -652,7 +652,36 @@ if (vaultSection) {
 const contactForm = document.getElementById("contactForm");
 if (contactForm) {
   const serviceSelect = document.getElementById("contactServicio");
-  const requestedServiceId = new URLSearchParams(window.location.search).get("servicio");
+  const messageField = document.getElementById("contactMensaje");
+  const productContext = document.getElementById("contactProductContext");
+  const productContextTitle = document.getElementById("contactProductContextTitle");
+  const productContextText = document.getElementById("contactProductContextText");
+
+  const contactParams = new URLSearchParams(window.location.search);
+  const requestedProductId = contactParams.get("producto");
+  const requestedServiceId = contactParams.get("servicio");
+
+  const productNames = {
+    "ism-presencia-digital": "ISM Presencia Digital",
+    "ism-stock-control": "ISM Stock Control",
+    "ism-gestion-control": "ISM Gestión Control",
+    "ism-boutique": "ISM Boutique"
+  };
+
+  const productPrompts = {
+    "ism-presencia-digital": "Cuéntanos qué necesita comunicar, captar o automatizar tu presencia digital.",
+    "ism-stock-control": "Cuéntanos cómo manejas hoy stock, bodegas, entregas o movimientos.",
+    "ism-gestion-control": "Cuéntanos qué proceso interno necesitas ordenar, controlar o hacer trazable.",
+    "ism-boutique": "Cuéntanos cómo manejas hoy productos, stock, ventas y clientes."
+  };
+
+  const productContextMessages = {
+    "ism-presencia-digital": "Evaluaremos alcance, contenido, captación e integraciones necesarias para tu negocio.",
+    "ism-stock-control": "Evaluaremos bodegas, movimientos, roles, trazabilidad y necesidades de operación.",
+    "ism-gestion-control": "Evaluaremos procesos, responsables, estados, registros y módulos de gestión.",
+    "ism-boutique": "Evaluaremos catálogo, stock, ventas, clientes y operación mobile first."
+  };
+
   const serviceNames = {
     "desarrollo-implementacion": "Desarrollo e Implementación",
     "mantenimiento-evolucion": "Mantenimiento y Evolución",
@@ -661,7 +690,26 @@ if (contactForm) {
     "ciberseguridad-proteccion": "Ciberseguridad y Protección Digital",
     "soporte-gestion": "Soporte y Gestión de Servicios"
   };
-  if (requestedServiceId && serviceNames[requestedServiceId] && serviceSelect) {
+
+  if (requestedProductId && productNames[requestedProductId] && serviceSelect) {
+    serviceSelect.value = productNames[requestedProductId];
+
+    if (messageField && !messageField.value) {
+      messageField.placeholder = productPrompts[requestedProductId];
+    }
+
+    if (productContext && productContextTitle && productContextText) {
+      productContext.hidden = false;
+      productContextTitle.textContent = productNames[requestedProductId];
+      productContextText.textContent = productContextMessages[requestedProductId];
+    }
+
+    window.trackEvent?.("product_interest_prefilled", {
+      event_category: "conversion",
+      product_interest: requestedProductId,
+      section: "contacto"
+    });
+  } else if (requestedServiceId && serviceNames[requestedServiceId] && serviceSelect) {
     serviceSelect.value = serviceNames[requestedServiceId];
   }
   contactForm.addEventListener("submit", (event) => {
@@ -678,13 +726,14 @@ if (contactForm) {
       `Nombre: ${nombre}`,
       `Empresa o negocio: ${empresa}`,
       `WhatsApp: ${whatsapp}`,
-      `Servicio de interés: ${servicio}`,
+      `Solución / servicio de interés: ${servicio}`,
       "",
       `Mensaje: ${mensaje}`
     ].join("\n");
     window.trackEvent("contact_form_submit", {
       event_category: "conversion",
       service_interest: servicio,
+      product_interest: requestedProductId || "",
       section: "contacto"
     });
     window.open(

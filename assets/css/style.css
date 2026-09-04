@@ -378,3 +378,69 @@
     }
 }
 
+/* ========================================================= */
+/* PORTAFOLIO 2.0 · FASE 7 · CONTEXTO DE CONVERSIÓN         */
+/* ========================================================= */
+.contact-product-context {
+    margin-bottom: 18px;
+    padding: 16px 18px;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 14px;
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    border-radius: 16px;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.10), transparent 44%),
+        rgba(8, 24, 42, 0.72);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.contact-product-context[hidden] {
+    display: none;
+}
+
+.contact-product-context__eyebrow {
+    padding: 5px 8px;
+    border: 1px solid rgba(56, 189, 248, 0.24);
+    border-radius: 999px;
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.07);
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.contact-product-context strong {
+    display: block;
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.contact-product-context p {
+    margin-top: 3px;
+    color: #9fb0c4;
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.contact-product-context > i {
+    width: 24px;
+    height: 24px;
+    color: #38bdf8;
+}
+
+@media (max-width: 600px) {
+    .contact-product-context {
+        grid-template-columns: 1fr auto;
+        align-items: start;
+    }
+
+    .contact-product-context__eyebrow {
+        grid-column: 1 / -1;
+        width: fit-content;
+    }
+}
+

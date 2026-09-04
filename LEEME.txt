@@ -1,56 +1,70 @@
-ISM Developer · PORTAFOLIO 2.0 · FASE 6
+ISM Developer · PORTAFOLIO 2.0 · FASE 7
 Fecha: 2026-09-04
 
 OBJETIVO
 -------
-Agregar evidencia visual a las páginas de producto sin inventar capturas ni
-exponer identidades privadas.
+Conectar cada Producto ISM con una ruta comercial clara:
 
-ISM PRESENCIA DIGITAL
+Producto
+  -> Evaluación guiada
+  -> Configurador técnico
+  -> WhatsApp directo
+
+FORMULARIO DE LA HOME
 ---------------------
-- 6 evidencias visuales publicables.
-- Badia Nurse Shield.
-- Constructora Proestakis.
-- Lecasse IT Services.
-- Zoom/lightbox accesible para revisar las capturas.
+Se agregan como opciones reales:
+- ISM Presencia Digital
+- ISM Stock Control
+- ISM Gestión Control
+- ISM Boutique
 
-ISM STOCK CONTROL
------------------
-- Se publica únicamente la vista representativa disponible que no expone
-  la identidad privada del cliente.
-- NO se publica control-bodega-operativo.webp porque conserva branding
-  antiguo/privado.
-- Se deja indicado que nuevas capturas se incorporarán cuando estén
-  completamente rebrandizadas como ISM Stock Control.
+Los productos web anteriores se mantienen, pero pasan a estar agrupados como:
+"Paquetes web".
 
-ISM GESTIÓN CONTROL
--------------------
-- Los 3 SVG existentes se muestran explícitamente como referencias/
-  CAPTURAS PENDIENTES.
-- No se presentan como screenshots reales.
-
-ISM BOUTIQUE
+PRESELECCIÓN
 ------------
-- No se inventan pantallas.
-- Se deja un estado visual de evidencia pendiente para Productos/Stock y
-  Ventas/Clientes hasta disponer de capturas reales aprobadas.
+Ejemplo:
+/index.html?producto=ism-stock-control#contacto
 
-NUEVO
------
-assets/js/soluciones.js
-- Lightbox de evidencia.
-- Cierre con botón, fondo o tecla ESC.
-- Retorno del foco al elemento que abrió la imagen.
+Resultado:
+- "ISM Stock Control" queda seleccionado automáticamente.
+- Aparece un bloque contextual indicando qué se evaluará.
+- Cambia el placeholder del mensaje según el producto.
+- El WhatsApp generado incluye la solución/producto de interés.
+
+PÁGINAS DE PRODUCTO
+-------------------
+Cada página ofrece 3 caminos:
+
+1. EVALUACIÓN GUIADA
+   Lleva al formulario con el producto preseleccionado.
+
+2. CONFIGURAR ALCANCE TÉCNICO
+   Lleva al configurador:
+   /configurador/?servicio=desarrollo-implementacion&producto=<slug>
+
+   El configurador ya soporta la preselección de la línea
+   "Desarrollo e Implementación". El parámetro producto queda preservado
+   en la URL para mantener el contexto comercial.
+
+3. WHATSAPP DIRECTO
+   Mensaje específico para cada Producto ISM.
+
+También se reemplazan los CTAs genéricos del header, hero y cierre por CTAs
+contextuales de implementación.
 
 CACHÉ
 -----
-soluciones.css v3.2.0
-soluciones.js  v1.0.0
+style.css       v2.0.54
+script.js       v2.0.40
+soluciones.css  v3.3.0
 
-ARCHIVOS DEL PARCHE
--------------------
+ARCHIVOS MODIFICADOS
+--------------------
+index.html
+assets/css/style.css
+assets/js/script.js
 assets/css/soluciones.css
-assets/js/soluciones.js
 soluciones/index.html
 soluciones/ism-presencia-digital/index.html
 soluciones/ism-stock-control/index.html
@@ -59,7 +73,9 @@ soluciones/ism-boutique/index.html
 
 VALIDACIONES
 ------------
-- soluciones.js: sintaxis OK.
-- Imágenes de evidencia referenciadas: existen.
-- Captura stock con branding privado/antiguo excluida.
-- Referencias textuales Suiz Corp / Hospital Félix Bulnes / CIPApp / HFBApp: 0.
+- script.js: sintaxis OK
+- soluciones.js heredado: sintaxis OK
+- 4 productos presentes en formulario: OK
+- 3 rutas comerciales presentes en cada producto: OK
+- CTAs genéricos sustituidos: OK
+- Referencias Suiz Corp / Hospital Félix Bulnes / CIPApp / HFBApp: 0

@@ -631,3 +631,109 @@ body.solution-lightbox-open {
     }
 }
 
+/* ==================================================
+   SOLUCIONES ISM · FASE 7
+   Conversión comercial
+   ================================================== */
+.solution-commercial-paths {
+    width: min(calc(100% - 40px), var(--max));
+    margin: 0 auto 32px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.solution-commercial-path {
+    min-height: 190px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(var(--accent-rgb), 0.20);
+    border-radius: 18px;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(var(--accent-rgb), 0.10), transparent 42%),
+        rgba(7, 19, 34, 0.76);
+    transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        background 0.22s ease;
+}
+
+.solution-commercial-path:hover,
+.solution-commercial-path:focus-visible {
+    transform: translateY(-3px);
+    border-color: rgba(var(--accent-rgb), 0.56);
+    background:
+        radial-gradient(circle at 100% 0%, rgba(var(--accent-rgb), 0.16), transparent 42%),
+        rgba(8, 23, 41, 0.86);
+}
+
+.solution-commercial-path i {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 17px;
+    color: var(--accent);
+}
+
+.solution-commercial-path span {
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+}
+
+.solution-commercial-path h3 {
+    margin: 7px 0 8px;
+    font-size: 19px;
+    line-height: 1.2;
+}
+
+.solution-commercial-path p {
+    color: #9fb0c4;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.solution-commercial-path strong {
+    margin-top: auto;
+    padding-top: 18px;
+    color: #eef9ff;
+    font-size: 12px;
+}
+
+.solution-quick-contact {
+    margin-top: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #9ecfe3;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.solution-quick-contact:hover {
+    color: var(--accent);
+}
+
+.solution-quick-contact i {
+    width: 16px;
+    height: 16px;
+}
+
+@media (max-width: 860px) {
+    .solution-commercial-paths {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 720px) {
+    .solution-commercial-paths {
+        width: calc(100% - 28px);
+    }
+
+    .solution-commercial-path {
+        min-height: 0;
+    }
+}
+

@@ -39,7 +39,7 @@
 
     <link rel="preload" href="assets/img/ignaciodesarrollador.webp" as="image" type="image/webp" />
     <script src="assets/js/reveal-compat.js?v=2.2.0" defer></script>
-    <link rel="stylesheet" href="assets/css/style.css?v=2.0.53" />
+    <link rel="stylesheet" href="assets/css/style.css?v=2.0.54" />
     <link rel="stylesheet" href="assets/css/premium-motion.css?v=2.2.0" />
     <link rel="stylesheet" href="assets/css/privacy-consent.css?v=2.0.24" />
     <link rel="stylesheet" href="assets/css/accessibility.css?v=2.1.1" />
@@ -1201,6 +1201,15 @@
                     </div>
                 </div>
 
+                <div class="contact-product-context" id="contactProductContext" hidden>
+                    <span class="contact-product-context__eyebrow">Consulta contextual</span>
+                    <div>
+                        <strong id="contactProductContextTitle">Producto ISM seleccionado</strong>
+                        <p id="contactProductContextText">La solución quedará preseleccionada en el formulario.</p>
+                    </div>
+                    <i data-lucide="badge-check" aria-hidden="true"></i>
+                </div>
+
                 <form class="contact-form" id="contactForm" aria-describedby="contactFormNote contactFormStatus">
                     <div class="contact-form-grid">
                         <div class="contact-field">
@@ -1222,7 +1231,13 @@
                             <label for="contactServicio">Solución de interés <span aria-hidden="true">*</span><span class="sr-only"> (obligatorio)</span></label>
                             <select id="contactServicio" name="servicio" required>
                                 <option value="">Selecciona una opción</option>
-                                <optgroup label="Productos">
+                                <optgroup label="Productos ISM">
+                                    <option value="ISM Presencia Digital">ISM Presencia Digital</option>
+                                    <option value="ISM Stock Control">ISM Stock Control</option>
+                                    <option value="ISM Gestión Control">ISM Gestión Control</option>
+                                    <option value="ISM Boutique">ISM Boutique</option>
+                                </optgroup>
+                                <optgroup label="Paquetes web">
                                     <option>Landing Profesional</option>
                                     <option>Agenda Profesional</option>
                                     <option>Profesional Plus</option>
@@ -1375,7 +1390,7 @@
         </div>
     </footer>
 
-    <script src="assets/js/script.js?v=2.0.39" defer></script>
+    <script src="assets/js/script.js?v=2.0.40" defer></script>
     <script src="assets/js/accessibility.js?v=2.0.24" defer></script>
 </body>
 
