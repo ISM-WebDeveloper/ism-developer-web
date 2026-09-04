@@ -577,6 +577,111 @@
     }
     </style>
 
+
+    <style id="ism-mobile-fix-v122">
+    @media (max-width:600px){
+
+      /* SERVICIOS ISM · CENTRADO REAL */
+      #servicios .services-showcase-shell{
+        width:100%!important;max-width:390px!important;
+        margin-left:auto!important;margin-right:auto!important;
+      }
+      #servicios .services-showcase-heading{
+        width:100%!important;max-width:350px!important;
+        margin-left:auto!important;margin-right:auto!important;
+        text-align:center!important;
+      }
+      #servicios .service-showcase-grid{
+        width:100%!important;max-width:360px!important;
+        margin-left:auto!important;margin-right:auto!important;
+        display:flex!important;flex-direction:column!important;
+        align-items:center!important;justify-content:flex-start!important;
+        gap:18px!important;
+      }
+      #servicios .service-showcase-card{
+        width:calc(100% - 16px)!important;max-width:340px!important;
+        min-width:0!important;margin:0 auto!important;
+        align-self:center!important;justify-self:center!important;
+        display:grid!important;grid-template-columns:1fr!important;
+        grid-template-rows:150px auto!important;overflow:hidden!important;
+      }
+      #servicios .service-showcase-media{
+        width:100%!important;height:150px!important;min-height:150px!important;
+      }
+      #servicios .service-showcase-content{
+        width:100%!important;min-height:0!important;
+        padding:21px 18px 20px!important;
+        display:flex!important;flex-direction:column!important;
+        align-items:center!important;text-align:center!important;
+      }
+      #servicios .service-showcase-title,
+      #servicios .service-showcase-description{
+        width:100%!important;max-width:292px!important;
+        margin-left:auto!important;margin-right:auto!important;
+        text-align:center!important;text-align-last:center!important;
+      }
+      #servicios .service-showcase-description{margin-top:10px!important}
+      #servicios .service-showcase-action{
+        width:fit-content!important;max-width:100%!important;
+        margin:18px auto 0!important;align-self:center!important;
+        text-align:center!important;
+      }
+
+      /* MADUREZ DIGITAL · SIN ICONOS SUPERPUESTOS */
+      #madurez-digital .maturity-grid{
+        width:100%!important;max-width:360px!important;
+        margin-left:auto!important;margin-right:auto!important;padding:0!important;
+        display:flex!important;flex-direction:column!important;
+        align-items:center!important;gap:22px!important;
+      }
+      #madurez-digital .maturity-card-premium{
+        width:calc(100% - 16px)!important;max-width:340px!important;
+        min-height:0!important;margin:0 auto!important;
+        display:grid!important;grid-template-columns:1fr!important;
+        grid-template-rows:160px auto auto!important;
+        grid-template-areas:"visual" "icon" "content"!important;
+        overflow:hidden!important;border-radius:20px!important;background:#fff!important;
+      }
+      #madurez-digital .maturity-card-visual{
+        grid-area:visual!important;width:100%!important;height:160px!important;
+        min-height:160px!important;border-radius:18px 18px 0 0!important;
+      }
+      #madurez-digital .maturity-card-icon{
+        grid-area:icon!important;position:relative!important;
+        left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;
+        inset:auto!important;transform:none!important;
+        width:54px!important;height:54px!important;
+        margin:14px auto 6px!important;z-index:2!important;
+        box-shadow:0 8px 20px rgba(7,25,54,.18)!important;
+      }
+      #madurez-digital .maturity-card-icon svg{
+        width:27px!important;height:27px!important;
+      }
+      #madurez-digital .maturity-card-content{
+        grid-area:content!important;width:100%!important;min-height:0!important;
+        padding:4px 20px 25px!important;border-radius:0 0 18px 18px!important;
+        display:flex!important;flex-direction:column!important;
+        align-items:center!important;text-align:center!important;
+      }
+      #madurez-digital .maturity-card-content h3{
+        width:100%!important;max-width:280px!important;margin:0 auto!important;
+        font-size:21px!important;line-height:1.18!important;text-align:center!important;
+      }
+      #madurez-digital .maturity-card-content p{
+        width:100%!important;max-width:292px!important;margin:10px auto 0!important;
+        font-size:15px!important;line-height:1.55!important;
+        text-align:center!important;text-align-last:center!important;
+      }
+      #madurez-digital .maturity-card-accent{
+        width:44px!important;margin:13px auto 0!important;
+      }
+      #madurez-digital .maturity-note{
+        width:calc(100% - 16px)!important;max-width:340px!important;
+        margin:22px auto 0!important;text-align:center!important;justify-content:center!important;
+      }
+    }
+    </style>
+
 </head>
 
 <body>
@@ -781,10 +886,9 @@
             <div class="services-showcase-shell">
                 <header class="section-title services-showcase-heading">
                     <p>Capacidades de ISM Developer</p>
-                    <h2 id="servicios-title" class="section-heading-emphasis">Servicios y <span class="section-heading-accent">Plataformas Digitales</span></h2>
+                    <h2 id="servicios-title" class="section-heading-emphasis">Servicios <span class="section-heading-accent">ISM</span></h2>
                     <p class="services-showcase-intro">
-                        Selecciona el servicio que necesitas y comienza una configuración guiada
-                        según los objetivos de tu negocio.
+                        Explora cómo podemos ayudarte y configura solo las actividades que realmente necesita tu negocio.
                     </p>
                 </header>
 

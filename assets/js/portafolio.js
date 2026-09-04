@@ -532,10 +532,17 @@ const caseProductRelations = {
     }
 };
 
-const categoryOrder = ["Clientes ISM"];
+const categoryOrder = ["Soluciones ISM", "Clientes ISM"];
 const categoryIcons = {
+    "Soluciones ISM": "boxes",
     "Clientes ISM": "users-round"
 };
+const primarySolutionIds = new Set([
+    "ism-presencia-digital",
+    "ism-stock-control",
+    "ism-gestion-control",
+    "ism-boutique"
+]);
 const projectNav = document.getElementById("projectNav");
 const visualTrack = document.getElementById("visualTrack");
 const copyTrack = document.getElementById("copyTrack");
@@ -552,18 +559,13 @@ const projectAliases = {
 const rawRequestedProject = new URLSearchParams(window.location.search).get("proyecto");
 let requestedProject = projectAliases[rawRequestedProject] || rawRequestedProject;
 
-const visiblePortfolioProjects = projects.filter((project) => project.category === "Clientes ISM");
-const requestedEntry = projects.find((project) => project.id === requestedProject);
-
-if (requestedEntry?.category === "Soluciones ISM") {
-    const relatedCase = Object.entries(caseProductRelations)
-        .find(([, relation]) => relation.productId === requestedEntry.id)?.[0];
-
-    requestedProject = relatedCase || visiblePortfolioProjects[0]?.id;
-}
+const visiblePortfolioProjects = projects.filter((project) =>
+    project.category === "Clientes ISM" || primarySolutionIds.has(project.id)
+);
+const defaultProjectId = "badiasalud";
 
 if (!visiblePortfolioProjects.some((project) => project.id === requestedProject)) {
-    requestedProject = visiblePortfolioProjects[0]?.id;
+    requestedProject = defaultProjectId;
 }
 let currentProject = null;
 let currentSlide = 0;
@@ -575,7 +577,7 @@ function renderNavigation() {
     const requestedCategory = projects.find((project) => project.id === requestedProject)?.category || categoryOrder[0];
 
     projectNav.innerHTML = categoryOrder.map((category) => {
-        const items = projects.filter((project) => project.category === category);
+        const items = visiblePortfolioProjects.filter((project) => project.category === category);
         const categoryId = `category-${category.toLowerCase().replace(/\s+/g, "-")}`;
         const expanded = category === requestedCategory;
         return `
@@ -722,7 +724,7 @@ function renderCommercial(project) {
             casesKicker: "Producto relacionado",
             casesTitle: "Este caso fortalece una solución ISM reutilizable",
             cases: [{ name: relation.productName, meta: "Solución ISM · Ver ficha completa", status: "Ver solución", projectId: relation.productId }],
-            casesNote: "El cliente es el caso de implementación; el solución permanece como una solución propia de ISM Developer.",
+            casesNote: "El cliente muestra una implementación real; la Solución ISM permanece disponible para adaptarse a nuevos contextos.",
             model: "Solución ISM + adaptación para el cliente",
             modelDetail: "El caso muestra cómo una base reutilizable se personaliza sin perder la identidad ni los objetivos particulares del negocio.",
             action: `Quiero una solución similar`
@@ -915,7 +917,7 @@ function updateClock() {
 
 renderNavigation();
 const portfolioProjectCount = document.getElementById("portfolioProjectCount");
-if (portfolioProjectCount) portfolioProjectCount.textContent = `${visiblePortfolioProjects.length} elementos disponibles`;
+if (portfolioProjectCount) portfolioProjectCount.textContent = "4 soluciones · 3 clientes";
 selectProject(requestedProject, { initial: true });
 updateClock();
 setInterval(updateClock, 30000);
