@@ -532,7 +532,7 @@ const caseProductRelations = {
     }
 };
 
-const categoryOrder = ["Productos ISM", "Casos de éxito", "Herramientas ISM"];
+const categoryOrder = ["Casos de éxito", "Herramientas ISM"];
 const categoryIcons = {
     "Productos ISM": "boxes",
     "Casos de éxito": "badge-check",
@@ -552,7 +552,21 @@ const projectAliases = {
     "control-gestion": "ism-stock-control"
 };
 const rawRequestedProject = new URLSearchParams(window.location.search).get("proyecto");
-const requestedProject = projectAliases[rawRequestedProject] || rawRequestedProject;
+let requestedProject = projectAliases[rawRequestedProject] || rawRequestedProject;
+
+const visiblePortfolioProjects = projects.filter((project) => project.category !== "Productos ISM");
+const requestedEntry = projects.find((project) => project.id === requestedProject);
+
+if (requestedEntry?.category === "Productos ISM") {
+    const relatedCase = Object.entries(caseProductRelations)
+        .find(([, relation]) => relation.productId === requestedEntry.id)?.[0];
+
+    requestedProject = relatedCase || visiblePortfolioProjects[0]?.id;
+}
+
+if (!visiblePortfolioProjects.some((project) => project.id === requestedProject)) {
+    requestedProject = visiblePortfolioProjects[0]?.id;
+}
 let currentProject = null;
 let currentSlide = 0;
 let pointerStartX = null;
@@ -653,11 +667,18 @@ function renderSlides(project) {
 }
 
 function renderTechnical(project) {
-    const cards = [
-        ["search-check", "Análisis para el cliente", "Necesidades y oportunidades identificadas durante la asesoría.", project.analysis],
-        ["list-checks", "Plan de acción", "Solución propuesta para responder a los objetivos del proyecto.", project.actionPlan],
-        ["chart-no-axes-combined", "Escalabilidad", "Evoluciones que pueden implementarse sobre la misma base.", project.scalability]
-    ];
+    const relation = caseProductRelations[project.id];
+    const cards = relation
+        ? [
+            ["search-check", "Punto de partida", "Necesidades concretas que justificaron la implementación.", project.analysis],
+            ["badge-check", "Solución implementada", "Elementos entregados para responder al contexto del cliente.", project.actionPlan],
+            ["waypoints", "Evolución posible", "Capacidades que pueden incorporarse sobre la misma base.", project.scalability]
+        ]
+        : [
+            ["search-check", "Necesidad que aborda", "Situaciones donde esta herramienta puede aportar orden o trazabilidad.", project.analysis],
+            ["list-checks", "Qué resuelve", "Funciones principales incluidas en el alcance actual.", project.actionPlan],
+            ["chart-no-axes-combined", "Cómo puede crecer", "Evoluciones posibles sobre la misma herramienta.", project.scalability]
+        ];
 
     document.getElementById("technicalGrid").innerHTML = cards.map(([icon, title, description, items]) => `
         <article class="technical-card">
@@ -777,13 +798,13 @@ function renderCommercial(project) {
 }
 
 function selectProject(id, options = {}) {
-    const project = projects.find((item) => item.id === id) || projects[0];
+    const project = visiblePortfolioProjects.find((item) => item.id === id) || visiblePortfolioProjects[0];
     currentProject = project;
     currentSlide = 0;
 
     document.documentElement.style.setProperty("--accent", project.accent);
     document.documentElement.style.setProperty("--accent-rgb", project.accentRgb);
-    document.title = `${project.name} | Soluciones ISM Developer`;
+    document.title = `${project.name} | Caso de éxito | ISM Developer`;
     document.getElementById("projectType").textContent = project.type;
     document.getElementById("projectTitle").textContent = project.name;
     document.getElementById("projectSummary").textContent = project.summary;
@@ -896,7 +917,7 @@ function updateClock() {
 
 renderNavigation();
 const portfolioProjectCount = document.getElementById("portfolioProjectCount");
-if (portfolioProjectCount) portfolioProjectCount.textContent = `${projects.length} elementos disponibles`;
+if (portfolioProjectCount) portfolioProjectCount.textContent = `${visiblePortfolioProjects.length} elementos disponibles`;
 selectProject(requestedProject, { initial: true });
 updateClock();
 setInterval(updateClock, 30000);

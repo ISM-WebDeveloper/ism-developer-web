@@ -1,62 +1,62 @@
-ISM Developer · PORTAFOLIO 2.0 · FASE 4
+ISM Developer · PORTAFOLIO 2.0 · FASE 5
 Fecha: 2026-09-04
 
 OBJETIVO
 -------
-Integrar el nuevo catálogo de Productos ISM con el resto del sitio y fortalecer
-la navegación/comercialización sin rediseñar las páginas aprobadas.
+Eliminar la redundancia entre Servicios, Soluciones y Portafolio.
+
+NUEVO ROL DE CADA SECCIÓN
+-------------------------
+SERVICIOS
+Qué puede contratar el cliente:
+desarrollo, mantenimiento, asesoría, integraciones, etc.
+
+SOLUCIONES
+Catálogo de productos propios:
+ISM Presencia Digital
+ISM Stock Control
+ISM Gestión Control
+ISM Boutique
+
+PORTAFOLIO
+Evidencia:
+casos de éxito + herramientas implementadas.
 
 CAMBIOS
 -------
 HOME
-- El nav cambia "Proyectos" por "Soluciones".
-- Footer incorpora Productos ISM, Soluciones y Portafolio.
-- La sección Portafolio ahora tiene dos accesos:
-  1) Explorar soluciones
-  2) Casos y herramientas
+- La sección Portafolio ya NO repite los 4 Productos ISM.
+- Solo muestra:
+  1. Casos de éxito
+  2. Herramientas ISM
+- El CTA "Explorar soluciones" lleva al catálogo de productos.
 
-/SOLUCIONES/
-- Nueva explicación visual:
-  Producto ISM -> Adaptación al cliente -> Caso de éxito
-- Acceso directo al Portafolio.
-- Acceso directo al Configurador.
+PORTAFOLIO.HTML
+- El sidebar ya NO muestra Productos ISM.
+- Categorías visibles:
+  1. Casos de éxito
+  2. Herramientas ISM
+- Si una URL antigua intenta abrir un producto, se normaliza a un caso relacionado o al primer caso.
+- Los casos ahora usan lenguaje:
+  Punto de partida / Solución implementada / Evolución posible.
+- Cada caso sigue enlazando al Producto ISM que lo originó.
 
-/SOLUCIONES/<PRODUCTO>/
-- Breadcrumbs visibles.
-- Sección "También puede conectarse con otras soluciones".
-- Enlaces internos entre todos los Productos ISM.
-- Se mantiene la ficha comercial y SEO de Fase 3.
-
-PORTAFOLIO
-- Nuevo acceso "Soluciones ISM" desde la barra superior.
-- En mobile se convierte en botón compacto con icono.
-
-SEO
-- sitemap.xml agrega lastmod 2026-09-04 a las 5 URLs de /soluciones/.
+SOLUCIONES
+- Se elimina "Ver ficha en portafolio" de cada producto.
+- Se reemplaza por "Ver casos y herramientas".
+- /soluciones/ explica explícitamente que es el catálogo de productos.
 
 CACHÉ
-------
-style.css       v2.0.53
-portafolio.css  v2.3.1
-soluciones.css  v3.1.0
-
-ARCHIVOS MODIFICADOS
---------------------
-index.html
-assets/css/style.css
-portafolio.html
-assets/css/portafolio.css
-assets/css/soluciones.css
-soluciones/index.html
-soluciones/ism-presencia-digital/index.html
-soluciones/ism-stock-control/index.html
-soluciones/ism-gestion-control/index.html
-soluciones/ism-boutique/index.html
-sitemap.xml
+-----
+script.js        v2.0.39
+portafolio.js    v2.0.29
+portafolio.css   v2.3.2
 
 VALIDACIONES
 ------------
-- script.js: sintaxis OK
-- portafolio.js: sintaxis OK
-- Enlaces locales de las 5 páginas /soluciones/: OK
-- Referencias públicas a Suiz Corp / Hospital Félix Bulnes / CIPApp / HFBApp: 0
+- script.js: OK
+- portafolio.js: OK
+- Home sin tab Productos ISM: OK
+- Portafolio sin categoría Productos ISM visible: OK
+- Páginas de producto sin CTA duplicado: OK
+- Referencias antiguas Suiz Corp / Hospital Félix Bulnes / CIPApp / HFBApp: 0
