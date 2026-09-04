@@ -131,3 +131,107 @@ body.sidebar-collapsed .nav-group.expanded .nav-group-toggle{border-color:rgba(v
 
 /* CLIENTES ISM · FASE 11 */
 .ism-site-footer{margin-left:var(--sidebar);transition:margin-left .52s cubic-bezier(.22,.8,.22,1)}body.sidebar-collapsed .ism-site-footer{margin-left:var(--sidebar-compact)}@media(max-width:760px){.ism-site-footer,body.sidebar-collapsed .ism-site-footer{margin-left:0}}
+
+/* =========================================================
+   ISM MOBILE · FASE 12 · CLIENTES ISM
+   ========================================================= */
+.portfolio-mobile-map{display:none}
+
+@media(max-width:760px){
+  .portfolio-mobile-map{
+    width:calc(100% - 24px);
+    margin:10px auto 0;
+    padding:3px 0;
+    display:flex;
+    gap:6px;
+    overflow-x:auto;
+    scrollbar-width:none;
+    scroll-snap-type:x proximity
+  }
+  .portfolio-mobile-map::-webkit-scrollbar{display:none}
+  .portfolio-mobile-map a{
+    flex:0 0 auto;
+    min-height:32px;
+    padding:0 10px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(56,189,248,.14);
+    border-radius:999px;
+    color:#9fb5c9;
+    background:rgba(8,23,40,.58);
+    font-size:10px;
+    font-weight:800;
+    scroll-snap-align:center
+  }
+  .portfolio-mobile-map a[aria-current="page"]{
+    color:#dff7ff;
+    border-color:rgba(56,189,248,.42);
+    background:rgba(14,165,233,.12)
+  }
+
+  .dashboard-content{padding-top:24px}
+  .project-heading,.project-heading>div,.project-summary,.project-eyebrow,
+  .project-actions,.section-heading,.commercial-cases-heading,.commercial-delivery,
+  .project-cta{
+    text-align:center
+  }
+
+  .project-heading,.project-actions,.section-heading,.commercial-cases-heading,
+  .commercial-delivery,.project-cta{
+    align-items:center!important
+  }
+
+  .project-heading h1,.project-summary,.technical-section .section-heading>div,
+  .commercial-section .section-heading>div{
+    width:100%;
+    max-width:100%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center
+  }
+
+  .project-actions{justify-content:center}
+  .external-project-link{width:min(100%,320px);margin-inline:auto}
+
+  .project-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .metric{text-align:center}
+
+  .showcase-topline{
+    align-items:center!important;
+    justify-content:center;
+    text-align:center
+  }
+  .showcase-topline>div:first-child{justify-content:center!important;gap:18px}
+  .showcase-controls{justify-content:center!important}
+
+  .copy-slide{
+    align-items:center;
+    text-align:center
+  }
+  .copy-slide p,.copy-slide h3{width:100%;text-align:center}
+  .copy-detail{justify-items:center;text-align:center}
+
+  .technical-grid,.commercial-value-grid,.commercial-cases-grid{
+    grid-template-columns:1fr!important
+  }
+  .technical-card,.commercial-value-card,.commercial-case-card{
+    text-align:center
+  }
+  .commercial-card-icon{margin-inline:auto}
+  .commercial-value-card ul{text-align:left}
+
+  .commercial-cases-heading{flex-direction:column;gap:8px}
+  .commercial-delivery{grid-template-columns:1fr!important}
+  .commercial-delivery>a{width:min(100%,320px);margin-inline:auto;justify-content:center}
+
+  .project-cta{
+    flex-direction:column!important;
+    justify-content:center
+  }
+  .project-cta>div,.project-cta h2{width:100%;text-align:center}
+  .project-cta a{width:min(100%,320px);margin-inline:auto;justify-content:center}
+
+  .ism-site-footer{margin-left:0!important}
+}
+

@@ -9,3 +9,66 @@
 @media(max-width:1120px){.ism-site-nav{grid-template-columns:210px minmax(0,1fr) 170px;gap:14px}.ism-site-brand,.ism-site-brand img{width:198px}.ism-site-links{gap:2px}.ism-site-links a{padding-inline:8px;font-size:12px}}
 @media(max-width:930px){.ism-site-nav{width:calc(100% - 36px);grid-template-columns:1fr auto}.ism-site-links{display:none}.ism-site-footer-grid{width:calc(100% - 36px);grid-template-columns:repeat(2,minmax(0,1fr))}.ism-site-footer-bottom{width:calc(100% - 36px)}}
 @media(max-width:600px){.ism-site-nav{min-height:72px;gap:12px}.ism-site-brand,.ism-site-brand img{width:154px}.ism-site-cta{min-height:42px;padding:0 13px;font-size:11px}.ism-site-footer-grid{grid-template-columns:1fr;gap:28px;padding:38px 0 28px}.ism-site-footer-brand p{max-width:100%}.ism-site-footer-bottom{align-items:flex-start;flex-direction:column}}
+
+/* =========================================================
+   ISM MOBILE · FASE 12 · SHELL GLOBAL
+   ========================================================= */
+@media(max-width:760px){
+  .ism-site-header{position:sticky;top:0}
+  .ism-site-nav{
+    width:calc(100% - 28px);
+    min-height:auto;
+    padding:9px 0 8px;
+    grid-template-columns:minmax(0,1fr) auto;
+    grid-template-rows:auto auto;
+    gap:7px 12px
+  }
+  .ism-site-brand,.ism-site-brand img{width:150px}
+  .ism-site-cta{min-height:40px;padding:0 11px;border-radius:10px;font-size:10px}
+  .ism-site-links{
+    grid-column:1/-1;
+    display:flex!important;
+    justify-content:flex-start;
+    gap:6px;
+    width:100%;
+    padding:2px 0 1px;
+    overflow-x:auto;
+    overscroll-behavior-inline:contain;
+    scrollbar-width:none;
+    scroll-snap-type:x proximity
+  }
+  .ism-site-links::-webkit-scrollbar{display:none}
+  .ism-site-links a{
+    flex:0 0 auto;
+    min-height:32px;
+    padding:0 10px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(56,189,248,.12);
+    border-radius:999px;
+    background:rgba(8,23,40,.44);
+    font-size:10px;
+    scroll-snap-align:center
+  }
+  .ism-site-footer-grid{
+    width:calc(100% - 28px);
+    grid-template-columns:1fr;
+    gap:28px;
+    padding:38px 0 28px;
+    text-align:center
+  }
+  .ism-site-footer-brand img{width:190px;margin:0 auto 16px}
+  .ism-site-footer-brand p{max-width:340px;margin-inline:auto;text-align:center}
+  .ism-site-footer-column{justify-items:center}
+  .ism-site-footer-column a{width:fit-content;justify-content:center;text-align:center}
+  .ism-site-footer-bottom{
+    width:calc(100% - 28px);
+    align-items:center;
+    flex-direction:column;
+    justify-content:center;
+    text-align:center
+  }
+  .ism-site-footer-bottom div{justify-content:center;flex-wrap:wrap}
+}
+
