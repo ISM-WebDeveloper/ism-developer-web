@@ -1,3 +1,6 @@
+.gitattributes text eol=lf
+.editorconfig text eol=lf
+
 # ISM Developer · normalización de finales de línea
 * text=auto
 
