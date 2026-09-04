@@ -235,3 +235,119 @@ body.sidebar-collapsed .nav-group.expanded .nav-group-toggle{border-color:rgba(v
   .ism-site-footer{margin-left:0!important}
 }
 
+/* =========================================================
+   ISM MOBILE · FASE 12.1 · CLIENTES ISM
+   ========================================================= */
+@media(max-width:760px){
+  .dashboard-main{min-width:0!important;width:100%!important}
+  .dashboard-topbar{
+    min-height:58px!important;padding:10px 14px!important;
+    align-items:center!important;gap:10px!important;
+  }
+  .topbar-left{gap:8px!important}
+  .topbar-status{display:none!important}
+
+  .portfolio-mobile-map{
+    width:calc(100% - 28px)!important;
+    margin:8px auto 0!important;
+    display:flex!important;gap:7px!important;
+    padding:3px 0 5px!important;
+    overflow-x:auto!important;scrollbar-width:none;
+  }
+  .portfolio-mobile-map a{
+    min-height:32px!important;padding:0 11px!important;
+    border-radius:999px!important;font-size:10px!important;
+    white-space:nowrap!important;
+  }
+
+  .dashboard-content{
+    width:100%!important;max-width:410px!important;
+    margin-inline:auto!important;padding:24px 16px 46px!important;
+  }
+
+  .project-hero,.project-showcase,.technical-section,.commercial-section,.project-cta{
+    width:100%!important;max-width:378px!important;margin-left:auto!important;margin-right:auto!important;
+  }
+
+  .project-heading{
+    grid-template-columns:1fr!important;justify-items:center!important;
+    gap:18px!important;text-align:center!important;
+  }
+  .project-heading>div:first-child{
+    width:100%!important;max-width:360px!important;margin-inline:auto!important;text-align:center!important;
+  }
+  .project-heading h1{
+    width:100%!important;max-width:350px!important;margin-inline:auto!important;
+    font-size:clamp(31px,9vw,40px)!important;text-align:center!important;
+  }
+  .project-summary,.project-eyebrow{
+    width:100%!important;max-width:350px!important;margin-left:auto!important;margin-right:auto!important;
+    text-align:center!important;
+  }
+  .project-actions{width:100%!important;justify-content:center!important}
+  .external-project-link{width:min(100%,300px)!important;margin-inline:auto!important}
+
+  .project-metrics{
+    width:100%!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important;
+  }
+  .metric{min-height:82px!important;padding:14px 10px!important;text-align:center!important}
+
+  .project-showcase{border-radius:20px!important;overflow:hidden!important}
+  .showcase-topline{
+    padding:15px 14px!important;flex-direction:column!important;
+    justify-content:center!important;align-items:center!important;gap:12px!important;text-align:center!important;
+  }
+  .showcase-topline>div:first-child{justify-content:center!important}
+  .showcase-controls{justify-content:center!important}
+
+  .synced-slider{grid-template-columns:1fr!important}
+  .copy-slide{
+    padding:22px 18px!important;align-items:center!important;text-align:center!important;
+  }
+  .copy-slide h3,.copy-slide p{width:100%!important;text-align:center!important}
+  .copy-detail{justify-items:center!important;text-align:center!important}
+
+  .section-heading{
+    grid-template-columns:1fr!important;justify-items:center!important;
+    gap:10px!important;text-align:center!important;
+  }
+  .section-heading>div{width:100%!important;text-align:center!important}
+  .section-heading h2{width:100%!important;text-align:center!important}
+
+  .technical-grid,.commercial-value-grid,.commercial-cases-grid{
+    grid-template-columns:1fr!important;gap:12px!important;
+  }
+  .technical-card,.commercial-value-card,.commercial-case-card{
+    width:100%!important;min-height:0!important;text-align:center!important;
+  }
+  .commercial-card-icon{margin-inline:auto!important}
+  .commercial-value-card ul{text-align:left!important}
+
+  .commercial-cases-heading{
+    flex-direction:column!important;align-items:center!important;gap:8px!important;text-align:center!important;
+  }
+
+  .commercial-delivery{
+    grid-template-columns:1fr!important;align-items:center!important;text-align:center!important;
+  }
+  .commercial-delivery>div{
+    width:100%!important;max-width:340px!important;margin-inline:auto!important;text-align:center!important;
+  }
+  .commercial-delivery>a{
+    width:min(100%,300px)!important;margin-inline:auto!important;justify-content:center!important;
+  }
+
+  .project-cta{
+    flex-direction:column!important;align-items:center!important;justify-content:center!important;
+    padding:28px 20px!important;text-align:center!important;
+  }
+  .project-cta>div,.project-cta h2{
+    width:100%!important;max-width:340px!important;margin-inline:auto!important;text-align:center!important;
+  }
+  .project-cta a{
+    width:min(100%,300px)!important;margin-inline:auto!important;justify-content:center!important;
+  }
+
+  .ism-site-footer{margin-left:0!important}
+}
+

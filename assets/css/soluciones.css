@@ -951,3 +951,174 @@ body{font-family:"Manrope","Segoe UI",Arial,sans-serif;background:radial-gradien
   .solution-cta-actions a{width:min(100%,320px);margin-inline:auto}
 }
 
+/* =========================================================
+   ISM MOBILE · FASE 12.1 · COHESIÓN REAL
+   ========================================================= */
+@media(max-width:720px){
+  .solutions-index-hero,
+  .solutions-index-grid,
+  .solutions-secondary-section,
+  .solutions-clients,
+  .solution-ecosystem,
+  .solution-hero,
+  .solution-section,
+  .solution-metrics,
+  .solution-cta,
+  .solution-search-context,
+  .solution-breadcrumbs{
+    width:calc(100% - 32px)!important;
+    max-width:390px!important;
+    margin-left:auto!important;margin-right:auto!important;
+  }
+
+  .solutions-index-hero{padding:42px 0 28px!important;text-align:center!important}
+  .solutions-index-hero>div{max-width:100%!important;margin-inline:auto!important}
+  .solutions-index-hero h1{
+    max-width:360px!important;margin:10px auto 0!important;
+    font-size:clamp(34px,10vw,44px)!important;
+    text-align:center!important;
+  }
+  .solutions-index-hero>div>p:not(.section-kicker){
+    max-width:350px!important;margin:16px auto 0!important;
+    text-align:center!important;
+  }
+  .solutions-hub-tags{justify-content:center!important}
+
+  .solutions-index-grid{
+    grid-template-columns:1fr!important;gap:16px!important;margin-bottom:42px!important;
+  }
+  .solution-index-card{
+    width:100%!important;min-height:0!important;padding:22px 18px!important;
+    align-items:center!important;border-radius:18px!important;text-align:center!important;
+  }
+  .solution-index-card .solution-card-icon{margin:0 auto 14px!important}
+  .solution-index-card h2,.solution-index-card p,.solution-index-card strong{
+    width:100%!important;text-align:center!important;
+  }
+
+  .solutions-secondary-section,.solutions-clients,.solution-ecosystem{
+    padding:24px 18px!important;margin-bottom:42px!important;border-radius:20px!important;
+  }
+  .solutions-section-heading{
+    width:100%!important;max-width:350px!important;margin:0 auto 22px!important;text-align:center!important;
+  }
+  .solutions-section-heading>p:not(.section-kicker){
+    text-align:center!important;margin-left:auto!important;margin-right:auto!important;
+  }
+  .solution-secondary-grid,.solutions-client-grid{
+    grid-template-columns:1fr!important;gap:14px!important;
+  }
+  .solution-secondary-card,.solutions-client-card{
+    width:100%!important;min-height:0!important;padding:20px 17px!important;
+    align-items:center!important;text-align:center!important;
+  }
+  .solution-secondary-icon{margin:0 auto 14px!important}
+  .solution-secondary-card h3,.solution-secondary-card p,.solution-secondary-card strong,
+  .solutions-client-card h3,.solutions-client-card p,.solutions-client-card strong{
+    width:100%!important;text-align:center!important;
+  }
+
+  .solution-ecosystem{
+    grid-template-columns:1fr!important;gap:22px!important;
+  }
+  .solution-ecosystem-copy{
+    width:100%!important;max-width:340px!important;margin-inline:auto!important;text-align:center!important;
+  }
+  .solution-ecosystem-copy>p:not(.section-kicker){text-align:center!important}
+  .solution-ecosystem-flow{
+    width:100%!important;grid-template-columns:1fr!important;justify-items:center!important;gap:10px!important;
+  }
+  .solution-ecosystem-node{
+    width:min(100%,310px)!important;min-height:90px!important;
+    align-items:center!important;text-align:center!important;
+  }
+  .solution-ecosystem-arrow{
+    transform:rotate(90deg)!important;margin:auto!important;text-align:center!important;
+  }
+
+  .solutions-clients-action{justify-content:center!important}
+  .solutions-clients-action .solution-button-secondary{width:min(100%,300px)!important}
+
+  /* Fichas individuales */
+  .solution-breadcrumbs{justify-content:center!important;padding-top:18px!important;text-align:center!important}
+  .solution-hero{
+    grid-template-columns:1fr!important;gap:28px!important;padding:38px 0 30px!important;text-align:center!important;
+  }
+  .solution-hero>div:first-child{
+    width:100%!important;max-width:370px!important;margin-inline:auto!important;text-align:center!important;
+  }
+  .solution-title{
+    max-width:360px!important;margin-inline:auto!important;
+    font-size:clamp(35px,10.8vw,48px)!important;text-align:center!important;
+  }
+  .solution-lead{
+    max-width:350px!important;margin-left:auto!important;margin-right:auto!important;
+    font-size:16px!important;text-align:center!important;
+  }
+  .solution-actions,.solution-badges,.solution-quick-contact{justify-content:center!important}
+  .solution-actions a{width:min(100%,310px)!important}
+
+  .solution-visual{width:100%!important;min-height:0!important}
+  .solution-screen{
+    width:100%!important;max-width:370px!important;margin-inline:auto!important;border-radius:20px!important;
+  }
+  .solution-screen-caption{
+    justify-content:center!important;flex-wrap:wrap!important;text-align:center!important;
+  }
+
+  .solution-metrics{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    margin-bottom:10px!important;border-radius:18px!important;
+  }
+  .solution-metric{
+    min-height:86px!important;padding:15px 10px!important;text-align:center!important;
+  }
+
+  .solution-section{padding:44px 0!important}
+  .solution-section-heading{
+    width:100%!important;max-width:350px!important;margin:0 auto 28px!important;text-align:center!important;
+  }
+  .solution-section-heading h2{
+    font-size:clamp(28px,8.6vw,38px)!important;text-align:center!important;
+  }
+  .solution-section-heading p:not(.section-kicker){text-align:center!important}
+
+  .solution-problem-grid,.solution-capability-grid,.solution-audience-grid,
+  .solution-case-grid,.solution-process,.solution-related-grid,
+  .solution-evidence-grid,.solution-commercial-paths{
+    grid-template-columns:1fr!important;gap:14px!important;
+  }
+  .solution-card,.solution-step,.solution-related-card,.solution-commercial-path{
+    width:100%!important;min-height:0!important;
+    align-items:center!important;text-align:center!important;
+  }
+  .solution-card-icon,.solution-commercial-path i{margin-left:auto!important;margin-right:auto!important}
+  .solution-card h3,.solution-card p,.solution-step h3,.solution-step p,
+  .solution-related-card h3,.solution-related-card p{
+    width:100%!important;text-align:center!important;
+  }
+  .solution-card ul{width:100%!important;text-align:left!important}
+
+  .solution-evidence-card--wide{grid-column:auto!important}
+  .solution-evidence-card{border-radius:18px!important}
+  .solution-evidence-copy,.solution-evidence-caption{text-align:center!important}
+
+  .solution-search-context{text-align:center!important}
+  .solution-faq-item summary{text-align:center!important}
+  .solution-faq-answer{text-align:center!important}
+
+  .solution-cta{
+    grid-template-columns:1fr!important;
+    padding:28px 20px!important;margin-top:4px!important;margin-bottom:46px!important;
+    text-align:center!important;
+  }
+  .solution-cta h2,.solution-cta p{
+    width:100%!important;max-width:350px!important;margin-left:auto!important;margin-right:auto!important;
+    text-align:center!important;
+  }
+  .solution-cta-actions{
+    width:100%!important;grid-template-columns:1fr!important;justify-items:center!important;
+  }
+  .solution-cta-actions a{width:min(100%,300px)!important}
+}
+

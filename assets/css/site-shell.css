@@ -72,3 +72,77 @@
   .ism-site-footer-bottom div{justify-content:center;flex-wrap:wrap}
 }
 
+/* =========================================================
+   ISM MOBILE · FASE 12.1 · NAVEGACIÓN GLOBAL
+   ========================================================= */
+@media(max-width:760px){
+  .ism-site-header{
+    position:sticky!important;top:0!important;
+    background:rgba(5,11,20,.96)!important;
+  }
+
+  .ism-site-nav{
+    width:calc(100% - 28px)!important;
+    min-height:auto!important;
+    padding:9px 0 8px!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    grid-template-rows:auto auto!important;
+    gap:8px 12px!important;
+  }
+
+  .ism-site-brand,.ism-site-brand img{width:148px!important}
+  .ism-site-cta{
+    min-height:40px!important;padding:0 11px!important;
+    border-radius:10px!important;font-size:10px!important;
+  }
+
+  .ism-site-links{
+    grid-column:1/-1!important;
+    display:flex!important;
+    width:100%!important;
+    gap:7px!important;
+    padding:3px 0 1px!important;
+    justify-content:flex-start!important;
+    overflow-x:auto!important;
+    overscroll-behavior-inline:contain;
+    scrollbar-width:none;
+    scroll-snap-type:x proximity;
+  }
+  .ism-site-links::-webkit-scrollbar{display:none}
+  .ism-site-links a{
+    flex:0 0 auto!important;
+    min-height:32px!important;
+    padding:0 11px!important;
+    display:inline-flex!important;
+    align-items:center!important;justify-content:center!important;
+    border:1px solid rgba(56,189,248,.17)!important;
+    border-radius:999px!important;
+    color:#b9ccda!important;
+    background:rgba(8,23,40,.62)!important;
+    font-size:10px!important;font-weight:900!important;
+    scroll-snap-align:center;
+  }
+
+  .ism-site-footer-grid{
+    width:calc(100% - 36px)!important;
+    grid-template-columns:1fr!important;
+    gap:28px!important;
+    padding:38px 0 28px!important;
+    text-align:center!important;
+  }
+  .ism-site-footer-brand img{width:188px!important;margin:0 auto 16px!important}
+  .ism-site-footer-brand p{
+    max-width:340px!important;margin-inline:auto!important;text-align:center!important;
+  }
+  .ism-site-footer-column{justify-items:center!important;text-align:center!important}
+  .ism-site-footer-column a{
+    width:fit-content!important;justify-content:center!important;text-align:center!important;
+  }
+  .ism-site-footer-bottom{
+    width:calc(100% - 36px)!important;
+    align-items:center!important;flex-direction:column!important;
+    justify-content:center!important;text-align:center!important;
+  }
+  .ism-site-footer-bottom div{justify-content:center!important;flex-wrap:wrap!important}
+}
+
