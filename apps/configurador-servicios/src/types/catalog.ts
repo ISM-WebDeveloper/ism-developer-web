@@ -61,6 +61,8 @@ export interface CatalogActivityQuantityRule {
   label: string;
   baseQuantity: number;
   defaultQuantity: number;
+  /** Cantidad de referencia del Catálogo Maestro; no se usa como valor inicial del configurador. */
+  referenceQuantity?: number;
   minimum: number;
   editable: boolean;
   includedLimit?: number;
@@ -81,6 +83,8 @@ export interface CatalogActivity {
   activityCount: number;
   countMode?: "line" | "quantity";
   defaultIncluded?: boolean;
+  /** Recomendación del Catálogo Maestro; no implica selección automática. */
+  recommendedIncluded?: boolean;
   mandatory?: boolean;
   phase?: string;
   unitLabel?: string;

@@ -193,7 +193,7 @@ function toggleService(
     selectedActivities[code] = Object.fromEntries(
       (service?.activities ?? []).map((activity, index) => [
         index,
-        activity.mandatory || activity.defaultIncluded !== false,
+        activity.mandatory === true,
       ]),
     );
   }

@@ -411,8 +411,12 @@ function parseCatalogRows(catalogRows, hourlyRateUF) {
     }
 
     const mandatory = condition === "Base obligatorio";
-    const defaultIncluded =
+    const recommendedIncluded =
       mandatory || condition === "Base incluido";
+    // Política comercial del configurador: solo las actividades obligatorias
+    // parten seleccionadas. "Base incluido" queda como recomendación del
+    // catálogo, pero requiere selección expresa del usuario.
+    const defaultIncluded = mandatory;
 
     const row = {
       rowNumber,
@@ -433,6 +437,7 @@ function parseCatalogRows(catalogRows, hourlyRateUF) {
       validationStatus: asText(read(cells, "Estado")),
       mandatory,
       defaultIncluded,
+      recommendedIncluded,
     };
 
     if (
@@ -527,7 +532,8 @@ function resolveActivityQuantityRule(row) {
     unit: "custom",
     label: `Cantidad (${row.unit})`,
     baseQuantity: 1,
-    defaultQuantity: Math.max(1, row.quantity),
+    defaultQuantity: 1,
+    referenceQuantity: Math.max(1, row.quantity),
     minimum: 1,
     editable: true,
   };
@@ -566,6 +572,7 @@ function buildCatalog(rows, version, contingencyRate, hourlyRateUF) {
       activityCount: 1,
       countMode: "line",
       defaultIncluded: row.defaultIncluded,
+      recommendedIncluded: row.recommendedIncluded,
       mandatory: row.mandatory,
       phase: row.phase,
       unitLabel: row.unit,
@@ -599,7 +606,8 @@ function buildCatalog(rows, version, contingencyRate, hourlyRateUF) {
     service.totals.activities += 1;
 
     if (row.defaultIncluded) {
-      service.totals.hours.fixed += row.baseUnitHours * row.quantity;
+      service.totals.hours.fixed +=
+        row.baseUnitHours * (quantityRule?.defaultQuantity ?? 1);
     }
 
     areaServices.set(row.serviceCode, service);
@@ -696,6 +704,26 @@ function validateQuantitySemantics(catalog) {
       throw new Error(`${code} debe permitir una cantidad editable desde 1.`);
     }
   });
+
+  activities.forEach((activity) => {
+    if (!activity.mandatory && activity.defaultIncluded) {
+      throw new Error(
+        `${activity.code ?? activity.id}: una actividad opcional no puede iniciar seleccionada.`,
+      );
+    }
+
+    const rule = activity.quantityRule;
+    if (
+      rule &&
+      (rule.minimum !== 1 ||
+        rule.defaultQuantity !== 1 ||
+        rule.baseQuantity !== 1)
+    ) {
+      throw new Error(
+        `${activity.code ?? activity.id}: toda cantidad editable debe comenzar en 1.`,
+      );
+    }
+  });
 }
 
 // ==================================================
@@ -726,11 +754,15 @@ function createGuideCatalogSnapshot(catalog) {
         name: activity.name,
         phase: activity.phase,
         unitLabel: activity.unitLabel,
-        defaultIncluded: activity.defaultIncluded,
+        defaultIncluded:
+          activity.recommendedIncluded ?? activity.defaultIncluded,
         mandatory: activity.mandatory,
         validationStatus: activity.validationStatus,
         baseHours: activity.hours.fixed,
-        defaultQuantity: activity.quantityRule?.defaultQuantity ?? 1,
+        defaultQuantity:
+          activity.quantityRule?.referenceQuantity ??
+          activity.quantityRule?.defaultQuantity ??
+          1,
       })),
     }));
 
@@ -826,6 +858,32 @@ async function main() {
           services: area.summary.serviceCodes,
           activities: area.summary.activityLines,
         })),
+        technicalDefaults: (() => {
+          const activities = catalog.areas.flatMap((area) =>
+            area.services.flatMap((service) => service.activities),
+          );
+          const quantityRules = activities
+            .map((activity) => activity.quantityRule)
+            .filter(Boolean);
+
+          return {
+            mandatoryActivities: activities.filter(
+              (activity) => activity.mandatory === true,
+            ).length,
+            optionalActivities: activities.filter(
+              (activity) => activity.mandatory !== true,
+            ).length,
+            optionalAutoIncluded: activities.filter(
+              (activity) =>
+                activity.mandatory !== true &&
+                activity.defaultIncluded === true,
+            ).length,
+            quantityRules: quantityRules.length,
+            quantitiesStartingAboveOne: quantityRules.filter(
+              (rule) => rule.defaultQuantity !== 1,
+            ).length,
+          };
+        })(),
         totals: validation,
       },
       null,

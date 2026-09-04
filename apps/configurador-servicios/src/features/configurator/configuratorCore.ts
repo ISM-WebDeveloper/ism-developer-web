@@ -117,15 +117,17 @@ export function getConfiguredActivityQuantity(
 
   const storedValue =
     state.activityQuantities?.[serviceCode]?.[activity.id];
+  // El configurador siempre parte en 1. La cantidad de referencia del
+  // catálogo puede ser mayor, pero solo se aplica si el usuario la define.
   const resolvedValue = Number(
-    storedValue ?? rule.defaultQuantity,
+    storedValue ?? 1,
   );
 
   return Math.max(
     rule.minimum,
     Number.isFinite(resolvedValue)
       ? resolvedValue
-      : rule.defaultQuantity,
+      : 1,
   );
 }
 
@@ -159,9 +161,11 @@ export function isConfiguredActivityIncluded(
   const configuredValue =
     state.selectedActivities[serviceCode]?.[activityIndex];
 
+  // Solo las actividades obligatorias se incluyen automáticamente.
+  // Toda actividad opcional requiere una selección explícita.
   return typeof configuredValue === "boolean"
     ? configuredValue
-    : activity.defaultIncluded !== false;
+    : false;
 }
 
 export function getConfiguredActivityHours(

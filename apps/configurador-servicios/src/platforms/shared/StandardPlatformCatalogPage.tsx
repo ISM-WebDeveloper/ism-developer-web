@@ -402,11 +402,11 @@ function ServiceModuleCard({
 
                     {activity.mandatory ? (
                       <span className="ibm-pill">Obligatoria</span>
-                    ) : activity.defaultIncluded === false ? (
+                    ) : (
                       <span className="ibm-pill ibm-pill--warn">
                         Opcional
                       </span>
-                    ) : null}
+                    )}
                   </div>
 
                   {quantityRule ? (

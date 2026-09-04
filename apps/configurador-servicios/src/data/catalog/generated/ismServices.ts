@@ -49,6 +49,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Planificación",
               "unitLabel": "Proyecto",
@@ -75,6 +76,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Preparación",
               "unitLabel": "Proyecto",
@@ -105,6 +107,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Interfaz",
               "unitLabel": "Componente",
@@ -136,6 +139,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Interfaz",
               "unitLabel": "Componente",
@@ -167,6 +171,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Interfaz",
               "unitLabel": "Sección",
@@ -194,6 +199,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Sección)",
                 "baseQuantity": 1,
                 "defaultQuantity": 1,
+                "referenceQuantity": 1,
                 "minimum": 1,
                 "editable": true
               }
@@ -205,6 +211,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Interfaz",
               "unitLabel": "Sección",
@@ -235,6 +242,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Interfaz",
               "unitLabel": "Sección",
@@ -265,6 +273,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Interfaz",
               "unitLabel": "Sección",
@@ -295,6 +304,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Interfaz",
               "unitLabel": "Sección",
@@ -325,6 +335,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Conversión",
               "unitLabel": "Formulario",
@@ -352,6 +363,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Formulario)",
                 "baseQuantity": 1,
                 "defaultQuantity": 1,
+                "referenceQuantity": 1,
                 "minimum": 1,
                 "editable": true
               }
@@ -363,6 +375,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Interfaz",
               "unitLabel": "Componente",
@@ -393,6 +406,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Interfaz",
               "unitLabel": "Página",
@@ -421,6 +435,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Página)",
                 "baseQuantity": 1,
                 "defaultQuantity": 1,
+                "referenceQuantity": 1,
                 "minimum": 1,
                 "editable": true
               }
@@ -432,6 +447,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Integración ligera",
               "unitLabel": "Integración",
@@ -458,6 +474,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Integración ligera",
               "unitLabel": "Integración",
@@ -484,6 +501,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Integración ligera",
               "unitLabel": "Integración",
@@ -510,6 +528,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Contenido",
               "unitLabel": "Proyecto",
@@ -540,6 +559,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Proyecto",
@@ -575,6 +595,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "SEO",
               "unitLabel": "Proyecto",
@@ -605,6 +626,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Optimización",
               "unitLabel": "Proyecto",
@@ -635,6 +657,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Analítica",
               "unitLabel": "Proyecto",
@@ -661,6 +684,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Proyecto",
@@ -691,6 +715,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Publicación",
               "unitLabel": "Proyecto",
@@ -721,6 +746,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Publicación",
               "unitLabel": "Proyecto",
@@ -770,6 +796,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Planificación",
               "unitLabel": "Proyecto",
@@ -796,6 +823,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Arquitectura",
               "unitLabel": "Proyecto",
@@ -825,7 +853,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Diseño de roles y permisos",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Seguridad",
               "unitLabel": "Rol",
@@ -852,7 +881,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Rol)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -864,6 +894,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Arquitectura",
               "unitLabel": "Proyecto",
@@ -893,7 +924,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Wireframe de pantalla estándar",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "UX/UI",
               "unitLabel": "Pantalla",
@@ -920,7 +952,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Pantalla)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -932,6 +965,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Frontend",
               "unitLabel": "Proyecto",
@@ -962,7 +996,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Interfaz CRUD estándar",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Frontend",
               "unitLabel": "Pantalla",
@@ -990,7 +1025,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Pantalla)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -1002,6 +1038,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Frontend",
               "unitLabel": "Dashboard",
@@ -1031,7 +1068,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Servicio CRUD backend estándar",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Backend",
               "unitLabel": "Entidad",
@@ -1058,7 +1096,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Entidad)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -1070,6 +1109,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Seguridad",
               "unitLabel": "Sistema",
@@ -1100,7 +1140,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Autorización y protección por rol",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Seguridad",
               "unitLabel": "Rol",
@@ -1128,7 +1169,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Rol)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -1139,7 +1181,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Flujo de negocio estándar",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Funcionalidad",
               "unitLabel": "Flujo",
@@ -1166,7 +1209,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Flujo)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -1178,6 +1222,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Notificaciones",
               "unitLabel": "Canal",
@@ -1208,6 +1253,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Reportes",
               "unitLabel": "Formato",
@@ -1238,6 +1284,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Datos",
               "unitLabel": "Lote",
@@ -1268,6 +1315,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Proyecto",
@@ -1301,6 +1349,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Despliegue",
               "unitLabel": "Entorno",
@@ -1330,7 +1379,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Capacitación, documentación y ciclo UAT",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Cierre",
               "unitLabel": "Proyecto",
@@ -1359,7 +1409,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 18,
             "activities": 18,
             "hours": {
-              "fixed": 44.9
+              "fixed": 15
             }
           }
         },
@@ -1380,6 +1430,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Planificación",
               "unitLabel": "Integración",
@@ -1406,6 +1457,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Preparación",
               "unitLabel": "Entorno",
@@ -1435,7 +1487,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Conector API estándar",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Desarrollo",
               "unitLabel": "Integración",
@@ -1467,6 +1520,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Desarrollo",
               "unitLabel": "Formato",
@@ -1497,6 +1551,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Desarrollo",
               "unitLabel": "Evento",
@@ -1526,7 +1581,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Automatización programada",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Automatización",
               "unitLabel": "Job",
@@ -1556,7 +1612,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Regla o transformación de negocio",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Automatización",
               "unitLabel": "Regla",
@@ -1583,7 +1640,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Regla)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -1595,6 +1653,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Observabilidad",
               "unitLabel": "Integración",
@@ -1625,6 +1684,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Integración",
@@ -1657,6 +1717,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Despliegue",
               "unitLabel": "Integración",
@@ -1685,7 +1746,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 10,
             "activities": 10,
             "hours": {
-              "fixed": 16
+              "fixed": 8.5
             }
           }
         }
@@ -1719,6 +1780,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Recepción",
               "unitLabel": "Incidente",
@@ -1743,6 +1805,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Triage",
               "unitLabel": "Incidente",
@@ -1771,6 +1834,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Diagnóstico",
               "unitLabel": "Incidente",
@@ -1799,6 +1863,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Diagnóstico",
               "unitLabel": "Incidente",
@@ -1827,6 +1892,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Diagnóstico",
               "unitLabel": "Incidente",
@@ -1855,6 +1921,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Planificación",
               "unitLabel": "Cambio",
@@ -1882,7 +1949,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Corrección de baja complejidad",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Corrección",
               "unitLabel": "Cambio",
@@ -1913,6 +1981,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Corrección",
               "unitLabel": "Cambio",
@@ -1939,7 +2008,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Cambio)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -1951,6 +2021,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Datos",
               "unitLabel": "Lote",
@@ -1977,7 +2048,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Lote)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -1989,6 +2061,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Caso",
@@ -2017,6 +2090,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Caso",
@@ -2041,7 +2115,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Caso)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -2053,6 +2128,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Despliegue",
               "unitLabel": "Entorno",
@@ -2080,7 +2156,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Monitoreo posterior al cambio",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Seguimiento",
               "unitLabel": "Periodo",
@@ -2109,6 +2186,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Cierre",
               "unitLabel": "Incidente",
@@ -2131,7 +2209,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 14,
             "activities": 14,
             "hours": {
-              "fixed": 15.5
+              "fixed": 11
             }
           }
         },
@@ -2152,6 +2230,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Descubrimiento",
               "unitLabel": "Funcionalidad",
@@ -2176,6 +2255,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Análisis",
               "unitLabel": "Funcionalidad",
@@ -2204,6 +2284,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Alcance",
               "unitLabel": "Funcionalidad",
@@ -2232,6 +2313,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Diseño",
               "unitLabel": "Flujo",
@@ -2259,7 +2341,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Diseño de interfaz o wireframe",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Diseño",
               "unitLabel": "Pantalla",
@@ -2284,7 +2367,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Pantalla)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -2296,6 +2380,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Datos",
               "unitLabel": "Entidad",
@@ -2323,7 +2408,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Implementación de regla de negocio",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Backend",
               "unitLabel": "Regla",
@@ -2348,7 +2434,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Regla)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -2359,7 +2446,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Servicio o endpoint asociado",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Backend",
               "unitLabel": "Servicio",
@@ -2387,7 +2475,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Pantalla o componente de funcionalidad",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Frontend",
               "unitLabel": "Pantalla",
@@ -2412,7 +2501,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Pantalla)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -2423,7 +2513,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Ajuste de permisos y acceso",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Seguridad",
               "unitLabel": "Rol",
@@ -2448,7 +2539,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Rol)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -2460,6 +2552,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Integración",
               "unitLabel": "Integración",
@@ -2481,6 +2574,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Integración)",
                 "baseQuantity": 1,
                 "defaultQuantity": 1,
+                "referenceQuantity": 1,
                 "minimum": 1,
                 "editable": true
               }
@@ -2491,7 +2585,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Pruebas unitarias y de reglas",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Calidad",
               "unitLabel": "Caso",
@@ -2516,7 +2611,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Caso)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -2528,6 +2624,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Proyecto",
@@ -2552,6 +2649,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Despliegue",
               "unitLabel": "Entorno",
@@ -2579,7 +2677,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Documentación y capacitación breve",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Cierre",
               "unitLabel": "Funcionalidad",
@@ -2602,7 +2701,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 15,
             "activities": 15,
             "hours": {
-              "fixed": 34
+              "fixed": 12.5
             }
           }
         },
@@ -2623,6 +2722,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Auditoría",
               "unitLabel": "Proyecto",
@@ -2647,6 +2747,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Auditoría",
               "unitLabel": "Proyecto",
@@ -2675,6 +2776,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Planificación",
               "unitLabel": "Proyecto",
@@ -2703,6 +2805,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Preparación",
               "unitLabel": "Flujo",
@@ -2727,7 +2830,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Flujo)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -2738,7 +2842,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Actualización de dependencia estándar",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Dependencias",
               "unitLabel": "Dependencia",
@@ -2765,7 +2870,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Dependencia)",
                 "baseQuantity": 1,
-                "defaultQuantity": 5,
+                "defaultQuantity": 1,
+                "referenceQuantity": 5,
                 "minimum": 1,
                 "editable": true
               }
@@ -2776,7 +2882,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Refactorización de módulo",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Código",
               "unitLabel": "Módulo",
@@ -2801,7 +2908,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Módulo)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -2813,6 +2921,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Arquitectura",
               "unitLabel": "Componente",
@@ -2837,7 +2946,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Componente)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -2849,6 +2959,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Datos",
               "unitLabel": "Migración",
@@ -2877,6 +2988,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Seguridad",
               "unitLabel": "Hallazgo",
@@ -2904,6 +3016,7 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "label": "Cantidad (Hallazgo)",
                 "baseQuantity": 1,
                 "defaultQuantity": 1,
+                "referenceQuantity": 1,
                 "minimum": 1,
                 "editable": true
               }
@@ -2915,6 +3028,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Flujo",
@@ -2935,7 +3049,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Flujo)",
                 "baseQuantity": 1,
-                "defaultQuantity": 5,
+                "defaultQuantity": 1,
+                "referenceQuantity": 5,
                 "minimum": 1,
                 "editable": true
               }
@@ -2947,6 +3062,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Rendimiento",
               "unitLabel": "Proyecto",
@@ -2971,6 +3087,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Despliegue",
               "unitLabel": "Entorno",
@@ -2999,6 +3116,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Despliegue",
               "unitLabel": "Entorno",
@@ -3027,6 +3145,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Cierre",
               "unitLabel": "Proyecto",
@@ -3049,7 +3168,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 14,
             "activities": 14,
             "hours": {
-              "fixed": 42.25
+              "fixed": 20.5
             }
           }
         },
@@ -3070,6 +3189,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Medición",
               "unitLabel": "Proyecto",
@@ -3094,6 +3214,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Medición",
               "unitLabel": "Entorno",
@@ -3123,7 +3244,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Perfilamiento de frontend",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Diagnóstico",
               "unitLabel": "Proyecto",
@@ -3151,7 +3273,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Perfilamiento de backend y consultas",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Diagnóstico",
               "unitLabel": "Proyecto",
@@ -3179,7 +3302,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Optimización de recursos frontend",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Optimización",
               "unitLabel": "Proyecto",
@@ -3207,7 +3331,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Optimización de consulta o endpoint",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Optimización",
               "unitLabel": "Consulta",
@@ -3232,7 +3357,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Consulta)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -3244,6 +3370,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Optimización",
               "unitLabel": "Capa",
@@ -3268,6 +3395,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Optimización",
               "unitLabel": "Flujo",
@@ -3292,6 +3420,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Validación",
               "unitLabel": "Prueba",
@@ -3318,6 +3447,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Validación",
               "unitLabel": "Proyecto",
@@ -3348,6 +3478,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Despliegue",
               "unitLabel": "Entorno",
@@ -3372,6 +3503,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Cierre",
               "unitLabel": "Proyecto",
@@ -3394,7 +3526,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 12,
             "activities": 12,
             "hours": {
-              "fixed": 22
+              "fixed": 9
             }
           }
         }
@@ -3428,6 +3560,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Diagnóstico",
               "unitLabel": "Servicio",
@@ -3448,7 +3581,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Servicio)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -3460,6 +3594,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Diseño",
               "unitLabel": "Servicio",
@@ -3480,7 +3615,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Servicio)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -3491,7 +3627,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Configuración de chequeo HTTP o endpoint",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Configuración",
               "unitLabel": "Servicio",
@@ -3512,7 +3649,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Servicio)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -3523,7 +3661,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Configuración de alertas",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Configuración",
               "unitLabel": "Canal",
@@ -3544,7 +3683,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Canal)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -3556,6 +3696,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Configuración",
               "unitLabel": "Servicio",
@@ -3576,7 +3717,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Servicio)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -3587,7 +3729,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Dashboard de disponibilidad",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Visualización",
               "unitLabel": "Dashboard",
@@ -3611,7 +3754,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Reporte periódico de disponibilidad",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Reportes",
               "unitLabel": "Reporte",
@@ -3636,6 +3780,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Caso",
@@ -3656,7 +3801,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Caso)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -3668,6 +3814,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Operación",
               "unitLabel": "Documento",
@@ -3692,6 +3839,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Despliegue",
               "unitLabel": "Entorno",
@@ -3714,7 +3862,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 10,
             "activities": 10,
             "hours": {
-              "fixed": 19
+              "fixed": 5.5
             }
           }
         },
@@ -3735,6 +3883,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Diagnóstico",
               "unitLabel": "Fuente",
@@ -3755,7 +3904,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Fuente)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -3767,6 +3917,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Diseño",
               "unitLabel": "Proyecto",
@@ -3790,7 +3941,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Configuración de envío de logs",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Implementación",
               "unitLabel": "Fuente",
@@ -3811,7 +3963,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Fuente)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -3822,7 +3975,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Normalización y parseo",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Implementación",
               "unitLabel": "Fuente",
@@ -3843,7 +3997,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Fuente)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -3855,6 +4010,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Trazabilidad",
               "unitLabel": "Flujo",
@@ -3875,7 +4031,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Flujo)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -3887,6 +4044,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Retención",
               "unitLabel": "Entorno",
@@ -3910,7 +4068,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Dashboard de errores y eventos",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Visualización",
               "unitLabel": "Dashboard",
@@ -3934,7 +4093,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Alerta por patrón crítico",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Alertas",
               "unitLabel": "Regla",
@@ -3955,7 +4115,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Regla)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -3967,6 +4128,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Caso",
@@ -3987,7 +4149,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Caso)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -3999,6 +4162,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Operación",
               "unitLabel": "Documento",
@@ -4021,7 +4185,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 10,
             "activities": 10,
             "hours": {
-              "fixed": 27
+              "fixed": 6.5
             }
           }
         },
@@ -4042,6 +4206,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Diagnóstico",
               "unitLabel": "Métrica",
@@ -4062,7 +4227,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Métrica)",
                 "baseQuantity": 1,
-                "defaultQuantity": 6,
+                "defaultQuantity": 1,
+                "referenceQuantity": 6,
                 "minimum": 1,
                 "editable": true
               }
@@ -4073,7 +4239,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Instrumentación de métrica de aplicación",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Instrumentación",
               "unitLabel": "Métrica",
@@ -4094,7 +4261,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Métrica)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -4105,7 +4273,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Recolección de métricas de infraestructura",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Infraestructura",
               "unitLabel": "Host",
@@ -4126,7 +4295,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Host)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -4137,7 +4307,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Dashboard operacional",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Visualización",
               "unitLabel": "Dashboard",
@@ -4161,7 +4332,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Umbral y alerta de rendimiento",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Alertas",
               "unitLabel": "Métrica",
@@ -4182,7 +4354,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Métrica)",
                 "baseQuantity": 1,
-                "defaultQuantity": 5,
+                "defaultQuantity": 1,
+                "referenceQuantity": 5,
                 "minimum": 1,
                 "editable": true
               }
@@ -4194,6 +4367,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Capacidad",
               "unitLabel": "Proyecto",
@@ -4218,6 +4392,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Experiencia",
               "unitLabel": "Flujo",
@@ -4238,7 +4413,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Flujo)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -4250,6 +4426,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Caso",
@@ -4270,7 +4447,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Caso)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -4281,7 +4459,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Reporte periódico de rendimiento",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Reportes",
               "unitLabel": "Reporte",
@@ -4306,6 +4485,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Operación",
               "unitLabel": "Proyecto",
@@ -4328,7 +4508,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 10,
             "activities": 10,
             "hours": {
-              "fixed": 25.25
+              "fixed": 2.75
             }
           }
         }
@@ -4362,6 +4542,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Diagnóstico",
               "unitLabel": "Activo",
@@ -4382,7 +4563,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Activo)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -4394,6 +4576,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Diseño",
               "unitLabel": "Servicio",
@@ -4416,7 +4599,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Servicio)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -4428,6 +4612,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Diseño",
               "unitLabel": "Proyecto",
@@ -4451,7 +4636,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Configuración de job de respaldo",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Implementación",
               "unitLabel": "Job",
@@ -4472,7 +4658,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Job)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -4483,7 +4670,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Configuración de cifrado y acceso",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Implementación",
               "unitLabel": "Entorno",
@@ -4508,6 +4696,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Implementación",
               "unitLabel": "Destino",
@@ -4532,6 +4721,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Validación",
               "unitLabel": "Job",
@@ -4552,7 +4742,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Job)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -4564,6 +4755,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Restauración",
               "unitLabel": "Activo",
@@ -4584,7 +4776,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Activo)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -4595,7 +4788,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Configuración de alerta de fallo",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Alertas",
               "unitLabel": "Canal",
@@ -4616,7 +4810,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Canal)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -4628,6 +4823,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Operación",
               "unitLabel": "Documento",
@@ -4652,7 +4848,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 10,
             "activities": 10,
             "hours": {
-              "fixed": 23.75
+              "fixed": 8.5
             }
           }
         },
@@ -4673,6 +4869,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Análisis",
               "unitLabel": "Proceso",
@@ -4693,7 +4890,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Proceso)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -4705,6 +4903,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Análisis",
               "unitLabel": "Servicio",
@@ -4725,7 +4924,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Servicio)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -4737,6 +4937,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Objetivos",
               "unitLabel": "Servicio",
@@ -4759,7 +4960,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Servicio)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -4771,6 +4973,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Estrategia",
               "unitLabel": "Servicio",
@@ -4791,7 +4994,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Servicio)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -4802,7 +5006,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Creación de procedimiento de recuperación",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Procedimientos",
               "unitLabel": "Servicio",
@@ -4825,7 +5030,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Servicio)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -4837,6 +5043,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Comunicación",
               "unitLabel": "Proyecto",
@@ -4861,6 +5068,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Pruebas",
               "unitLabel": "Escenario",
@@ -4885,6 +5093,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Pruebas",
               "unitLabel": "Ejercicio",
@@ -4909,6 +5118,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Mejora",
               "unitLabel": "Proyecto",
@@ -4932,7 +5142,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Calendario de pruebas y revisión",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Operación",
               "unitLabel": "Proyecto",
@@ -4955,7 +5166,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 10,
             "activities": 10,
             "hours": {
-              "fixed": 36
+              "fixed": 14.5
             }
           }
         },
@@ -4976,6 +5187,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Diagnóstico",
               "unitLabel": "Fuente",
@@ -4996,7 +5208,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Fuente)",
                 "baseQuantity": 1,
-                "defaultQuantity": 5,
+                "defaultQuantity": 1,
+                "referenceQuantity": 5,
                 "minimum": 1,
                 "editable": true
               }
@@ -5008,6 +5221,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Requisitos",
               "unitLabel": "Categoría",
@@ -5028,7 +5242,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Categoría)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -5040,6 +5255,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Diseño",
               "unitLabel": "Categoría",
@@ -5060,7 +5276,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Categoría)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -5071,7 +5288,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Configuración de política de retención",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Implementación",
               "unitLabel": "Sistema",
@@ -5092,7 +5310,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Sistema)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -5104,6 +5323,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Implementación",
               "unitLabel": "Destino",
@@ -5127,7 +5347,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Revisión de excepciones y bloqueos",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Control",
               "unitLabel": "Caso",
@@ -5148,7 +5369,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Caso)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -5160,6 +5382,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Validación",
               "unitLabel": "Caso",
@@ -5180,7 +5403,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Caso)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -5192,6 +5416,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Gobierno",
               "unitLabel": "Proyecto",
@@ -5216,6 +5441,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Cierre",
               "unitLabel": "Proyecto",
@@ -5238,7 +5464,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 9,
             "activities": 9,
             "hours": {
-              "fixed": 23.5
+              "fixed": 6.25
             }
           }
         }
@@ -5272,6 +5498,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Diagnóstico",
               "unitLabel": "Activo",
@@ -5292,7 +5519,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Activo)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -5304,6 +5532,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Diagnóstico",
               "unitLabel": "Entorno",
@@ -5324,7 +5553,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Entorno)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -5336,6 +5566,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Accesos",
               "unitLabel": "Cuenta",
@@ -5356,7 +5587,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Cuenta)",
                 "baseQuantity": 1,
-                "defaultQuantity": 8,
+                "defaultQuantity": 1,
+                "referenceQuantity": 8,
                 "minimum": 1,
                 "editable": true
               }
@@ -5367,7 +5599,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Deshabilitación o corrección de cuentas inseguras",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Accesos",
               "unitLabel": "Cuenta",
@@ -5388,7 +5621,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Cuenta)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -5399,7 +5633,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Aplicación de hardening de sistema operativo",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Configuración",
               "unitLabel": "Entorno",
@@ -5424,6 +5659,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Configuración",
               "unitLabel": "Aplicación",
@@ -5448,6 +5684,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Configuración",
               "unitLabel": "Base de datos",
@@ -5471,7 +5708,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Cierre de puertos y servicios no requeridos",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Red",
               "unitLabel": "Entorno",
@@ -5495,7 +5733,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Configuración de cifrado y protocolos seguros",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Criptografía",
               "unitLabel": "Entorno",
@@ -5519,7 +5758,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Configuración de logs de seguridad",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Auditoría",
               "unitLabel": "Entorno",
@@ -5544,6 +5784,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Validación",
               "unitLabel": "Entorno",
@@ -5564,7 +5805,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Entorno)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -5576,6 +5818,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Caso",
@@ -5596,7 +5839,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Caso)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -5608,6 +5852,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Cierre",
               "unitLabel": "Proyecto",
@@ -5630,7 +5875,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 13,
             "activities": 13,
             "hours": {
-              "fixed": 23.5
+              "fixed": 6
             }
           }
         },
@@ -5651,6 +5896,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Alcance",
               "unitLabel": "Activo",
@@ -5671,7 +5917,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Activo)",
                 "baseQuantity": 1,
-                "defaultQuantity": 6,
+                "defaultQuantity": 1,
+                "referenceQuantity": 6,
                 "minimum": 1,
                 "editable": true
               }
@@ -5683,6 +5930,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Preparación",
               "unitLabel": "Entorno",
@@ -5703,7 +5951,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Entorno)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -5714,7 +5963,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Escaneo de vulnerabilidades",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Detección",
               "unitLabel": "Entorno",
@@ -5735,7 +5985,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Entorno)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -5747,6 +5998,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Análisis",
               "unitLabel": "Hallazgo",
@@ -5767,7 +6019,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Hallazgo)",
                 "baseQuantity": 1,
-                "defaultQuantity": 10,
+                "defaultQuantity": 1,
+                "referenceQuantity": 10,
                 "minimum": 1,
                 "editable": true
               }
@@ -5779,6 +6032,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Riesgo",
               "unitLabel": "Hallazgo",
@@ -5799,7 +6053,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Hallazgo)",
                 "baseQuantity": 1,
-                "defaultQuantity": 10,
+                "defaultQuantity": 1,
+                "referenceQuantity": 10,
                 "minimum": 1,
                 "editable": true
               }
@@ -5811,6 +6066,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Planificación",
               "unitLabel": "Proyecto",
@@ -5834,7 +6090,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Aplicación de parche estándar",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Remediación",
               "unitLabel": "Activo",
@@ -5855,7 +6112,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Activo)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -5867,6 +6125,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Remediación",
               "unitLabel": "Hallazgo",
@@ -5887,7 +6146,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Hallazgo)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -5899,6 +6159,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Activo",
@@ -5919,7 +6180,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Activo)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -5931,6 +6193,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Revalidación",
               "unitLabel": "Entorno",
@@ -5951,7 +6214,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Entorno)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -5963,6 +6227,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Cierre",
               "unitLabel": "Proyecto",
@@ -5985,7 +6250,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 11,
             "activities": 11,
             "hours": {
-              "fixed": 25.5
+              "fixed": 7.65
             }
           }
         },
@@ -6006,6 +6271,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Diagnóstico",
               "unitLabel": "Sistema",
@@ -6026,7 +6292,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Sistema)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -6038,6 +6305,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Diseño",
               "unitLabel": "Rol",
@@ -6058,7 +6326,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Rol)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -6070,6 +6339,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Diseño",
               "unitLabel": "Rol",
@@ -6090,7 +6360,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Rol)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -6101,7 +6372,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Configuración de autenticación multifactor",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Autenticación",
               "unitLabel": "Sistema",
@@ -6125,7 +6397,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Política de contraseñas y sesión",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Autenticación",
               "unitLabel": "Sistema",
@@ -6149,7 +6422,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Aplicación de mínimo privilegio",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Autorización",
               "unitLabel": "Rol",
@@ -6170,7 +6444,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Rol)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -6182,6 +6457,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Ciclo de vida",
               "unitLabel": "Proceso",
@@ -6206,6 +6482,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Cuentas",
               "unitLabel": "Cuenta",
@@ -6226,7 +6503,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Cuenta)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -6237,7 +6515,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Registro de eventos de autenticación",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Auditoría",
               "unitLabel": "Sistema",
@@ -6262,6 +6541,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Caso",
@@ -6282,7 +6562,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Caso)",
                 "baseQuantity": 1,
-                "defaultQuantity": 8,
+                "defaultQuantity": 1,
+                "referenceQuantity": 8,
                 "minimum": 1,
                 "editable": true
               }
@@ -6294,6 +6575,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Cierre",
               "unitLabel": "Proyecto",
@@ -6316,7 +6598,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 11,
             "activities": 11,
             "hours": {
-              "fixed": 29
+              "fixed": 8
             }
           }
         },
@@ -6337,6 +6619,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Escenarios",
               "unitLabel": "Escenario",
@@ -6357,7 +6640,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Escenario)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -6369,6 +6653,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Clasificación",
               "unitLabel": "Proyecto",
@@ -6393,6 +6678,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Organización",
               "unitLabel": "Rol",
@@ -6413,7 +6699,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Rol)",
                 "baseQuantity": 1,
-                "defaultQuantity": 5,
+                "defaultQuantity": 1,
+                "referenceQuantity": 5,
                 "minimum": 1,
                 "editable": true
               }
@@ -6424,7 +6711,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Playbook de detección y análisis",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Procedimientos",
               "unitLabel": "Escenario",
@@ -6445,7 +6733,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Escenario)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -6456,7 +6745,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Playbook de contención y erradicación",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Procedimientos",
               "unitLabel": "Escenario",
@@ -6477,7 +6767,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Escenario)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -6488,7 +6779,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Playbook de recuperación",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Procedimientos",
               "unitLabel": "Escenario",
@@ -6509,7 +6801,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Escenario)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -6521,6 +6814,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Comunicación",
               "unitLabel": "Proyecto",
@@ -6544,7 +6838,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Preparación de fuentes de evidencia",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Evidencia",
               "unitLabel": "Fuente",
@@ -6565,7 +6860,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Fuente)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -6577,6 +6873,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Simulación",
               "unitLabel": "Ejercicio",
@@ -6601,6 +6898,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Simulación",
               "unitLabel": "Ejercicio",
@@ -6625,6 +6923,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Mejora",
               "unitLabel": "Proyecto",
@@ -6647,7 +6946,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 11,
             "activities": 11,
             "hours": {
-              "fixed": 28.5
+              "fixed": 11.25
             }
           }
         }
@@ -6681,6 +6980,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Diseño",
               "unitLabel": "Servicio",
@@ -6701,7 +7001,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Servicio)",
                 "baseQuantity": 1,
-                "defaultQuantity": 6,
+                "defaultQuantity": 1,
+                "referenceQuantity": 6,
                 "minimum": 1,
                 "editable": true
               }
@@ -6713,6 +7014,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Diseño",
               "unitLabel": "Canal",
@@ -6733,7 +7035,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Canal)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -6745,6 +7048,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Proceso",
               "unitLabel": "Proyecto",
@@ -6771,6 +7075,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Proceso",
               "unitLabel": "Nivel",
@@ -6793,7 +7098,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Nivel)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -6805,6 +7111,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "SLA",
               "unitLabel": "Servicio",
@@ -6827,7 +7134,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Servicio)",
                 "baseQuantity": 1,
-                "defaultQuantity": 6,
+                "defaultQuantity": 1,
+                "referenceQuantity": 6,
                 "minimum": 1,
                 "editable": true
               }
@@ -6838,7 +7146,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Configuración de campos y formularios",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Configuración",
               "unitLabel": "Formulario",
@@ -6859,7 +7168,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Formulario)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -6870,7 +7180,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Configuración de estados y automatizaciones",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Configuración",
               "unitLabel": "Flujo",
@@ -6891,7 +7202,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Flujo)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -6902,7 +7214,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Configuración de usuarios y permisos",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Configuración",
               "unitLabel": "Rol",
@@ -6923,7 +7236,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Rol)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -6934,7 +7248,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Plantillas de comunicación",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Comunicación",
               "unitLabel": "Plantilla",
@@ -6955,7 +7270,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Plantilla)",
                 "baseQuantity": 1,
-                "defaultQuantity": 5,
+                "defaultQuantity": 1,
+                "referenceQuantity": 5,
                 "minimum": 1,
                 "editable": true
               }
@@ -6966,7 +7282,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Dashboard y reporte inicial de puesta en marcha",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Reportes",
               "unitLabel": "Reporte",
@@ -6993,6 +7310,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Caso",
@@ -7013,7 +7331,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Caso)",
                 "baseQuantity": 1,
-                "defaultQuantity": 6,
+                "defaultQuantity": 1,
+                "referenceQuantity": 6,
                 "minimum": 1,
                 "editable": true
               }
@@ -7025,6 +7344,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Entrega",
               "unitLabel": "Sesión",
@@ -7047,7 +7367,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 12,
             "activities": 12,
             "hours": {
-              "fixed": 29.75
+              "fixed": 7.25
             }
           }
         },
@@ -7068,6 +7388,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Gobierno",
               "unitLabel": "Proceso",
@@ -7088,7 +7409,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Proceso)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -7100,6 +7422,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Proceso",
               "unitLabel": "Proceso",
@@ -7124,6 +7447,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Proceso",
               "unitLabel": "Proceso",
@@ -7148,6 +7472,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Proceso",
               "unitLabel": "Proceso",
@@ -7172,6 +7497,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Proceso",
               "unitLabel": "Proceso",
@@ -7196,6 +7522,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Roles",
               "unitLabel": "Rol",
@@ -7216,7 +7543,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Rol)",
                 "baseQuantity": 1,
-                "defaultQuantity": 5,
+                "defaultQuantity": 1,
+                "referenceQuantity": 5,
                 "minimum": 1,
                 "editable": true
               }
@@ -7227,7 +7555,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Configuración de herramienta o tablero",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Herramienta",
               "unitLabel": "Proceso",
@@ -7248,7 +7577,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Proceso)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -7260,6 +7590,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Automatización",
               "unitLabel": "Regla",
@@ -7280,7 +7611,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Regla)",
                 "baseQuantity": 1,
-                "defaultQuantity": 5,
+                "defaultQuantity": 1,
+                "referenceQuantity": 5,
                 "minimum": 1,
                 "editable": true
               }
@@ -7292,6 +7624,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Indicadores",
               "unitLabel": "Indicador",
@@ -7312,7 +7645,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Indicador)",
                 "baseQuantity": 1,
-                "defaultQuantity": 6,
+                "defaultQuantity": 1,
+                "referenceQuantity": 6,
                 "minimum": 1,
                 "editable": true
               }
@@ -7323,7 +7657,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Configuración de reportes operacionales avanzados",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Reportes",
               "unitLabel": "Reporte",
@@ -7346,7 +7681,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Reporte)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -7358,6 +7694,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Piloto",
               "unitLabel": "Caso",
@@ -7378,7 +7715,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Caso)",
                 "baseQuantity": 1,
-                "defaultQuantity": 8,
+                "defaultQuantity": 1,
+                "referenceQuantity": 8,
                 "minimum": 1,
                 "editable": true
               }
@@ -7390,6 +7728,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Cierre",
               "unitLabel": "Proyecto",
@@ -7412,7 +7751,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 12,
             "activities": 12,
             "hours": {
-              "fixed": 29
+              "fixed": 9.75
             }
           }
         },
@@ -7433,6 +7772,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Gestión",
               "unitLabel": "Sesión",
@@ -7453,7 +7793,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Sesión)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -7465,6 +7806,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Gestión",
               "unitLabel": "Ticket",
@@ -7485,7 +7827,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Ticket)",
                 "baseQuantity": 1,
-                "defaultQuantity": 8,
+                "defaultQuantity": 1,
+                "referenceQuantity": 8,
                 "minimum": 1,
                 "editable": true
               }
@@ -7496,7 +7839,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Atención de incidente menor",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Soporte",
               "unitLabel": "Ticket",
@@ -7517,7 +7861,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Ticket)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -7528,7 +7873,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Atención de solicitud operativa",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Soporte",
               "unitLabel": "Ticket",
@@ -7549,7 +7895,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Ticket)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -7560,7 +7907,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Cambio menor de aplicación",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Evolución",
               "unitLabel": "Cambio",
@@ -7581,7 +7929,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Cambio)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -7593,6 +7942,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Prevención",
               "unitLabel": "Sesión",
@@ -7613,7 +7963,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Sesión)",
                 "baseQuantity": 1,
-                "defaultQuantity": 4,
+                "defaultQuantity": 1,
+                "referenceQuantity": 4,
                 "minimum": 1,
                 "editable": true
               }
@@ -7624,7 +7975,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Actualización de documentación",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Documentación",
               "unitLabel": "Documento",
@@ -7649,6 +8001,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Reporte",
               "unitLabel": "Reporte",
@@ -7672,7 +8025,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Gestión de pendientes y terceros",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Coordinación",
               "unitLabel": "Hora",
@@ -7693,7 +8047,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Hora)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -7703,7 +8058,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 9,
             "activities": 9,
             "hours": {
-              "fixed": 22.5
+              "fixed": 2.25
             }
           }
         },
@@ -7724,6 +8079,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Inventario",
               "unitLabel": "Fuente",
@@ -7744,7 +8100,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Fuente)",
                 "baseQuantity": 1,
-                "defaultQuantity": 6,
+                "defaultQuantity": 1,
+                "referenceQuantity": 6,
                 "minimum": 1,
                 "editable": true
               }
@@ -7756,6 +8113,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Diseño",
               "unitLabel": "Proyecto",
@@ -7780,6 +8138,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Gobierno",
               "unitLabel": "Proyecto",
@@ -7803,7 +8162,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Creación de manual de usuario",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Documentación",
               "unitLabel": "Documento",
@@ -7828,6 +8188,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Documentación",
               "unitLabel": "Documento",
@@ -7851,7 +8212,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Creación de procedimiento operativo",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Documentación",
               "unitLabel": "Documento",
@@ -7872,7 +8234,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Documento)",
                 "baseQuantity": 1,
-                "defaultQuantity": 3,
+                "defaultQuantity": 1,
+                "referenceQuantity": 3,
                 "minimum": 1,
                 "editable": true
               }
@@ -7883,7 +8246,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Creación de runbook",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Documentación",
               "unitLabel": "Documento",
@@ -7904,7 +8268,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Documento)",
                 "baseQuantity": 1,
-                "defaultQuantity": 2,
+                "defaultQuantity": 1,
+                "referenceQuantity": 2,
                 "minimum": 1,
                 "editable": true
               }
@@ -7915,7 +8280,8 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Creación de artículo de conocimiento",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
+              "recommendedIncluded": true,
               "mandatory": false,
               "phase": "Contenido",
               "unitLabel": "Artículo",
@@ -7936,7 +8302,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Artículo)",
                 "baseQuantity": 1,
-                "defaultQuantity": 5,
+                "defaultQuantity": 1,
+                "referenceQuantity": 5,
                 "minimum": 1,
                 "editable": true
               }
@@ -7948,6 +8315,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": false,
+              "recommendedIncluded": false,
               "mandatory": false,
               "phase": "Publicación",
               "unitLabel": "Entorno",
@@ -7972,6 +8340,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Calidad",
               "unitLabel": "Documento",
@@ -7992,7 +8361,8 @@ export const ismServicesCatalog: PlatformCatalog = {
                 "unit": "custom",
                 "label": "Cantidad (Documento)",
                 "baseQuantity": 1,
-                "defaultQuantity": 5,
+                "defaultQuantity": 1,
+                "referenceQuantity": 5,
                 "minimum": 1,
                 "editable": true
               }
@@ -8004,6 +8374,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
+              "recommendedIncluded": true,
               "mandatory": true,
               "phase": "Entrega",
               "unitLabel": "Sesión",
@@ -8026,7 +8397,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 11,
             "activities": 11,
             "hours": {
-              "fixed": 28.75
+              "fixed": 5.5
             }
           }
         }

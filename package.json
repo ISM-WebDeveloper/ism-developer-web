@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "node server.mjs",
     "start": "node server.mjs",
-    "check": "node --check assets/js/privacy-consent.js && node --check assets/js/analytics.js && node --check assets/js/reveal-compat.js && node --check assets/js/script.js && node --check assets/js/guia-web.js && node --check api/pre-cotizacion.js && node --check api/turnstile-config.js && node --check api/_config/guide-technical-rules.js && node --check api/_generated/ism-guide-catalog.js && node --check apps/configurador-servicios/scripts/generateIsmCatalog.mjs && node --check assets/vendor/lucide-index.min.js && node --check scripts/performance-budget.mjs && node --check scripts/security-audit.mjs && node --check scripts/validate-site.mjs && node --check assets/js/accessibility.js && node --check assets/js/portfolio-accessibility.js && node --check scripts/accessibility-audit.mjs && node --check server.mjs && node --check scripts/compatibility-audit.mjs",
-    "validate": "npm run check && node scripts/validate-site.mjs && npm run audit:performance && npm run audit:security && npm run audit:accessibility && npm run audit:compatibility && npm run test:guide-calibration",
+    "check": "node --check assets/js/privacy-consent.js && node --check assets/js/analytics.js && node --check assets/js/reveal-compat.js && node --check assets/js/script.js && node --check assets/js/guia-web.js && node --check api/pre-cotizacion.js && node --check api/turnstile-config.js && node --check api/_config/guide-technical-rules.js && node --check api/_generated/ism-guide-catalog.js && node --check apps/configurador-servicios/scripts/generateIsmCatalog.mjs && node --check assets/vendor/lucide-index.min.js && node --check scripts/performance-budget.mjs && node --check scripts/security-audit.mjs && node --check scripts/validate-site.mjs && node --check scripts/configurator-defaults-audit.mjs && node --check assets/js/accessibility.js && node --check assets/js/portfolio-accessibility.js && node --check scripts/accessibility-audit.mjs && node --check server.mjs && node --check scripts/compatibility-audit.mjs",
+    "validate": "npm run check && node scripts/validate-site.mjs && npm run audit:configurator-defaults && npm run audit:performance && npm run audit:security && npm run audit:accessibility && npm run audit:compatibility && npm run test:guide-calibration",
     "audit:performance": "node scripts/performance-budget.mjs",
     "audit:security": "node scripts/security-audit.mjs",
     "audit:accessibility": "node scripts/accessibility-audit.mjs",
@@ -18,6 +18,7 @@
     "catalog:sync": "npm --prefix apps/configurador-servicios run catalog:ism",
     "configurator:build": "npm --prefix apps/configurador-servicios run build",
     "test:guide-calibration": "node scripts/test-guide-calibration.mjs",
-    "qa:final": "npm run validate && node scripts/final-qa.mjs"
+    "qa:final": "npm run validate && node scripts/final-qa.mjs",
+    "audit:configurator-defaults": "node scripts/configurator-defaults-audit.mjs"
   }
 }

@@ -58,7 +58,7 @@ function isActivitySelected(
 export const ismServicesEngine = createStandardPlatformEngine({
   id: "ism-servicios",
   catalog: ismServicesCatalog,
-  storageKey: "ism-configurator:services:v2.3",
+  storageKey: "ism-configurator:services:v2.4",
   actionEvent: "ism-configurator:services:action",
   categories: {
     small: {
@@ -107,7 +107,7 @@ export const ismServicesEngine = createStandardPlatformEngine({
     description:
       "Configurador técnico consolidado para dimensionar servicios digitales, continuidad, seguridad y soporte.",
     createdAt: "Agosto de 2026",
-    version: `0.3.0 · Catálogo ${ismServicesCatalog.catalogVersion ?? "2.3"}`,
+    version: `0.4.0 · Catálogo ${ismServicesCatalog.catalogVersion ?? "2.3"}`,
     source: "Catálogo Técnico ISM Developer v2.3 simplificado",
   },
   warnings: (state) => {
