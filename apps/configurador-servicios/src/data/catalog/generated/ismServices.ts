@@ -166,7 +166,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Sección estándar de contenido",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
               "mandatory": false,
               "phase": "Interfaz",
               "unitLabel": "Sección",
@@ -182,7 +182,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               },
               "notes": [
                 "Fase: Interfaz",
-                "Condición: Base incluido",
+                "Condición: Opcional",
                 "Unidad: Sección",
                 "Incluye: Incluye por unidad: título, texto, imagen/icono, tarjetas simples o bloque informativo y adaptación responsive.",
                 "Exclusiones: No incluye lógica avanzada, filtros ni contenido dinámico.",
@@ -204,7 +204,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Sección de servicios con tarjetas",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
               "mandatory": false,
               "phase": "Interfaz",
               "unitLabel": "Sección",
@@ -220,7 +220,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               },
               "notes": [
                 "Fase: Interfaz",
-                "Condición: Base incluido",
+                "Condición: Opcional",
                 "Unidad: Sección",
                 "Incluye: tarjetas de servicios, iconos o imágenes, descripciones breves y CTA relacionado.",
                 "Exclusiones: No incluye catálogo transaccional, reservas ni cálculo dinámico de precios.",
@@ -510,7 +510,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "activityCount": 1,
               "countMode": "line",
               "defaultIncluded": true,
-              "mandatory": false,
+              "mandatory": true,
               "phase": "Contenido",
               "unitLabel": "Proyecto",
               "baseHours": 1.2,
@@ -525,7 +525,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               },
               "notes": [
                 "Fase: Contenido",
-                "Condición: Base incluido",
+                "Condición: Base obligatorio",
                 "Unidad: Proyecto",
                 "Incluye: carga, jerarquía, formato y ajustes menores sobre textos e imágenes entregados por el cliente.",
                 "Exclusiones: No incluye copywriting profesional, traducción ni producción masiva de contenido.",
@@ -574,7 +574,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "SEO técnico inicial e indexabilidad",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
               "mandatory": false,
               "phase": "SEO",
               "unitLabel": "Proyecto",
@@ -590,7 +590,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               },
               "notes": [
                 "Fase: SEO",
-                "Condición: Base incluido",
+                "Condición: Opcional",
                 "Unidad: Proyecto",
                 "Incluye: titles, descriptions, canonical, OG/social, sitemap, robots, revisión de indexabilidad y datos estructurados básicos cuando apliquen.",
                 "Exclusiones: No incluye estrategia SEO mensual, link building ni investigación avanzada de palabras clave.",
@@ -604,7 +604,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               "name": "Optimización técnica y accesibilidad básica",
               "activityCount": 1,
               "countMode": "line",
-              "defaultIncluded": true,
+              "defaultIncluded": false,
               "mandatory": false,
               "phase": "Optimización",
               "unitLabel": "Proyecto",
@@ -620,7 +620,7 @@ export const ismServicesCatalog: PlatformCatalog = {
               },
               "notes": [
                 "Fase: Optimización",
-                "Condición: Base incluido",
+                "Condición: Opcional",
                 "Unidad: Proyecto",
                 "Incluye: compresión/formato de imágenes, lazy loading, revisión de peso, semántica, contraste, foco, labels y navegación básica por teclado.",
                 "Exclusiones: No incluye auditoría WCAG formal ni optimización avanzada de Core Web Vitals.",
@@ -749,7 +749,7 @@ export const ismServicesCatalog: PlatformCatalog = {
             "activityLines": 23,
             "activities": 23,
             "hours": {
-              "fixed": 18.3
+              "fixed": 13.299999999999999
             }
           }
         },
