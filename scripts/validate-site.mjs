@@ -8,13 +8,23 @@ const htmlFiles = [
     "servicios.html",
     "portafolio.html",
     "privacidad.html",
-    "guia-web/index.html"
+    "guia-web/index.html",
+    "soluciones/index.html",
+    "soluciones/ism-presencia-digital/index.html",
+    "soluciones/ism-stock-control/index.html",
+    "soluciones/ism-gestion-control/index.html",
+    "soluciones/ism-boutique/index.html"
 ];
 const indexableFiles = new Set([
     "index.html",
     "portafolio.html",
     "privacidad.html",
-    "guia-web/index.html"
+    "guia-web/index.html",
+    "soluciones/index.html",
+    "soluciones/ism-presencia-digital/index.html",
+    "soluciones/ism-stock-control/index.html",
+    "soluciones/ism-gestion-control/index.html",
+    "soluciones/ism-boutique/index.html"
 ]);
 const errors = [];
 const warnings = [];
@@ -208,7 +218,7 @@ for (const field of ["title", "description", "canonical"]) {
     });
 }
 
-for (const cssFile of ["assets/css/style.css", "assets/css/portafolio.css", "assets/css/privacy-consent.css", "assets/css/privacy-policy.css"]) {
+for (const cssFile of ["assets/css/style.css", "assets/css/portafolio.css", "assets/css/soluciones.css", "assets/css/privacy-consent.css", "assets/css/privacy-policy.css"]) {
     const content = read(cssFile);
     const opening = (content.match(/{/g) || []).length;
     const closing = (content.match(/}/g) || []).length;
@@ -225,7 +235,7 @@ const allText = [
     ...htmlFiles.map(read),
     read("assets/js/script.js")
 ].join("\n");
-for (const requiredType of ["ProfessionalService", "Service", "Person", "FAQPage"]) {
+for (const requiredType of ["WebSite", "ProfessionalService", "Service", "Person", "BreadcrumbList"]) {
     if (!allText.includes(`"${requiredType}"`)) {
         report(errors, "datos estructurados", `falta el tipo ${requiredType}.`);
     }
@@ -236,7 +246,12 @@ for (const cleanUrl of [
     "https://www.ismdeveloper.cl/",
     "https://www.ismdeveloper.cl/portafolio.html",
     "https://www.ismdeveloper.cl/privacidad.html",
-    "https://www.ismdeveloper.cl/guia-web/"
+    "https://www.ismdeveloper.cl/guia-web/",
+    "https://www.ismdeveloper.cl/soluciones/",
+    "https://www.ismdeveloper.cl/soluciones/ism-presencia-digital/",
+    "https://www.ismdeveloper.cl/soluciones/ism-stock-control/",
+    "https://www.ismdeveloper.cl/soluciones/ism-gestion-control/",
+    "https://www.ismdeveloper.cl/soluciones/ism-boutique/"
 ]) {
     if (!sitemap.includes(`<loc>${cleanUrl}</loc>`)) {
         report(errors, "sitemap.xml", `falta ${cleanUrl}.`);
