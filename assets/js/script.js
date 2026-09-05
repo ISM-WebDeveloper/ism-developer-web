@@ -154,7 +154,7 @@ if (portfolioSection) {
   const portfolioPanel = document.getElementById("portfolioPanel");
   const portfolioStatus = document.getElementById("portfolioSelectionStatus");
   const portfolioTabs = [...portfolioSection.querySelectorAll("[data-portfolio-tab]")];
-  const portfolioData = {
+  const portfolioData={
     solutions: [
       {
         id: "ism-presencia-digital",
@@ -169,7 +169,7 @@ if (portfolioSection) {
         link: "index.html?producto=ism-presencia-digital#contacto",
         ctaLabel: "Cotizar esta solución",
         images: [
-          { src: "assets/img/portfolio/proestakis-principal.webp", alt: "Ejemplo corporativo de ISM Presencia Digital", label: "Presencia corporativa" },
+          { src: "assets/img/portfolio/proestakis-web-principal.webp", alt: "Ejemplo corporativo de ISM Presencia Digital", label: "Presencia corporativa" },
           { src: "assets/img/portfolio/badia-nurse-shield-agenda.webp", alt: "Agenda conectada a una implementación de ISM Presencia Digital", label: "Agenda conectada" },
           { src: "assets/img/portfolio/lecasse-servicios.webp", alt: "Servicios y propuesta comercial en una implementación de ISM Presencia Digital", label: "Servicios y captación" }
         ]
@@ -260,9 +260,9 @@ if (portfolioSection) {
         icon: "truck",
         link: "portafolio.html?proyecto=constructora-proestakis",
         images: [
-          { src: "assets/img/portfolio/proestakis-principal.webp", alt: "Sitio corporativo de Constructora Proestakis", label: "Vista principal" },
-          { src: "assets/img/portfolio/proestakis-cifras.webp", alt: "Capacidades de Constructora Proestakis", label: "Capacidad técnica" },
-          { src: "assets/img/portfolio/proestakis-propuesta.webp", alt: "Propuesta de valor de Constructora Proestakis", label: "Propuesta de valor" }
+          { src: "assets/img/portfolio/proestakis-web-principal.webp", alt: "Página principal de Constructora Proestakis mostrada en un computador", label: "Vista principal" },
+          { src: "assets/img/portfolio/proestakis-web-renovacion.webp", alt: "Sección de renovación de Constructora Proestakis mostrada durante una revisión en computador", label: "Renovación" },
+          { src: "assets/img/portfolio/proestakis-web-electricidad.webp", alt: "Sección de electricidad industrial de Constructora Proestakis mostrada en un computador", label: "Electricidad industrial" }
         ]
       },
       {
@@ -286,7 +286,7 @@ if (portfolioSection) {
     ]
   };
   const iconMarkup = (name) => `<i data-lucide="${name}" aria-hidden="true"></i>`;
-  const renderGallery = (item) => {
+  const renderGallery=(item) => {
     const [firstImage] = item.images;
     const renderMainImage = (image) => image.pending
       ? `<div class="ism-portfolio-image-placeholder" data-portfolio-main-placeholder>
@@ -315,7 +315,7 @@ if (portfolioSection) {
       </div>
     `;
   };
-  const renderDetail = (item) => `
+  const renderDetail=(item) => `
     <div class="ism-portfolio-detail">
       ${renderGallery(item)}
       <div class="ism-portfolio-copy">

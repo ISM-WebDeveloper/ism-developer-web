@@ -19,7 +19,7 @@ const projects = [
                 description: "ISM Presencia Digital se implementa sobre una base profesional que se personaliza según marca, servicios, público y objetivos comerciales de cada negocio.",
                 focus: "Producto",
                 result: "Base reutilizable",
-                image: "assets/img/portfolio/proestakis-principal.webp",
+                image: "assets/img/portfolio/proestakis-web-principal.webp",
                 alt: "Ejemplo de implementación corporativa de ISM Presencia Digital"
             },
             {
@@ -212,28 +212,28 @@ const projects = [
         stack: "HTML5 · CSS3 · JavaScript · Vercel",
         journey: [
             {
-                title: "Una portada que comunica solidez",
-                description: "La primera vista presenta el rubro, propuesta de valor y experiencia de forma inmediata para reforzar confianza desde el primer contacto.",
+                title: "La presencia corporativa en un entorno real",
+                description: "La página principal se muestra dentro de un computador real para comunicar con claridad la marca, sus servicios y su propuesta desde el primer contacto.",
                 focus: "Vista principal",
                 result: "Credibilidad",
-                image: "assets/img/portfolio/proestakis-principal.webp",
-                alt: "Vista principal del sitio corporativo de Constructora Proestakis"
+                image: "assets/img/portfolio/proestakis-web-principal.webp",
+                alt: "Página principal de Constructora Proestakis mostrada en un computador"
             },
             {
-                title: "Capacidad técnica respaldada con información concreta",
-                description: "Cifras y capacidades ayudan a dimensionar la experiencia de la empresa sin obligar al visitante a recorrer grandes bloques de texto.",
-                focus: "Capacidad técnica",
-                result: "Claridad",
-                image: "assets/img/portfolio/proestakis-cifras.webp",
-                alt: "Bloque de capacidades y cifras del sitio de Constructora Proestakis"
+                title: "Renovación presentada como experiencia visual",
+                description: "La sección de renovación muestra trabajos antes y después dentro de una navegación real, facilitando la comprensión del resultado.",
+                focus: "Renovación",
+                result: "Evidencia",
+                image: "assets/img/portfolio/proestakis-web-renovacion.webp",
+                alt: "Sección de renovación de Constructora Proestakis mostrada durante una revisión en computador"
             },
             {
-                title: "Una propuesta de valor fácil de entender",
-                description: "Los servicios y fortalezas se organizan visualmente para convertir la experiencia técnica en argumentos comerciales claros.",
-                focus: "Propuesta de valor",
+                title: "Servicios técnicos explicados en contexto",
+                description: "La sección de electricidad industrial comunica alcance y capacidades técnicas mientras una persona navega el sitio desde un computador real.",
+                focus: "Electricidad industrial",
                 result: "Captación",
-                image: "assets/img/portfolio/proestakis-propuesta.webp",
-                alt: "Propuesta de valor del sitio de Constructora Proestakis"
+                image: "assets/img/portfolio/proestakis-web-electricidad.webp",
+                alt: "Sección de electricidad industrial de Constructora Proestakis mostrada en un computador"
             }
         ],
         analysis: ["Falta de presencia digital consolidada", "Necesidad de respaldar experiencia y capacidades", "Mejorar la visibilidad de servicios", "Facilitar el contacto de nuevos clientes"],
