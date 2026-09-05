@@ -47,6 +47,6 @@ La instalación de dependencias del configurador se realiza una sola vez con:
 
 ## Observaciones pendientes
 
-- El presupuesto de rendimiento global del sitio continúa fallando por una imagen anterior de aproximadamente 3,5 MB (`Gemini_Generated_Image_4mbsp14mbsp14mbs.png`). No fue causado por esta integración.
+- El presupuesto de rendimiento global del sitio fue verificado tras retirar una imagen histórica sin referencias; la auditoría actual cumple el objetivo definido.
 - ExcelJS y jsPDF producen chunks grandes. Funcionan correctamente, pero conviene cargarlos de forma diferida en una fase posterior para acelerar la entrada inicial al configurador.
 - Las horas del catálogo siguen marcadas como preliminares hasta completar su calibración definitiva.
