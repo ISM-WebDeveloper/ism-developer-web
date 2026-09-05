@@ -255,28 +255,28 @@ const projects = [
         stack: "HTML5 · CSS3 · JavaScript · Vercel",
         journey: [
             {
-                title: "Servicios tecnológicos presentados con claridad",
-                description: "La vista principal resume capacidades y posicionamiento para que una oferta técnica compleja sea comprensible desde los primeros segundos.",
-                focus: "Vista principal",
+                title: "Soluciones empresariales presentadas en contexto",
+                description: "La propuesta tecnológica se muestra dentro de una reunión real, ayudando a visualizar cómo Lecasse comunica capacidades para plataformas empresariales y misión crítica.",
+                focus: "Soluciones empresariales",
                 result: "Claridad",
-                image: "assets/img/portfolio/lecasse-principal.webp",
-                alt: "Vista principal del sitio de Lecasse IT Services"
+                image: "assets/img/portfolio/lecasse-reunion-soluciones.webp",
+                alt: "Equipo revisando las soluciones de Lecasse en una sala de reuniones"
             },
             {
-                title: "La oferta organizada por necesidad",
-                description: "Las líneas de servicio se presentan en bloques visuales que conectan problemas habituales del cliente con capacidades concretas.",
-                focus: "Servicios",
-                result: "Orientación",
-                image: "assets/img/portfolio/lecasse-servicios.webp",
-                alt: "Tarjetas de servicios de Lecasse IT Services"
+                title: "Desarrollo de software conectado con la operación",
+                description: "La solución se presenta en un notebook dentro de una sala de servidores, reforzando la relación entre software, infraestructura y trabajo técnico en terreno.",
+                focus: "Software en terreno",
+                result: "Integración",
+                image: "assets/img/portfolio/lecasse-servidores-software.webp",
+                alt: "Dos profesionales revisando el desarrollo de software de Lecasse en una sala de servidores"
             },
             {
-                title: "Una propuesta principal con identidad técnica",
-                description: "Jerarquía, color y llamadas a la acción refuerzan una imagen profesional y reducen pasos entre interés y contacto.",
-                focus: "Propuesta principal",
-                result: "Conversión",
-                image: "assets/img/portfolio/lecasse-hero.webp",
-                alt: "Propuesta principal del sitio de Lecasse IT Services"
+                title: "Infraestructura empresarial desde un entorno profesional",
+                description: "La página se muestra en un notebook dentro de una oficina, destacando servicios de infraestructura, cloud, seguridad y continuidad operacional en un contexto corporativo real.",
+                focus: "Infraestructura empresarial",
+                result: "Confianza",
+                image: "assets/img/portfolio/lecasse-oficina-infraestructura.webp",
+                alt: "Sitio de infraestructura empresarial de Lecasse mostrado en un notebook dentro de una oficina"
             }
         ],
         analysis: ["Oferta tecnológica difícil de comunicar", "Necesidad de fortalecer confianza y posicionamiento", "Servicios B2B con alto componente técnico", "Pocos puntos de conversión comercial"],

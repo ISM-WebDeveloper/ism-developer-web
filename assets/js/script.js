@@ -277,9 +277,9 @@ if (portfolioSection) {
         icon: "server",
         link: "portafolio.html?proyecto=lecasse-it-services",
         images: [
-          { src: "assets/img/portfolio/lecasse-principal.webp", alt: "Sitio de Lecasse IT Services", label: "Vista principal" },
-          { src: "assets/img/portfolio/lecasse-servicios.webp", alt: "Servicios de Lecasse IT Services", label: "Servicios" },
-          { src: "assets/img/portfolio/lecasse-hero.webp", alt: "Propuesta principal de Lecasse IT Services", label: "Propuesta principal" }
+          { src: "assets/img/portfolio/lecasse-reunion-soluciones.webp", alt: "Equipo revisando las soluciones de Lecasse en una sala de reuniones", label: "Soluciones empresariales" },
+          { src: "assets/img/portfolio/lecasse-servidores-software.webp", alt: "Dos profesionales revisando el desarrollo de software de Lecasse en una sala de servidores", label: "Software en terreno" },
+          { src: "assets/img/portfolio/lecasse-oficina-infraestructura.webp", alt: "Sitio de infraestructura empresarial de Lecasse mostrado en un notebook dentro de una oficina", label: "Infraestructura empresarial" }
         ]
       }
     
