@@ -70,5 +70,32 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/soluciones/",
+      "destination": "/portafolio.html?proyecto=ism-presencia-digital",
+      "permanent": true
+    },
+    {
+      "source": "/soluciones/ism-presencia-digital/",
+      "destination": "/portafolio.html?proyecto=ism-presencia-digital",
+      "permanent": true
+    },
+    {
+      "source": "/soluciones/ism-stock-control/",
+      "destination": "/portafolio.html?proyecto=ism-stock-control",
+      "permanent": true
+    },
+    {
+      "source": "/soluciones/ism-gestion-control/",
+      "destination": "/portafolio.html?proyecto=ism-gestion-control",
+      "permanent": true
+    },
+    {
+      "source": "/soluciones/ism-boutique/",
+      "destination": "/portafolio.html?proyecto=ism-boutique",
+      "permanent": true
+    }
   ]
 }

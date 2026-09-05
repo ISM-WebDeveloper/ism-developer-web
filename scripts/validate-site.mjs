@@ -20,12 +20,7 @@ const indexableFiles = new Set([
     "index.html",
     "portafolio.html",
     "privacidad.html",
-    "guia-web/index.html",
-    "soluciones/index.html",
-    "soluciones/ism-presencia-digital/index.html",
-    "soluciones/ism-stock-control/index.html",
-    "soluciones/ism-gestion-control/index.html",
-    "soluciones/ism-boutique/index.html"
+    "guia-web/index.html"
 ]);
 const errors = [];
 const warnings = [];
@@ -247,12 +242,7 @@ for (const cleanUrl of [
     "https://www.ismdeveloper.cl/",
     "https://www.ismdeveloper.cl/portafolio.html",
     "https://www.ismdeveloper.cl/privacidad.html",
-    "https://www.ismdeveloper.cl/guia-web/",
-    "https://www.ismdeveloper.cl/soluciones/",
-    "https://www.ismdeveloper.cl/soluciones/ism-presencia-digital/",
-    "https://www.ismdeveloper.cl/soluciones/ism-stock-control/",
-    "https://www.ismdeveloper.cl/soluciones/ism-gestion-control/",
-    "https://www.ismdeveloper.cl/soluciones/ism-boutique/"
+    "https://www.ismdeveloper.cl/guia-web/"
 ]) {
     if (!sitemap.includes(`<loc>${cleanUrl}</loc>`)) {
         report(errors, "sitemap.xml", `falta ${cleanUrl}.`);

@@ -351,3 +351,50 @@ body.sidebar-collapsed .nav-group.expanded .nav-group-toggle{border-color:rgba(v
   .ism-site-footer{margin-left:0!important}
 }
 
+/* PORTAFOLIO ISM · ACCIÓN ÚNICA */
+.portfolio-action-panel{
+    margin-top:22px;padding:24px 26px;display:grid;
+    grid-template-columns:minmax(260px,.9fr) minmax(0,1.6fr);
+    gap:24px;align-items:center;border:1px solid rgba(var(--accent-rgb),.28);
+    border-radius:16px;
+    background:radial-gradient(circle at 86% 12%,rgba(var(--accent-rgb),.13),transparent 34%),#071422
+}
+.portfolio-action-copy span{
+    display:block;margin-bottom:7px;color:var(--accent);font-size:8px;
+    font-weight:800;letter-spacing:.16em;text-transform:uppercase
+}
+.portfolio-action-copy h2{
+    margin:0;font-family:"Manrope",sans-serif;font-size:clamp(20px,2.4vw,29px);
+    line-height:1.08;letter-spacing:-.03em
+}
+.portfolio-action-copy p{
+    max-width:520px;margin:9px 0 0;color:#8291a5;font-size:10.5px;line-height:1.6
+}
+.portfolio-action-options{
+    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px
+}
+.portfolio-action-option{
+    min-height:72px;padding:11px 10px;display:flex;align-items:center;justify-content:center;
+    gap:9px;border:1px solid rgba(var(--accent-rgb),.2);border-radius:11px;
+    background:rgba(255,255,255,.025);color:#e7edf5;text-align:left;
+    transition:transform .2s ease,border-color .2s ease,background .2s ease
+}
+.portfolio-action-option:hover,.portfolio-action-option:focus-visible{
+    transform:translateY(-2px);border-color:rgba(var(--accent-rgb),.55);
+    background:rgba(var(--accent-rgb),.09)
+}
+.portfolio-action-option>svg{width:20px;height:20px;flex:0 0 20px;color:var(--accent)}
+.portfolio-action-option span{min-width:0;display:flex;flex-direction:column;gap:2px}
+.portfolio-action-option strong{color:#f6f9fc;font-size:10px;line-height:1.2}
+.portfolio-action-option small{color:#718197;font-size:8px;line-height:1.3}
+.portfolio-action-option.is-whatsapp>svg{color:#25d366}
+@media(max-width:900px){
+    .portfolio-action-panel{grid-template-columns:1fr;text-align:center}
+    .portfolio-action-copy p{margin-left:auto;margin-right:auto}
+}
+@media(max-width:680px){
+    .portfolio-action-panel{padding:21px 18px;border-radius:14px}
+    .portfolio-action-options{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .portfolio-action-option{min-height:68px}
+}
+

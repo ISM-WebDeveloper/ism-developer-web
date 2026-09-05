@@ -19,14 +19,14 @@
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
     <script src="assets/js/reveal-compat.js?v=2.2.0" defer></script>
     <link rel="stylesheet" href="assets/css/site-shell.css?v=1.5.0">
-    <link rel="stylesheet" href="assets/css/portafolio.css?v=2.3.5">
+    <link rel="stylesheet" href="assets/css/portafolio.css?v=2.3.6">
     <link rel="stylesheet" href="assets/css/premium-motion.css?v=2.2.0">
     <link rel="stylesheet" href="assets/css/accessibility.css?v=2.1.1">
     <link rel="stylesheet" href="assets/css/privacy-consent.css?v=2.0.24">
     <script src="assets/vendor/lucide.min.js" defer></script>
     <script src="assets/js/privacy-consent.js?v=2.0.24" defer></script>
     <script src="assets/js/analytics.js?v=2.0.24" defer></script>
-    <script src="assets/js/portafolio.js?v=2.0.34" defer></script>
+    <script src="assets/js/portafolio.js?v=2.0.35" defer></script>
     <script src="assets/js/portfolio-accessibility.js?v=2.0.24" defer></script>
     <script src="assets/js/accessibility.js?v=2.0.24" defer></script>
     <title>Portafolio ISM | Soluciones y Clientes | ISM Developer</title>
@@ -174,37 +174,38 @@
                         </article>
                     </div>
 
-                    <div class="commercial-cases-block">
-                        <div class="commercial-cases-heading">
-                            <div>
-                                <p id="commercialCasesKicker">Implementaciones</p>
-                                <h3 id="commercialCasesTitle">Clientes e implementaciones relacionadas</h3>
-                            </div>
-                            <span id="commercialCasesCount"></span>
-                        </div>
-                        <div class="commercial-cases-grid" id="commercialCases"></div>
-                        <p class="commercial-cases-note" id="commercialCasesNote"></p>
-                    </div>
-
-                    <div class="commercial-delivery">
-                        <div>
-                            <span id="commercialModelLabel">Modelo de implementación</span>
-                            <strong id="commercialModel">Solución ISM + adaptación por negocio</strong>
-                            <p id="commercialModelDetail">Partimos desde una base desarrollada y personalizamos alcance, identidad, procesos e integraciones.</p>
-                        </div>
-                        <a id="commercialAction" href="index.html#contacto">
-                            Solicitar implementación
-                            <i data-lucide="arrow-up-right"></i>
-                        </a>
-                    </div>
                 </section>
 
-                <section class="project-cta reveal" data-reveal="clip-up">
-                    <div>
-                        <span id="projectCtaEyebrow">¿Tienes una necesidad similar?</span>
-                        <h2 id="projectCtaTitle">Conversemos sobre tu próximo proyecto.</h2>
+                <section class="portfolio-action-panel reveal" data-reveal="clip-up"
+                    aria-labelledby="portfolioActionTitle">
+                    <div class="portfolio-action-copy">
+                        <span id="portfolioActionEyebrow">¿Quieres esta solución para tu empresa?</span>
+                        <h2 id="portfolioActionTitle">Elige cómo revisarla con ISM Developer.</h2>
+                        <p id="portfolioActionDescription">Puedes conversar directamente o usar una herramienta para definir mejor lo que necesitas.</p>
                     </div>
-                    <a id="projectCtaLink" href="index.html#contacto">Iniciar conversación <i data-lucide="arrow-up-right"></i></a>
+
+                    <div class="portfolio-action-options" aria-label="Opciones para evaluar el proyecto">
+                        <a class="portfolio-action-option is-whatsapp" id="portfolioActionWhatsapp"
+                            href="https://wa.me/56968374821" target="_blank" rel="noopener noreferrer">
+                            <i data-lucide="message-circle"></i>
+                            <span><strong>WhatsApp</strong><small>Conversar directo</small></span>
+                        </a>
+
+                        <a class="portfolio-action-option" id="portfolioActionConfigurator" href="configurador/">
+                            <i data-lucide="settings-2"></i>
+                            <span><strong>Configurador</strong><small>Definir alcance técnico</small></span>
+                        </a>
+
+                        <a class="portfolio-action-option" id="portfolioActionAssistant" href="guia-web/">
+                            <i data-lucide="sparkles"></i>
+                            <span><strong>Asistente</strong><small>Evaluación guiada</small></span>
+                        </a>
+
+                        <a class="portfolio-action-option" id="portfolioActionForm" href="index.html#contacto">
+                            <i data-lucide="file-text"></i>
+                            <span><strong>Formulario</strong><small>Enviar solicitud</small></span>
+                        </a>
+                    </div>
                 </section>
             </div>
         </main>

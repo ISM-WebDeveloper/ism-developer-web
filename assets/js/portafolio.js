@@ -1,7 +1,6 @@
 const projects = [
     {
         id: "ism-presencia-digital",
-        detailUrl: "soluciones/ism-presencia-digital/",
         category: "Soluciones ISM",
         name: "ISM Presencia Digital",
         short: "Sitios y canales digitales profesionales",
@@ -45,7 +44,6 @@ const projects = [
     },
     {
         id: "ism-stock-control",
-        detailUrl: "soluciones/ism-stock-control/",
         category: "Soluciones ISM",
         name: "ISM Stock Control",
         short: "Inventario, bodegas y trazabilidad",
@@ -81,7 +79,6 @@ const projects = [
     },
     {
         id: "ism-gestion-control",
-        detailUrl: "soluciones/ism-gestion-control/",
         category: "Soluciones ISM",
         name: "ISM Gestión Control",
         short: "Gestión operacional y control interno",
@@ -125,7 +122,6 @@ const projects = [
     },
     {
         id: "ism-boutique",
-        detailUrl: "soluciones/ism-boutique/",
         category: "Soluciones ISM",
         name: "ISM Boutique",
         short: "Gestión comercial para boutiques",
@@ -699,19 +695,17 @@ function renderCommercial(project) {
     const relation = caseProductRelations[project.id];
     const audienceTitle = document.getElementById("commercialAudienceTitle");
     const capabilitiesTitle = document.getElementById("commercialCapabilitiesTitle");
-    const casesGrid = document.getElementById("commercialCases");
-    const casesNote = document.getElementById("commercialCasesNote");
-    const casesCount = document.getElementById("commercialCasesCount");
-    const action = document.getElementById("commercialAction");
 
     section.classList.toggle("is-product-profile", Boolean(profile));
     section.classList.toggle("is-case-profile", Boolean(relation));
     section.classList.toggle("is-tool-profile", false);
 
     let view;
+    let solutionId = null;
 
     if (profile) {
         view = profile;
+        solutionId = project.id;
     } else if (relation) {
         view = {
             kicker: "Cliente ISM",
@@ -719,32 +713,19 @@ function renderCommercial(project) {
             badge: `Implementación de ${relation.productName}`,
             audienceTitle: "Qué se adaptó al cliente",
             audience: relation.adapted,
-            capabilitiesTitle: "Qué demuestra este caso",
-            capabilities: relation.proves,
-            casesKicker: "Producto relacionado",
-            casesTitle: "Este caso fortalece una solución ISM reutilizable",
-            cases: [{ name: relation.productName, meta: "Solución ISM · Ver ficha completa", status: "Ver solución", projectId: relation.productId }],
-            casesNote: "El cliente muestra una implementación real; la Solución ISM permanece disponible para adaptarse a nuevos contextos.",
-            model: "Solución ISM + adaptación para el cliente",
-            modelDetail: "El caso muestra cómo una base reutilizable se personaliza sin perder la identidad ni los objetivos particulares del negocio.",
-            action: `Quiero una solución similar`
+            capabilitiesTitle: "Qué demuestra esta implementación",
+            capabilities: relation.proves
         };
+        solutionId = relation.productId;
     } else {
         view = {
-            kicker: "Herramienta ISM",
+            kicker: "Portafolio ISM",
             title: "Una herramienta creada para ordenar una tarea concreta.",
             badge: "Herramienta complementaria",
             audienceTitle: "Cuándo puede ser útil",
             audience: project.analysis.slice(0, 4),
             capabilitiesTitle: "Qué resuelve",
-            capabilities: project.actionPlan.slice(0, 4),
-            casesKicker: "Ecosistema ISM",
-            casesTitle: "Puede integrarse con otras soluciones",
-            cases: [{ name: "Soluciones ISM Developer", meta: "Productos, sistemas y automatizaciones", status: "Complementaria" }],
-            casesNote: "Las herramientas ISM pueden utilizarse de forma independiente o incorporarse como parte de una solución de mayor alcance.",
-            model: "Herramienta + configuración según alcance",
-            modelDetail: "Se define el flujo, los usuarios y la información que necesita controlar antes de integrarla o implementarla.",
-            action: "Consultar esta herramienta"
+            capabilities: project.actionPlan.slice(0, 4)
         };
     }
 
@@ -755,48 +736,40 @@ function renderCommercial(project) {
     capabilitiesTitle.textContent = view.capabilitiesTitle;
     document.getElementById("commercialAudience").innerHTML = view.audience.map((item) => `<li>${item}</li>`).join("");
     document.getElementById("commercialCapabilities").innerHTML = view.capabilities.map((item) => `<li>${item}</li>`).join("");
-    document.getElementById("commercialCasesKicker").textContent = view.casesKicker;
-    document.getElementById("commercialCasesTitle").textContent = view.casesTitle;
-    casesCount.textContent = `${view.cases.length} ${view.cases.length === 1 ? "referencia" : "referencias"}`;
-    casesNote.textContent = view.casesNote;
-    document.getElementById("commercialModel").textContent = view.model;
-    document.getElementById("commercialModelDetail").textContent = view.modelDetail;
-    action.firstChild.textContent = `${view.action} `;
 
-    casesGrid.innerHTML = view.cases.map((item) => {
-        const content = `
-            <span class="commercial-case-status">${item.status}</span>
-            <strong>${item.name}</strong>
-            <small>${item.meta}</small>
-            ${item.projectId ? '<span class="commercial-case-arrow" aria-hidden="true">→</span>' : ''}`;
+    const actionEyebrow = document.getElementById("portfolioActionEyebrow");
+    const actionTitle = document.getElementById("portfolioActionTitle");
+    const actionDescription = document.getElementById("portfolioActionDescription");
+    const whatsapp = document.getElementById("portfolioActionWhatsapp");
+    const configurator = document.getElementById("portfolioActionConfigurator");
+    const assistant = document.getElementById("portfolioActionAssistant");
+    const form = document.getElementById("portfolioActionForm");
 
-        if (item.projectId) {
-            const relatedProject = projects.find((projectItem) => projectItem.id === item.projectId);
-            const relatedHref = relatedProject?.detailUrl || `portafolio.html?proyecto=${item.projectId}`;
-            return `<a class="commercial-case-card" href="${relatedHref}" aria-label="Ver ${item.name}">${content}</a>`;
-        }
-        return `<article class="commercial-case-card is-private">${content}</article>`;
-    }).join("");
-
-    const projectCtaEyebrow = document.getElementById("projectCtaEyebrow");
-    const projectCtaTitle = document.getElementById("projectCtaTitle");
-    const projectCtaLink = document.getElementById("projectCtaLink");
+    const referenceName = profile ? project.name : relation ? relation.productName : project.name;
 
     if (profile) {
-        projectCtaEyebrow.textContent = "¿Quieres implementar este producto?";
-        projectCtaTitle.textContent = `Adaptamos ${project.name} a tu operación.`;
-        projectCtaLink.firstChild.textContent = "Solicitar implementación ";
+        actionEyebrow.textContent = "¿Quieres esta solución para tu empresa?";
+        actionTitle.textContent = `Revisa ${project.name} según tu necesidad.`;
+        actionDescription.textContent = "Elige la forma más cómoda de evaluar alcance, resolver dudas o solicitar una propuesta.";
     } else if (relation) {
-        projectCtaEyebrow.textContent = "¿Necesitas una implementación similar?";
-        projectCtaTitle.textContent = `Podemos adaptar ${relation.productName} a tu negocio.`;
-        projectCtaLink.firstChild.textContent = "Conversar implementación ";
+        actionEyebrow.textContent = "¿Quieres una solución similar para tu empresa?";
+        actionTitle.textContent = `Podemos adaptar ${relation.productName} a tu contexto.`;
+        actionDescription.textContent = "Usa uno de estos canales para revisar tu necesidad sin recorrer más páginas.";
     } else {
-        projectCtaEyebrow.textContent = "¿Te serviría esta herramienta?";
-        projectCtaTitle.textContent = "Revisemos cómo integrarla en tu flujo de trabajo.";
-        projectCtaLink.firstChild.textContent = "Consultar herramienta ";
+        actionEyebrow.textContent = "¿Quieres evaluar esta herramienta?";
+        actionTitle.textContent = "Revisemos si encaja en tu operación.";
+        actionDescription.textContent = "Puedes conversar directo o definir primero el alcance con una herramienta ISM.";
     }
-}
 
+    const productQuery = solutionId ? `?producto=${encodeURIComponent(solutionId)}` : "";
+    configurator.href = `configurador/${productQuery}`;
+    assistant.href = "guia-web/";
+    form.href = solutionId
+        ? `index.html?producto=${encodeURIComponent(solutionId)}#contacto`
+        : "index.html#contacto";
+
+    whatsapp.href = `https://wa.me/56968374821?text=${encodeURIComponent(`Hola, quiero revisar ${referenceName} para mi empresa.`)}`;
+}
 function selectProject(id, options = {}) {
     const project = visiblePortfolioProjects.find((item) => item.id === id) || visiblePortfolioProjects[0];
     currentProject = project;
@@ -804,7 +777,7 @@ function selectProject(id, options = {}) {
 
     document.documentElement.style.setProperty("--accent", project.accent);
     document.documentElement.style.setProperty("--accent-rgb", project.accentRgb);
-    document.title = `${project.name} | Cliente ISM | ISM Developer`;
+    document.title = `${project.name} | Portafolio ISM | ISM Developer`;
     document.getElementById("projectType").textContent = project.type;
     document.getElementById("projectTitle").textContent = project.name;
     document.getElementById("projectSummary").textContent = project.summary;
@@ -812,19 +785,14 @@ function selectProject(id, options = {}) {
 
     const externalLink = document.getElementById("externalProjectLink");
     const externalLinkLabel = document.getElementById("externalProjectLinkLabel");
-    const primaryLink = project.detailUrl || project.url;
+    const primaryLink = project.url;
 
     externalLink.hidden = !primaryLink;
     if (primaryLink) {
         externalLink.href = primaryLink;
-        externalLinkLabel.textContent = project.detailUrl ? "Ver página de la solución" : "Visitar proyecto";
-        if (project.detailUrl) {
-            externalLink.removeAttribute("target");
-            externalLink.removeAttribute("rel");
-        } else {
-            externalLink.target = "_blank";
-            externalLink.rel = "noopener noreferrer";
-        }
+        externalLinkLabel.textContent = "Visitar proyecto";
+        externalLink.target = "_blank";
+        externalLink.rel = "noopener noreferrer";
     }
 
     projectNav.querySelectorAll("[data-project]").forEach((button) => {

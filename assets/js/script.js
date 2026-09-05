@@ -147,8 +147,6 @@ if (aboutPins.length && !aboutOrbit?.classList.contains("image-test")) {
     pin.addEventListener("blur", startAboutPinCycle);
   });
 }
-// PORTAFOLIO ISM · LANDING
-// Presenta casos reales, soluciones reutilizables y pilotos activos sin extender la landing.
 const portfolioSection = document.querySelector(".ism-portfolio-section");
 if (portfolioSection) {
   const portfolioPanel = document.getElementById("portfolioPanel");
@@ -450,8 +448,6 @@ if (portfolioSection) {
 
   renderCurrentPanel();
 }
-// ISM PROJECT VAULT
-// Filtra proyectos, actualiza el inspector y abre una vista expandida dentro de la sección.
 const vaultSection = document.querySelector(".project-vault-section");
 if (vaultSection) {
   const vaultTabs = vaultSection.querySelectorAll(".vault-tab");

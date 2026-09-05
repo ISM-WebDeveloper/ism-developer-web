@@ -22,10 +22,4 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-
-    <url><loc>https://www.ismdeveloper.cl/soluciones/</loc><lastmod>2026-09-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-    <url><loc>https://www.ismdeveloper.cl/soluciones/ism-presencia-digital/</loc><lastmod>2026-09-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-    <url><loc>https://www.ismdeveloper.cl/soluciones/ism-stock-control/</loc><lastmod>2026-09-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-    <url><loc>https://www.ismdeveloper.cl/soluciones/ism-gestion-control/</loc><lastmod>2026-09-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-    <url><loc>https://www.ismdeveloper.cl/soluciones/ism-boutique/</loc><lastmod>2026-09-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
