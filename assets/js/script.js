@@ -157,32 +157,76 @@ if (portfolioSection) {
   const portfolioData = {
     solutions: [
       {
+        id: "ism-presencia-digital",
         name: "ISM Presencia Digital",
+        label: "Solución ISM · Presencia digital",
         status: "Disponible",
-        description: "Presencia profesional, captación y canales digitales adaptables al negocio.",
-        features: ["Sitio web", "Responsive", "SEO inicial", "Integraciones"],
-        link: "soluciones/ism-presencia-digital/"
+        type: "Solución ISM",
+        description: "Presencia digital profesional para mostrar tu negocio, ordenar servicios y convertir visitas en contactos, reservas o nuevas oportunidades.",
+        useCase: "Necesitas mostrar tu identidad, servicios y canales de contacto en una experiencia profesional que pueda crecer con reservas, formularios, paneles o integraciones.",
+        stack: "Sitio web · Responsive · SEO inicial · Agenda · Integraciones",
+        icon: "monitor-smartphone",
+        link: "index.html?producto=ism-presencia-digital#contacto",
+        ctaLabel: "Cotizar esta solución",
+        images: [
+          { src: "assets/img/portfolio/proestakis-principal.webp", alt: "Ejemplo corporativo de ISM Presencia Digital", label: "Presencia corporativa" },
+          { src: "assets/img/portfolio/badia-nurse-shield-agenda.webp", alt: "Agenda conectada a una implementación de ISM Presencia Digital", label: "Agenda conectada" },
+          { src: "assets/img/portfolio/lecasse-servicios.webp", alt: "Servicios y propuesta comercial en una implementación de ISM Presencia Digital", label: "Servicios y captación" }
+        ]
       },
       {
+        id: "ism-stock-control",
         name: "ISM Stock Control",
-        status: "Activa",
-        description: "Inventario, bodegas, movimientos y trazabilidad para operaciones con stock físico.",
-        features: ["Stock", "Bodegas", "Roles", "Trazabilidad"],
-        link: "soluciones/ism-stock-control/"
+        label: "Solución ISM · Stock y bodegas",
+        status: "Disponible",
+        type: "Solución ISM",
+        description: "Sistema para controlar existencias, bodegas, movimientos, responsables y trazabilidad desde una operación centralizada y preparada para terreno.",
+        useCase: "Necesitas conocer qué tienes, dónde está, quién realizó cada movimiento y mantener un historial confiable para operar con menos registros manuales.",
+        stack: "Stock · Bodegas · Movimientos · Roles · Trazabilidad",
+        icon: "package-search",
+        link: "index.html?producto=ism-stock-control#contacto",
+        ctaLabel: "Cotizar esta solución",
+        images: [
+          { src: "assets/img/portfolio/control-bodega-admin.webp", alt: "Dashboard administrador de ISM Stock Control", label: "Dashboard de control" },
+          { src: "assets/img/portfolio/control-bodega-operativo.webp", alt: "Interfaz operativa móvil de control de bodega", label: "Operación móvil" },
+          { pending: true, alt: "", label: "Reportes y alertas" }
+        ]
       },
       {
+        id: "ism-gestion-control",
         name: "ISM Gestión Control",
-        status: "En evolución",
-        description: "Gestión operacional para centralizar procesos, recursos, responsables y reportes.",
-        features: ["Procesos", "Recursos", "Roles", "Reportes"],
-        link: "soluciones/ism-gestion-control/"
+        label: "Solución ISM · Gestión operacional",
+        status: "Disponible",
+        type: "Solución ISM",
+        description: "Gestión operacional para centralizar procesos, recursos, responsables, registros y reportes dentro de una misma solución modular.",
+        useCase: "Necesitas dejar atrás información dispersa y contar con una vista clara de procesos, responsables, recursos y trazabilidad para administrar mejor tu operación.",
+        stack: "Procesos · Recursos · Roles · Registros · Reportes",
+        icon: "layout-dashboard",
+        link: "index.html?producto=ism-gestion-control#contacto",
+        ctaLabel: "Cotizar esta solución",
+        images: [
+          { src: "assets/img/project-ism-gestion-control-dashboard.svg", alt: "Vista conceptual del dashboard de ISM Gestión Control", label: "Dashboard conceptual" },
+          { src: "assets/img/project-ism-gestion-control-inventario.svg", alt: "Vista conceptual de recursos e inventario de ISM Gestión Control", label: "Recursos e inventario" },
+          { src: "assets/img/project-ism-gestion-control-operaciones.svg", alt: "Vista conceptual de operaciones de ISM Gestión Control", label: "Operación y trazabilidad" }
+        ]
       },
       {
+        id: "ism-boutique",
         name: "ISM Boutique",
+        label: "Solución ISM · Comercio",
         status: "En desarrollo",
-        description: "Gestión comercial simple para boutiques y pequeños comercios.",
-        features: ["Productos", "Stock", "Ventas", "Clientes"],
-        link: "soluciones/ism-boutique/"
+        type: "Solución ISM",
+        description: "Sistema comercial pensado para boutiques y pequeños comercios que necesitan reunir productos, stock, ventas y clientes en una operación simple.",
+        useCase: "Necesitas ordenar productos y existencias, registrar ventas, conocer mejor a tus clientes y disponer de información comercial desde una interfaz simple y mobile first.",
+        stack: "Productos · Stock · Ventas · Clientes · Exportaciones",
+        icon: "shopping-bag",
+        link: "index.html?producto=ism-boutique#contacto",
+        ctaLabel: "Cotizar esta solución",
+        images: [
+          { pending: true, alt: "", label: "Dashboard comercial" },
+          { pending: true, alt: "", label: "Productos y stock" },
+          { pending: true, alt: "", label: "Ventas y clientes" }
+        ]
       }
     ],
     clients: [
@@ -193,8 +237,8 @@ if (portfolioSection) {
         label: "Cliente ISM · ISM Presencia Digital",
         status: "Publicado",
         type: "Cliente ISM",
-        description: "Presencia profesional conectada con agenda y gestión privada para facilitar reservas y reducir coordinación manual.",
-        useCase: "Implementación real de cómo ISM Presencia Digital puede evolucionar desde una web profesional hacia una solución con agenda y panel privado.",
+        description: "Javier, enfermero con más de 10 años de experiencia, nos pidió ayuda para gestionar un sistema de agenda con reservas que integrara su presencia digital y le permitiera automatizar la gestión de sus servicios.",
+        useCase: "Necesitas gestionar horas de reserva y mostrar en un solo lugar la información, servicios, disponibilidad, identidad y trazabilidad de tu negocio.",
         stack: "TypeScript · Tailwind CSS · Supabase · Vercel",
         icon: "calendar-check",
         link: "portafolio.html?proyecto=badiasalud",
@@ -277,15 +321,16 @@ if (portfolioSection) {
       <div class="ism-portfolio-copy">
         <div class="ism-portfolio-copy-top">
           <span class="ism-portfolio-copy-type">${item.type}</span>
-          <span class="ism-portfolio-copy-status">${item.status}</span>
         </div>
         <h3>${item.name}</h3>
         <p>${item.description}</p>
         <div class="ism-portfolio-use-case"><strong>Puede ayudarte si:</strong> ${item.useCase}</div>
         <div class="ism-portfolio-stack">${item.stack}</div>
-        <a class="ism-portfolio-detail-link" href="${item.link}" data-track-event="project_click"
-          data-track-category="portfolio" data-track-label="${item.name}">
-          Ver detalle <span aria-hidden="true">→</span>
+        <a class="ism-portfolio-detail-link" href="${item.link}"
+          data-track-event="${item.type === "Solución ISM" ? "solution_quote_click" : "project_click"}"
+          data-track-category="${item.type === "Solución ISM" ? "solutions" : "portfolio"}"
+          data-track-label="${item.name}">
+          ${item.ctaLabel || "Ver implementación"} <span aria-hidden="true">→</span>
         </a>
       </div>
     </div>
@@ -304,7 +349,6 @@ if (portfolioSection) {
                 <strong>${item.name}</strong>
                 <small>${item.label}</small>
               </span>
-              <span class="ism-portfolio-item-status">${item.status}</span>
             </button>
           `).join("")}
         </div>
@@ -312,28 +356,9 @@ if (portfolioSection) {
       </div>
     `;
   };
-  const renderSolutions = () => `
-    <div class="ism-portfolio-dev-grid">
-      ${portfolioData.solutions.map((solution) => `
-        <article class="ism-portfolio-dev-card">
-          <span class="ism-portfolio-dev-badge">${solution.status}</span>
-          <h3>${solution.name}</h3>
-          <p>${solution.description}</p>
-          <ul class="ism-portfolio-dev-list" aria-label="Capacidades de ${solution.name}">
-            ${solution.features.map((feature) => `<li>${feature}</li>`).join("")}
-          </ul>
-          <a class="ism-portfolio-detail-link" href="${solution.link}"
-            data-track-event="solution_click" data-track-category="solutions"
-            data-track-label="${solution.name}">
-            Ver solución <span aria-hidden="true">→</span>
-          </a>
-        </article>
-      `).join("")}
-    </div>
-  `;
   const state = {
     tab: "clients",
-    selected: { clients: 0 }
+    selected: { clients: 0, solutions: 0 }
   };
   const syncLucide = () => {
     if (window.lucide?.createIcons) {
@@ -377,18 +402,17 @@ if (portfolioSection) {
     }, 120);
   };
   const bindPanelInteractions = () => {
-    if (!portfolioPanel || state.tab !== "clients") return;
-    const items = portfolioData.clients;
+    if (!portfolioPanel) return;
+    const items = portfolioData[state.tab];
     portfolioPanel.querySelectorAll("[data-portfolio-item-index]").forEach((button) => {
       button.addEventListener("click", () => {
-        const index = Number(button.dataset.portfolioItemIndex);
-        state.selected.clients = index;
+        state.selected[state.tab] = Number(button.dataset.portfolioItemIndex);
         renderCurrentPanel();
       });
     });
     portfolioPanel.querySelectorAll("[data-portfolio-image-index]").forEach((button) => {
       button.addEventListener("click", () => {
-        const item = items[state.selected.clients];
+        const item = items[state.selected[state.tab]];
         updateGalleryImage(item, Number(button.dataset.portfolioImageIndex));
       });
     });
@@ -405,18 +429,13 @@ if (portfolioSection) {
       tab.setAttribute("aria-selected", String(active));
     });
 
-    if (state.tab === "solutions") {
-      portfolioPanel.innerHTML = renderSolutions();
-      portfolioPanel.setAttribute("aria-label", "Soluciones ISM");
-      if (portfolioStatus) portfolioStatus.textContent = "Mostrando 4 Soluciones ISM disponibles.";
-    } else {
-      portfolioPanel.innerHTML = renderWorkbench(portfolioData.clients, state.selected.clients, "Clientes ISM");
-      portfolioPanel.setAttribute("aria-label", "Clientes ISM");
-      if (portfolioStatus) {
-        const current = portfolioData.clients[state.selected.clients];
-        portfolioStatus.textContent = `Mostrando ${current.name}.`;
-      }
-    }
+    const items = portfolioData[state.tab];
+    const selectedIndex = state.selected[state.tab];
+    const selectorLabel = state.tab === "solutions" ? "Soluciones ISM" : "Clientes ISM";
+    const current = items[selectedIndex];
+    portfolioPanel.innerHTML = renderWorkbench(items, selectedIndex, selectorLabel);
+    portfolioPanel.setAttribute("aria-label", selectorLabel);
+    if (portfolioStatus) portfolioStatus.textContent = `Mostrando ${current.name}.`;
 
     bindPanelInteractions();
     syncLucide();

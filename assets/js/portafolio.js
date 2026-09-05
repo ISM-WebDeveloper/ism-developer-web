@@ -164,7 +164,7 @@ const projects = [
         accent: "#16bdf2",
         accentRgb: "22, 189, 242",
         url: "https://www.badiasalud.cl",
-        summary: "Una presencia profesional conectada con agenda y gestión privada para reducir coordinación manual, ordenar la disponibilidad y facilitar nuevas solicitudes de atención.",
+        summary: "Javier, enfermero con más de 10 años de experiencia, nos pidió ayuda para gestionar un sistema de agenda con reservas que integrara su presencia digital y le permitiera automatizar la gestión de sus servicios.",
         metrics: [["Estado", "Publicado"], ["Sector", "Salud"], ["Canal", "Sitio + agenda"], ["Gestión", "Panel privado"]],
         stack: "Sitio web · Agenda · Procedimientos · Supabase",
         journey: [
