@@ -645,3 +645,48 @@ html{scroll-padding-top:var(--section-anchor-offset)}.header[id],main > section[
     animation: none !important;
   }
 }
+
+/* =========================================================
+   ISM WEB 3.0 · FASE 2L
+   FIX ESPECÍFICO MOBILE · NAVEGACIÓN SOLUCIONES ISM
+   Solo corrige el scroller móvil del selector de soluciones.
+   ========================================================= */
+@media (max-width: 760px) {
+  .ism-portfolio-workbench.is-tools .ism-portfolio-selector {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding: 0 2px 8px !important;
+    scroll-snap-type: x proximity;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none !important;
+  }
+
+  .ism-portfolio-workbench.is-tools .ism-portfolio-selector::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  .ism-portfolio-workbench.is-tools .ism-portfolio-selector-label {
+    display: none !important;
+  }
+
+  .ism-portfolio-workbench.is-tools .ism-portfolio-item-button {
+    width: min(74vw, 230px) !important;
+    min-width: min(74vw, 230px) !important;
+    max-width: min(74vw, 230px) !important;
+    flex: 0 0 min(74vw, 230px) !important;
+    margin: 0 !important;
+    scroll-snap-align: start;
+  }
+}
