@@ -19,14 +19,14 @@
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
     <script src="assets/js/reveal-compat.js?v=2.2.0" defer></script>
     <link rel="stylesheet" href="assets/css/site-shell.css?v=1.5.0">
-    <link rel="stylesheet" href="assets/css/portafolio.css?v=2.3.6">
+    <link rel="stylesheet" href="assets/css/portafolio.css?v=3.0.0">
     <link rel="stylesheet" href="assets/css/premium-motion.css?v=2.2.0">
     <link rel="stylesheet" href="assets/css/accessibility.css?v=2.1.1">
     <link rel="stylesheet" href="assets/css/privacy-consent.css?v=2.0.24">
     <script src="assets/vendor/lucide.min.js" defer></script>
     <script src="assets/js/privacy-consent.js?v=2.0.24" defer></script>
     <script src="assets/js/analytics.js?v=2.0.24" defer></script>
-    <script src="assets/js/portafolio.js?v=2.0.35" defer></script>
+    <script src="assets/js/portafolio.js?v=3.0.0" defer></script>
     <script src="assets/js/portfolio-accessibility.js?v=2.0.24" defer></script>
     <script src="assets/js/accessibility.js?v=2.0.24" defer></script>
     <title>Portafolio ISM | Soluciones y Clientes | ISM Developer</title>
@@ -36,13 +36,13 @@
     <a class="skip-link" href="#portfolioMain">Saltar al contenido principal</a>
     <p class="sr-only" id="portfolioProjectStatus" role="status" aria-live="polite"></p>
     <div class="dashboard-shell">
-        <aside class="project-sidebar" id="projectSidebar" aria-label="Proyectos del portafolio">
+        <aside class="project-sidebar" id="projectSidebar" aria-label="Soluciones y clientes del portafolio">
             <div class="sidebar-head reveal" data-reveal="fade-up">
                 <a href="index.html" class="sidebar-brand" aria-label="Volver a ISM Developer">
                     <img class="sidebar-brand-full" src="assets/img/ismlogo2.0-horizontal-640-opt.webp" alt="ISM Developer" width="640" height="255">
                     <img class="sidebar-brand-mark" src="assets/img/ismlogo2.0-horizontal-640-opt.webp" alt="" width="640" height="255" aria-hidden="true">
                 </a>
-                <button class="sidebar-close" id="sidebarClose" type="button" aria-label="Cerrar lista de proyectos">
+                <button class="sidebar-close" id="sidebarClose" type="button" aria-label="Cerrar lista del portafolio">
                     <i data-lucide="x"></i>
                 </button>
             </div>
@@ -52,13 +52,13 @@
                 <p class="reveal" data-reveal="fade-right">Explora las Soluciones ISM disponibles y sus implementaciones en Clientes ISM.</p>
             </div>
 
-            <nav class="project-nav reveal" id="projectNav" data-reveal="clip-up" aria-label="Listado de proyectos"></nav>
+            <nav class="project-nav reveal" id="projectNav" data-reveal="clip-up" aria-label="Listado de soluciones y clientes"></nav>
 
             <div class="sidebar-footer reveal" data-reveal="fade-up">
                 <span class="live-dot" aria-hidden="true"></span>
                 <div>
                     <strong>Portafolio ISM</strong>
-                    <small id="portfolioProjectCount">4 soluciones · 3 clientes</small>
+                    <small id="portfolioProjectCount">8 soluciones · 3 clientes</small>
                 </div>
                 <button class="sidebar-collapse" id="sidebarCollapse" type="button" aria-label="Ocultar sidebar">
                     <i data-lucide="panel-left-close"></i>
@@ -69,7 +69,7 @@
         <main class="dashboard-main" id="portfolioMain" tabindex="-1">
             <header class="dashboard-topbar reveal" data-reveal="fade-up">
                 <div class="topbar-left">
-                    <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Abrir lista de proyectos" aria-controls="projectSidebar" aria-expanded="false">
+                    <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Abrir lista del portafolio" aria-controls="projectSidebar" aria-expanded="false">
                         <i data-lucide="panel-left"></i>
                     </button>
                     <a href="index.html#proyectos" class="back-link">
@@ -174,6 +174,51 @@
                         </article>
                     </div>
 
+                    <div class="solution-traits" aria-label="Atributos clave de las soluciones ISM">
+                        <article class="solution-trait">
+                            <span class="solution-trait-icon"><i data-lucide="smartphone"></i></span>
+                            <strong>Mobile</strong>
+                            <p>Preparadas para funcionar con claridad desde celular, tablet o computador.</p>
+                        </article>
+                        <article class="solution-trait">
+                            <span class="solution-trait-icon"><i data-lucide="waypoints"></i></span>
+                            <strong>Versátiles</strong>
+                            <p>La base se adapta a distintos rubros, procesos y niveles de madurez.</p>
+                        </article>
+                        <article class="solution-trait">
+                            <span class="solution-trait-icon"><i data-lucide="sparkles"></i></span>
+                            <strong>Intuitivas</strong>
+                            <p>Interfaz clara para que el usuario entienda rápido qué hacer y cómo avanzar.</p>
+                        </article>
+                        <article class="solution-trait">
+                            <span class="solution-trait-icon"><i data-lucide="zap"></i></span>
+                            <strong>Rápidas</strong>
+                            <p>Diseñadas para reducir fricción y acelerar la gestión, el contacto o la operación.</p>
+                        </article>
+                    </div>
+
+                    <div class="commercial-pricing" id="commercialPricing" hidden aria-label="Inversión referencial de la solución">
+                        <div class="commercial-pricing-banner">
+                            <strong>El servicio mensual es opcional.</strong>
+                            <span>Puedes contratar solo la implementación inicial y sumar continuidad, soporte o mantenimiento cuando realmente lo necesites.</span>
+                        </div>
+                        <div class="commercial-price-item">
+                            <span>Implementación inicial</span>
+                            <strong id="commercialPriceImplementation">Desde $0</strong>
+                        </div>
+                        <div class="commercial-price-item is-optional-monthly">
+                            <span>Servicio mensual opcional</span>
+                            <strong id="commercialPriceMonthly">Desde $0 / mes</strong>
+                        </div>
+                        <div class="commercial-price-item">
+                            <span>Versión de entrada</span>
+                            <strong id="commercialPriceLevel">Inicial</strong>
+                        </div>
+                        <p class="commercial-price-note">
+                            Valores referenciales según alcance. Módulos, integraciones, servicios externos y personalizaciones se cotizan por separado.
+                        </p>
+                    </div>
+
                 </section>
 
                 <section class="portfolio-action-panel reveal" data-reveal="clip-up"
@@ -211,7 +256,7 @@
         </main>
     </div>
 
-<footer class="ism-site-footer" aria-label="Pie de página de ISM Developer"><div class="ism-site-footer-grid"><div class="ism-site-footer-brand"><img src="assets/img/ismlogo2.0-horizontal-640-opt.webp" alt="ISM Developer" width="560" height="223" loading="lazy" decoding="async"><p>ISM Developer transforma necesidades reales en soluciones digitales claras, adaptables y preparadas para evolucionar junto a cada negocio.</p></div><div class="ism-site-footer-column"><strong class="ism-site-footer-column-title">Portafolio ISM</strong><a href="portafolio.html">Soluciones y Clientes ISM</a><a href="configurador/">Configurador de Servicios</a><a href="guia-web/">Guía Web ISM</a></div><div class="ism-site-footer-column"><strong class="ism-site-footer-column-title">Navegación</strong><a href="index.html#servicios">Servicios</a><a href="portafolio.html">Portafolio ISM</a><a href="index.html#proceso">Proceso</a><a href="index.html#sobre-mi">Sobre ISM</a><a href="index.html#contacto">Contacto</a></div><div class="ism-site-footer-column"><strong class="ism-site-footer-column-title">Contacto</strong><a href="https://wa.me/56968374821" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="mailto:ignacio.sepulveda@ismdeveloper.cl">ignacio.sepulveda@ismdeveloper.cl</a><a href="https://www.ismdeveloper.cl/">www.ismdeveloper.cl</a><a href="https://www.instagram.com/imcodedeveloper/" target="_blank" rel="noopener noreferrer">Instagram</a></div></div><div class="ism-site-footer-bottom"><p>© 2026 ISM Developer. Todos los derechos reservados.</p><div><span>De ideas a soluciones.</span><a href="privacidad.html">Política de privacidad</a></div></div></footer>
+<footer class="ism-site-footer" aria-label="Pie de página de ISM Developer"><div class="ism-site-footer-grid"><div class="ism-site-footer-brand"><img src="assets/img/ismlogo2.0-horizontal-640-opt.webp" alt="ISM Developer" width="560" height="223" loading="lazy" decoding="async"><p>ISM Developer transforma necesidades reales en soluciones digitales claras, adaptables y preparadas para evolucionar junto a cada negocio.</p></div><div class="ism-site-footer-column"><strong class="ism-site-footer-column-title">Portafolio ISM</strong><a href="portafolio.html">Soluciones y Clientes ISM</a><a href="configurador/">ISM Configurador</a><a href="guia-web/">ISM Asistente</a></div><div class="ism-site-footer-column"><strong class="ism-site-footer-column-title">Navegación</strong><a href="index.html#servicios">Servicios</a><a href="portafolio.html">Portafolio ISM</a><a href="index.html#proceso">Proceso</a><a href="index.html#sobre-mi">Sobre ISM</a><a href="index.html#contacto">Contacto</a></div><div class="ism-site-footer-column"><strong class="ism-site-footer-column-title">Contacto</strong><a href="https://wa.me/56968374821" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="mailto:ignacio.sepulveda@ismdeveloper.cl">ignacio.sepulveda@ismdeveloper.cl</a><a href="https://www.ismdeveloper.cl/">www.ismdeveloper.cl</a><a href="https://www.instagram.com/imcodedeveloper/" target="_blank" rel="noopener noreferrer">Instagram</a></div></div><div class="ism-site-footer-bottom"><p>© 2026 ISM Developer. Todos los derechos reservados.</p><div><span>De ideas a soluciones.</span><a href="privacidad.html">Política de privacidad</a></div></div></footer>
 
     <div class="portfolio-privacy-links" aria-label="Privacidad y preferencias">
         <a href="privacidad.html">Privacidad</a>

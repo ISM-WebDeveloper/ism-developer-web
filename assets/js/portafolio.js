@@ -1,156 +1,306 @@
 const projects = [
-    {
+{
         id: "ism-presencia-digital",
         category: "Soluciones ISM",
         name: "ISM Presencia Digital",
-        short: "Sitios y canales digitales profesionales",
+        short: "Presencia profesional y captación",
         type: "Solución ISM / Presencia digital",
         status: "Disponible",
         accent: "#16bdf2",
         accentRgb: "22, 189, 242",
         url: null,
-        summary: "Producto de ISM Developer para construir una presencia digital profesional, clara y escalable. La misma base se adapta al rubro, identidad y objetivos de cada cliente, incorporando sitio web, contacto, captación y funciones según necesidad.",
-        metrics: [["Estado", "Disponible"], ["Tipo", "Solución ISM"], ["Enfoque", "Captación"], ["Casos", "3 publicados"]],
-        stack: "Sitio web · Responsive · SEO inicial · Integraciones",
+        summary: "Solución de entrada para empresas, profesionales y emprendimientos que necesitan una presencia web propia, clara y preparada para captar contactos y evolucionar junto al negocio.",
+        metrics: [["Estado", "Disponible"], ["Tipo", "Solución ISM"], ["Enfoque", "Captación"], ["Nivel", "Inicial"]],
+        stack: "Sitio web · Responsive · SEO inicial · Contacto",
         journey: [
             {
-                title: "Una solución adaptable a distintos rubros",
-                description: "ISM Presencia Digital se implementa sobre una base profesional que se personaliza según marca, servicios, público y objetivos comerciales de cada negocio.",
-                focus: "Producto",
-                result: "Base reutilizable",
+                title: "Una presencia profesional adaptada a cada rubro",
+                description: "La base de ISM Presencia Digital se personaliza según marca, servicios, público y objetivos comerciales para entregar un canal propio y coherente.",
+                focus: "Presencia",
+                result: "Credibilidad",
                 image: "assets/img/portfolio/proestakis-web-principal.webp",
                 alt: "Ejemplo de implementación corporativa de ISM Presencia Digital"
             },
             {
-                title: "Puede incorporar funciones además del sitio",
-                description: "Cuando el negocio lo necesita, la presencia digital puede conectarse con agendas, formularios, paneles privados u otros módulos sin reconstruir toda la solución desde cero.",
+                title: "Captación conectada con los canales del negocio",
+                description: "WhatsApp, formularios, ubicación, redes sociales y llamados a la acción se integran en una experiencia orientada a facilitar el contacto.",
+                focus: "Captación",
+                result: "Contacto",
+                image: "assets/img/portfolio/lecasse-principal.webp",
+                alt: "Ejemplo tecnológico de implementación de ISM Presencia Digital"
+            },
+            {
+                title: "Una base preparada para seguir creciendo",
+                description: "La presencia puede conectarse después con reservas, catálogos, asistentes, configuradores u otras soluciones sin reconstruir todo desde cero.",
                 focus: "Evolución",
                 result: "Escalabilidad",
                 image: "assets/img/portfolio/badia-nurse-shield-agenda.webp",
-                alt: "Ejemplo de agenda conectada a una implementación de ISM Presencia Digital"
-            },
-            {
-                title: "Casos reales que validan el producto",
-                description: "Badia Nurse Shield, Constructora Proestakis y Lecasse IT Services muestran cómo la misma línea de producto puede adaptarse a salud, construcción y servicios tecnológicos.",
-                focus: "Clientes ISM",
-                result: "Validación",
-                image: "assets/img/portfolio/lecasse-principal.webp",
-                alt: "Ejemplo tecnológico de implementación de ISM Presencia Digital"
+                alt: "Ejemplo de evolución con agenda conectada a una presencia digital"
             }
         ],
-        analysis: ["Negocios sin una presencia digital profesional", "Sitios que no explican bien los servicios", "Dependencia exclusiva de redes sociales o mensajería", "Necesidad de una base preparada para crecer"],
-        actionPlan: ["Diseño responsive alineado con la marca", "Arquitectura de contenido y llamadas a la acción", "Contacto y canales comerciales", "SEO técnico inicial", "Integraciones según el alcance"],
-        scalability: ["Agenda y reservas", "Catálogo o portafolio", "Paneles privados", "Automatizaciones e integraciones", "Nuevos módulos comerciales"]
+        analysis: ["Negocios sin una presencia digital profesional", "Dependencia exclusiva de redes sociales o mensajería", "Servicios difíciles de presentar con claridad", "Necesidad de una base propia preparada para crecer"],
+        actionPlan: ["Sitio web responsive alineado con la marca", "Servicios, contacto, WhatsApp y redes sociales", "Mapa o ubicación y formulario básico", "SEO técnico inicial y publicación"],
+        scalability: ["ISM Reservas", "ISM Boutique", "ISM Asistente", "ISM Configurador", "Integraciones y nuevas funciones"]
     },
-    {
-        id: "ism-stock-control",
-        category: "Soluciones ISM",
-        name: "ISM Stock Control",
-        short: "Inventario, bodegas y trazabilidad",
-        type: "Solución ISM / Inventario y logística",
-        status: "Producto activo",
-        accent: "#22d3ee",
-        accentRgb: "34, 211, 238",
-        url: null,
-        summary: "Sistema de ISM Developer para controlar stock, bodegas, recepciones, entregas, herramientas y movimientos con trazabilidad por usuario y operación. Está pensado para adaptarse a empresas con inventario físico y trabajo en terreno.",
-        metrics: [["Estado", "Producto activo"], ["Foco", "Stock"], ["Operación", "Multi-bodega"], ["Acceso", "Roles"]],
-        stack: "Bodegas · Stock · Movimientos · Roles · Trazabilidad",
-        journey: [
-            {
-                title: "Visión central de inventario y operación",
-                description: "El panel permite revisar existencias, movimientos y estado general desde una vista administrativa preparada para distintos roles y bodegas.",
-                focus: "Administración",
-                result: "Control central",
-                image: "assets/img/portfolio/control-bodega-admin.webp",
-                alt: "Panel administrador de ISM Stock Control"
-            },
-            {
-                title: "Registro operativo desde terreno",
-                description: "Recepciones, entregas, búsquedas y movimientos se registran desde una interfaz móvil para mantener la trazabilidad en el mismo punto donde ocurre la operación.",
-                focus: "Operación móvil",
-                result: "Trazabilidad",
-                image: "assets/img/portfolio/control-bodega-operativo.webp",
-                alt: "Interfaz operativa móvil de ISM Stock Control"
-            }
-        ],
-        analysis: ["Inventario distribuido entre planillas y registros manuales", "Diferencias entre stock físico y registros", "Falta de trazabilidad por responsable", "Necesidad de operar desde dispositivos móviles"],
-        actionPlan: ["Stock general y por bodega", "Recepción, entrega y movimientos", "Perfiles por rol", "Historial y bitácora", "Importación y exportación de información"],
-        scalability: ["Nuevas bodegas y proyectos", "Alertas de stock y mantenimiento", "Flujos de aprobación", "Firma y evidencias", "Integración con compras y abastecimiento"]
-    },
-    {
-        id: "ism-gestion-control",
-        category: "Soluciones ISM",
-        name: "ISM Gestión Control",
-        short: "Gestión operacional y control interno",
-        type: "Solución ISM / Gestión operacional",
-        status: "En evolución",
-        accent: "#34d399",
-        accentRgb: "52, 211, 153",
-        url: null,
-        summary: "Plataforma de gestión operacional para centralizar recursos, responsables, movimientos y procesos internos. Su objetivo es reemplazar registros aislados por una operación trazable, ordenada y adaptable a distintas áreas de una organización.",
-        metrics: [["Estado", "En evolución"], ["Tipo", "Solución ISM"], ["Foco", "Operaciones"], ["Modelo", "Modular"]],
-        stack: "Procesos · Recursos · Roles · Registros · Reportes",
-        journey: [
-            {
-                title: "Resumen operacional en un solo lugar",
-                description: "Los indicadores principales y estados de operación se concentran en una vista para reducir la dispersión de información y facilitar el seguimiento diario.",
-                focus: "Dashboard",
-                result: "Visibilidad",
-                image: "assets/img/project-ism-gestion-control-dashboard.svg",
-                alt: "Vista conceptual del dashboard de ISM Gestión Control"
-            },
-            {
-                title: "Recursos e inventario conectados con la gestión",
-                description: "La solución permite relacionar existencias, responsables y movimientos dentro de un mismo flujo de control, sin limitarse a un único rubro.",
-                focus: "Recursos",
-                result: "Orden",
-                image: "assets/img/project-ism-gestion-control-inventario.svg",
-                alt: "Vista conceptual de recursos e inventario en ISM Gestión Control"
-            },
-            {
-                title: "Procesos trazables y preparados para evolucionar",
-                description: "La arquitectura modular permite incorporar nuevas unidades, permisos, flujos y reportes conforme crece la operación.",
-                focus: "Operaciones",
-                result: "Escalabilidad",
-                image: "assets/img/project-ism-gestion-control-operaciones.svg",
-                alt: "Vista conceptual de operaciones en ISM Gestión Control"
-            }
-        ],
-        analysis: ["Información operacional distribuida", "Procesos manuales difíciles de auditar", "Falta de visibilidad sobre responsables y movimientos", "Necesidad de una herramienta adaptable a distintas áreas"],
-        actionPlan: ["Modelo de usuarios y roles", "Registro central de operaciones", "Control de recursos y responsables", "Bitácora e historial", "Paneles y reportes según el proceso"],
-        scalability: ["Nuevas áreas o unidades", "Flujos de aprobación", "Alertas y automatizaciones", "Integración con otros sistemas", "Indicadores y reportería avanzada"]
-    },
-    {
+{
         id: "ism-boutique",
         category: "Soluciones ISM",
         name: "ISM Boutique",
-        short: "Gestión comercial para boutiques",
-        type: "Solución ISM / Comercio minorista",
+        short: "Catálogo digital de productos",
+        type: "Solución ISM / Catálogo digital",
         status: "En desarrollo",
         accent: "#f9a8d4",
         accentRgb: "249, 168, 212",
         url: null,
-        summary: "Producto orientado a boutiques y pequeños comercios para centralizar productos, stock, ventas, clientes y seguimiento comercial desde una interfaz simple y adaptable al trabajo diario.",
-        metrics: [["Estado", "En desarrollo"], ["Sector", "Retail"], ["Foco", "Ventas + stock"], ["Diseño", "Mobile first"]],
-        stack: "Productos · Stock · Ventas · Clientes · Exportaciones",
+        summary: "Catálogo web orientado a boutiques, accesorios, ropa, ferias y pequeños comercios que necesitan mostrar productos con identidad propia y generar contactos directos sin implementar todavía un e-commerce completo.",
+        metrics: [["Estado", "En desarrollo"], ["Sector", "Comercio"], ["Foco", "Catálogo"], ["Canal", "WhatsApp"]],
+        stack: "Catálogo · Categorías · Productos · WhatsApp · Administración",
         journey: [
             {
-                title: "Producto en etapa de desarrollo",
-                description: "La primera versión se está construyendo con foco en operación simple, control de productos, ventas y clientes para negocios de bajo y mediano flujo.",
-                focus: "Producto",
-                result: "Validación",
+                title: "Una vitrina digital con identidad propia",
+                description: "La solución organiza productos y categorías dentro de una presencia visual preparada para que el cliente pueda explorar la oferta desde celular o computador.",
+                focus: "Catálogo",
+                result: "Presentación",
                 statusVisual: {
                     stage: "Producto en desarrollo",
                     label: "ISM Boutique",
-                    detail: "Stock · ventas · clientes · mobile first"
+                    detail: "Catálogo · categorías · productos · contacto directo"
                 }
+            },
+            {
+                title: "Contacto directo sin complejidad de e-commerce",
+                description: "La versión Inicial prioriza fichas de producto, imágenes, precios y contacto por WhatsApp, sin pago online ni checkout obligatorio.",
+                focus: "Conversión",
+                result: "Contacto directo",
+                image: "assets/img/portfolio/dimensionador-servicios-general.webp",
+                alt: "Referencia visual de interfaz digital adaptable a ISM Boutique"
             }
         ],
-        analysis: ["Stock administrado manualmente", "Ventas sin historial central", "Dificultad para identificar clientes frecuentes", "Necesidad de operar fácilmente desde celular"],
-        actionPlan: ["Catálogo y categorías", "Control de stock", "Registro de ventas", "Clientes y fidelización", "Exportación de información"],
-        scalability: ["Catálogo público", "Alertas y promociones", "Reportes comerciales", "Integración con presencia digital", "Automatizaciones de seguimiento"]
+        analysis: ["Productos mostrados solo en redes sociales", "Catálogos difíciles de ordenar o actualizar", "Clientes que necesitan consultar por WhatsApp", "Negocios que todavía no requieren un e-commerce completo"],
+        actionPlan: ["Sitio de marca con catálogo y categorías", "Fichas de producto, imágenes y precios", "Contacto directo por WhatsApp", "Administración básica y carga inicial limitada", "Sin checkout ni pago online en la versión Inicial"],
+        scalability: ["Más categorías y colecciones", "Integración con ISM Stock", "Promociones y productos destacados", "Pagos y checkout como evolución", "Analítica y automatizaciones comerciales"]
     },
-    {
+{
+        id: "ism-reservas",
+        category: "Soluciones ISM",
+        name: "ISM Reservas",
+        short: "Agenda, disponibilidad y reservas",
+        type: "Solución ISM / Agendamiento",
+        status: "Disponible",
+        accent: "#0ea5e9",
+        accentRgb: "14, 165, 233",
+        url: null,
+        summary: "Solución para profesionales y negocios que necesitan publicar disponibilidad, recibir reservas online y administrar horarios sin depender de coordinación manual por mensajes o llamadas.",
+        metrics: [["Estado", "Disponible"], ["Foco", "Reservas"], ["Unidad", "Cupos"], ["Gestión", "Agenda"]],
+        stack: "Servicios · Agenda · Disponibilidad · Horarios · Reservas",
+        journey: [
+            {
+                title: "Disponibilidad real antes de reservar",
+                description: "La agenda presenta horarios y cupos disponibles para evitar cruces y facilitar que cada cliente encuentre una opción válida.",
+                focus: "Disponibilidad",
+                result: "Autonomía",
+                image: "assets/img/portfolio/agenda-disponibilidad-dia-activo.webp",
+                alt: "Agenda de ISM Reservas con un día activo y cupos disponibles"
+            },
+            {
+                title: "Reglas que evitan reservas inexistentes",
+                description: "Días cerrados, bloqueos y horarios configurados se respetan antes de ofrecer una hora, manteniendo consistencia entre lo publicado y la operación.",
+                focus: "Agenda",
+                result: "Orden",
+                image: "assets/img/portfolio/agenda-disponibilidad-dia-cerrado.webp",
+                alt: "Agenda de ISM Reservas con un día cerrado"
+            }
+        ],
+        analysis: ["Coordinación manual de horas por WhatsApp o teléfono", "Cruces y reservas duplicadas", "Disponibilidad que cambia durante el mes", "Necesidad de recibir reservas fuera del horario de atención"],
+        actionPlan: ["Servicios y horarios disponibles", "Reserva online con datos del cliente", "Panel administrativo de agenda", "Bloqueo y activación de horarios", "Gestión básica de reservas"],
+        scalability: ["Múltiples profesionales", "Recordatorios automáticos", "Lista de espera", "Pagos y confirmaciones", "Integración con calendarios externos"]
+    },
+{
+        id: "ism-project",
+        category: "Soluciones ISM",
+        name: "ISM Project",
+        short: "Horas, clientes y proyectos",
+        type: "Solución ISM / Gestión de proyectos",
+        status: "Disponible",
+        accent: "#2563eb",
+        accentRgb: "37, 99, 235",
+        url: null,
+        summary: "Solución para registrar, consultar y reportar el trabajo realizado por clientes, proyectos, actividades y responsables, manteniendo trazabilidad de horas y ejecución.",
+        metrics: [["Estado", "Disponible"], ["Foco", "Proyectos"], ["Unidad", "Horas"], ["Acceso", "Roles"]],
+        stack: "Clientes · Proyectos · Actividades · Horas · Reportes",
+        journey: [
+            {
+                title: "Acceso privado y responsabilidades definidas",
+                description: "Los perfiles autorizados acceden a una operación separada por roles para mantener control sobre actividades, clientes y registros.",
+                focus: "Acceso",
+                result: "Control",
+                image: "assets/img/portfolio/control-horas-login.webp",
+                alt: "Pantalla de acceso privado de ISM Project"
+            },
+            {
+                title: "Seguimiento de trabajo conectado con el cliente",
+                description: "Horas, actividades, proyectos y oportunidades pueden consultarse desde una misma solución para respaldar gestión, reportes y valorización.",
+                focus: "Gestión",
+                result: "Trazabilidad",
+                image: "assets/img/portfolio/control-horas-b2b.webp",
+                alt: "Panel de seguimiento de ISM Project"
+            }
+        ],
+        analysis: ["Horas registradas en planillas o fuentes separadas", "Dificultad para consultar actividad por cliente o proyecto", "Necesidad de respaldar gestión y cobro", "Reportes operativos armados manualmente"],
+        actionPlan: ["Empresa, usuarios, clientes y proyectos", "Actividades y registro de horas", "Consulta histórica, filtros y reportes", "Exportación y panel administrativo", "Roles básicos en la versión Inicial"],
+        scalability: ["Valorización y facturación", "Indicadores por cliente y proyecto", "Flujos de aprobación", "Integración con otros sistemas", "Automatizaciones y notificaciones"]
+    },
+{
+        id: "ism-control",
+        category: "Soluciones ISM",
+        name: "ISM Control",
+        short: "Administración modular de operaciones",
+        type: "Solución ISM / Gestión modular",
+        status: "En evolución",
+        accent: "#34d399",
+        accentRgb: "52, 211, 153",
+        url: null,
+        summary: "Plataforma administrativa modular que concentra un CORE común y permite incorporar procesos, responsables, recursos y módulos operativos según las necesidades de cada empresa.",
+        metrics: [["Estado", "En evolución"], ["Tipo", "Plataforma"], ["Foco", "Operación"], ["Modelo", "Modular"]],
+        stack: "CORE · Usuarios · Roles · Clientes · Proyectos · Módulos",
+        journey: [
+            {
+                title: "Una base administrativa común",
+                description: "Empresa, usuarios, roles, clientes y proyectos se concentran en un núcleo compartido para evitar información aislada entre procesos.",
+                focus: "CORE",
+                result: "Orden",
+                image: "assets/img/project-ism-gestion-control-dashboard.svg",
+                alt: "Vista conceptual del dashboard de ISM Control"
+            },
+            {
+                title: "Módulos conectados a la misma operación",
+                description: "La plataforma puede incorporar subsistemas específicos sin duplicar la administración principal ni perder trazabilidad entre responsables.",
+                focus: "Módulos",
+                result: "Integración",
+                image: "assets/img/project-ism-gestion-control-inventario.svg",
+                alt: "Vista conceptual de módulos en ISM Control"
+            },
+            {
+                title: "Procesos preparados para evolucionar",
+                description: "Nuevas unidades, permisos, flujos, reportes e integraciones pueden añadirse conforme aumenta la exigencia operativa del cliente.",
+                focus: "Evolución",
+                result: "Escalabilidad",
+                image: "assets/img/project-ism-gestion-control-operaciones.svg",
+                alt: "Vista conceptual de operaciones en ISM Control"
+            }
+        ],
+        analysis: ["Procesos internos repartidos entre planillas y mensajes", "Falta de una administración común de usuarios y responsables", "Información difícil de auditar entre áreas", "Necesidad de crecer por módulos sin reconstruir el sistema"],
+        actionPlan: ["CORE de empresa, usuarios, roles, clientes y proyectos", "Dashboard y estructura administrativa común", "Un módulo operativo inicial", "Bitácora, estados y trazabilidad", "Base para reportes e integraciones"],
+        scalability: ["Nuevos módulos operativos", "Flujos de aprobación", "Alertas y automatizaciones", "Integraciones con otros sistemas", "Indicadores y reportería avanzada"]
+    },
+{
+        id: "ism-stock",
+        category: "Soluciones ISM",
+        name: "ISM Stock",
+        short: "Stock, bodegas y trazabilidad",
+        type: "Solución ISM / Inventario y trazabilidad",
+        status: "Producto activo",
+        accent: "#22d3ee",
+        accentRgb: "34, 211, 238",
+        url: null,
+        summary: "Solución para registrar existencias, entradas, salidas, entregas, retiros y movimientos de productos, insumos o herramientas con trazabilidad por usuario y operación.",
+        metrics: [["Estado", "Producto activo"], ["Foco", "Stock"], ["Operación", "Bodegas"], ["Nivel", "Inicial"]],
+        stack: "Stock · Bodegas · Movimientos · Roles · Trazabilidad",
+        journey: [
+            {
+                title: "Inventario visible desde una operación central",
+                description: "El panel permite revisar existencias, movimientos y estado general para reducir diferencias entre registros y stock físico.",
+                focus: "Inventario",
+                result: "Control",
+                image: "assets/img/portfolio/control-bodega-admin.webp",
+                alt: "Panel administrador de ISM Stock"
+            },
+            {
+                title: "Movimientos registrados desde donde ocurren",
+                description: "Recepciones, entregas, retiros y consultas pueden registrarse desde una interfaz preparada para la operación diaria y el uso móvil.",
+                focus: "Operación",
+                result: "Trazabilidad",
+                image: "assets/img/portfolio/control-bodega-operativo.webp",
+                alt: "Interfaz operativa móvil de ISM Stock"
+            }
+        ],
+        analysis: ["Inventario distribuido entre planillas y registros manuales", "Diferencias entre stock físico y registros", "Falta de trazabilidad por responsable", "Necesidad de controlar bodegas, entregas y retiros"],
+        actionPlan: ["Productos, categorías y stock", "Entradas, salidas, entregas y retiros", "Usuarios, roles e historial", "Importación inicial y exportación básica", "Dashboard operativo"],
+        scalability: ["Nuevas bodegas y proyectos", "Alertas y automatizaciones", "Firma y evidencias", "Flujos de aprobación", "Integración con compras y abastecimiento"]
+    },
+{
+        id: "ism-configurador",
+        category: "Soluciones ISM",
+        name: "ISM Configurador",
+        short: "Alcance, opciones y precotización",
+        type: "Solución ISM / Configuración comercial",
+        status: "Disponible",
+        accent: "#12bce7",
+        accentRgb: "18, 188, 231",
+        url: "configurador/",
+        externalLabel: "Probar configurador",
+        summary: "Herramienta adaptable para convertir servicios, actividades, cantidades y opciones en un alcance preliminar ordenado antes de preparar una cotización formal.",
+        metrics: [["Estado", "Disponible"], ["Foco", "Configuración"], ["Salida", "Resumen"], ["Uso", "B2B"]],
+        stack: "Servicios · Opciones · Reglas · HH · Resumen · Exportación",
+        journey: [
+            {
+                title: "Configurar una necesidad desde opciones reales",
+                description: "El usuario selecciona servicios, actividades y alternativas para construir un alcance preliminar sin comenzar desde una conversación o documento en blanco.",
+                focus: "Configuración",
+                result: "Orden",
+                image: "assets/img/portfolio/dimensionador-servicios-general.webp",
+                alt: "Vista principal de ISM Configurador"
+            },
+            {
+                title: "Alcance visible mientras se decide",
+                description: "Las reglas pueden mostrar cantidades, actividades, estimaciones, niveles o resúmenes para revisar el impacto de cada selección antes de cotizar.",
+                focus: "Dimensionamiento",
+                result: "Claridad",
+                image: "assets/img/portfolio/dimensionador-servicios-detalle.webp",
+                alt: "Detalle y resumen técnico de ISM Configurador"
+            }
+        ],
+        analysis: ["Cotizaciones dependientes de levantamientos poco estandarizados", "Dificultad para explicar qué incluye cada servicio", "Riesgo de omitir actividades u opciones", "Necesidad de precalificar solicitudes antes de cotizar"],
+        actionPlan: ["Catálogo configurable de servicios y alternativas", "Reglas, cantidades y dependencias", "Resumen consolidado de alcance", "Captura de datos del prospecto", "Exportación o envío para revisión comercial"],
+        scalability: ["Plantillas por rubro", "Precios y tarifas", "Cotización comercial automática", "Integración con CRM", "Automatizaciones de seguimiento"]
+    },
+{
+        id: "ism-asistente",
+        category: "Soluciones ISM",
+        name: "ISM Asistente",
+        short: "Orientación y calificación guiada",
+        type: "Solución ISM / Asistencia comercial",
+        status: "Disponible",
+        accent: "#8b5cf6",
+        accentRgb: "139, 92, 246",
+        url: "guia-web/",
+        externalLabel: "Probar asistente",
+        summary: "Asistente guiado y adaptable que realiza preguntas, ordena necesidades y conduce a cada prospecto hacia una recomendación o siguiente paso antes del contacto comercial.",
+        metrics: [["Estado", "Disponible"], ["Foco", "Orientación"], ["Flujo", "Guiado"], ["Objetivo", "Conversión"]],
+        stack: "Preguntas · Reglas · Recomendación · Captación · Seguimiento",
+        journey: [
+            {
+                title: "Preguntas que ayudan a entender la necesidad",
+                description: "El flujo guía al usuario paso a paso para identificar contexto, objetivo, situación actual y prioridades sin obligarlo a conocer términos técnicos.",
+                focus: "Diagnóstico",
+                result: "Claridad",
+                image: "assets/img/guia-asistida-colaboracion.webp",
+                alt: "Experiencia guiada de ISM Asistente"
+            },
+            {
+                title: "Una recomendación antes del contacto comercial",
+                description: "Las respuestas se convierten en una orientación estructurada que puede sugerir una solución, preparar el contacto o alimentar un proceso comercial posterior.",
+                focus: "Recomendación",
+                result: "Calificación",
+                image: "assets/img/portfolio/dimensionador-servicios-detalle.webp",
+                alt: "Referencia visual de resumen estructurado para ISM Asistente"
+            }
+        ],
+        analysis: ["Prospectos que no saben qué servicio necesitan", "Consultas comerciales poco estructuradas", "Tiempo invertido en preguntas repetitivas", "Necesidad de calificar oportunidades antes de una reunión"],
+        actionPlan: ["Flujo guiado de preguntas", "Reglas de decisión y recomendaciones", "Captura de datos del prospecto", "Siguiente paso personalizado", "Adaptación a servicios y lenguaje de cada empresa"],
+        scalability: ["Integración con ISM Configurador", "Automatizaciones y CRM", "Rutas por segmento o rubro", "IA generativa cuando el alcance lo justifique", "Analítica de respuestas y conversión"]
+    },
+{
         id: "badiasalud",
         category: "Clientes ISM",
         name: "Badia Nurse Shield",
@@ -193,7 +343,7 @@ const projects = [
         actionPlan: ["Sitio web profesional responsive", "Agenda conectada a disponibilidad real", "Panel privado para procedimientos y configuración", "Flujo de solicitudes y lista de espera", "Base preparada para nuevas automatizaciones"],
         scalability: ["Recordatorios y confirmaciones automáticas", "Historial de pacientes y solicitudes", "Nuevas prestaciones y zonas de cobertura", "Administración de múltiples profesionales"]
     },
-    {
+{
         id: "constructora-proestakis",
         category: "Clientes ISM",
         name: "Constructora Proestakis",
@@ -236,7 +386,7 @@ const projects = [
         actionPlan: ["Sitio corporativo responsive", "Presentación de empresa y servicios", "Bloques de capacidad y experiencia", "Contacto directo y WhatsApp", "Base SEO inicial"],
         scalability: ["Portafolio ampliable de obras", "Formularios comerciales segmentados", "Agendamiento de visitas en terreno", "Módulos de seguimiento de proyectos"]
     },
-    {
+{
         id: "lecasse-it-services",
         category: "Clientes ISM",
         name: "Lecasse IT Services",
@@ -278,229 +428,278 @@ const projects = [
         analysis: ["Oferta tecnológica difícil de comunicar", "Necesidad de fortalecer confianza y posicionamiento", "Servicios B2B con alto componente técnico", "Pocos puntos de conversión comercial"],
         actionPlan: ["Sitio corporativo responsive", "Presentación clara de líneas de servicio", "Jerarquía orientada a problemas del cliente", "Puntos de contacto visibles", "Base preparada para casos y oportunidades"],
         scalability: ["Casos de estudio", "Contenido técnico", "Formularios comerciales segmentados", "Integración con CRM y módulos B2B"]
-    },
-    {
-        id: "tool-service-hours",
-        category: "Soluciones ISM",
-        name: "Control de horas de servicios",
-        short: "HH, clientes y seguimiento",
-        type: "Herramienta ISM / Gestión de servicios",
-        status: "Disponible",
-        accent: "#2563eb",
-        accentRgb: "37, 99, 235",
-        url: null,
-        summary: "Centraliza horas de servicio, actividades, clientes y seguimiento comercial para reemplazar registros dispersos y mantener trazabilidad de lo ejecutado.",
-        metrics: [["Estado", "Disponible"], ["Foco", "Horas de servicio"], ["Gestión", "Clientes"], ["Extensión", "B2B"]],
-        stack: "Horas · Actividades · Clientes · Reportes",
-        journey: [
-            {
-                title: "Acceso privado y controlado",
-                description: "El sistema parte desde un acceso protegido para separar responsabilidades y mantener la información operativa disponible solo para los perfiles autorizados.",
-                focus: "Acceso",
-                result: "Control",
-                image: "assets/img/portfolio/control-horas-login.webp",
-                alt: "Pantalla de acceso privado del sistema de control de horas de servicio"
-            },
-            {
-                title: "Seguimiento comercial conectado con la operación",
-                description: "El módulo de oportunidades B2B permite complementar el control de horas con pipeline, responsables, montos y próximos pasos dentro de la misma solución.",
-                focus: "Oportunidades B2B",
-                result: "Seguimiento",
-                image: "assets/img/portfolio/control-horas-b2b.webp",
-                alt: "Panel de oportunidades B2B del sistema de control de horas de servicio"
-            }
-        ],
-        analysis: ["Horas registradas en planillas o fuentes separadas", "Dificultad para consultar actividad por cliente", "Necesidad de respaldar gestión y cobro", "Seguimiento comercial desconectado de la operación"],
-        actionPlan: ["Registro centralizado de actividades", "Consulta por cliente y responsable", "Reportes y exportaciones", "Acceso por roles", "Módulo comercial B2B opcional"],
-        scalability: ["Facturación y valorización automática", "Integración con otros sistemas", "Indicadores por cliente y servicio", "Flujos comerciales y notificaciones"]
-    },
-    {
-        id: "tool-service-sizing",
-        category: "Soluciones ISM",
-        name: "Dimensionador de servicios",
-        short: "Alcance y estimación técnica",
-        type: "Solución digital / Configuración y cotización",
-        status: "Disponible",
-        accent: "#12bce7",
-        accentRgb: "18, 188, 231",
-        url: null,
-        summary: "Convierte servicios, actividades y cantidades en una estimación técnica ordenada para revisar alcance, esfuerzo y horas antes de preparar una cotización formal.",
-        metrics: [["Estado", "Disponible"], ["Unidad", "HH"], ["Salida", "Resumen"], ["Enfoque", "Alcance"]],
-        stack: "Servicios · Actividades · HH · Exportación",
-        journey: [
-            {
-                title: "Configurar una solución desde servicios reales",
-                description: "El usuario selecciona una línea, servicio y actividades para construir un alcance preliminar sin partir desde una hoja en blanco.",
-                focus: "Configuración",
-                result: "Orden",
-                image: "assets/img/portfolio/dimensionador-servicios-general.webp",
-                alt: "Vista principal del configurador de servicios ISM Developer"
-            },
-            {
-                title: "Horas y alcance visibles mientras se decide",
-                description: "El desglose muestra actividades, horas técnicas, contingencia y nivel de servicio para revisar el impacto de cada selección antes de cotizar.",
-                focus: "Dimensionamiento",
-                result: "Transparencia",
-                image: "assets/img/portfolio/dimensionador-servicios-detalle.webp",
-                alt: "Desglose de actividades y resumen técnico del configurador de servicios ISM Developer"
-            }
-        ],
-        analysis: ["Cotizaciones dependientes de estimaciones poco estandarizadas", "Dificultad para explicar qué incluye cada servicio", "Riesgo de omitir actividades", "Necesidad de estimar antes de cotizar formalmente"],
-        actionPlan: ["Catálogo estructurado de servicios y actividades", "Cálculo de horas técnicas", "Nivel de servicio automático", "Resumen consolidado", "Exportación para revisión comercial"],
-        scalability: ["Precios y tarifas por especialidad", "Plantillas por rubro", "Cotización comercial automática", "Integración con CRM y seguimiento de oportunidades"]
-    },
-    {
-        id: "tool-availability-agenda",
-        category: "Soluciones ISM",
-        name: "Control de disponibilidad con agenda",
-        short: "Horarios, cupos y reservas",
-        type: "Solución digital / Agendamiento",
-        status: "Disponible",
-        accent: "#0ea5e9",
-        accentRgb: "14, 165, 233",
-        url: null,
-        summary: "Permite publicar disponibilidad y ordenar el agendamiento para que clientes y equipos trabajen sobre horarios realmente disponibles.",
-        metrics: [["Estado", "Disponible"], ["Foco", "Disponibilidad"], ["Unidad", "Cupos"], ["Operación", "Agenda"]],
-        stack: "Agenda · Disponibilidad · Horarios · Reservas",
-        journey: [
-            {
-                title: "Un día activo con sus cupos calculados",
-                description: "La interfaz muestra horario operativo, reservas ocupadas y cupos libres para que la disponibilidad real sea comprensible de inmediato.",
-                focus: "Disponibilidad",
-                result: "Visibilidad",
-                image: "assets/img/portfolio/agenda-disponibilidad-dia-activo.webp",
-                alt: "Panel de agenda con un día activo y cupos disponibles"
-            },
-            {
-                title: "Días cerrados sin generar falsas reservas",
-                description: "Cuando una fecha no tiene disponibilidad configurada, el sistema la presenta como cerrada y evita ofrecer horarios inexistentes.",
-                focus: "Control de agenda",
-                result: "Consistencia",
-                image: "assets/img/portfolio/agenda-disponibilidad-dia-cerrado.webp",
-                alt: "Panel de agenda con un día cerrado y sin cupos disponibles"
-            }
-        ],
-        analysis: ["Coordinación manual de horarios", "Cruces de agenda", "Disponibilidad que cambia durante el mes", "Necesidad de mostrar cupos reales"],
-        actionPlan: ["Agenda mensual configurable", "Cálculo de cupos", "Activación y bloqueo de días", "Visualización de reservas ocupadas", "Reglas de horario por servicio"],
-        scalability: ["Recordatorios automáticos", "Pagos y confirmaciones", "Múltiples profesionales", "Integración con calendarios externos"]
     }
+
 ];
+
+
+const padSlideNumber = (value) => String(value).padStart(2, "0");
+
+function escapeSvgText(value = "") {
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+}
+
+function createMockSlideImage(project, index, headline, detail) {
+    const slideNumber = padSlideNumber(index + 1);
+    const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="${escapeSvgText(project.name)} ${slideNumber}">
+            <defs>
+                <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#06101c"/>
+                    <stop offset="45%" stop-color="#0a1a2b"/>
+                    <stop offset="100%" stop-color="#03101a"/>
+                </linearGradient>
+                <radialGradient id="glowA" cx="0.2" cy="0.15" r="0.65">
+                    <stop offset="0%" stop-color="rgba(22,189,242,0.34)"/>
+                    <stop offset="100%" stop-color="rgba(22,189,242,0)"/>
+                </radialGradient>
+                <radialGradient id="glowB" cx="0.88" cy="0.84" r="0.7">
+                    <stop offset="0%" stop-color="rgba(34,211,238,0.18)"/>
+                    <stop offset="100%" stop-color="rgba(34,211,238,0)"/>
+                </radialGradient>
+            </defs>
+            <rect width="1600" height="900" fill="url(#bg)"/>
+            <rect width="1600" height="900" fill="url(#glowA)"/>
+            <rect width="1600" height="900" fill="url(#glowB)"/>
+            <rect x="74" y="74" width="1452" height="752" rx="36" fill="rgba(7,20,34,0.78)" stroke="rgba(22,189,242,0.25)" stroke-width="2"/>
+            <rect x="108" y="108" width="1384" height="684" rx="28" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+            <text x="130" y="154" fill="#16bdf2" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="6">ISM DEVELOPER</text>
+            <text x="130" y="206" fill="#f5fbff" font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="700">${escapeSvgText(project.name)}</text>
+            <text x="130" y="262" fill="#9fb2c8" font-family="Arial, Helvetica, sans-serif" font-size="28">${escapeSvgText(headline)}</text>
+            <g transform="translate(130 334)">
+                <rect width="300" height="74" rx="20" fill="rgba(22,189,242,0.10)" stroke="rgba(22,189,242,0.35)" stroke-width="1.5"/>
+                <text x="150" y="46" text-anchor="middle" fill="#16bdf2" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">Imagen de prueba ${slideNumber}</text>
+            </g>
+            <text x="130" y="472" fill="#d7e6f3" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">Espacio listo para reemplazar con tu captura final.</text>
+            <text x="130" y="526" fill="#a7bacd" font-family="Arial, Helvetica, sans-serif" font-size="27">${escapeSvgText(detail)}</text>
+            <g transform="translate(130 616)">
+                <rect width="260" height="60" rx="18" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.09)"/>
+                <text x="130" y="38" text-anchor="middle" fill="#f5fbff" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Mobile</text>
+                <text x="130" y="53" text-anchor="middle" fill="#7fb3c8" font-family="Arial, Helvetica, sans-serif" font-size="13">experiencia multi-dispositivo</text>
+            </g>
+            <g transform="translate(418 616)">
+                <rect width="260" height="60" rx="18" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.09)"/>
+                <text x="130" y="38" text-anchor="middle" fill="#f5fbff" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Versátil</text>
+                <text x="130" y="53" text-anchor="middle" fill="#7fb3c8" font-family="Arial, Helvetica, sans-serif" font-size="13">adaptable a cada rubro</text>
+            </g>
+            <g transform="translate(706 616)">
+                <rect width="260" height="60" rx="18" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.09)"/>
+                <text x="130" y="38" text-anchor="middle" fill="#f5fbff" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Intuitiva</text>
+                <text x="130" y="53" text-anchor="middle" fill="#7fb3c8" font-family="Arial, Helvetica, sans-serif" font-size="13">flujo claro y fácil de usar</text>
+            </g>
+            <g transform="translate(994 616)">
+                <rect width="260" height="60" rx="18" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.09)"/>
+                <text x="130" y="38" text-anchor="middle" fill="#f5fbff" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Rápida</text>
+                <text x="130" y="53" text-anchor="middle" fill="#7fb3c8" font-family="Arial, Helvetica, sans-serif" font-size="13">menos fricción, más acción</text>
+            </g>
+        </svg>`;
+
+    return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+}
+
+function createMockJourneySlide(project, index) {
+    const slideNumber = padSlideNumber(index + 1);
+    return {
+        title: `Espacio visual ${slideNumber} listo para personalizar`,
+        description: `Este espacio queda preparado con una imagen de prueba para que luego la reemplaces por una captura o fotografía final de ${project.name}.`,
+        focus: `Imagen ${slideNumber}`,
+        result: "Lista para reemplazo",
+        image: createMockSlideImage(project, index, `Slide ${slideNumber} de apoyo visual`, `${project.short} · placeholder temporal para la versión 3.0.`),
+        alt: `${project.name} · imagen de prueba ${slideNumber}`
+    };
+}
+
+function normalizeJourney(project) {
+    const normalizedJourney = project.journey.map((slide, index) => {
+        if (slide.image) return slide;
+
+        const headline = slide.statusVisual?.stage || slide.title || `Imagen ${padSlideNumber(index + 1)}`;
+        const detail = slide.statusVisual?.detail || `${project.short} · espacio temporal para imagen de muestra.`;
+
+        return {
+            ...slide,
+            image: createMockSlideImage(project, index, headline, detail),
+            alt: slide.alt || `${project.name} · imagen de prueba ${padSlideNumber(index + 1)}`
+        };
+    });
+
+    while (normalizedJourney.length < 3) {
+        normalizedJourney.push(createMockJourneySlide(project, normalizedJourney.length));
+    }
+
+    return normalizedJourney;
+}
+
+projects.forEach((project) => {
+    project.journey = normalizeJourney(project);
+});
 
 
 const commercialProfiles = {
     "ism-presencia-digital": {
         kicker: "Solución ISM",
-        title: "Una base profesional que se adapta al negocio.",
-        badge: "Base reutilizable · Personalización por rubro",
+        title: "Tu negocio profesionalmente en internet.",
+        badge: "Entrada al ecosistema ISM",
         audienceTitle: "Para quién está pensado",
         audience: [
-            "Empresas y profesionales que necesitan un canal digital propio.",
-            "Negocios que dependen demasiado de redes sociales o mensajería.",
-            "Equipos que quieren presentar servicios con mayor claridad y confianza.",
-            "Proyectos que necesitan una base preparada para sumar agenda, catálogo o automatizaciones."
+            "Pymes, profesionales independientes, comercios y emprendimientos.",
+            "Negocios que dependen principalmente de redes sociales o WhatsApp.",
+            "Empresas que necesitan presentar servicios con mayor claridad y confianza.",
+            "Proyectos que quieren una base digital propia preparada para evolucionar."
         ],
-        capabilitiesTitle: "Qué puede incluir",
+        capabilitiesTitle: "Qué incluye la versión Inicial",
         capabilities: [
-            "Sitio responsive alineado con la identidad de marca.",
-            "Arquitectura comercial, formularios y llamadas a la acción.",
-            "SEO técnico inicial, analítica y canales de contacto.",
-            "Agenda, catálogo, paneles privados e integraciones según alcance."
+            "Sitio web responsive y presentación del negocio.",
+            "Servicios, WhatsApp, redes sociales y contacto.",
+            "Mapa o ubicación y formulario básico.",
+            "SEO técnico inicial y publicación."
         ],
-        casesKicker: "Clientes ISM",
-        casesTitle: "Una misma línea, adaptada a distintos rubros",
-        cases: [
-            { name: "Badia Nurse Shield", meta: "Salud · Web + agenda + gestión", status: "Publicado", projectId: "badiasalud" },
-            { name: "Constructora Proestakis", meta: "Construcción · Presencia corporativa", status: "Publicado", projectId: "constructora-proestakis" },
-            { name: "Lecasse IT Services", meta: "Tecnología · Servicios B2B", status: "Publicado", projectId: "lecasse-it-services" }
-        ],
-        casesNote: "Cada implementación conserva la base de la solución, pero se adapta a la marca, el rubro, los procesos y los objetivos del cliente.",
-        model: "Base ISM + personalización + publicación",
-        modelDetail: "Definimos el objetivo, adaptamos la experiencia y habilitamos las funciones que realmente necesita el negocio.",
-        action: "Solicitar ISM Presencia Digital"
-    },
-    "ism-stock-control": {
-        kicker: "Solución ISM",
-        title: "Inventario y trazabilidad sin depender de registros dispersos.",
-        badge: "Producto activo · Operación adaptable",
-        audienceTitle: "Para quién está pensado",
-        audience: [
-            "Bodegas y faenas con entradas, entregas y movimientos frecuentes.",
-            "Empresas con inventario distribuido entre proyectos o ubicaciones.",
-            "Equipos que necesitan saber quién retiró, recibió o movió un recurso.",
-            "Operaciones que requieren trazabilidad desde computador y celular."
-        ],
-        capabilitiesTitle: "Qué puede incluir",
-        capabilities: [
-            "Stock general, por proyecto y por bodega.",
-            "Recepciones, entregas, devoluciones y movimientos.",
-            "Usuarios, roles, bitácora e historial operacional.",
-            "Importaciones, exportaciones, alertas, firma y evidencias según alcance."
-        ],
-        casesKicker: "Implementaciones",
-        casesTitle: "La solución se valida en operaciones reales",
-        cases: [
-            { name: "Implementación operacional privada", meta: "Inventario · bodegas · trazabilidad", status: "Caso privado" }
-        ],
-        casesNote: "Las implementaciones de clientes se publican únicamente cuando existe autorización. La identidad de proyectos privados no se expone en el portafolio.",
-        model: "Base ISM + configuración operacional",
-        modelDetail: "Adaptamos bodegas, roles, movimientos, reglas y reportes a la operación real sin reconstruir el sistema desde cero.",
-        action: "Solicitar ISM Stock Control"
-    },
-    "ism-gestion-control": {
-        kicker: "Solución ISM",
-        title: "Una capa de control para ordenar procesos y responsables.",
-        badge: "Producto modular · En evolución",
-        audienceTitle: "Para quién está pensado",
-        audience: [
-            "Empresas con procesos internos repartidos entre planillas y mensajes.",
-            "Operaciones que necesitan asignar responsables y mantener historial.",
-            "Equipos que administran recursos, solicitudes, estados o aprobaciones.",
-            "Organizaciones que necesitan crecer por módulos sin perder trazabilidad."
-        ],
-        capabilitiesTitle: "Qué puede incluir",
-        capabilities: [
-            "Dashboard operacional y estados de proceso.",
-            "Usuarios, roles, responsables y permisos por función.",
-            "Registro de operaciones, recursos, movimientos y bitácora.",
-            "Reportes, alertas, aprobaciones e integraciones según necesidad."
-        ],
-        casesKicker: "Validación de la solución",
-        casesTitle: "Pilotos e implementaciones sin exponer proyectos privados",
-        cases: [
-            { name: "Piloto de gestión operacional", meta: "Recursos · responsables · procesos", status: "Piloto privado" }
-        ],
-        casesNote: "La solución se presenta de forma independiente del cliente. Cuando una implementación sea publicable, se incorporará como cliente e implementación asociado.",
-        model: "Base modular + procesos del cliente",
-        modelDetail: "Partimos desde módulos reutilizables y configuramos entidades, permisos, estados y flujos según el proceso que se necesita controlar.",
-        action: "Solicitar ISM Gestión Control"
+        pricing: { implementation: "$149.000", monthly: "$9.990 / mes", level: "Inicial" }
     },
     "ism-boutique": {
         kicker: "Solución ISM",
-        title: "Gestión simple para vender, controlar stock y conocer clientes.",
-        badge: "Mobile first · En desarrollo",
+        title: "Tu catálogo digital, simple y profesional.",
+        badge: "Catálogo + contacto directo",
         audienceTitle: "Para quién está pensado",
         audience: [
-            "Boutiques, tiendas de ropa y emprendimientos de accesorios.",
-            "Negocios que venden desde celular, feria, redes sociales o local físico.",
-            "Emprendimientos que necesitan controlar stock sin un ERP complejo.",
-            "Tiendas que quieren construir historial de ventas y clientes frecuentes."
+            "Boutiques, accesorios, ropa y pequeños comercios.",
+            "Emprendimientos que venden por Instagram, feria o WhatsApp.",
+            "Negocios que necesitan ordenar y mostrar productos con identidad propia.",
+            "Tiendas que aún no requieren un e-commerce completo."
         ],
-        capabilitiesTitle: "Qué puede incluir",
+        capabilitiesTitle: "Qué incluye la versión Inicial",
         capabilities: [
-            "Productos, categorías, tallas, colores y stock.",
-            "Ventas, clientes, historial y seguimiento comercial.",
-            "Alertas, inventarios manuales y exportaciones.",
-            "Catálogo o presencia digital conectada al control interno."
+            "Sitio de marca con catálogo y categorías.",
+            "Fichas de producto, imágenes y precios.",
+            "Contacto directo por WhatsApp.",
+            "Administración básica y carga inicial limitada; sin checkout ni pago online."
         ],
-        casesKicker: "Primera implementación",
-        casesTitle: "La solución se está construyendo junto a una operación real",
-        cases: [
-            { name: "Primera implementación comercial", meta: "Boutique · stock · ventas · clientes", status: "En desarrollo" }
+        pricing: { implementation: "$199.000", monthly: "$14.990 / mes", level: "Inicial" }
+    },
+    "ism-reservas": {
+        kicker: "Solución ISM",
+        title: "Tus clientes reservan. Tú mantienes el control.",
+        badge: "Agenda + disponibilidad",
+        audienceTitle: "Para quién está pensado",
+        audience: [
+            "Profesionales independientes y negocios que trabajan por hora.",
+            "Salud, bienestar, estética, barberías y servicios técnicos.",
+            "Equipos que coordinan reservas manualmente por mensajes o llamadas.",
+            "Negocios que quieren recibir solicitudes incluso fuera del horario de atención."
         ],
-        casesNote: "La primera implementación servirá para validar el flujo diario antes de publicar nuevos clientes e implementaciones.",
-        model: "Base retail + identidad y operación del negocio",
-        modelDetail: "La solución prioriza uso móvil, tareas simples y módulos que puedan crecer conforme aumenta la operación.",
-        action: "Consultar ISM Boutique"
+        capabilitiesTitle: "Qué incluye la versión Inicial",
+        capabilities: [
+            "Servicios, horarios y disponibilidad.",
+            "Reserva online con datos del cliente.",
+            "Panel administrativo de agenda.",
+            "Bloqueo de horarios y gestión básica de reservas."
+        ],
+        pricing: { implementation: "$249.000", monthly: "$19.990 / mes", level: "Inicial" }
+    },
+    "ism-project": {
+        kicker: "Solución ISM",
+        title: "Horas y proyectos bajo control.",
+        badge: "Gestión + trazabilidad",
+        audienceTitle: "Para quién está pensado",
+        audience: [
+            "Empresas de servicios, consultoras y equipos técnicos.",
+            "Operaciones que necesitan registrar horas por cliente o proyecto.",
+            "Equipos que requieren historial, filtros y reportes de ejecución.",
+            "Empresas que necesitan respaldar gestión, valorización o cobro."
+        ],
+        capabilitiesTitle: "Qué incluye la versión Inicial",
+        capabilities: [
+            "Empresa, usuarios, clientes y proyectos.",
+            "Actividades y registro de horas.",
+            "Consulta histórica, filtros y reportes.",
+            "Exportación, panel administrativo y roles básicos."
+        ],
+        pricing: { implementation: "$299.000", monthly: "$24.990 / mes", level: "Inicial" }
+    },
+    "ism-control": {
+        kicker: "Solución ISM",
+        title: "Tu operación en un solo lugar.",
+        badge: "CORE + módulo operativo",
+        audienceTitle: "Para quién está pensado",
+        audience: [
+            "Pymes y empresas con varios procesos administrativos u operativos.",
+            "Equipos que necesitan centralizar usuarios, responsables y estados.",
+            "Organizaciones que quieren incorporar módulos sin duplicar sistemas.",
+            "Operaciones que requieren trazabilidad y crecimiento controlado."
+        ],
+        capabilitiesTitle: "Qué incluye la versión Inicial",
+        capabilities: [
+            "CORE de empresa, usuarios, roles, clientes y proyectos.",
+            "Dashboard y estructura administrativa común.",
+            "Un módulo operativo inicial.",
+            "Base preparada para bitácora, reportes, automatizaciones e integraciones."
+        ],
+        pricing: { implementation: "$449.000", monthly: "$39.990 / mes", level: "Inicial" }
+    },
+    "ism-stock": {
+        kicker: "Solución ISM",
+        title: "Stock y trazabilidad bajo control.",
+        badge: "Inventario + operación",
+        audienceTitle: "Para quién está pensado",
+        audience: [
+            "Bodegas, constructoras, contratistas y servicios técnicos.",
+            "Empresas con productos, insumos o herramientas en movimiento.",
+            "Operaciones que necesitan saber quién recibió, entregó o retiró recursos.",
+            "Equipos que requieren historial confiable desde computador y celular."
+        ],
+        capabilitiesTitle: "Qué incluye la versión Inicial",
+        capabilities: [
+            "Una empresa, un proyecto y una bodega principal como referencia base.",
+            "Productos, categorías, stock, entradas y salidas.",
+            "Entregas, retiros, trabajadores e historial.",
+            "Roles, trazabilidad, importación inicial, exportación básica y dashboard."
+        ],
+        pricing: { implementation: "$549.000", monthly: "$49.990 / mes", level: "Inicial" }
+    },
+    "ism-configurador": {
+        kicker: "Solución ISM",
+        title: "Convierte necesidades en un alcance claro.",
+        badge: "Configurable por rubro",
+        audienceTitle: "Para quién está pensado",
+        audience: [
+            "Empresas con servicios combinables, variables o difíciles de cotizar.",
+            "Constructoras, consultoras, servicios técnicos y proveedores B2B.",
+            "Equipos que necesitan estandarizar levantamientos y precotizaciones.",
+            "Negocios que quieren que el cliente prepare su solicitud antes del contacto."
+        ],
+        capabilitiesTitle: "Qué incluye la versión Inicial",
+        capabilities: [
+            "Catálogo configurable de servicios, actividades y opciones.",
+            "Reglas, cantidades y dependencias según el proceso.",
+            "Resumen estructurado del alcance solicitado.",
+            "Captura de datos y salida para revisión comercial."
+        ],
+        pricing: { implementation: "$299.000", monthly: "$24.990 / mes", level: "Inicial" }
+    },
+    "ism-asistente": {
+        kicker: "Solución ISM",
+        title: "Guía a tus clientes hacia la solución correcta.",
+        badge: "Orientación + calificación",
+        audienceTitle: "Para quién está pensado",
+        audience: [
+            "Empresas que reciben consultas de clientes que no saben qué elegir.",
+            "Negocios con preguntas comerciales repetitivas antes de cotizar.",
+            "Equipos que quieren calificar prospectos antes de una reunión.",
+            "Servicios que necesitan recomendar un siguiente paso según respuestas."
+        ],
+        capabilitiesTitle: "Qué incluye la versión Inicial",
+        capabilities: [
+            "Flujo guiado de preguntas adaptado al negocio.",
+            "Reglas de decisión y recomendación.",
+            "Captura de datos del prospecto.",
+            "Siguiente paso personalizado y conexión con canales comerciales."
+        ],
+        pricing: { implementation: "$249.000", monthly: "$19.990 / mes", level: "Inicial" }
     }
 };
 
@@ -535,9 +734,13 @@ const categoryIcons = {
 };
 const primarySolutionIds = new Set([
     "ism-presencia-digital",
-    "ism-stock-control",
-    "ism-gestion-control",
-    "ism-boutique"
+    "ism-boutique",
+    "ism-reservas",
+    "ism-project",
+    "ism-control",
+    "ism-stock",
+    "ism-configurador",
+    "ism-asistente"
 ]);
 const projectNav = document.getElementById("projectNav");
 const visualTrack = document.getElementById("visualTrack");
@@ -549,8 +752,14 @@ const totalSlidesLabel = document.getElementById("totalSlides");
 const syncedSlider = document.getElementById("syncedSlider");
 const routeLoader = document.getElementById("routeLoader");
 const projectAliases = {
-    "tool-warehouse-control": "ism-stock-control",
-    "control-gestion": "ism-stock-control"
+    "ism-stock-control": "ism-stock",
+    "tool-warehouse-control": "ism-stock",
+    "control-gestion": "ism-stock",
+    "ism-gestion-control": "ism-control",
+    "tool-service-hours": "ism-project",
+    "tool-service-sizing": "ism-configurador",
+    "tool-availability-agenda": "ism-reservas",
+    "guia-web": "ism-asistente"
 };
 const rawRequestedProject = new URLSearchParams(window.location.search).get("proyecto");
 let requestedProject = projectAliases[rawRequestedProject] || rawRequestedProject;
@@ -558,7 +767,7 @@ let requestedProject = projectAliases[rawRequestedProject] || rawRequestedProjec
 const visiblePortfolioProjects = projects.filter((project) =>
     project.category === "Clientes ISM" || primarySolutionIds.has(project.id)
 );
-const defaultProjectId = "badiasalud";
+const defaultProjectId = "ism-presencia-digital";
 
 if (!visiblePortfolioProjects.some((project) => project.id === requestedProject)) {
     requestedProject = defaultProjectId;
@@ -698,7 +907,7 @@ function renderCommercial(project) {
 
     section.classList.toggle("is-product-profile", Boolean(profile));
     section.classList.toggle("is-case-profile", Boolean(relation));
-    section.classList.toggle("is-tool-profile", false);
+    section.classList.toggle("is-tool-profile", ["ism-configurador", "ism-asistente"].includes(project.id));
 
     let view;
     let solutionId = null;
@@ -736,6 +945,17 @@ function renderCommercial(project) {
     capabilitiesTitle.textContent = view.capabilitiesTitle;
     document.getElementById("commercialAudience").innerHTML = view.audience.map((item) => `<li>${item}</li>`).join("");
     document.getElementById("commercialCapabilities").innerHTML = view.capabilities.map((item) => `<li>${item}</li>`).join("");
+
+    const pricing = document.getElementById("commercialPricing");
+    if (pricing) {
+        const showPricing = Boolean(profile?.pricing);
+        pricing.hidden = !showPricing;
+        if (showPricing) {
+            document.getElementById("commercialPriceImplementation").textContent = `Desde ${profile.pricing.implementation}`;
+            document.getElementById("commercialPriceMonthly").textContent = `Desde ${profile.pricing.monthly}`;
+            document.getElementById("commercialPriceLevel").textContent = profile.pricing.level;
+        }
+    }
 
     const actionEyebrow = document.getElementById("portfolioActionEyebrow");
     const actionTitle = document.getElementById("portfolioActionTitle");
@@ -790,9 +1010,10 @@ function selectProject(id, options = {}) {
     externalLink.hidden = !primaryLink;
     if (primaryLink) {
         externalLink.href = primaryLink;
-        externalLinkLabel.textContent = "Visitar proyecto";
-        externalLink.target = "_blank";
-        externalLink.rel = "noopener noreferrer";
+        externalLinkLabel.textContent = project.externalLabel || "Visitar proyecto";
+        const isExternal = /^https?:\/\//i.test(primaryLink);
+        externalLink.target = isExternal ? "_blank" : "_self";
+        externalLink.rel = isExternal ? "noopener noreferrer" : "";
     }
 
     projectNav.querySelectorAll("[data-project]").forEach((button) => {
@@ -885,7 +1106,11 @@ function updateClock() {
 
 renderNavigation();
 const portfolioProjectCount = document.getElementById("portfolioProjectCount");
-if (portfolioProjectCount) portfolioProjectCount.textContent = "4 soluciones · 3 clientes";
+if (portfolioProjectCount) {
+    const solutionCount = visiblePortfolioProjects.filter((project) => project.category === "Soluciones ISM").length;
+    const clientCount = visiblePortfolioProjects.filter((project) => project.category === "Clientes ISM").length;
+    portfolioProjectCount.textContent = `${solutionCount} soluciones · ${clientCount} clientes`;
+}
 selectProject(requestedProject, { initial: true });
 updateClock();
 setInterval(updateClock, 30000);
