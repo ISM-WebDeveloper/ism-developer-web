@@ -17,6 +17,10 @@ import {
   type CatalogReportService,
 } from "../../features/catalog/catalogReportExport";
 import {
+  ConfiguratorPrequoteModal,
+  type ConfiguratorQuoteConfiguration,
+} from "../../features/prequote/ConfiguratorPrequoteModal";
+import {
   calculateConfiguratorTotals,
   formatConfiguratorNumber,
   getActivityHours,
@@ -474,6 +478,7 @@ export function StandardPlatformCatalogPage({
   const [exportReviewFormat, setExportReviewFormat] =
     useState<ExportReviewFormat | null>(null);
   const [exportingReport, setExportingReport] = useState(false);
+  const [prequoteOpen, setPrequoteOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [areaFilter, setAreaFilter] = useState(() =>
     initialAreaId &&
@@ -988,6 +993,55 @@ export function StandardPlatformCatalogPage({
     };
   }
 
+  function createConfiguratorQuoteConfiguration(): ConfiguratorQuoteConfiguration {
+    return {
+      title: engine.report.title,
+      catalogVersion: catalog.catalogVersion ?? "No indicada",
+      applicationVersion: engine.metadata.version,
+      services: totals.services.map((service) => {
+        const area = areasById.get(service.areaId);
+        const quantity = quantityForSelectedService(service);
+
+        return {
+          area: area?.name ?? service.groupLabel,
+          code: service.code,
+          name: service.name,
+          quantity,
+          technicalHours: getServiceHours(service, calculationState) * quantity,
+          activities: getSummaryActivities(service).map((activity) => ({
+            name: activity.name,
+            mandatory: activity.mandatory,
+            quantityLabel: activity.quantityLabel,
+            quantity: activity.quantity,
+            hours: activity.totalHours,
+          })),
+        };
+      }),
+      totals: {
+        activities: Math.round(totals.activities),
+        services: totals.services.length,
+        technicalHours: totals.technical,
+        commercialHours: totals.commercial,
+        serviceLevel:
+          totals.services.length > 0
+            ? getServiceLevel(totals.commercial)
+            : "—",
+      },
+      warnings,
+    };
+  }
+
+  function openPrequote(): void {
+    if (totals.services.length === 0) {
+      window.alert(
+        "Selecciona al menos un servicio antes de enviar una cotización.",
+      );
+      return;
+    }
+
+    setPrequoteOpen(true);
+  }
+
   function reviewReport(format: ExportReviewFormat): void {
     if (totals.services.length === 0) {
       window.alert(
@@ -1268,6 +1322,14 @@ export function StandardPlatformCatalogPage({
 
             <div className="ibm-summary-actions">
               <button
+                className="ibm-btn ibm-btn--quote"
+                onClick={openPrequote}
+                type="button"
+              >
+                Enviar cotización
+              </button>
+
+              <button
                 className="ibm-btn ibm-btn--primary"
                 onClick={() => reviewReport("excel")}
                 type="button"
@@ -1326,6 +1388,12 @@ export function StandardPlatformCatalogPage({
           </section>
         </aside>
       </div>
+
+      <ConfiguratorPrequoteModal
+        configuration={createConfiguratorQuoteConfiguration()}
+        onClose={() => setPrequoteOpen(false)}
+        open={prequoteOpen}
+      />
 
       {exportReviewFormat ? (
         <div
