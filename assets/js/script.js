@@ -187,7 +187,7 @@ if (portfolioSection) {
           <strong>${image.label}</strong>
           <span>Espacio preparado para imagen real de interfaz</span>
        </div>`
-      : `<img src="${image.src}" alt="${image.alt}" width="960" height="540" loading="lazy" decoding="async" data-portfolio-main-image style="object-fit:${image.fit === "contain" ? "contain" : "cover"};object-position:center;">`;
+      : `<img src="${image.src}" alt="${image.alt}" width="960" height="540" loading="lazy" decoding="async" data-portfolio-main-image style="object-fit:${image.fit === "contain" ? "contain" : "cover"} !important;object-position:center !important;">`;
     return `
       <div class="ism-portfolio-gallery">
         <div class="ism-portfolio-main-media" data-portfolio-main-media>
@@ -415,7 +415,8 @@ if (portfolioSection) {
       nextVisual.height = 540;
       nextVisual.loading = "lazy";
       nextVisual.decoding = "async";
-      nextVisual.style.objectFit = image.fit === "contain" ? "contain" : "cover";
+      nextVisual.style.setProperty("object-fit", image.fit === "contain" ? "contain" : "cover", "important");
+      nextVisual.style.setProperty("object-position", "center", "important");
       nextVisual.style.objectPosition = "center";
       nextVisual.setAttribute("data-portfolio-main-image", "");
     }
