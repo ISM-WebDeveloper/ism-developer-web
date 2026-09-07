@@ -479,181 +479,117 @@ html{scroll-padding-top:var(--section-anchor-offset)}.header[id],main > section[
 
 
 /* =========================================================
-   ISM WEB 3.0 · FASE 2C · HOME SOLUCIONES AJUSTES FINOS
-   Iconos consistentes + imagen más compacta + selector con scroll
+   ISM WEB 3.0 · FASE 2D · AJUSTE MÍNIMO DEL PORTAFOLIO HOME
+   Solo: recuperar proporciones, scroll contenido e iconos visibles.
    ========================================================= */
-.ism-portfolio-workbench.is-tools,
-.ism-portfolio-workbench.is-solutions {
-  grid-template-columns: minmax(235px, 285px) minmax(0, 1fr) !important;
-  align-items: start !important;
-  gap: 16px !important;
-}
-
-.ism-portfolio-workbench.is-tools .ism-portfolio-selector,
-.ism-portfolio-workbench.is-solutions .ism-portfolio-selector {
-  grid-template-columns: 1fr !important;
-  align-content: start !important;
-  gap: 8px !important;
-  max-height: 420px !important;
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-  padding-right: 6px !important;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(56,189,248,.45) rgba(255,255,255,.04);
-}
-
-.ism-portfolio-workbench.is-tools .ism-portfolio-selector::-webkit-scrollbar,
-.ism-portfolio-workbench.is-solutions .ism-portfolio-selector::-webkit-scrollbar {
-  width: 8px;
-}
-
-.ism-portfolio-workbench.is-tools .ism-portfolio-selector::-webkit-scrollbar-track,
-.ism-portfolio-workbench.is-solutions .ism-portfolio-selector::-webkit-scrollbar-track {
-  background: rgba(255,255,255,.03);
-  border-radius: 999px;
-}
-
-.ism-portfolio-workbench.is-tools .ism-portfolio-selector::-webkit-scrollbar-thumb,
-.ism-portfolio-workbench.is-solutions .ism-portfolio-selector::-webkit-scrollbar-thumb {
-  background: rgba(56,189,248,.36);
-  border-radius: 999px;
-}
-
-.ism-portfolio-workbench.is-tools .ism-portfolio-selector-label,
-.ism-portfolio-workbench.is-solutions .ism-portfolio-selector-label {
-  margin-bottom: 4px !important;
-  text-align: center !important;
-}
-
-.ism-portfolio-workbench.is-tools .ism-portfolio-item-button,
-.ism-portfolio-workbench.is-solutions .ism-portfolio-item-button {
-  min-height: 66px !important;
-  padding: 10px 11px !important;
-  grid-template-columns: 38px minmax(0, 1fr) !important;
-  gap: 10px !important;
-}
-
-.ism-portfolio-workbench.is-tools .ism-portfolio-item-icon,
-.ism-portfolio-workbench.is-solutions .ism-portfolio-item-icon {
-  width: 38px !important;
-  height: 38px !important;
-  border-radius: 12px !important;
-}
-
-.ism-portfolio-workbench.is-tools .ism-portfolio-item-icon svg,
-.ism-portfolio-workbench.is-solutions .ism-portfolio-item-icon svg {
-  width: 18px !important;
-  height: 18px !important;
-}
-
-.ism-portfolio-workbench.is-tools .ism-portfolio-item-copy strong,
-.ism-portfolio-workbench.is-solutions .ism-portfolio-item-copy strong,
-.ism-portfolio-workbench.is-tools .ism-portfolio-item-copy small,
-.ism-portfolio-workbench.is-solutions .ism-portfolio-item-copy small {
-  white-space: normal !important;
-  overflow: visible !important;
-  text-overflow: clip !important;
-}
-
-.ism-portfolio-workbench.is-tools .ism-portfolio-item-copy strong,
-.ism-portfolio-workbench.is-solutions .ism-portfolio-item-copy strong {
-  font-size: 11.5px !important;
-  line-height: 1.22 !important;
-}
-
-.ism-portfolio-workbench.is-tools .ism-portfolio-item-copy small,
-.ism-portfolio-workbench.is-solutions .ism-portfolio-item-copy small {
-  margin-top: 3px !important;
-  font-size: 8.8px !important;
-  line-height: 1.3 !important;
-}
-
-.ism-portfolio-detail {
-  min-height: 0 !important;
-  grid-template-columns: minmax(0, 1.02fr) minmax(280px, .98fr) !important;
-  gap: 16px !important;
-  align-items: start !important;
-}
-
-.ism-portfolio-gallery {
-  grid-template-rows: auto 60px !important;
-  gap: 9px !important;
-}
-
-.ism-portfolio-main-media {
-  height: clamp(240px, 28vw, 320px) !important;
-  min-height: 240px !important;
-}
-
-.ism-portfolio-main-media img,
-.ism-portfolio-image-placeholder {
-  width: 100% !important;
-  height: 100% !important;
-  min-height: 0 !important;
-  max-height: none !important;
-}
-
-.ism-portfolio-thumb {
-  height: 60px !important;
-}
-
-.ism-portfolio-copy {
-  justify-content: center !important;
-}
-
-.ism-portfolio-copy h3 {
-  font-size: clamp(21px, 2vw, 29px) !important;
-}
-
-@media (max-width: 1180px) {
-  .ism-portfolio-workbench.is-tools,
-  .ism-portfolio-workbench.is-solutions {
-    grid-template-columns: 1fr !important;
+@media (min-width: 901px) {
+  .ism-portfolio-section {
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    align-items: flex-start !important;
+    padding-top: 46px !important;
+    padding-bottom: 50px !important;
   }
 
-  .ism-portfolio-workbench.is-tools .ism-portfolio-selector,
-  .ism-portfolio-workbench.is-solutions .ism-portfolio-selector {
-    max-height: 300px !important;
+  .ism-portfolio-shell,
+  .ism-portfolio-panel,
+  .ism-portfolio-workbench,
+  .ism-portfolio-detail {
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  .ism-portfolio-panel {
+    overflow: visible !important;
+  }
+
+  .ism-portfolio-workbench.is-tools {
+    grid-template-columns: minmax(300px, 340px) minmax(0, 1fr) !important;
+    gap: 14px !important;
+    padding: 14px !important;
+    align-items: start !important;
+  }
+
+  .ism-portfolio-workbench.is-tools .ism-portfolio-selector {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    align-content: start !important;
+    gap: 8px !important;
+    max-height: 304px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding-right: 5px !important;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(56,189,248,.48) rgba(255,255,255,.04);
+  }
+
+  .ism-portfolio-workbench.is-tools .ism-portfolio-selector-label {
+    grid-column: 1 / -1 !important;
+    text-align: center !important;
+    margin-bottom: 3px !important;
+  }
+
+  .ism-portfolio-workbench.is-tools .ism-portfolio-item-button {
+    min-height: 62px !important;
+    padding: 9px 9px !important;
+    grid-template-columns: 36px minmax(0, 1fr) !important;
+    gap: 9px !important;
+  }
+
+  .ism-portfolio-workbench.is-tools .ism-portfolio-item-copy strong {
+    font-size: 10.5px !important;
+    line-height: 1.2 !important;
+  }
+
+  .ism-portfolio-workbench.is-tools .ism-portfolio-item-copy small {
+    display: none !important;
   }
 
   .ism-portfolio-detail {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-@media (max-width: 760px) {
-  .ism-portfolio-panel {
-    overflow: hidden !important;
+    grid-template-columns: minmax(0, .92fr) minmax(310px, 1.08fr) !important;
+    gap: 16px !important;
+    align-items: start !important;
   }
 
-  .ism-portfolio-workbench,
-  .ism-portfolio-workbench.is-tools,
-  .ism-portfolio-workbench.is-solutions {
-    padding: 14px !important;
-    gap: 18px !important;
+  .ism-portfolio-gallery {
+    grid-template-rows: 248px 52px !important;
+    gap: 8px !important;
   }
 
-  .ism-portfolio-workbench.is-tools .ism-portfolio-selector,
-  .ism-portfolio-workbench.is-solutions .ism-portfolio-selector {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    max-height: 292px !important;
-    padding-right: 4px !important;
+  .ism-portfolio-main-media,
+  .ism-portfolio-main-media img,
+  .ism-portfolio-image-placeholder {
+    min-height: 0 !important;
+    height: 248px !important;
+    max-height: 248px !important;
   }
 
-  .ism-portfolio-workbench.is-tools .ism-portfolio-item-button,
-  .ism-portfolio-workbench.is-solutions .ism-portfolio-item-button {
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: none !important;
-    margin-inline: 0 !important;
-  }
-
-  .ism-portfolio-main-media {
-    height: 240px !important;
+  .ism-portfolio-main-media img {
+    object-fit: cover !important;
   }
 
   .ism-portfolio-thumb {
-    height: 56px !important;
+    height: 52px !important;
+  }
+
+  .ism-portfolio-copy {
+    justify-content: flex-start !important;
+    padding-top: 2px !important;
+  }
+}
+
+.ism-portfolio-item-icon svg {
+  width: 18px !important;
+  height: 18px !important;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .ism-portfolio-workbench.is-tools .ism-portfolio-selector {
+    max-height: 300px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
   }
 }

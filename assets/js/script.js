@@ -161,7 +161,24 @@ if (portfolioSection) {
       console.error("No fue posible cargar el catálogo principal de soluciones.", error);
     }
   }
-  const iconMarkup = (name) => `<i data-lucide="${name}" aria-hidden="true"></i>`;
+  const portfolioIconPaths = {
+    "monitor-smartphone": `<rect x="3" y="4" width="13" height="10" rx="2"/><path d="M7 19h5M9.5 14v5"/><rect x="17" y="7" width="4" height="9" rx="1"/>`,
+    "shopping-bag": `<path d="M6 8h12l1 12H5L6 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/>`,
+    "calendar-check": `<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/><path d="m8 15 2 2 4-4"/>`,
+    "briefcase-business": `<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2"/>`,
+    "layout-dashboard": `<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="4" rx="1"/><rect x="14" y="11" width="7" height="10" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/>`,
+    "package-search": `<path d="m3 7 9-4 9 4-9 4-9-4Z"/><path d="M3 7v10l9 4 4-1.8M21 7v6"/><path d="M12 11v10"/><circle cx="18" cy="17" r="3"/><path d="m20.2 19.2 1.8 1.8"/>`,
+    "settings-2": `<path d="M4 6h8M16 6h4M14 4v4M4 12h3M11 12h9M9 10v4M4 18h10M18 18h2M16 16v4"/>`,
+    "sparkles": `<path d="m12 3 1.1 3.1L16 7.2l-2.9 1.1L12 11l-1.1-2.7L8 7.2l2.9-1.1L12 3Z"/><path d="m18 12 .8 2.2L21 15l-2.2.8L18 18l-.8-2.2L15 15l2.2-.8L18 12Z"/><path d="m6 13 1 2.8L10 17l-3 1.2L6 21l-1-2.8L2 17l3-1.2L6 13Z"/>`,
+    "truck": `<path d="M3 6h11v9H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/>`,
+    "server": `<rect x="4" y="3" width="16" height="7" rx="2"/><rect x="4" y="14" width="16" height="7" rx="2"/><path d="M8 6h.01M8 17h.01M12 6h5M12 17h5"/>`
+  };
+  const iconMarkup = (name) => {
+    const paths = portfolioIconPaths[name];
+    return paths
+      ? `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${paths}</svg>`
+      : `<i data-lucide="${name}" aria-hidden="true"></i>`;
+  };
   const renderGallery=(item) => {
     const [firstImage] = item.images;
     const renderMainImage = (image) => image.pending
@@ -214,7 +231,7 @@ if (portfolioSection) {
   const renderWorkbench = (items, selectedIndex, selectorLabel) => {
     const selectedItem = items[selectedIndex];
     return `
-      <div class="ism-portfolio-workbench${items.length > 4 ? " is-tools" : ""}${selectorLabel === "Soluciones ISM" ? " is-solutions" : ""}">
+      <div class="ism-portfolio-workbench${items.length > 4 ? " is-tools" : ""}">
         <div class="ism-portfolio-selector">
           <span class="ism-portfolio-selector-label">${selectorLabel}</span>
           ${items.map((item, index) => `
