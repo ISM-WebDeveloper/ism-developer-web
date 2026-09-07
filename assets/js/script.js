@@ -293,7 +293,7 @@ if (portfolioSection) {
     animateElement(
       detail,
       [
-        { opacity: 0.25 },
+        { opacity: 0.82 },
         { opacity: 1 }
       ],
       { duration: 680, easing: "cubic-bezier(.2,.72,.24,1)", fill: "both" }
@@ -302,7 +302,7 @@ if (portfolioSection) {
     animateElement(
       gallery,
       [
-        { opacity: 0, transform: "translateX(-12px) scale(.992)" },
+        { opacity: 0.78, transform: "translateX(-7px) scale(.996)" },
         { opacity: 1, transform: "translateX(0) scale(1)" }
       ],
       { duration: 760, easing: "cubic-bezier(.2,.72,.24,1)", fill: "both" }
@@ -311,7 +311,7 @@ if (portfolioSection) {
     animateElement(
       thumbs,
       [
-        { opacity: 0, transform: "translateY(7px)" },
+        { opacity: 0.78, transform: "translateY(4px)" },
         { opacity: 1, transform: "translateY(0)" }
       ],
       { duration: 620, delay: 150, easing: "cubic-bezier(.2,.72,.24,1)", fill: "both" }
@@ -321,7 +321,7 @@ if (portfolioSection) {
       animateElement(
         node,
         [
-          { opacity: 0, transform: "translateX(12px) translateY(4px)" },
+          { opacity: 0.78, transform: "translateX(7px) translateY(2px)" },
           { opacity: 1, transform: "translateX(0) translateY(0)" }
         ],
         {
@@ -352,9 +352,9 @@ if (portfolioSection) {
       detail,
       [
         { opacity: 1, transform: "translateY(0) scale(1)" },
-        { opacity: 0.08, transform: "translateY(-3px) scale(.998)" }
+        { opacity: 0.82, transform: "translateY(-2px) scale(.999)" }
       ],
-      { duration: 280, easing: "cubic-bezier(.4,0,.2,1)", fill: "both" }
+      { duration: 170, easing: "cubic-bezier(.4,0,.2,1)", fill: "both" }
     );
 
     if (animation?.finished) {
@@ -378,17 +378,17 @@ if (portfolioSection) {
       currentVisual,
       [
         { opacity: 1, transform: "scale(1)" },
-        { opacity: 0, transform: "scale(.994)" }
+        { opacity: 0.42, transform: "scale(.997)" }
       ],
-      { duration: 260, easing: "cubic-bezier(.4,0,.2,1)", fill: "both" }
+      { duration: 190, easing: "cubic-bezier(.4,0,.2,1)", fill: "both" }
     );
     animateElement(
       caption,
       [
         { opacity: 1, transform: "translateY(0)" },
-        { opacity: 0, transform: "translateY(4px)" }
+        { opacity: 0.45, transform: "translateY(2px)" }
       ],
-      { duration: 240, easing: "cubic-bezier(.4,0,.2,1)", fill: "both" }
+      { duration: 180, easing: "cubic-bezier(.4,0,.2,1)", fill: "both" }
     );
 
     if (outgoing?.finished) {
@@ -433,7 +433,7 @@ if (portfolioSection) {
       animateElement(
         nextVisual,
         [
-          { opacity: 0, transform: "scale(1.008) translateY(2px)" },
+          { opacity: 0.42, transform: "scale(1.004) translateY(1px)" },
           { opacity: 1, transform: "scale(1) translateY(0)" }
         ],
         { duration: 680, easing: "cubic-bezier(.2,.72,.24,1)", fill: "both" }
@@ -441,7 +441,7 @@ if (portfolioSection) {
       animateElement(
         caption,
         [
-          { opacity: 0, transform: "translateY(5px)" },
+          { opacity: 0.45, transform: "translateY(2px)" },
           { opacity: 1, transform: "translateY(0)" }
         ],
         { duration: 480, delay: 160, easing: "cubic-bezier(.2,.72,.24,1)", fill: "both" }
