@@ -214,7 +214,7 @@ if (portfolioSection) {
   const renderWorkbench = (items, selectedIndex, selectorLabel) => {
     const selectedItem = items[selectedIndex];
     return `
-      <div class="ism-portfolio-workbench${items.length > 4 ? " is-tools" : ""}">
+      <div class="ism-portfolio-workbench${items.length > 4 ? " is-tools" : ""}${selectorLabel === "Soluciones ISM" ? " is-solutions" : ""}">
         <div class="ism-portfolio-selector">
           <span class="ism-portfolio-selector-label">${selectorLabel}</span>
           ${items.map((item, index) => `
