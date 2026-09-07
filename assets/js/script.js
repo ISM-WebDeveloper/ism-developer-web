@@ -222,7 +222,8 @@ if (portfolioSection) {
         <a class="ism-portfolio-detail-link" href="${item.link}"
           data-track-event="${item.type === "Solución ISM" ? "solution_quote_click" : "project_click"}"
           data-track-category="${item.type === "Solución ISM" ? "solutions" : "portfolio"}"
-          data-track-label="${item.name}">
+          data-track-label="${item.name}"
+          ${item.type === "Solución ISM" ? `data-solution-quote="true" data-solution-id="${item.id}" data-solution-name="${item.name}"` : ""}>
           ${item.ctaLabel || "Ver implementación"} <span aria-hidden="true">→</span>
         </a>
       </div>
@@ -814,6 +815,136 @@ if (contactForm) {
     );
   });
 }
+
+const solutionQuoteDialog = document.getElementById("solutionQuoteDialog");
+if (solutionQuoteDialog) {
+  const solutionQuoteProductName = document.getElementById("solutionQuoteProductName");
+  const quoteCloseButtons = [...solutionQuoteDialog.querySelectorAll("[data-solution-quote-cancel]")];
+  const quoteRoutes = [...solutionQuoteDialog.querySelectorAll("[data-solution-quote-route]")];
+
+  let quoteContext = { id: "", name: "" };
+
+  const configuratorProductAliases = {
+    "ism-stock": "ism-stock-control",
+    "ism-control": "ism-gestion-control",
+    "ism-project": "tool-service-hours",
+    "ism-configurador": "tool-service-sizing",
+    "ism-reservas": "tool-availability-agenda",
+    "ism-asistente": "guia-web"
+  };
+
+  const contactPromptMap = {
+    "ism-presencia-digital": "Cuéntanos qué necesita comunicar, captar o mejorar tu presencia digital.",
+    "ism-boutique": "Cuéntanos qué productos quieres mostrar y cómo recibes hoy las consultas de tus clientes.",
+    "ism-reservas": "Cuéntanos cómo coordinas hoy horarios, disponibilidad y reservas.",
+    "ism-project": "Cuéntanos cómo registras hoy horas, actividades, clientes y proyectos.",
+    "ism-control": "Cuéntanos qué procesos, responsables o módulos necesitas centralizar.",
+    "ism-stock": "Cuéntanos cómo manejas hoy stock, bodegas, entregas o movimientos.",
+    "ism-configurador": "Cuéntanos qué servicios, variables u opciones debería poder configurar tu cliente o equipo.",
+    "ism-asistente": "Cuéntanos qué preguntas debería responder tu cliente y qué recomendación quieres entregar al final."
+  };
+
+  const openSolutionQuoteDialog = (productId, productName) => {
+    quoteContext = { id: productId || "", name: productName || "Solución ISM" };
+    if (solutionQuoteProductName) solutionQuoteProductName.textContent = quoteContext.name;
+
+    if (typeof solutionQuoteDialog.showModal === "function") {
+      solutionQuoteDialog.showModal();
+      requestAnimationFrame(() => {
+        window.lucide?.createIcons?.();
+        solutionQuoteDialog.querySelector("[data-solution-quote-route]")?.focus();
+      });
+    }
+  };
+
+  const closeSolutionQuoteDialog = () => {
+    if (solutionQuoteDialog.open) solutionQuoteDialog.close();
+  };
+
+  const trackQuoteRoute = (route) => {
+    window.trackEvent?.("solution_quote_route_click", {
+      event_category: "conversion",
+      product_interest: quoteContext.id,
+      solution_name: quoteContext.name,
+      quote_route: route,
+      section: "portfolio-popup"
+    });
+  };
+
+  const openConfigurator = () => {
+    const product = configuratorProductAliases[quoteContext.id] || quoteContext.id;
+    const params = new URLSearchParams({ servicio: "desarrollo-implementacion" });
+    if (product) params.set("producto", product);
+    if (quoteContext.name) params.set("solucion", quoteContext.name);
+    window.location.href = `configurador/?${params.toString()}`;
+  };
+
+  const openAssistant = () => {
+    const params = new URLSearchParams();
+    if (quoteContext.id) params.set("producto", quoteContext.id);
+    if (quoteContext.name) params.set("solucion", quoteContext.name);
+    params.set("origen", "catalogo-soluciones");
+    window.location.href = `guia-web/?${params.toString()}`;
+  };
+
+  const openContactForm = () => {
+    closeSolutionQuoteDialog();
+    const contactSection = document.getElementById("contacto");
+    const contactSelect = document.getElementById("contactServicio");
+    const messageField = document.getElementById("contactMensaje");
+    const nameField = document.getElementById("contactNombre");
+
+    if (contactSelect && quoteContext.name) {
+      const matchingOption = [...contactSelect.options].find((option) => option.value === quoteContext.name);
+      if (matchingOption) contactSelect.value = quoteContext.name;
+    }
+    if (messageField && !messageField.value) {
+      messageField.placeholder = contactPromptMap[quoteContext.id] || `Cuéntanos qué necesitas resolver con ${quoteContext.name}.`;
+    }
+
+    contactSection?.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.setTimeout(() => nameField?.focus({ preventScroll: true }), 650);
+  };
+
+  const openWhatsApp = () => {
+    const message = [
+      "Hola, Ignacio. Quiero cotizar una solución con ISM Developer.",
+      "",
+      `Solución de interés: ${quoteContext.name}`,
+      "Quiero revisar si se adapta a mi necesidad y conocer el alcance inicial."
+    ].join("\n");
+    window.open(
+      `https://wa.me/56968374821?text=${encodeURIComponent(message)}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
+
+  document.addEventListener("click", (event) => {
+    const quoteButton = event.target.closest("[data-solution-quote='true']");
+    if (!quoteButton) return;
+    event.preventDefault();
+    openSolutionQuoteDialog(quoteButton.dataset.solutionId, quoteButton.dataset.solutionName);
+  });
+
+  quoteCloseButtons.forEach((button) => button.addEventListener("click", closeSolutionQuoteDialog));
+
+  solutionQuoteDialog.addEventListener("click", (event) => {
+    if (event.target === solutionQuoteDialog) closeSolutionQuoteDialog();
+  });
+
+  quoteRoutes.forEach((button) => {
+    button.addEventListener("click", () => {
+      const route = button.dataset.solutionQuoteRoute;
+      trackQuoteRoute(route);
+      if (route === "configurator") return openConfigurator();
+      if (route === "assistant") return openAssistant();
+      if (route === "form") return openContactForm();
+      if (route === "whatsapp") return openWhatsApp();
+    });
+  });
+}
+
 // LUCIDE ICONS
 // Convierte los <i data-lucide=""> en iconos SVG
 if (window.lucide) {
