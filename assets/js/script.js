@@ -258,6 +258,52 @@ if (portfolioSection) {
       window.lucide.createIcons();
     }
   };
+
+  const animatePortfolioChange = () => {
+    if (!portfolioPanel || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const gallery = portfolioPanel.querySelector(".ism-portfolio-gallery");
+    const copyNodes = [
+      portfolioPanel.querySelector(".ism-portfolio-copy-top"),
+      portfolioPanel.querySelector(".ism-portfolio-copy h3"),
+      portfolioPanel.querySelector(".ism-portfolio-copy > p"),
+      portfolioPanel.querySelector(".ism-portfolio-use-case"),
+      portfolioPanel.querySelector(".ism-portfolio-stack"),
+      portfolioPanel.querySelector(".ism-portfolio-detail-link")
+    ].filter(Boolean);
+
+    gallery?.animate(
+      [
+        { opacity: 0.62, transform: "translateY(6px) scale(0.992)" },
+        { opacity: 1, transform: "translateY(0) scale(1)" }
+      ],
+      { duration: 420, easing: "cubic-bezier(.22,1,.36,1)", fill: "both" }
+    );
+
+    copyNodes.forEach((node, index) => {
+      node.animate(
+        [
+          { opacity: 0, transform: "translateY(8px)" },
+          { opacity: 1, transform: "translateY(0)" }
+        ],
+        {
+          duration: 360,
+          delay: 38 + index * 34,
+          easing: "cubic-bezier(.22,1,.36,1)",
+          fill: "both"
+        }
+      );
+    });
+
+    const activeItem = portfolioPanel.querySelector(".ism-portfolio-item-button.is-active");
+    activeItem?.animate(
+      [
+        { transform: "translateX(0)", boxShadow: "0 0 0 rgba(56,189,248,0)" },
+        { transform: "translateX(2px)", boxShadow: "0 10px 24px rgba(0,0,0,.16)" }
+      ],
+      { duration: 300, easing: "ease-out", fill: "both" }
+    );
+  };
   const updateGalleryImage = (item, imageIndex) => {
     if (!portfolioPanel) return;
     const image = item.images[imageIndex];
@@ -332,6 +378,7 @@ if (portfolioSection) {
 
     bindPanelInteractions();
     syncLucide();
+    requestAnimationFrame(() => animatePortfolioChange());
   };
 
   portfolioTabs.forEach((tab) => {
@@ -559,9 +606,6 @@ const contactForm = document.getElementById("contactForm");
 if (contactForm) {
   const serviceSelect = document.getElementById("contactServicio");
   const messageField = document.getElementById("contactMensaje");
-  const productContext = document.getElementById("contactProductContext");
-  const productContextTitle = document.getElementById("contactProductContextTitle");
-  const productContextText = document.getElementById("contactProductContextText");
 
   const contactParams = new URLSearchParams(window.location.search);
   const requestedProductId = contactParams.get("producto");
@@ -599,17 +643,6 @@ if (contactForm) {
     "ism-asistente": "Cuéntanos qué preguntas debería responder tu cliente y qué recomendación quieres entregar al final."
   };
 
-  const productContextMessages = {
-    "ism-presencia-digital": "Evaluaremos alcance, contenido, captación e integraciones necesarias para tu negocio.",
-    "ism-boutique": "Evaluaremos catálogo, categorías, productos, administración y canal de contacto.",
-    "ism-reservas": "Evaluaremos servicios, disponibilidad, reglas de agenda, reservas y posibles automatizaciones.",
-    "ism-project": "Evaluaremos usuarios, clientes, proyectos, actividades, horas y reportes necesarios.",
-    "ism-control": "Evaluaremos CORE administrativo, procesos, responsables, módulos e integraciones.",
-    "ism-stock": "Evaluaremos bodegas, movimientos, roles, trazabilidad y necesidades de operación.",
-    "ism-configurador": "Evaluaremos catálogo, reglas, variables, resumen y flujo de solicitud o precotización.",
-    "ism-asistente": "Evaluaremos preguntas, decisiones, recomendaciones, captura de datos y siguiente paso comercial."
-  };
-
   const serviceNames = {
     "desarrollo-implementacion": "Desarrollo e Implementación",
     "mantenimiento-evolucion": "Mantenimiento y Evolución",
@@ -626,11 +659,6 @@ if (contactForm) {
       messageField.placeholder = productPrompts[normalizedRequestedProductId];
     }
 
-    if (productContext && productContextTitle && productContextText) {
-      productContext.hidden = false;
-      productContextTitle.textContent = productNames[normalizedRequestedProductId];
-      productContextText.textContent = productContextMessages[normalizedRequestedProductId];
-    }
 
     window.trackEvent?.("product_interest_prefilled", {
       event_category: "conversion",
