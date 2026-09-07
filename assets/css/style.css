@@ -593,3 +593,88 @@ html{scroll-padding-top:var(--section-anchor-offset)}.header[id],main > section[
     overflow-x: hidden !important;
   }
 }
+
+
+/* =========================================================
+   ISM WEB 3.0 · FASE 2E
+   Ajuste puntual: transiciones sutiles + centrado CTA/stack
+   ========================================================= */
+
+/* Centrado de la línea tecnológica/conceptual y del CTA. */
+.ism-portfolio-stack {
+  width: fit-content;
+  max-width: 100%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 6px 10px;
+  border: 1px solid rgba(56, 189, 248, .12);
+  border-radius: 999px;
+  background: rgba(56, 189, 248, .035);
+  text-align: center;
+}
+
+.ism-portfolio-detail-link {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  justify-content: center;
+}
+
+/* Transiciones suaves al cambiar de solución. */
+.ism-portfolio-panel.is-switching .ism-portfolio-main-media {
+  animation: ismPortfolioMediaIn 420ms cubic-bezier(.22,1,.36,1) both;
+}
+
+.ism-portfolio-panel.is-switching .ism-portfolio-copy-top,
+.ism-portfolio-panel.is-switching .ism-portfolio-copy h3,
+.ism-portfolio-panel.is-switching .ism-portfolio-copy > p,
+.ism-portfolio-panel.is-switching .ism-portfolio-use-case,
+.ism-portfolio-panel.is-switching .ism-portfolio-stack,
+.ism-portfolio-panel.is-switching .ism-portfolio-detail-link {
+  animation: ismPortfolioCopyIn 440ms cubic-bezier(.22,1,.36,1) both;
+}
+
+.ism-portfolio-panel.is-switching .ism-portfolio-copy h3 { animation-delay: 35ms; }
+.ism-portfolio-panel.is-switching .ism-portfolio-copy > p { animation-delay: 60ms; }
+.ism-portfolio-panel.is-switching .ism-portfolio-use-case { animation-delay: 85ms; }
+.ism-portfolio-panel.is-switching .ism-portfolio-stack { animation-delay: 105ms; }
+.ism-portfolio-panel.is-switching .ism-portfolio-detail-link { animation-delay: 125ms; }
+
+@keyframes ismPortfolioMediaIn {
+  from { opacity: .72; transform: translateY(5px) scale(.995); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes ismPortfolioCopyIn {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Microinteracciones profesionales sin alterar el layout. */
+.ism-portfolio-item-button,
+.ism-portfolio-thumb,
+.ism-portfolio-detail-link,
+.ism-portfolio-stack {
+  transition:
+    border-color 220ms ease,
+    background-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease,
+    color 220ms ease;
+}
+
+.ism-portfolio-stack:hover {
+  border-color: rgba(56, 189, 248, .24);
+  background: rgba(56, 189, 248, .055);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ism-portfolio-panel.is-switching .ism-portfolio-main-media,
+  .ism-portfolio-panel.is-switching .ism-portfolio-copy-top,
+  .ism-portfolio-panel.is-switching .ism-portfolio-copy h3,
+  .ism-portfolio-panel.is-switching .ism-portfolio-copy > p,
+  .ism-portfolio-panel.is-switching .ism-portfolio-use-case,
+  .ism-portfolio-panel.is-switching .ism-portfolio-stack,
+  .ism-portfolio-panel.is-switching .ism-portfolio-detail-link {
+    animation: none !important;
+  }
+}
