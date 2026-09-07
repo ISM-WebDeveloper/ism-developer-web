@@ -296,7 +296,7 @@ if (portfolioSection) {
         { opacity: 0.25 },
         { opacity: 1 }
       ],
-      { duration: 400, easing: "cubic-bezier(.22,1,.36,1)", fill: "both" }
+      { duration: 680, easing: "cubic-bezier(.2,.72,.24,1)", fill: "both" }
     );
 
     animateElement(
@@ -305,7 +305,7 @@ if (portfolioSection) {
         { opacity: 0, transform: "translateX(-12px) scale(.992)" },
         { opacity: 1, transform: "translateX(0) scale(1)" }
       ],
-      { duration: 460, easing: "cubic-bezier(.16,1,.3,1)", fill: "both" }
+      { duration: 760, easing: "cubic-bezier(.2,.72,.24,1)", fill: "both" }
     );
 
     animateElement(
@@ -314,7 +314,7 @@ if (portfolioSection) {
         { opacity: 0, transform: "translateY(7px)" },
         { opacity: 1, transform: "translateY(0)" }
       ],
-      { duration: 380, delay: 90, easing: "cubic-bezier(.22,1,.36,1)", fill: "both" }
+      { duration: 620, delay: 150, easing: "cubic-bezier(.2,.72,.24,1)", fill: "both" }
     );
 
     copyNodes.forEach((node, index) => {
@@ -325,9 +325,9 @@ if (portfolioSection) {
           { opacity: 1, transform: "translateX(0) translateY(0)" }
         ],
         {
-          duration: 390,
-          delay: 45 + index * 34,
-          easing: "cubic-bezier(.22,1,.36,1)",
+          duration: 640,
+          delay: 110 + index * 58,
+          easing: "cubic-bezier(.2,.72,.24,1)",
           fill: "both"
         }
       );
@@ -339,7 +339,7 @@ if (portfolioSection) {
         { transform: "scale(.985)", boxShadow: "0 0 0 rgba(56,189,248,0)" },
         { transform: "scale(1)", boxShadow: "0 10px 24px rgba(0,0,0,.16)" }
       ],
-      { duration: 340, easing: "cubic-bezier(.22,1,.36,1)", fill: "both" }
+      { duration: 520, delay: 90, easing: "cubic-bezier(.2,.72,.24,1)", fill: "both" }
     );
   };
 
@@ -352,9 +352,9 @@ if (portfolioSection) {
       detail,
       [
         { opacity: 1, transform: "translateY(0) scale(1)" },
-        { opacity: 0.2, transform: "translateY(-5px) scale(.996)" }
+        { opacity: 0.08, transform: "translateY(-3px) scale(.998)" }
       ],
-      { duration: 150, easing: "cubic-bezier(.4,0,1,1)", fill: "both" }
+      { duration: 280, easing: "cubic-bezier(.4,0,.2,1)", fill: "both" }
     );
 
     if (animation?.finished) {
@@ -378,9 +378,9 @@ if (portfolioSection) {
       currentVisual,
       [
         { opacity: 1, transform: "scale(1)" },
-        { opacity: 0, transform: "scale(.985)" }
+        { opacity: 0, transform: "scale(.994)" }
       ],
-      { duration: 155, easing: "cubic-bezier(.4,0,1,1)", fill: "both" }
+      { duration: 260, easing: "cubic-bezier(.4,0,.2,1)", fill: "both" }
     );
     animateElement(
       caption,
@@ -388,7 +388,7 @@ if (portfolioSection) {
         { opacity: 1, transform: "translateY(0)" },
         { opacity: 0, transform: "translateY(4px)" }
       ],
-      { duration: 130, easing: "ease-in", fill: "both" }
+      { duration: 240, easing: "cubic-bezier(.4,0,.2,1)", fill: "both" }
     );
 
     if (outgoing?.finished) {
@@ -433,10 +433,10 @@ if (portfolioSection) {
       animateElement(
         nextVisual,
         [
-          { opacity: 0, transform: "scale(1.018) translateY(3px)" },
+          { opacity: 0, transform: "scale(1.008) translateY(2px)" },
           { opacity: 1, transform: "scale(1) translateY(0)" }
         ],
-        { duration: 430, easing: "cubic-bezier(.16,1,.3,1)", fill: "both" }
+        { duration: 680, easing: "cubic-bezier(.2,.72,.24,1)", fill: "both" }
       );
       animateElement(
         caption,
@@ -444,7 +444,7 @@ if (portfolioSection) {
           { opacity: 0, transform: "translateY(5px)" },
           { opacity: 1, transform: "translateY(0)" }
         ],
-        { duration: 300, delay: 80, easing: "cubic-bezier(.22,1,.36,1)", fill: "both" }
+        { duration: 480, delay: 160, easing: "cubic-bezier(.2,.72,.24,1)", fill: "both" }
       );
     });
   };
