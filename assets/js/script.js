@@ -152,137 +152,15 @@ if (portfolioSection) {
   const portfolioPanel = document.getElementById("portfolioPanel");
   const portfolioStatus = document.getElementById("portfolioSelectionStatus");
   const portfolioTabs = [...portfolioSection.querySelectorAll("[data-portfolio-tab]")];
-  const portfolioData={
-    solutions: [
-      {
-        id: "ism-presencia-digital",
-        name: "ISM Presencia Digital",
-        label: "Solución ISM · Presencia digital",
-        status: "Disponible",
-        type: "Solución ISM",
-        description: "Presencia digital profesional para mostrar tu negocio, ordenar servicios y convertir visitas en contactos, reservas o nuevas oportunidades.",
-        useCase: "Necesitas mostrar tu identidad, servicios y canales de contacto en una experiencia profesional que pueda crecer con reservas, formularios, paneles o integraciones.",
-        stack: "Sitio web · Responsive · SEO inicial · Agenda · Integraciones",
-        icon: "monitor-smartphone",
-        link: "index.html?producto=ism-presencia-digital#contacto",
-        ctaLabel: "Cotizar esta solución",
-        images: [
-          { src: "assets/img/portfolio/proestakis-web-principal.webp", alt: "Ejemplo corporativo de ISM Presencia Digital", label: "Presencia corporativa" },
-          { src: "assets/img/portfolio/badia-nurse-shield-agenda.webp", alt: "Agenda conectada a una implementación de ISM Presencia Digital", label: "Agenda conectada" },
-          { src: "assets/img/portfolio/lecasse-servicios.webp", alt: "Servicios y propuesta comercial en una implementación de ISM Presencia Digital", label: "Servicios y captación" }
-        ]
-      },
-      {
-        id: "ism-stock-control",
-        name: "ISM Stock Control",
-        label: "Solución ISM · Stock y bodegas",
-        status: "Disponible",
-        type: "Solución ISM",
-        description: "Sistema para controlar existencias, bodegas, movimientos, responsables y trazabilidad desde una operación centralizada y preparada para terreno.",
-        useCase: "Necesitas conocer qué tienes, dónde está, quién realizó cada movimiento y mantener un historial confiable para operar con menos registros manuales.",
-        stack: "Stock · Bodegas · Movimientos · Roles · Trazabilidad",
-        icon: "package-search",
-        link: "index.html?producto=ism-stock-control#contacto",
-        ctaLabel: "Cotizar esta solución",
-        images: [
-          { src: "assets/img/portfolio/control-bodega-admin.webp", alt: "Dashboard administrador de ISM Stock Control", label: "Dashboard de control" },
-          { src: "assets/img/portfolio/control-bodega-operativo.webp", alt: "Interfaz operativa móvil de control de bodega", label: "Operación móvil" },
-          { pending: true, alt: "", label: "Reportes y alertas" }
-        ]
-      },
-      {
-        id: "ism-gestion-control",
-        name: "ISM Gestión Control",
-        label: "Solución ISM · Gestión operacional",
-        status: "Disponible",
-        type: "Solución ISM",
-        description: "Gestión operacional para centralizar procesos, recursos, responsables, registros y reportes dentro de una misma solución modular.",
-        useCase: "Necesitas dejar atrás información dispersa y contar con una vista clara de procesos, responsables, recursos y trazabilidad para administrar mejor tu operación.",
-        stack: "Procesos · Recursos · Roles · Registros · Reportes",
-        icon: "layout-dashboard",
-        link: "index.html?producto=ism-gestion-control#contacto",
-        ctaLabel: "Cotizar esta solución",
-        images: [
-          { src: "assets/img/project-ism-gestion-control-dashboard.svg", alt: "Vista conceptual del dashboard de ISM Gestión Control", label: "Dashboard conceptual" },
-          { src: "assets/img/project-ism-gestion-control-inventario.svg", alt: "Vista conceptual de recursos e inventario de ISM Gestión Control", label: "Recursos e inventario" },
-          { src: "assets/img/project-ism-gestion-control-operaciones.svg", alt: "Vista conceptual de operaciones de ISM Gestión Control", label: "Operación y trazabilidad" }
-        ]
-      },
-      {
-        id: "ism-boutique",
-        name: "ISM Boutique",
-        label: "Solución ISM · Comercio",
-        status: "En desarrollo",
-        type: "Solución ISM",
-        description: "Sistema comercial pensado para boutiques y pequeños comercios que necesitan reunir productos, stock, ventas y clientes en una operación simple.",
-        useCase: "Necesitas ordenar productos y existencias, registrar ventas, conocer mejor a tus clientes y disponer de información comercial desde una interfaz simple y mobile first.",
-        stack: "Productos · Stock · Ventas · Clientes · Exportaciones",
-        icon: "shopping-bag",
-        link: "index.html?producto=ism-boutique#contacto",
-        ctaLabel: "Cotizar esta solución",
-        images: [
-          { pending: true, alt: "", label: "Dashboard comercial" },
-          { pending: true, alt: "", label: "Productos y stock" },
-          { pending: true, alt: "", label: "Ventas y clientes" }
-        ]
-      }
-    ],
-    clients: [
-
-      {
-        id: "badiasalud",
-        name: "Badia Nurse Shield",
-        label: "Cliente ISM · ISM Presencia Digital",
-        status: "Publicado",
-        type: "Cliente ISM",
-        description: "Javier, enfermero con más de 10 años de experiencia, nos pidió ayuda para gestionar un sistema de agenda con reservas que integrara su presencia digital y le permitiera automatizar la gestión de sus servicios.",
-        useCase: "Necesitas gestionar horas de reserva y mostrar en un solo lugar la información, servicios, disponibilidad, identidad y trazabilidad de tu negocio.",
-        stack: "TypeScript · Tailwind CSS · Supabase · Vercel",
-        icon: "calendar-check",
-        link: "portafolio.html?proyecto=badiasalud",
-        images: [
-          { src: "assets/img/portfolio/badia-nurse-shield-sitio.webp", alt: "Sitio web de Badia Nurse Shield", label: "Sitio web" },
-          { src: "assets/img/portfolio/badia-nurse-shield-agenda.webp", alt: "Agenda de Badia Nurse Shield", label: "Agenda" },
-          { src: "assets/img/portfolio/badia-nurse-shield-panel.webp", alt: "Panel de Badia Nurse Shield", label: "Gestión interna" }
-        ]
-      },
-      {
-        id: "constructora-proestakis",
-        name: "Constructora Proestakis",
-        label: "Cliente ISM · ISM Presencia Digital",
-        status: "Publicado",
-        type: "Cliente ISM",
-        description: "Presencia corporativa para comunicar experiencia, capacidad técnica y servicios desde un canal profesional propio.",
-        useCase: "Implementación real de ISM Presencia Digital a una empresa de construcción y servicios técnicos.",
-        stack: "HTML5 · CSS3 · JavaScript · Vercel",
-        icon: "truck",
-        link: "portafolio.html?proyecto=constructora-proestakis",
-        images: [
-          { src: "assets/img/portfolio/proestakis-web-principal.webp", alt: "Página principal de Constructora Proestakis mostrada en un computador", label: "Vista principal" },
-          { src: "assets/img/portfolio/proestakis-web-renovacion.webp", alt: "Sección de renovación de Constructora Proestakis mostrada durante una revisión en computador", label: "Renovación" },
-          { src: "assets/img/portfolio/proestakis-web-electricidad.webp", alt: "Sección de electricidad industrial de Constructora Proestakis mostrada en un computador", label: "Electricidad industrial" }
-        ]
-      },
-      {
-        id: "lecasse-it-services",
-        name: "Lecasse IT Services",
-        label: "Cliente ISM · ISM Presencia Digital",
-        status: "Publicado",
-        type: "Cliente ISM",
-        description: "Presencia tecnológica diseñada para ordenar servicios y explicar una propuesta B2B de forma clara y profesional.",
-        useCase: "Implementación real de ISM Presencia Digital a una empresa de servicios tecnológicos.",
-        stack: "HTML5 · CSS3 · JavaScript · Vercel",
-        icon: "server",
-        link: "portafolio.html?proyecto=lecasse-it-services",
-        images: [
-          { src: "assets/img/portfolio/lecasse-reunion-soluciones.webp", alt: "Equipo revisando las soluciones de Lecasse en una sala de reuniones", label: "Soluciones empresariales" },
-          { src: "assets/img/portfolio/lecasse-servidores-software.webp", alt: "Dos profesionales revisando el desarrollo de software de Lecasse en una sala de servidores", label: "Software en terreno" },
-          { src: "assets/img/portfolio/lecasse-oficina-infraestructura.webp", alt: "Sitio de infraestructura empresarial de Lecasse mostrado en un notebook dentro de una oficina", label: "Infraestructura empresarial" }
-        ]
-      }
-    
-    ]
-  };
+  const portfolioDataNode = document.getElementById("ismPortfolioData");
+  let portfolioData = { solutions: [], clients: [] };
+  if (portfolioDataNode) {
+    try {
+      portfolioData = JSON.parse(portfolioDataNode.textContent || "{}");
+    } catch (error) {
+      console.error("No fue posible cargar el catálogo principal de soluciones.", error);
+    }
+  }
   const iconMarkup = (name) => `<i data-lucide="${name}" aria-hidden="true"></i>`;
   const renderGallery=(item) => {
     const [firstImage] = item.images;
@@ -336,7 +214,7 @@ if (portfolioSection) {
   const renderWorkbench = (items, selectedIndex, selectorLabel) => {
     const selectedItem = items[selectedIndex];
     return `
-      <div class="ism-portfolio-workbench">
+      <div class="ism-portfolio-workbench${items.length > 4 ? " is-tools" : ""}">
         <div class="ism-portfolio-selector">
           <span class="ism-portfolio-selector-label">${selectorLabel}</span>
           ${items.map((item, index) => `
@@ -355,7 +233,7 @@ if (portfolioSection) {
     `;
   };
   const state = {
-    tab: "clients",
+    tab: "solutions",
     selected: { clients: 0, solutions: 0 }
   };
   const syncLucide = () => {
@@ -672,25 +550,47 @@ if (contactForm) {
   const requestedProductId = contactParams.get("producto");
   const requestedServiceId = contactParams.get("servicio");
 
+  const productAliases = {
+    "ism-stock-control": "ism-stock",
+    "ism-gestion-control": "ism-control",
+    "tool-service-hours": "ism-project",
+    "tool-service-sizing": "ism-configurador",
+    "tool-availability-agenda": "ism-reservas",
+    "guia-web": "ism-asistente"
+  };
+  const normalizedRequestedProductId = productAliases[requestedProductId] || requestedProductId;
+
   const productNames = {
     "ism-presencia-digital": "ISM Presencia Digital",
-    "ism-stock-control": "ISM Stock Control",
-    "ism-gestion-control": "ISM Gestión Control",
-    "ism-boutique": "ISM Boutique"
+    "ism-boutique": "ISM Boutique",
+    "ism-reservas": "ISM Reservas",
+    "ism-project": "ISM Project",
+    "ism-control": "ISM Control",
+    "ism-stock": "ISM Stock",
+    "ism-configurador": "ISM Configurador",
+    "ism-asistente": "ISM Asistente"
   };
 
   const productPrompts = {
-    "ism-presencia-digital": "Cuéntanos qué necesita comunicar, captar o automatizar tu presencia digital.",
-    "ism-stock-control": "Cuéntanos cómo manejas hoy stock, bodegas, entregas o movimientos.",
-    "ism-gestion-control": "Cuéntanos qué proceso interno necesitas ordenar, controlar o hacer trazable.",
-    "ism-boutique": "Cuéntanos cómo manejas hoy productos, stock, ventas y clientes."
+    "ism-presencia-digital": "Cuéntanos qué necesita comunicar, captar o mejorar tu presencia digital.",
+    "ism-boutique": "Cuéntanos qué productos quieres mostrar y cómo recibes hoy las consultas de tus clientes.",
+    "ism-reservas": "Cuéntanos cómo coordinas hoy horarios, disponibilidad y reservas.",
+    "ism-project": "Cuéntanos cómo registras hoy horas, actividades, clientes y proyectos.",
+    "ism-control": "Cuéntanos qué procesos, responsables o módulos necesitas centralizar.",
+    "ism-stock": "Cuéntanos cómo manejas hoy stock, bodegas, entregas o movimientos.",
+    "ism-configurador": "Cuéntanos qué servicios, variables u opciones debería poder configurar tu cliente o equipo.",
+    "ism-asistente": "Cuéntanos qué preguntas debería responder tu cliente y qué recomendación quieres entregar al final."
   };
 
   const productContextMessages = {
     "ism-presencia-digital": "Evaluaremos alcance, contenido, captación e integraciones necesarias para tu negocio.",
-    "ism-stock-control": "Evaluaremos bodegas, movimientos, roles, trazabilidad y necesidades de operación.",
-    "ism-gestion-control": "Evaluaremos procesos, responsables, estados, registros y módulos de gestión.",
-    "ism-boutique": "Evaluaremos catálogo, stock, ventas, clientes y operación mobile first."
+    "ism-boutique": "Evaluaremos catálogo, categorías, productos, administración y canal de contacto.",
+    "ism-reservas": "Evaluaremos servicios, disponibilidad, reglas de agenda, reservas y posibles automatizaciones.",
+    "ism-project": "Evaluaremos usuarios, clientes, proyectos, actividades, horas y reportes necesarios.",
+    "ism-control": "Evaluaremos CORE administrativo, procesos, responsables, módulos e integraciones.",
+    "ism-stock": "Evaluaremos bodegas, movimientos, roles, trazabilidad y necesidades de operación.",
+    "ism-configurador": "Evaluaremos catálogo, reglas, variables, resumen y flujo de solicitud o precotización.",
+    "ism-asistente": "Evaluaremos preguntas, decisiones, recomendaciones, captura de datos y siguiente paso comercial."
   };
 
   const serviceNames = {
@@ -702,22 +602,22 @@ if (contactForm) {
     "soporte-gestion": "Soporte y Gestión de Servicios"
   };
 
-  if (requestedProductId && productNames[requestedProductId] && serviceSelect) {
-    serviceSelect.value = productNames[requestedProductId];
+  if (normalizedRequestedProductId && productNames[normalizedRequestedProductId] && serviceSelect) {
+    serviceSelect.value = productNames[normalizedRequestedProductId];
 
     if (messageField && !messageField.value) {
-      messageField.placeholder = productPrompts[requestedProductId];
+      messageField.placeholder = productPrompts[normalizedRequestedProductId];
     }
 
     if (productContext && productContextTitle && productContextText) {
       productContext.hidden = false;
-      productContextTitle.textContent = productNames[requestedProductId];
-      productContextText.textContent = productContextMessages[requestedProductId];
+      productContextTitle.textContent = productNames[normalizedRequestedProductId];
+      productContextText.textContent = productContextMessages[normalizedRequestedProductId];
     }
 
     window.trackEvent?.("product_interest_prefilled", {
       event_category: "conversion",
-      product_interest: requestedProductId,
+      product_interest: normalizedRequestedProductId,
       section: "contacto"
     });
   } else if (requestedServiceId && serviceNames[requestedServiceId] && serviceSelect) {
@@ -744,7 +644,7 @@ if (contactForm) {
     window.trackEvent("contact_form_submit", {
       event_category: "conversion",
       service_interest: servicio,
-      product_interest: requestedProductId || "",
+      product_interest: normalizedRequestedProductId || "",
       section: "contacto"
     });
     window.open(
