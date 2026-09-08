@@ -86,7 +86,6 @@ export function CatalogPage() {
         resolveInitialAreaId(searchParams.get("servicio")) ??
         resolveProductAreaId(productId)
       }
-      initialPresetDescription={preset?.description ?? null}
       initialPresetLabel={preset?.label ?? null}
       initialState={preset?.state ?? null}
     />

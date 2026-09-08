@@ -55,7 +55,6 @@ interface StandardPlatformCatalogPageProps {
   initialAreaId?: string | null;
   initialState?: StandardConfiguratorState | null;
   initialPresetLabel?: string | null;
-  initialPresetDescription?: string | null;
 }
 
 interface ServiceModuleCardProps {
@@ -469,7 +468,6 @@ export function StandardPlatformCatalogPage({
   initialAreaId = null,
   initialState = null,
   initialPresetLabel = null,
-  initialPresetDescription = null,
 }: StandardPlatformCatalogPageProps) {
   const catalog = engine.catalog;
   const [state, setState] = useState<StandardConfiguratorState>(
@@ -1123,13 +1121,9 @@ export function StandardPlatformCatalogPage({
               {initialPresetLabel ? (
                 <div className="ism-solution-preset" role="status">
                   <span>Versión Inicial precargada</span>
-                  <strong>{initialPresetLabel}</strong>
-                  {initialPresetDescription ? (
-                    <small>{initialPresetDescription}</small>
-                  ) : null}
-                  <small>
-                    Puedes agregar, quitar o ajustar actividades; las HH se recalculan automáticamente.
-                  </small>
+                  <strong>
+                    {initialPresetLabel} — Puedes agregar o quitar actividades
+                  </strong>
                 </div>
               ) : null}
             </div>

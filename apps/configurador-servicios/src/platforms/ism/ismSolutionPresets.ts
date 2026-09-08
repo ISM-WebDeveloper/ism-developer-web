@@ -38,7 +38,7 @@ const PRODUCT_ALIASES: Record<string, string> = {
 const PRESETS: Record<string, PresetDefinition> = {
   "ism-presencia-digital": {
     id: "ism-presencia-digital",
-    label: "Versión Inicial · ISM Presencia Digital",
+    label: "ISM Presencia Digital",
     description:
       "Base reutilizable ISM con estructura web, contenido, contacto, SEO inicial, optimización y publicación ya consideradas.",
     executionFactor: 0.32,
@@ -65,7 +65,7 @@ const PRESETS: Record<string, PresetDefinition> = {
   },
   "ism-boutique": {
     id: "ism-boutique",
-    label: "Versión Inicial · ISM Boutique",
+    label: "ISM Boutique",
     description:
       "Catálogo administrable con base de datos, roles, CRUD, dashboard, flujo comercial y carga inicial sobre una base ISM reutilizable.",
     executionFactor: 0.23,
@@ -96,7 +96,7 @@ const PRESETS: Record<string, PresetDefinition> = {
   },
   "ism-reservas": {
     id: "ism-reservas",
-    label: "Versión Inicial · ISM Reservas",
+    label: "ISM Reservas",
     description:
       "Agenda principal, servicios, disponibilidad, administración, roles, notificaciones y pruebas precargadas sobre la base de ISM Reservas.",
     executionFactor: 0.23,
@@ -126,7 +126,7 @@ const PRESETS: Record<string, PresetDefinition> = {
   },
   "ism-project": {
     id: "ism-project",
-    label: "Versión Inicial · ISM Project",
+    label: "ISM Project",
     description:
       "Clientes, proyectos, actividades, horas, roles, dashboard, reportes, carga inicial y UAT precargados como base de implementación.",
     executionFactor: 0.23,
@@ -158,7 +158,7 @@ const PRESETS: Record<string, PresetDefinition> = {
   },
   "ism-control": {
     id: "ism-control",
-    label: "Versión Inicial · ISM Control",
+    label: "ISM Control",
     description:
       "CORE administrativo, usuarios, roles, clientes, dashboard y un módulo operativo inicial precargados sobre la arquitectura reutilizable ISM.",
     executionFactor: 0.25,
@@ -191,7 +191,7 @@ const PRESETS: Record<string, PresetDefinition> = {
   },
   "ism-stock": {
     id: "ism-stock",
-    label: "Versión Inicial · ISM Stock",
+    label: "ISM Stock",
     description:
       "Productos, bodegas, movimientos, roles, trazabilidad, dashboard, carga inicial y flujos operativos precargados sobre la base de ISM Stock.",
     executionFactor: 0.25,
@@ -224,7 +224,7 @@ const PRESETS: Record<string, PresetDefinition> = {
   },
   "ism-configurador": {
     id: "ism-configurador",
-    label: "Versión Inicial · ISM Configurador",
+    label: "ISM Configurador",
     description:
       "Modelo comercial, pantallas, reglas, CRUD, resumen y reportes precargados como punto de partida para adaptar el configurador al negocio.",
     executionFactor: 0.23,
@@ -255,7 +255,7 @@ const PRESETS: Record<string, PresetDefinition> = {
   },
   "ism-asistente": {
     id: "ism-asistente",
-    label: "Versión Inicial · ISM Asistente",
+    label: "ISM Asistente",
     description:
       "Flujo guiado, pantallas, reglas de decisión, recomendación, notificación y UAT precargados sobre la base reutilizable del asistente.",
     executionFactor: 0.28,

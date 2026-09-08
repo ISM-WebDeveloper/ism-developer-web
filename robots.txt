@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /apps/
 
 Sitemap: https://www.ismdeveloper.cl/sitemap.xml
