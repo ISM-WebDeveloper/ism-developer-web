@@ -153,6 +153,51 @@
         }
 }
     </script>
+
+    <style id="portfolio-mobile-topbar-final">
+        /* Cierre móvil final: menú a la izquierda y regreso al extremo derecho. */
+        @media (max-width: 820px) {
+            .dashboard-topbar {
+                padding: 10px 14px !important;
+            }
+
+            .topbar-left {
+                position: relative !important;
+                width: 100% !important;
+                min-width: 0 !important;
+                min-height: 40px !important;
+                display: block !important;
+            }
+
+            .sidebar-toggle.sidebar-toggle-catalog {
+                position: absolute !important;
+                left: 0 !important;
+                top: 50% !important;
+                transform: translateY(-50%) !important;
+                margin: 0 !important;
+            }
+
+            .back-link {
+                position: absolute !important;
+                right: 0 !important;
+                left: auto !important;
+                top: 50% !important;
+                transform: translateY(-50%) !important;
+                margin: 0 !important;
+                white-space: nowrap !important;
+            }
+
+            .topbar-status {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 390px) {
+            .dashboard-topbar {
+                padding-inline: 10px !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -196,7 +241,7 @@
                         aria-label="Abrir catálogo completo del portafolio" aria-controls="projectSidebar"
                         aria-expanded="false" title="Abrir catálogo completo">
                         <i data-lucide="panel-left"></i>
-                        <span>Abrir catálogo</span>
+                        <span>Menú catálogo</span>
                     </button>
                     <a href="index.html#proyectos" class="back-link">
                         <i data-lucide="arrow-left"></i>
