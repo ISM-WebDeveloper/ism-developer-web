@@ -208,27 +208,54 @@ if (portfolioSection) {
       </div>
     `;
   };
-  const renderDetail=(item) => `
-    <div class="ism-portfolio-detail">
-      ${renderGallery(item)}
-      <div class="ism-portfolio-copy">
-        <div class="ism-portfolio-copy-top">
-          <span class="ism-portfolio-copy-type">${item.type}</span>
+  const renderDetail=(item) => {
+    const isSolution = item.type === "Solución ISM";
+    const commercialMarkup = isSolution && item.price ? `
+      <div class="ism-portfolio-commercial" aria-label="Información comercial de ${item.name}">
+        <div class="ism-portfolio-commercial-card">
+          <i data-lucide="wallet-cards" aria-hidden="true"></i>
+          <span>Implementación inicial</span>
+          <strong>Desde ${item.price}</strong>
         </div>
-        <h3>${item.name}</h3>
-        <p>${item.description}</p>
-        <div class="ism-portfolio-use-case"><strong>Puede ayudarte si:</strong> ${item.useCase}</div>
-        <div class="ism-portfolio-stack">${item.stack}</div>
-        <a class="ism-portfolio-detail-link" href="${item.link}"
-          data-track-event="${item.type === "Solución ISM" ? "solution_quote_click" : "project_click"}"
-          data-track-category="${item.type === "Solución ISM" ? "solutions" : "portfolio"}"
-          data-track-label="${item.name}"
-          ${item.type === "Solución ISM" ? `data-solution-quote="true" data-solution-id="${item.id}" data-solution-name="${item.name}"` : ""}>
-          ${item.ctaLabel || "Ver implementación"} <span aria-hidden="true">→</span>
-        </a>
+        <div class="ism-portfolio-commercial-card">
+          <i data-lucide="clock-3" aria-hidden="true"></i>
+          <span>Plazo estimado</span>
+          <strong>${item.timeline}</strong>
+        </div>
+        <div class="ism-portfolio-commercial-card">
+          <i data-lucide="shield-check" aria-hidden="true"></i>
+          <span>Continuidad administrada</span>
+          <strong>Desde ${item.monthly} / mes</strong>
+          <small>Opcional</small>
+        </div>
       </div>
-    </div>
-  `;
+      <p class="ism-portfolio-commercial-note">${item.commercialNote}</p>
+    ` : "";
+
+    return `
+      <div class="ism-portfolio-detail">
+        ${renderGallery(item)}
+        <div class="ism-portfolio-copy">
+          <div class="ism-portfolio-copy-top">
+            <span class="ism-portfolio-copy-type">${item.type}</span>
+            ${isSolution && item.version ? `<span class="ism-portfolio-version-badge">${item.version}</span>` : ""}
+          </div>
+          <h3>${item.name}</h3>
+          <p>${item.description}</p>
+          ${commercialMarkup}
+          <div class="ism-portfolio-use-case"><strong>Puede ayudarte si:</strong> ${item.useCase}</div>
+          <div class="ism-portfolio-stack">${item.stack}</div>
+          <a class="ism-portfolio-detail-link" href="${item.link}"
+            data-track-event="${isSolution ? "solution_quote_click" : "project_click"}"
+            data-track-category="${isSolution ? "solutions" : "portfolio"}"
+            data-track-label="${item.name}"
+            ${isSolution ? `data-solution-quote="true" data-solution-id="${item.id}" data-solution-name="${item.name}"` : ""}>
+            ${item.ctaLabel || "Ver implementación"} <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    `;
+  };
   const renderWorkbench = (items, selectedIndex, selectorLabel) => {
     const selectedItem = items[selectedIndex];
     return `
@@ -286,6 +313,8 @@ if (portfolioSection) {
       portfolioPanel.querySelector(".ism-portfolio-copy-top"),
       portfolioPanel.querySelector(".ism-portfolio-copy h3"),
       portfolioPanel.querySelector(".ism-portfolio-copy > p"),
+      portfolioPanel.querySelector(".ism-portfolio-commercial"),
+      portfolioPanel.querySelector(".ism-portfolio-commercial-note"),
       portfolioPanel.querySelector(".ism-portfolio-use-case"),
       portfolioPanel.querySelector(".ism-portfolio-stack"),
       portfolioPanel.querySelector(".ism-portfolio-detail-link")
