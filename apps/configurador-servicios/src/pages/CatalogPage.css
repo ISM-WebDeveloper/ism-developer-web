@@ -2924,29 +2924,86 @@
 
 
 /* ==================================================
-   AJUSTE FINAL · INFORMACIÓN DE LA APLICACIÓN MÓVIL
+   FASE 5.2A · PRESETS DE SOLUCIONES ISM
+   ================================================== */
+.ism-solution-preset {
+  width: min(100%, 860px);
+  margin: 16px auto 0;
+  padding: 11px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 170, 215, 0.22);
+  border-radius: 12px;
+  background: rgba(0, 200, 248, 0.055);
+  text-align: center;
+}
+
+.ism-solution-preset__line {
+  margin: 0;
+  color: var(--ibm-orange-dark);
+  font-size: clamp(0.72rem, 1.25vw, 0.86rem);
+  font-weight: 760;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.ism-solution-preset__line > span:first-child {
+  font-weight: 900;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+.ism-solution-preset__line > strong {
+  color: var(--ibm-orange-dark);
+  font-weight: 900;
+}
+
+@media (max-width: 620px) {
+  .ism-solution-preset {
+    padding: 10px 12px;
+  }
+
+  .ism-solution-preset__line {
+    white-space: normal;
+  }
+}
+
+/* ==================================================
+   ISM CONFIGURADOR · CIERRE MÓVIL FINAL 3.0
+   Información de la aplicación centrada.
    ================================================== */
 @media (max-width: 760px) {
   .ibm-app-meta {
-    text-align: center;
+    text-align: center !important;
+  }
+
+  .ibm-app-meta > h2 {
+    width: 100% !important;
+    text-align: center !important;
   }
 
   .ibm-meta-grid {
-    max-width: 100%;
-    margin-inline: auto;
+    width: 100% !important;
+    margin-inline: auto !important;
   }
 
   .ibm-meta-row {
-    justify-items: center;
-    text-align: center;
+    grid-template-columns: 1fr !important;
+    justify-items: center !important;
+    align-items: center !important;
+    gap: 4px !important;
+    text-align: center !important;
   }
 
   .ibm-meta-row > span,
   .ibm-meta-row > strong {
-    text-align: center;
+    width: 100% !important;
+    text-align: center !important;
   }
 
   .ibm-version-badge {
-    justify-content: center;
+    justify-content: center !important;
   }
 }
+

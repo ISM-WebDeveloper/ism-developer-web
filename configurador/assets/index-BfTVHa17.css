@@ -4342,3 +4342,42 @@ body,
   box-shadow: 0 16px 44px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(18px);
 }
+
+/* ==================================================
+   ISM CONFIGURADOR · CIERRE MÓVIL FINAL 3.0
+   Información de la aplicación centrada.
+   ================================================== */
+@media (max-width: 760px) {
+  .ibm-app-meta {
+    text-align: center !important;
+  }
+
+  .ibm-app-meta > h2 {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .ibm-meta-grid {
+    width: 100% !important;
+    margin-inline: auto !important;
+  }
+
+  .ibm-meta-row {
+    grid-template-columns: 1fr !important;
+    justify-items: center !important;
+    align-items: center !important;
+    gap: 4px !important;
+    text-align: center !important;
+  }
+
+  .ibm-meta-row > span,
+  .ibm-meta-row > strong {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .ibm-version-badge {
+    justify-content: center !important;
+  }
+}
+
