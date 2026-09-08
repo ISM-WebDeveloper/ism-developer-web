@@ -1,0 +1,56 @@
+/* =========================================================
+   ISM PORTAFOLIO 3.0 · TOPBAR MÓVIL FINAL
+   Archivo externo intencional: compatible con la CSP vigente.
+   ========================================================= */
+@media (max-width: 820px) {
+  .dashboard-topbar {
+    width: 100% !important;
+    min-height: 64px !important;
+    padding: 10px 14px !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    align-items: center !important;
+  }
+
+  .topbar-left {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    display: grid !important;
+    grid-template-columns: max-content minmax(12px, 1fr) max-content !important;
+    align-items: center !important;
+    column-gap: 10px !important;
+  }
+
+  .sidebar-toggle.sidebar-toggle-catalog {
+    grid-column: 1 !important;
+    justify-self: start !important;
+    position: static !important;
+    transform: none !important;
+    margin: 0 !important;
+  }
+
+  .back-link {
+    grid-column: 3 !important;
+    justify-self: end !important;
+    position: static !important;
+    transform: none !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  .topbar-status {
+    display: none !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .dashboard-topbar {
+    padding-inline: 10px !important;
+  }
+
+  .topbar-left {
+    column-gap: 7px !important;
+  }
+}\n\n/* =========================================================\n   ISM PORTAFOLIO 3.0 · BOTONES TOPBAR EMPAREJADOS\n   ========================================================= */\n@media (max-width: 820px) {\n  .sidebar-toggle.sidebar-toggle-catalog,\n  .back-link {\n    min-height: 40px !important;\n    padding: 0 12px !important;\n    display: inline-flex !important;\n    align-items: center !important;\n    justify-content: center !important;\n    gap: 7px !important;\n    border: 1px solid rgba(var(--accent-rgb), 0.46) !important;\n    border-radius: 11px !important;\n    color: #eaf8ff !important;\n    background: linear-gradient(180deg, rgba(var(--accent-rgb), 0.08), rgba(7, 21, 37, 0.94)) !important;\n    box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.13), inset 0 1px 0 rgba(255,255,255,0.06) !important;\n    transition: border-color .2s ease, background .2s ease, box-shadow .2s ease, color .2s ease !important;\n  }\n\n  .sidebar-toggle.sidebar-toggle-catalog:hover,\n  .sidebar-toggle.sidebar-toggle-catalog:focus-visible,\n  .back-link:hover,\n  .back-link:focus-visible {\n    color: #ffffff !important;\n    border-color: rgba(var(--accent-rgb), 0.82) !important;\n    background: linear-gradient(180deg, rgba(var(--accent-rgb), 0.15), rgba(7, 21, 37, 0.96)) !important;\n    box-shadow: 0 0 26px rgba(var(--accent-rgb), 0.24), inset 0 1px 0 rgba(255,255,255,0.09) !important;\n  }\n\n  .sidebar-toggle.sidebar-toggle-catalog svg,\n  .back-link svg {\n    width: 18px !important;\n    height: 18px !important;\n    flex: 0 0 auto !important;\n    color: currentColor !important;\n  }\n}\n\n@media (max-width: 390px) {\n  .sidebar-toggle.sidebar-toggle-catalog,\n  .back-link {\n    padding-inline: 10px !important;\n  }\n}\n
