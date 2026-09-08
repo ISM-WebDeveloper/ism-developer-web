@@ -1026,14 +1026,38 @@ function renderCommercial(project) {
         actionDescription.textContent = "Puedes conversar directo o definir primero el alcance con una herramienta ISM.";
     }
 
-    const productQuery = solutionId ? `?producto=${encodeURIComponent(solutionId)}` : "";
-    configurator.href = `configurador/${productQuery}`;
-    assistant.href = "guia-web/";
+    // FASE 5.2 · Contexto único para Configurador, Asistente, Formulario y WhatsApp.
+    const configuratorParams = new URLSearchParams();
+    const assistantParams = new URLSearchParams();
+
+    if (solutionId) {
+        configuratorParams.set("servicio", "desarrollo-implementacion");
+        configuratorParams.set("producto", solutionId);
+        configuratorParams.set("solucion", referenceName);
+        configuratorParams.set("origen", "portafolio");
+
+        assistantParams.set("producto", solutionId);
+        assistantParams.set("solucion", referenceName);
+        assistantParams.set("origen", "portafolio");
+    }
+
+    configurator.href = solutionId
+        ? `configurador/?${configuratorParams.toString()}`
+        : "configurador/";
+
+    assistant.href = solutionId
+        ? `guia-web/?${assistantParams.toString()}`
+        : "guia-web/";
+
     form.href = solutionId
         ? `index.html?producto=${encodeURIComponent(solutionId)}#contacto`
         : "index.html#contacto";
 
-    whatsapp.href = `https://wa.me/56968374821?text=${encodeURIComponent(`Hola, quiero revisar ${referenceName} para mi empresa.`)}`;
+    whatsapp.href = `https://wa.me/56968374821?text=${encodeURIComponent(
+        solutionId
+            ? `Hola, quiero revisar ${referenceName} para mi empresa. Vengo desde el Portafolio ISM.`
+            : `Hola, quiero revisar ${referenceName} para mi empresa.`
+    )}`;
 }
 function selectProject(id, options = {}) {
     const project = visiblePortfolioProjects.find((item) => item.id === id) || visiblePortfolioProjects[0];

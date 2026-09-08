@@ -21,6 +21,24 @@ const SERVICE_AREA_ALIASES: Record<string, string> = {
   "soporte-gestion": "soporte-gestion",
 };
 
+
+const PRODUCT_AREA_ALIASES: Record<string, string> = {
+  "ism-presencia-digital": "desarrollo-implementacion",
+  "ism-boutique": "desarrollo-implementacion",
+  "ism-reservas": "desarrollo-implementacion",
+  "ism-project": "desarrollo-implementacion",
+  "ism-control": "desarrollo-implementacion",
+  "ism-stock": "desarrollo-implementacion",
+  "ism-configurador": "desarrollo-implementacion",
+  "ism-asistente": "desarrollo-implementacion",
+  "ism-stock-control": "desarrollo-implementacion",
+  "ism-gestion-control": "desarrollo-implementacion",
+  "tool-service-hours": "desarrollo-implementacion",
+  "tool-service-sizing": "desarrollo-implementacion",
+  "tool-availability-agenda": "desarrollo-implementacion",
+  "guia-web": "desarrollo-implementacion",
+};
+
 // ==================================================
 // FUNCIONES AUXILIARES
 // ==================================================
@@ -31,6 +49,15 @@ function resolveInitialAreaId(serviceSlug: string | null): string | null {
   }
 
   return SERVICE_AREA_ALIASES[serviceSlug] ?? null;
+}
+
+
+function resolveProductAreaId(productId: string | null): string | null {
+  if (!productId) {
+    return null;
+  }
+
+  return PRODUCT_AREA_ALIASES[productId] ?? null;
 }
 
 // ==================================================
@@ -48,7 +75,10 @@ export function CatalogPage() {
   return (
     <StandardPlatformCatalogPage
       engine={ismServicesEngine}
-      initialAreaId={resolveInitialAreaId(searchParams.get("servicio"))}
+      initialAreaId={
+        resolveInitialAreaId(searchParams.get("servicio")) ??
+        resolveProductAreaId(searchParams.get("producto"))
+      }
     />
   );
 }

@@ -42,6 +42,11 @@
             turnstileWidgetId: null,
             turnstileReady: false,
             turnstileLoading: false
+        },
+        source: {
+            productId: "",
+            productName: "",
+            origin: ""
         }
     };
 
@@ -108,6 +113,57 @@
             ["integration", "Conectar con otro sistema", "Compartir información con una plataforma que ya utilizas.", "server"]
         ]
     };
+
+    var sourceProductNames = {
+        "ism-presencia-digital": "ISM Presencia Digital",
+        "ism-boutique": "ISM Boutique",
+        "ism-reservas": "ISM Reservas",
+        "ism-project": "ISM Project",
+        "ism-control": "ISM Control",
+        "ism-stock": "ISM Stock",
+        "ism-configurador": "ISM Configurador",
+        "ism-asistente": "ISM Asistente",
+        "ism-stock-control": "ISM Stock",
+        "ism-gestion-control": "ISM Control",
+        "tool-service-hours": "ISM Project",
+        "tool-service-sizing": "ISM Configurador",
+        "tool-availability-agenda": "ISM Reservas",
+        "guia-web": "ISM Asistente"
+    };
+
+    function initializeSourceContext() {
+        var params = new URLSearchParams(window.location.search);
+        var productId = params.get("producto") || "";
+        var requestedName = params.get("solucion") || "";
+        var origin = params.get("origen") || "";
+        var productName = requestedName.trim() || sourceProductNames[productId] || "";
+
+        state.source.productId = productId;
+        state.source.productName = productName;
+        state.source.origin = origin;
+
+        if (!productName) return;
+
+        var context = document.getElementById("guideSourceContext");
+        var title = document.getElementById("guideSourceContextTitle");
+        var copy = document.getElementById("guideSourceContextCopy");
+
+        if (context && title && copy) {
+            title.textContent = "Vienes evaluando " + productName + ".";
+            copy.textContent = "La guía conservará ese contexto y validará si encaja con lo que necesitas.";
+            context.hidden = false;
+        }
+
+        if (typeof window.trackEvent === "function") {
+            window.trackEvent("guide_context_received", {
+                event_category: "conversion",
+                product_interest: productId,
+                solution_name: productName,
+                origin: origin || "directo",
+                section: "guia-web"
+            });
+        }
+    }
 
     var stepNames = [
         "Bienvenida",
@@ -833,9 +889,14 @@
         state.contact = contact;
 
         return {
-            schemaVersion: "1.3",
+            schemaVersion: "1.4",
             source: "guia-web-ism",
             submittedAt: new Date().toISOString(),
+            context: {
+                requestedProductId: state.source.productId,
+                requestedProductName: state.source.productName,
+                origin: state.source.origin
+            },
             contact: contact,
             project: {
                 industry: {
@@ -997,6 +1058,7 @@
 
     document.getElementById("prequoteForm").addEventListener("submit", submitPrequote);
 
+    initializeSourceContext();
     renderEssentials();
     renderAll();
 }());

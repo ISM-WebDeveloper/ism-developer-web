@@ -3,7 +3,7 @@
 // ==================================================
 
 import { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useSearchParams } from "react-router-dom";
 
 import { ISM_BRAND } from "../config/brand";
 
@@ -19,6 +19,38 @@ type CatalogAction = "save" | "recover" | "clear";
 
 const CONFIGURATOR_ACTION_EVENT = "ism-configurator:services:action";
 const BRAND_LOGO_URL = `${import.meta.env.BASE_URL}brand/ism-developer-horizontal.webp`;
+
+const PRODUCT_LABELS: Record<string, string> = {
+  "ism-presencia-digital": "ISM Presencia Digital",
+  "ism-boutique": "ISM Boutique",
+  "ism-reservas": "ISM Reservas",
+  "ism-project": "ISM Project",
+  "ism-control": "ISM Control",
+  "ism-stock": "ISM Stock",
+  "ism-configurador": "ISM Configurador",
+  "ism-asistente": "ISM Asistente",
+  "ism-stock-control": "ISM Stock",
+  "ism-gestion-control": "ISM Control",
+  "tool-service-hours": "ISM Project",
+  "tool-service-sizing": "ISM Configurador",
+  "tool-availability-agenda": "ISM Reservas",
+  "guia-web": "ISM Asistente",
+};
+
+function resolveProductLabel(
+  productId: string | null,
+  solutionName: string | null,
+): string | null {
+  if (solutionName?.trim()) {
+    return solutionName.trim();
+  }
+
+  if (!productId) {
+    return null;
+  }
+
+  return PRODUCT_LABELS[productId] ?? null;
+}
 
 // ==================================================
 // FUNCIONES AUXILIARES
@@ -37,8 +69,14 @@ function dispatchCatalogAction(action: CatalogAction) {
 // ==================================================
 
 export default function App() {
+  const [searchParams] = useSearchParams();
   const [mobileActionsHidden, setMobileActionsHidden] = useState(false);
   const [mobileNavFollowing, setMobileNavFollowing] = useState(false);
+
+  const requestedProductLabel = resolveProductLabel(
+    searchParams.get("producto"),
+    searchParams.get("solucion"),
+  );
 
   useEffect(() => {
     const scrollContainer = document.querySelector<HTMLElement>(".ibm-configurator");
@@ -140,7 +178,9 @@ export default function App() {
             </h1>
 
             <p className="main-header__subtitle">
-              Selección de soluciones, actividades y estimación técnica consolidada
+              {requestedProductLabel
+                ? `Configurando ${requestedProductLabel} · ajusta servicios y alcance técnico`
+                : "Selección de soluciones, actividades y estimación técnica consolidada"}
             </p>
           </div>
         </div>
