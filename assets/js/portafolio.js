@@ -349,8 +349,8 @@ const projects = [
         id: "badiasalud",
         category: "Clientes ISM",
         name: "Badia Nurse Shield",
-        short: "Sitio web + agenda",
-        type: "Cliente ISM / ISM Presencia Digital",
+        short: "ISM Presencia Digital + ISM Reservas",
+        type: "Cliente ISM / ISM Presencia Digital + ISM Reservas",
         status: "Publicado",
         accent: "#16bdf2",
         accentRgb: "22, 189, 242",
@@ -392,7 +392,7 @@ const projects = [
         id: "constructora-proestakis",
         category: "Clientes ISM",
         name: "Constructora Proestakis",
-        short: "Presencia corporativa",
+        short: "ISM Presencia Digital",
         type: "Cliente ISM / ISM Presencia Digital",
         status: "Publicado",
         accent: "#fb923c",
@@ -435,44 +435,44 @@ const projects = [
         id: "lecasse-it-services",
         category: "Clientes ISM",
         name: "Lecasse IT Services",
-        short: "Presencia B2B + control de horas",
+        short: "ISM Presencia Digital + ISM Project",
         type: "Cliente ISM / ISM Presencia Digital + ISM Project",
         status: "Publicado",
         accent: "#38bdf8",
         accentRgb: "56, 189, 248",
         url: "https://lecasse.vercel.app/",
-        summary: "Implementación para Lecasse que combina su presencia digital corporativa con un sistema privado de control de horas, clientes y proyectos, conectando comunicación comercial y gestión operativa.",
-        metrics: [["Estado", "Publicado"], ["Sector", "Tecnología"], ["Soluciones", "2"], ["Operación", "Horas"]],
-        stack: "ISM Presencia Digital · ISM Project · TypeScript · Supabase · Vercel",
+        summary: "Una presencia tecnológica que ordena servicios y propuesta de valor para que potenciales clientes entiendan rápidamente las capacidades de la empresa.",
+        metrics: [["Estado", "Publicado"], ["Sector", "Tecnología"], ["Modelo", "B2B"], ["Objetivo", "Captación"]],
+        stack: "HTML5 · CSS3 · JavaScript · Vercel",
         journey: [
             {
-                title: "Presencia digital para comunicar una oferta B2B",
-                description: "El sitio corporativo organiza los servicios y la propuesta de valor de Lecasse para que potenciales clientes comprendan sus capacidades tecnológicas desde un canal profesional propio.",
-                focus: "Presencia digital",
-                result: "Captación",
+                title: "Soluciones empresariales presentadas en contexto",
+                description: "La propuesta tecnológica se muestra dentro de una reunión real, ayudando a visualizar cómo Lecasse comunica capacidades para plataformas empresariales y misión crítica.",
+                focus: "Soluciones empresariales",
+                result: "Claridad",
                 image: "assets/img/portfolio/lecasse-reunion-soluciones.webp",
-                alt: "Presencia digital de Lecasse presentada durante una reunión"
+                alt: "Equipo revisando las soluciones de Lecasse en una sala de reuniones"
             },
             {
-                title: "Acceso privado al sistema de control de horas",
-                description: "Lecasse incorpora una plataforma interna basada en ISM Project con autenticación y roles para mantener separados los accesos y ordenar la gestión de actividades y registros.",
-                focus: "Acceso por roles",
-                result: "Control",
-                image: "assets/img/portfolio/control-horas-login.webp",
-                alt: "Acceso privado al sistema de control de horas implementado para Lecasse"
+                title: "Desarrollo de software conectado con la operación",
+                description: "La solución se presenta en un notebook dentro de una sala de servidores, reforzando la relación entre software, infraestructura y trabajo técnico en terreno.",
+                focus: "Software en terreno",
+                result: "Integración",
+                image: "assets/img/portfolio/lecasse-servidores-software.webp",
+                alt: "Dos profesionales revisando el desarrollo de software de Lecasse en una sala de servidores"
             },
             {
-                title: "Horas, clientes y proyectos conectados",
-                description: "El sistema permite registrar y consultar trabajo por cliente, proyecto, actividad y responsable, entregando trazabilidad para reportes, seguimiento y valorización de servicios.",
-                focus: "Gestión operativa",
-                result: "Trazabilidad",
-                image: "assets/img/portfolio/control-horas-b2b.webp",
-                alt: "Gestión B2B de clientes proyectos y horas en el sistema de Lecasse"
+                title: "Infraestructura empresarial desde un entorno profesional",
+                description: "La página se muestra en un notebook dentro de una oficina, destacando servicios de infraestructura, cloud, seguridad y continuidad operacional en un contexto corporativo real.",
+                focus: "Infraestructura empresarial",
+                result: "Confianza",
+                image: "assets/img/portfolio/lecasse-oficina-infraestructura.webp",
+                alt: "Sitio de infraestructura empresarial de Lecasse mostrado en un notebook dentro de una oficina"
             }
         ],
-        analysis: ["Necesidad de comunicar una oferta tecnológica B2B con claridad", "Horas y actividades distribuidas en registros separados", "Necesidad de trazabilidad por cliente, proyecto y responsable", "Reportes operativos que requieren información estructurada"],
-        actionPlan: ["Presencia Digital corporativa responsive y publicada", "Sistema privado de control de horas basado en ISM Project", "Clientes, proyectos, actividades, usuarios y roles", "Consulta, reportes y exportaciones para seguimiento", "Base preparada para evolución e integraciones"],
-        scalability: ["Nuevos ejecutores y permisos", "Flujos de aprobación", "Indicadores por cliente y proyecto", "Integraciones con facturación o ERP", "Automatizaciones y reportes avanzados"]
+        analysis: ["Oferta tecnológica difícil de comunicar", "Necesidad de fortalecer confianza y posicionamiento", "Servicios B2B con alto componente técnico", "Pocos puntos de conversión comercial"],
+        actionPlan: ["Sitio corporativo responsive", "Presentación clara de líneas de servicio", "Jerarquía orientada a problemas del cliente", "Puntos de contacto visibles", "Base preparada para casos y oportunidades"],
+        scalability: ["Casos de estudio", "Contenido técnico", "Formularios comerciales segmentados", "Integración con CRM y módulos B2B"]
     }
 
 ];

@@ -1032,3 +1032,18 @@ html{scroll-padding-top:var(--section-anchor-offset)}.header[id],main > section[
   .ism-portfolio-commercial-card span{min-height:0}
   .ism-portfolio-commercial-card strong{font-size:11px}
 }
+
+/* =========================================================
+   ISM PORTAFOLIO HOME · CLIENTES · AJUSTE FINAL DE CONCEPTO
+   Solo el indicador cyan "Cliente ISM" queda centrado.
+   ========================================================= */
+.ism-portfolio-detail.is-client .ism-portfolio-copy-top {
+    width: 100%;
+    justify-content: center !important;
+    text-align: center;
+}
+.ism-portfolio-detail.is-client .ism-portfolio-copy-type {
+    width: 100%;
+    text-align: center;
+}
+

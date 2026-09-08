@@ -233,7 +233,7 @@ if (portfolioSection) {
     ` : "";
 
     return `
-      <div class="ism-portfolio-detail">
+      <div class="ism-portfolio-detail${isSolution ? "" : " is-client"}">
         ${renderGallery(item)}
         <div class="ism-portfolio-copy">
           <div class="ism-portfolio-copy-top">
@@ -261,7 +261,7 @@ if (portfolioSection) {
     return `
       <div class="ism-portfolio-workbench${items.length > 4 ? " is-tools" : ""}">
         <div class="ism-portfolio-selector">
-          <span class="ism-portfolio-selector-label">${selectorLabel}</span>
+          ${selectorLabel ? `<span class="ism-portfolio-selector-label">${selectorLabel}</span>` : ""}
           ${items.map((item, index) => `
             <button class="ism-portfolio-item-button${index === selectedIndex ? " is-active" : ""}" type="button"
               aria-pressed="${index === selectedIndex}" data-portfolio-item-index="${index}">
@@ -515,10 +515,10 @@ if (portfolioSection) {
 
     const items = portfolioData[state.tab];
     const selectedIndex = state.selected[state.tab];
-    const selectorLabel = state.tab === "solutions" ? "Soluciones ISM" : "Clientes ISM";
+    const selectorLabel = state.tab === "solutions" ? "Soluciones ISM" : "";
     const current = items[selectedIndex];
     portfolioPanel.innerHTML = renderWorkbench(items, selectedIndex, selectorLabel);
-    portfolioPanel.setAttribute("aria-label", selectorLabel);
+    portfolioPanel.setAttribute("aria-label", state.tab === "solutions" ? "Soluciones ISM" : "Clientes ISM");
     if (portfolioStatus) portfolioStatus.textContent = `Mostrando ${current.name}.`;
 
     bindPanelInteractions();
