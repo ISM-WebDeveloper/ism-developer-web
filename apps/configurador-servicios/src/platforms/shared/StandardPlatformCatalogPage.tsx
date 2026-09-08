@@ -1120,10 +1120,13 @@ export function StandardPlatformCatalogPage({
 
               {initialPresetLabel ? (
                 <div className="ism-solution-preset" role="status">
-                  <span>Versión Inicial precargada</span>
-                  <strong>
-                    {initialPresetLabel} — Puedes agregar o quitar actividades
-                  </strong>
+                  <p className="ism-solution-preset__line">
+                    <span>Versión Inicial precargada</span>
+                    <span aria-hidden="true"> · </span>
+                    <strong>{initialPresetLabel}</strong>
+                    <span aria-hidden="true"> — </span>
+                    <span>Puedes agregar o quitar actividades</span>
+                  </p>
                 </div>
               ) : null}
             </div>
