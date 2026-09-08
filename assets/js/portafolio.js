@@ -155,8 +155,8 @@ const projects = [
                 description: "Horas, actividades, proyectos y filtros quedan disponibles en un panel operativo que ordena la ejecución y el seguimiento comercial.",
                 focus: "Seguimiento",
                 result: "Trazabilidad",
-                image: "assets/img/portfolio/ism-project-dashboard-notebook-demo.png",
-                alt: "Dashboard principal de ISM Project"
+                image: "assets/img/portfolio/lecasse-servidores-software.webp",
+                alt: "Control de ISM Project en contexto operativo"
             },
             {
                 title: "Reportes y control para decidir mejor",
@@ -1179,6 +1179,11 @@ if (portfolioProjectCount) {
     portfolioProjectCount.textContent = `${solutionCount} soluciones · ${clientCount} clientes`;
 }
 selectProject(requestedProject, { initial: true });
+// Al entrar al catálogo, ningún grupo del sidebar queda desplegado automáticamente.
+projectNav.querySelectorAll(".nav-group").forEach((group) => {
+    group.classList.remove("expanded");
+    group.querySelector(".nav-group-toggle")?.setAttribute("aria-expanded", "false");
+});
 updateClock();
 setInterval(updateClock, 30000);
 
