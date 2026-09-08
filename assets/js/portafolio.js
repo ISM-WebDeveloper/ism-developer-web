@@ -12,10 +12,10 @@ const projects = [
         summary: "Solución de entrada para empresas, profesionales y emprendimientos que necesitan una presencia web propia, clara y preparada para captar contactos y evolucionar junto al negocio.",
         metrics: [["Estado", "Disponible"], ["Tipo", "Solución ISM"], ["Enfoque", "Captación"], ["Nivel", "Inicial"]],
         stack: "Sitio web · Responsive · SEO inicial · Contacto",
-        journey: [
+                journey: [
             {
                 title: "Una presencia profesional adaptada a cada rubro",
-                description: "La base de ISM Presencia Digital se personaliza según marca, servicios, público y objetivos comerciales para entregar un canal propio y coherente.",
+                description: "La base de ISM Presencia Digital se ajusta al tipo de negocio, al estilo visual y a los objetivos comerciales para entregar un canal propio y coherente.",
                 focus: "Presencia",
                 result: "Credibilidad",
                 image: "assets/img/portfolio/proestakis-web-principal.webp",
@@ -23,19 +23,19 @@ const projects = [
             },
             {
                 title: "Captación conectada con los canales del negocio",
-                description: "WhatsApp, formularios, ubicación, redes sociales y llamados a la acción se integran en una experiencia orientada a facilitar el contacto.",
+                description: "WhatsApp, formularios, ubicación, servicios y llamados a la acción se integran en una experiencia orientada a facilitar el contacto.",
                 focus: "Captación",
                 result: "Contacto",
-                image: "assets/img/portfolio/lecasse-principal.webp",
-                alt: "Ejemplo tecnológico de implementación de ISM Presencia Digital"
+                image: "assets/img/portfolio/lecasse-reunion-soluciones.webp",
+                alt: "Presentación de una solución digital en reunión"
             },
             {
                 title: "Una base preparada para seguir creciendo",
-                description: "La presencia puede conectarse después con reservas, catálogos, asistentes, configuradores u otras soluciones sin reconstruir todo desde cero.",
+                description: "La presencia inicial puede evolucionar a nuevas secciones, integraciones o herramientas sin perder coherencia con la marca.",
                 focus: "Evolución",
                 result: "Escalabilidad",
-                image: "assets/img/portfolio/badia-nurse-shield-agenda.webp",
-                alt: "Ejemplo de evolución con agenda conectada a una presencia digital"
+                image: "assets/img/portfolio/badia-nurse-shield-sitio.webp",
+                alt: "Sitio web adaptable como base de crecimiento"
             }
         ],
         analysis: ["Negocios sin una presencia digital profesional", "Dependencia exclusiva de redes sociales o mensajería", "Servicios difíciles de presentar con claridad", "Necesidad de una base propia preparada para crecer"],
@@ -55,25 +55,30 @@ const projects = [
         summary: "Boutique digital con catálogo administrable, base de datos y operación básica para ordenar productos, stock y ventas bajo una presencia propia preparada para crecer.",
         metrics: [["Estado", "En desarrollo"], ["Sector", "Comercio"], ["Foco", "Catálogo"], ["Canal", "WhatsApp"]],
         stack: "Catálogo · Base de datos · Productos · Stock básico · Administración",
-        journey: [
+                journey: [
             {
                 title: "Una vitrina digital con identidad propia",
-                description: "La solución organiza productos y categorías dentro de una presencia visual preparada para que el cliente pueda explorar la oferta desde celular o computador.",
+                description: "La solución organiza productos y categorías en una experiencia visual pensada para que el cliente pueda explorar la oferta desde celular o computador.",
                 focus: "Catálogo",
                 result: "Presentación",
-                statusVisual: {
-                    stage: "Producto en desarrollo",
-                    label: "ISM Boutique",
-                    detail: "Catálogo · categorías · productos · contacto directo"
-                }
+                image: "assets/img/portfolio/ism-boutique-lumina-hero-pc.png",
+                alt: "Hero principal de la boutique digital"
             },
             {
-                title: "Contacto directo sin complejidad de e-commerce",
-                description: "La versión Inicial prioriza fichas de producto, imágenes, precios y contacto por WhatsApp, sin pago online ni checkout obligatorio.",
-                focus: "Conversión",
-                result: "Contacto directo",
-                image: "assets/img/portfolio/dimensionador-servicios-general.webp",
-                alt: "Referencia visual de interfaz digital adaptable a ISM Boutique"
+                title: "Colecciones claras para una compra más simple",
+                description: "La exhibición por categorías ayuda a mostrar variedad, destacar productos y guiar la exploración sin perder la identidad de la marca.",
+                focus: "Colección",
+                result: "Exploración",
+                image: "assets/img/portfolio/ism-boutique-lumina-categorias-opinando.png",
+                alt: "Vista de productos y categorías de ISM Boutique"
+            },
+            {
+                title: "Gestión simple detrás de la vitrina",
+                description: "Además de mostrar productos, la base permite administrar publicaciones, stock básico y orden comercial desde un panel propio.",
+                focus: "Gestión",
+                result: "Orden",
+                image: "assets/img/portfolio/ism-boutique-lumina-dashboard-escritorio.png",
+                alt: "Panel administrativo de ISM Boutique"
             }
         ],
         analysis: ["Productos mostrados solo en redes sociales", "Catálogos difíciles de ordenar o actualizar", "Clientes que necesitan consultar por WhatsApp", "Negocios que todavía no requieren un e-commerce completo"],
@@ -93,22 +98,30 @@ const projects = [
         summary: "Solución para profesionales y negocios que necesitan publicar disponibilidad, recibir reservas online y administrar horarios sin depender de coordinación manual por mensajes o llamadas.",
         metrics: [["Estado", "Disponible"], ["Foco", "Reservas"], ["Unidad", "Cupos"], ["Gestión", "Agenda"]],
         stack: "Servicios · Agenda · Disponibilidad · Horarios · Reservas",
-        journey: [
+                journey: [
             {
                 title: "Disponibilidad real antes de reservar",
-                description: "La agenda presenta horarios y cupos disponibles para evitar cruces y facilitar que cada cliente encuentre una opción válida.",
+                description: "El usuario puede revisar horarios disponibles y acceder a una agenda clara, preparada para mostrar disponibilidad actualizada.",
                 focus: "Disponibilidad",
                 result: "Autonomía",
-                image: "assets/img/portfolio/agenda-disponibilidad-dia-activo.webp",
-                alt: "Agenda de ISM Reservas con un día activo y cupos disponibles"
+                image: "assets/img/portfolio/badia-nurse-shield-panel-privado.png",
+                alt: "Acceso privado de una solución de reservas"
             },
             {
-                title: "Reglas que evitan reservas inexistentes",
-                description: "Días cerrados, bloqueos y horarios configurados se respetan antes de ofrecer una hora, manteniendo consistencia entre lo publicado y la operación.",
-                focus: "Agenda",
-                result: "Orden",
-                image: "assets/img/portfolio/agenda-disponibilidad-dia-cerrado.webp",
-                alt: "Agenda de ISM Reservas con un día cerrado"
+                title: "Reglas y servicios visibles en la operación",
+                description: "La agenda y el catálogo del servicio ayudan a ordenar prestaciones, tiempos y condiciones, reduciendo coordinación manual.",
+                focus: "Operación",
+                result: "Claridad",
+                image: "assets/img/portfolio/badia-nurse-shield-procedimientos-javier.png",
+                alt: "Gestión de servicios dentro de una solución de reservas"
+            },
+            {
+                title: "El profesional mantiene el control de la agenda",
+                description: "La administración diaria de horarios, bloqueos y reservas permite ordenar la operación sin depender solo de mensajes o llamadas.",
+                focus: "Gestión",
+                result: "Control",
+                image: "assets/img/portfolio/badia-nurse-shield-agenda.webp",
+                alt: "Agenda administrable para reservas y disponibilidad"
             }
         ],
         analysis: ["Coordinación manual de horas por WhatsApp o teléfono", "Cruces y reservas duplicadas", "Disponibilidad que cambia durante el mes", "Necesidad de recibir reservas fuera del horario de atención"],
@@ -128,22 +141,30 @@ const projects = [
         summary: "Solución para registrar, consultar y reportar el trabajo realizado por clientes, proyectos, actividades y responsables, manteniendo trazabilidad de horas y ejecución.",
         metrics: [["Estado", "Disponible"], ["Foco", "Proyectos"], ["Unidad", "Horas"], ["Acceso", "Roles"]],
         stack: "Clientes · Proyectos · Actividades · Horas · Reportes",
-        journey: [
+                journey: [
             {
                 title: "Acceso privado y responsabilidades definidas",
-                description: "Los perfiles autorizados acceden a una operación separada por roles para mantener control sobre actividades, clientes y registros.",
+                description: "Los perfiles autorizados acceden a la plataforma con roles y permisos claros para mantener control sobre actividades, clientes y registros.",
                 focus: "Acceso",
                 result: "Control",
-                image: "assets/img/portfolio/control-horas-login.webp",
-                alt: "Pantalla de acceso privado de ISM Project"
+                image: "assets/img/portfolio/ism-project-login-demo.png",
+                alt: "Acceso privado de ISM Project"
             },
             {
                 title: "Seguimiento de trabajo conectado con el cliente",
-                description: "Horas, actividades, proyectos y oportunidades pueden consultarse desde una misma solución para respaldar gestión, reportes y valorización.",
-                focus: "Gestión",
+                description: "Horas, actividades, proyectos y filtros quedan disponibles en un panel operativo que ordena la ejecución y el seguimiento comercial.",
+                focus: "Seguimiento",
                 result: "Trazabilidad",
-                image: "assets/img/portfolio/control-horas-b2b.webp",
-                alt: "Panel de seguimiento de ISM Project"
+                image: "assets/img/portfolio/ism-project-dashboard-notebook-demo.png",
+                alt: "Dashboard principal de ISM Project"
+            },
+            {
+                title: "Reportes y control para decidir mejor",
+                description: "La base permite revisar horas, clientes y movimientos desde una vista estructurada preparada para exportar, analizar y crecer.",
+                focus: "Reportes",
+                result: "Visibilidad",
+                image: "assets/img/portfolio/ism-project-control-monitor-demo.png",
+                alt: "Vista de control y reportes de ISM Project"
             }
         ],
         analysis: ["Horas registradas en planillas o fuentes separadas", "Dificultad para consultar actividad por cliente o proyecto", "Necesidad de respaldar gestión y cobro", "Reportes operativos armados manualmente"],
@@ -163,30 +184,30 @@ const projects = [
         summary: "Plataforma administrativa modular que concentra un CORE común y permite incorporar procesos, responsables, recursos y módulos operativos según las necesidades de cada empresa.",
         metrics: [["Estado", "En evolución"], ["Tipo", "Plataforma"], ["Foco", "Operación"], ["Modelo", "Modular"]],
         stack: "CORE · Usuarios · Roles · Clientes · Proyectos · Módulos",
-        journey: [
+                journey: [
             {
                 title: "Una base administrativa común",
-                description: "Empresa, usuarios, roles, clientes y proyectos se concentran en un núcleo compartido para evitar información aislada entre procesos.",
-                focus: "CORE",
-                result: "Orden",
-                image: "assets/img/project-ism-gestion-control-dashboard.svg",
-                alt: "Vista conceptual del dashboard de ISM Control"
+                description: "ISM Control centraliza acceso, estructura operativa y una base compartida para sostener distintos módulos del negocio.",
+                focus: "Base",
+                result: "Centralización",
+                image: "assets/img/portfolio/ism-control-login-demo.png",
+                alt: "Acceso a la plataforma ISM Control"
             },
             {
                 title: "Módulos conectados a la misma operación",
-                description: "La plataforma puede incorporar subsistemas específicos sin duplicar la administración principal ni perder trazabilidad entre responsables.",
+                description: "La lógica del sistema permite administrar distintas áreas desde una estructura común, manteniendo trazabilidad y orden.",
                 focus: "Módulos",
                 result: "Integración",
-                image: "assets/img/project-ism-gestion-control-inventario.svg",
-                alt: "Vista conceptual de módulos en ISM Control"
+                image: "assets/img/portfolio/ism-control-bodegas-demo.png",
+                alt: "Gestión de módulos y bodegas en ISM Control"
             },
             {
                 title: "Procesos preparados para evolucionar",
-                description: "Nuevas unidades, permisos, flujos, reportes e integraciones pueden añadirse conforme aumenta la exigencia operativa del cliente.",
+                description: "La operación puede seguir creciendo sobre la misma base, incluyendo movilidad, nuevos flujos y herramientas de trabajo en terreno.",
                 focus: "Evolución",
-                result: "Escalabilidad",
-                image: "assets/img/project-ism-gestion-control-operaciones.svg",
-                alt: "Vista conceptual de operaciones en ISM Control"
+                result: "Escala",
+                image: "assets/img/portfolio/ism-control-movil-demo.png",
+                alt: "Uso móvil de ISM Control en contexto real"
             }
         ],
         analysis: ["Procesos internos repartidos entre planillas y mensajes", "Falta de una administración común de usuarios y responsables", "Información difícil de auditar entre áreas", "Necesidad de crecer por módulos sin reconstruir el sistema"],
@@ -206,22 +227,30 @@ const projects = [
         summary: "Solución para registrar existencias, entradas, salidas, entregas, retiros y movimientos de productos, insumos o herramientas con trazabilidad por usuario y operación.",
         metrics: [["Estado", "Producto activo"], ["Foco", "Stock"], ["Operación", "Bodegas"], ["Nivel", "Inicial"]],
         stack: "Stock · Bodegas · Movimientos · Roles · Trazabilidad",
-        journey: [
+                journey: [
             {
                 title: "Inventario visible desde una operación central",
-                description: "El panel permite revisar existencias, movimientos y estado general para reducir diferencias entre registros y stock físico.",
+                description: "La administración principal permite revisar stock, productos y movimientos en una vista ordenada para la toma de decisiones.",
                 focus: "Inventario",
-                result: "Control",
-                image: "assets/img/portfolio/control-bodega-admin.webp",
-                alt: "Panel administrador de ISM Stock"
+                result: "Visibilidad",
+                image: "assets/img/portfolio/ism-stock-admin-demo.png",
+                alt: "Panel administrativo de ISM Stock"
             },
             {
-                title: "Movimientos registrados desde donde ocurren",
-                description: "Recepciones, entregas, retiros y consultas pueden registrarse desde una interfaz preparada para la operación diaria y el uso móvil.",
-                focus: "Operación",
+                title: "Movimientos registrados donde ocurren",
+                description: "La operación puede controlar entradas, salidas y trazabilidad desde la base administrativa sin perder contexto operativo.",
+                focus: "Movimientos",
                 result: "Trazabilidad",
-                image: "assets/img/portfolio/control-bodega-operativo.webp",
-                alt: "Interfaz operativa móvil de ISM Stock"
+                image: "assets/img/portfolio/ism-stock-operacion-demo.png",
+                alt: "Vista operativa de ISM Stock"
+            },
+            {
+                title: "Control en terreno desde el celular",
+                description: "La solución también acompaña trabajo en obra o terreno, permitiendo consultar información clave desde una experiencia móvil natural.",
+                focus: "Terreno",
+                result: "Movilidad",
+                image: "assets/img/portfolio/ism-stock-obra-demo.png",
+                alt: "Uso móvil de ISM Stock en obra"
             }
         ],
         analysis: ["Inventario distribuido entre planillas y registros manuales", "Diferencias entre stock físico y registros", "Falta de trazabilidad por responsable", "Necesidad de controlar bodegas, entregas y retiros"],
@@ -242,22 +271,30 @@ const projects = [
         summary: "Herramienta adaptable para convertir servicios, actividades, cantidades y opciones en un alcance preliminar ordenado antes de preparar una cotización formal.",
         metrics: [["Estado", "Disponible"], ["Foco", "Configuración"], ["Salida", "Resumen"], ["Uso", "B2B"]],
         stack: "Servicios · Opciones · Reglas · HH · Resumen · Exportación",
-        journey: [
+                journey: [
             {
                 title: "Configurar una necesidad desde opciones reales",
-                description: "El usuario selecciona servicios, actividades y alternativas para construir un alcance preliminar sin comenzar desde una conversación o documento en blanco.",
+                description: "El configurador ayuda a ordenar servicios, actividades y alcances en una reunión inicial para aterrizar la necesidad del cliente.",
                 focus: "Configuración",
                 result: "Orden",
-                image: "assets/img/portfolio/dimensionador-servicios-general.webp",
-                alt: "Vista principal de ISM Configurador"
+                image: "assets/img/portfolio/ism-configurador-reunion-proyector-demo.png",
+                alt: "Configurador ISM presentado en una reunión"
             },
             {
-                title: "Alcance visible mientras se decide",
-                description: "Las reglas pueden mostrar cantidades, actividades, estimaciones, niveles o resúmenes para revisar el impacto de cada selección antes de cotizar.",
-                focus: "Dimensionamiento",
-                result: "Claridad",
-                image: "assets/img/portfolio/dimensionador-servicios-detalle.webp",
-                alt: "Detalle y resumen técnico de ISM Configurador"
+                title: "Validación técnica antes de cotizar",
+                description: "La solución permite revisar combinaciones, reglas y criterios de implementación para convertir la conversación en una base técnica útil.",
+                focus: "Validación",
+                result: "Coherencia",
+                image: "assets/img/portfolio/ism-configurador-tecnicos-datacenter-demo.png",
+                alt: "Validación técnica de una configuración digital"
+            },
+            {
+                title: "Solicitud y revisión en un entorno ejecutivo",
+                description: "El resumen final facilita revisar el alcance definido y preparar una cotización formal desde un flujo más claro y profesional.",
+                focus: "Resumen",
+                result: "Precotización",
+                image: "assets/img/portfolio/ism-configurador-ejecutivo-monitor-demo.png",
+                alt: "Revisión ejecutiva del configurador ISM"
             }
         ],
         analysis: ["Cotizaciones dependientes de levantamientos poco estandarizados", "Dificultad para explicar qué incluye cada servicio", "Riesgo de omitir actividades u opciones", "Necesidad de precalificar solicitudes antes de cotizar"],
@@ -278,22 +315,30 @@ const projects = [
         summary: "Asistente guiado y adaptable que realiza preguntas, ordena necesidades y conduce a cada prospecto hacia una recomendación o siguiente paso antes del contacto comercial.",
         metrics: [["Estado", "Disponible"], ["Foco", "Orientación"], ["Flujo", "Guiado"], ["Objetivo", "Conversión"]],
         stack: "Preguntas · Reglas · Recomendación · Captación · Seguimiento",
-        journey: [
+                journey: [
             {
                 title: "Preguntas que ayudan a entender la necesidad",
-                description: "El flujo guía al usuario paso a paso para identificar contexto, objetivo, situación actual y prioridades sin obligarlo a conocer términos técnicos.",
+                description: "El flujo guía al usuario paso a paso para entender su etapa actual y prioridades sin obligarlo a conocer términos técnicos.",
                 focus: "Diagnóstico",
                 result: "Claridad",
-                image: "assets/img/guia-asistida-colaboracion.webp",
-                alt: "Experiencia guiada de ISM Asistente"
+                image: "assets/img/portfolio/ism-asistente-inicio-demo.png",
+                alt: "Pantalla inicial del asistente ISM"
+            },
+            {
+                title: "Decisiones simples para avanzar con orden",
+                description: "Cada etapa orienta la conversación y reduce fricción, mostrando alternativas claras para construir una primera recomendación.",
+                focus: "Decisión",
+                result: "Orientación",
+                image: "assets/img/portfolio/ism-asistente-contenido-demo.png",
+                alt: "Preguntas y decisiones dentro del asistente ISM"
             },
             {
                 title: "Una recomendación antes del contacto comercial",
-                description: "Las respuestas se convierten en una orientación estructurada que puede sugerir una solución, preparar el contacto o alimentar un proceso comercial posterior.",
+                description: "El recorrido termina con una propuesta inicial que ayuda a preparar el siguiente paso y mejora la calidad del contacto comercial.",
                 focus: "Recomendación",
                 result: "Calificación",
-                image: "assets/img/portfolio/dimensionador-servicios-detalle.webp",
-                alt: "Referencia visual de resumen estructurado para ISM Asistente"
+                image: "assets/img/portfolio/ism-asistente-recomendacion-demo.png",
+                alt: "Recomendación final del asistente ISM"
             }
         ],
         analysis: ["Prospectos que no saben qué servicio necesitan", "Consultas comerciales poco estructuradas", "Tiempo invertido en preguntas repetitivas", "Necesidad de calificar oportunidades antes de una reunión"],
