@@ -53,6 +53,9 @@ import "../../pages/CatalogPage.css";
 interface StandardPlatformCatalogPageProps {
   engine: StandardPlatformEngine;
   initialAreaId?: string | null;
+  initialState?: StandardConfiguratorState | null;
+  initialPresetLabel?: string | null;
+  initialPresetDescription?: string | null;
 }
 
 interface ServiceModuleCardProps {
@@ -464,13 +467,21 @@ function ServiceModuleCard({
 export function StandardPlatformCatalogPage({
   engine,
   initialAreaId = null,
+  initialState = null,
+  initialPresetLabel = null,
+  initialPresetDescription = null,
 }: StandardPlatformCatalogPageProps) {
   const catalog = engine.catalog;
   const [state, setState] = useState<StandardConfiguratorState>(
-    engine.initialState,
+    () => initialState ?? engine.initialState,
   );
   const [expandedCodes, setExpandedCodes] = useState<Set<string>>(
-    () => new Set(),
+    () =>
+      new Set(
+        Object.entries(initialState?.selected ?? {})
+          .filter(([, selected]) => selected === true)
+          .map(([code]) => code),
+      ),
   );
   const [expandedSummaryCodes, setExpandedSummaryCodes] = useState<Set<string>>(
     () => new Set(),
@@ -500,7 +511,11 @@ export function StandardPlatformCatalogPage({
     [services],
   );
   const calculationState = useMemo<StandardConfiguratorState>(
-    () => ({ ...state, category: "small", executionFactor: 1 }),
+    () => ({
+      ...state,
+      category: "small",
+      executionFactor: Math.max(0, state.executionFactor ?? 1),
+    }),
     [state],
   );
   const activeArea = useMemo(
@@ -547,7 +562,7 @@ export function StandardPlatformCatalogPage({
       state: calculationState,
       contingencyRate: catalog.contingencyRate,
       hourlyRateUF: catalog.hourlyRateUF,
-      executionFactor: 1,
+      executionFactor: calculationState.executionFactor,
       getQuantity: quantityForSelectedService,
     });
   }, [
@@ -1104,6 +1119,19 @@ export function StandardPlatformCatalogPage({
                 {activeArea?.description ??
                   "Selecciona una línea y configura cada servicio de forma independiente."}
               </p>
+
+              {initialPresetLabel ? (
+                <div className="ism-solution-preset" role="status">
+                  <span>Versión Inicial precargada</span>
+                  <strong>{initialPresetLabel}</strong>
+                  {initialPresetDescription ? (
+                    <small>{initialPresetDescription}</small>
+                  ) : null}
+                  <small>
+                    Puedes agregar, quitar o ajustar actividades; las HH se recalculan automáticamente.
+                  </small>
+                </div>
+              ) : null}
             </div>
 
             <div className="ism-service-context__controls">

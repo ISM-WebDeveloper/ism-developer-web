@@ -5,6 +5,7 @@
 import { Navigate, useParams, useSearchParams } from "react-router-dom";
 
 import { ismServicesEngine } from "../platforms/ism/ismServicesEngine";
+import { createIsmSolutionPreset } from "../platforms/ism/ismSolutionPresets";
 import { StandardPlatformCatalogPage } from "../platforms/shared/StandardPlatformCatalogPage";
 
 // ==================================================
@@ -67,6 +68,11 @@ function resolveProductAreaId(productId: string | null): string | null {
 export function CatalogPage() {
   const { platformId } = useParams();
   const [searchParams] = useSearchParams();
+  const productId = searchParams.get("producto");
+  const preset = createIsmSolutionPreset(
+    productId,
+    ismServicesEngine.catalog,
+  );
 
   if (platformId && platformId !== "ism-servicios") {
     return <Navigate replace to="/" />;
@@ -74,11 +80,15 @@ export function CatalogPage() {
 
   return (
     <StandardPlatformCatalogPage
+      key={preset?.id ?? productId ?? "catalogo-general"}
       engine={ismServicesEngine}
       initialAreaId={
         resolveInitialAreaId(searchParams.get("servicio")) ??
-        resolveProductAreaId(searchParams.get("producto"))
+        resolveProductAreaId(productId)
       }
+      initialPresetDescription={preset?.description ?? null}
+      initialPresetLabel={preset?.label ?? null}
+      initialState={preset?.state ?? null}
     />
   );
 }
