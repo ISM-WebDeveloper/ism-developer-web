@@ -824,15 +824,13 @@ let pointerStartX = null;
 const pad = (value) => String(value).padStart(2, "0");
 
 function renderNavigation() {
-    const requestedCategory = projects.find((project) => project.id === requestedProject)?.category || categoryOrder[0];
-
     projectNav.innerHTML = categoryOrder.map((category) => {
         const items = visiblePortfolioProjects.filter((project) => project.category === category);
         const categoryId = `category-${category.toLowerCase().replace(/\s+/g, "-")}`;
-        const expanded = category === requestedCategory;
+        const expanded = false;
         return `
-            <div class="nav-group${expanded ? " expanded" : ""}" data-category-group="${category}">
-                <button class="nav-group-toggle" type="button" aria-expanded="${expanded}" aria-controls="${categoryId}" title="${category}">
+            <div class="nav-group" data-category-group="${category}">
+                <button class="nav-group-toggle" type="button" aria-expanded="false" aria-controls="${categoryId}" title="${category}">
                     <i class="nav-group-icon" data-lucide="${categoryIcons[category]}"></i>
                     <span>${category}</span>
                     <span class="nav-group-count">${items.length}</span>
@@ -859,6 +857,11 @@ function renderNavigation() {
                 return;
             }
             const expanded = !group.classList.contains("expanded");
+            projectNav.querySelectorAll(".nav-group").forEach((otherGroup) => {
+                if (otherGroup === group) return;
+                otherGroup.classList.remove("expanded");
+                otherGroup.querySelector(".nav-group-toggle")?.setAttribute("aria-expanded", "false");
+            });
             group.classList.toggle("expanded", expanded);
             toggle.setAttribute("aria-expanded", String(expanded));
         });
@@ -993,7 +996,7 @@ function renderCommercial(project) {
 
     const pricing = document.getElementById("commercialPricing");
     if (pricing) {
-        const showPricing = Boolean(profile?.pricing);
+        const showPricing = Boolean(profile && profile.pricing);
         pricing.hidden = !showPricing;
         if (showPricing) {
             document.getElementById("commercialPriceImplementation").textContent = `Desde ${profile.pricing.implementation}`;
@@ -1090,11 +1093,6 @@ function selectProject(id, options = {}) {
         button.classList.toggle("active", isActive);
         button.setAttribute("aria-current", isActive ? "true" : "false");
 
-        if (isActive) {
-            const group = button.closest(".nav-group");
-            group?.classList.add("expanded");
-            group?.querySelector(".nav-group-toggle")?.setAttribute("aria-expanded", "true");
-        }
     });
 
     renderMetrics(project);
