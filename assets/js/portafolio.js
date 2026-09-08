@@ -155,8 +155,8 @@ const projects = [
                 description: "Horas, actividades, proyectos y filtros quedan disponibles en un panel operativo que ordena la ejecución y el seguimiento comercial.",
                 focus: "Seguimiento",
                 result: "Trazabilidad",
-                image: "assets/img/portfolio/lecasse-servidores-software.webp",
-                alt: "Control de ISM Project en contexto operativo"
+                image: "assets/img/portfolio/ism-project-dashboard-notebook-demo.png",
+                alt: "Dashboard de ISM Project para horas y proyectos"
             },
             {
                 title: "Reportes y control para decidir mejor",
@@ -458,8 +458,8 @@ const projects = [
                 description: "La solución se presenta en un notebook dentro de una sala de servidores, reforzando la relación entre software, infraestructura y trabajo técnico en terreno.",
                 focus: "Software en terreno",
                 result: "Integración",
-                image: "assets/img/portfolio/lecasse-servidores-software.webp",
-                alt: "Dos profesionales revisando el desarrollo de software de Lecasse en una sala de servidores"
+                image: "assets/img/portfolio/ism-project-dashboard-notebook-demo.png",
+                alt: "ISM Project aplicado al control de horas y proyectos de Lecasse IT Services"
             },
             {
                 title: "Infraestructura empresarial desde un entorno profesional",
