@@ -39,22 +39,22 @@ const projects = [
             }
         ],
         analysis: ["Negocios sin una presencia digital profesional", "Dependencia exclusiva de redes sociales o mensajería", "Servicios difíciles de presentar con claridad", "Necesidad de una base propia preparada para crecer"],
-        actionPlan: ["Sitio web responsive alineado con la marca", "Servicios, contacto, WhatsApp y redes sociales", "Mapa o ubicación y formulario básico", "SEO técnico inicial y publicación"],
+        actionPlan: ["1 negocio o marca con sitio web responsive.", "Servicios, contacto, WhatsApp, redes sociales y formulario básico.", "Mapa o ubicación, SEO técnico inicial y publicación.", "Carga inicial acotada; e-commerce, agenda avanzada e integraciones se cotizan aparte."],
         scalability: ["ISM Reservas", "ISM Boutique", "ISM Asistente", "ISM Configurador", "Integraciones y nuevas funciones"]
     },
 {
         id: "ism-boutique",
         category: "Soluciones ISM",
         name: "ISM Boutique",
-        short: "Catálogo digital de productos",
-        type: "Solución ISM / Catálogo digital",
-        status: "En desarrollo",
+        short: "Catálogo, stock y ventas básicas",
+        type: "Solución ISM / Boutique digital",
+        status: "Disponible",
         accent: "#f9a8d4",
         accentRgb: "249, 168, 212",
         url: null,
-        summary: "Catálogo web orientado a boutiques, accesorios, ropa, ferias y pequeños comercios que necesitan mostrar productos con identidad propia y generar contactos directos sin implementar todavía un e-commerce completo.",
+        summary: "Boutique digital con catálogo administrable, base de datos y operación básica para ordenar productos, stock y ventas bajo una presencia propia preparada para crecer.",
         metrics: [["Estado", "En desarrollo"], ["Sector", "Comercio"], ["Foco", "Catálogo"], ["Canal", "WhatsApp"]],
-        stack: "Catálogo · Categorías · Productos · WhatsApp · Administración",
+        stack: "Catálogo · Base de datos · Productos · Stock básico · Administración",
         journey: [
             {
                 title: "Una vitrina digital con identidad propia",
@@ -77,7 +77,7 @@ const projects = [
             }
         ],
         analysis: ["Productos mostrados solo en redes sociales", "Catálogos difíciles de ordenar o actualizar", "Clientes que necesitan consultar por WhatsApp", "Negocios que todavía no requieren un e-commerce completo"],
-        actionPlan: ["Sitio de marca con catálogo y categorías", "Fichas de producto, imágenes y precios", "Contacto directo por WhatsApp", "Administración básica y carga inicial limitada", "Sin checkout ni pago online en la versión Inicial"],
+        actionPlan: ["1 negocio con catálogo administrable, categorías, productos e imágenes.", "Base de datos, panel administrativo y stock básico.", "Carga inicial de hasta 30 productos en el formato acordado.", "Operación comercial básica y contacto directo; checkout, pagos, ERP o multi-bodega avanzada se cotizan aparte."],
         scalability: ["Más categorías y colecciones", "Integración con ISM Stock", "Promociones y productos destacados", "Pagos y checkout como evolución", "Analítica y automatizaciones comerciales"]
     },
 {
@@ -112,7 +112,7 @@ const projects = [
             }
         ],
         analysis: ["Coordinación manual de horas por WhatsApp o teléfono", "Cruces y reservas duplicadas", "Disponibilidad que cambia durante el mes", "Necesidad de recibir reservas fuera del horario de atención"],
-        actionPlan: ["Servicios y horarios disponibles", "Reserva online con datos del cliente", "Panel administrativo de agenda", "Bloqueo y activación de horarios", "Gestión básica de reservas"],
+        actionPlan: ["1 agenda principal y configuración inicial de hasta 10 servicios.", "Horarios, disponibilidad, bloqueos y reserva online.", "Panel administrativo y gestión básica de estados de reserva.", "Múltiples profesionales, sucursales, pagos o calendarios externos se cotizan como evolución."],
         scalability: ["Múltiples profesionales", "Recordatorios automáticos", "Lista de espera", "Pagos y confirmaciones", "Integración con calendarios externos"]
     },
 {
@@ -147,7 +147,7 @@ const projects = [
             }
         ],
         analysis: ["Horas registradas en planillas o fuentes separadas", "Dificultad para consultar actividad por cliente o proyecto", "Necesidad de respaldar gestión y cobro", "Reportes operativos armados manualmente"],
-        actionPlan: ["Empresa, usuarios, clientes y proyectos", "Actividades y registro de horas", "Consulta histórica, filtros y reportes", "Exportación y panel administrativo", "Roles básicos en la versión Inicial"],
+        actionPlan: ["1 empresa y onboarding inicial de hasta 5 usuarios.", "Clientes, proyectos, actividades y registro de horas.", "Historial, filtros, reportes y exportaciones estándar.", "Aprobaciones complejas, BI, ERP o integraciones externas se cotizan aparte."],
         scalability: ["Valorización y facturación", "Indicadores por cliente y proyecto", "Flujos de aprobación", "Integración con otros sistemas", "Automatizaciones y notificaciones"]
     },
 {
@@ -190,7 +190,7 @@ const projects = [
             }
         ],
         analysis: ["Procesos internos repartidos entre planillas y mensajes", "Falta de una administración común de usuarios y responsables", "Información difícil de auditar entre áreas", "Necesidad de crecer por módulos sin reconstruir el sistema"],
-        actionPlan: ["CORE de empresa, usuarios, roles, clientes y proyectos", "Dashboard y estructura administrativa común", "Un módulo operativo inicial", "Bitácora, estados y trazabilidad", "Base para reportes e integraciones"],
+        actionPlan: ["1 empresa con CORE administrativo, autenticación, usuarios y roles.", "Clientes, proyectos, dashboard y estructura administrativa común.", "1 módulo operativo inicial incluido.", "Módulos adicionales, múltiples organizaciones e integraciones empresariales se cotizan aparte."],
         scalability: ["Nuevos módulos operativos", "Flujos de aprobación", "Alertas y automatizaciones", "Integraciones con otros sistemas", "Indicadores y reportería avanzada"]
     },
 {
@@ -225,7 +225,7 @@ const projects = [
             }
         ],
         analysis: ["Inventario distribuido entre planillas y registros manuales", "Diferencias entre stock físico y registros", "Falta de trazabilidad por responsable", "Necesidad de controlar bodegas, entregas y retiros"],
-        actionPlan: ["Productos, categorías y stock", "Entradas, salidas, entregas y retiros", "Usuarios, roles e historial", "Importación inicial y exportación básica", "Dashboard operativo"],
+        actionPlan: ["1 empresa y configuración inicial de hasta 3 bodegas.", "Productos, categorías, stock, entradas, salidas y traslados.", "Entregas, retiros, roles, historial, trazabilidad e importación inicial.", "ERP/SAP, RFID, hardware industrial, operación offline avanzada o integraciones se cotizan aparte."],
         scalability: ["Nuevas bodegas y proyectos", "Alertas y automatizaciones", "Firma y evidencias", "Flujos de aprobación", "Integración con compras y abastecimiento"]
     },
 {
@@ -261,7 +261,7 @@ const projects = [
             }
         ],
         analysis: ["Cotizaciones dependientes de levantamientos poco estandarizados", "Dificultad para explicar qué incluye cada servicio", "Riesgo de omitir actividades u opciones", "Necesidad de precalificar solicitudes antes de cotizar"],
-        actionPlan: ["Catálogo configurable de servicios y alternativas", "Reglas, cantidades y dependencias", "Resumen consolidado de alcance", "Captura de datos del prospecto", "Exportación o envío para revisión comercial"],
+        actionPlan: ["1 modelo comercial principal y hasta 3 líneas de servicio configuradas.", "Servicios, actividades, cantidades, opcionales, obligatorios y reglas acordadas.", "Resumen estructurado y salida a cotización, PDF o Excel según alcance.", "Tarifarios complejos, CRM/ERP, firma electrónica o lógica financiera avanzada se cotizan aparte."],
         scalability: ["Plantillas por rubro", "Precios y tarifas", "Cotización comercial automática", "Integración con CRM", "Automatizaciones de seguimiento"]
     },
 {
@@ -297,7 +297,7 @@ const projects = [
             }
         ],
         analysis: ["Prospectos que no saben qué servicio necesitan", "Consultas comerciales poco estructuradas", "Tiempo invertido en preguntas repetitivas", "Necesidad de calificar oportunidades antes de una reunión"],
-        actionPlan: ["Flujo guiado de preguntas", "Reglas de decisión y recomendaciones", "Captura de datos del prospecto", "Siguiente paso personalizado", "Adaptación a servicios y lenguaje de cada empresa"],
+        actionPlan: ["1 flujo guiado principal de hasta 8 etapas o decisiones.", "Preguntas, alternativas, reglas y lógica de recomendación.", "Resumen final y salida a formulario, WhatsApp o llamada a la acción acordada.", "IA generativa, CRM, múltiples asistentes o analítica avanzada se cotizan aparte."],
         scalability: ["Integración con ISM Configurador", "Automatizaciones y CRM", "Rutas por segmento o rubro", "IA generativa cuando el alcance lo justifique", "Analítica de respuestas y conversión"]
     },
 {
@@ -552,34 +552,34 @@ const commercialProfiles = {
             "Empresas que necesitan presentar servicios con mayor claridad y confianza.",
             "Proyectos que quieren una base digital propia preparada para evolucionar."
         ],
-        capabilitiesTitle: "Qué incluye la versión Inicial",
+        capabilitiesTitle: "Qué incluye la Versión Inicial",
         capabilities: [
-            "Sitio web responsive y presentación del negocio.",
-            "Servicios, WhatsApp, redes sociales y contacto.",
-            "Mapa o ubicación y formulario básico.",
-            "SEO técnico inicial y publicación."
+            "1 negocio o marca con sitio web responsive.",
+            "Servicios, contacto, WhatsApp, redes sociales y formulario básico.",
+            "Mapa o ubicación, SEO técnico inicial y publicación.",
+            "Carga inicial acotada; e-commerce, agenda avanzada e integraciones se cotizan aparte."
         ],
-        pricing: { implementation: "$149.000", monthly: "$9.990 / mes", level: "Inicial" }
+        pricing: { implementation: "$249.000", monthly: "$19.990 / mes", timeline: "10–15 días hábiles" }
     },
     "ism-boutique": {
         kicker: "Solución ISM",
-        title: "Tu catálogo digital, simple y profesional.",
-        badge: "Catálogo + contacto directo",
+        title: "Tu boutique digital, ordenada y administrable.",
+        badge: "Catálogo + base de datos + stock básico",
         audienceTitle: "Para quién está pensado",
         audience: [
             "Boutiques, accesorios, ropa y pequeños comercios.",
             "Emprendimientos que venden por Instagram, feria o WhatsApp.",
-            "Negocios que necesitan ordenar y mostrar productos con identidad propia.",
-            "Tiendas que aún no requieren un e-commerce completo."
+            "Negocios que necesitan administrar productos y stock con mayor orden.",
+            "Tiendas que quieren una base propia antes de evolucionar a e-commerce completo."
         ],
-        capabilitiesTitle: "Qué incluye la versión Inicial",
+        capabilitiesTitle: "Qué incluye la Versión Inicial",
         capabilities: [
-            "Sitio de marca con catálogo y categorías.",
-            "Fichas de producto, imágenes y precios.",
-            "Contacto directo por WhatsApp.",
-            "Administración básica y carga inicial limitada; sin checkout ni pago online."
+            "1 negocio con catálogo administrable, categorías, productos e imágenes.",
+            "Base de datos, panel administrativo y stock básico.",
+            "Carga inicial de hasta 30 productos en el formato acordado.",
+            "Operación comercial básica; checkout, pagos, ERP o multi-bodega avanzada se cotizan aparte."
         ],
-        pricing: { implementation: "$199.000", monthly: "$14.990 / mes", level: "Inicial" }
+        pricing: { implementation: "$349.000", monthly: "$29.990 / mes", timeline: "20–30 días hábiles" }
     },
     "ism-reservas": {
         kicker: "Solución ISM",
@@ -592,14 +592,14 @@ const commercialProfiles = {
             "Equipos que coordinan reservas manualmente por mensajes o llamadas.",
             "Negocios que quieren recibir solicitudes incluso fuera del horario de atención."
         ],
-        capabilitiesTitle: "Qué incluye la versión Inicial",
+        capabilitiesTitle: "Qué incluye la Versión Inicial",
         capabilities: [
-            "Servicios, horarios y disponibilidad.",
-            "Reserva online con datos del cliente.",
-            "Panel administrativo de agenda.",
-            "Bloqueo de horarios y gestión básica de reservas."
+            "1 agenda principal y configuración inicial de hasta 10 servicios.",
+            "Horarios, disponibilidad, bloqueos y reserva online.",
+            "Panel administrativo y gestión básica de reservas.",
+            "Múltiples profesionales, sucursales, pagos o calendarios externos se cotizan aparte."
         ],
-        pricing: { implementation: "$249.000", monthly: "$19.990 / mes", level: "Inicial" }
+        pricing: { implementation: "$349.000", monthly: "$34.990 / mes", timeline: "15–25 días hábiles" }
     },
     "ism-project": {
         kicker: "Solución ISM",
@@ -612,14 +612,14 @@ const commercialProfiles = {
             "Equipos que requieren historial, filtros y reportes de ejecución.",
             "Empresas que necesitan respaldar gestión, valorización o cobro."
         ],
-        capabilitiesTitle: "Qué incluye la versión Inicial",
+        capabilitiesTitle: "Qué incluye la Versión Inicial",
         capabilities: [
-            "Empresa, usuarios, clientes y proyectos.",
-            "Actividades y registro de horas.",
-            "Consulta histórica, filtros y reportes.",
-            "Exportación, panel administrativo y roles básicos."
+            "1 empresa y onboarding inicial de hasta 5 usuarios.",
+            "Clientes, proyectos, actividades y registro de horas.",
+            "Historial, filtros, reportes y exportaciones estándar.",
+            "Aprobaciones complejas, BI, ERP o integraciones externas se cotizan aparte."
         ],
-        pricing: { implementation: "$299.000", monthly: "$24.990 / mes", level: "Inicial" }
+        pricing: { implementation: "$449.000", monthly: "$39.990 / mes", timeline: "20–30 días hábiles" }
     },
     "ism-control": {
         kicker: "Solución ISM",
@@ -632,14 +632,14 @@ const commercialProfiles = {
             "Organizaciones que quieren incorporar módulos sin duplicar sistemas.",
             "Operaciones que requieren trazabilidad y crecimiento controlado."
         ],
-        capabilitiesTitle: "Qué incluye la versión Inicial",
+        capabilitiesTitle: "Qué incluye la Versión Inicial",
         capabilities: [
-            "CORE de empresa, usuarios, roles, clientes y proyectos.",
-            "Dashboard y estructura administrativa común.",
-            "Un módulo operativo inicial.",
-            "Base preparada para bitácora, reportes, automatizaciones e integraciones."
+            "1 empresa con CORE administrativo, autenticación, usuarios y roles.",
+            "Clientes, proyectos, dashboard y estructura administrativa común.",
+            "1 módulo operativo inicial incluido.",
+            "Módulos adicionales e integraciones empresariales se cotizan aparte."
         ],
-        pricing: { implementation: "$449.000", monthly: "$39.990 / mes", level: "Inicial" }
+        pricing: { implementation: "$649.000", monthly: "$59.990 / mes", timeline: "25–40 días hábiles" }
     },
     "ism-stock": {
         kicker: "Solución ISM",
@@ -652,14 +652,14 @@ const commercialProfiles = {
             "Operaciones que necesitan saber quién recibió, entregó o retiró recursos.",
             "Equipos que requieren historial confiable desde computador y celular."
         ],
-        capabilitiesTitle: "Qué incluye la versión Inicial",
+        capabilitiesTitle: "Qué incluye la Versión Inicial",
         capabilities: [
-            "Una empresa, un proyecto y una bodega principal como referencia base.",
-            "Productos, categorías, stock, entradas y salidas.",
-            "Entregas, retiros, trabajadores e historial.",
-            "Roles, trazabilidad, importación inicial, exportación básica y dashboard."
+            "1 empresa y configuración inicial de hasta 3 bodegas.",
+            "Productos, categorías, stock, entradas, salidas y traslados.",
+            "Entregas, retiros, roles, historial, trazabilidad e importación inicial.",
+            "ERP/SAP, RFID, hardware industrial u otras integraciones se cotizan aparte."
         ],
-        pricing: { implementation: "$549.000", monthly: "$49.990 / mes", level: "Inicial" }
+        pricing: { implementation: "$699.000", monthly: "$69.990 / mes", timeline: "30–45 días hábiles" }
     },
     "ism-configurador": {
         kicker: "Solución ISM",
@@ -672,14 +672,14 @@ const commercialProfiles = {
             "Equipos que necesitan estandarizar levantamientos y precotizaciones.",
             "Negocios que quieren que el cliente prepare su solicitud antes del contacto."
         ],
-        capabilitiesTitle: "Qué incluye la versión Inicial",
+        capabilitiesTitle: "Qué incluye la Versión Inicial",
         capabilities: [
-            "Catálogo configurable de servicios, actividades y opciones.",
-            "Reglas, cantidades y dependencias según el proceso.",
-            "Resumen estructurado del alcance solicitado.",
-            "Captura de datos y salida para revisión comercial."
+            "1 modelo comercial principal y hasta 3 líneas de servicio.",
+            "Servicios, actividades, cantidades, opcionales, obligatorios y reglas acordadas.",
+            "Resumen estructurado y salida a cotización, PDF o Excel según alcance.",
+            "CRM/ERP, firma electrónica o lógica financiera avanzada se cotizan aparte."
         ],
-        pricing: { implementation: "$299.000", monthly: "$24.990 / mes", level: "Inicial" }
+        pricing: { implementation: "$449.000", monthly: "$39.990 / mes", timeline: "20–30 días hábiles" }
     },
     "ism-asistente": {
         kicker: "Solución ISM",
@@ -692,14 +692,14 @@ const commercialProfiles = {
             "Equipos que quieren calificar prospectos antes de una reunión.",
             "Servicios que necesitan recomendar un siguiente paso según respuestas."
         ],
-        capabilitiesTitle: "Qué incluye la versión Inicial",
+        capabilitiesTitle: "Qué incluye la Versión Inicial",
         capabilities: [
-            "Flujo guiado de preguntas adaptado al negocio.",
-            "Reglas de decisión y recomendación.",
-            "Captura de datos del prospecto.",
-            "Siguiente paso personalizado y conexión con canales comerciales."
+            "1 flujo guiado principal de hasta 8 etapas o decisiones.",
+            "Preguntas, alternativas, reglas y lógica de recomendación.",
+            "Resumen final y salida al canal comercial acordado.",
+            "IA generativa, CRM, múltiples asistentes o analítica avanzada se cotizan aparte."
         ],
-        pricing: { implementation: "$249.000", monthly: "$19.990 / mes", level: "Inicial" }
+        pricing: { implementation: "$299.000", monthly: "$29.990 / mes", timeline: "10–20 días hábiles" }
     }
 };
 
@@ -953,7 +953,7 @@ function renderCommercial(project) {
         if (showPricing) {
             document.getElementById("commercialPriceImplementation").textContent = `Desde ${profile.pricing.implementation}`;
             document.getElementById("commercialPriceMonthly").textContent = `Desde ${profile.pricing.monthly}`;
-            document.getElementById("commercialPriceLevel").textContent = profile.pricing.level;
+            document.getElementById("commercialPriceTimeline").textContent = profile.pricing.timeline;
         }
     }
 
