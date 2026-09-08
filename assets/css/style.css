@@ -1047,3 +1047,18 @@ html{scroll-padding-top:var(--section-anchor-offset)}.header[id],main > section[
     text-align: center;
 }
 
+/* =========================================================
+   ISM PORTAFOLIO HOME · AJUSTE SOLICITADO
+   Centra únicamente el indicador cyan de Solución ISM.
+   ========================================================= */
+.ism-portfolio-detail:not(.is-client) .ism-portfolio-copy-top {
+    width: 100%;
+    justify-content: center !important;
+    text-align: center;
+}
+
+.ism-portfolio-detail:not(.is-client) .ism-portfolio-copy-type {
+    width: 100%;
+    text-align: center;
+}
+

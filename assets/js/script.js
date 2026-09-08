@@ -210,27 +210,7 @@ if (portfolioSection) {
   };
   const renderDetail=(item) => {
     const isSolution = item.type === "Solución ISM";
-    const commercialMarkup = isSolution && item.price ? `
-      <div class="ism-portfolio-commercial" aria-label="Información comercial de ${item.name}">
-        <div class="ism-portfolio-commercial-card">
-          <i data-lucide="wallet-cards" aria-hidden="true"></i>
-          <span>Implementación inicial</span>
-          <strong>Desde ${item.price}</strong>
-        </div>
-        <div class="ism-portfolio-commercial-card">
-          <i data-lucide="clock-3" aria-hidden="true"></i>
-          <span>Plazo estimado</span>
-          <strong>${item.timeline}</strong>
-        </div>
-        <div class="ism-portfolio-commercial-card">
-          <i data-lucide="shield-check" aria-hidden="true"></i>
-          <span>Continuidad administrada</span>
-          <strong>Desde ${item.monthly} / mes</strong>
-          <small>Opcional</small>
-        </div>
-      </div>
-      <p class="ism-portfolio-commercial-note">${item.commercialNote}</p>
-    ` : "";
+    const commercialMarkup = "";
 
     return `
       <div class="ism-portfolio-detail${isSolution ? "" : " is-client"}">
@@ -238,7 +218,6 @@ if (portfolioSection) {
         <div class="ism-portfolio-copy">
           <div class="ism-portfolio-copy-top">
             <span class="ism-portfolio-copy-type">${item.type}</span>
-            ${isSolution && item.version ? `<span class="ism-portfolio-version-badge">${item.version}</span>` : ""}
           </div>
           <h3>${item.name}</h3>
           <p>${item.description}</p>
