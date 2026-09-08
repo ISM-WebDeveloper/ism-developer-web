@@ -4295,3 +4295,32 @@ body,
   box-shadow: 0 16px 44px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(18px);
 }
+
+
+/* ==================================================
+   AJUSTE FINAL · INFORMACIÓN DE LA APLICACIÓN MÓVIL
+   ================================================== */
+@media (max-width: 760px) {
+  .ibm-app-meta {
+    text-align: center;
+  }
+
+  .ibm-meta-grid {
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .ibm-meta-row {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .ibm-meta-row > span,
+  .ibm-meta-row > strong {
+    text-align: center;
+  }
+
+  .ibm-version-badge {
+    justify-content: center;
+  }
+}
