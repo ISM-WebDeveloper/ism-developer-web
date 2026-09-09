@@ -2028,3 +2028,31 @@ html{scroll-padding-top:var(--section-anchor-offset)}.header[id],main > section[
     column-gap:12px !important;
   }
 }
+
+/* FASE 8.2 · Portafolio mobile: acceso al portafolio antes del selector */
+@media (max-width:760px){
+  .ism-portfolio-header{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    justify-items:center !important;
+  }
+
+  .ism-portfolio-heading{
+    order:1 !important;
+  }
+
+  .ism-portfolio-header-actions{
+    order:2 !important;
+    width:100% !important;
+    justify-self:center !important;
+    justify-content:center !important;
+    margin:8px 0 2px !important;
+  }
+
+  .ism-portfolio-tabs{
+    order:3 !important;
+    width:100% !important;
+    justify-self:center !important;
+    margin:4px auto 0 !important;
+  }
+}
