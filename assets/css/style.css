@@ -1553,3 +1553,32 @@ html{scroll-padding-top:var(--section-anchor-offset)}.header[id],main > section[
     width:150px !important;
   }
 }
+
+/* FASE 4.3 · Portafolio: títulos centrados */
+.ism-portfolio-selector-label{
+  width:100% !important;
+  text-align:center !important;
+}
+
+.ism-portfolio-selector .ism-portfolio-item-copy,
+.ism-portfolio-selector .ism-portfolio-item-copy strong,
+.ism-portfolio-selector .ism-portfolio-item-copy small{
+  text-align:center !important;
+}
+
+.ism-portfolio-copy-top{
+  width:100% !important;
+  justify-content:center !important;
+  text-align:center !important;
+}
+
+.ism-portfolio-copy-type{
+  display:block !important;
+  width:100% !important;
+  text-align:center !important;
+}
+
+.ism-portfolio-copy h3{
+  width:100% !important;
+  text-align:center !important;
+}
