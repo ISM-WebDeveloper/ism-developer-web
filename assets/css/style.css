@@ -1966,3 +1966,65 @@ html{scroll-padding-top:var(--section-anchor-offset)}.header[id],main > section[
     text-align-last:center !important;
   }
 }
+
+/* FASE 8.1 · Cierre comercial: badges en fila y pasos realmente centrados */
+@media (min-width:701px){
+  .contact-trust-row{
+    width:auto !important;
+    max-width:none !important;
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    justify-content:center !important;
+    align-items:center !important;
+    gap:10px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+  .contact-trust-chip{
+    min-height:36px !important;
+    padding:7px 11px !important;
+    font-size:11.5px !important;
+    line-height:1.15 !important;
+    white-space:nowrap !important;
+    flex:0 0 auto !important;
+  }
+  .contact-trust-divider{
+    height:28px !important;
+    flex:0 0 1px !important;
+  }
+}
+
+.contact-points{
+  width:min(100%,360px) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+.contact-points div{
+  width:100% !important;
+  display:grid !important;
+  grid-template-columns:24px minmax(0,260px) !important;
+  justify-content:center !important;
+  align-items:center !important;
+  column-gap:14px !important;
+  padding:9px 12px !important;
+}
+.contact-points div > i,
+.contact-points div > svg{
+  justify-self:center !important;
+}
+.contact-point-copy{
+  width:100% !important;
+  align-items:flex-start !important;
+  justify-self:start !important;
+  text-align:left !important;
+}
+
+@media (max-width:700px){
+  .contact-points{
+    width:min(100%,330px) !important;
+  }
+  .contact-points div{
+    grid-template-columns:22px minmax(0,240px) !important;
+    column-gap:12px !important;
+  }
+}
