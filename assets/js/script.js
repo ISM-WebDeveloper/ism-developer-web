@@ -53,6 +53,12 @@ const setNavigationOpen = (isOpen) => {
   if (window.lucide) {
     lucide.createIcons();
   }
+  if (isOpen) {
+    if (typeof clearNavbarHideTimer === "function") clearNavbarHideTimer();
+    navbar.classList.remove("nav-hidden");
+  } else if (navbar.classList.contains("scrolled") && typeof scheduleNavbarHide === "function") {
+    scheduleNavbarHide();
+  }
 };
 navToggle?.addEventListener("click", () => {
   setNavigationOpen(!navbar?.classList.contains("menu-open"));
@@ -85,33 +91,87 @@ window.addEventListener("resize", () => {
   }
 });
 const NAVBAR_IDLE_HIDE_DELAY = 3000;
-const updateFloatingNavbar = () => {
-  if (!navbar) return;
-  if (window.innerWidth <= 600) {
-    navbar.classList.remove("scrolled", "nav-hidden");
-    clearTimeout(navbarHideTimer);
-    return;
-  }
+const NAVBAR_SCROLL_THRESHOLD = 60;
+let navbarRevealFrame;
 
-  if (window.scrollY <= 60) {
-    navbar.classList.remove("scrolled", "nav-hidden");
-    clearTimeout(navbarHideTimer);
-    return;
-  }
-
-  navbar.classList.add("scrolled");
-  navbar.classList.remove("nav-hidden");
+const clearNavbarHideTimer = () => {
   clearTimeout(navbarHideTimer);
+  navbarHideTimer = undefined;
+};
 
+const scheduleNavbarHide = () => {
+  clearNavbarHideTimer();
+  if (!navbar || window.innerWidth <= 600 || window.scrollY <= NAVBAR_SCROLL_THRESHOLD) return;
   if (navbar.classList.contains("menu-open")) return;
 
   navbarHideTimer = window.setTimeout(() => {
-    if (window.scrollY > 60 && !navbar.classList.contains("menu-open")) {
+    if (window.scrollY > NAVBAR_SCROLL_THRESHOLD && !navbar.classList.contains("menu-open")) {
       navbar.classList.add("nav-hidden");
     }
   }, NAVBAR_IDLE_HIDE_DELAY);
 };
+
+const revealFloatingNavbar = () => {
+  if (!navbar) return;
+  const enteringFloatingMode = !navbar.classList.contains("scrolled");
+
+  if (enteringFloatingMode) {
+    navbar.classList.add("scrolled", "nav-hidden");
+    cancelAnimationFrame(navbarRevealFrame);
+    navbarRevealFrame = requestAnimationFrame(() => {
+      navbarRevealFrame = requestAnimationFrame(() => {
+        navbar.classList.remove("nav-hidden");
+        scheduleNavbarHide();
+      });
+    });
+    return;
+  }
+
+  navbar.classList.remove("nav-hidden");
+  scheduleNavbarHide();
+};
+
+const updateFloatingNavbar = () => {
+  if (!navbar) return;
+
+  if (window.innerWidth <= 600) {
+    cancelAnimationFrame(navbarRevealFrame);
+    clearNavbarHideTimer();
+    navbar.classList.remove("scrolled", "nav-hidden");
+    return;
+  }
+
+  if (window.scrollY <= NAVBAR_SCROLL_THRESHOLD) {
+    cancelAnimationFrame(navbarRevealFrame);
+    clearNavbarHideTimer();
+    navbar.classList.remove("scrolled", "nav-hidden");
+    return;
+  }
+
+  revealFloatingNavbar();
+};
+
 window.addEventListener("scroll", updateFloatingNavbar, { passive: true });
+window.addEventListener("resize", updateFloatingNavbar, { passive: true });
+navbar?.addEventListener("mouseenter", () => {
+  if (!navbar.classList.contains("scrolled")) return;
+  clearNavbarHideTimer();
+  navbar.classList.remove("nav-hidden");
+});
+navbar?.addEventListener("mouseleave", () => {
+  if (navbar.classList.contains("scrolled")) scheduleNavbarHide();
+});
+navbar?.addEventListener("focusin", () => {
+  if (!navbar.classList.contains("scrolled")) return;
+  clearNavbarHideTimer();
+  navbar.classList.remove("nav-hidden");
+});
+navbar?.addEventListener("focusout", (event) => {
+  if (!navbar.contains(event.relatedTarget) && navbar.classList.contains("scrolled")) {
+    scheduleNavbarHide();
+  }
+});
+updateFloatingNavbar();
 // REVEAL PREMIUM POR VIEWPORT
 // Gestionado por assets/js/reveal-compat.js para ofrecer una entrada
 // consistente en Edge, Chrome, Firefox, Safari y navegadores sin

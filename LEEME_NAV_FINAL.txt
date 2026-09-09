@@ -1,0 +1,18 @@
+ISM Developer · Fase 3.2 · Navbar flotante consolidado
+
+REEMPLAZAR SOLO:
+1) /index.html
+2) /assets/css/style.css
+3) /assets/js/script.js
+
+Qué se corrigió de raíz:
+- Se eliminaron los overrides Fase 3 / Fase 3.1 acumulados del final de style.css.
+- La animación inicial navEntrance ya no controla el navbar cuando entra en modo flotante (animation:none en .scrolled), para que opacity/transform puedan animar realmente la salida.
+- Entrada: aparece desde arriba mediante opacity + translateY.
+- Salida: mismo efecto en sentido inverso tras 3 segundos sin scroll.
+- No se usa visibility:hidden para cortar la transición visual.
+- El CTA del navbar dejó de usar posicionamiento absoluto; Guía Web y CTA comparten una celda CSS Grid y quedan centrados verticalmente por layout.
+- El navbar permanece visible mientras el cursor o el foco están dentro de él.
+- Se actualizaron las versiones de style.css y script.js en index.html para evitar que el navegador reutilice caché anterior.
+
+No se modificaron Portafolio, clientes, textos del Hero ni otras secciones en esta corrección.
