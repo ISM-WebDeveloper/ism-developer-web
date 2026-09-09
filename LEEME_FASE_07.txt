@@ -1,0 +1,3 @@
+Reemplazar solo index.html.
+
+Se actualizó únicamente el contenido y orden del FAQ. No se modificó CSS, JavaScript ni formulario.
