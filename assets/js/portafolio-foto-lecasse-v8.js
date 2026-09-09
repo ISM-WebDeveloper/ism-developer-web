@@ -440,7 +440,7 @@ const projects = [
         status: "Publicado",
         accent: "#38bdf8",
         accentRgb: "56, 189, 248",
-        url: "https://lecasse.vercel.app/",
+        url: "https://www.lecasse.cl/",
         summary: "Una presencia tecnológica que ordena servicios y propuesta de valor para que potenciales clientes entiendan rápidamente las capacidades de la empresa.",
         metrics: [["Estado", "Publicado"], ["Sector", "Tecnología"], ["Modelo", "B2B"], ["Objetivo", "Captación"]],
         stack: "HTML5 · CSS3 · JavaScript · Vercel",

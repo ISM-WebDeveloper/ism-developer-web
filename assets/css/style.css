@@ -1198,3 +1198,21 @@ html{scroll-padding-top:var(--section-anchor-offset)}.header[id],main > section[
     transform:none!important;
   }
 }
+
+
+/* FASE 3 · Navbar flotante: visible al desplazarse y auto-oculto tras 3 s de inactividad */
+@media (min-width:601px){
+  .premium-navbar.scrolled{
+    visibility:visible;
+    opacity:1;
+    transform:translateY(0);
+    will-change:opacity,transform;
+    transition:opacity .38s ease,transform .42s cubic-bezier(.22,1,.36,1),visibility .38s ease,top .3s ease,height .3s ease,padding .3s ease,border-radius .3s ease,background .3s ease,border-color .3s ease,box-shadow .3s ease;
+  }
+  .premium-navbar.scrolled.nav-hidden{
+    opacity:0!important;
+    visibility:hidden!important;
+    pointer-events:none!important;
+    transform:translateY(calc(-100% - 34px))!important;
+  }
+}

@@ -43,6 +43,7 @@ window.addEventListener("pageshow", restoreRequestedPosition);
 const navbar = document.getElementById("navbar");
 const navToggle = document.getElementById("navToggle");
 const primaryNav = document.getElementById("primaryNav");
+let navbarHideTimer;
 const setNavigationOpen = (isOpen) => {
   if (!navbar || !navToggle) return;
   navbar.classList.toggle("menu-open", isOpen);
@@ -83,20 +84,34 @@ window.addEventListener("resize", () => {
     setNavigationOpen(false);
   }
 });
-window.addEventListener("scroll", () => {
+const NAVBAR_IDLE_HIDE_DELAY = 3000;
+const updateFloatingNavbar = () => {
   if (!navbar) return;
   if (window.innerWidth <= 600) {
-    navbar.classList.remove("scrolled");
-    navbar.classList.remove("nav-hidden");
+    navbar.classList.remove("scrolled", "nav-hidden");
+    clearTimeout(navbarHideTimer);
     return;
   }
-  if (navbar.classList.contains("menu-open")) {
-    navbar.classList.remove("nav-hidden");
+
+  if (window.scrollY <= 60) {
+    navbar.classList.remove("scrolled", "nav-hidden");
+    clearTimeout(navbarHideTimer);
     return;
   }
-  navbar.classList.toggle("scrolled", window.scrollY > 60);
+
+  navbar.classList.add("scrolled");
   navbar.classList.remove("nav-hidden");
-});
+  clearTimeout(navbarHideTimer);
+
+  if (navbar.classList.contains("menu-open")) return;
+
+  navbarHideTimer = window.setTimeout(() => {
+    if (window.scrollY > 60 && !navbar.classList.contains("menu-open")) {
+      navbar.classList.add("nav-hidden");
+    }
+  }, NAVBAR_IDLE_HIDE_DELAY);
+};
+window.addEventListener("scroll", updateFloatingNavbar, { passive: true });
 // REVEAL PREMIUM POR VIEWPORT
 // Gestionado por assets/js/reveal-compat.js para ofrecer una entrada
 // consistente en Edge, Chrome, Firefox, Safari y navegadores sin
@@ -244,7 +259,7 @@ if (portfolioSection) {
     `;
   };
   const state = {
-    tab: "solutions",
+    tab: "clients",
     selected: { clients: 0, solutions: 0 }
   };
   const syncLucide = () => {
