@@ -1141,3 +1141,60 @@ html{scroll-padding-top:var(--section-anchor-offset)}.header[id],main > section[
 @media (max-width:1024px){
   .hero-trust-list{transform:none;}
 }
+
+
+/* FASE 02.3 · Corrección de causa raíz Hero
+   - una sola flecha por CTA
+   - sin barrido/shimmer en los CTA del Hero
+   - badges con separación real del borde inferior, sin transform hacks
+*/
+.hero-actions .hero-cta-arrow{display:none!important}
+.hero-actions .hero-primary-cta::after,
+.hero-actions .hero-secondary-cta::after{
+  content:"→"!important;
+  display:inline-block!important;
+  position:static!important;
+  width:auto!important;
+  height:auto!important;
+  margin-left:16px!important;
+  color:currentColor!important;
+  background:none!important;
+  font-size:20px!important;
+  line-height:1!important;
+  opacity:1!important;
+  transform:none!important;
+  transition:none!important;
+}
+.hero-actions .hero-primary-cta,
+.hero-actions .hero-secondary-cta,
+.hero-actions .hero-primary-cta:hover,
+.hero-actions .hero-primary-cta:focus-visible,
+.hero-actions .hero-secondary-cta:hover,
+.hero-actions .hero-secondary-cta:focus-visible{
+  transform:none!important;
+}
+.hero-actions .hero-primary-cta:hover,
+.hero-actions .hero-primary-cta:focus-visible{
+  background:#079bd6!important;
+  border-color:#5ed7ff!important;
+  box-shadow:0 0 0 1px rgba(94,215,255,.10),0 14px 28px rgba(14,165,233,.20)!important;
+}
+.hero-actions .hero-secondary-cta:hover,
+.hero-actions .hero-secondary-cta:focus-visible{
+  background:rgba(14,165,233,.10)!important;
+  border-color:rgba(94,215,255,.72)!important;
+  box-shadow:0 0 0 1px rgba(94,215,255,.05),0 12px 24px rgba(0,0,0,.18)!important;
+}
+@media (min-width:1025px){
+  .hero-human{
+    min-height:calc(100vh - 149px)!important;
+  }
+  .hero-content{
+    padding-bottom:34px!important;
+  }
+  .hero-trust-list{
+    margin-top:auto!important;
+    margin-bottom:0!important;
+    transform:none!important;
+  }
+}
