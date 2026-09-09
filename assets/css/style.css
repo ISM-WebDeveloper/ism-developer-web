@@ -1216,3 +1216,69 @@ html{scroll-padding-top:var(--section-anchor-offset)}.header[id],main > section[
     transform:translateY(calc(-100% - 34px))!important;
   }
 }
+
+/* FASE 3.1 · Ajuste fino navbar flotante
+   - entrada y salida usan el mismo recorrido/curva en sentidos opuestos
+   - visibility se retrasa al ocultar para no cortar la animación
+   - CTA alineado exactamente al centro vertical del navbar
+*/
+@media (min-width:601px){
+  .premium-navbar.scrolled{
+    opacity:1!important;
+    visibility:visible!important;
+    transform:translateY(0)!important;
+    transition:
+      opacity .46s cubic-bezier(.22,1,.36,1),
+      transform .46s cubic-bezier(.22,1,.36,1),
+      visibility 0s linear 0s,
+      top .3s ease,
+      height .3s ease,
+      padding .3s ease,
+      border-radius .3s ease,
+      background .3s ease,
+      border-color .3s ease,
+      box-shadow .3s ease!important;
+  }
+
+  .premium-navbar.scrolled.nav-hidden{
+    opacity:0!important;
+    visibility:hidden!important;
+    pointer-events:none!important;
+    transform:translateY(calc(-100% - 28px))!important;
+    transition:
+      opacity .46s cubic-bezier(.22,1,.36,1),
+      transform .46s cubic-bezier(.22,1,.36,1),
+      visibility 0s linear .46s,
+      top .3s ease,
+      height .3s ease,
+      padding .3s ease,
+      border-radius .3s ease,
+      background .3s ease,
+      border-color .3s ease,
+      box-shadow .3s ease!important;
+  }
+
+  .premium-navbar.scrolled .nav-conversion-slot{
+    align-self:center!important;
+    height:48px!important;
+    min-height:48px!important;
+    margin:0!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+  }
+
+  .premium-navbar.scrolled .nav-conversion-slot .nav-project-cta{
+    top:0!important;
+    bottom:0!important;
+    right:0!important;
+    margin:auto 0!important;
+    min-height:48px!important;
+    height:48px!important;
+    transform:scale(1)!important;
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    line-height:1!important;
+  }
+}
