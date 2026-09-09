@@ -1084,3 +1084,48 @@ html{scroll-padding-top:var(--section-anchor-offset)}.header[id],main > section[
 @media (max-width:1366px) and (min-width:1025px){.nav-conversion-slot{width:190px}.nav-guide-cta{width:72px;min-height:58px}.nav-guide-cta svg{width:23px;height:23px}.nav-guide-cta span{font-size:9.5px}.nav-conversion-slot .nav-project-cta{min-width:190px;padding-inline:16px;font-size:13px}}
 @media (max-width:1024px){.nav-conversion-slot{display:none}.hero-actions .hero-primary-cta,.hero-actions .hero-secondary-cta{min-width:0}}
 @media (max-width:600px){.hero-actions .hero-primary-cta,.hero-actions .hero-secondary-cta{width:100%;min-height:50px}.hero-trust-card{width:min(100%,290px)}}
+
+/* FASE 02.1 - refinamiento Hero: flechas, hover e iconos */
+.hero-actions .btn-primary::before,
+.hero-actions .btn-primary::after,
+.hero-actions .btn-secondary::before,
+.hero-actions .btn-secondary::after{
+  content:none!important;
+  display:none!important;
+}
+.hero-actions .btn-primary,
+.hero-actions .btn-secondary{
+  position:relative;
+  overflow:hidden;
+  transform:translateY(0);
+  transition:transform .22s ease,background-color .22s ease,border-color .22s ease,box-shadow .22s ease,color .22s ease;
+}
+.hero-actions .btn-primary:hover,
+.hero-actions .btn-primary:focus-visible{
+  transform:translateY(-2px);
+  background:#089bd8;
+  border-color:#38bdf8;
+  box-shadow:0 14px 30px rgba(14,165,233,.25);
+}
+.hero-actions .btn-secondary:hover,
+.hero-actions .btn-secondary:focus-visible{
+  transform:translateY(-2px);
+  background:rgba(8,29,47,.88);
+  border-color:rgba(56,189,248,.82);
+  box-shadow:0 12px 28px rgba(0,0,0,.22),0 0 0 1px rgba(56,189,248,.06) inset;
+}
+.hero-trust-card svg{
+  width:25px;
+  height:25px;
+  padding:5px;
+  color:#38bdf8;
+  border:1px solid rgba(56,189,248,.6);
+  border-radius:50%;
+  background:rgba(56,189,248,.08);
+  flex:0 0 25px;
+  stroke-width:2;
+}
+@media (min-width:1025px){
+  .hero-trust-list{margin-bottom:30px;}
+}
+
