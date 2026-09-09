@@ -1,0 +1,12 @@
+ISM Developer · Fase 02.2 · Ajustes finales del Hero
+
+Reemplazar SOLO:
+- assets/css/style.css
+
+Ajustes:
+1. Flecha secundaria única: la regla genérica ya no se aplica al CTA del Hero.
+2. Hover sin movimiento interno: no se desplaza botón ni flecha; solo cambia luz/borde suavemente.
+3. Badges subidos 34 px en escritorio para dejar aire real respecto del borde inferior.
+4. Iconos de badges se conservan de la Fase 02.1.
+
+No se modifica ninguna otra sección.
