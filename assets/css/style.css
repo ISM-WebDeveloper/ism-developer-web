@@ -1780,3 +1780,40 @@ html{scroll-padding-top:var(--section-anchor-offset)}.header[id],main > section[
     font-size: 11.5px !important;
   }
 }
+
+/* FASE 4.6 · Ajuste final: centrado visual del mini índice + hover de carpeta en su eje */
+@media (min-width:1081px){
+  .ism-portfolio-tabs{
+    position:relative !important;
+    left:-50px !important;
+  }
+}
+
+/* Anula desplazamientos heredados del enlace de portafolio */
+.ism-portfolio-main-link:hover > span,
+.ism-portfolio-main-link:focus-visible > span,
+.ism-portfolio-main-icon,
+.ism-portfolio-main-label{
+  transform:none !important;
+}
+
+.ism-portfolio-main-icon img{
+  transform:scale(1) !important;
+  transform-origin:50% 50% !important;
+  transition:transform 180ms ease !important;
+  will-change:transform;
+}
+
+.ism-portfolio-main-link:hover .ism-portfolio-main-icon img,
+.ism-portfolio-main-link:focus-visible .ism-portfolio-main-icon img{
+  transform:scale(1.085) !important;
+}
+
+@media (prefers-reduced-motion:reduce){
+  .ism-portfolio-main-icon img,
+  .ism-portfolio-main-link:hover .ism-portfolio-main-icon img,
+  .ism-portfolio-main-link:focus-visible .ism-portfolio-main-icon img{
+    transform:none !important;
+    transition:none !important;
+  }
+}
