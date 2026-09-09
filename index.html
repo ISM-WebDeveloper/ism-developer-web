@@ -40,7 +40,7 @@
 
     <link rel="preload" href="assets/img/ignaciodesarrollador.webp" as="image" type="image/webp" />
     <script src="assets/js/reveal-compat.js?v=2.2.0" defer></script>
-    <link rel="stylesheet" href="assets/css/style.css?v=3.0.22" />
+    <link rel="stylesheet" href="assets/css/style.css?v=3.0.23" />
     <link rel="stylesheet" href="assets/css/premium-motion.css?v=2.2.1" />
     <link rel="stylesheet" href="assets/css/privacy-consent.css?v=2.0.24" />
     <link rel="stylesheet" href="assets/css/accessibility.css?v=2.1.1" />
@@ -1329,6 +1329,19 @@
             <div class="contact-shell">
                 <div class="contact-intro">
                     <h2 id="contacto-title" class="section-heading-emphasis">Evalúa tu proyecto con <span class="section-heading-accent">ISM Developer</span></h2>
+
+                    <div class="contact-trust-row" aria-label="Condiciones de la evaluación inicial">
+                        <span class="contact-trust-chip">
+                            <i data-lucide="badge-check" aria-hidden="true"></i>
+                            Evaluación inicial sin costo
+                        </span>
+                        <span class="contact-trust-divider" aria-hidden="true"></span>
+                        <span class="contact-trust-chip">
+                            <i data-lucide="clock-3" aria-hidden="true"></i>
+                            Respuesta máxima en 48 hrs hábiles
+                        </span>
+                    </div>
+
                     <p>
                         Cuéntanos qué quieres construir, mejorar o automatizar. ISM Developer revisará el contexto
                         para orientarte hacia una solución coherente con la etapa, las prioridades y los objetivos
@@ -1337,16 +1350,25 @@
 
                     <div class="contact-points">
                         <div>
-                            <i data-lucide="search-check"></i>
-                            <span>Qué necesitas resolver</span>
+                            <i data-lucide="search-check" aria-hidden="true"></i>
+                            <span class="contact-point-copy">
+                                <strong>Qué necesitas resolver</strong>
+                                <small>Cuéntanos tu objetivo o desafío actual.</small>
+                            </span>
                         </div>
                         <div>
-                            <i data-lucide="route"></i>
-                            <span>En qué etapa está tu idea</span>
+                            <i data-lucide="route" aria-hidden="true"></i>
+                            <span class="contact-point-copy">
+                                <strong>En qué etapa está tu idea</strong>
+                                <small>Nos ayudas a entender el contexto.</small>
+                            </span>
                         </div>
                         <div>
-                            <i data-lucide="send"></i>
-                            <span>Cómo podemos avanzar</span>
+                            <i data-lucide="send" aria-hidden="true"></i>
+                            <span class="contact-point-copy">
+                                <strong>Cómo podemos avanzar</strong>
+                                <small>Te orientamos hacia la mejor solución.</small>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -1361,7 +1383,7 @@
                         </div>
                         <div class="contact-field">
                             <label for="contactEmpresa">Empresa o negocio</label>
-                            <input id="contactEmpresa" type="text" name="empresa" placeholder="Nombre de tu negocio"
+                            <input id="contactEmpresa" type="text" name="empresa" placeholder="Nombre de tu negocio (opcional)"
                                 autocomplete="organization" maxlength="120" />
                         </div>
                         <div class="contact-field">
@@ -1370,9 +1392,9 @@
                                 autocomplete="tel" inputmode="tel" maxlength="24" required />
                         </div>
                         <div class="contact-field">
-                            <label for="contactServicio">Solución de interés <span aria-hidden="true">*</span><span class="sr-only"> (obligatorio)</span></label>
-                            <select id="contactServicio" name="servicio" required>
-                                <option value="">Selecciona una opción</option>
+                            <label for="contactServicio">Solución de interés</label>
+                            <select id="contactServicio" name="servicio">
+                                <option value="Necesito orientación" selected>No estoy seguro, necesito orientación</option>
                                 <optgroup label="Soluciones ISM">
                                     <option value="ISM Presencia Digital">ISM Presencia Digital</option>
                                     <option value="ISM Boutique">ISM Boutique</option>

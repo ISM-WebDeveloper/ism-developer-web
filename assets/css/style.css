@@ -1834,3 +1834,135 @@ html{scroll-padding-top:var(--section-anchor-offset)}.header[id],main > section[
     white-space:normal!important;
   }
 }
+
+/* FASE 8 · Cierre comercial: confianza, menor fricción y centrado visual */
+.contact-intro{
+  align-items:center !important;
+  text-align:center;
+}
+.contact-intro h2{
+  width:100%;
+  max-width:500px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  text-align:center !important;
+  text-wrap:balance;
+}
+.contact-trust-row{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  margin:2px auto 20px;
+  flex-wrap:wrap;
+}
+.contact-trust-chip{
+  min-height:38px;
+  padding:8px 14px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border:1px solid rgba(56,189,248,.18);
+  border-radius:999px;
+  background:rgba(14,165,233,.09);
+  color:#e2e8f0;
+  font-size:12.5px;
+  font-weight:700;
+  line-height:1.2;
+  white-space:nowrap;
+}
+.contact-trust-chip i,
+.contact-trust-chip svg{
+  width:18px;
+  height:18px;
+  color:#38bdf8;
+  stroke-width:2.2;
+  flex:0 0 auto;
+}
+.contact-trust-divider{
+  width:1px;
+  height:30px;
+  background:rgba(148,210,230,.28);
+}
+.contact-intro > p{
+  max-width:455px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  text-align:center !important;
+  text-align-last:center !important;
+}
+.contact-points{
+  width:min(100%,390px) !important;
+  margin:22px auto 0 !important;
+}
+.contact-points div{
+  width:100%;
+  justify-content:flex-start !important;
+  padding:8px 14px !important;
+}
+.contact-points div > i,
+.contact-points div > svg{
+  width:22px !important;
+  height:22px !important;
+  flex:0 0 22px !important;
+}
+.contact-point-copy{
+  min-width:0;
+  display:flex !important;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:2px;
+  text-align:left !important;
+}
+.contact-point-copy strong{
+  color:#f1f5f9;
+  font-size:13px;
+  font-weight:800;
+  line-height:1.25;
+}
+.contact-point-copy small{
+  color:#94a3b8;
+  font-size:11.5px;
+  font-weight:500;
+  line-height:1.35;
+}
+.contact-form-note{
+  color:#aebed0 !important;
+  opacity:1 !important;
+}
+
+@media (min-width:1025px){
+  .contact-intro{
+    justify-content:center !important;
+  }
+  .contact-intro h2{
+    margin-bottom:16px !important;
+  }
+  .contact-trust-row{
+    margin-bottom:18px;
+  }
+  .contact-intro > p{
+    font-size:14px !important;
+    line-height:1.58 !important;
+  }
+}
+
+@media (max-width:700px){
+  .contact-trust-row{
+    gap:8px;
+    margin-bottom:18px;
+  }
+  .contact-trust-divider{
+    display:none;
+  }
+  .contact-trust-chip{
+    width:min(100%,300px);
+    white-space:normal;
+  }
+  .contact-intro > p{
+    text-align:center !important;
+    text-align-last:center !important;
+  }
+}

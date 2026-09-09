@@ -1,0 +1,12 @@
+Reemplazar solo estos 2 archivos:
+- index.html
+- assets/css/style.css
+
+Cambios incluidos:
+1) Se agregan “Evaluación inicial sin costo” y “Respuesta máxima en 48 hrs hábiles”.
+2) Se centra el título, la fila de confianza y el texto explicativo del panel izquierdo.
+3) Los tres pasos se mantienen dentro de un bloque centrado, con lectura interna ordenada.
+4) “Solución de interés” deja de ser obligatoria y parte en “No estoy seguro, necesito orientación”.
+5) “Empresa o negocio” refuerza visualmente que es opcional.
+6) El microtexto bajo WhatsApp gana contraste.
+7) No se modifica el funcionamiento del envío a WhatsApp ni el resto del sitio.
