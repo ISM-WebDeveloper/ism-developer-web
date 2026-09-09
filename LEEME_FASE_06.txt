@@ -1,0 +1,8 @@
+Reemplazar solo estos 2 archivos:
+- index.html
+- assets/css/style.css
+
+Cambio único:
+- En escritorio, la descripción bajo "Mi Stack" se muestra en una sola línea centrada.
+- En tablet y móvil, el texto conserva saltos naturales para evitar desbordes.
+- No se modifica ningún icono, grilla, orden ni contenido de la sección.

@@ -1817,3 +1817,20 @@ html{scroll-padding-top:var(--section-anchor-offset)}.header[id],main > section[
     transition:none !important;
   }
 }
+
+/* FASE 6 · Stack: descripción en una sola línea en escritorio */
+@media (min-width:1101px){
+  .tools-heading{
+    max-width:1100px!important;
+  }
+  .tools-heading > span{
+    max-width:none!important;
+    white-space:nowrap!important;
+    text-align:center!important;
+  }
+}
+@media (max-width:1100px){
+  .tools-heading > span{
+    white-space:normal!important;
+  }
+}
