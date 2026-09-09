@@ -40,7 +40,7 @@
 
     <link rel="preload" href="assets/img/ignaciodesarrollador.webp" as="image" type="image/webp" />
     <script src="assets/js/reveal-compat.js?v=2.2.0" defer></script>
-    <link rel="stylesheet" href="assets/css/style.css?v=3.0.10" />
+    <link rel="stylesheet" href="assets/css/style.css?v=3.0.11" />
     <link rel="stylesheet" href="assets/css/premium-motion.css?v=2.2.0" />
     <link rel="stylesheet" href="assets/css/privacy-consent.css?v=2.0.24" />
     <link rel="stylesheet" href="assets/css/accessibility.css?v=2.1.1" />
@@ -246,8 +246,16 @@
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
     
-            <a href="#contacto" class="nav-project-cta"
-                aria-label="Evaluar mi proyecto con ISM Developer">Evaluar mi proyecto</a>
+            <div class="nav-conversion-slot" aria-label="Accesos de orientación y evaluación">
+                <a href="guia-web/" class="nav-guide-cta"
+                    aria-label="Abrir Guía Web de ISM Developer">
+                    <i data-lucide="bot" aria-hidden="true"></i>
+                    <span>Guía Web</span>
+                </a>
+
+                <a href="#contacto" class="nav-project-cta"
+                    aria-label="Evaluar proyecto gratis con ISM Developer">Evaluar proyecto gratis</a>
+            </div>
 
             <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false"
                 aria-controls="primaryNav" aria-label="Abrir menú principal">
@@ -276,24 +284,31 @@
                     procesos, ahorrar tiempo y generar nuevas oportunidades.
                 </p>
 
-                <div class="hero-actions" aria-label="Acción principal">
-                    <a href="#servicios" class="btn-secondary">Ver servicios</a>
+                <div class="hero-actions" aria-label="Acciones principales">
+                    <a href="#contacto" class="btn-primary hero-primary-cta">
+                        <span>Evaluar proyecto gratis</span>
+                        <span class="hero-cta-arrow" aria-hidden="true">→</span>
+                    </a>
+                    <a href="#proyectos" class="btn-secondary hero-secondary-cta">
+                        <span>Ver proyectos reales</span>
+                        <span class="hero-cta-arrow" aria-hidden="true">→</span>
+                    </a>
                 </div>
         
-                <div class="hero-trust-list">
+                <div class="hero-trust-list" aria-label="Compromisos de ISM Developer">
                     <div class="hero-trust-card">
-                        <i data-lucide="badge-check"></i>
-                        <span>Cercano</span>
+                        <i data-lucide="settings-2" aria-hidden="true"></i>
+                        <span>Soluciones a medida</span>
                     </div>
 
                     <div class="hero-trust-card">
-                        <i data-lucide="handshake"></i>
-                        <span>Comprometido</span>
+                        <i data-lucide="clock-3" aria-hidden="true"></i>
+                        <span>Respuesta en 48 hrs hábiles</span>
                     </div>
 
                     <div class="hero-trust-card">
-                        <i data-lucide="target"></i>
-                        <span>Orientado a resultados</span>
+                        <i data-lucide="users" aria-hidden="true"></i>
+                        <span>Atención cercana</span>
                     </div>
                 </div>
             </div>
@@ -1485,7 +1500,7 @@
         </div>
     </footer>
 
-    <script src="assets/js/script.js?v=3.0.13" defer></script>
+    <script src="assets/js/script.js?v=3.0.14" defer></script>
     <script src="assets/js/accessibility.js?v=2.0.24" defer></script>
 </body>
 

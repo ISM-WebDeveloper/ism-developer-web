@@ -43,7 +43,6 @@ window.addEventListener("pageshow", restoreRequestedPosition);
 const navbar = document.getElementById("navbar");
 const navToggle = document.getElementById("navToggle");
 const primaryNav = document.getElementById("primaryNav");
-let navbarHideTimer;
 const setNavigationOpen = (isOpen) => {
   if (!navbar || !navToggle) return;
   navbar.classList.toggle("menu-open", isOpen);
@@ -89,26 +88,14 @@ window.addEventListener("scroll", () => {
   if (window.innerWidth <= 600) {
     navbar.classList.remove("scrolled");
     navbar.classList.remove("nav-hidden");
-    clearTimeout(navbarHideTimer);
     return;
   }
   if (navbar.classList.contains("menu-open")) {
     navbar.classList.remove("nav-hidden");
-    clearTimeout(navbarHideTimer);
     return;
   }
-  if (window.scrollY > 60) {
-    navbar.classList.add("scrolled");
-    navbar.classList.remove("nav-hidden");
-    clearTimeout(navbarHideTimer);
-    navbarHideTimer = setTimeout(() => {
-      navbar.classList.add("nav-hidden");
-    }, 1500);
-  } else {
-    navbar.classList.remove("scrolled");
-    navbar.classList.remove("nav-hidden");
-    clearTimeout(navbarHideTimer);
-  }
+  navbar.classList.toggle("scrolled", window.scrollY > 60);
+  navbar.classList.remove("nav-hidden");
 });
 // REVEAL PREMIUM POR VIEWPORT
 // Gestionado por assets/js/reveal-compat.js para ofrecer una entrada

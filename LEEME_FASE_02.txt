@@ -1,0 +1,51 @@
+ISM DEVELOPER — FASE 2 · HERO COMERCIAL
+
+REEMPLAZAR SOLO ESTOS 3 ARCHIVOS:
+
+1) /index.html
+   -> reemplazar por index.html de este paquete.
+
+2) /assets/css/style.css
+   -> reemplazar por assets/css/style.css de este paquete.
+
+3) /assets/js/script.js
+   -> reemplazar por assets/js/script.js de este paquete.
+
+NO MODIFICAR OTROS ARCHIVOS EN ESTA FASE.
+
+CAMBIOS INCLUIDOS:
+- CTA principal del Hero: "Evaluar proyecto gratis" -> sección #contacto.
+- CTA secundario: "Ver proyectos reales" -> sección #proyectos.
+- Badges: "Soluciones a medida", "Respuesta en 48 hrs hábiles", "Atención cercana".
+- Navbar en la parte superior: icono + texto "Guía Web", enlazado a /guia-web/.
+- Al bajar más de 60 px, el acceso "Guía Web" se transforma visualmente en "Evaluar proyecto gratis".
+- El navbar permanece visible en escritorio al hacer scroll para mantener el CTA disponible.
+- En tablet/móvil se conserva el menú responsive y no se fuerza el acceso extra en el navbar.
+- Se conserva el orden estructural aprobado en Fase 1.
+
+VALIDACIONES EJECUTADAS:
+- npm run check: OK
+- validate-site: 11 páginas, 0 errores, 0 advertencias
+- accesibilidad estática: OK
+- compatibilidad moderna: OK (avisos existentes de backdrop-filter/svh requieren revisión visual real)
+- calibración Guía Web: OK
+
+PRUEBA MANUAL DESPUÉS DE REEMPLAZAR:
+A) PC, arriba del todo:
+   - Debe verse Guía Web arriba a la derecha.
+   - Deben verse los 2 CTA del Hero.
+   - Deben verse los 3 badges nuevos.
+B) PC, hacer scroll > 60 px:
+   - Guía Web debe desaparecer del navbar.
+   - Debe aparecer "Evaluar proyecto gratis".
+   - Navbar debe mantenerse visible.
+C) Clic en Guía Web:
+   - Debe abrir /guia-web/.
+D) Clic en Evaluar proyecto gratis:
+   - Debe bajar a #contacto.
+E) Clic en Ver proyectos reales:
+   - Debe bajar a #proyectos.
+F) Revisar celular:
+   - Hero sin scroll lateral.
+   - Botones apilados correctamente.
+   - Menú hamburguesa funcional.
