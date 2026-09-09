@@ -1,0 +1,12 @@
+Reemplazar estos 3 archivos:
+- index.html
+- assets/css/style.css
+- assets/icons/portfolio-folder.svg
+
+Cambio:
+- Se reemplaza definitivamente el icono de librería por el SVG propio suministrado por el usuario.
+- Se elimina el fondo blanco del SVG original.
+- El icono queda en cian ISM con brillo suave interno.
+- No hay caja, borde, fondo ni sombra rectangular alrededor.
+- Debajo aparece "Ver Portafolio" en blanco e "ISM" en cian.
+- El resto de la sección no se modifica.
