@@ -1,0 +1,50 @@
+ISM Developer · Upgrade Comercial · Fase 1
+==========================================
+
+ARCHIVOS A REEMPLAZAR EN LA RAÍZ DEL PROYECTO
+1. index.html
+2. portafolio.html
+
+CAMBIOS APLICADOS
+- Reordenamiento estructural de la Home, sin modificar el contenido interno de las secciones.
+- Nuevo orden:
+  Hero (sin cambios)
+  > Portafolio ISM
+  > Servicios ISM
+  > Configurador + Guía Web
+  > Plan de Acción
+  > Sobre mí
+  > Colaboración / Determinación / Atrévete a más
+  > Niveles de Madurez
+  > Mi Stack
+  > FAQ
+  > Evalúa tu proyecto / Contacto
+  > Footer (sin cambios)
+- Hotfix SEO/fallback en portafolio.html:
+  "Desde $0" -> "Según alcance"
+  "Desde $0 / mes" -> "Según alcance"
+- Los precios reales dinámicos NO fueron modificados.
+
+VALIDACIONES
+- 12/12 bloques movidos: contenido interno idéntico al original.
+- validate-site: 11 páginas, 0 errores, 0 advertencias.
+- configurator-defaults: aprobado.
+- accesibilidad estática: aprobada.
+- compatibilidad moderna: aprobada.
+- calibración Guía Web: aprobada.
+- El repositorio ya traía dos deudas previas que NO fueron introducidas por esta fase:
+  1) presupuesto de rendimiento excedido;
+  2) hash CSP del JSON-LD desactualizado según security-audit.
+
+DESPUÉS DE REEMPLAZAR
+Revisar visualmente en PC y móvil:
+- Hero intacto.
+- Portafolio inmediatamente después del Hero.
+- Navegación por anclas del menú.
+- Tabs del Portafolio.
+- Botones de Servicios y sus diálogos.
+- Configurador y Guía.
+- FAQ.
+- Formulario y WhatsApp.
+
+No continuar a la siguiente fase hasta aprobar esta revisión.
