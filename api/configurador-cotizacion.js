@@ -18,6 +18,8 @@
 // 01. CONFIGURACIÓN
 // ============================================================================
 
+import { readLimitedJson } from "./_config/read-limited-json.js";
+
 const RESEND_ENDPOINT = "https://api.resend.com/emails";
 const TURNSTILE_VERIFY_ENDPOINT = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 const TURNSTILE_ACTION = "prequote";
@@ -360,15 +362,11 @@ function buildEmail(payload, contact, configuration) {
 // ============================================================================
 
 async function handlePost(request) {
-    const contentLength = Number(request.headers.get("content-length") || 0);
-    if (contentLength > MAX_BODY_BYTES) {
-        return json({ error: "Solicitud demasiado grande." }, 413);
-    }
-
     let payload;
     try {
-        payload = await request.json();
-    } catch {
+        payload = await readLimitedJson(request, MAX_BODY_BYTES);
+    } catch (error) {
+        if (error.status === 413) return json({ error: "Solicitud demasiado grande." }, 413);
         return json({ error: "Solicitud JSON inválida." }, 400);
     }
 

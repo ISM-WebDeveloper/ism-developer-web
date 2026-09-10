@@ -8,3 +8,7 @@ src/
 *.txt
 cspell.json
 server.mjs
+
+# Paquetes de trabajo; ninguna descarga productiva depende de ZIPs locales.
+*.zip
+ISM_Fase_*.zip

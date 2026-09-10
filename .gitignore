@@ -10,3 +10,7 @@ LEEME.txt
 Thumbs.db
 *.tmp
 *.bak
+
+# Paquetes de trabajo; ninguna descarga productiva depende de ZIPs locales.
+*.zip
+ISM_Fase_*.zip

@@ -19,6 +19,7 @@
 
 import { GUIDE_ACTIVITY_PROFILES, GUIDE_SERVICE_RULES, GUIDE_STANDARD_SECTION_RULES, GUIDE_WEB_ACTIVITY_RULES } from "./_config/guide-technical-rules.js";
 import { ismGuideTechnicalCatalog } from "./_generated/ism-guide-catalog.js";
+import { readLimitedJson } from "./_config/read-limited-json.js";
 
 // ============================================================================
 // 01. CONFIGURACIÓN DEL ENDPOINT
@@ -657,13 +658,11 @@ function buildEmail(payload, contact, technical) {
 // ============================================================================
 
 async function handlePost(request) {
-    const contentLength = Number(request.headers.get("content-length") || 0);
-    if (contentLength > MAX_BODY_BYTES) return json({ error: "Solicitud demasiado grande." }, 413);
-
     let payload;
     try {
-        payload = await request.json();
-    } catch {
+        payload = await readLimitedJson(request, MAX_BODY_BYTES);
+    } catch (error) {
+        if (error.status === 413) return json({ error: "Solicitud demasiado grande." }, 413);
         return json({ error: "Solicitud JSON inválida." }, 400);
     }
 

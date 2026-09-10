@@ -1,8 +1,0 @@
-Reemplazar solo estos 2 archivos:
-- index.html
-- assets/css/style.css
-
-Ajuste incluido:
-- El acceso "Ver Portafolio ISM" queda solo como icono de carpeta + texto debajo,
-  sin caja, sin borde, sin sombras y sin fondo.
-- Se mantiene el resto de la sección igual.
