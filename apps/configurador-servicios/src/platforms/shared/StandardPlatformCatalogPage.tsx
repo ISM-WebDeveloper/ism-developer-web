@@ -1102,7 +1102,7 @@ export function StandardPlatformCatalogPage({
   return (
     <div className="ibm-configurator">
       <div className="ibm-app">
-        <main className="ibm-main">
+        <div className="ibm-main">
           <section className="ism-service-context">
             <div className="ism-service-context__copy">
               <span className="ism-service-context__eyebrow">
@@ -1224,7 +1224,7 @@ export function StandardPlatformCatalogPage({
               </div>
             )}
           </div>
-        </main>
+        </div>
 
         <aside className="ibm-sidebar">
           <section className="ibm-panel ibm-summary">

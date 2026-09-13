@@ -3,6 +3,7 @@
 // ==================================================
 
 import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -799,6 +800,9 @@ export const ismGuideTechnicalCatalog = ${JSON.stringify(snapshot, null, 2)};
 // ==================================================
 
 async function main() {
+  const sourceSha256 = createHash("sha256")
+    .update(await readFile(SOURCE_FILE))
+    .digest("hex");
   const sheets = await readWorkbookSheets(SOURCE_FILE);
   const catalogRows = sheets.get("Catalogo Maestro");
   const parameterRows = sheets.get("Parametros");
@@ -844,7 +848,7 @@ async function main() {
     AUDIT_FILE,
     `${JSON.stringify(
       {
-        generatedAt: new Date().toISOString(),
+        sourceSha256,
         source: path.relative(PROJECT_ROOT, SOURCE_FILE),
         output: path.relative(PROJECT_ROOT, OUTPUT_FILE),
         guideOutput: path.relative(WEBSITE_ROOT, GUIDE_OUTPUT_FILE),

@@ -32,7 +32,7 @@ collect(/<(?:img|script)[^>]+(?:src)=["']([^"']+)["']/gi);
 collect(/<link[^>]+href=["']([^"']+)["']/gi);
 
 // Incluye recursos referenciados desde la hoja principal, por ejemplo imágenes de fondo.
-const cssRef = [...refs].find((ref) => ref.endsWith("assets/css/style.css"));
+const cssRef = [...refs].find((ref) => /assets\/css\/style(?:\.min)?\.css$/.test(ref));
 if (cssRef) {
     const cssPath = path.join(root, cssRef);
     const css = fs.readFileSync(cssPath, "utf8");

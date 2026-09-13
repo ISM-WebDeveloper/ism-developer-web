@@ -32,8 +32,14 @@ Servidor local: `http://127.0.0.1:4173`.
 
 ## Auditoría
 
+En un checkout nuevo, instala primero la cadena bloqueada del configurador; también se utiliza para regenerar los assets compactados de la portada:
+
+```powershell
+npm run configurator:install
+```
+
 ```powershell
 npm run validate
 ```
 
-Ejecuta validación de sintaxis y referencias, presupuesto de rendimiento, seguridad/privacidad, accesibilidad y compatibilidad moderna.
+Ejecuta validación de sintaxis y referencias, consistencia de assets generados, exportaciones, presupuesto de rendimiento, seguridad/privacidad, accesibilidad y compatibilidad moderna. Si cambian los CSS, JavaScript o HTML fuente de la portada, ejecuta antes `npm run build:assets`.

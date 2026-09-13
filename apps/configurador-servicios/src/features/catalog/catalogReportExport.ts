@@ -607,42 +607,31 @@ function buildExcelSummarySheet(
   // KPIS
   // ==================================================
 
-  worksheet.mergeCells("A6:B6");
-  worksheet.mergeCells("A7:B7");
-  worksheet.mergeCells("C6:D6");
-  worksheet.mergeCells("C7:D7");
-  worksheet.mergeCells("E6:F6");
-  worksheet.mergeCells("E7:F7");
-  worksheet.mergeCells("G6:H6");
-  worksheet.mergeCells("G7:H7");
+  worksheet.mergeCells("A6:C6");
+  worksheet.mergeCells("A7:C7");
+  worksheet.mergeCells("D6:F6");
+  worksheet.mergeCells("D7:F7");
+  worksheet.mergeCells("G6:I6");
+  worksheet.mergeCells("G7:I7");
 
   worksheet.getCell("A6").value = "Actividades";
   worksheet.getCell("A7").value = Math.round(
     report.totals.activities,
   );
 
-  worksheet.getCell("C6").value = "Servicios";
-  worksheet.getCell("C7").value =
+  worksheet.getCell("D6").value = "Servicios";
+  worksheet.getCell("D7").value =
     report.services.length;
-
-  worksheet.getCell("E6").value = "Módulos";
-  worksheet.getCell("E7").value = report.totals.modules;
 
   worksheet.getCell("G6").value = "Módulos";
   worksheet.getCell("G7").value =
     report.totals.modules;
 
-  worksheet.getCell("I6").value = "Servicios";
-  worksheet.getCell("I7").value =
-    report.services.length;
+  styleExcelRange(worksheet, 6, 7, 1, 3, ST_COLORS.light);
+  styleExcelRange(worksheet, 6, 7, 4, 6, ST_COLORS.light);
+  styleExcelRange(worksheet, 6, 7, 7, 9, ST_COLORS.light);
 
-  styleExcelRange(worksheet, 6, 7, 1, 2, ST_COLORS.light);
-  styleExcelRange(worksheet, 6, 7, 3, 4, ST_COLORS.light);
-  styleExcelRange(worksheet, 6, 7, 5, 6, ST_COLORS.light);
-  styleExcelRange(worksheet, 6, 7, 7, 8, ST_COLORS.light);
-  styleExcelRange(worksheet, 6, 7, 9, 9, ST_COLORS.light);
-
-  ["A6", "C6", "E6", "G6", "I6"].forEach(
+  ["A6", "D6", "G6"].forEach(
     (address) => {
       worksheet.getCell(address).font = {
         name: "Eurostile LT Std",
@@ -654,7 +643,7 @@ function buildExcelSummarySheet(
     },
   );
 
-  ["A7", "C7", "E7", "G7", "I7"].forEach(
+  ["A7", "D7", "G7"].forEach(
     (address) => {
       worksheet.getCell(address).font = {
         name: "Eurostile LT Std",
@@ -1972,7 +1961,8 @@ export async function exportCatalogReportToPdf(
             halign: "center",
           },
           1: {
-            cellWidth: 157,
+            // 273 mm disponibles: las seis columnas deben caber sin desborde.
+            cellWidth: 156,
           },
           2: {
             cellWidth: 23,

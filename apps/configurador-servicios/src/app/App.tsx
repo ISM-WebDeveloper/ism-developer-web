@@ -152,10 +152,6 @@ export default function App() {
 
   return (
     <div className="application-shell">
-      <a className="skip-link" href="#configurator-main">
-        Saltar al contenido principal
-      </a>
-
       <header className={`main-header main-header--configurator${mobileNavFollowing ? " main-header--mobile-away" : ""}`}>
         <div className="main-header__identity">
           <a

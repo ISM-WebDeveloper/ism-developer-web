@@ -40,6 +40,9 @@ if (!globalRule) {
     });
 
     const csp = headers.get("content-security-policy") || "";
+    if (csp.includes("'unsafe-inline'") || csp.includes("'unsafe-eval'")) {
+        fail("La CSP no debe autorizar código inline ni eval de forma global.");
+    }
     for (const directive of [
         "default-src 'self'",
         "object-src 'none'",
@@ -96,8 +99,8 @@ for (const token of [
 
 for (const page of ["index.html", "portafolio.html", "privacidad.html", "guia-web/index.html"]) {
     const html = read(page);
-    const consentPosition = html.indexOf("assets/js/privacy-consent.js");
-    const analyticsPosition = html.indexOf("assets/js/analytics.js");
+    const consentPosition = html.search(/assets\/js\/privacy-consent(?:\.min)?\.js/);
+    const analyticsPosition = html.search(/assets\/js\/analytics(?:\.min)?\.js/);
     if (consentPosition < 0) fail(`${page} no carga privacy-consent.js.`);
     if (analyticsPosition < 0) fail(`${page} no carga analytics.js.`);
     if (consentPosition >= 0 && analyticsPosition >= 0 && consentPosition > analyticsPosition) {

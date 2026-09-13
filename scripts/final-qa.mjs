@@ -36,7 +36,7 @@ function walk(directory) {
 const files = walk(root);
 
 for (const { rel } of files) {
-    if (/^ISMDeveloper_PATCH_.*\.zip$/i.test(rel)) errors.push(`artefacto temporal dentro del proyecto: ${rel}`);
+    if (/\.zip$/i.test(rel)) errors.push(`artefacto temporal dentro del proyecto: ${rel}`);
     if (/^LEEME\.txt$/i.test(rel)) errors.push(`guía temporal dentro del proyecto: ${rel}`);
 }
 
@@ -50,6 +50,9 @@ for (const { full, rel } of files) {
     if (rel === "scripts/final-qa.mjs") continue;
     if (!/\.(?:html|js|mjs|css|xml)$/i.test(rel)) continue;
     const content = readFileSync(full, "utf8");
+    if (rel.endsWith(".html") && /Desde\s+\$0(?:\s|<|$)|\$0\s*\/\s*mes/.test(content)) {
+        errors.push(`precio comercial de fallback inválido en ${rel}`);
+    }
     for (const term of forbiddenPublicTerms) {
         if (content.toLowerCase().includes(term.toLowerCase())) {
             errors.push(`referencia pública antigua "${term}" en ${rel}`);

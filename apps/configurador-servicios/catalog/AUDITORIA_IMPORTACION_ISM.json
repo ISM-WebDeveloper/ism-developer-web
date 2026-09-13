@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-04T15:50:22.416Z",
-  "source": "catalog/Catalogo_Tecnico_Servicios_ISM_Developer_v2_3_Simplificado_LIMPIO.xlsx",
-  "output": "src/data/catalog/generated/ismServices.ts",
-  "guideOutput": "api/_generated/ism-guide-catalog.js",
+  "sourceSha256": "0fbe8c990088d0b4d1a4508363dfecde9a292671a964c22f99c5b407e63f3ac3",
+  "source": "catalog\\Catalogo_Tecnico_Servicios_ISM_Developer_v2_3_Simplificado_LIMPIO.xlsx",
+  "output": "src\\data\\catalog\\generated\\ismServices.ts",
+  "guideOutput": "api\\_generated\\ism-guide-catalog.js",
   "catalogVersion": "2.3",
   "hourlyRateUF": 0.7,
   "contingencyRate": 0.2,

@@ -10,6 +10,7 @@ const htmlFiles = [
     "portafolio.html",
     "privacidad.html",
     "guia-web/index.html",
+    "configurador/index.html",
     "soluciones/index.html",
     "soluciones/ism-presencia-digital/index.html",
     "soluciones/ism-stock-control/index.html",
@@ -20,7 +21,8 @@ const indexableFiles = new Set([
     "index.html",
     "portafolio.html",
     "privacidad.html",
-    "guia-web/index.html"
+    "guia-web/index.html",
+    "configurador/index.html"
 ]);
 const errors = [];
 const warnings = [];
@@ -120,6 +122,11 @@ for (const file of htmlFiles) {
                 report(errors, file, `falta ${property}.`);
             }
         }
+        for (const name of ["twitter:card", "twitter:title", "twitter:description", "twitter:image"]) {
+            if (!new RegExp(`<meta\\s+name=[\"']${name}[\"']`, "i").test(content)) {
+                report(errors, file, `falta ${name}.`);
+            }
+        }
     }
 
     for (const match of content.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)) {
@@ -133,7 +140,7 @@ for (const file of htmlFiles) {
                 report(errors, file, `JSON-LD inválido: ${error.message}`);
             }
         }
-        if (src && !/\bdefer\b/i.test(attributes) && !/\basync\b/i.test(attributes)) {
+        if (src && type !== "module" && !/\bdefer\b/i.test(attributes) && !/\basync\b/i.test(attributes)) {
             report(warnings, file, `el script ${src} no usa defer ni async.`);
         }
     }

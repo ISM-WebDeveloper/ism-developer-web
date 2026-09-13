@@ -60,7 +60,7 @@ for (const page of pages) {
     errors.push(`${page.file}: falta enlace de salto al contenido principal.`);
   }
 
-  if (page.skip && !/accessibility\.css\?v=/i.test(html)) {
+  if (page.skip && !/accessibility(?:\.min)?\.css\?v=/i.test(html)) {
     errors.push(`${page.file}: no carga la capa CSS de accesibilidad.`);
   }
 
