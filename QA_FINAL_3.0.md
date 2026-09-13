@@ -1,10 +1,10 @@
 # ISM Developer 3.0 — auditoría final y cierre técnico
 
-Fecha de cierre documental: 2026-09-12. Trabajo y verificaciones: 2026-09-09 a 2026-09-12.
+Fecha de cierre documental: 2026-09-13. Trabajo y verificaciones: 2026-09-09 a 2026-09-13.
 
 ## Resultado general
 
-**APROBADO CON DEUDA**. Los pendientes técnicos de performance, reproducibilidad del build, exportaciones, accesibilidad, SEO y entrega real de correo quedaron corregidos o comprobados. **LISTO PARA RELEASE** con una excepción documentada de cobertura manual en Safari/iOS, navegador no disponible para el usuario ni para este entorno. No se desplegó producción.
+**APROBADO CON DEUDA**. Los pendientes técnicos de performance, reproducibilidad del build, exportaciones, accesibilidad, SEO y entrega real de correo quedaron corregidos o comprobados. **LISTO PARA RELEASE** con una excepción documentada de cobertura manual en Safari/iOS, navegador no disponible para el usuario ni para este entorno. Producción fue verificada con los artefactos integrados; el agente no realizó el despliegue.
 
 La referencia canónica fue el sitio existente antes de editar CSS. Se conservaron diseño, imágenes, textos comerciales aprobados, precios reales, servicios y comportamiento existente. No se crearon ramas.
 
@@ -12,9 +12,10 @@ La referencia canónica fue el sitio existente antes de editar CSS. Se conservar
 
 - Rama: `main`.
 - Baseline inicial: `7f6bdc2`, sincronizado con `origin/main`. Ya estaban eliminados los tres ZIP ISM_Fase_08 listados abajo; esas eliminaciones no fueron iniciadas por esta auditoría.
-- HEAD actual: `b463553024d5c897c3402bc014574944ab40c10c`, commit `limpieza`, incorporado por el usuario durante la pausa y sincronizado con `origin/main` según referencias locales.
+- HEAD validado al retomar: `bc28bb2db0924ceec37b0197f53e6589b9600d12`, commit `normalizacion vi codex`, creado por el usuario y sincronizado con `origin/main` (`0` ahead, `0` behind).
 - El agente no hizo commit, push, force push ni despliegue.
-- La comparación de archivos de este documento se realiza contra `7f6bdc2`; incluye cambios ya incorporados por el usuario y cambios locales todavía sin commit.
+- Al iniciar la revalidación del 2026-09-13, el working tree estaba limpio. La actualización posterior de este informe queda local y pendiente de commit.
+- La comparación de archivos de este documento se realiza entre `7f6bdc2` y la integración `bc28bb2`; la actualización documental posterior no añade rutas al inventario.
 
 ## Cambios y blockers corregidos
 
@@ -70,7 +71,7 @@ Ambas hojas Excel y el PDF se renderizaron y revisaron visualmente: texto legibl
 - Navbar de escritorio y menú móvil, cierre, CTA, clientes, soluciones, miniaturas, FAQ, teclado y estados ARIA muestreados sin regresión.
 - Formulario: empresa opcional y orientación por defecto. Nueve casos del generador real de WhatsApp aprobaron destino, texto y codificación sin enviar mensajes externos.
 - Guía: recorrido hasta recomendación de reservas, selección de horarios y contacto. Configurador: 21 servicios inicialmente sin selección; sitio web con 9 actividades obligatorias = 15,96 HH; actividad opcional con cantidad 2 = 10 actividades y 18,36 HH.
-- Build local del configurador listo para publicación: un `main`, un enlace de salto y cero overflow en la vista comprobada. Producción conserva el frontend anterior hasta que se realice un despliegue, fuera del alcance autorizado. Auditorías estáticas de accesibilidad de 6 páginas y compatibilidad de 5 páginas aprobadas.
+- Build del configurador: un `main`, un enlace de salto y cero overflow en la vista comprobada. Producción fue revalidada el 2026-09-13 con `index-DrSBPDdF.js` e `index-CBHc2YE8.css`, un solo `main` y un solo enlace de salto. Auditorías estáticas de accesibilidad de 6 páginas y compatibilidad de 5 páginas aprobadas.
 - Navegador real automatizado: Chromium integrado. Edge y Firefox fueron aprobados manualmente por el usuario el 2026-09-12. Safari/iOS no está disponible para el usuario ni para este entorno; se registra como excepción de cobertura, no como fallo observado. Las tecnologías de asistencia tampoco están disponibles en este entorno.
 
 ## SEO y enlaces
@@ -190,4 +191,4 @@ Contiene `css-removals.json`, `asset-graph.json`, `deleted-files.json`, `seo-lin
 
 ## Recomendación de release
 
-**LISTO PARA RELEASE.** El código, los gates automatizados, Chromium, Edge, Firefox, las exportaciones descargadas y los dos envíos reales están aprobados. La ausencia de Safari/iOS queda como deuda media de cobertura y no bloquea este cierre. No se desplegó producción.
+**LISTO PARA RELEASE.** El código, los gates automatizados, Chromium, Edge, Firefox, las exportaciones descargadas y los dos envíos reales están aprobados. La ausencia de Safari/iOS queda como deuda media de cobertura y no bloquea este cierre. Producción carga la integración `bc28bb2`; el agente no hizo commit, push ni despliegue.
