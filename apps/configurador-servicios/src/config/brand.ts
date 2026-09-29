@@ -21,5 +21,5 @@ export const ISM_BRAND: BrandConfiguration = {
   slogan: "De ideas a soluciones",
   website: "www.ismdeveloper.cl",
   phone: "+56 9 6837 4821",
-  email: "ignacio.sepulveda@ismdeveloper.cl",
+  email: "contacto@ismdeveloper.cl",
 };

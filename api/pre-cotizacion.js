@@ -676,7 +676,7 @@ async function handlePost(request) {
 
     const apiKey = process.env.RESEND_API_KEY;
     const from = process.env.PREQUOTE_FROM_EMAIL;
-    const to = process.env.PREQUOTE_TO_EMAIL || "ignacio.sepulveda@ismdeveloper.cl";
+    const to = process.env.PREQUOTE_TO_EMAIL || "contacto@ismdeveloper.cl";
 
     if (!apiKey || !from) {
         return json({ error: "El canal de correo todavía no está configurado." }, 503);

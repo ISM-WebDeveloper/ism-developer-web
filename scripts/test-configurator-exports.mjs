@@ -14,7 +14,7 @@ const sourcePath = path.join(
 const source = fs.readFileSync(sourcePath, "utf8")
     .replace(
         'import { ISM_BRAND } from "../../config/brand";',
-        "const ISM_BRAND = { name: 'ISM Developer', shortName: 'ISM', slogan: 'De ideas a soluciones', website: 'www.ismdeveloper.cl', phone: '+56 9 6837 4821', email: 'ignacio.sepulveda@ismdeveloper.cl' };",
+        "const ISM_BRAND = { name: 'ISM Developer', shortName: 'ISM', slogan: 'De ideas a soluciones', website: 'www.ismdeveloper.cl', phone: '+56 9 6837 4821', email: 'contacto@ismdeveloper.cl' };",
     )
     .replaceAll("import.meta.env.BASE_URL", '"/configurador/"');
 const javascript = typescript.transpileModule(source, {
