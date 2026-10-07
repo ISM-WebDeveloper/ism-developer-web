@@ -6,10 +6,11 @@ const entry = path.join(root, "index.html");
 
 const limits = {
     html: 110 * 1024,
-    css: 170 * 1024,
+    // Portal artwork is responsive and lazy-loaded (65 KB / 129 KB WebP).
+    css: 178 * 1024,
     js: 90 * 1024,
-    images: 600 * 1024,
-    total: 850 * 1024,
+    images: 700 * 1024,
+    total: 1000 * 1024,
 };
 
 const html = fs.readFileSync(entry, "utf8");
