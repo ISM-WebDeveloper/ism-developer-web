@@ -17,8 +17,9 @@ Mantiene la paleta, tipografía y motor de aparición existente. En teléfonos,
 los accesos quedan antes del espacio de imagen. La franja con las cuatro marcas
 aparece entre la portada y el portafolio, usando nombres tipográficos.
 
-También se corrigió la fila de enlaces móviles que se mostraba sin separación
-y se ajustó el espacio de navegación para incorporar la sexta opción.
+Se ajustó el espacio de navegación para incorporar la sexta opción. La fila
+adicional de enlaces móviles se eliminó: el único acceso de navegación es el
+menú principal desplegable.
 
 ## Accesos
 
@@ -77,7 +78,7 @@ incorporó a la franja solicitada, sin inventar un caso de estudio en el portafo
 - Consola de la portada: sin errores capturados durante la revisión.
 - Hoja dedicada `assets/css/portal.css`, con versión minificada generada por la
   cadena existente. Sin bibliotecas ni JavaScript adicionales.
-- Recursos medidos de la portada: 979,0 KB en total y 172,8 KB de CSS. La auditoría
+- Recursos medidos de la portada: aproximadamente 982 KB en total y 176 KB de CSS. La auditoría
   suma referencias locales, incluso imágenes diferidas; no mide una visita real
   con caché, compresión de red o Core Web Vitals.
 - Se actualizó explícitamente el presupuesto de CSS de 170 a 178 KB y el total
@@ -94,6 +95,22 @@ En el ajuste posterior se redujeron el título, los márgenes y la altura de los
 accesos; los números se reemplazaron por iconos SVG de documento con lupa y
 perfil de persona. El título es «De la propuesta al proyecto. Avancemos juntos.».
 La composición sigue abierta, sin tarjetas.
+
+## Ajuste móvil de la portada
+
+`assets/css/mobile-layout.css` unifica la alineación hasta 780 px. Centra títulos,
+textos, accesos y bloques de la portada, marcas, portafolio, servicios, orientación,
+portal, proceso, presentación personal, carrusel, madurez, herramientas, preguntas
+frecuentes, contacto y pie. Los campos mantienen una alineación adecuada para
+escribir. El arte del portal conserva todo el ancho disponible debajo del texto.
+
+Se verificaron anchos de 320, 390, 430 y 768 px sin desbordamiento horizontal,
+además de 1280 px para comprobar que se conserva la composición de escritorio.
+El menú abre y cierra, Escape lo cierra y la opción Portal lleva a la sección
+cerrando el desplegable. El carrusel y la apertura de respuestas siguen funcionando.
+También se comprobaron generación determinista, referencias, accesibilidad,
+compatibilidad y presupuesto de recursos. La revisión visual se realizó en el
+navegador integrado; no reemplaza pruebas en teléfonos físicos.
 
 La composición prioriza jerarquía visual y enlaces descriptivos, siguiendo
 [principios de diseño visual de Nielsen Norman Group](https://www.nngroup.com/articles/principles-visual-design/).

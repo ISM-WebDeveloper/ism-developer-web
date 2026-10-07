@@ -1,0 +1,55 @@
+/* Homepage mobile alignment. Loaded last to replace accumulated mobile overrides. */
+@media(max-width:780px){
+  #inicio .hero-content{width:100%;max-width:560px;margin-inline:auto;text-align:center;align-items:center}
+  #inicio .hero :is(h1,p){text-align:center!important;text-align-last:auto!important}
+  #inicio .hero h1{font-size:clamp(28px,8.3vw,36px);text-wrap:balance}
+  #inicio .hero :is(.hero-text,.hero-actions,.hero-trust-list){margin-inline:auto;justify-content:center}
+  #inicio .hero-text{max-width:40ch}
+  #inicio .hero-trust-list{align-items:center}
+  #inicio .hero-trust-card{justify-content:center}
+
+  #contenido :is(h2,h3,p){text-align:center!important;text-align-last:auto!important}
+  #contenido :is(.section-title,.ism-portfolio-heading,.services-showcase-heading,.configurator-cta-heading,.maturity-heading,.tools-heading){margin-inline:auto}
+  #contenido :is(.ism-portfolio-intro,.services-showcase-intro,.configurator-tools-note,.about-content,.maturity-note,.tools-heading p){margin-inline:auto}
+  #contenido :is(.ism-portfolio-header,.ism-portfolio-header-actions,.ism-portfolio-tabs,.ism-portfolio-copy-top,.ism-portfolio-copy-tags){justify-content:center!important}
+  #proyectos .ism-portfolio-copy{align-items:center!important}
+  #proyectos .ism-portfolio-item-button{grid-template-columns:28px minmax(0,1fr) 28px;text-align:center}
+  #proyectos .ism-portfolio-item-copy{text-align:center}
+  #proyectos .ism-portfolio-item-status{display:none}
+  #proyectos .ism-portfolio-media-caption{left:50%;transform:translateX(-50%);text-align:center}
+  #contenido .service-showcase-card{margin-inline:auto}
+  #servicios .service-showcase-description{text-align:center!important;text-align-last:auto!important}
+  #contenido .about-content{max-width:560px;align-items:center}
+  #contenido .about-content .tag{margin-inline:auto}
+
+  #portal .ism-portal-shell{grid-template-columns:1fr}
+  #portal .ism-portal-copy{padding:28px clamp(24px,6vw,42px);text-align:center}
+  #portal .ism-portal-eyebrow{justify-content:center}
+  #portal .ism-portal-intro{margin-inline:auto}
+  #portal .ism-portal-route{grid-template-columns:29px minmax(0,1fr) 29px;text-align:center}
+  #portal .ism-portal-help a{display:block;margin-left:0}
+  #portal .ism-portal-visual{min-height:0;aspect-ratio:16/9}
+
+  #productos .story-slide .story-slide-content{align-items:center;text-align:center;max-width:100%}
+  #productos :is(.story-slide-top-right,.story-slide-lower-left){align-items:center;margin-inline:auto}
+  #productos .story-slide-content :is(h2,p){width:100%;max-width:100%;margin-inline:auto}
+  #productos .story-slide-link{justify-content:center;align-self:center;text-align:center}
+  #contenido .maturity-note{justify-content:center}
+
+  #faq .faq-question{position:relative;justify-content:center;text-align:center;padding-inline:40px}
+  #faq .faq-question>span{position:absolute;right:14px}
+  #contacto :is(.contact-shell,.contact-intro,.contact-form){min-width:0;margin-inline:auto}
+  #contacto .contact-trust-row{flex-wrap:wrap!important;justify-content:center!important}
+  #contacto .contact-trust-chip{white-space:normal!important}
+  #contacto .contact-trust-divider{display:none}
+  #contacto .contact-points>div{grid-template-columns:1fr!important;justify-items:center;row-gap:8px}
+  #contacto .contact-point-copy{align-items:center!important;justify-self:center!important;text-align:center!important}
+  #contacto .contact-form label{display:block;text-align:center}
+  #contacto .contact-actions{justify-content:center}
+
+  .premium-footer{text-align:center}
+  .premium-footer .footer-grid{grid-template-columns:1fr;justify-items:center}
+  .premium-footer :is(.footer-brand,.footer-column){width:100%;max-width:340px;margin-inline:auto}
+  .premium-footer :is(.footer-brand-logo,.footer-brand p){margin-inline:auto}
+  .premium-footer :is(.footer-column a,.footer-bottom,.footer-legal-links){justify-content:center;text-align:center}
+}

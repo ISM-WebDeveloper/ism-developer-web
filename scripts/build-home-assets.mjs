@@ -9,7 +9,7 @@ const require = createRequire(import.meta.url);
 const { transform } = require("../apps/configurador-servicios/node_modules/lightningcss");
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const check = process.argv.includes("--check");
-const css = ["style", "premium-motion", "privacy-consent", "accessibility", "portal"];
+const css = ["style", "premium-motion", "privacy-consent", "accessibility", "portal", "mobile-layout"];
 const js = ["script", "reveal-compat", "privacy-consent", "analytics", "accessibility"];
 let count = 0;
 
@@ -53,13 +53,13 @@ let html = fs.readFileSync(path.join(root, "src/index.home.html"), "utf8");
 for (const name of css) {
     html = html.replace(
         new RegExp(`assets/css/${name}\\.css\\?v=[^" ]+`, "g"),
-        `assets/css/${name}.min.css?v=3.0.31`,
+        `assets/css/${name}.min.css?v=3.0.33`,
     );
 }
 for (const name of js) {
     html = html.replace(
         new RegExp(`assets/js/${name}\\.js\\?v=[^" ]+`, "g"),
-        `assets/js/${name}.min.js?v=3.0.31`,
+        `assets/js/${name}.min.js?v=3.0.33`,
     );
 }
 html = html.replace(

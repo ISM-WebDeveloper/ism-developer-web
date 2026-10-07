@@ -39,13 +39,12 @@
 .ism-portal-visual picture{position:absolute;inset:0;display:block}
 .ism-portal-image{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
 
-/* Six desktop destinations, and a readable shortcut row on compact screens. */
+/* Six destinations in the existing primary navigation. */
 @media(min-width:1025px){
   .premium-navbar,.premium-navbar.scrolled{grid-template-columns:minmax(170px,1fr) auto minmax(170px,1fr);column-gap:14px}
   .nav-links{gap:clamp(0px,1vw,16px)}
   .nav-links a{font-size:13px;padding-inline:10px;white-space:nowrap}
   .nav-links .nav-portal-link{color:#72dcfa}
-  .mobile-page-map{display:none}
 }
 @media(min-width:1025px) and (max-width:1200px){
   .premium-navbar:not(.scrolled) .nav-brand,.premium-navbar:not(.scrolled) .nav-logo{width:180px}
@@ -55,9 +54,6 @@
   .nav-links a{font-size:12px;padding-inline:7px}
 }
 @media(max-width:1024px){
-  .mobile-page-map{position:relative;z-index:5;display:flex;justify-content:center;flex-wrap:wrap;gap:8px 20px;padding:16px 0 4px;color:#b4c3d6;font-size:12px}
-  .mobile-page-map a{display:inline-flex;align-items:center;min-height:32px}
-  .mobile-page-map a[href="#portal"]{color:#72dcfa}
   .ism-brands-shell{grid-template-columns:1fr;gap:24px}
   .ism-brands h2{text-align:center}
   .ism-brands h2 br{display:none}
