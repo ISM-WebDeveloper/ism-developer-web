@@ -14,8 +14,8 @@ Modificar únicamente el HTML publicado perdería cambios al reconstruir.
 La sección nueva utiliza una composición abierta, sin tarjetas: texto a la
 izquierda, dos accesos separados por líneas y espacio visual a la derecha.
 Mantiene la paleta, tipografía y motor de aparición existente. En teléfonos,
-los accesos quedan antes del espacio de imagen. La franja con las cuatro marcas
-aparece entre la portada y el portafolio, usando nombres tipográficos.
+los accesos quedan antes del espacio de imagen. La franja con los cuatro logos
+aparece entre la portada y el portafolio, sin título visible ni tarjetas.
 
 Se ajustó el espacio de navegación para incorporar la sexta opción. La fila
 adicional de enlaces móviles se eliminó: el único acceso de navegación es el
@@ -65,9 +65,32 @@ en `src/index.home.html`, por ejemplo:
 Primero guardar la imagen en esa ruta. El CSS conserva el espacio y adapta la
 proporción en móvil. Después ejecutar `npm run build:assets` y `npm run validate`.
 
-Las marcas son Badia Salud, Maige Palace, Lecasse y Grupo Proestakis. Se muestran
-como texto; no son reproducciones de sus logotipos oficiales. Maige Palace se
-incorporó a la franja solicitada, sin inventar un caso de estudio en el portafolio.
+La franja usa los cuatro logos suministrados: Badia Salud, Maig Palace, Lecasse
+Infrastructure Engineering y Grupo Proestakis. Se retiraron los nombres
+tipográficos y el título «Marcas con las que hemos trabajado». El fondo claro
+permite leer los logos azules sin recolorearlos. Se muestran cuatro por fila en
+escritorio y dos por fila hasta 760 px, centrados y sin recortar el diseño.
+
+Cada logo enlaza al sitio indicado por el usuario, en una pestaña nueva, con
+`noopener noreferrer`, nombre accesible y foco de teclado visible:
+
+- Badia Salud: https://www.badiasalud.cl/
+- Maig Palace: https://maige-palace.vercel.app/
+- Lecasse: https://www.lecasse.cl/
+- Grupo Proestakis: https://constructora-proestakis.vercel.app/
+
+Los PNG originales se conservan intactos. Se quitaron únicamente márgenes
+transparentes y se exportaron WebP de 480 px de ancho, con transparencia,
+proporciones originales, texto alternativo y carga diferida:
+
+- `assets/img/brands/badia-salud.webp`: 480 × 153 px, 18.908 bytes.
+- `assets/img/brands/maig-palace.webp`: 480 × 159 px, 32.886 bytes.
+- `assets/img/brands/lecasse.webp`: 480 × 151 px, 16.860 bytes.
+- `assets/img/brands/grupo-proestakis.webp`: 480 × 161 px, 35.200 bytes.
+
+En conjunto pesan 103.854 bytes, un 96,3 % menos que los PNG suministrados
+(2.836.582 bytes). Maig Palace se incorpora a la franja sin inventar un caso
+de estudio en el portafolio.
 
 ## Validación y mantenimiento
 
@@ -78,18 +101,20 @@ incorporó a la franja solicitada, sin inventar un caso de estudio en el portafo
 - Consola de la portada: sin errores capturados durante la revisión.
 - Hoja dedicada `assets/css/portal.css`, con versión minificada generada por la
   cadena existente. Sin bibliotecas ni JavaScript adicionales.
-- Recursos medidos de la portada: aproximadamente 982 KB en total y 176 KB de CSS. La auditoría
+- Recursos medidos de la portada con los logos: 1083,0 KB en total, 175,3 KB de CSS
+  y 765,6 KB de imágenes. La auditoría
   suma referencias locales, incluso imágenes diferidas; no mide una visita real
   con caché, compresión de red o Core Web Vitals.
 - Se actualizó explícitamente el presupuesto de CSS de 170 a 178 KB y el total
   de 850 a 1000 KB para admitir la sección, la franja y el arte definitivo.
   El límite de imágenes pasó de 600 a 700 KB, incluyendo la variante de 129 KB;
   los límites de HTML y JavaScript se conservaron.
+  Al incorporar los cuatro logos optimizados, el límite de imágenes pasa a
+  780 KB y el total a 1100 KB; el resto de límites se conserva.
 
 La web acumula muchas capas de ajustes en su CSS principal. Como siguiente
 mejora conviene consolidarlas con revisión visual de todas las páginas antes de
-seguir añadiendo excepciones. Incorporar los logotipos oficiales completará la
-franja de marcas.
+seguir añadiendo excepciones.
 
 En el ajuste posterior se redujeron el título, los márgenes y la altura de los
 accesos; los números se reemplazaron por iconos SVG de documento con lupa y

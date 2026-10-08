@@ -53,13 +53,13 @@ let html = fs.readFileSync(path.join(root, "src/index.home.html"), "utf8");
 for (const name of css) {
     html = html.replace(
         new RegExp(`assets/css/${name}\\.css\\?v=[^" ]+`, "g"),
-        `assets/css/${name}.min.css?v=3.0.33`,
+        `assets/css/${name}.min.css?v=3.0.35`,
     );
 }
 for (const name of js) {
     html = html.replace(
         new RegExp(`assets/js/${name}\\.js\\?v=[^" ]+`, "g"),
-        `assets/js/${name}.min.js?v=3.0.33`,
+        `assets/js/${name}.min.js?v=3.0.35`,
     );
 }
 html = html.replace(
