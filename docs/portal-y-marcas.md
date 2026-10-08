@@ -68,7 +68,8 @@ proporción en móvil. Después ejecutar `npm run build:assets` y `npm run valid
 La franja usa los cuatro logos suministrados: Badia Salud, Maig Palace, Lecasse
 Infrastructure Engineering y Grupo Proestakis. Se retiraron los nombres
 tipográficos y el título «Marcas con las que hemos trabajado». El fondo claro
-permite leer los logos azules sin recolorearlos. Se muestran cuatro por fila en
+ahora utiliza un degradado azul grisáceo algo más oscuro que permite leer los
+logos azules sin recolorearlos. Se muestran cuatro por fila en
 escritorio y dos por fila hasta 760 px, centrados y sin recortar el diseño.
 
 Cada logo enlaza al sitio indicado por el usuario, en una pestaña nueva, con
@@ -78,6 +79,13 @@ Cada logo enlaza al sitio indicado por el usuario, en una pestaña nueva, con
 - Maig Palace: https://maige-palace.vercel.app/
 - Lecasse: https://www.lecasse.cl/
 - Grupo Proestakis: https://constructora-proestakis.vercel.app/
+
+Al pasar el mouse, el logo se eleva 3 px y crece un 8 %, con una sombra ligera
+y un realce de luminosidad del 4 %. El tamaño y la sombra cambian juntos durante
+850 ms, con entrada y salida suaves. Se eliminó la línea inferior. El efecto se
+aplica solo a dispositivos con puntero fino y hover y sigue los modos de movimiento
+del sitio: `motion-forced` permite la animación, `motion-reduced` desactiva los
+desplazamientos y transiciones. No se añaden tarjetas.
 
 Los PNG originales se conservan intactos. Se quitaron únicamente márgenes
 transparentes y se exportaron WebP de 480 px de ancho, con transparencia,
@@ -101,7 +109,7 @@ de estudio en el portafolio.
 - Consola de la portada: sin errores capturados durante la revisión.
 - Hoja dedicada `assets/css/portal.css`, con versión minificada generada por la
   cadena existente. Sin bibliotecas ni JavaScript adicionales.
-- Recursos medidos de la portada con los logos: 1083,0 KB en total, 175,3 KB de CSS
+- Recursos medidos de la portada con los logos: 1084,7 KB en total, 176,4 KB de CSS
   y 765,6 KB de imágenes. La auditoría
   suma referencias locales, incluso imágenes diferidas; no mide una visita real
   con caché, compresión de red o Core Web Vitals.
