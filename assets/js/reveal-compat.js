@@ -102,6 +102,7 @@
     }
   }
   function prepareRevealElements() {
+    revealGroup(".ism-brands-list", "li", ["soft-zoom"], 120, 360);
     revealAll(".section-title", "fade-up", 0);
     revealAll(".about-visual", "clip-left", 0);
     revealAll(".about-content", "fade-right", compactMotion ? 60 : 110);

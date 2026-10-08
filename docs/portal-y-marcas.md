@@ -82,10 +82,15 @@ Cada logo enlaza al sitio indicado por el usuario, en una pestaña nueva, con
 
 Al pasar el mouse, el logo se eleva 3 px y crece un 8 %, con una sombra ligera
 y un realce de luminosidad del 4 %. El tamaño y la sombra cambian juntos durante
-850 ms, con entrada y salida suaves. Se eliminó la línea inferior. El efecto se
+700 ms, con entrada y salida suaves. Se eliminó la línea inferior. El efecto se
 aplica solo a dispositivos con puntero fino y hover y sigue los modos de movimiento
 del sitio: `motion-forced` permite la animación, `motion-reduced` desactiva los
 desplazamientos y transiciones. No se añaden tarjetas.
+
+Los logos aparecen individualmente en cascada al entrar en pantalla, mediante
+el motor de aparición existente (`soft-zoom`). El desfase es de 120 ms entre
+logos en escritorio y de unos 94 ms en móvil. El modo reducido los muestra de
+inmediato y, sin JavaScript, siguen visibles y utilizables.
 
 Los PNG originales se conservan intactos. Se quitaron únicamente márgenes
 transparentes y se exportaron WebP de 480 px de ancho, con transparencia,

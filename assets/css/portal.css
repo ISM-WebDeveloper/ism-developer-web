@@ -3,9 +3,9 @@
 .ism-brands-shell{width:min(100%,1200px);margin-inline:auto}
 .ism-brands-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center;gap:clamp(24px,4vw,60px)}
 .ism-brands-list li{min-width:0;display:flex;justify-content:center;align-items:center}
-.ism-brands-list a{width:100%;max-width:240px;display:flex;justify-content:center;align-items:center;border-radius:4px;transition:transform .85s ease-in-out}
+.ism-brands-list a{width:100%;max-width:240px;display:flex;justify-content:center;align-items:center;border-radius:4px;transition:transform .7s ease-in-out}
 .ism-brands-list a:focus-visible{outline:3px solid #0369a1!important;outline-offset:8px!important;box-shadow:none!important}
-.ism-brands-list img{display:block;width:100%;max-width:240px;height:76px;object-fit:contain;filter:brightness(1) saturate(1) drop-shadow(0 0 0 rgba(3,18,41,0));transition:filter .85s ease-in-out}
+.ism-brands-list img{display:block;width:100%;max-width:240px;height:76px;object-fit:contain;filter:brightness(1) saturate(1) drop-shadow(0 0 0 rgba(3,18,41,0));transition:filter .7s ease-in-out}
 @media(hover:hover) and (pointer:fine){
   .ism-brands-list a:hover{transform:translateY(-3px) scale(1.08)}
   .ism-brands-list a:hover img{filter:brightness(1.04) saturate(1.04) drop-shadow(0 8px 8px rgba(3,18,41,.2))}
@@ -71,7 +71,7 @@
   .ism-portal-visual{min-height:0;aspect-ratio:16/9}
 }
 @media(prefers-reduced-motion:reduce){
-  .ism-brands .reveal,.ism-portal .reveal{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}
+  html:not(.motion-forced) .ism-brands .reveal,.ism-portal .reveal{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}
   .ism-portal-route,.ism-portal-route-arrow,.ism-portal-route-copy strong{transition:none}
   html:not(.motion-forced) .ism-brands-list a,html:not(.motion-forced) .ism-brands-list img{transition:none}
   html:not(.motion-forced) .ism-brands-list a:hover{transform:none}
