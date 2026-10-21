@@ -14,7 +14,7 @@ Modificar únicamente el HTML publicado perdería cambios al reconstruir.
 La sección nueva utiliza una composición abierta, sin tarjetas: texto a la
 izquierda, dos accesos separados por líneas y espacio visual a la derecha.
 Mantiene la paleta, tipografía y motor de aparición existente. En teléfonos,
-los accesos quedan antes del espacio de imagen. La franja con los cuatro logos
+los accesos quedan antes del espacio de imagen. La franja con los cinco logos
 aparece entre la portada y el portafolio, sin título visible ni tarjetas.
 
 Se ajustó el espacio de navegación para incorporar la sexta opción. La fila
@@ -65,12 +65,12 @@ en `src/index.home.html`, por ejemplo:
 Primero guardar la imagen en esa ruta. El CSS conserva el espacio y adapta la
 proporción en móvil. Después ejecutar `npm run build:assets` y `npm run validate`.
 
-La franja usa los cuatro logos suministrados: Badia Salud, Maig Palace, Lecasse
-Infrastructure Engineering y Grupo Proestakis. Se retiraron los nombres
+La franja usa los cinco logos suministrados: Badia Salud, Maig Palace, Lecasse
+Infrastructure Engineering, Grupo Proestakis y Siempre Contigo. Se retiraron los nombres
 tipográficos y el título «Marcas con las que hemos trabajado». El fondo claro
 ahora utiliza un degradado azul grisáceo algo más oscuro que permite leer los
-logos azules sin recolorearlos. Se muestran cuatro por fila en
-escritorio y dos por fila hasta 760 px, centrados y sin recortar el diseño.
+logos azules sin recolorearlos. Se muestran cinco por fila en
+escritorio y dos por fila hasta 760 px, con el último centrado y sin recortar el diseño.
 
 Cada logo enlaza al sitio indicado por el usuario, en una pestaña nueva, con
 `noopener noreferrer`, nombre accesible y foco de teclado visible:
@@ -79,6 +79,7 @@ Cada logo enlaza al sitio indicado por el usuario, en una pestaña nueva, con
 - Maig Palace: https://maige-palace.vercel.app/
 - Lecasse: https://www.lecasse.cl/
 - Grupo Proestakis: https://constructora-proestakis.vercel.app/
+- Siempre Contigo: https://www.siemprecontigo.cl/
 
 Al pasar el mouse, el logo se eleva 3 px y crece un 8 %, con una sombra ligera
 y un realce de luminosidad del 4 %. El tamaño y la sombra cambian juntos durante
@@ -114,8 +115,8 @@ de estudio en el portafolio.
 - Consola de la portada: sin errores capturados durante la revisión.
 - Hoja dedicada `assets/css/portal.css`, con versión minificada generada por la
   cadena existente. Sin bibliotecas ni JavaScript adicionales.
-- Recursos medidos de la portada con los logos: 1084,7 KB en total, 176,4 KB de CSS
-  y 765,6 KB de imágenes. La auditoría
+- Recursos medidos de la portada con los cinco logos: 1111,6 KB en total, 176,3 KB de CSS
+  y 791,1 KB de imágenes. La auditoría
   suma referencias locales, incluso imágenes diferidas; no mide una visita real
   con caché, compresión de red o Core Web Vitals.
 - Se actualizó explícitamente el presupuesto de CSS de 170 a 178 KB y el total
@@ -124,6 +125,7 @@ de estudio en el portafolio.
   los límites de HTML y JavaScript se conservaron.
   Al incorporar los cuatro logos optimizados, el límite de imágenes pasa a
   780 KB y el total a 1100 KB; el resto de límites se conserva.
+  Con el quinto logo, el límite de imágenes es de 810 KB y el total de 1140 KB.
 
 La web acumula muchas capas de ajustes en su CSS principal. Como siguiente
 mejora conviene consolidarlas con revisión visual de todas las páginas antes de
@@ -152,3 +154,31 @@ navegador integrado; no reemplaza pruebas en teléfonos físicos.
 
 La composición prioriza jerarquía visual y enlaces descriptivos, siguiendo
 [principios de diseño visual de Nielsen Norman Group](https://www.nngroup.com/articles/principles-visual-design/).
+
+## Siempre Contigo
+
+Incorporado como cuarto Cliente ISM en la portada y el portafolio completo,
+con estado Publicado confirmado por el usuario. La ficha documenta la web
+corporativa, presentación de servicios, contacto por WhatsApp/email y
+configuración del correo corporativo. No se atribuyen agenda, panel privado ni
+tecnologías no confirmadas. El logo enlaza al dominio indicado por el usuario.
+
+Los originales se conservaron intactos. Se generaron estas variantes WebP:
+
+- `assets/img/brands/siempre-contigo.webp`: 452 × 180 px, 26.126 bytes.
+- `assets/img/portfolio/siempre-contigo-inicio.webp`: 1200 × 545 px, 48.226 bytes.
+- `assets/img/portfolio/siempre-contigo-servicios.webp`: 1200 × 534 px, 70.790 bytes.
+- `assets/img/portfolio/siempre-contigo-contacto.webp`: 1200 × 455 px, 31.632 bytes.
+
+Los cuatro recursos suman 176.774 bytes, un 90,3 % menos que los PNG recibidos.
+Las capturas conservan su contenido y se muestran completas con `contain`.
+La portada y `assets/js/portafolio-foto-lecasse-v8.js` contienen sus datos;
+el acceso directo al caso es `portafolio.html?proyecto=siempre-contigo`.
+Maig Palace queda pendiente de la información que enviará el usuario.
+
+Verificación del nuevo caso: acceso desde la portada, tres miniaturas, tres
+vistas del carrusel, relación con ISM Presencia Digital y conteo de cuatro
+clientes. El enlace externo abre el sitio público y redirige al dominio sin
+`www`. Comprobados escritorio y móvil, con el quinto logo centrado en la última
+fila y sin errores de consola. Generación determinista, referencias de las
+12 páginas, accesibilidad y presupuesto de recursos aprobados.

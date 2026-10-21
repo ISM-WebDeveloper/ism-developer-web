@@ -1,7 +1,7 @@
 /* Portal and client brands: open composition, using the existing site palette. */
 .ism-brands{padding:30px 7%;background:linear-gradient(110deg,#b8c8d9,#d2dce7 50%,#bcccdc);border-block:1px solid rgba(56,189,248,.2)}
 .ism-brands-shell{width:min(100%,1200px);margin-inline:auto}
-.ism-brands-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center;gap:clamp(24px,4vw,60px)}
+.ism-brands-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:center;gap:clamp(20px,3vw,42px)}
 .ism-brands-list li{min-width:0;display:flex;justify-content:center;align-items:center}
 .ism-brands-list a{width:100%;max-width:240px;display:flex;justify-content:center;align-items:center;border-radius:4px;transition:transform .7s ease-in-out}
 .ism-brands-list a:focus-visible{outline:3px solid #0369a1!important;outline-offset:8px!important;box-shadow:none!important}
@@ -59,6 +59,7 @@
 @media(max-width:760px){
   .ism-brands{padding:26px 6%}
   .ism-brands-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 28px}
+  .ism-brands-list li:last-child:nth-child(odd){grid-column:1/-1;width:calc((100% - 28px)/2);justify-self:center}
   .ism-brands-list a{max-width:190px}
   .ism-brands-list img{height:58px;max-width:190px}
   .ism-portal-shell{grid-template-columns:1fr}

@@ -473,7 +473,82 @@ const projects = [
         analysis: ["Oferta tecnológica difícil de comunicar", "Necesidad de fortalecer confianza y posicionamiento", "Servicios B2B con alto componente técnico", "Pocos puntos de conversión comercial"],
         actionPlan: ["Sitio corporativo responsive", "Presentación clara de líneas de servicio", "Jerarquía orientada a problemas del cliente", "Puntos de contacto visibles", "Base preparada para casos y oportunidades"],
         scalability: ["Casos de estudio", "Contenido técnico", "Formularios comerciales segmentados", "Integración con CRM y módulos B2B"]
-    }
+    },
+{
+    "id": "siempre-contigo",
+    "category": "Clientes ISM",
+    "name": "Siempre Contigo",
+    "short": "ISM Presencia Digital + correo corporativo",
+    "type": "Cliente ISM / ISM Presencia Digital",
+    "status": "Publicado",
+    "accent": "#18b4c0",
+    "accentRgb": "24, 180, 192",
+    "url": "https://www.siemprecontigo.cl/",
+    "summary": "Siempre Contigo necesitaba un canal propio para presentar sus servicios de acompañamiento y facilitar el contacto. ISM implementó una web corporativa con acceso directo a WhatsApp y email, y configuró el correo corporativo.",
+    "metrics": [
+        [
+            "Estado",
+            "Publicado"
+        ],
+        [
+            "Sector",
+            "Acompañamiento"
+        ],
+        [
+            "Canal",
+            "Web corporativa"
+        ],
+        [
+            "Contacto",
+            "WhatsApp + email"
+        ]
+    ],
+    "stack": "Web corporativa · Servicios · WhatsApp · Email · Correo corporativo",
+    "journey": [
+        {
+            "title": "Una presencia digital cercana y visible",
+            "description": "La página de inicio presenta la identidad y propuesta de Siempre Contigo en un canal propio, con una comunicación orientada a las personas y sus familias.",
+            "focus": "Presencia digital",
+            "result": "Visibilidad",
+            "image": "assets/img/portfolio/siempre-contigo-inicio.webp",
+            "alt": "Página de inicio de Siempre Contigo con su propuesta de acompañamiento personalizado"
+        },
+        {
+            "title": "Servicios presentados con claridad",
+            "description": "El sitio reúne acompañamiento personalizado, apoyo cotidiano y coordinación del servicio para que las familias puedan conocer la oferta y dar el siguiente paso.",
+            "focus": "Servicios",
+            "result": "Claridad",
+            "image": "assets/img/portfolio/siempre-contigo-servicios.webp",
+            "alt": "Servicios de acompañamiento, apoyo cotidiano y coordinación de Siempre Contigo"
+        },
+        {
+            "title": "Contacto directo y comunicación corporativa",
+            "description": "El contacto por WhatsApp y email facilita las consultas. La implementación se complementó con las configuraciones del correo corporativo para respaldar la comunicación del negocio.",
+            "focus": "Contacto directo",
+            "result": "Comunicación",
+            "image": "assets/img/portfolio/siempre-contigo-contacto.webp",
+            "alt": "Sección de contacto por correo de Siempre Contigo"
+        }
+    ],
+    "analysis": [
+        "Contar con un canal digital visible y propio",
+        "Presentar los servicios de acompañamiento con claridad",
+        "Facilitar el contacto directo de personas y familias",
+        "Habilitar el correo corporativo del negocio"
+    ],
+    "actionPlan": [
+        "Página web corporativa publicada",
+        "Presentación de servicios e identidad de Siempre Contigo",
+        "Acceso directo a WhatsApp y email",
+        "Sección de contacto por correo",
+        "Configuraciones pertinentes del correo corporativo"
+    ],
+    "scalability": [
+        "Nuevas páginas y contenidos de servicios",
+        "Contenido informativo para personas y familias",
+        "Evolución de los canales de contacto según las necesidades del negocio"
+    ]
+}
 
 ];
 
@@ -749,6 +824,22 @@ const commercialProfiles = {
 };
 
 const caseProductRelations = {
+    "siempre-contigo": {
+    "productId": "ism-presencia-digital",
+    "productName": "ISM Presencia Digital",
+    "title": "Una presencia digital para acompañar y conectar.",
+    "adapted": [
+        "Identidad de Siempre Contigo",
+        "Presentación de servicios de acompañamiento",
+        "Contacto directo por WhatsApp y email",
+        "Configuración del correo corporativo"
+    ],
+    "proves": [
+        "Un canal propio puede presentar servicios y facilitar consultas",
+        "La identidad del cliente se conserva en la implementación",
+        "La web se complementa con la comunicación corporativa del negocio"
+    ]
+},
     "badiasalud": {
         productId: "ism-presencia-digital",
         productName: "ISM Presencia Digital",
