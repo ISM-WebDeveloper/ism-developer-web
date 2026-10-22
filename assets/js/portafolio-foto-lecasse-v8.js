@@ -548,6 +548,80 @@ const projects = [
         "Contenido informativo para personas y familias",
         "Evolución de los canales de contacto según las necesidades del negocio"
     ]
+},
+{
+    "id": "maige-palace",
+    "category": "Clientes ISM",
+    "name": "Maige Palace",
+    "short": "Web comercial + catálogo online",
+    "type": "Cliente ISM / Web comercial y catálogo",
+    "status": "Publicado",
+    "accent": "#d181a1",
+    "accentRgb": "209, 129, 161",
+    "url": "https://maige-palace.vercel.app/",
+    "summary": "Maige Palace buscaba un canal digital para mostrar sus productos e información. ISM implementó una web comercial con catálogo online y contacto por WhatsApp para compras y consultas.",
+    "metrics": [
+        [
+            "Estado",
+            "Publicado"
+        ],
+        [
+            "Sector",
+            "Accesorios"
+        ],
+        [
+            "Canal",
+            "Catálogo online"
+        ],
+        [
+            "Contacto",
+            "WhatsApp"
+        ]
+    ],
+    "stack": "Web comercial · Catálogo · Productos · WhatsApp",
+    "journey": [
+        {
+            "title": "Una identidad comercial que presenta la marca",
+            "description": "La portada reúne la identidad de Maige Palace, su propuesta de accesorios y el acceso a la colección, en un canal propio para presentar el negocio.",
+            "focus": "Web comercial",
+            "result": "Presencia",
+            "image": "assets/img/portfolio/maige-palace-inicio.webp",
+            "alt": "Portada publicada de Maige Palace con su identidad visual y presentación de accesorios"
+        },
+        {
+            "title": "Productos organizados para explorar",
+            "description": "Las categorías de aros y anillos presentan la oferta de forma visual y orientan a las personas hacia los productos que desean conocer.",
+            "focus": "Categorías",
+            "result": "Descubrimiento",
+            "image": "assets/img/portfolio/maige-palace-categorias.webp",
+            "alt": "Categorías de aros y anillos en la web comercial de Maige Palace"
+        },
+        {
+            "title": "Una compra acompañada y fácil de entender",
+            "description": "La web explica cómo elegir una pieza, confirmar disponibilidad y coordinar la entrega. El alcance implementado incluye contacto por WhatsApp para compras y consultas.",
+            "focus": "Experiencia de compra",
+            "result": "Orientación",
+            "image": "assets/img/portfolio/maige-palace-compra.webp",
+            "alt": "Sección de Maige Palace que explica los pasos de la experiencia de compra"
+        }
+    ],
+    "analysis": [
+        "Contar con un canal digital propio para mostrar productos",
+        "Presentar información e identidad de la marca",
+        "Organizar la oferta en un catálogo online",
+        "Facilitar consultas y compras mediante atención directa"
+    ],
+    "actionPlan": [
+        "Web comercial publicada con la identidad de Maige Palace",
+        "Presentación visual de productos e información de la marca",
+        "Catálogo online y acceso por categorías",
+        "Contacto por WhatsApp para compras y consultas"
+    ],
+    "scalability": [
+        "Ampliación de colecciones y categorías",
+        "Nuevas campañas y contenidos de producto",
+        "Mejoras continuas en búsqueda y contacto comercial"
+    ]
 }
 
 ];
@@ -824,6 +898,22 @@ const commercialProfiles = {
 };
 
 const caseProductRelations = {
+    "maige-palace": {
+    "productId": "ism-boutique",
+    "productName": "ISM Boutique",
+    "title": "Una experiencia comercial que empieza por el producto.",
+    "adapted": [
+        "Identidad visual de Maige Palace",
+        "Presentación de accesorios e información de productos",
+        "Organización de la colección por categorías",
+        "Atención comercial orientada a WhatsApp"
+    ],
+    "proves": [
+        "Un catálogo propio puede dar visibilidad a los productos",
+        "La experiencia comercial se adapta a la identidad de la marca",
+        "La web puede orientar el contacto antes de concretar una compra"
+    ]
+},
     "siempre-contigo": {
     "productId": "ism-presencia-digital",
     "productName": "ISM Presencia Digital",

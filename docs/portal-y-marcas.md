@@ -103,8 +103,8 @@ proporciones originales, texto alternativo y carga diferida:
 - `assets/img/brands/grupo-proestakis.webp`: 480 × 161 px, 35.200 bytes.
 
 En conjunto pesan 103.854 bytes, un 96,3 % menos que los PNG suministrados
-(2.836.582 bytes). Maig Palace se incorpora a la franja sin inventar un caso
-de estudio en el portafolio.
+(2.836.582 bytes). Maige Palace también cuenta con un caso publicado en las
+dos vistas del portafolio.
 
 ## Validación y mantenimiento
 
@@ -115,7 +115,7 @@ de estudio en el portafolio.
 - Consola de la portada: sin errores capturados durante la revisión.
 - Hoja dedicada `assets/css/portal.css`, con versión minificada generada por la
   cadena existente. Sin bibliotecas ni JavaScript adicionales.
-- Recursos medidos de la portada con los cinco logos: 1111,6 KB en total, 176,3 KB de CSS
+- Recursos medidos de la portada con los cinco logos: 1112,8 KB en total, 176,3 KB de CSS
   y 791,1 KB de imágenes. La auditoría
   suma referencias locales, incluso imágenes diferidas; no mide una visita real
   con caché, compresión de red o Core Web Vitals.
@@ -174,7 +174,8 @@ Los cuatro recursos suman 176.774 bytes, un 90,3 % menos que los PNG recibidos.
 Las capturas conservan su contenido y se muestran completas con `contain`.
 La portada y `assets/js/portafolio-foto-lecasse-v8.js` contienen sus datos;
 el acceso directo al caso es `portafolio.html?proyecto=siempre-contigo`.
-Maig Palace queda pendiente de la información que enviará el usuario.
+El caso de Maige Palace se completó posteriormente con información confirmada
+por el usuario y capturas del sitio publicado.
 
 Verificación del nuevo caso: acceso desde la portada, tres miniaturas, tres
 vistas del carrusel, relación con ISM Presencia Digital y conteo de cuatro
@@ -182,3 +183,41 @@ clientes. El enlace externo abre el sitio público y redirige al dominio sin
 `www`. Comprobados escritorio y móvil, con el quinto logo centrado en la última
 fila y sin errores de consola. Generación determinista, referencias de las
 12 páginas, accesibilidad y presupuesto de recursos aprobados.
+
+## Maige Palace
+
+Quinto Cliente ISM, con estado Publicado confirmado por el usuario, enlace a
+`https://maige-palace.vercel.app/` y acceso directo mediante
+`portafolio.html?proyecto=maige-palace`. El caso se incorpora a la portada y al
+portafolio completo. Se relaciona con ISM Boutique por su enfoque comercial y
+de catálogo, sin atribuir administración de stock ni pagos online al alcance
+implementado. También se actualizó la referencia antigua que figuraba como Demo
+en `src/index_proyectos.html`.
+
+El alcance documentado es la web comercial, presentación de productos e
+información, catálogo online y contacto por WhatsApp para compras y consultas.
+El logo existente conserva su enlace y efectos.
+
+Se capturaron tres vistas reales del sitio público el 21 de octubre de 2026:
+
+- `assets/img/portfolio/maige-palace-inicio.webp`: 1200 × 750 px, 113.894 bytes.
+- `assets/img/portfolio/maige-palace-categorias.webp`: 1200 × 750 px, 85.472 bytes.
+- `assets/img/portfolio/maige-palace-compra.webp`: 1200 × 750 px, 50.986 bytes.
+
+Las capturas originales se guardan en los artefactos locales de esta tarea.
+Las variantes WebP suman 250.352 bytes, un 33,9 % menos que las capturas originales
+(378.661 bytes), y se muestran completas con `contain`. La galería se solicita
+al seleccionar el caso; sus recursos no se incluyen en el recuento estático de
+imágenes de la portada.
+
+**Incidencia observada en el sitio del cliente:** `/catalogo` mostró «No pudimos
+abrir la colección», también tras pulsar «Intentar nuevamente». El botón flotante
+de WhatsApp muestra «Próximamente». Por eso se usaron las vistas reales disponibles
+de portada, categorías y experiencia de compra, sin simular fichas de productos
+ni confirmar una compra. La incidencia no se corrigió dentro de este repositorio;
+el estado Publicado y el alcance del caso proceden de la confirmación del usuario.
+
+Verificación local: cinco clientes en ambas vistas, navegación portada → caso,
+tres imágenes cargadas, carrusel y enlace externo correcto. Revisado en escritorio
+y a 390 px, sin desbordamiento horizontal ni errores de consola. Generación,
+referencias de 12 páginas, accesibilidad y presupuesto de recursos aprobados.
