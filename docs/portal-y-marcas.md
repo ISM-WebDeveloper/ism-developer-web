@@ -23,8 +23,8 @@ menú principal desplegable.
 
 ## Accesos
 
-- Propuesta: https://ism-proyect.vercel.app/prospect
-- Cliente: https://ism-proyect.vercel.app/portal
+- Propuesta: https://control.ismdeveloper.cl/prospect
+- Cliente: https://control.ismdeveloper.cl/portal
 
 Ambos destinos se comprobaron en el navegador: conducen al inicio de sesión con
 el tipo de acceso correspondiente seleccionado. `/login` es el acceso general;

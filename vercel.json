@@ -73,6 +73,16 @@
   ],
   "redirects": [
     {
+      "source": "/control",
+      "destination": "https://control.ismdeveloper.cl/login",
+      "permanent": false
+    },
+    {
+      "source": "/control/:path*",
+      "destination": "https://control.ismdeveloper.cl/:path*",
+      "permanent": false
+    },
+    {
       "source": "/soluciones/",
       "destination": "/portafolio.html?proyecto=ism-presencia-digital",
       "permanent": true
