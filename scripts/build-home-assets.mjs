@@ -9,8 +9,8 @@ const require = createRequire(import.meta.url);
 const { transform } = require("../apps/configurador-servicios/node_modules/lightningcss");
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const check = process.argv.includes("--check");
-const css = ["style", "premium-motion", "privacy-consent", "accessibility", "portal", "mobile-layout"];
-const js = ["script", "reveal-compat", "privacy-consent", "analytics", "accessibility"];
+const css = ["style", "premium-motion", "privacy-consent", "accessibility", "portal", "mobile-layout", "hero-carousel"];
+const js = ["script", "reveal-compat", "privacy-consent", "analytics", "accessibility", "hero-carousel"];
 let count = 0;
 
 function output(relative, data) {
@@ -51,15 +51,17 @@ for (const name of js) {
 
 let html = fs.readFileSync(path.join(root, "src/index.home.html"), "utf8");
 for (const name of css) {
+    const version = name === "hero-carousel" ? "1.3.1" : "3.0.41";
     html = html.replace(
         new RegExp(`assets/css/${name}\\.css\\?v=[^" ]+`, "g"),
-        `assets/css/${name}.min.css?v=3.0.41`,
+        `assets/css/${name}.min.css?v=${version}`,
     );
 }
 for (const name of js) {
+    const version = name === "hero-carousel" ? "1.3.0" : "3.0.41";
     html = html.replace(
         new RegExp(`assets/js/${name}\\.js\\?v=[^" ]+`, "g"),
-        `assets/js/${name}.min.js?v=3.0.41`,
+        `assets/js/${name}.min.js?v=${version}`,
     );
 }
 html = html.replace(

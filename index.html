@@ -46,6 +46,7 @@ content="Creación de páginas web, mantenimiento web y soluciones digitales par
 <link rel="stylesheet" href="assets/css/accessibility.min.css?v=3.0.41" />
 <link rel="stylesheet" href="assets/css/portal.min.css?v=3.0.41" />
 <link rel="stylesheet" href="assets/css/mobile-layout.min.css?v=3.0.41" />
+<link rel="stylesheet" href="assets/css/hero-carousel.min.css?v=1.3.1" />
 
 <!-- LUCIDE ICONS -->
     <script src="assets/vendor/lucide-index.min.js" defer></script>
@@ -234,7 +235,7 @@ content="Creación de páginas web, mantenimiento web y soluciones digitales par
 
 
 <!-- HEADER / LANDING INICIAL -->
-<header class="header" id="inicio">
+<header class="header" id="inicio" data-hero-carousel>
 <nav class="navbar premium-navbar" id="navbar" aria-label="Navegación principal">
 <a href="#inicio" class="nav-brand" aria-label="Ir al inicio de ISM Developer">
 <img src="assets/img/ismlogo2.0-horizontal-640-opt.webp" alt="ISM Developer - desarrollo web y soluciones digitales" class="nav-logo" width="560" height="223" decoding="async">
@@ -266,7 +267,7 @@ aria-controls="primaryNav" aria-label="Abrir menú principal">
 </button>
 </nav>
 
-<section class="hero hero-human" aria-labelledby="hero-title">
+<section class="hero hero-human" aria-labelledby="hero-title" data-hero-slide>
 
 <div class="hero-content">
 
@@ -314,6 +315,35 @@ width="1280" height="720" fetchpriority="high" decoding="async">
 </div>
 
 </section>
+
+<section class="hero hero-benefit-slide" aria-labelledby="hero-time-title" data-hero-slide hidden inert>
+<div class="hero-benefit-media" aria-hidden="true">
+<img data-hero-image="assets/img/ISM_Hero02_Fondo_Familia.webp" alt=""
+width="1782" height="883" fetchpriority="low" decoding="async">
+</div>
+<ul class="hero-benefit-list" aria-label="Beneficios de digitalizar tu negocio">
+<li><i data-lucide="clock-3" aria-hidden="true"></i>Más tiempo con tu familia</li>
+<li><i data-lucide="sparkles" aria-hidden="true"></i>Menos estrés</li>
+<li><i data-lucide="workflow" aria-hidden="true"></i>Menos tareas manuales</li>
+</ul>
+<div class="hero-content hero-benefit-copy">
+<h2 id="hero-time-title">
+<span>Digitaliza tu negocio.</span>
+<span>Recupera tu tiempo.</span>
+</h2>
+<p class="hero-text">Automatiza procesos, respuestas y tareas repetitivas para dedicar más tiempo a quienes nos importan.</p>
+<a class="hero-benefit-link" href="#servicios">Conoce nuestras soluciones <span aria-hidden="true">→</span></a>
+</div>
+</section>
+
+<div class="hero-carousel-controls" role="group" aria-label="Controles de la portada" data-hero-controls hidden>
+<button type="button" data-hero-rotation aria-label="Pausar rotación automática">
+<svg class="hero-carousel-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14m6-14v14"/></svg>
+<svg class="hero-carousel-play" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7Z"/></svg>
+</button>
+<div class="hero-carousel-dots" data-hero-dots role="group" aria-label="Elegir diapositiva"></div>
+<span class="sr-only" data-hero-status aria-live="polite" aria-atomic="true"></span>
+</div>
 </header>
 
 <main id="contenido" tabindex="-1">
@@ -1616,6 +1646,7 @@ aria-label="Facebook; se abre en una pestaña nueva">
 </footer>
 
     <script src="assets/js/script.min.js?v=3.0.41" defer></script>
+    <script src="assets/js/hero-carousel.min.js?v=1.3.0" defer></script>
     <script src="assets/js/accessibility.min.js?v=3.0.41" defer></script>
 </body>
 

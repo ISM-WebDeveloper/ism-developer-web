@@ -7,10 +7,11 @@ const entry = path.join(root, "index.html");
 const limits = {
     html: 110 * 1024,
     // Portal artwork and five official client logos use optimized WebP assets.
-    css: 178 * 1024,
+    css: 182 * 1024,
     js: 90 * 1024,
     images: 810 * 1024,
     total: 1140 * 1024,
+    deferredHeroImages: 175 * 1024,
 };
 
 const html = fs.readFileSync(entry, "utf8");
@@ -66,11 +67,24 @@ for (const ref of refs) {
 }
 
 const total = Object.values(totals).reduce((sum, value) => sum + value, 0);
+// Slides after the first only receive a src after load or on manual navigation.
+const deferredHeroRefs = new Set([...html.matchAll(/\bdata-hero-image=["']([^"']+)["']/gi)]
+    .map(match => match[1].split("?")[0]));
+let deferredHeroBytes = 0;
+for (const ref of deferredHeroRefs) {
+    const filePath = path.join(root, ref);
+    if (!fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) missing.push(ref);
+    else if (!refs.has(ref)) deferredHeroBytes += fs.statSync(filePath).size;
+}
+
 const failures = [];
 for (const key of ["html", "css", "js", "images"]) {
     if (totals[key] > limits[key]) failures.push(`${key}: ${totals[key]} > ${limits[key]} bytes`);
 }
 if (total > limits.total) failures.push(`total: ${total} > ${limits.total} bytes`);
+if (deferredHeroBytes > limits.deferredHeroImages) {
+    failures.push(`imágenes diferidas del hero: ${deferredHeroBytes} > ${limits.deferredHeroImages} bytes`);
+}
 if (missing.length) failures.push(`recursos faltantes: ${missing.join(", ")}`);
 
 const kb = (bytes) => `${(bytes / 1024).toFixed(1)} KB`;
@@ -81,6 +95,7 @@ console.log(`JS:       ${kb(totals.js)} / ${kb(limits.js)}`);
 console.log(`Imágenes: ${kb(totals.images)} / ${kb(limits.images)}`);
 console.log(`Otros:    ${kb(totals.other)}`);
 console.log(`TOTAL:    ${kb(total)} / ${kb(limits.total)}`);
+console.log(`Hero diferido: ${kb(deferredHeroBytes)} / ${kb(limits.deferredHeroImages)}`);
 console.log(`Recursos locales únicos: ${assets.length}`);
 console.log(`Recursos externos diferidos/de terceros: ${external.size}`);
 
