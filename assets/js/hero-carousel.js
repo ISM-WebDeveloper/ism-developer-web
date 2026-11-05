@@ -13,8 +13,7 @@
     const motionMode = new URLSearchParams(window.location.search).get("motion");
     const pictures = new WeakMap();
     const readingTime = 5000;
-    const fadeTime = window.getComputedStyle(carousel).getPropertyValue("--hero-fade-duration").trim();
-    const fadeDuration = (Number.parseFloat(fadeTime) || 0) * (fadeTime.endsWith("ms") ? 1 : 1000);
+    const layers = slides.flatMap(slide => [slide, ...slide.children]);
     let current = 0;
     let timer;
     let rotationDueAt = 0;
@@ -82,7 +81,11 @@
         if (next !== current && slides[current].contains(document.activeElement)) {
             (trigger || dots[next]).focus({ preventScroll: true });
         }
-        if (next !== current && !shouldReduceMotion()) fadeEndsAt = performance.now() + fadeDuration;
+        if (next !== current) {
+            const duration = window.getComputedStyle(carousel).getPropertyValue("--hero-fade-duration").trim();
+            const durationMs = (Number.parseFloat(duration) || 0) * (duration.endsWith("ms") ? 1 : 1000);
+            fadeEndsAt = performance.now() + durationMs;
+        }
         current = next;
         update();
         if (trigger) status.textContent = `Diapositiva ${next + 1} de ${slides.length}. ${titles[next]}`;
@@ -121,8 +124,9 @@
     carousel.addEventListener("pointerdown", event => {
         if (event.button !== 0 || hold) return;
         const now = performance.now();
-        const transitions = slides.flatMap(slide => slide.getAnimations()).filter(animation =>
-            ["opacity", "visibility"].includes(animation.transitionProperty) && animation.playState === "running");
+        const transitions = layers.flatMap(layer => layer.getAnimations()).filter(animation =>
+            ["opacity", "background-color", "visibility"].includes(animation.transitionProperty) &&
+            animation.playState === "running");
         hold = {
             pointerId: event.pointerId,
             startedAt: now,

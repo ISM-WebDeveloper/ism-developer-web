@@ -7,17 +7,32 @@
 
 [data-hero-carousel] {
     --hero-fade-duration: 5s;
+    --hero-copy-duration: 480ms;
+    --hero-copy-delay: 2.5s;
 }
 
 [data-hero-ready] [data-hero-slide] {
-    transition: opacity var(--hero-fade-duration) ease-in-out, visibility 0s;
+    transition: background-color var(--hero-fade-duration) ease-in-out, visibility 0s;
 }
 
 [data-hero-ready] [data-hero-slide][aria-hidden="true"] {
-    opacity: 0;
+    background-color: transparent;
     visibility: hidden;
     pointer-events: none;
     transition-delay: 0s, var(--hero-fade-duration);
+}
+
+[data-hero-ready] [data-hero-slide] > :is(.hero-portrait, .hero-benefit-media) {
+    transition: opacity var(--hero-fade-duration) ease-in-out;
+}
+
+[data-hero-ready] [data-hero-slide] > :is(.hero-content, .hero-benefit-list) {
+    transition: opacity var(--hero-copy-duration) ease-in-out var(--hero-copy-delay);
+}
+
+[data-hero-ready] [data-hero-slide][aria-hidden="true"] > * {
+    opacity: 0;
+    transition-delay: 0s;
 }
 
 .hero-benefit-slide {
@@ -269,4 +284,10 @@
     .hero-benefit-copy .hero-text { font-size: 15px; }
 }
 
-[data-hero-ready][data-hero-reduced-motion] [data-hero-slide] { transition: none; }
+[data-hero-carousel][data-hero-reduced-motion] {
+    --hero-fade-duration: 360ms;
+    --hero-copy-duration: 140ms;
+    --hero-copy-delay: 165ms;
+}
+
+.motion-reduced [data-hero-carousel] { --hero-fade-duration: 0ms; }
