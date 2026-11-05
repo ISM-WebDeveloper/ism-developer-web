@@ -51,7 +51,7 @@ for (const name of js) {
 
 let html = fs.readFileSync(path.join(root, "src/index.home.html"), "utf8");
 for (const name of css) {
-    const version = name === "hero-carousel" ? "1.4.0" : "3.0.41";
+    const version = name === "hero-carousel" ? "1.4.1" : "3.0.41";
     html = html.replace(
         new RegExp(`assets/css/${name}\\.css\\?v=[^" ]+`, "g"),
         `assets/css/${name}.min.css?v=${version}`,

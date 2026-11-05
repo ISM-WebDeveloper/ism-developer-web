@@ -6,9 +6,9 @@
 }
 
 [data-hero-carousel] {
-    --hero-fade-duration: 5s;
+    --hero-fade-duration: 5.5s;
     --hero-copy-duration: 480ms;
-    --hero-copy-delay: 2.5s;
+    --hero-copy-delay: 2.75s;
 }
 
 [data-hero-ready] [data-hero-slide] {
