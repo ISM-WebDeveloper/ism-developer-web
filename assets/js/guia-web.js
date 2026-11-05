@@ -783,25 +783,30 @@
         setTurnstileStatus(message || "Completa nuevamente la verificación de seguridad.", "error");
     }
 
-    function waitForTurnstileApi(timeoutMs) {
-        var startedAt = Date.now();
-
+    function loadTurnstileApi() {
+        if (typeof window.turnstile?.render === "function") return Promise.resolve(window.turnstile);
         return new Promise(function (resolve, reject) {
-            function check() {
-                if (window.turnstile && typeof window.turnstile.render === "function") {
-                    resolve(window.turnstile);
-                    return;
-                }
+            var script = document.createElement("script");
+            script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+            script.async = true;
+            var timeout = window.setTimeout(fail, 8_000);
 
-                if (Date.now() - startedAt >= timeoutMs) {
-                    reject(new Error("Turnstile no cargó dentro del tiempo esperado."));
-                    return;
-                }
-
-                window.setTimeout(check, 100);
+            function fail() {
+                window.clearTimeout(timeout);
+                script.remove();
+                reject(new Error("No se pudo cargar Turnstile."));
             }
 
-            check();
+            script.addEventListener("load", function () {
+                if (typeof window.turnstile?.render !== "function") {
+                    fail();
+                    return;
+                }
+                window.clearTimeout(timeout);
+                resolve(window.turnstile);
+            }, { once: true });
+            script.addEventListener("error", fail, { once: true });
+            document.head.append(script);
         });
     }
 
@@ -828,7 +833,7 @@
                 throw new Error(config.error || "Turnstile no está configurado.");
             }
 
-            var turnstile = await waitForTurnstileApi(8_000);
+            var turnstile = await loadTurnstileApi();
             state.security.turnstileWidgetId = turnstile.render(container, {
                 sitekey: config.siteKey,
                 theme: "dark",

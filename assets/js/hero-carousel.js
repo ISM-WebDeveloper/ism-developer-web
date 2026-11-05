@@ -19,7 +19,7 @@
     let rotationDueAt = 0;
     let fadeEndsAt = 0;
     let request = 0;
-    let paused = motionMode === "reduced";
+    let paused = shouldReduceMotion();
     let hold = null;
     let inView = true;
 
@@ -39,7 +39,8 @@
     }
 
     function canRotate() {
-        return !paused && !hold && !document.hidden && inView;
+        return !paused && !hold && !document.hidden && inView &&
+            !slides[current].contains(document.activeElement);
     }
 
     function schedule(remaining) {
@@ -124,7 +125,7 @@
     carousel.addEventListener("pointerdown", event => {
         if (event.button !== 0 || hold) return;
         const now = performance.now();
-        const transitions = layers.flatMap(layer => layer.getAnimations()).filter(animation =>
+        const transitions = layers.flatMap(layer => layer.getAnimations?.() ?? []).filter(animation =>
             ["opacity", "background-color", "visibility"].includes(animation.transitionProperty) &&
             animation.playState === "running");
         hold = {
@@ -152,7 +153,12 @@
     window.addEventListener("pointercancel", releaseHold, true);
     window.addEventListener("blur", releaseHold);
     document.addEventListener("visibilitychange", () => schedule());
-    reducedMotion.addEventListener("change", syncRotation);
+    carousel.addEventListener("focusin", () => schedule());
+    carousel.addEventListener("focusout", () => queueMicrotask(() => schedule()));
+    reducedMotion.addEventListener("change", () => {
+        if (shouldReduceMotion()) paused = true;
+        syncRotation();
+    });
 
     if ("IntersectionObserver" in window) {
         new IntersectionObserver(([entry]) => {

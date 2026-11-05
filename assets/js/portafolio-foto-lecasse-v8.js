@@ -61,7 +61,7 @@ const projects = [
                 description: "La solución organiza productos y categorías en una experiencia visual pensada para que el cliente pueda explorar la oferta desde celular o computador.",
                 focus: "Catálogo",
                 result: "Presentación",
-                image: "assets/img/portfolio/ism-boutique-lumina-hero-pc.png",
+                image: "assets/img/portfolio/ism-boutique-lumina-hero-pc.webp",
                 alt: "Hero principal de la boutique digital"
             },
             {
@@ -69,7 +69,7 @@ const projects = [
                 description: "La exhibición por categorías ayuda a mostrar variedad, destacar productos y guiar la exploración sin perder la identidad de la marca.",
                 focus: "Colección",
                 result: "Exploración",
-                image: "assets/img/portfolio/ism-boutique-lumina-categorias-opinando.png",
+                image: "assets/img/portfolio/ism-boutique-lumina-categorias-opinando.webp",
                 alt: "Vista de productos y categorías de ISM Boutique"
             },
             {
@@ -77,7 +77,7 @@ const projects = [
                 description: "Además de mostrar productos, la base permite administrar publicaciones, stock básico y orden comercial desde un panel propio.",
                 focus: "Gestión",
                 result: "Orden",
-                image: "assets/img/portfolio/ism-boutique-lumina-dashboard-escritorio.png",
+                image: "assets/img/portfolio/ism-boutique-lumina-dashboard-escritorio.webp",
                 alt: "Panel administrativo de ISM Boutique"
             }
         ],
@@ -104,7 +104,7 @@ const projects = [
                 description: "El usuario puede revisar horarios disponibles y acceder a una agenda clara, preparada para mostrar disponibilidad actualizada.",
                 focus: "Disponibilidad",
                 result: "Autonomía",
-                image: "assets/img/portfolio/badia-nurse-shield-panel-privado.png",
+                image: "assets/img/portfolio/badia-nurse-shield-panel-privado.webp",
                 alt: "Acceso privado de una solución de reservas"
             },
             {
@@ -112,7 +112,7 @@ const projects = [
                 description: "La agenda y el catálogo del servicio ayudan a ordenar prestaciones, tiempos y condiciones, reduciendo coordinación manual.",
                 focus: "Operación",
                 result: "Claridad",
-                image: "assets/img/portfolio/badia-nurse-shield-procedimientos-javier.png",
+                image: "assets/img/portfolio/badia-nurse-shield-procedimientos-javier.webp",
                 alt: "Gestión de servicios dentro de una solución de reservas"
             },
             {
@@ -147,7 +147,7 @@ const projects = [
                 description: "Los perfiles autorizados acceden a la plataforma con roles y permisos claros para mantener control sobre actividades, clientes y registros.",
                 focus: "Acceso",
                 result: "Control",
-                image: "assets/img/portfolio/ism-project-login-demo.png",
+                image: "assets/img/portfolio/ism-project-login-demo.webp",
                 alt: "Acceso privado de ISM Project"
             },
             {
@@ -155,7 +155,7 @@ const projects = [
                 description: "Horas, actividades, proyectos y filtros quedan disponibles en un panel operativo que ordena la ejecución y el seguimiento comercial.",
                 focus: "Seguimiento",
                 result: "Trazabilidad",
-                image: "assets/img/portfolio/ism-project-dashboard-notebook-demo.png",
+                image: "assets/img/portfolio/ism-project-dashboard-notebook-demo.webp",
                 alt: "Dashboard de ISM Project para horas y proyectos"
             },
             {
@@ -163,7 +163,7 @@ const projects = [
                 description: "La base permite revisar horas, clientes y movimientos desde una vista estructurada preparada para exportar, analizar y crecer.",
                 focus: "Reportes",
                 result: "Visibilidad",
-                image: "assets/img/portfolio/ism-project-control-monitor-demo.png",
+                image: "assets/img/portfolio/ism-project-control-monitor-demo.webp",
                 alt: "Vista de control y reportes de ISM Project"
             }
         ],
@@ -190,7 +190,7 @@ const projects = [
                 description: "ISM Control centraliza acceso, estructura operativa y una base compartida para sostener distintos módulos del negocio.",
                 focus: "Base",
                 result: "Centralización",
-                image: "assets/img/portfolio/ism-control-login-demo.png",
+                image: "assets/img/portfolio/ism-control-login-demo.webp",
                 alt: "Acceso a la plataforma ISM Control"
             },
             {
@@ -198,7 +198,7 @@ const projects = [
                 description: "La lógica del sistema permite administrar distintas áreas desde una estructura común, manteniendo trazabilidad y orden.",
                 focus: "Módulos",
                 result: "Integración",
-                image: "assets/img/portfolio/ism-control-bodegas-demo.png",
+                image: "assets/img/portfolio/ism-control-bodegas-demo.webp",
                 alt: "Gestión de módulos y bodegas en ISM Control"
             },
             {
@@ -206,7 +206,7 @@ const projects = [
                 description: "La operación puede seguir creciendo sobre la misma base, incluyendo movilidad, nuevos flujos y herramientas de trabajo en terreno.",
                 focus: "Evolución",
                 result: "Escala",
-                image: "assets/img/portfolio/ism-control-movil-demo.png",
+                image: "assets/img/portfolio/ism-control-movil-demo.webp",
                 alt: "Uso móvil de ISM Control en contexto real"
             }
         ],
@@ -233,7 +233,7 @@ const projects = [
                 description: "La administración principal permite revisar stock, productos y movimientos en una vista ordenada para la toma de decisiones.",
                 focus: "Inventario",
                 result: "Visibilidad",
-                image: "assets/img/portfolio/ism-stock-admin-demo.png",
+                image: "assets/img/portfolio/ism-stock-admin-demo.webp",
                 alt: "Panel administrativo de ISM Stock"
             },
             {
@@ -241,7 +241,7 @@ const projects = [
                 description: "La operación puede controlar entradas, salidas y trazabilidad desde la base administrativa sin perder contexto operativo.",
                 focus: "Movimientos",
                 result: "Trazabilidad",
-                image: "assets/img/portfolio/ism-stock-operacion-demo.png",
+                image: "assets/img/portfolio/ism-stock-operacion-demo.webp",
                 alt: "Vista operativa de ISM Stock"
             },
             {
@@ -249,7 +249,7 @@ const projects = [
                 description: "La solución también acompaña trabajo en obra o terreno, permitiendo consultar información clave desde una experiencia móvil natural.",
                 focus: "Terreno",
                 result: "Movilidad",
-                image: "assets/img/portfolio/ism-stock-obra-demo.png",
+                image: "assets/img/portfolio/ism-stock-obra-demo.webp",
                 alt: "Uso móvil de ISM Stock en obra"
             }
         ],
@@ -277,7 +277,7 @@ const projects = [
                 description: "El configurador ayuda a ordenar servicios, actividades y alcances en una reunión inicial para aterrizar la necesidad del cliente.",
                 focus: "Configuración",
                 result: "Orden",
-                image: "assets/img/portfolio/ism-configurador-reunion-proyector-demo.png",
+                image: "assets/img/portfolio/ism-configurador-reunion-proyector-demo.webp",
                 alt: "Configurador ISM presentado en una reunión"
             },
             {
@@ -285,7 +285,7 @@ const projects = [
                 description: "La solución permite revisar combinaciones, reglas y criterios de implementación para convertir la conversación en una base técnica útil.",
                 focus: "Validación",
                 result: "Coherencia",
-                image: "assets/img/portfolio/ism-configurador-tecnicos-datacenter-demo.png",
+                image: "assets/img/portfolio/ism-configurador-tecnicos-datacenter-demo.webp",
                 alt: "Validación técnica de una configuración digital"
             },
             {
@@ -293,7 +293,7 @@ const projects = [
                 description: "El resumen final facilita revisar el alcance definido y preparar una cotización formal desde un flujo más claro y profesional.",
                 focus: "Resumen",
                 result: "Precotización",
-                image: "assets/img/portfolio/ism-configurador-ejecutivo-monitor-demo.png",
+                image: "assets/img/portfolio/ism-configurador-ejecutivo-monitor-demo.webp",
                 alt: "Revisión ejecutiva del configurador ISM"
             }
         ],
@@ -321,7 +321,7 @@ const projects = [
                 description: "El flujo guía al usuario paso a paso para entender su etapa actual y prioridades sin obligarlo a conocer términos técnicos.",
                 focus: "Diagnóstico",
                 result: "Claridad",
-                image: "assets/img/portfolio/ism-asistente-inicio-demo.png",
+                image: "assets/img/portfolio/ism-asistente-inicio-demo.webp",
                 alt: "Pantalla inicial del asistente ISM"
             },
             {
@@ -329,7 +329,7 @@ const projects = [
                 description: "Cada etapa orienta la conversación y reduce fricción, mostrando alternativas claras para construir una primera recomendación.",
                 focus: "Decisión",
                 result: "Orientación",
-                image: "assets/img/portfolio/ism-asistente-contenido-demo.png",
+                image: "assets/img/portfolio/ism-asistente-contenido-demo.webp",
                 alt: "Preguntas y decisiones dentro del asistente ISM"
             },
             {
@@ -337,7 +337,7 @@ const projects = [
                 description: "El recorrido termina con una propuesta inicial que ayuda a preparar el siguiente paso y mejora la calidad del contacto comercial.",
                 focus: "Recomendación",
                 result: "Calificación",
-                image: "assets/img/portfolio/ism-asistente-recomendacion-demo.png",
+                image: "assets/img/portfolio/ism-asistente-recomendacion-demo.webp",
                 alt: "Recomendación final del asistente ISM"
             }
         ],
@@ -458,7 +458,7 @@ const projects = [
                 description: "La solución se presenta en un notebook dentro de una sala de servidores, reforzando la relación entre software, infraestructura y trabajo técnico en terreno.",
                 focus: "Software en terreno",
                 result: "Integración",
-                image: "assets/img/portfolio/ism-project-dashboard-notebook-demo.png",
+                image: "assets/img/portfolio/ism-project-dashboard-notebook-demo.webp",
                 alt: "ISM Project aplicado al control de horas y proyectos de Lecasse IT Services"
             },
             {
@@ -1062,7 +1062,7 @@ function renderMetrics(project) {
 function renderSlides(project) {
     visualTrack.innerHTML = project.journey.map((slide, index) => {
         const visual = slide.image
-            ? `<img src="${slide.image}" alt="${slide.alt}" loading="${index ? "lazy" : "eager"}" decoding="async">`
+            ? `<img ${index ? "data-slide-image" : "src"}="${slide.image}" alt="${slide.alt}" decoding="async">`
             : `<div class="project-status-visual" role="img" aria-label="${slide.statusVisual.label}: ${slide.statusVisual.stage}">
                     <span>${slide.statusVisual.stage}</span>
                     <strong>${slide.statusVisual.label}</strong>
@@ -1297,6 +1297,11 @@ function setSlide(index) {
     if (!currentProject) return;
     const total = currentProject.journey.length;
     currentSlide = (index + total) % total;
+    const image = visualTrack.children[currentSlide]?.querySelector("[data-slide-image]");
+    if (image) {
+        image.src = image.dataset.slideImage;
+        delete image.dataset.slideImage;
+    }
     const translate = `translateX(-${currentSlide * 100}%)`;
     visualTrack.style.transform = translate;
     copyTrack.style.transform = translate;
