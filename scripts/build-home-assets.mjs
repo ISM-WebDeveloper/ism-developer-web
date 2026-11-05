@@ -58,7 +58,7 @@ for (const name of css) {
     );
 }
 for (const name of js) {
-    const version = name === "hero-carousel" ? "1.3.2" : "3.0.41";
+    const version = name === "hero-carousel" ? "1.3.4" : "3.0.41";
     html = html.replace(
         new RegExp(`assets/js/${name}\\.js\\?v=[^" ]+`, "g"),
         `assets/js/${name}.min.js?v=${version}`,

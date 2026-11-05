@@ -17,10 +17,11 @@
     const fadeDuration = (Number.parseFloat(fadeTime) || 0) * (fadeTime.endsWith("ms") ? 1 : 1000);
     let current = 0;
     let timer;
+    let rotationDueAt = 0;
     let fadeEndsAt = 0;
     let request = 0;
     let paused = false;
-    let hovered = false;
+    let hold = null;
     let inView = true;
 
     function prepare(slide) {
@@ -39,15 +40,20 @@
     }
 
     function canRotate() {
-        return !paused && !shouldReduceMotion() && !document.hidden && inView &&
-            !hovered && !carousel.contains(document.activeElement);
+        return !paused && !hold && motionMode !== "reduced" && !document.hidden && inView;
     }
 
-    function schedule() {
+    function schedule(remaining) {
         window.clearTimeout(timer);
+        rotationDueAt = 0;
         if (!canRotate()) return;
-        const fadeRemaining = Math.max(0, fadeEndsAt - performance.now());
-        timer = window.setTimeout(() => show(current + 1), fadeRemaining + readingTime);
+        const now = performance.now();
+        const delay = remaining ?? (Math.max(0, fadeEndsAt - now) + readingTime);
+        rotationDueAt = now + delay;
+        timer = window.setTimeout(() => {
+            rotationDueAt = 0;
+            show(current + 1);
+        }, delay);
     }
 
     function update() {
@@ -73,7 +79,9 @@
             return;
         }
 
-        if (trigger && slides[current].contains(document.activeElement)) trigger.focus();
+        if (next !== current && slides[current].contains(document.activeElement)) {
+            (trigger || dots[next]).focus({ preventScroll: true });
+        }
         if (next !== current && !shouldReduceMotion()) fadeEndsAt = performance.now() + fadeDuration;
         current = next;
         update();
@@ -85,7 +93,7 @@
         const reduce = shouldReduceMotion();
         if (reduce) fadeEndsAt = 0;
         carousel.toggleAttribute("data-hero-reduced-motion", reduce);
-        rotation.hidden = reduce;
+        rotation.hidden = motionMode === "reduced";
         rotation.toggleAttribute("data-paused", paused);
         rotation.setAttribute("aria-label", paused ? "Reanudar rotación automática" : "Pausar rotación automática");
         schedule();
@@ -110,21 +118,36 @@
         paused = !paused;
         syncRotation();
     });
-    const hoverTargets = [controls, ...slides.flatMap(slide => [...slide.querySelectorAll("a, button")])];
-    hoverTargets.forEach(target => {
-        target.addEventListener("pointerenter", event => {
-            if (event.pointerType === "touch") return;
-            hovered = true;
-            schedule();
-        });
-        target.addEventListener("pointerleave", () => {
-            hovered = false;
-            schedule();
-        });
+    carousel.addEventListener("pointerdown", event => {
+        if (event.button !== 0 || hold) return;
+        const now = performance.now();
+        const transitions = slides.flatMap(slide => slide.getAnimations()).filter(animation =>
+            ["opacity", "visibility"].includes(animation.transitionProperty) && animation.playState === "running");
+        hold = {
+            pointerId: event.pointerId,
+            startedAt: now,
+            remaining: rotationDueAt ? Math.max(0, rotationDueAt - now) : undefined,
+            transitions,
+        };
+        transitions.forEach(animation => animation.pause());
+        schedule();
     });
-    carousel.addEventListener("focusin", schedule);
-    carousel.addEventListener("focusout", () => queueMicrotask(schedule));
-    document.addEventListener("visibilitychange", schedule);
+
+    function releaseHold(event) {
+        if (!hold || (event.type !== "blur" && event.pointerId !== hold.pointerId)) return;
+        if (fadeEndsAt > hold.startedAt) fadeEndsAt += performance.now() - hold.startedAt;
+        hold.transitions.forEach(animation => {
+            if (animation.playState === "paused") animation.play();
+        });
+        const { remaining } = hold;
+        hold = null;
+        schedule(remaining);
+    }
+
+    window.addEventListener("pointerup", releaseHold, true);
+    window.addEventListener("pointercancel", releaseHold, true);
+    window.addEventListener("blur", releaseHold);
+    document.addEventListener("visibilitychange", () => schedule());
     reducedMotion.addEventListener("change", syncRotation);
 
     if ("IntersectionObserver" in window) {
