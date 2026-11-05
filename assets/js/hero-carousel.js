@@ -10,6 +10,7 @@
     const dotGroup = controls.querySelector("[data-hero-dots]");
     const status = controls.querySelector("[data-hero-status]");
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const motionMode = new URLSearchParams(window.location.search).get("motion");
     const pictures = new WeakMap();
     const readingTime = 5000;
     const fadeTime = window.getComputedStyle(carousel).getPropertyValue("--hero-fade-duration").trim();
@@ -33,8 +34,12 @@
         return pictures.get(picture);
     }
 
+    function shouldReduceMotion() {
+        return motionMode === "reduced" || (motionMode !== "full" && reducedMotion.matches);
+    }
+
     function canRotate() {
-        return !paused && !reducedMotion.matches && !document.hidden && inView &&
+        return !paused && !shouldReduceMotion() && !document.hidden && inView &&
             !hovered && !carousel.contains(document.activeElement);
     }
 
@@ -69,7 +74,7 @@
         }
 
         if (trigger && slides[current].contains(document.activeElement)) trigger.focus();
-        if (next !== current && !reducedMotion.matches) fadeEndsAt = performance.now() + fadeDuration;
+        if (next !== current && !shouldReduceMotion()) fadeEndsAt = performance.now() + fadeDuration;
         current = next;
         update();
         if (trigger) status.textContent = `Diapositiva ${next + 1} de ${slides.length}. ${titles[next]}`;
@@ -77,8 +82,10 @@
     }
 
     function syncRotation() {
-        if (reducedMotion.matches) fadeEndsAt = 0;
-        rotation.hidden = reducedMotion.matches;
+        const reduce = shouldReduceMotion();
+        if (reduce) fadeEndsAt = 0;
+        carousel.toggleAttribute("data-hero-reduced-motion", reduce);
+        rotation.hidden = reduce;
         rotation.toggleAttribute("data-paused", paused);
         rotation.setAttribute("aria-label", paused ? "Reanudar rotación automática" : "Pausar rotación automática");
         schedule();
@@ -103,14 +110,17 @@
         paused = !paused;
         syncRotation();
     });
-    carousel.addEventListener("pointerenter", event => {
-        if (event.pointerType === "touch") return;
-        hovered = true;
-        schedule();
-    });
-    carousel.addEventListener("pointerleave", () => {
-        hovered = false;
-        schedule();
+    const hoverTargets = [controls, ...slides.flatMap(slide => [...slide.querySelectorAll("a, button")])];
+    hoverTargets.forEach(target => {
+        target.addEventListener("pointerenter", event => {
+            if (event.pointerType === "touch") return;
+            hovered = true;
+            schedule();
+        });
+        target.addEventListener("pointerleave", () => {
+            hovered = false;
+            schedule();
+        });
     });
     carousel.addEventListener("focusin", schedule);
     carousel.addEventListener("focusout", () => queueMicrotask(schedule));

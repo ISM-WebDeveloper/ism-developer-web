@@ -269,7 +269,4 @@
     .hero-benefit-copy .hero-text { font-size: 15px; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    [data-hero-ready] [data-hero-slide],
-    [data-hero-ready] [data-hero-slide][aria-hidden="true"] { transition: none; }
-}
+[data-hero-ready][data-hero-reduced-motion] [data-hero-slide] { transition: none; }
