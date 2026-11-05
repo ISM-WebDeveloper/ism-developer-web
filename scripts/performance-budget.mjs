@@ -7,11 +7,11 @@ const entry = path.join(root, "index.html");
 const limits = {
     html: 110 * 1024,
     // Portal artwork and five official client logos use optimized WebP assets.
-    css: 182 * 1024,
+    css: 184 * 1024,
     js: 90 * 1024,
     images: 810 * 1024,
     total: 1140 * 1024,
-    deferredHeroImages: 175 * 1024,
+    deferredHeroImages: 230 * 1024,
 };
 
 const html = fs.readFileSync(entry, "utf8");

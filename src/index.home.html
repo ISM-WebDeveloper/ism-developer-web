@@ -46,7 +46,7 @@
     <link rel="stylesheet" href="assets/css/accessibility.css?v=2.1.1" />
     <link rel="stylesheet" href="assets/css/portal.css?v=1.0.0" />
     <link rel="stylesheet" href="assets/css/mobile-layout.css?v=1.0.0" />
-    <link rel="stylesheet" href="assets/css/hero-carousel.css?v=1.4.1" />
+    <link rel="stylesheet" href="assets/css/hero-carousel.css?v=1.5.7" />
 
     <!-- LUCIDE ICONS -->
     <script src="assets/vendor/lucide-index.min.js" defer></script>
@@ -332,7 +332,35 @@
                     <span>Recupera tu tiempo.</span>
                 </h2>
                 <p class="hero-text">Automatiza procesos, respuestas y tareas repetitivas para dedicar más tiempo a quienes nos importan.</p>
-                <a class="hero-benefit-link" href="#servicios">Conoce nuestras soluciones <span aria-hidden="true">→</span></a>
+                <div class="hero-actions hero-benefit-actions">
+                    <a class="btn-primary hero-primary-cta" href="#servicios"><span>Conoce nuestras soluciones</span></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="hero hero-growth-slide" aria-labelledby="hero-growth-title" data-hero-slide hidden inert>
+            <div class="hero-growth-panel">
+                <h2 id="hero-growth-title"><span>Ordena tu gestión.</span> <span>Crece con rumbo.</span></h2>
+                <p>Reúne tus clientes, ventas y procesos en un solo lugar para direccionar la evolución de tu negocio.</p>
+                <ul class="hero-benefit-list" aria-label="Beneficios para la gestión">
+                    <li><i data-lucide="database" aria-hidden="true"></i>Datos en un solo lugar</li>
+                    <li><i data-lucide="calendar-check" aria-hidden="true"></i>Seguimiento mensual</li>
+                </ul>
+            </div>
+
+            <figure class="hero-growth-media">
+                <img data-hero-image="assets/img/hero-gestion-mensual.webp" alt=""
+                    width="1780" height="883" fetchpriority="low" decoding="async">
+                <figcaption>Datos ilustrativos</figcaption>
+            </figure>
+
+            <div class="hero-growth-panel hero-growth-panel-end">
+                <h3><span>Decide con datos.</span> <span>Y obtén resultados.</span></h3>
+                <p>Compara tus resultados y descubre dónde enfocar tu tiempo para dar el próximo paso.</p>
+                <ul class="hero-benefit-list" aria-label="Beneficios para el crecimiento">
+                    <li><i data-lucide="target" aria-hidden="true"></i>Metas claras</li>
+                    <li><i data-lucide="trending-up" aria-hidden="true"></i>Decisiones informadas</li>
+                </ul>
             </div>
         </section>
 
@@ -726,13 +754,13 @@
                         </a>
                         <a class="ism-portal-route" href="https://control.ismdeveloper.cl/portal"
                             target="_blank" rel="noopener noreferrer"
-                            aria-label="Entrar como cliente; se abre en una pestaña nueva"
+                            aria-label="Mi portal; se abre en una pestaña nueva"
                             data-track-event="portal_open" data-track-category="portal" data-track-label="Cliente">
                             <svg class="ism-portal-route-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <circle cx="12" cy="7" r="4"/>
                                 <path d="M4 22v-3a7 7 0 0 1 7-7h2a7 7 0 0 1 7 7v3M4 22h16"/>
                             </svg>
-                            <span class="ism-portal-route-copy"><strong>Entrar como cliente</strong>
+                            <span class="ism-portal-route-copy"><strong>Mi portal</strong>
                                 <span>Revisa avances y comparte la información solicitada para tu proyecto.</span></span>
                             <span class="ism-portal-route-arrow" aria-hidden="true">↗</span>
                         </a>
@@ -1646,7 +1674,7 @@
     </footer>
 
     <script src="assets/js/script.js?v=3.0.16" defer></script>
-    <script src="assets/js/hero-carousel.js?v=1.4.0" defer></script>
+    <script src="assets/js/hero-carousel.js?v=1.5.3" defer></script>
     <script src="assets/js/accessibility.js?v=2.0.24" defer></script>
 </body>
 

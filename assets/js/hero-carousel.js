@@ -19,7 +19,7 @@
     let rotationDueAt = 0;
     let fadeEndsAt = 0;
     let request = 0;
-    let paused = false;
+    let paused = motionMode === "reduced";
     let hold = null;
     let inView = true;
 
@@ -39,7 +39,7 @@
     }
 
     function canRotate() {
-        return !paused && !hold && motionMode !== "reduced" && !document.hidden && inView;
+        return !paused && !hold && !document.hidden && inView;
     }
 
     function schedule(remaining) {
@@ -89,6 +89,7 @@
         current = next;
         update();
         if (trigger) status.textContent = `Diapositiva ${next + 1} de ${slides.length}. ${titles[next]}`;
+        if (canRotate()) prepare(slides[(current + 1) % slides.length]);
         schedule();
     }
 
@@ -96,7 +97,6 @@
         const reduce = shouldReduceMotion();
         if (reduce) fadeEndsAt = 0;
         carousel.toggleAttribute("data-hero-reduced-motion", reduce);
-        rotation.hidden = motionMode === "reduced";
         rotation.toggleAttribute("data-paused", paused);
         rotation.setAttribute("aria-label", paused ? "Reanudar rotación automática" : "Pausar rotación automática");
         schedule();
