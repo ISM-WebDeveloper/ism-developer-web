@@ -19,7 +19,7 @@
     let rotationDueAt = 0;
     let fadeEndsAt = 0;
     let request = 0;
-    let paused = shouldReduceMotion();
+    let paused = false;
     let hold = null;
     let inView = true;
 
@@ -155,10 +155,7 @@
     document.addEventListener("visibilitychange", () => schedule());
     carousel.addEventListener("focusin", () => schedule());
     carousel.addEventListener("focusout", () => queueMicrotask(() => schedule()));
-    reducedMotion.addEventListener("change", () => {
-        if (shouldReduceMotion()) paused = true;
-        syncRotation();
-    });
+    reducedMotion.addEventListener("change", syncRotation);
 
     if ("IntersectionObserver" in window) {
         new IntersectionObserver(([entry]) => {
