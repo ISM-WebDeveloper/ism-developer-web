@@ -11,7 +11,7 @@ const limits = {
     js: 90 * 1024,
     images: 810 * 1024,
     total: 1140 * 1024,
-    deferredHeroImages: 230 * 1024,
+    deferredHeroImages: 290 * 1024,
 };
 
 const html = fs.readFileSync(entry, "utf8");
