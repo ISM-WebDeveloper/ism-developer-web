@@ -622,6 +622,66 @@ const projects = [
         "Nuevas campañas y contenidos de producto",
         "Mejoras continuas en búsqueda y contacto comercial"
     ]
+},
+{
+    id: "maciel-gumera",
+    category: "Clientes ISM",
+    name: "Maciel Gumera",
+    short: "Página web multilingüe",
+    type: "Cliente ISM / Página web de asesoría en seguros",
+    status: "Publicado",
+    accent: "#6caeff",
+    accentRgb: "108, 174, 255",
+    url: "https://maciel-gumera-assureseller.vercel.app/es",
+    externalLabel: "Visitar sitio web",
+    summary: "ISM desarrolló un sitio web en francés, inglés y español para que Maciel Gumera pueda presentar sus servicios de asesoría en seguros en Québec y facilitar el contacto directo.",
+    metrics: [
+        ["Estado", "Publicado"],
+        ["Sector", "Asesoría en seguros"],
+        ["Idiomas", "Francés, inglés y español"],
+        ["Ubicación", "Québec, Canadá"]
+    ],
+    stack: "Next.js · TypeScript · Tailwind CSS · Vercel",
+    journey: [
+        {
+            title: "Presentación de la asesora en tres idiomas",
+            description: "La portada presenta a Maciel Gumera, su propuesta de asesoría y los accesos a servicios y contacto. Los visitantes pueden cambiar de idioma desde la cabecera.",
+            focus: "Portada multilingüe",
+            result: "Identidad y presentación",
+            image: "assets/img/portfolio/maciel-gumera-inicio.webp",
+            alt: "Portada en español del sitio web de Maciel Gumera con su presentación y accesos de asesoría"
+        },
+        {
+            title: "Servicios organizados según la necesidad",
+            description: "El sitio organiza los servicios en tres grupos: seguros para visitantes, seguros de vida y ahorro. Cada grupo tiene acceso a información más detallada.",
+            focus: "Catálogo de servicios",
+            result: "Navegación por tema",
+            image: "assets/img/portfolio/maciel-gumera-servicios.webp",
+            alt: "Catálogo de Maciel Gumera con tarjetas de seguros para visitantes, seguros de vida y ahorro"
+        },
+        {
+            title: "Contacto directo para coordinar una asesoría",
+            description: "La sección de contacto reúne un formulario y accesos a los canales de atención para iniciar una consulta con Maciel Gumera.",
+            focus: "Contacto",
+            result: "Consultas directas",
+            image: "assets/img/portfolio/maciel-gumera-contacto.webp",
+            alt: "Sección de contacto de Maciel Gumera con formulario y opciones de atención"
+        }
+    ],
+    analysis: [
+        "Presentar la trayectoria y los servicios de la asesora desde un sitio propio",
+        "Atender a personas que prefieren navegar en francés, inglés o español",
+        "Facilitar la coordinación de consultas desde la página web"
+    ],
+    actionPlan: [
+        "Sitio web adaptable con la identidad de Maciel Gumera",
+        "Portada y páginas de servicios en tres idiomas",
+        "Catálogo temático, preguntas frecuentes y canales de atención"
+    ],
+    scalability: [
+        "Ampliación del catálogo y de las guías por tema",
+        "Nuevos contenidos de orientación en los tres idiomas"
+    ]
 }
 
 ];
@@ -898,6 +958,13 @@ const commercialProfiles = {
 };
 
 const caseProductRelations = {
+    "maciel-gumera": {
+        productId: "ism-presencia-digital",
+        productName: "ISM Presencia Digital",
+        title: "Presencia digital para una asesoría multilingüe",
+        adapted: ["Identidad profesional", "Navegación en tres idiomas", "Catálogo de servicios", "Canales de contacto"],
+        proves: ["Un mismo sitio puede presentar servicios en varios idiomas", "El catálogo permite explorar la información antes de una consulta"]
+    },
     "maige-palace": {
     "productId": "ism-boutique",
     "productName": "ISM Boutique",
